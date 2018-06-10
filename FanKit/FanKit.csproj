@@ -185,6 +185,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Icon\Avatar.jpg" />
     <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\iconL.png" />
     <Content Include="Icon\Logo.png" />

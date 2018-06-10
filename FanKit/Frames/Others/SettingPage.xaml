@@ -24,7 +24,21 @@
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
 
                 <TextBlock Text="Open source" Style="{ThemeResource TitleTextBlockStyle}"/>
-                <HyperlinkButton Content=" sdsadasdasdasdas"/>
+                <HyperlinkButton Content="https://github.com/ysdy44/FanKit" NavigateUri="https://github.com/ysdy44/FanKit"/>
+
+                <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
+
+                <TextBlock Text="Feedback" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Width="40" Height="40">
+                        <Ellipse.Fill>
+                            <ImageBrush  ImageSource="ms-appx:///Icon/Avatar.jpg" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Border Width="22"/>
+                    <HyperlinkButton Content="ysdy44" NavigateUri="mailto:ysdy44@outlook.com"/>
+                </StackPanel>
+
             </StackPanel>
         </ScrollViewer>
     </Grid>
