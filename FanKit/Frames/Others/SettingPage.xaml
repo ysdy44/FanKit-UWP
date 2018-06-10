@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="FanKit.Frames.Others.SettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FanKit.Frames.Others"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    MaxWidth="{StaticResource AppDetailMaxWidth}"
+    Loaded="Page_Loaded"
+    NavigationCacheMode="Enabled"    >
+
+    <Grid Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+        <ScrollViewer>
+            <StackPanel Padding="14">
+              
+                <Border Margin="14" Height="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+
+                <TextBlock Text="Theme Mode" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <RadioButton x:Name="LightRadioButton" Content="Light" Checked="LightRadioButton_Checked"/>
+                <RadioButton  x:Name="NightRadioButton" Content="Night" Checked="NightRadioButton_Checked"/>
+                <RadioButton  x:Name="DefaultRadioButton" Content="Use system setting" Checked="DefaultRadioButton_Checked"/>
+
+                <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
+
+                <TextBlock Text="Open source" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <HyperlinkButton Content=" sdsadasdasdasdas"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
