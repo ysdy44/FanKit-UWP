@@ -64,12 +64,15 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAcrylicWindowBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeMediumColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            
+
             <!--#endregion-->
             
             <ListViewHeaderItem>
@@ -77,17 +80,25 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAccentAcrylicWindowAccentMediumHighBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlAccentDark1AcrylicWindowAccentDark1Brush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAccentDark1AcrylicWindowAccentDark1Brush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColorDark1}" />
+                </ListViewItem.BorderBrush>    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAccentDark1AcrylicWindowAccentDark1Brush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlAccentDark2AcrylicWindowAccentDark2MediumHighBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAccentDark2AcrylicWindowAccentDark2MediumHighBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColorDark2}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAccentDark2AcrylicWindowAccentDark2MediumHighBrush</Paragraph>
                 </RichTextBlock>
@@ -100,7 +111,10 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeMediumColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAcrylicWindowMediumHighBrush</Paragraph>
                 </RichTextBlock>
@@ -113,7 +127,10 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlChromeMediumLowAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeMediumLowAcrylicWindowMediumBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeMediumLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlChromeMediumLowAcrylicWindowMediumBrush</Paragraph>
                 </RichTextBlock>
@@ -126,18 +143,25 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlBaseHighAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseHighAcrylicWindowBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseHighColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBaseHighAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumHighBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumHighBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseHighColor}" />
+                </ListViewItem.BorderBrush>    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBaseHighAcrylicWindowMediumHighBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseHighColor}" />
+                </ListViewItem.BorderBrush>    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBaseHighAcrylicWindowMediumBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
@@ -149,17 +173,25 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeLowColor}" />
+                </ListViewItem.BorderBrush>    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlChromeLowAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeMediumColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlChromeMediumAcrylicWindowMediumBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeHighColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlChromeHighAcrylicWindowMediumBrush</Paragraph>
                 </RichTextBlock>
@@ -172,12 +204,18 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlBaseLowAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseLowAcrylicWindowBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBaseLowAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBaseMediumLowAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseMediumLowAcrylicWindowMediumBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseMediumLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBaseMediumLowAcrylicWindowMediumBrush</Paragraph>
                 </RichTextBlock>
@@ -190,17 +228,26 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAltLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAltLowAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAltMediumLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAltMediumLowAcrylicWindowMediumBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlAltHighAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAltHighAcrylicWindowBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAltHighColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAltHighAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
@@ -223,6 +270,8 @@
                             <Run x:Name="TopRun2" FontWeight="Bold" />
                             <Run  x:Name="TopRun3"/>
                         </Paragraph>
+                        <Paragraph/>
+                        <Paragraph FontWeight="Bold" FontStyle="Italic">The right  rectangle with FallbackColor.</Paragraph>
                     </RichTextBlock>
                 </Border >
             </Border >
