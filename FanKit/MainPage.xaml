@@ -250,10 +250,12 @@
                 <ListViewItem x:Name="SystemBrushItem" Content="System brushes" Tapped="SystemBrushItem_Tapped"/>
                 <ListViewItem x:Name="LegacyBrushItem" Content="Legacy brushes" Tapped="LegacyBrushItem_Tapped"/>
                 <ListViewItem x:Name="InkToolbarBrushItem" Content="InkToolbar brushes" Tapped="InkToolbarBrushItem_Tapped"/>
+                <ListViewItem x:Name="OtherBrushItem" Content="Other brushes" Tapped="OtherBrushItem_Tapped"/>
 
                 <ListViewItem x:Name="AcrylicElementBrushItem" Content="AcrylicElement brushes" Tapped="AcrylicElementBrushItem_Tapped"/>
                 <ListViewItem x:Name="AcrylicWindowBrushItem" Content="AcrylicWindow brushes" Tapped="AcrylicWindowBrushItem_Tapped"/>
                 <ListViewItem x:Name="RevealBorderBrushItem" Content="RevealBorder brushes" Tapped="RevealBorderBrushItem_Tapped"/>
+                <ListViewItem x:Name="RevealBackgroundBrushItem" Content="RevealBackground brushes" Tapped="RevealBackgroundBrushItem_Tapped"/>
 
                 <ListViewItem x:Name="ColorItem" Content="Colors" Tapped="ColorItem_Tapped"/>
 

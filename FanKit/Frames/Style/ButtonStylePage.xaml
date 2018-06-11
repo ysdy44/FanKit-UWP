@@ -67,7 +67,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <Button Content="Button" />
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No Style</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -75,7 +75,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <Button Content="Button" Style="{ThemeResource AccentButtonStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AccentButtonStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -83,7 +83,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <Button Content="Button" Style="{ThemeResource EllipsisButton}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>EllipsisButton</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -91,7 +91,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <Button Content="&#xE112;"  Style="{ThemeResource NavigationBackButtonNormalStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>NavigationBackButtonNormalStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -99,7 +99,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <Button Content="&#xE112;"  Style="{ThemeResource NavigationBackButtonSmallStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>NavigationBackButtonSmallStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -107,7 +107,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <Button Content="Button" Style="{ThemeResource ButtonRevealStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>ButtonRevealStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -115,7 +115,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <Button Content="Button" Style="{ThemeResource EllipsisButtonRevealStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>EllipsisButtonRevealStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -123,7 +123,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <Button Content="&#xE112;"   Style="{ThemeResource PaneToggleButtonStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>PaneToggleButtonStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -139,7 +139,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <RepeatButton Content="RepeatButton" />
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -147,7 +147,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <RepeatButton Content="RepeatButton" Style="{ThemeResource RepeatButtonRevealStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>RepeatButtonRevealStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -163,7 +163,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <ToggleButton Content="ToggleButton" />
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -171,7 +171,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <ToggleButton Content="ToggleButton" Style="{ThemeResource InkToolbarCommonButtonStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>InkToolbarCommonButtonStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -179,7 +179,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <ToggleButton Content="ToggleButton" Style="{ThemeResource ToggleButtonRevealStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>ToggleButtonRevealStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -187,7 +187,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <ToggleButton Content="ToggleButton" Style="{ThemeResource InkToolbarCommonButtonStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>InkToolbarCommonButtonStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -203,7 +203,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarButton Content="AppBarButton" />
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -211,7 +211,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarButton Content="AppBarButton" Style="{ThemeResource AppBarButtonRevealStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarButtonRevealStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -219,7 +219,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarButton Content="AppBarButton" Style="{ThemeResource AppBarButtonRevealOverflowStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarButtonRevealOverflowStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -227,7 +227,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarButton Content="AppBarButton" Style="{ThemeResource AppBarButtonRevealLabelsOnRightStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarButtonRevealLabelsOnRightStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -235,7 +235,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarButton Content="AppBarButton" Style="{ThemeResource SwipeItemStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>SwipeItemStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -251,7 +251,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarToggleButton Content="AppBarToggleButton"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -259,7 +259,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarToggleButton Content="AppBarToggleButton" Style="{ThemeResource AppBarToggleButtonRevealStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarToggleButtonRevealStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -267,7 +267,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarToggleButton Content="AppBarToggleButton" Style="{ThemeResource AppBarToggleButtonRevealOverflowStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarToggleButtonRevealOverflowStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -275,7 +275,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <AppBarToggleButton Content="AppBarToggleButton" Style="{ThemeResource AppBarToggleButtonRevealLabelsOnRightStyle}"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarToggleButtonRevealLabelsOnRightStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -291,7 +291,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <HyperlinkButton Content="HyperlinkButton"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -307,7 +307,7 @@
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
                     <RadioButton Content="RadioButton"/>
-                    <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
@@ -333,7 +333,7 @@
                         <InkToolbarRulerButton/>
                         <InkToolbarStencilButton/>
                     </StackPanel>
-                     <RichTextBlock Style="{ThemeResource AppRichTextBlockStyle}">
+                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
                 </StackPanel>

@@ -58,7 +58,7 @@
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
             ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
             Style="{StaticResource ListViewStyle}">
- 
+
             <ListViewHeaderItem>
                 <TextBlock Text="Button brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
@@ -74,14 +74,14 @@
                     <Paragraph>InkToolbarButtonForegroundThemeBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            
+
             <!--#endregion-->
 
             <ListViewHeaderItem>
                 <TextBlock Text="FlyoutItem brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
             <!--#region Border：边框-->
-            
+
             <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBackgroundThemeBrush}" >
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>InkToolbarFlyoutItemBackgroundThemeBrush</Paragraph>

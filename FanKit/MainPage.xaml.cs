@@ -129,21 +129,28 @@ namespace FanKit
         }
 
 
+
         private void SystemBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.SystemBrushPage));//页面跳转
         private void LegacyBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.LegacyBrushPage));//页面跳转
         private void InkToolbarBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.InkToolbarBrushPage));//页面跳转
+        private void OtherBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.OtherBrushPage));//页面跳转
+
+
         private void AcrylicElementBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.AcrylicElementBrushPage));//页面跳转
         private void AcrylicWindowBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.AcrylicWindowBrushPage));//页面跳转
         private void RevealBorderBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.RevealBorderPage));//页面跳转
+        private void RevealBackgroundBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.RevealBackgroundBrushPage));//页面跳转
+
+
         private void ColorItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.ColorPage));//页面跳转
         private void TextBlockStylerItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Style.TextblockStylePage));//页面跳转
         private void ButtonStylerItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Style.ButtonStylePage));//页面跳转
 
 
 
-
         #endregion
 
-        
+
+   
     }
 }

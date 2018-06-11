@@ -64,7 +64,10 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundAccentRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundAccentRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundAccentRevealBorderBrush</Paragraph>
                 </RichTextBlock>
@@ -77,60 +80,90 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseHighRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundBaseHighRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseHighColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundBaseHighRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundBaseLowRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundBaseMediumRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseMediumColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundBaseMediumRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumHighRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundBaseMediumHighRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseMediumHighColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundBaseMediumHighRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumLowRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundBaseMediumLowRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseMediumLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundBaseMediumLowRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
 
             <!--#endregion-->
-
+            
             <ListViewHeaderItem>
                 <TextBlock Text="Chrome brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeBlackHighRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundChromeBlackHighRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeBlackHighColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundChromeBlackHighRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeBlackMediumRevealChromeBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundChromeBlackMediumRevealChromeBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeBlackMediumColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundChromeBlackMediumRevealChromeBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeMediumRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundChromeMediumRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeMediumColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundChromeMediumRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeMediumLowRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundChromeMediumLowRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeMediumLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundChromeMediumLowRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeWhiteRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundChromeWhiteRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemChromeWhiteColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundChromeWhiteRevealBorderBrush</Paragraph>
                 </RichTextBlock>
@@ -143,12 +176,18 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundListLowRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundListLowRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemListLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundListLowRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemListMediumColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBackgroundListMediumRevealBorderBrush</Paragraph>
                 </RichTextBlock>
@@ -161,27 +200,42 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlHighlightAccentRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightAccentRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlHighlightAccentRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseHighRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightBaseHighRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseHighColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlHighlightBaseHighRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseLowRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightBaseLowRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseLowColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlHighlightBaseLowRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseMediumRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightBaseMediumRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseMediumColor}" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlHighlightBaseMediumRevealBorderBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseMediumHighRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightBaseMediumHighRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseMediumHighColor}" /> 
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlHighlightBaseMediumHighRevealBorderBrush</Paragraph>
                 </RichTextBlock>
@@ -194,7 +248,10 @@
             </ListViewHeaderItem>
             <!--#region Border：边框-->
 
-            <ListViewItem  Background="{ThemeResource SystemControlTransparentRevealBorderBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlTransparentRevealBorderBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="Transparent" />
+                </ListViewItem.BorderBrush>
                 <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlTransparentRevealBorderBrush</Paragraph>
                 </RichTextBlock>

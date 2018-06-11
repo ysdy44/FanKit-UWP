@@ -110,6 +110,12 @@
     <Compile Include="Frames\Brush\LegacyBrushPage.xaml.cs">
       <DependentUpon>LegacyBrushPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Brush\OtherBrushPage.xaml.cs">
+      <DependentUpon>OtherBrushPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Brush\RevealBackgroundBrushPage.xaml.cs">
+      <DependentUpon>RevealBackgroundBrushPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Brush\RevealBorderPage.xaml.cs">
       <DependentUpon>RevealBorderPage.xaml</DependentUpon>
     </Compile>
@@ -222,6 +228,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Brush\LegacyBrushPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Brush\OtherBrushPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Brush\RevealBackgroundBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
