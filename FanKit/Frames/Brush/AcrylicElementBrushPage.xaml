@@ -270,12 +270,15 @@
                         <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
                         <Paragraph/>
                         <Paragraph>
-                            <Run x:Name="TopRun1"/>
+                                <Run x:Name="TopRun1"/>
                             <Run x:Name="TopRun2" FontWeight="Bold" />
                             <Run  x:Name="TopRun3"/>
                         </Paragraph>
                         <Paragraph/>
-                        <Paragraph FontWeight="Bold" FontStyle="Italic">The right  rectangle with FallbackColor.</Paragraph>
+                        <Paragraph>
+                            <Run   FontWeight="Bold" FontStyle="Italic" Text="The right  rectangle with FallbackColor."/>
+                            <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brush/AcrylicElementBrushPage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brush/AcrylicElementBrushPage.xaml</Hyperlink>
+                        </Paragraph>
                     </RichTextBlock>
                 </Border >
             </Border >

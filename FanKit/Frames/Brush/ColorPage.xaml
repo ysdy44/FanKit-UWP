@@ -548,7 +548,6 @@
                 <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <RichTextBlock Foreground="White" FontSize="18">
                         <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
-                        <Paragraph/>
 
                         <Paragraph>
                             <Run x:Name="Paragraph1"/>
@@ -568,8 +567,9 @@
                         </Paragraph>
                         <Paragraph>
                             <Run x:Name="Paragraph5"/>
+                        
+                            <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brush/ColorPage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brush/ColorPage.xaml</Hyperlink>
                         </Paragraph>
-
                     </RichTextBlock>
                 </Border >
             </Border >

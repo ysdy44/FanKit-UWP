@@ -26,18 +26,9 @@ namespace FanKit
  
         public static double GetHeight(double value)
         {
-            if (value <=0)//初始
-            {
-                return App.DisplayMaxHeight + App.DisplayMinHeight;
-            }
-            else if (value >= App.DisplayMaxHeight)//滑动最大
-            {
-                return App.DisplayMinHeight;
-            }
-            else//两者之间
-            {
-                return App.DisplayMaxHeight + App.DisplayMinHeight - value;
-            }
+            if (value <= 0) return App.DisplayMaxHeight + App.DisplayMinHeight;
+            if (value >= App.DisplayMaxHeight) return App.DisplayMinHeight;
+            return App.DisplayMaxHeight + App.DisplayMinHeight - value;
         }
 
 

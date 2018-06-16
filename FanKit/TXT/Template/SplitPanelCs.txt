@@ -1,0 +1,87 @@
+
+```Csharp
+
+          //Property
+        private bool isPaneOpen;
+        public bool IsPaneOpen
+        {
+            set
+            {
+                if (value == true)
+                {
+                    this.OpenPanel.Visibility = Visibility.Visible;
+                    this.SpliteShadow.Opacity = 1.0d;
+
+                    this.SpliteShow.Begin();
+
+                    this.TranslateX = this.Transform.TranslateX = this.RightDistance;
+                }
+                else
+                {
+                    this.SpliteFade.Begin();
+
+                    this.SpliteShadow.Opacity = 0.0d;
+                    this.OpenPanel.Visibility = Visibility.Collapsed;
+
+                    this.TranslateX = this.Transform.TranslateX = this.LeftDistance;
+                }
+                this.isPaneOpen = value;
+            }
+            get
+            {
+                return this.isPaneOpen;
+            }
+        }
+
+        private double translateX;
+        public double TranslateX
+        {
+            set
+            {
+                if (value > this.RightDistance) translateX = this.RightDistance;
+                else if (value < this.LeftDistance) translateX = this.LeftDistance;
+                else translateX = value;
+            }
+            get => translateX;
+        }
+
+        CompositeTransform Transform
+        {
+            set
+            {
+                this.OpenGrid.RenderTransform = value;
+            }
+            get
+            {
+                if (this.OpenGrid.RenderTransform is CompositeTransform transform) return transform;
+                else return null;
+            }
+        }
+
+          //Readonly
+        private readonly double LeftDistance = -300;
+        private readonly double Boundary = -125;
+        private readonly double RightDistance = 0;
+
+          //Event
+        private new void ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        {
+             this.OpenPanel.Visibility = Visibility.Visible;
+            this.SpliteShadow.Opacity = 1.0d;
+        }
+        private new void ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            this.TranslateX += e.Delta.Translation.X;
+            this.Transform.TranslateX = this.TranslateX;
+            this.OpenPanel.Opacity = (this.TranslateX - this.LeftDistance) / (this.RightDistance - this.LeftDistance);
+        }
+        private new void ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            this.IsPaneOpen = this.Transform.TranslateX >= this.Boundary;
+        }
+
+
+
+
+
+```

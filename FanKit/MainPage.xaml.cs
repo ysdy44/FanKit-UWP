@@ -52,6 +52,31 @@ namespace FanKit
         #endregion
 
 
+        List<PageType> pages = new List<PageType>
+        {
+         new PageType( typeof(FanKit.Frames.Brush.SystemBrushPage),"SystemBrushes"),
+           new PageType(typeof(FanKit.Frames.Brush.LegacyBrushPage),"LegacyBrushes"),
+           new PageType(typeof(FanKit.Frames.Brush.InkToolbarBrushPage),"InkToolbarBrushes"),
+           new PageType(typeof(FanKit.Frames.Brush.OtherBrushPage),"OthersBrush"),
+
+            new PageType(typeof(FanKit.Frames.Brush.AcrylicElementBrushPage),"AcrylicElementBrushes"),
+           new PageType(typeof(FanKit.Frames.Brush.AcrylicWindowBrushPage),"AcrylicWindowBrushes"),
+           new PageType(typeof(FanKit.Frames.Brush.RevealBorderBrushPage),"RevealBorderBrushes"),
+           new PageType(typeof(FanKit.Frames.Brush.RevealBackgroundBrushPage),"RevealBackgroundBrushes"),
+
+
+            new PageType(typeof(FanKit.Frames.Brush.ColorPage),"Colors"),
+
+
+            new PageType(typeof(FanKit.Frames.Style.TextblockStylePage),"TextblockStyle"),
+            new PageType(typeof(FanKit.Frames.Style.ButtonStylePage),"ButtonStyle"),
+
+            new PageType(typeof(FanKit.Frames.Template.FlyoutTemplatePage),"FlyoutTemplate"),
+            new PageType(typeof(FanKit.Frames.Template.TagChipPage),"TagChipControl"),
+            new PageType(typeof(FanKit.Frames.Template.FloatActionButtonPage),"FloatActionButton"),
+            new PageType(typeof(FanKit.Frames.Template.SplitPanelPage),"SplitPanel"),
+        };
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -126,31 +151,28 @@ namespace FanKit
         {
             this.HomeButton.IsChecked = false;
             this.SettingButton.IsChecked = false;
+
+            if (e.ClickedItem is PageType pages)
+            {
+                this.Frame.Navigate(pages.Page);//页面跳转
+            }    
         }
-
-
-
-        private void SystemBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.SystemBrushPage));//页面跳转
-        private void LegacyBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.LegacyBrushPage));//页面跳转
-        private void InkToolbarBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.InkToolbarBrushPage));//页面跳转
-        private void OtherBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.OtherBrushPage));//页面跳转
-
-
-        private void AcrylicElementBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.AcrylicElementBrushPage));//页面跳转
-        private void AcrylicWindowBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.AcrylicWindowBrushPage));//页面跳转
-        private void RevealBorderBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.RevealBorderPage));//页面跳转
-        private void RevealBackgroundBrushItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.RevealBackgroundBrushPage));//页面跳转
-
-
-        private void ColorItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Brush.ColorPage));//页面跳转
-        private void TextBlockStylerItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Style.TextblockStylePage));//页面跳转
-        private void ButtonStylerItem_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Style.ButtonStylePage));//页面跳转
-
 
 
         #endregion
 
 
-   
     }
+    public class PageType
+    {
+        public Type Page;
+        public string Name;
+
+        public PageType(Type page, string name)
+        {
+            this.Page = page;
+            this.Name = name;
+        }
+    }
+
 }

@@ -238,34 +238,23 @@
             <InkToolbarCustomToggleButton x:Name="HomeButton" Grid.Column="0" Content="&#xE80F;"  FontWeight="Bold" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="HomeButton_Tapped"/>
 
             <ListView Grid.Column="1" FontWeight="SemiLight" 
+                      ItemsSource="{x:Bind pages}"
                       IsItemClickEnabled="True" ItemClick="ListView_ItemClick"
                       ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Disabled">
-
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:PageType">
+                        <TextBlock Text="{x:Bind Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
-
-                <ListViewItem x:Name="SystemBrushItem" Content="System brushes" Tapped="SystemBrushItem_Tapped"/>
-                <ListViewItem x:Name="LegacyBrushItem" Content="Legacy brushes" Tapped="LegacyBrushItem_Tapped"/>
-                <ListViewItem x:Name="InkToolbarBrushItem" Content="InkToolbar brushes" Tapped="InkToolbarBrushItem_Tapped"/>
-                <ListViewItem x:Name="OtherBrushItem" Content="Other brushes" Tapped="OtherBrushItem_Tapped"/>
-
-                <ListViewItem x:Name="AcrylicElementBrushItem" Content="AcrylicElement brushes" Tapped="AcrylicElementBrushItem_Tapped"/>
-                <ListViewItem x:Name="AcrylicWindowBrushItem" Content="AcrylicWindow brushes" Tapped="AcrylicWindowBrushItem_Tapped"/>
-                <ListViewItem x:Name="RevealBorderBrushItem" Content="RevealBorder brushes" Tapped="RevealBorderBrushItem_Tapped"/>
-                <ListViewItem x:Name="RevealBackgroundBrushItem" Content="RevealBackground brushes" Tapped="RevealBackgroundBrushItem_Tapped"/>
-
-                <ListViewItem x:Name="ColorItem" Content="Colors" Tapped="ColorItem_Tapped"/>
-
-                <ListViewItem x:Name="TextBlockStylerItem" Content="TextBlock Styles" Tapped="TextBlockStylerItem_Tapped"/>
-                <ListViewItem x:Name="ButtonStylerItem" Content="Button Styles" Tapped="ButtonStylerItem_Tapped"/>
-
             </ListView>
 
             <InkToolbarCustomToggleButton x:Name="SettingButton" Grid.Column="2" Content="&#xE115;"  FontWeight="Bold" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="SettingButton_Tapped"/>
-     
+
         </Grid>
    
         <Rectangle Grid.Row="1" Fill="{ThemeResource InkToolbarAccentColorThemeBrush}"/>

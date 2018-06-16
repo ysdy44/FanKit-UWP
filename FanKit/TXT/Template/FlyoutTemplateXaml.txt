@@ -1,0 +1,48 @@
+
+```xaml
+
+
+<Button Content="FlyoutPresenter" Grid.Column="2" Grid.Row="2" Style="{ThemeResource AccentButtonStyle}">
+  <Button.Flyout>
+    <Flyout Placement="Full" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenter}">
+      <Grid Width="400" Height="400"/>
+    </Flyout>
+  </Button.Flyout>
+</Button>
+
+<Button Content="FlyoutPresenterLeft" Grid.Column="3" Grid.Row="2"  Style="{ThemeResource AccentButtonStyle}">
+  <Button.Flyout>
+    <Flyout Placement="Left" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterLeft}">
+      <Grid Width="200" Height="200"/>
+    </Flyout>
+  </Button.Flyout>
+</Button>
+
+<Button Content="FlyoutPresenterTop" Grid.Column="2" Grid.Row="3" Style="{ThemeResource AccentButtonStyle}">
+  <Button.Flyout>
+    <Flyout Placement="Top" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}">
+      <Grid Width="200" Height="200"/>
+    </Flyout>
+  </Button.Flyout>
+</Button>
+
+<Button Content="FlyoutPresenterRight" Grid.Column="1" Grid.Row="2" Style="{ThemeResource AccentButtonStyle}">
+  <Button.Flyout>
+    <Flyout Placement="Right" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterRight}">
+      <Grid Width="200" Height="200"/>
+    </Flyout>
+  </Button.Flyout>
+</Button>
+
+<Button Content="FlyoutPresenterBottom" Grid.Column="2" Grid.Row="1" Style="{ThemeResource AccentButtonStyle}">
+  <Button.Flyout>
+    <Flyout Placement="Bottom" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterBottom}">
+      <Grid Width="200" Height="200"/>
+    </Flyout>
+  </Button.Flyout>
+</Button>
+
+
+
+
+```

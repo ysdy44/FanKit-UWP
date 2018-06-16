@@ -1,0 +1,23 @@
+
+```Csharp
+
+          //Property
+        private double verticalOffset;
+        public double VerticalOffset
+        {
+            get => verticalOffset;
+            set
+            {
+                if (value < verticalOffset) this.Button.Visibility = Visibility.Visible;
+                else if (value > verticalOffset) this.Button.Visibility = Visibility.Collapsed;
+
+                verticalOffset = value;
+            }
+        }
+        
+        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e) => this.VerticalOffset = ((ScrollViewer)sender).VerticalOffset;
+
+
+
+
+```

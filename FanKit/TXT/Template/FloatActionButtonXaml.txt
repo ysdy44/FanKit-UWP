@@ -1,0 +1,80 @@
+
+```xaml
+
+
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+
+
+               <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+
+                <ListView>
+
+                    <ListView.Header>
+                        <Border  Height="140" Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                            <TextBlock Text="Floating Action Button" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                        </Border>
+                    </ListView.Header>
+
+                    <ListView.Style>
+                        <Style  TargetType="ListView">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListView">
+                                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                                            <ItemsPresenter Header="{TemplateBinding Header}"/>
+                                        </ScrollViewer>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.Style>
+
+                    <x:String>Deep</x:String>
+                    <x:String>Dark</x:String>
+                    <x:String>Fantasy</x:String>
+                    <x:String>Boy</x:String>
+                    <x:String>Next</x:String>
+                    <x:String>Door</x:String>
+                    <x:String>As we can</x:String>
+                    <x:String>Get it out</x:String>
+                    <x:String>Attention move</x:String>
+                    <x:String>Deep</x:String>
+                    <x:String>Dark</x:String>
+                    <x:String>Fantasy</x:String>
+                    <x:String>Boy</x:String>
+                    <x:String>Next</x:String>
+                    <x:String>Door</x:String>
+                    <x:String>As we can</x:String>
+                    <x:String>Get it out</x:String>
+                    <x:String>Attention move</x:String>
+
+                </ListView>
+                
+                
+                <Button x:Name="Button" 
+                Style="{StaticResource FABButtonStyle}"
+                extensions:VisualExtensions.CenterPoint="32,32,0">
+
+                    <!--Visibility="Visible" Show-->
+                    <animations:Implicit.ShowAnimations>
+                        <animations:TranslationAnimation Duration="0:0:1" From="0,100,0" To="0,0,0"/>
+                        <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
+                    </animations:Implicit.ShowAnimations>
+
+                    <!--Visibility="Collapsed" Hide-->
+                    <animations:Implicit.HideAnimations>
+                        <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,100,0"/>
+                        <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
+                    </animations:Implicit.HideAnimations>
+
+                    <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="24" Glyph="&#xEB9F;" Foreground="White"/>
+                </Button>
+                
+            </Grid>
+
+
+
+
+```

@@ -15,9 +15,9 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
       
-        <Image x:Name="SplashImage"  Source="ms-appx:///Icon/Logo.png" Stretch="Uniform"/>
-        <Image x:Name="TitleImage"  Grid.Row="1"  Source="ms-appx:///Icon/iconL.png" Stretch="Uniform"/>
-        <TextBlock Text="FanKit v1.0" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+        <Image x:Name="SplashImage" Visibility="Visible" Source="ms-appx:///Icon/Logo.png" Stretch="Uniform"/>
+        <Image x:Name="TitleImage" Visibility="Visible"  Grid.Row="1"  Source="ms-appx:///Icon/iconL.png" Stretch="Uniform"/>
+        <TextBlock Text="FanKit v1.0" Visibility="Visible" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
     </Grid>
  
 </Page>
