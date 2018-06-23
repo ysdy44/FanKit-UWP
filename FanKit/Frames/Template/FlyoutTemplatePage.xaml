@@ -343,6 +343,14 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
                         <Button Width="100" Margin="22" Content="Show" VerticalAlignment="Top" Tapped="Button_Tapped"/>
+                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                            <Span FontWeight="SemiBold">Flyout</Span>
+                            <Span>have a different direction:</Span>
+                             <Span FontWeight="SemiBold">Left</Span>          
+                            <Span FontWeight="SemiBold">Top</Span>
+                            <Span FontWeight="SemiBold">Right</Span>
+                            <Span FontWeight="SemiBold">Bottom</Span>
+                        </TextBlock>
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

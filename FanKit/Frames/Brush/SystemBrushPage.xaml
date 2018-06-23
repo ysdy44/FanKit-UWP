@@ -126,12 +126,12 @@
                 </ListViewItem >
                 <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundChromeMediumBrush</Paragraph>
+                        <Paragraph>后 SystemControlBackgroundChromeMediumBrush</Paragraph>
                     </RichTextBlock>
                 </ListViewItem >
                 <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundChromeMediumLowBrush</Paragraph>
+                        <Paragraph>前 SystemControlBackgroundChromeMediumLowBrush</Paragraph>
                     </RichTextBlock>
                 </ListViewItem >
                 <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}" >

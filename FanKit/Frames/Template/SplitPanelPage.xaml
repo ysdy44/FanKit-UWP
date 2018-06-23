@@ -87,8 +87,7 @@
             </Grid.RowDefinitions>
 
 
-            <Grid Grid.Column="1" Grid.Row="1"  
-                  Background="{ThemeResource AppBarBackgroundThemeBrush}">
+            <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
 
                 <Grid.Resources>
 
@@ -109,7 +108,7 @@
                 </Grid.Resources>
 
 
-                <Rectangle x:Name="OpenPanel" Visibility="Collapsed" Opacity="0" Fill="{StaticResource AppDarkBrush}" Tapped="Panel_Tapped"/>
+                <Rectangle x:Name="OpenPanel" Visibility="Collapsed" Opacity="0" Fill="#33000000" Tapped="Panel_Tapped"/>
 
                 <Grid  x:Name="OpenGrid"  Width="320" VerticalAlignment="Stretch" HorizontalAlignment="Left" >
                     <Grid.RenderTransform>
@@ -122,7 +121,7 @@
 
                     <Rectangle  x:Name="SpliteShadow" Opacity="0" Grid.Column="1" Fill="{StaticResource AppRightGradientBrush}" ManipulationMode="TranslateX" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta"  ManipulationCompleted="ManipulationCompleted"/>
 
-                    <Rectangle Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"
+                    <Rectangle Fill="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
                     ManipulationMode="TranslateX" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta"  ManipulationCompleted="ManipulationCompleted"/>
 
 
@@ -290,6 +289,26 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
                         <Button Width="100" Margin="22" Content="Open" VerticalAlignment="Top" Tapped="Button_Tapped"/>
+                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                          
+                            <Span FontStyle="Italic">Phone:</Span>
+                            <LineBreak/>
+                            <Span FontWeight="SemiBold">Sliding</Span>
+                            <Span> the Split Panel.</Span>
+                            
+                            <LineBreak/>
+                            <LineBreak/>       
+                            
+                            <Span FontStyle="Italic">PC:</Span>
+                            <LineBreak/>                  
+                            <Span FontWeight="SemiBold">Drag and drop </Span>
+                            <Span> the Split Panel.</Span>
+
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Span FontStyle="Italic">SplitPanel like a drawer!</Span>
+
+                        </TextBlock>
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

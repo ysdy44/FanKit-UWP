@@ -58,13 +58,10 @@ namespace FanKit
            new PageType(typeof(FanKit.Frames.Brush.LegacyBrushPage),"LegacyBrushes"),
            new PageType(typeof(FanKit.Frames.Brush.InkToolbarBrushPage),"InkToolbarBrushes"),
            new PageType(typeof(FanKit.Frames.Brush.OtherBrushPage),"OthersBrush"),
-
             new PageType(typeof(FanKit.Frames.Brush.AcrylicElementBrushPage),"AcrylicElementBrushes"),
            new PageType(typeof(FanKit.Frames.Brush.AcrylicWindowBrushPage),"AcrylicWindowBrushes"),
            new PageType(typeof(FanKit.Frames.Brush.RevealBorderBrushPage),"RevealBorderBrushes"),
            new PageType(typeof(FanKit.Frames.Brush.RevealBackgroundBrushPage),"RevealBackgroundBrushes"),
-
-
             new PageType(typeof(FanKit.Frames.Brush.ColorPage),"Colors"),
 
 
@@ -75,6 +72,8 @@ namespace FanKit
             new PageType(typeof(FanKit.Frames.Template.TagChipPage),"TagChipControl"),
             new PageType(typeof(FanKit.Frames.Template.FloatActionButtonPage),"FloatActionButton"),
             new PageType(typeof(FanKit.Frames.Template.SplitPanelPage),"SplitPanel"),
+
+            new PageType(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu"),
         };
 
         public MainPage()

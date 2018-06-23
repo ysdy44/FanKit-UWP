@@ -1,0 +1,67 @@
+﻿<UserControl
+    x:Class="FanKit.Frames.Control.PopupMenuControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FanKit.Frames.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent"
+    HorizontalAlignment="Stretch"
+    VerticalAlignment="Stretch"
+    Holding="UserControl_Holding" 
+    DoubleTapped="UserControl_DoubleTapped" 
+    RightTapped="UserControl_RightTapped">
+
+    <UserControl.Resources>
+
+        <!--Style -->
+        <Style x:Key="PopupTopFlyoutPresenter" TargetType="FlyoutPresenter" >
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="MinWidth" Value="60"/>
+            <Setter Property="BorderBrush" Value="#66000000"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="FlyoutPresenter">
+                        <Grid >
+                            <Border  Margin="8" CornerRadius="4" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                    <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                </ScrollViewer>
+                            </Border>
+                            <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="&#xE936;" FontFamily="Segoe MDL2 Assets" />
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    
+
+        <!--Flyout-->
+        <Flyout x:Name="Flyout" Placement="Top" FlyoutPresenterStyle="{StaticResource PopupTopFlyoutPresenter}">
+            <Button x:Name="Button" Click="Button_Click">
+                <ContentControl Content="Copy" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+            </Button>
+        </Flyout>
+
+    </UserControl.Resources>
+  
+        <ContentPresenter x:Name="ContentPresenter" />
+
+</UserControl>

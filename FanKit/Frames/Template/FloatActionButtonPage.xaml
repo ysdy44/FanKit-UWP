@@ -89,8 +89,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="1" Grid.Row="1"  
-                  Background="{ThemeResource AppBarBackgroundThemeBrush}">
+            <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
 
                 <ListView>
 
@@ -176,6 +175,26 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
                         <Button Width="100" Margin="22" Content="Visible" VerticalAlignment="Top" Tapped="Button_Tapped"/>
+                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                          
+                            <Span FontStyle="Italic">Phone:</Span>
+                            <LineBreak/>
+                            <Span FontWeight="SemiBold">Sliding</Span>
+                            <Span> the List View.</Span>
+                            
+                            <LineBreak/>
+                            <LineBreak/>       
+                            
+                            <Span FontStyle="Italic">PC:</Span>
+                            <LineBreak/>                  
+                            <Span FontWeight="SemiBold">Scroll the mouse wheel</Span>
+                            <Span>over the Split Panel.</Span>
+
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Span FontStyle="Italic">Float Action Button will hide when u turn!</Span>
+
+                        </TextBlock>
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

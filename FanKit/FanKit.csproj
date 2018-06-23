@@ -126,6 +126,12 @@
     <Compile Include="Frames\Brush\RevealBorderBrushPage.xaml.cs">
       <DependentUpon>RevealBorderBrushPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\PopupMenuControl.xaml.cs">
+      <DependentUpon>PopupMenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Control\PopupMenuPage.xaml.cs">
+      <DependentUpon>PopupMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Others\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
@@ -220,6 +226,9 @@
     <Content Include="Icon\pexels-photo-688659.jpg" />
     <Content Include="Icon\SplashScreen.png" />
     <Content Include="Icon\Square.png" />
+    <Content Include="TXT\Control\PopupMenuUserCs.txt" />
+    <Content Include="TXT\Control\PopupMenuUserXaml.txt" />
+    <Content Include="TXT\Control\PopupMenuXaml.txt" />
     <Content Include="TXT\Template\FloatActionButtonCs.txt" />
     <Content Include="TXT\Template\FloatActionButtonStyle.txt" />
     <Content Include="TXT\Template\FloatActionButtonXaml.txt" />
@@ -272,6 +281,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Brush\RevealBorderBrushPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\PopupMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\PopupMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
