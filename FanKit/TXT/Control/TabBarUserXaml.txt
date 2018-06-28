@@ -1,0 +1,32 @@
+
+```xaml
+
+
+
+<UserControl
+    HorizontalAlignment="Stretch"
+    VerticalAlignment="Stretch" 
+    SizeChanged="UserControl_SizeChanged">
+
+   
+  <UserControl.Resources>
+        <StaticResource x:Key="UsualForeground" ResourceKey="SystemControlForegroundBaseMediumHighBrush"/>
+        <StaticResource x:Key="SeletedForeground" ResourceKey="SystemControlHighlightAccentBrush"/>
+    </UserControl.Resources>
+
+    <Button x:Name="Button" Width="Auto" Padding="0" 
+            HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+            FontWeight="Normal" Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
+            Style="{ThemeResource EllipsisButton}" Tapped="Button_Tapped">
+        <StackPanel x:Name="StackPanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ContentControl x:Name="IconControl" Margin="12,0" HorizontalAlignment="Center" />
+            <TextBlock x:Name="TextControl" HorizontalAlignment="Center" />
+        </StackPanel>
+    </Button>
+    
+</UserControl>
+
+
+
+
+```

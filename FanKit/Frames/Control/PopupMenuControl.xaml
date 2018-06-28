@@ -13,6 +13,7 @@
     DoubleTapped="UserControl_DoubleTapped" 
     RightTapped="UserControl_RightTapped">
 
+    
     <UserControl.Resources>
 
         <!--Style -->
@@ -140,7 +141,7 @@
 
             </StackPanel>  
         </Flyout>
-
+        
     </UserControl.Resources>
   
         <ContentPresenter x:Name="ContentPresenter" />

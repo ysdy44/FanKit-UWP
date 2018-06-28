@@ -132,6 +132,12 @@
     <Compile Include="Frames\Control\PopupMenuPage.xaml.cs">
       <DependentUpon>PopupMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\TabBarControl.xaml.cs">
+      <DependentUpon>TabBarControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Control\TabBarPage.xaml.cs">
+      <DependentUpon>TabBarPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Others\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
@@ -157,6 +163,7 @@
       <DependentUpon>SplitPanelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Library\File.cs" />
+    <Compile Include="Library\ScrollOffsetShow.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -229,6 +236,9 @@
     <Content Include="TXT\Control\PopupMenuUserCs.txt" />
     <Content Include="TXT\Control\PopupMenuUserXaml.txt" />
     <Content Include="TXT\Control\PopupMenuXaml.txt" />
+    <Content Include="TXT\Control\TabBarUserCs.txt" />
+    <Content Include="TXT\Control\TabBarUserXaml.txt" />
+    <Content Include="TXT\Control\TabBarXaml.txt" />
     <Content Include="TXT\Template\FloatActionButtonCs.txt" />
     <Content Include="TXT\Template\FloatActionButtonStyle.txt" />
     <Content Include="TXT\Template\FloatActionButtonXaml.txt" />
@@ -289,6 +299,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\PopupMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\TabBarControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\TabBarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

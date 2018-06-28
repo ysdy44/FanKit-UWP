@@ -37,7 +37,7 @@ namespace FanKit.Frames.Template
             get => verticalOffset;
             set
             {
-                if (value < verticalOffset) this.Button.Visibility = Visibility.Visible;
+                if (value < verticalOffset)this.Button.Visibility= Visibility.Visible;
                 else if (value > verticalOffset) this.Button.Visibility = Visibility.Collapsed;
 
                 verticalOffset = value;

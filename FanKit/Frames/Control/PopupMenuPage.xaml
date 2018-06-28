@@ -182,7 +182,11 @@
                     <StackPanel>
                         <Button Width="100" Margin="22" Content="Popup" VerticalAlignment="Top" Tapped="Button_Tapped"/>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-                          
+                                                     
+                            <Span FontStyle="Italic">Create a new UserControls and named "PopupMenuControl",Please put the document in the code is copied to the "PopupMenuControl.xaml"</Span>
+                            <LineBreak/>
+                            <LineBreak/>
+
                             <Span FontStyle="Italic">Phone:</Span>
                             <LineBreak/>
                             <Span FontWeight="SemiBold">Holding</Span>

@@ -74,6 +74,7 @@ namespace FanKit
             new PageType(typeof(FanKit.Frames.Template.SplitPanelPage),"SplitPanel"),
 
             new PageType(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu"),
+            new PageType(typeof(FanKit.Frames.Control.TabBarPage),"TabBar"),
         };
 
         public MainPage()

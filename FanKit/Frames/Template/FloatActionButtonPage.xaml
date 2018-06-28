@@ -89,13 +89,19 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+            <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
 
                 <ListView>
 
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
                     <ListView.Header>
                         <Border  Height="140" Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-                            <TextBlock Text="Floating Action Button" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            <TextBlock Text="Floating Action Button 0" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
                         </Border>
                     </ListView.Header>
 
@@ -133,9 +139,9 @@
                     <x:String>Attention move</x:String>
 
                 </ListView>
-                
-                
-                <Button x:Name="Button" 
+
+
+                <Button x:Name="Button" Visibility="Collapsed"
                 Style="{StaticResource AppFABButtonStyle}"
                 extensions:VisualExtensions.CenterPoint="32,32,0">
 
