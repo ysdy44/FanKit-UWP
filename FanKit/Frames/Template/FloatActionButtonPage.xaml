@@ -85,7 +85,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="4*" MinHeight="200"/>
+                <RowDefinition Height="6*" MinHeight="400"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
@@ -141,7 +141,7 @@
                 </ListView>
 
 
-                <Button x:Name="Button" Visibility="Collapsed"
+                <Button x:Name="Button" 
                 Style="{StaticResource AppFABButtonStyle}"
                 extensions:VisualExtensions.CenterPoint="32,32,0">
 

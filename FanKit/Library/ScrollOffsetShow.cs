@@ -12,7 +12,7 @@ namespace FanKit.Library
         public delegate void ShowChangedHandler(bool IsShow);
         public event ShowChangedHandler ShowChanged = null;
 
-        private Visibility upVisibility = Visibility.Visible;
+        private Visibility upVisibility = Visibility.Visible;//上划可视
         public Visibility UpVisibility
         {
             get => upVisibility;
@@ -23,7 +23,7 @@ namespace FanKit.Library
             }
         }
 
-        private Visibility downVisibility = Visibility.Collapsed;
+        private Visibility downVisibility = Visibility.Collapsed;//下滑可视
         public Visibility DownVisibility
         {
             get => downVisibility;
@@ -34,13 +34,13 @@ namespace FanKit.Library
             }
         }
 
-      
+
 
 
         //Property   
-        private double Span = 0;
+        private double Span = 0;//cache
 
-        private bool isShow;
+        private bool isShow; //main
         public bool IsShow
         {
             get => isShow;
@@ -65,26 +65,27 @@ namespace FanKit.Library
                 }
             }
         }
-
-        private double verticalOffset;
-        private double VerticalOffset
+        
+        private double verticalOffset;//offset
+        public double VerticalOffset
         {
             get => verticalOffset;
             set
             {
-                if (this.IsShow == false && value > verticalOffset)//在面板没有展示且向上滑动时
-                    Span += verticalOffset - value; //累加向上滑动的距离
-                else if (this.IsShow == true && value < verticalOffset) //在面板展示且向下滑动时
-                    Span += verticalOffset - value;//累加向下滑动的距离
+                if (this.IsShow == false && value > verticalOffset)
+                    Span += verticalOffset - value; //Down: cache offset
+                else if (this.IsShow == true && value < verticalOffset)
+                    Span += verticalOffset - value;//Up: cache offset
 
-                //上滑，达到一定距离就不展示
+                //Up: overflow
                 if (Span > 20) this.IsShow = false;
-                //下滑，达到一定距离就展示
+                //Down: overflow
                 else if (Span < -20) this.IsShow = true;
 
                 verticalOffset = value;
             }
         }
+
 
 
 

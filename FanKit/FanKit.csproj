@@ -126,6 +126,9 @@
     <Compile Include="Frames\Brush\RevealBorderBrushPage.xaml.cs">
       <DependentUpon>RevealBorderBrushPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\AdaptiveSizePage.xaml.cs">
+      <DependentUpon>AdaptiveSizePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Control\PopupMenuControl.xaml.cs">
       <DependentUpon>PopupMenuControl.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,7 @@
     <Compile Include="Frames\Template\SplitPanelPage.xaml.cs">
       <DependentUpon>SplitPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\AdaptiveSize.cs" />
     <Compile Include="Library\File.cs" />
     <Compile Include="Library\ScrollOffsetShow.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -233,6 +237,8 @@
     <Content Include="Icon\pexels-photo-688659.jpg" />
     <Content Include="Icon\SplashScreen.png" />
     <Content Include="Icon\Square.png" />
+    <Content Include="TXT\Control\AdaptiveSizeClassCs.txt" />
+    <Content Include="TXT\Control\AdaptiveSizeXaml.txt" />
     <Content Include="TXT\Control\PopupMenuUserCs.txt" />
     <Content Include="TXT\Control\PopupMenuUserXaml.txt" />
     <Content Include="TXT\Control\PopupMenuXaml.txt" />
@@ -291,6 +297,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Brush\RevealBorderBrushPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\AdaptiveSizePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

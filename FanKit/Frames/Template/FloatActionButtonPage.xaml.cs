@@ -30,28 +30,60 @@ namespace FanKit.Frames.Template
         }
 
 
+
+
         //Property
-        private double verticalOffset;
+
+        private double Span = 0;//cache
+
+        private bool isShow; //main
+        public bool IsShow
+        {
+            get => isShow;
+            set
+            {
+                if (value != isShow)
+                {
+                    if (value) this.Button.Visibility = Visibility.Collapsed;
+                    else this.Button.Visibility = Visibility.Visible;
+
+                    isShow = value;
+                }
+            }
+        }
+
+        private double verticalOffset;//offset
         public double VerticalOffset
         {
             get => verticalOffset;
             set
             {
-                if (value < verticalOffset)this.Button.Visibility= Visibility.Visible;
-                else if (value > verticalOffset) this.Button.Visibility = Visibility.Collapsed;
+                if (this.IsShow == false && value > verticalOffset)
+                    Span += verticalOffset - value; //Down: cache offset
+                else if (this.IsShow == true && value < verticalOffset) 
+                    Span += verticalOffset - value;//Up: cache offset
+
+                //Up: overflow
+                if (Span > 20) this.IsShow = false;
+                //Down: overflow
+                else if (Span < -20) this.IsShow = true;
 
                 verticalOffset = value;
             }
         }
-        
+
         private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e) => this.VerticalOffset = ((ScrollViewer)sender).VerticalOffset;
+
+
 
 
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (this.Button.Visibility == Visibility.Visible) this.Button.Visibility = Visibility.Collapsed;
-            else this.Button.Visibility = Visibility.Visible;
+            if (this.Button.Visibility == Visibility.Visible)
+                this.Button.Visibility = Visibility.Collapsed;
+            else
+                this.Button.Visibility = Visibility.Visible;
         }
 
 

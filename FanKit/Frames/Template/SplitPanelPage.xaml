@@ -82,7 +82,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="8*" MinHeight="200"/>
+                <RowDefinition Height="6*" MinHeight="400"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 

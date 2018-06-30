@@ -34,20 +34,6 @@ namespace FanKit
         //Methon
         public static void ImageButtonVisibleChange(double Offset) => ImageButtonVisibleChanged?.Invoke(Offset);
 
-        //Property
-        private double verticalOffset;
-        public double VerticalOffset
-        {
-            get => verticalOffset;
-            set
-            {
-                if (value < verticalOffset) this.Border.Visibility = Visibility.Visible;
-                else if (value > verticalOffset) this.Border.Visibility = Visibility.Collapsed;
-
-                verticalOffset = value;
-            }
-        }
-
 
         #endregion
 
@@ -75,6 +61,7 @@ namespace FanKit
 
             new PageType(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu"),
             new PageType(typeof(FanKit.Frames.Control.TabBarPage),"TabBar"),
+            new PageType(typeof(FanKit.Frames.Control.AdaptiveSizePage),"AdaptiveSize"),
         };
 
         public MainPage()
@@ -113,7 +100,7 @@ namespace FanKit
             this.Frame.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
 
             //ImageButtonVisible：图片按钮可视
-            FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.VerticalOffset = Offset;
+            FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.sos.VerticalOffset = Offset;
         }
 
 

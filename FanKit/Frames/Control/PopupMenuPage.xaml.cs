@@ -30,12 +30,7 @@ namespace FanKit.Frames.Control
         }
 
 
-        //Property
-
-
-
         private void Button_Tapped(object sender, TappedRoutedEventArgs e) => this.PopupMenuControl.IsShow = !this.PopupMenuControl.IsShow;
-
 
     }
 }

@@ -8,6 +8,7 @@
    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:library="using:FanKit.Library"
     mc:Ignorable="d"
     Loaded="Page_Loaded"
     Background="{ThemeResource AppBarBackgroundThemeBrush}">
@@ -18,7 +19,11 @@
         <!--ImageVisible：图片可视-->
         <SolidColorBrush x:Name="SolidColorBrush" Color="Transparent"/>
         <ImageBrush x:Name="ImageBrush" ImageSource="ms-appx:///Icon/HERO.jpg" Stretch="UniformToFill"/>
-
+      
+        
+        <!--ScrollOffsetShow-->
+        <library:ScrollOffsetShow x:Name="sos"/>
+        
     </Page.Resources>
 
     
@@ -67,10 +72,11 @@
 
        
             <!--按钮-->
-        <Button x:Name="Border" 
-                Style="{StaticResource AppFABButtonStyle}"
-                extensions:VisualExtensions.CenterPoint="32,32,0"
-                Tapped="Border_Tapped">
+        <Button 
+            Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}"
+            Style="{StaticResource AppFABButtonStyle}"
+            extensions:VisualExtensions.CenterPoint="32,32,0"
+            Tapped="Border_Tapped">
 
             <!--Visibility="Visible"动画：上浮并显现-->
             <animations:Implicit.ShowAnimations>

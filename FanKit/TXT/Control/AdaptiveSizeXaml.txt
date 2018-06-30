@@ -1,0 +1,72 @@
+
+```xaml
+
+
+    <Page.Resources>
+      
+        <!--AdaptiveSize-->
+        <local:AdaptiveSize x:Name="adaptiveSize" PanelElement="{Binding ElementName=adaptiveGridView}"/>
+
+        <!--DataTemplate-->
+        <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
+            <Border Height="111" Width="{Binding ElementName=adaptiveSize,Path=SizeWidth}" >
+                <Grid  Margin="1" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+                    <TextBlock Text="{x:Bind}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+        
+    </Page.Resources>
+
+
+
+   
+   <GridView x:Name="adaptiveGridView" ItemTemplate="{StaticResource ItemTemplate}">
+
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem" >
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="VerticalAlignment" Value="Stretch" />
+                        </Style>
+                    </GridView.ItemContainerStyle>
+
+                    <GridView.Style>
+                        <Style  x:Name="GridViewStyle" TargetType="GridView">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="GridView">
+                                        <ScrollViewer x:Name="ScrollViewer" >
+                                            <ItemsPresenter HorizontalAlignment="Center" />
+                                        </ScrollViewer>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GridView.Style>
+
+                    <x:String>Deep</x:String>
+                    <x:String>Dark</x:String>
+                    <x:String>Fantasy</x:String>
+                    <x:String>Boy</x:String>
+                    <x:String>Next</x:String>
+                    <x:String>Door</x:String>
+                    <x:String>As we can</x:String>
+                    <x:String>Get it out</x:String>
+                    <x:String>Attention move</x:String>
+                    <x:String>Deep</x:String>
+                    <x:String>Dark</x:String>
+                    <x:String>Fantasy</x:String>
+                    <x:String>Boy</x:String>
+                    <x:String>Next</x:String>
+                    <x:String>Door</x:String>
+                    <x:String>As we can</x:String>
+                    <x:String>Get it out</x:String>
+                    <x:String>Attention move</x:String>
+
+                </GridView>
+
+
+
+
+```
