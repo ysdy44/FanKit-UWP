@@ -12,7 +12,7 @@
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -141,6 +141,16 @@
     <Compile Include="Frames\Control\TabBarPage.xaml.cs">
       <DependentUpon>TabBarPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\TouchSliderControl.xaml.cs">
+      <DependentUpon>TouchSliderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Control\TouchSliderPage.xaml.cs">
+      <DependentUpon>TouchSliderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Library\Palette.cs" />
+    <Compile Include="Frames\Library\PalettePage.xaml.cs">
+      <DependentUpon>PalettePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Others\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
@@ -235,6 +245,16 @@
     <Content Include="Icon\Logo.png" />
     <Content Include="Icon\LogoB.png" />
     <Content Include="Icon\pexels-photo-688659.jpg" />
+    <Content Include="Icon\Photos\BisonBadlandsChillin.jpg" />
+    <Content Include="Icon\Photos\ColumbiaRiverGorge.jpg" />
+    <Content Include="Icon\Photos\GrandTetons.jpg" />
+    <Content Include="Icon\Photos\MilkyWayStHelensHikePurple.jpg" />
+    <Content Include="Icon\Photos\NorthernCascadesReflection.jpg" />
+    <Content Include="Icon\Photos\Owl.jpg" />
+    <Content Include="Icon\Photos\ShootingOnAutoOnTheDrone.jpg" />
+    <Content Include="Icon\Photos\SmithnRockDownTheRiverView.jpg" />
+    <Content Include="Icon\Photos\SnowyInterbayt.jpg" />
+    <Content Include="Icon\Photos\SpeedTripleAtristsPoint.jpg" />
     <Content Include="Icon\SplashScreen.png" />
     <Content Include="Icon\Square.png" />
     <Content Include="TXT\Control\AdaptiveSizeClassCs.txt" />
@@ -245,6 +265,10 @@
     <Content Include="TXT\Control\TabBarUserCs.txt" />
     <Content Include="TXT\Control\TabBarUserXaml.txt" />
     <Content Include="TXT\Control\TabBarXaml.txt" />
+    <Content Include="TXT\Control\TouchSliderUserCs.txt" />
+    <Content Include="TXT\Control\TouchSliderUserXaml.txt" />
+    <Content Include="TXT\Control\TouchSliderXaml.txt" />
+    <Content Include="TXT\Library\Palette.txt" />
     <Content Include="TXT\Template\FloatActionButtonCs.txt" />
     <Content Include="TXT\Template\FloatActionButtonStyle.txt" />
     <Content Include="TXT\Template\FloatActionButtonXaml.txt" />
@@ -317,6 +341,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\TabBarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\TouchSliderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\TouchSliderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Library\PalettePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

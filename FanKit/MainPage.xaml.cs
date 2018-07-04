@@ -50,7 +50,6 @@ namespace FanKit
            new PageType(typeof(FanKit.Frames.Brush.RevealBackgroundBrushPage),"RevealBackgroundBrushes"),
             new PageType(typeof(FanKit.Frames.Brush.ColorPage),"Colors"),
 
-
             new PageType(typeof(FanKit.Frames.Style.TextblockStylePage),"TextblockStyle"),
             new PageType(typeof(FanKit.Frames.Style.ButtonStylePage),"ButtonStyle"),
 
@@ -62,6 +61,9 @@ namespace FanKit
             new PageType(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu"),
             new PageType(typeof(FanKit.Frames.Control.TabBarPage),"TabBar"),
             new PageType(typeof(FanKit.Frames.Control.AdaptiveSizePage),"AdaptiveSize"),
+            new PageType(typeof(FanKit.Frames.Control.TouchSliderPage),"TouchSlider"),
+
+            new PageType(typeof(FanKit.Frames.Library.PalettePage),"Palette"),
         };
 
         public MainPage()
