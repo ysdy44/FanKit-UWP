@@ -1,4 +1,8 @@
-﻿using Microsoft.Graphics.Canvas;
+﻿
+```Csharp
+
+
+using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Toolkit.Uwp;
 using System;
@@ -254,3 +258,8 @@ namespace FanKit.Frames.Library
         }
     }
 }
+
+
+
+
+```

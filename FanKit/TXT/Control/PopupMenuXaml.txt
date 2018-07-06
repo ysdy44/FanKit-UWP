@@ -4,11 +4,12 @@
 
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
 
+	         <ScrollViewer Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-                <StackPanel>
+                <StackPanel Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     
-                    <Border  Height="140" Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-                        <TextBlock Text="Popup Menu Control" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                    <Border  Height="100" Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                        <TextBlock Text="Popup Menu" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
                     </Border>
 
                     <Border Style="{StaticResource LeftBoderStyle}">
@@ -54,8 +55,9 @@
                             </TextBlock>
                         </local:PopupMenuControl>
                     </Border>
-
-                </StackPanel>
+					
+                </StackPanel>                
+            </ScrollViewer>
 
 
 

@@ -27,11 +27,28 @@ namespace FanKit.Frames.Control
         }
 
         //State Changed
+        bool IsPressed = false;
         private void CommonStates_CurrentStateChanged(object sender, VisualStateChangedEventArgs e)
         {
-            if (e.NewState.Name == "Pressed") this.ValueChangeStarted?.Invoke(sender, this.e);
-            if (e.NewState.Name != "Pressed") this.ValueChangeCompleted?.Invoke(sender, this.e);
+            if (this.e != null)
+            {
+                if (e.NewState.Name == "Pressed")
+                {
+                    IsPressed = true;
+                    this.ValueChangeStarted?.Invoke(sender, this.e);
+                }
+
+                if (e.NewState.Name != "Pressed")
+                {
+                    if (IsPressed == true)
+                    {
+                        IsPressed = false;
+                        this.ValueChangeCompleted?.Invoke(sender, this.e);
+                    }
+                }
+            }
         }
+
 
     }
 }

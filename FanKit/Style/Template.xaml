@@ -1,0 +1,25 @@
+﻿<!--Template-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FanKit.Style">
+
+
+    <!--Header-->
+    <DataTemplate x:Name="AppListViewBaseHeader">
+        <Border Height="170">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               Text="~没有更多了哦~" FontSize="14" FontFamily="Forte" 
+                               Foreground="{ThemeResource AppBarItemDisabledForegroundThemeBrush}"/>
+        </Border>
+    </DataTemplate>
+    <!--Footer-->
+    <DataTemplate x:Name="AppListViewBaseFooter" >
+        <Border Height="50">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="~end~" FontSize="20" FontFamily="Forte" 
+                               Foreground="{ThemeResource AppBarItemDisabledForegroundThemeBrush}"/>
+        </Border>
+    </DataTemplate>
+    
+</ResourceDictionary>

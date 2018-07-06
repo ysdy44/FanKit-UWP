@@ -1,0 +1,22 @@
+
+```xaml
+
+
+    <UserControl
+	>
+
+    <StackPanel Orientation="Horizontal">
+        <Border Width="44">
+            <Viewbox Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Path x:Name="Path" Fill="{ThemeResource SystemControlHighlightBaseMediumBrush}" Width="768" Height="768"  />
+            </Viewbox>
+        </Border>
+        <TextBlock x:Name="TextBlock" VerticalAlignment="Center" FontWeight="Medium"/>
+    </StackPanel>
+    
+</UserControl>
+
+
+
+
+```

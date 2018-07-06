@@ -19,10 +19,12 @@
 
         <!--DataTemplate-->
         <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
-            <Border Height="111" Width="{Binding ElementName=adaptiveSize,Path=SizeWidth}" >
-                <Grid  Margin="1" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <Border Padding="2"
+                    Width="{Binding ElementName=adaptiveSize,Path=SizeWidth}" 
+                    Height="{Binding ElementName=adaptiveSize,Path=SizeHeight}" >
+                <Border  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
                     <TextBlock Text="{x:Bind}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Grid>
+                </Border>
             </Border>
         </DataTemplate>
         
@@ -190,6 +192,8 @@
                             <LineBreak/>
                             <LineBreak/>
                             <Span FontStyle="Italic">GridView ' Item can be adaptive window width</Span>
+                            <LineBreak/>
+                            <Span FontStyle="Italic">Height is 1.6 times the width</Span>
 
                         </TextBlock>
                     </StackPanel>

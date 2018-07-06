@@ -1,0 +1,32 @@
+﻿<!--Resource-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FanKit.Style">
+
+
+    <!--Title Foreground-->
+    <SolidColorBrush x:Key="AppResourceForeground" Color="{ThemeResource SystemBaseHighColor}"/>
+    <SolidColorBrush x:Key="AppResourceWhite" Color="White"/>
+
+
+    <!--Pivot Brush-->
+    <StaticResource x:Key="PivotHeaderItemSelectedPipeFill" ResourceKey="AppOrangeBrush" />
+    <StaticResource x:Key="PivotHeaderItemForegroundSelected" ResourceKey="AppOrangeBrush" />
+    <StaticResource x:Key="PivotHeaderItemForegroundSelectedPointerOver" ResourceKey="AppOrangeBrush" />
+    <StaticResource x:Key="PivotHeaderItemForegroundSelectedPressed" ResourceKey="AppOrangeBrush" />
+
+    <StaticResource x:Key="PivotHeaderItemFontSize" ResourceKey="InkToolbarButtonContentSize" />
+    <StaticResource x:Key="PivotHeaderItemThemeFontWeight" ResourceKey="SearchBoxContentThemeFontWeight" />
+
+    <StaticResource x:Key="PivotItemMargin" ResourceKey="PivotNavButtonBorderThemeThickness" />
+
+
+    <!--System Accent
+            <StaticResource x:Key="SystemControlHighlightAccentBrush" ResourceKey="AppOrangeBrush" />-->
+
+    <!--Overlay Dismiss-->
+    <StaticResource x:Key="FlyoutLightDismissOverlayBackground" ResourceKey="AppDarkBrush" />
+
+    
+</ResourceDictionary>

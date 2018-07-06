@@ -88,9 +88,9 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-                <ListView>
+                <ListView >
 
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -99,8 +99,8 @@
                     </ListView.ItemContainerStyle>
 
                     <ListView.Header>
-                        <Border  Height="140" Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-                            <TextBlock Text="Floating Action Button 0" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                        <Border  Height="140" Padding="14" >
+                            <TextBlock Text="Floating Action Button" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
                         </Border>
                     </ListView.Header>
 

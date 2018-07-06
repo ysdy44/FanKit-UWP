@@ -21,27 +21,24 @@ namespace FanKit.Frames.Control
         {
             if (d is AdaptiveSize con && e.NewValue != e.OldValue)
             {
-                con. PanelElement.SizeChanged += (s2, e2) => con.SizeWidth = con.GetSizeWidth();
-                con.SizeWidth = con.GetSizeWidth();
+                con.PanelElement.SizeChanged += (s2, e2) => con.SetSizeWidth();
+                con.SetSizeWidth();
             }
         }
+
+
+        //Design Width
+        public double DesignWidth
+        {
+            get { return (double)GetValue(DesignWidthProperty); }
+            set { SetValue(DesignWidthProperty, value); }
+        }
+        public static readonly DependencyProperty DesignWidthProperty = DependencyProperty.Register("DesignWidth", typeof(double), typeof(AdaptiveSize), new PropertyMetadata(120d));
 
 
         #endregion
 
 
-
-        //Design Width
-        public double designWidth=120;
-        public double DesignWidth
-        {
-            get => designWidth;
-            set
-            {
-                designWidth = value;
-                OnPropertyChanged("DesignWidth");
-            }
-        }
 
         //Size Width
         public double sizeWidth;
@@ -54,8 +51,27 @@ namespace FanKit.Frames.Control
                 OnPropertyChanged("SizeWidth");
             }
         }
-   
-        //Get Width
+
+        public double sizeHeight;
+        public double SizeHeight
+        {
+            get => sizeHeight;
+            set
+            {
+                sizeHeight = value;
+                OnPropertyChanged("SizeHeight");
+            }
+        }
+
+
+
+        //Set/Get Width  
+        private void SetSizeWidth()
+        {
+            double width = this.GetSizeWidth();
+            this.SizeWidth = width;
+            this.SizeHeight = width*1.6d;
+        }
         private double GetSizeWidth()
         {
             double width = this.PanelElement.ActualWidth;

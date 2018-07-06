@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -18,15 +9,19 @@ namespace FanKit.Frames.Template
 {
     public sealed partial class SplitPanelPage : Page
     {
-                 
-             public SplitPanelPage()
+        public SplitPanelPage()
         {
             this.InitializeComponent();
         }
+        protected override void OnNavigatedFrom(NavigationEventArgs e) => SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = this.Frame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+
+
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelXaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelCs.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelCs.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelUserCs.txt");
+            this.MarkdownText4.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelUserCs.txt");
         }
 
 

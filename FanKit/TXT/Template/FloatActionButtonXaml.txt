@@ -7,12 +7,12 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
 
 
-               <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+               <Grid Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
                 <ListView>
 
                     <ListView.Header>
-                        <Border  Height="140" Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                        <Border  Height="140" Padding="14" >
                             <TextBlock Text="Floating Action Button" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
                         </Border>
                     </ListView.Header>

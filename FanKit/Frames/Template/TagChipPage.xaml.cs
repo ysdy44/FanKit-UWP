@@ -19,6 +19,7 @@ using Windows.ApplicationModel;
 using Windows.UI.Xaml.Hosting;
 using System.Numerics;
 using Windows.UI.Composition;
+using Windows.UI.Core;
 
 namespace FanKit.Frames.Template
 {
@@ -28,6 +29,9 @@ namespace FanKit.Frames.Template
         {
             this.InitializeComponent();
         }
+        protected override void OnNavigatedFrom(NavigationEventArgs e) => SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = this.Frame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+
+
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/TagChipXaml.txt");
