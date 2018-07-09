@@ -15,8 +15,8 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI;
 
-namespace FanKit.Frames.Library
-{
+
+
 
     /// <summary>
     /// Palette color from pictures
@@ -257,7 +257,7 @@ namespace FanKit.Frames.Library
             }
         }
     }
-}
+
 
 
 

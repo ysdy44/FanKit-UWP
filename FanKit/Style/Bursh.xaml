@@ -10,7 +10,7 @@
     <SolidColorBrush  x:Name="AppBrownBrush">#9b7077</SolidColorBrush>
     <SolidColorBrush  x:Name="AppYellowBrush">#ffb64d</SolidColorBrush>
     <SolidColorBrush  x:Name="AppGreenBrush">#9cd25a</SolidColorBrush>
-
+    <SolidColorBrush  x:Name="AppBlueBrush">#00b2f0</SolidColorBrush>
 
     <!--Light Dark-->
     <SolidColorBrush x:Name="AppLightBrush">#22FFFFFF</SolidColorBrush>

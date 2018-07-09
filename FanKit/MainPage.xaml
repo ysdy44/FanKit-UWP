@@ -48,7 +48,7 @@
                       IsItemClickEnabled="True" ItemClick="ListView_ItemClick"
                       ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Disabled">
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="local:PageType">
+                    <DataTemplate x:DataType="library:PageType">
                         <TextBlock Text="{x:Bind Name}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>

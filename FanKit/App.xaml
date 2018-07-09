@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="ms-appx:///Style/Style.xaml"/>
                 <ResourceDictionary Source="ms-appx:///Style/Template.xaml"/>
                 <ResourceDictionary Source="ms-appx:///Style/Resource.xaml"/>
+                <ResourceDictionary Source="ms-appx:///Style/Transition.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <!--MaxWidth-->

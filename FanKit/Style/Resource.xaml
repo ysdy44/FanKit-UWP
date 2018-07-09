@@ -11,10 +11,10 @@
 
 
     <!--Pivot Brush-->
-    <StaticResource x:Key="PivotHeaderItemSelectedPipeFill" ResourceKey="AppOrangeBrush" />
-    <StaticResource x:Key="PivotHeaderItemForegroundSelected" ResourceKey="AppOrangeBrush" />
-    <StaticResource x:Key="PivotHeaderItemForegroundSelectedPointerOver" ResourceKey="AppOrangeBrush" />
-    <StaticResource x:Key="PivotHeaderItemForegroundSelectedPressed" ResourceKey="AppOrangeBrush" />
+    <StaticResource x:Key="PivotHeaderItemSelectedPipeFill" ResourceKey="AppBlueBrush" />
+    <StaticResource x:Key="PivotHeaderItemForegroundSelected" ResourceKey="AppBlueBrush" />
+    <StaticResource x:Key="PivotHeaderItemForegroundSelectedPointerOver" ResourceKey="AppBlueBrush" />
+    <StaticResource x:Key="PivotHeaderItemForegroundSelectedPressed" ResourceKey="AppBlueBrush" />
 
     <StaticResource x:Key="PivotHeaderItemFontSize" ResourceKey="InkToolbarButtonContentSize" />
     <StaticResource x:Key="PivotHeaderItemThemeFontWeight" ResourceKey="SearchBoxContentThemeFontWeight" />

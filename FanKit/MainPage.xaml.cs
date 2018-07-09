@@ -16,7 +16,8 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.Core;
-using Windows.UI.ViewManagement; 
+using Windows.UI.ViewManagement;
+using FanKit.Library;
 
 namespace FanKit
 {
@@ -52,6 +53,7 @@ namespace FanKit
 
             new PageType(typeof(FanKit.Frames.Style.TextblockStylePage),"TextblockStyle"),
             new PageType(typeof(FanKit.Frames.Style.ButtonStylePage),"ButtonStyle"),
+            new PageType(typeof(FanKit.Frames.Transition.TransitionPage),"Transition"),
 
             new PageType(typeof(FanKit.Frames.Template.FlyoutTemplatePage),"FlyoutTemplate"),
             new PageType(typeof(FanKit.Frames.Template.TagChipPage),"TagChipControl"),
@@ -64,6 +66,7 @@ namespace FanKit
             new PageType(typeof(FanKit.Frames.Control.TouchSliderPage),"TouchSlider"),
 
             new PageType(typeof(FanKit.Frames.Library.PalettePage),"Palette"),
+
         };
 
         public MainPage()
@@ -152,16 +155,4 @@ namespace FanKit
 
 
     }
-    public class PageType
-    {
-        public Type Page;
-        public string Name;
-
-        public PageType(Type page, string name)
-        {
-            this.Page = page;
-            this.Name = name;
-        }
-    }
-
 }
