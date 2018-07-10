@@ -278,6 +278,97 @@
         <Setter Property="FontSize" Value="22"/>
     </Style>
 
+
+    <!--FlyoutPresenter（浅色长条浮出）-->
+    <Style x:Key="AppFlyoutPresenter" TargetType="FlyoutPresenter">
+        <Setter Property="FontWeight" Value="Black"/>
+        <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumBrush}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="MaxHeight" Value="60"/>
+        <Setter Property="MinHeight" Value="50"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="FlyoutPresenter">
+                    <Border          
+                            CornerRadius="6"
+                            Width="{TemplateBinding Width}" 
+                            Height="{TemplateBinding Height}" 
+                            MaxWidth="{TemplateBinding MaxWidth}" 
+                             MaxHeight="{TemplateBinding MaxHeight}" 
+                             MinWidth="{TemplateBinding MinWidth}" 
+                             MinHeight="{TemplateBinding MinHeight}" 
+
+                             Background="{TemplateBinding Background}" 
+                             BorderBrush="{TemplateBinding BorderBrush}" 
+                             BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter      
+                                     Foreground="{TemplateBinding Foreground}" 
+                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
+                                    VerticalAlignment="{TemplateBinding VerticalAlignment}" 
+
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+
+                                              Content="{TemplateBinding Content}" 
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                              ContentTransitions="{TemplateBinding ContentTransitions}"
+                                              Margin="{TemplateBinding Padding}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--FlyoutPresenter（白色面板带阴影浮出）-->
+    <Style x:Key="AppShadowFlyoutPresenter" TargetType="FlyoutPresenter" >
+        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+        <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="FlyoutPresenter">
+                    <!--阴影面板-->
+                    <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" ShadowOpacity="0.3">
+                        <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"  Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="ScrollViewer"    AutomationProperties.AccessibilityView="Raw"   HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"    VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"      ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}"   MinWidth="{TemplateBinding MinWidth}"    Width="Auto"    MaxWidth="{TemplateBinding MaxWidth}"     MinHeight="{TemplateBinding MinHeight}"       Height="Auto"       MaxHeight="{TemplateBinding MaxHeight}">
+                                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"  ContentTransitions="{TemplateBinding ContentTransitions}"     Content="{TemplateBinding Content}"   HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"/>
+                            </ScrollViewer>
+                        </Border>
+                    </controls:DropShadowPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--DropShadowPanel-->
+    <Style x:Key="DropShadowPanel" TargetType="controls:DropShadowPanel" >
+        <Setter Property="BlurRadius" Value="8"/>
+        <Setter Property="ShadowOpacity" Value="1"/>
+        <Setter Property="OffsetX" Value="10"/>
+        <Setter Property="OffsetY" Value="10"/>
+        <Setter Property="Color" Value="Black"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
     
     <!--Pivot（Header宽大居中，LeftHeader做顶栏，包含了30 50 * 的高度）-->
     <Style x:Key="AppPivotStyke" TargetType="Pivot">

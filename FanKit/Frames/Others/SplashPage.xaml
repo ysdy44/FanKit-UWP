@@ -5,6 +5,7 @@
     xmlns:local="using:FanKit.Frames.Others"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fankit="using:FanKit"
     mc:Ignorable="d"
     NavigationCacheMode="Enabled">
 
@@ -18,6 +19,7 @@
         <Image x:Name="SplashImage" Visibility="Visible" Source="ms-appx:///Icon/Logo.png" Stretch="Uniform"/>
         <Image x:Name="TitleImage" Visibility="Visible"  Grid.Row="1"  Source="ms-appx:///Icon/iconL.png" Stretch="Uniform"/>
         <TextBlock Text="FanKit v1.2" Visibility="Visible" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+      
     </Grid>
  
 </Page>

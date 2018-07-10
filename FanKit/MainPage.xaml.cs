@@ -31,7 +31,7 @@ namespace FanKit
         //delegate
         public delegate void ImageButtonVisibleChangedHandler(double Offset);
         public static event ImageButtonVisibleChangedHandler ImageButtonVisibleChanged = null;
-        
+
         //Methon
         public static void ImageButtonVisibleChange(double Offset) => ImageButtonVisibleChanged?.Invoke(Offset);
 
@@ -39,35 +39,83 @@ namespace FanKit
         #endregion
 
 
-        List<PageType> pages = new List<PageType>
+
+        List<SampleCategory> SampleCategory = new List<SampleCategory>
         {
-         new PageType( typeof(FanKit.Frames.Brush.SystemBrushPage),"SystemBrushes"),
-           new PageType(typeof(FanKit.Frames.Brush.LegacyBrushPage),"LegacyBrushes"),
-           new PageType(typeof(FanKit.Frames.Brush.InkToolbarBrushPage),"InkToolbarBrushes"),
-           new PageType(typeof(FanKit.Frames.Brush.OtherBrushPage),"OthersBrush"),
-            new PageType(typeof(FanKit.Frames.Brush.AcrylicElementBrushPage),"AcrylicElementBrushes"),
-           new PageType(typeof(FanKit.Frames.Brush.AcrylicWindowBrushPage),"AcrylicWindowBrushes"),
-           new PageType(typeof(FanKit.Frames.Brush.RevealBorderBrushPage),"RevealBorderBrushes"),
-           new PageType(typeof(FanKit.Frames.Brush.RevealBackgroundBrushPage),"RevealBackgroundBrushes"),
-            new PageType(typeof(FanKit.Frames.Brush.ColorPage),"Colors"),
 
-            new PageType(typeof(FanKit.Frames.Style.TextblockStylePage),"TextblockStyle"),
-            new PageType(typeof(FanKit.Frames.Style.ButtonStylePage),"ButtonStyle"),
-            new PageType(typeof(FanKit.Frames.Transition.TransitionPage),"Transition"),
+            new SampleCategory
+            {
+                Name="Brush",
+                Samples=new List<Sample>
+                {
+                    new Sample( typeof(FanKit.Frames.Brush.SystemBrushPage),"SystemBrushes"),
+                    new Sample(typeof(FanKit.Frames.Brush.LegacyBrushPage),"LegacyBrushes"),
+                    new Sample(typeof(FanKit.Frames.Brush.InkToolbarBrushPage),"InkToolbarBrushes"),
+                    new Sample(typeof(FanKit.Frames.Brush.OtherBrushPage),"OthersBrush"),
+                    new Sample(typeof(FanKit.Frames.Brush.AcrylicElementBrushPage),"AcrylicElementBrushes"),
+                    new Sample(typeof(FanKit.Frames.Brush.AcrylicWindowBrushPage),"AcrylicWindowBrushes"),
+                    new Sample(typeof(FanKit.Frames.Brush.RevealBorderBrushPage),"RevealBorderBrushes"),
+                    new Sample(typeof(FanKit.Frames.Brush.RevealBackgroundBrushPage),"RevealBackgroundBrushes"),
+                    new Sample(typeof(FanKit.Frames.Brush.ColorPage),"Colors"),
+                }
+            },
 
-            new PageType(typeof(FanKit.Frames.Template.FlyoutTemplatePage),"FlyoutTemplate"),
-            new PageType(typeof(FanKit.Frames.Template.TagChipPage),"TagChipControl"),
-            new PageType(typeof(FanKit.Frames.Template.FloatActionButtonPage),"FloatActionButton"),
-            new PageType(typeof(FanKit.Frames.Template.SplitPanelPage),"SplitPanel"),
+            new SampleCategory
+            {
+                Name ="Style",
+                Samples=new List<Sample>
+                {
+                    new Sample(typeof(FanKit.Frames.Style.TextblockStylePage),"TextblockStyle"),
+                    new Sample(typeof(FanKit.Frames.Style.ButtonStylePage),"ButtonStyle"),
+                }
+            },
 
-            new PageType(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu"),
-            new PageType(typeof(FanKit.Frames.Control.TabBarPage),"TabBar"),
-            new PageType(typeof(FanKit.Frames.Control.AdaptiveSizePage),"AdaptiveSize"),
-            new PageType(typeof(FanKit.Frames.Control.TouchSliderPage),"TouchSlider"),
+            new SampleCategory
+            {
+                Name ="Transition",
+                Samples=new List<Sample>
+                {
+                    new Sample(typeof(FanKit.Frames.Transition.TransitionPage),"Transition"),
+                }
+            },
 
-            new PageType(typeof(FanKit.Frames.Library.PalettePage),"Palette"),
+            new SampleCategory
+            {
+                Name="Template",
+                Samples=new List<Sample>
+                {
+                    new Sample(typeof(FanKit.Frames.Template.FlyoutTemplatePage),"FlyoutTemplate"),
+                    new Sample(typeof(FanKit.Frames.Template.TagChipPage),"TagChipControl"),
+                    new Sample(typeof(FanKit.Frames.Template.FloatActionButtonPage),"FloatActionButton"),
+                    new Sample(typeof(FanKit.Frames.Template.SplitPanelPage),"SplitPanel"),
+                }
+            },
+
+            new SampleCategory
+            {
+                Name ="Control",
+                Samples=new List<Sample>
+                {
+                    new Sample(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu"),
+                    new Sample(typeof(FanKit.Frames.Control.TabBarPage),"TabBar"),
+                    new Sample(typeof(FanKit.Frames.Control.AdaptiveSizePage),"AdaptiveSize"),
+                    new Sample(typeof(FanKit.Frames.Control.TouchSliderPage),"TouchSlider"),
+                }
+            },
+
+            new SampleCategory
+            {
+                Name ="Library",
+                Samples=new List<Sample>
+                {
+                    new Sample(typeof(FanKit.Frames.Library.PalettePage),"Palette"),
+                }
+            },
 
         };
+
+
+
 
         public MainPage()
         {
@@ -88,7 +136,7 @@ namespace FanKit
             //标题栏颜色
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
 
-            Color background= Color.FromArgb(255, 0, 178, 240);
+            Color background = Color.FromArgb(255, 0, 178, 240);
             titleBar.BackgroundColor = background;
             titleBar.ButtonBackgroundColor = background;
             titleBar.ButtonInactiveBackgroundColor = background;
@@ -102,7 +150,7 @@ namespace FanKit
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
+            this.NavigationFrame.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
 
             //ImageButtonVisible：图片按钮可视
             FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.sos.VerticalOffset = Offset;
@@ -111,7 +159,7 @@ namespace FanKit
 
 
         #endregion
-        
+
 
         #region ImageVisible：图片可视
 
@@ -132,26 +180,42 @@ namespace FanKit
 
 
         #endregion
-        
+
 
         #region Navigate：页面跳转
 
 
-        private void HomeButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
-        private void SettingButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Frame.Navigate(typeof(FanKit.Frames.Others.SettingPage));//页面跳转
+        private void HomeButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Navigate(typeof(FanKit.Frames.Others.SplashPage));
+        private void SettingButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Navigate(typeof(FanKit.Frames.Others.SettingPage));
+        private void SampleCategoryControl_ItemClick(Type page) => this.Navigate(page);
+
+        private void Navigate(Type page)
+        {
+            //Sample Category Control
+            this.SampleCategoryControl.Category = null;
+
+            //Navigate
+            this.ListView.SelectedIndex = -1;
+    
+            //Navigate
+            this.NavigationFrame.Navigate(page);
+        }
+
+
+        #endregion
+
+
+        //Sample Category Control
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.HomeButton.IsChecked = false;
             this.SettingButton.IsChecked = false;
 
-            if (e.ClickedItem is PageType pages)
+            if (e.ClickedItem is SampleCategory category)
             {
-                this.Frame.Navigate(pages.Page);//页面跳转
-            }    
+                this.SampleCategoryControl.Category = category;
+            }
         }
-
-
-        #endregion
 
 
     }

@@ -45,9 +45,21 @@
 
 
     <!--Deep-->
+    <LinearGradientBrush x:Name="AppLeftDeepGradientBrush" StartPoint="1,0.5" EndPoint="0,0.5">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#30000000" Offset="0"/>
+            <GradientStop Color="#10000000" Offset="0.5"/>
+            <GradientStop Color="#00000000" Offset="1"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
     <LinearGradientBrush x:Name="AppTopDeepGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
         <GradientStop Color="#70000000" Offset="0"/>
         <GradientStop Color="#20000000" Offset="0.5"/>
+        <GradientStop Color="#00000000" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Name="AppRightDeepGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+        <GradientStop Color="#30000000" Offset="0"/>
+        <GradientStop Color="#10000000" Offset="0.5"/>
         <GradientStop Color="#00000000" Offset="1"/>
     </LinearGradientBrush>
     <LinearGradientBrush x:Name="AppBottomDeepGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">

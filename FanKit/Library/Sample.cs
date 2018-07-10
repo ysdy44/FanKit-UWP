@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace FanKit.Library
 {
-    /// <summary>
-    /// 页面与名称
-    /// </summary>
-  public  class PageType
+ public   class Sample
     {
         public Type Page;
         public string Name;
+        public string Summary;
 
-        public PageType(Type page, string name)
+        public Sample(Type page, string name)
         {
             this.Page = page;
             this.Name = name;

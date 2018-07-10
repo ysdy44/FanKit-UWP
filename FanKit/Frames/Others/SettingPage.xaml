@@ -14,20 +14,43 @@
         <ScrollViewer>
             <StackPanel Padding="14">
               
+                
                 <Border Margin="14" Height="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
-
+                <!--ThemeMode-->
                 <TextBlock Text="Theme Mode" Style="{ThemeResource TitleTextBlockStyle}"/>
                 <RadioButton x:Name="LightRadioButton" Content="Light" Checked="LightRadioButton_Checked"/>
                 <RadioButton  x:Name="NightRadioButton" Content="Night" Checked="NightRadioButton_Checked"/>
                 <RadioButton  x:Name="DefaultRadioButton" Content="Use system setting" Checked="DefaultRadioButton_Checked"/>
 
+                
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
-
+                <!--Open source-->
                 <TextBlock Text="Open source" Style="{ThemeResource TitleTextBlockStyle}"/>
                 <HyperlinkButton Content="https://github.com/ysdy44/FanKit" NavigateUri="https://github.com/ysdy44/FanKit"/>
 
+                
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
+                <!--Reference-->
+                <TextBlock Text="Reference" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <Rectangle Height="12"/>
+                <Grid Height="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="12"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Height="60" Width="60" Grid.RowSpan="2" Source="ms-appx:///Icon/Others/ToolKit.PNG" Stretch="UniformToFill"/>
+                    <TextBlock Grid.Column="2" Text="Windows Community Toolkit Sample App"/>
+                    <HyperlinkButton Grid.Column="2" Grid.Row="1" Content="from windows store" NavigateUri="https://www.microsoft.com/store/productId/9NBLGGH4TLCQ"/>
+                </Grid>
 
+                
+                <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
+                <!--Feedback-->
                 <TextBlock Text="Feedback" Style="{ThemeResource TitleTextBlockStyle}"/>
                 <StackPanel Orientation="Horizontal">
                     <Ellipse Width="40" Height="40">
@@ -39,6 +62,7 @@
                     <HyperlinkButton Content="ysdy44" NavigateUri="mailto:ysdy44@outlook.com"/>
                 </StackPanel>
 
+                
             </StackPanel>
         </ScrollViewer>
     </Grid>
