@@ -12,10 +12,8 @@
 
     <Page.Resources>
         
-        <AcrylicBrush x:Name="PaletteBrush" x:Key="PaletteBrushKey" BackgroundSource="Backdrop" 
-                      TintColor="White" 
-                      TintOpacity="0.6" 
-                      FallbackColor="{StaticResource SystemChromeMediumColor}" />
+        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey" Color="White" />
+        <AcrylicBrush x:Name="PaletteAcrylicBrush" x:Key="PaletteAcrylicBrushKey" BackgroundSource="Backdrop" TintColor="White"  TintOpacity="0.6" FallbackColor="{StaticResource SystemChromeMediumColor}" />
 
     </Page.Resources>
 
@@ -83,7 +81,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="Grid" Background="{StaticResource PaletteBrushKey }">
+        <Grid x:Name="Grid" Background="{StaticResource PaletteAcrylicBrushKey }">
             <controls:Carousel x:Name="CarouselControl"
                                InvertPositive="True"  Orientation="Horizontal"
                                ItemDepth="300" ItemMargin="0" ItemRotationX="0" ItemRotationY="45" ItemRotationZ ="0"
@@ -117,6 +115,7 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
+                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span>As the theme of the picture color  </Span>
                             <Span FontWeight="SemiBold">Palette</Span>              

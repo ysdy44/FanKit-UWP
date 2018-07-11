@@ -131,24 +131,24 @@
                         </Style>
                     </GridView.Style>
 
-                    <x:String>Deep</x:String>
-                    <x:String>Dark</x:String>
-                    <x:String>Fantasy</x:String>
-                    <x:String>Boy</x:String>
-                    <x:String>Next</x:String>
-                    <x:String>Door</x:String>
-                    <x:String>As we can</x:String>
-                    <x:String>Get it out</x:String>
-                    <x:String>Attention move</x:String>
-                    <x:String>Deep</x:String>
-                    <x:String>Dark</x:String>
-                    <x:String>Fantasy</x:String>
-                    <x:String>Boy</x:String>
-                    <x:String>Next</x:String>
-                    <x:String>Door</x:String>
-                    <x:String>As we can</x:String>
-                    <x:String>Get it out</x:String>
-                    <x:String>Attention move</x:String>
+                    <x:String>item00</x:String>
+                    <x:String>item01</x:String>
+                    <x:String>item02</x:String>
+                    <x:String>item03</x:String>
+                    <x:String>item04</x:String>
+                    <x:String>item05</x:String>
+                    <x:String>item06</x:String>
+                    <x:String>item07</x:String>
+                    <x:String>item08</x:String>
+                    <x:String>item09</x:String>
+                    <x:String>item10</x:String>
+                    <x:String>item11</x:String>
+                    <x:String>item12</x:String>
+                    <x:String>item13</x:String>
+                    <x:String>item14</x:String>
+                    <x:String>item15</x:String>
+                    <x:String>item16</x:String>
+                    <x:String>item17</x:String>
 
                 </GridView>
             </Grid>

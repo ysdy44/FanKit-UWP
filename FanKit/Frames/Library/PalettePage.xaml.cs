@@ -46,7 +46,7 @@ namespace FanKit.Frames.Library
             int index = this.CarouselControl.SelectedIndex;
             Uri uri = this.list[index];
 
-            this.PaletteBrush.TintColor = this.PaletteBrush.FallbackColor = await FanKit.Frames.Library.Palette.GetPaletteFormImage(uri);
+        this.PaletteSolidBrush.Color=    this.PaletteAcrylicBrush.TintColor = this.PaletteAcrylicBrush.FallbackColor = await FanKit.Frames.Library.Palette.GetPaletteFormImage(uri);
         }
 
 

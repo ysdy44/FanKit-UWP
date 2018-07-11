@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 namespace FanKit.Control
@@ -27,6 +28,8 @@ namespace FanKit.Control
             set
             {
                 this.TextBlock.Text = value.Name;
+                this.Image.Source = new BitmapImage(value.Uri);
+                sample = value;
             }
         }
 

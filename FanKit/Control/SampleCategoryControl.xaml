@@ -15,16 +15,14 @@
     d:DesignWidth="400">
 
     <Grid x:Name="ShadowGrid" Visibility="Collapsed" Tapped="ShadowGrid_Tapped">
-  
+   
+        <!--Blur-->
         <Grid.Background>
             <media:BackdropBlurBrush Amount="3" />
         </Grid.Background>
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
+        <!--Shadow-->
+        <Rectangle Fill="{StaticResource AppDarkBrush}"/>
 
         <controls:DropShadowPanel Color="Black" ShadowOpacity="0.2" BlurRadius="40"
                                             HorizontalContentAlignment="Stretch" >
@@ -38,35 +36,28 @@
                 <animations:OpacityAnimation To="0" From="1" Duration="0:0:0.2"></animations:OpacityAnimation>
             </animations:Implicit.HideAnimations>
 
-            <Grid Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}">
-          
-                <!--Shadow-->
-                <Rectangle Height="18" VerticalAlignment="Bottom" Fill="{StaticResource AppBottomGradientBrush}">
-                    <Rectangle.RenderTransform>
-                        <CompositeTransform TranslateY="18"/>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                
                 <!--GridView-->
-                <GridView   x:Name="GridView" 
-                            SelectionMode="None"
+            <GridView x:Name="GridView" 
+                             SelectionMode="None"
+                            VerticalAlignment="Top"
+                            ScrollViewer.VerticalScrollMode="Enabled"
                             IsItemClickEnabled="True" ItemClick="GridView_ItemClick"
-                            animations:ReorderGridAnimation.Duration="300"   >
+                            animations:ReorderGridAnimation.Duration="300"  
+                            Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
 
-                    <GridView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <controls:WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </GridView.ItemsPanel>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:WrapPanel/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
 
-                    <GridView.ItemTemplate>
-                        <DataTemplate  x:DataType="library:Sample">
-                            <local:SampleControl Height="140" Width="200" Sample="{x:Bind}"/>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
+                <GridView.ItemTemplate>
+                    <DataTemplate  x:DataType="library:Sample">
+                        <local:SampleControl Width="160" Sample="{x:Bind}"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
 
-                </GridView>
-            </Grid>
+            </GridView>
 
         </controls:DropShadowPanel>
 

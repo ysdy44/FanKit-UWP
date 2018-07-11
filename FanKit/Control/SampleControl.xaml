@@ -25,19 +25,24 @@
     
 
     <Grid x:Name="RootGrid" Background="Transparent" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
+            <RowDefinition Height="12"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Image x:Name="DropShadowPanel"  Margin="12"  Grid.ColumnSpan="2" Source="ms-appx:///Icon/Shadow.png" Stretch="Uniform" extensions:VisualExtensions.NormalizedCenterPoint="0.5" />
-        <Image Margin="12" Grid.ColumnSpan="2" Source="ms-appx:///Icon/Transition/Common.png" Stretch="Uniform"/>
+        <Image x:Name="DropShadowPanel"  Margin="12,8" Grid.Row="1"  Grid.ColumnSpan="2" Source="ms-appx:///Icon/Shadow.png" Stretch="Uniform" extensions:VisualExtensions.NormalizedCenterPoint="0.5" />
+        <Image x:Name="Image" Margin="12,8" Grid.Row="1" Grid.ColumnSpan="2" Stretch="Uniform"/>
 
-        <TextBlock x:Name="TextBlock" Grid.Row="1" Margin="32,0,0,0" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
-        <Button IsEnabled="False" Grid.Column="1" Grid.Row="1" Width="30" Content="&#xE2AD;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}" Tapped="Button_Tapped"/>
-    </Grid>
+        <Grid Grid.Row="2" Margin="12,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>     
+            <TextBlock x:Name="TextBlock" Text="aaa" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <Button IsEnabled="False" Grid.Column="1" Width="30" Content="&#xE2AD;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}" Tapped="Button_Tapped"/>
+        </Grid>
+        
+     </Grid>
 </UserControl>
