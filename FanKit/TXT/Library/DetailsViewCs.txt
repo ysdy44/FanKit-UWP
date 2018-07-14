@@ -1,0 +1,31 @@
+
+```Csharp
+
+App.xaml.cs:
+
+    public sealed partial class App : Application
+    {
+        public static DetailsViewService Service = new DetailsViewService();
+        ......
+    }
+
+
+MainPage: .xaml.cs:
+
+    public sealed partial class MainPage: Page
+    {
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            App.Service.InitializeComponent(this.DetailFrame, typeof(DetailsView.WelcomePage));
+        }
+
+
+        private void ListViewItemA_Tapped(object sender, TappedRoutedEventArgs e) => App.Service.Navigate(typeof(APage));
+        private void ListViewItemB_Tapped(object sender, TappedRoutedEventArgs e) => App.Service.Navigate(typeof(BPage));
+        private void ListViewItemC_Tapped(object sender, TappedRoutedEventArgs e) => App.Service.Navigate(typeof(CPage));
+        private void ListViewItemD_Tapped(object sender, TappedRoutedEventArgs e) => App.Service.Navigate(typeof(DPage));
+
+    }
+
+
+```

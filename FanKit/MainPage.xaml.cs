@@ -112,6 +112,7 @@ namespace FanKit
                 Samples=new List<Sample>
                 {
                     new Sample(typeof(FanKit.Frames.Library.PalettePage),"Palette",new Uri("ms-appx:///Icon/Library/Palette.png")),
+                    new Sample(typeof(FanKit.Frames.Library.DetailsViewPage),"DetailsView",new Uri("ms-appx:///Icon/Library/DetailsView.png")),
                 }
             },
 

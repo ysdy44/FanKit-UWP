@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="FanKit.Frames.Library.DetailsView.PropertyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FanKit.Frames.Library.DetailsView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Pivot>
+
+        <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+            <StackPanel>
+                <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                 
+                    <Span FontStyle="Italic">Split layout, the Panel on the left, right is the Detail</Span>
+                    <LineBreak/>
+                    <LineBreak/>
+                          
+                    <Span FontStyle="Italic">PC:</Span>
+                    <LineBreak/>
+                    <Span FontWeight="SemiBold">Detail</Span>
+                    <Span> on the right side in the </Span>
+                    <Span FontWeight="SemiBold">Panel</Span>
+                    <LineBreak/>
+                    <Span >Display the </Span>
+                    <Span FontWeight="SemiBold">WelcomePage</Span>
+                    
+                    <LineBreak/>
+                    <LineBreak/>       
+                         
+                    <Span FontStyle="Italic">Phone:</Span>
+                    <LineBreak/>
+                    <Span FontWeight="SemiBold">Detail</Span>
+                    <Span> over the </Span>
+                    <Span FontWeight="SemiBold">Panel</Span>
+                    <LineBreak/>
+                    <Span >Do not display the  </Span>
+                    <Span FontWeight="SemiBold">WelcomePage</Span>
+                    
+                 </TextBlock>
+            </StackPanel>
+        </PivotItem>
+        <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+            <ScrollViewer  >
+                <controls:MarkdownTextBlock x:Name="MarkdownText1" />
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+            <ScrollViewer  >
+                <controls:MarkdownTextBlock x:Name="MarkdownText2" />
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Library" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+            <ScrollViewer  >
+                <controls:MarkdownTextBlock x:Name="MarkdownText3" />
+            </ScrollViewer>
+        </PivotItem>
+
+    </Pivot>
+
+
+
+
+</Page>

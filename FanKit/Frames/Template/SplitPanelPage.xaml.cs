@@ -53,11 +53,8 @@ namespace FanKit.Frames.Template
                 }
                 this.isPaneOpen = value;
             }
-            get
-            {
-                return this.isPaneOpen;
-            }
-        }
+            get=> this.isPaneOpen;
+         }
 
         private double translateX= -300;
         public double TranslateX
@@ -71,12 +68,9 @@ namespace FanKit.Frames.Template
             get => translateX;
         }
 
-        CompositeTransform Transform
+        public CompositeTransform Transform
         {
-            set
-            {
-                this.OpenGrid.RenderTransform = value;
-            }
+            set=>   this.OpenGrid.RenderTransform = value;
             get
             {
                 if (this.OpenGrid.RenderTransform is CompositeTransform transform) return transform;

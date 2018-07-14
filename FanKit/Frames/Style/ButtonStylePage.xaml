@@ -202,7 +202,11 @@
 
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarButton Content="AppBarButton" />
+                    <AppBarButton Label="Button">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarButton.Icon>
+                     </AppBarButton>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
@@ -210,15 +214,23 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarButton Content="AppBarButton" Style="{ThemeResource AppBarButtonRevealStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealStyle}">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarButtonRevealStyle</Paragraph>
                     </RichTextBlock>
                 </StackPanel>
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarButton Content="AppBarButton" Style="{ThemeResource AppBarButtonRevealOverflowStyle}"/>
+                    <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealOverflowStyle}">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarButtonRevealOverflowStyle</Paragraph>
                     </RichTextBlock>
@@ -226,7 +238,11 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarButton Content="AppBarButton" Style="{ThemeResource AppBarButtonRevealLabelsOnRightStyle}"/>
+                    <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealLabelsOnRightStyle}">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarButtonRevealLabelsOnRightStyle</Paragraph>
                     </RichTextBlock>
@@ -234,7 +250,11 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarButton Content="AppBarButton" Style="{ThemeResource SwipeItemStyle}"/>
+                    <AppBarButton Label="Button" Style="{ThemeResource SwipeItemStyle}">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>SwipeItemStyle</Paragraph>
                     </RichTextBlock>
