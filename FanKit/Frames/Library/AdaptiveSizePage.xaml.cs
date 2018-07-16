@@ -3,7 +3,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace FanKit.Frames.Control
+namespace FanKit.Frames.Library
 {
     public sealed partial class AdaptiveSizePage : Page
     {
@@ -16,8 +16,8 @@ namespace FanKit.Frames.Control
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Control/AdaptiveSizeXaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Control/AdaptiveSizeClassCs.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Library/AdaptiveSizeXaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Library/AdaptiveSizeClassCs.txt");
          }
     }
 }

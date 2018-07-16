@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 
 
-namespace FanKit.Frames.Control
+namespace FanKit.Frames.Library
 {
     public class AdaptiveSize : DependencyObject, INotifyPropertyChanged
     {

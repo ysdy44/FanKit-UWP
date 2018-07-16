@@ -1,16 +1,38 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Control.TouchSliderPage"
+    x:Class="FanKit.Frames.Control.ExpandTextViewPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FanKit.Frames.Control"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-   xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
 
-    <Grid  >
+
+    <Page.Resources>
+
+        <Style x:Key="BoderStyle" TargetType="Border">
+            <Setter Property="MinWidth" Value="90" />
+            <Setter Property="MinHeight" Value="40" />
+            <Setter Property="Margin" Value="15" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+        <Style x:Key="LeftBoderStyle" TargetType="Border" BasedOn="{StaticResource BoderStyle}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
+        </Style>
+        <Style x:Key="RightBoderStyle" TargetType="Border" BasedOn="{StaticResource BoderStyle}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
+        </Style>
+
+    </Page.Resources>
+
+
+    <Grid>
 
         <!--触发状态-->
         <VisualStateManager.VisualStateGroups>
@@ -85,42 +107,37 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <Border  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-                    <TextBlock Text="Touch Slider" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-                </Border>
-                
-                <local:TouchSliderControl  Grid.Row="1"
-                    ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
-                    ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
-                    ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
-                    />
+            <ScrollViewer Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-                <Border x:Name="TexBlockBorder" Grid.Row="1" Height="40" Margin="40" Padding="20,0" CornerRadius="20" Visibility="Collapsed"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Center"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                <StackPanel VerticalAlignment="Top" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
 
-                    <!--Visibility="Visible"动画：上浮并显现-->
-                    <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:1" From="0,100,0" To="0,0,0"/>
-                        <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
+                    <Border  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                        <TextBlock Text="Expand TextView" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                    </Border>
 
-                    <!--Visibility="Collapsed"动画：下降并消失-->
-                    <animations:Implicit.HideAnimations>
-                        <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,100,0"/>
-                        <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
-                    </animations:Implicit.HideAnimations>
+                    <ToggleSwitch  Margin="12,0" IsOn="{x:Bind ExpandTextViewControl.IsExpand,Mode=TwoWay}"/>
+                    <Border Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}">
+                        <local:ExpandTextViewControl x:Name="ExpandTextViewControl" Text="My name is Van, I am an artist, a performance artist, I am hired for people to profile their fantasies, their deep dark fantasies. I was going to be a movie star, you know, was modeling and acting. After a hundred or two auditions and small parts, you know, I decided.. that I had enough, then I ceded into escort work"/>
+                    </Border>
 
-                    <TextBlock x:Name="TexBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextViewControl0.IsExpand,Mode=TwoWay}"/>
+                    <Border Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}">
+                        <local:ExpandTextViewControl x:Name="ExpandTextViewControl0" Text="The Kink requested a lot of fetishies, so...I just decided to go...um, you know, for master, and change my whole entire house into dungeon, um...dungeon master, now with the full dungeon, in my house. And it's going really well, "/>
+                    </Border>
 
-                </Border>
+                    <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextViewControl1.IsExpand,Mode=TwoWay}"/>
+                    <Border Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}">
+                        <local:ExpandTextViewControl x:Name="ExpandTextViewControl1" Text="I don't know if I feel kind of...um naked, 'cause I am looking at myself for the first time I think, well, not myself, but this aspect of my life for the first time. And it's...man gosh! three to five years already? And I've never thought about it."/>
+                    </Border>
 
-            </Grid>
+                    <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextViewControl2.IsExpand,Mode=TwoWay}"/>
+                    <Border Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}">
+                        <local:ExpandTextViewControl x:Name="ExpandTextViewControl2" Text="hmmm.. kind of sad, I feel kind of sad right now."/>
+                    </Border>
+ 
+
+                </StackPanel>
+            </ScrollViewer> 
         </Grid>
 
 
@@ -140,38 +157,19 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
+                      
+                        <Button Width="100" Margin="22" Content="Expand" VerticalAlignment="Top" Tapped="Button_Tapped"/>
+                        <Button Width="100" Margin="22" Content="Expand" VerticalAlignment="Top" Tapped="Button0_Tapped"/>
+                        <Button Width="100" Margin="22" Content="Expand" VerticalAlignment="Top" Tapped="Button1_Tapped"/>
+                        <Button Width="100" Margin="22" Content="Expand" VerticalAlignment="Top" Tapped="Button2_Tapped"/>
+                      
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-                                                     
-                            <Span FontStyle="Italic">Create a new UserControls and named "TouchSliderControl",Please put the document in the code is copied to the "TouchSliderControl.xaml"</Span>
-                            <LineBreak/>
-                            <LineBreak/>
-                            
-                            <Span FontStyle="Italic">Pressed:</Span>           
-                            <LineBreak/>
-                            <Span> When you</Span>   
-                            <Span FontWeight="SemiBold"> pressed </Span>
-                            <Span>the Slider, trigger events </Span>   
-                            <Span FontWeight="SemiBold">"ValueChangeStarted" </Span>
-                            <LineBreak/>
-                            <LineBreak/>       
-                            
-                            <Span FontStyle="Italic">Move:</Span>  
-                            <LineBreak/>
-                            <Span> When you move</Span>    
-                            <Span FontWeight="SemiBold"> move </Span>
-                            <Span>the Slider , trigger events </Span>    
-                            <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
-                            <LineBreak/>
-                            <LineBreak/>       
-                            
-                            <Span FontStyle="Italic">Released:</Span>  
-                            <LineBreak/>
-                            <Span> When you</Span>
-                            <Span FontWeight="SemiBold"> released </Span>
-                            <Span>the Slider , trigger events </Span>
-                            <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
-
+                            <Span >Click on </Span>
+                            <Span FontWeight="SemiBold">ExpandTextView</Span>
+                            <Span > to make it </Span>
+                            <Span FontWeight="SemiBold">Expand</Span>
                         </TextBlock>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

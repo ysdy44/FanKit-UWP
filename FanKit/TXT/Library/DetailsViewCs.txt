@@ -10,13 +10,13 @@ App.xaml.cs:
     }
 
 
-MainPage: .xaml.cs:
+MainPage.xaml.cs:
 
     public sealed partial class MainPage: Page
     {
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            App.Service.InitializeComponent(this.DetailFrame, typeof(DetailsView.WelcomePage));
+            App.Service.InitializeComponent(this.DetailFrame, typeof(WelcomePage));
         }
 
 

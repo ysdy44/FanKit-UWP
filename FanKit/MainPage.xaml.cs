@@ -101,8 +101,8 @@ namespace FanKit
                 {
                     new Sample(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu",new Uri("ms-appx:///Icon/Control/PopupMenu.png")),
                     new Sample(typeof(FanKit.Frames.Control.TabBarPage),"TabBar",new Uri("ms-appx:///Icon/Control/TabBar.png")),
-                    new Sample(typeof(FanKit.Frames.Control.AdaptiveSizePage),"AdaptiveSize",new Uri("ms-appx:///Icon/Control/AdaptiveSize.png")),
                     new Sample(typeof(FanKit.Frames.Control.TouchSliderPage),"TouchSlider",new Uri("ms-appx:///Icon/Control/TouchSlider.png")),
+                    new Sample(typeof(FanKit.Frames.Control.ExpandTextViewPage),"ExpandTextView",new Uri("ms-appx:///Icon/Control/ExpandTextView.png")),
                 }
             },
 
@@ -112,6 +112,7 @@ namespace FanKit
                 Samples=new List<Sample>
                 {
                     new Sample(typeof(FanKit.Frames.Library.PalettePage),"Palette",new Uri("ms-appx:///Icon/Library/Palette.png")),
+                    new Sample(typeof(FanKit.Frames.Library.AdaptiveSizePage),"AdaptiveSize",new Uri("ms-appx:///Icon/Library/AdaptiveSize.png")),
                     new Sample(typeof(FanKit.Frames.Library.DetailsViewPage),"DetailsView",new Uri("ms-appx:///Icon/Library/DetailsView.png")),
                 }
             },

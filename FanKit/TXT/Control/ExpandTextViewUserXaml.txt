@@ -1,0 +1,30 @@
+
+```xaml
+
+
+<UserControl
+    Background="Transparent"
+    Tapped="UserControl_Tapped">
+
+    <Grid x:Name="Grid" Margin="12,0">
+
+        <StackPanel  VerticalAlignment="Top" >
+            <TextBlock x:Name="OriginTextBlock"
+                       Opacity="0"
+                       LineHeight="24"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+
+        <Border VerticalAlignment="Top">
+            <TextBlock x:Name="TrimTextBlock" 
+                       LineHeight="24"
+                       TextTrimming="WordEllipsis"
+                       TextWrapping="Wrap" />
+        </Border>
+
+    </Grid>
+    
+</UserControl>
+
+
+```
