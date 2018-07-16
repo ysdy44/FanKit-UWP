@@ -90,3 +90,8 @@ namespace FanKit.Frames.Library
         protected void OnPropertyChanged(string name)=>  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }
+
+
+
+
+

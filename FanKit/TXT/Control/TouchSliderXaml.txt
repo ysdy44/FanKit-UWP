@@ -2,10 +2,10 @@
 ```xaml
 
 
-                <local:TouchSliderControl 
-                    ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
-                    ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
-                    ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
-                    />
+<local:TouchSliderControl 
+     ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
+     ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
+     ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
+     />
 
 ```

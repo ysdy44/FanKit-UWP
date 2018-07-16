@@ -6,20 +6,16 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.ApplicationModel.DataTransfer;
 
+public sealed partial class PopupMenuControl : UserControl
+{
 
         //Property
 
-
-        /// <summary>
-        /// show or hide
-        /// </summary>
+        /// <summary>show or hide</summary>
         private bool isShow;
         public bool IsShow
         {
-            get
-            {
-                return this.isShow;
-            }
+            get=>this.isShow;
             set
             {
                 if (value) this.Flyout.ShowAt(this);
@@ -29,9 +25,7 @@ using Windows.ApplicationModel.DataTransfer;
             }
         }
 
-        /// <summary>
-        /// copy the text
-        /// </summary>
+        /// <summary>copy the text</summary>
         private string text;
         public string Text
         {
@@ -39,8 +33,6 @@ using Windows.ApplicationModel.DataTransfer;
             set => this.text = value;
         }
         
-
-
 
         private void UserControl_Holding(object sender, HoldingRoutedEventArgs e) => this.IsShow = true;//Flyout
         private void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e) => this.IsShow = true;//Flyout

@@ -2,48 +2,47 @@
 ```Csharp
 
 
-        //Property
+//Property
 
-        private double Span = 0;//cache
+private double Span = 0;//cache
 
-        private bool isShow; //main
-        public bool IsShow
+private bool isShow; //main
+public bool IsShow
+{
+    get => isShow;
+    set
+    {
+        if (value != isShow)
         {
-            get => isShow;
-            set
-            {
-                if (value != isShow)
-                {
-                    if (value) this.Button.Visibility = Visibility.Collapsed;
-                    else this.Button.Visibility = Visibility.Visible;
+            if (value) this.Button.Visibility = Visibility.Collapsed;
+            else this.Button.Visibility = Visibility.Visible;
 
-                    isShow = value;
-                }
-            }
+            isShow = value;
         }
+    }
+}
 
-        private double verticalOffset;//offset
-        public double VerticalOffset
-        {
-            get => verticalOffset;
-            set
-            {
-                if (this.IsShow == false && value > verticalOffset)
-                    Span += verticalOffset - value; //Down: cache offset
-                else if (this.IsShow == true && value < verticalOffset) 
-                    Span += verticalOffset - value;//Up: cache offset
+private double verticalOffset;//offset
+public double VerticalOffset
+{
+    get => verticalOffset;
+    set
+    {
+        if (this.IsShow == false && value > verticalOffset)
+            Span += verticalOffset - value; //Down: cache offset
+        else if (this.IsShow == true && value < verticalOffset)
+            Span += verticalOffset - value;//Up: cache offset
 
-                //Up: overflow
-                if (Span > 20) this.IsShow = false;
-                //Down: overflow
-                else if (Span < -20) this.IsShow = true;
+        //Up: overflow
+        if (Span > 20) this.IsShow = false;
+        //Down: overflow
+        else if (Span < -20) this.IsShow = true;
 
-                verticalOffset = value;
-            }
-        }
+        verticalOffset = value;
+    }
+}
 
-        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e) => this.VerticalOffset = ((ScrollViewer)sender).VerticalOffset;
-
+private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e) => this.VerticalOffset = ((ScrollViewer)sender).VerticalOffset;
 
 
 

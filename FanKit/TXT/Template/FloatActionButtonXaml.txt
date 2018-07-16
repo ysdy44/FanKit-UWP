@@ -2,78 +2,77 @@
 ```xaml
 
 
-    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
-    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
 
 
-               <Grid Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+<Grid Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-                <ListView>
+    <ListView>
 
-                    <ListView.Header>
-                        <Border  Height="140" Padding="14" >
-                            <TextBlock Text="Floating Action Button" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-                        </Border>
-                    </ListView.Header>
+        <ListView.Header>
+            <Border  Height="140" Padding="14" >
+                <TextBlock Text="Floating Action Button" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            </Border>
+        </ListView.Header>
 
-                    <ListView.Style>
-                        <Style  TargetType="ListView">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ListView">
-                                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
-                                            <ItemsPresenter Header="{TemplateBinding Header}"/>
-                                        </ScrollViewer>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ListView.Style>
+        <ListView.Style>
+            <Style  TargetType="ListView">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListView">
+                            <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                                <ItemsPresenter Header="{TemplateBinding Header}"/>
+                            </ScrollViewer>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ListView.Style>
 
-                     <x:String>item00</x:String>
-                    <x:String>item01</x:String>
-                    <x:String>item02</x:String>
-                    <x:String>item03</x:String>
-                    <x:String>item04</x:String>
-                    <x:String>item05</x:String>
-                    <x:String>item06</x:String>
-                    <x:String>item07</x:String>
-                    <x:String>item08</x:String>
-                    <x:String>item09</x:String>
-                    <x:String>item10</x:String>
-                    <x:String>item11</x:String>
-                    <x:String>item12</x:String>
-                    <x:String>item13</x:String>
-                    <x:String>item14</x:String>
-                    <x:String>item15</x:String>
-                    <x:String>item16</x:String>
-                    <x:String>item17</x:String>
+        <x:String>item00</x:String>
+        <x:String>item01</x:String>
+        <x:String>item02</x:String>
+        <x:String>item03</x:String>
+        <x:String>item04</x:String>
+        <x:String>item05</x:String>
+        <x:String>item06</x:String>
+        <x:String>item07</x:String>
+        <x:String>item08</x:String>
+        <x:String>item09</x:String>
+        <x:String>item10</x:String>
+        <x:String>item11</x:String>
+        <x:String>item12</x:String>
+        <x:String>item13</x:String>
+        <x:String>item14</x:String>
+        <x:String>item15</x:String>
+        <x:String>item16</x:String>
+        <x:String>item17</x:String>
 
-                </ListView>
-                
-                
-                <Button x:Name="Button" 
+    </ListView>
+
+
+    <Button x:Name="Button" 
                 Style="{StaticResource FABButtonStyle}"
                 extensions:VisualExtensions.CenterPoint="32,32,0">
 
-                    <!--Visibility="Visible" Show-->
-                    <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:1" From="0,100,0" To="0,0,0"/>
-                        <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
+        <!--Visibility="Visible" Show-->
+        <animations:Implicit.ShowAnimations>
+            <animations:TranslationAnimation Duration="0:0:1" From="0,100,0" To="0,0,0"/>
+            <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
+        </animations:Implicit.ShowAnimations>
 
-                    <!--Visibility="Collapsed" Hide-->
-                    <animations:Implicit.HideAnimations>
-                        <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,100,0"/>
-                        <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
-                    </animations:Implicit.HideAnimations>
+        <!--Visibility="Collapsed" Hide-->
+        <animations:Implicit.HideAnimations>
+            <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,100,0"/>
+            <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
+        </animations:Implicit.HideAnimations>
 
-                    <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="24" Glyph="&#xEB9F;" Foreground="White"/>
-                </Button>
-                
-            </Grid>
+        <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="24" Glyph="&#xEB9F;" Foreground="White"/>
+    </Button>
 
+</Grid>
 
 
 

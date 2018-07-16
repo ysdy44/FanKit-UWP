@@ -13,19 +13,19 @@
     mc:Ignorable="d"
     Loaded="Page_Loaded"
     Background="{ThemeResource AppBarBackgroundThemeBrush}">
-   
-    
+
+
     <Page.Resources>
 
         <!--ImageVisible：图片可视-->
         <SolidColorBrush x:Name="SolidColorBrush" Color="Transparent"/>
         <ImageBrush x:Name="ImageBrush" ImageSource="ms-appx:///Icon/HERO.jpg" Stretch="UniformToFill"/>
-      
-        
+
+
         <!--ScrollOffsetShow-->
         <library:ScrollOffsetShow x:Name="sos"/>
-    
-        
+
+
         <!--Style-->
         <Style x:Key="ListViewItemStyle" TargetType="ListViewItem">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -109,11 +109,11 @@
                                             <DoubleAnimation Storyboard.TargetName="MultiSelectCheck"
                                             Storyboard.TargetProperty="Opacity"
                                             Duration="0:0:0"
-                                            To="1" /> 
+                                            To="1" />
                                             <DoubleAnimation Storyboard.TargetName="LineBackground"
                                             Storyboard.TargetProperty="Opacity"
                                             Duration="0"
-                                            To="1" /> 
+                                            To="1" />
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
                                             </ObjectAnimationUsingKeyFrames>
@@ -438,7 +438,7 @@
                                          Opacity="0"
                             Fill="{ThemeResource SystemControlBackgroundAccentBrush}"
                             Height="2" VerticalAlignment="Bottom" />
-                            
+
                             <Grid x:Name="ContentPresenterGrid" Background="Transparent" Margin="0,0,0,0">
                                 <Grid.RenderTransform>
                                     <TranslateTransform x:Name="ContentPresenterTranslateTransform" />
@@ -518,7 +518,7 @@
 
     </Page.Resources>
 
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -531,7 +531,7 @@
             <!--NavigationFrame-->
             <Frame x:Name="NavigationFrame"/>
 
-            
+
             <!--FAB按钮-->
             <Button 
             Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}"
@@ -556,11 +556,11 @@
 
         </Grid>
 
-        
+
         <!--ShadowGrid-->
         <con:SampleCategoryControl x:Name="SampleCategoryControl" Grid.Row="1" ItemClick="SampleCategoryControl_ItemClick"/>
- 
-        
+
+
         <!--TopBar-->
         <Grid BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemControlDisabledChromeHighBrush}" Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
             <Grid.ColumnDefinitions>
@@ -574,7 +574,7 @@
             <Rectangle Grid.Column="1" Width="20" HorizontalAlignment="Left" Fill="{StaticResource AppRightDeepGradientBrush}"/>
             <Rectangle Grid.Column="1" Width="20" HorizontalAlignment="Right" Fill="{StaticResource AppLeftDeepGradientBrush}"/>
             <InkToolbarCustomToggleButton x:Name="SettingButton"  Background="Transparent" Grid.Column="2" Content="&#xE115;" FontSize="20" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="SettingButton_Tapped"/>
-       
+
             <!--ListView-->
             <ListView x:Name="ListView" 
                       Grid.Column="1" FontWeight="SemiLight" 
@@ -582,23 +582,28 @@
                       ItemContainerStyle="{StaticResource ListViewItemStyle}"
                       IsItemClickEnabled="True" ItemClick="ListView_ItemClick"
                       ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Disabled">
-         
-                
+
+
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="library:SampleCategory">
                         <TextBlock Text="{x:Bind Name}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                
+
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
-                
+
             </ListView>
-            
+
         </Grid>
-   
+
     </Grid>
 </Page>
+
+
+
+
+

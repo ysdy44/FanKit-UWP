@@ -2,8 +2,7 @@
 ```xaml
 
 
-    <UserControl
-	>
+<UserControl>
 
     <StackPanel Orientation="Horizontal">
         <Border Width="44">
@@ -13,10 +12,8 @@
         </Border>
         <TextBlock x:Name="TextBlock" VerticalAlignment="Center" FontWeight="Medium"/>
     </StackPanel>
-    
+
 </UserControl>
-
-
 
 
 ```

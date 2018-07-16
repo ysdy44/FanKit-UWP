@@ -2,16 +2,15 @@
 ```xaml
 
 
-
 <UserControl
     HorizontalAlignment="Stretch"
     VerticalAlignment="Center">
 
-   
+
     <UserControl.Resources>
 
-           <!--Style -->
-            <Style x:Key="SliderStyle" TargetType="Slider">
+        <!--Style -->
+        <Style x:Key="SliderStyle" TargetType="Slider">
             <Setter Property="Background" Value="{ThemeResource SliderTrackFill}" />
             <Setter Property="BorderThickness" Value="{ThemeResource SliderBorderThemeThickness}" />
             <Setter Property="Foreground" Value="{ThemeResource SliderTrackValueFill}" />
@@ -22,11 +21,11 @@
             <Setter Property="FocusVisualMargin" Value="-7,0,-7,0" />
             <Setter Property="IsFocusEngagementEnabled" Value="True" />
             <Setter Property="IsThumbToolTipEnabled" Value="False"/>
-             <Setter Property="Template">
+            <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Slider">
                         <Grid Margin="{TemplateBinding Padding}">
-                    
+
                             <Grid.Resources>
                                 <Style TargetType="Thumb" x:Key="SliderThumbStyle">
                                     <Setter Property="BorderThickness" Value="0" />
@@ -40,16 +39,16 @@
                                     </Setter>
                                 </Style>
                             </Grid.Resources>
-                    
+
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            
+
                             <!--State Changed-->
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates" CurrentStateChanged="CommonStates_CurrentStateChanged">
-                                  
+
                                     <VisualState x:Name="Normal" />
 
                                     <VisualState x:Name="Pressed">
@@ -61,14 +60,14 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalTrackRect" Storyboard.TargetProperty="Fill">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SliderTrackFillPressed}" />
                                             </ObjectAnimationUsingKeyFrames>
-                                            
+
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HorizontalThumb" Storyboard.TargetProperty="Background">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
                                             </ObjectAnimationUsingKeyFrames>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalThumb" Storyboard.TargetProperty="Background">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
                                             </ObjectAnimationUsingKeyFrames>
-                                            
+
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SliderContainer" Storyboard.TargetProperty="Background">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SliderContainerBackgroundPressed}" />
                                             </ObjectAnimationUsingKeyFrames>
@@ -80,7 +79,7 @@
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
-                                    
+
                                     <VisualState x:Name="PointerOver">
 
                                         <Storyboard>
@@ -128,14 +127,14 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalTrackRect" Storyboard.TargetProperty="Fill">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SliderTrackFillDisabled}" />
                                             </ObjectAnimationUsingKeyFrames>
-                                            
+
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HorizontalThumb" Storyboard.TargetProperty="Background">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SliderThumbBackgroundDisabled}" />
                                             </ObjectAnimationUsingKeyFrames>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="VerticalThumb" Storyboard.TargetProperty="Background">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SliderThumbBackgroundDisabled}" />
                                             </ObjectAnimationUsingKeyFrames>
-                                            
+
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TopTickBar" Storyboard.TargetProperty="Fill">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SliderTickBarFillDisabled}" />
                                             </ObjectAnimationUsingKeyFrames>
@@ -161,7 +160,7 @@
                             <ContentPresenter x:Name="HeaderContentPresenter" x:DeferLoadStrategy="Lazy" Visibility="Collapsed" Foreground="{ThemeResource SliderHeaderForeground}" Margin="{ThemeResource SliderHeaderThemeMargin}" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" FontWeight="{ThemeResource SliderHeaderThemeFontWeight}" TextWrapping="Wrap" />
 
                             <Grid x:Name="SliderContainer" Background="{ThemeResource SliderContainerBackground}" Grid.Row="1" Control.IsTemplateFocusTarget="True">
-                            
+
                                 <Grid x:Name="HorizontalTemplate" MinHeight="44">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
@@ -180,7 +179,7 @@
                                     <TickBar x:Name="BottomTickBar" Grid.Row="2" Grid.ColumnSpan="3" Visibility="Collapsed" Fill="{ThemeResource SliderTickBarFill}" Height="{ThemeResource SliderOutsideTickBarThemeHeight}" VerticalAlignment="Top" Margin="0,4,0,0" />
                                     <Thumb x:Name="HorizontalThumb" Height="24" Width="24" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Style="{StaticResource SliderThumbStyle}" DataContext="{TemplateBinding Value}" FocusVisualMargin="-14,-6,-14,-6" AutomationProperties.AccessibilityView="Raw" />
                                 </Grid>
-                           
+
                                 <Grid x:Name="VerticalTemplate" MinWidth="44" Visibility="Collapsed">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
@@ -199,7 +198,7 @@
                                     <TickBar x:Name="RightTickBar" Grid.Column="2" Grid.RowSpan="3" Visibility="Collapsed" Fill="{ThemeResource SliderTickBarFill}" Width="{ThemeResource SliderOutsideTickBarThemeHeight}" HorizontalAlignment="Left" Margin="4,0,0,0" />
                                     <Thumb x:Name="VerticalThumb" Width="24" Height="24" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource SliderThumbStyle}" DataContext="{TemplateBinding Value}" FocusVisualMargin="-6,-14,-6,-14" AutomationProperties.AccessibilityView="Raw" />
                                 </Grid>
-                    
+
                             </Grid>
 
                         </Grid>
@@ -207,18 +206,15 @@
                 </Setter.Value>
             </Setter>
         </Style>
-          
+
 
     </UserControl.Resources>
-  
+
 
     <!--Value Changed-->
     <Slider Style="{StaticResource SliderStyle}" ValueChanged="Slider_ValueChanged"/>
 
 
 </UserControl>
-
-
-
 
 ```

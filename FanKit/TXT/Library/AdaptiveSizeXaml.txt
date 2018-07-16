@@ -1,72 +1,49 @@
 
 ```xaml
 
+<GridView x:Name="adaptiveGridView" ItemTemplate="{StaticResource ItemTemplate}">
 
-    <Page.Resources>
-      
-        <!--AdaptiveSize-->
-        <local:AdaptiveSize x:Name="adaptiveSize" PanelElement="{Binding ElementName=adaptiveGridView}"/>
+    <GridView.ItemContainerStyle>
+        <Style TargetType="GridViewItem" >
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+        </Style>
+    </GridView.ItemContainerStyle>
 
-        <!--DataTemplate-->
-        <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
-            <Border Height="111" Width="{Binding ElementName=adaptiveSize,Path=SizeWidth}" >
-                <Grid  Margin="1" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-                    <TextBlock Text="{x:Bind}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Grid>
-            </Border>
-        </DataTemplate>
-        
-    </Page.Resources>
+    <GridView.Style>
+        <Style  x:Name="GridViewStyle" TargetType="GridView">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridView">
+                        <ScrollViewer x:Name="ScrollViewer" >
+                            <ItemsPresenter HorizontalAlignment="Center" />
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </GridView.Style>
 
+    <x:String>item00</x:String>
+    <x:String>item01</x:String>
+    <x:String>item02</x:String>
+    <x:String>item03</x:String>
+    <x:String>item04</x:String>
+    <x:String>item05</x:String>
+    <x:String>item06</x:String>
+    <x:String>item07</x:String>
+    <x:String>item08</x:String>
+    <x:String>item09</x:String>
+    <x:String>item10</x:String>
+    <x:String>item11</x:String>
+    <x:String>item12</x:String>
+    <x:String>item13</x:String>
+    <x:String>item14</x:String>
+    <x:String>item15</x:String>
+    <x:String>item16</x:String>
+    <x:String>item17</x:String>
 
-
-   
-   <GridView x:Name="adaptiveGridView" ItemTemplate="{StaticResource ItemTemplate}">
-
-                    <GridView.ItemContainerStyle>
-                        <Style TargetType="GridViewItem" >
-                            <Setter Property="Margin" Value="0" />
-                            <Setter Property="HorizontalAlignment" Value="Stretch" />
-                            <Setter Property="VerticalAlignment" Value="Stretch" />
-                        </Style>
-                    </GridView.ItemContainerStyle>
-
-                    <GridView.Style>
-                        <Style  x:Name="GridViewStyle" TargetType="GridView">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="GridView">
-                                        <ScrollViewer x:Name="ScrollViewer" >
-                                            <ItemsPresenter HorizontalAlignment="Center" />
-                                        </ScrollViewer>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </GridView.Style>
-
-                       <x:String>item00</x:String>
-                    <x:String>item01</x:String>
-                    <x:String>item02</x:String>
-                    <x:String>item03</x:String>
-                    <x:String>item04</x:String>
-                    <x:String>item05</x:String>
-                    <x:String>item06</x:String>
-                    <x:String>item07</x:String>
-                    <x:String>item08</x:String>
-                    <x:String>item09</x:String>
-                    <x:String>item10</x:String>
-                    <x:String>item11</x:String>
-                    <x:String>item12</x:String>
-                    <x:String>item13</x:String>
-                    <x:String>item14</x:String>
-                    <x:String>item15</x:String>
-                    <x:String>item16</x:String>
-                    <x:String>item17</x:String>
-
-                </GridView>
-
-
-
+</GridView>
 
 ```
