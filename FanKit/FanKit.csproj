@@ -135,8 +135,11 @@
     <Compile Include="Frames\Control\ExpandTextViewPage.xaml.cs">
       <DependentUpon>ExpandTextViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Library\AdaptiveSizePage.xaml.cs">
-      <DependentUpon>AdaptiveSizePage.xaml</DependentUpon>
+    <Compile Include="Frames\Helpers\StretchPage.xaml.cs">
+      <DependentUpon>StretchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Library\DataTemplateAdaptiverPage.xaml.cs">
+      <DependentUpon>DataTemplateAdaptiverPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Control\PopupMenuControl.xaml.cs">
       <DependentUpon>PopupMenuControl.xaml</DependentUpon>
@@ -206,29 +209,29 @@
     <Compile Include="Frames\Template\SplitPanelPage.xaml.cs">
       <DependentUpon>SplitPanelPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Library\AdaptiveSize.cs" />
-    <Compile Include="Frames\Transition\CommonPage.xaml.cs">
+    <Compile Include="Frames\Library\DataTemplateAdaptiver.cs" />
+    <Compile Include="Frames\Helpers\Transition\CommonPage.xaml.cs">
       <DependentUpon>CommonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transition\ContinuumPage.xaml.cs">
+    <Compile Include="Frames\Helpers\Transition\ContinuumPage.xaml.cs">
       <DependentUpon>ContinuumPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transition\DrillInPage.xaml.cs">
+    <Compile Include="Frames\Helpers\Transition\DrillInPage.xaml.cs">
       <DependentUpon>DrillInPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transition\EntrancePage.xaml.cs">
+    <Compile Include="Frames\Helpers\Transition\EntrancePage.xaml.cs">
       <DependentUpon>EntrancePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transition\SlidePage.xaml.cs">
+    <Compile Include="Frames\Helpers\Transition\SlidePage.xaml.cs">
       <DependentUpon>SlidePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transition\SuppressPage.xaml.cs">
+    <Compile Include="Frames\Helpers\Transition\SuppressPage.xaml.cs">
       <DependentUpon>SuppressPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transition\TransitionPage.xaml.cs">
+    <Compile Include="Frames\Helpers\TransitionPage.xaml.cs">
       <DependentUpon>TransitionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transition\WelcomePage.xaml.cs">
+    <Compile Include="Frames\Helpers\Transition\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Library\File.cs" />
@@ -272,7 +275,10 @@
     <Content Include="Icon\Brush\RevealBorderBrush.png" />
     <Content Include="Icon\Brush\SystemBrush.png" />
     <Content Include="Icon\Control\ExpandTextView.png" />
-    <Content Include="Icon\Library\AdaptiveSize.png" />
+    <Content Include="Icon\Helpers\Stretch.png" />
+    <Content Include="Icon\Helpers\Transition.png" />
+    <Content Include="Icon\HEROS.jpg" />
+    <Content Include="Icon\Library\DataTemplateAdaptiver.png" />
     <Content Include="Icon\Control\PopupMenu.png" />
     <Content Include="Icon\Control\TabBar.png" />
     <Content Include="Icon\Control\TouchSlider.png" />
@@ -344,18 +350,18 @@
     <Content Include="Icon\Template\FlyoutTemplate.png" />
     <Content Include="Icon\Template\SplitPanel.png" />
     <Content Include="Icon\Template\TagChip.png" />
-    <Content Include="Icon\Transition\Transition.png" />
-    <Content Include="Icon\Transition\Common.png" />
-    <Content Include="Icon\Transition\Continuum.png" />
-    <Content Include="Icon\Transition\DrillIn.png" />
-    <Content Include="Icon\Transition\Entrance.png" />
-    <Content Include="Icon\Transition\Slide.png" />
-    <Content Include="Icon\Transition\Suppress.png" />
+    <Content Include="Icon\Helpers\Transition\Transition.png" />
+    <Content Include="Icon\Helpers\Transition\Common.png" />
+    <Content Include="Icon\Helpers\Transition\Continuum.png" />
+    <Content Include="Icon\Helpers\Transition\DrillIn.png" />
+    <Content Include="Icon\Helpers\Transition\Entrance.png" />
+    <Content Include="Icon\Helpers\Transition\Slide.png" />
+    <Content Include="Icon\Helpers\Transition\Suppress.png" />
     <Content Include="TXT\Control\ExpandTextViewUserCs.txt" />
     <Content Include="TXT\Control\ExpandTextViewUserXaml.txt" />
     <Content Include="TXT\Control\ExpandTextViewXaml.txt" />
-    <Content Include="TXT\Library\AdaptiveSizeClassCs.txt" />
-    <Content Include="TXT\Library\AdaptiveSizeXaml.txt" />
+    <Content Include="TXT\Library\DataTemplateAdaptiverClassCs.txt" />
+    <Content Include="TXT\Library\DataTemplateAdaptiverXaml.txt" />
     <Content Include="TXT\Control\PopupMenuUserCs.txt" />
     <Content Include="TXT\Control\PopupMenuUserXaml.txt" />
     <Content Include="TXT\Control\PopupMenuXaml.txt" />
@@ -380,7 +386,7 @@
     <Content Include="TXT\Template\FlyoutTemplateStyle.txt" />
     <Content Include="TXT\Template\TagChipXaml.txt" />
     <Content Include="TXT\Template\FlyoutTemplateXaml.txt" />
-    <Content Include="TXT\Transition\Transition.txt" />
+    <Content Include="TXT\Helpers\Transition.txt" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -439,7 +445,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Library\AdaptiveSizePage.xaml">
+    <Page Include="Frames\Helpers\StretchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Library\DataTemplateAdaptiverPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -531,35 +541,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Transition\CommonPage.xaml">
+    <Page Include="Frames\Helpers\Transition\CommonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Transition\ContinuumPage.xaml">
+    <Page Include="Frames\Helpers\Transition\ContinuumPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Transition\DrillInPage.xaml">
+    <Page Include="Frames\Helpers\Transition\DrillInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Transition\EntrancePage.xaml">
+    <Page Include="Frames\Helpers\Transition\EntrancePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Transition\SlidePage.xaml">
+    <Page Include="Frames\Helpers\Transition\SlidePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Transition\SuppressPage.xaml">
+    <Page Include="Frames\Helpers\Transition\SuppressPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Transition\TransitionPage.xaml">
+    <Page Include="Frames\Helpers\TransitionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Transition\WelcomePage.xaml">
+    <Page Include="Frames\Helpers\Transition\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

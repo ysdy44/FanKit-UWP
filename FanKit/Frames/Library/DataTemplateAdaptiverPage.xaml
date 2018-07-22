@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Library.AdaptiveSizePage"
+    x:Class="FanKit.Frames.Library.DataTemplateAdaptiverPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FanKit.Frames.Library"
@@ -13,17 +13,17 @@
    
     
     <Page.Resources>
-      
-        <!--AdaptiveSize-->
-        <local:AdaptiveSize x:Name="adaptiveSize" PanelElement="{Binding ElementName=adaptiveGridView}"/>
+
+        <!--Adaptiver-->
+        <local:DataTemplateAdaptiver x:Name="Adaptiver" PanelElement="{Binding ElementName=AdaptiverGridView}"/>
 
         <!--DataTemplate-->
         <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
             <Border Padding="2"
-                    Width="{Binding ElementName=adaptiveSize,Path=SizeWidth}" 
-                    Height="{Binding ElementName=adaptiveSize,Path=SizeHeight}" >
+                    Width="{Binding ElementName=Adaptiver,Path=SizeWidth}" 
+                    Height="{Binding ElementName=Adaptiver,Path=SizeHeight}" >
                 <Border  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-                    <TextBlock Text="{x:Bind}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock  Text="{x:Bind}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
             </Border>
         </DataTemplate>
@@ -107,7 +107,7 @@
 
             <Grid Grid.Column="1" Grid.Row="1" 
                   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <GridView x:Name="adaptiveGridView" ItemTemplate="{StaticResource ItemTemplate}">
+                <GridView x:Name="AdaptiverGridView" ItemTemplate="{StaticResource ItemTemplate}">
 
                     <GridView.ItemContainerStyle>
                         <Style TargetType="GridViewItem" >

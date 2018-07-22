@@ -1,14 +1,10 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Transition.TransitionPage"
+    x:Class="FanKit.Frames.Helpers.TransitionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FanKit.Frames.Transition"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-   xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
-    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:library="using:FanKit.Library"
     mc:Ignorable="d"
     NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
@@ -123,27 +119,27 @@
                                 </ListView.ItemContainerStyle>
                                 
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Transition/Common.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/Common.png" Stretch="Uniform"/>
                                     <TextBlock Text="Common" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Transition/Continuum.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/Continuum.png" Stretch="Uniform"/>
                                     <TextBlock Text="Continuum" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Transition/DrillIn.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/DrillIn.png" Stretch="Uniform"/>
                                     <TextBlock Text="DrillIn" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Transition/Entrance.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/Entrance.png" Stretch="Uniform"/>
                                     <TextBlock Text="Entrance" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" VerticalAlignment="Center" Source="ms-appx:///Icon/Transition/Slide.png" Stretch="Uniform"/>
+                                    <Image Height="80" VerticalAlignment="Center" Source="ms-appx:///Icon/Helpers/Transition/Slide.png" Stretch="Uniform"/>
                                     <TextBlock Text="Slide" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Transition/Suppress.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/Suppress.png" Stretch="Uniform"/>
                                     <TextBlock Text="Suppress" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                             </ListView>

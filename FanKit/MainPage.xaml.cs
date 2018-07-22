@@ -75,10 +75,11 @@ namespace FanKit
             
             new SampleCategory
             {
-                Name ="Transition",
+                Name ="Helpers",
                 Samples=new List<Sample>
                 {
-                    new Sample(typeof(FanKit.Frames.Transition.TransitionPage),"Transition",new Uri("ms-appx:///Icon/Transition/Transition.png")),
+                    new Sample(typeof(FanKit.Frames.Helpers.TransitionPage),"Transition",new Uri("ms-appx:///Icon/Helpers/Transition.png")),
+                    new Sample(typeof(FanKit.Frames.Helpers.StretchPage),"Stretch",new Uri("ms-appx:///Icon/Helpers/Stretch.png")),
                 }
             },
 
@@ -112,7 +113,7 @@ namespace FanKit
                 Samples=new List<Sample>
                 {
                     new Sample(typeof(FanKit.Frames.Library.PalettePage),"Palette",new Uri("ms-appx:///Icon/Library/Palette.png")),
-                    new Sample(typeof(FanKit.Frames.Library.AdaptiveSizePage),"AdaptiveSize",new Uri("ms-appx:///Icon/Library/AdaptiveSize.png")),
+                    new Sample(typeof(FanKit.Frames.Library.DataTemplateAdaptiverPage),"DataTemplateAdaptiver",new Uri("ms-appx:///Icon/Library/DataTemplateAdaptiver.png")),
                     new Sample(typeof(FanKit.Frames.Library.DetailsViewPage),"DetailsView",new Uri("ms-appx:///Icon/Library/DetailsView.png")),
                 }
             },

@@ -1,6 +1,25 @@
 
 ```xaml
 
+<Page.Resources>
+
+    <!--Adaptiver-->
+    <local:DataTemplateAdaptiver x:Name="Adaptiver" PanelElement="{Binding ElementName=AdaptiverGridView}"/>
+
+    <!--DataTemplate-->
+    <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
+        <Border Padding="2"
+                Width="{Binding ElementName=Adaptiver,Path=SizeWidth}" 
+                Height="{Binding ElementName=Adaptiver,Path=SizeHeight}" >
+            <Border  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+                <TextBlock  Text="{x:Bind}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+       </Border>
+    </DataTemplate>
+        
+</Page.Resources>
+
+
 <GridView x:Name="adaptiveGridView" ItemTemplate="{StaticResource ItemTemplate}">
 
     <GridView.ItemContainerStyle>
