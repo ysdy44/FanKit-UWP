@@ -129,6 +129,12 @@
     <Compile Include="Frames\Brush\RevealBorderBrushPage.xaml.cs">
       <DependentUpon>RevealBorderBrushPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\NumberPicker.xaml.cs">
+      <DependentUpon>NumberPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\NumberPickerPage.xaml.cs">
+      <DependentUpon>NumberPickerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Control\ExpandTextViewControl.xaml.cs">
       <DependentUpon>ExpandTextViewControl.xaml</DependentUpon>
     </Compile>
@@ -184,6 +190,10 @@
     <Compile Include="Frames\Library\Palette.cs" />
     <Compile Include="Frames\Library\PalettePage.xaml.cs">
       <DependentUpon>PalettePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Library\ScalableGrid.cs" />
+    <Compile Include="Frames\Library\ScalableGridPage.xaml.cs">
+      <DependentUpon>ScalableGridPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Others\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
@@ -274,6 +284,7 @@
     <Content Include="Icon\Brush\RevealBackgroundBrush.png" />
     <Content Include="Icon\Brush\RevealBorderBrush.png" />
     <Content Include="Icon\Brush\SystemBrush.png" />
+    <Content Include="Icon\Colors\NumberPicker.png" />
     <Content Include="Icon\Control\ExpandTextView.png" />
     <Content Include="Icon\Helpers\Stretch.png" />
     <Content Include="Icon\Helpers\Transition.png" />
@@ -357,6 +368,9 @@
     <Content Include="Icon\Helpers\Transition\Entrance.png" />
     <Content Include="Icon\Helpers\Transition\Slide.png" />
     <Content Include="Icon\Helpers\Transition\Suppress.png" />
+    <Content Include="TXT\Colors\NumberPickerUserCs.txt" />
+    <Content Include="TXT\Colors\NumberPickerUserXaml.txt" />
+    <Content Include="TXT\Colors\NumberPickerXaml.txt" />
     <Content Include="TXT\Control\ExpandTextViewUserCs.txt" />
     <Content Include="TXT\Control\ExpandTextViewUserXaml.txt" />
     <Content Include="TXT\Control\ExpandTextViewXaml.txt" />
@@ -375,6 +389,9 @@
     <Content Include="TXT\Library\DetailsViewService.txt" />
     <Content Include="TXT\Library\DetailsViewXaml.txt" />
     <Content Include="TXT\Library\Palette.txt" />
+    <Content Include="Icon\Library\ScalableGrid.png" />
+    <Content Include="TXT\Library\ScalableGrid.txt" />
+    <Content Include="TXT\Library\ScalableGridPage.txt" />
     <Content Include="TXT\Template\FloatActionButtonCs.txt" />
     <Content Include="TXT\Template\FloatActionButtonStyle.txt" />
     <Content Include="TXT\Template\FloatActionButtonXaml.txt" />
@@ -434,6 +451,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Brush\RevealBorderBrushPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\NumberPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\NumberPickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -506,6 +531,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Library\PalettePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Library\ScalableGridPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

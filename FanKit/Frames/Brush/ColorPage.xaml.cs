@@ -20,8 +20,6 @@ namespace FanKit.Frames.Brush
             this.Paragraph4.Text = "  </Border.Background>";
             this.Paragraph5.Text = "</Border>";
         }
-        protected override void OnNavigatedFrom(NavigationEventArgs e) => SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = this.Frame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
-
 
         private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {

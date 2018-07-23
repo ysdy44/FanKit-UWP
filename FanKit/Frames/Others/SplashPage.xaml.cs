@@ -10,7 +10,5 @@ namespace FanKit.Frames.Others
         {
             this.InitializeComponent();
         }
-        protected override void OnNavigatedFrom(NavigationEventArgs e) => SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = this.Frame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
-
     }
 }

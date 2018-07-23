@@ -19,8 +19,6 @@ namespace FanKit.Frames.Others
                 GetTheme(frameworkElement.RequestedTheme);
             }
         }
-        protected override void OnNavigatedFrom(NavigationEventArgs e) => SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = this.Frame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
-
 
         private void LightRadioButton_Checked(object sender, RoutedEventArgs e) => SetTheme(ElementTheme.Light);
         private void NightRadioButton_Checked(object sender, RoutedEventArgs e) => SetTheme(ElementTheme.Dark);

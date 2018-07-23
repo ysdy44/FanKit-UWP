@@ -24,7 +24,7 @@ namespace FanKit
     public sealed partial class MainPage : Page
     {
         
-        #region ImageButtonVisible：图片按钮可视
+        #region ImageButtonVisible
 
 
         //delegate
@@ -37,7 +37,7 @@ namespace FanKit
 
         #endregion
 
-        #region SampleCategory：分类
+        #region SampleCategory
 
         
         List<SampleCategory> SampleCategory = new List<SampleCategory>
@@ -115,6 +115,16 @@ namespace FanKit
                     new Sample(typeof(FanKit.Frames.Library.PalettePage),"Palette",new Uri("ms-appx:///Icon/Library/Palette.png")),
                     new Sample(typeof(FanKit.Frames.Library.DataTemplateAdaptiverPage),"DataTemplateAdaptiver",new Uri("ms-appx:///Icon/Library/DataTemplateAdaptiver.png")),
                     new Sample(typeof(FanKit.Frames.Library.DetailsViewPage),"DetailsView",new Uri("ms-appx:///Icon/Library/DetailsView.png")),
+                    new Sample(typeof(FanKit.Frames.Library.ScalableGridPage),"ScalableGrid",new Uri("ms-appx:///Icon/Library/ScalableGrid.png")),
+                }
+            },
+
+            new SampleCategory
+            {
+                Name ="Colors",
+                Samples=new List<Sample>
+                {
+                    new Sample(typeof(FanKit.Frames.Colors.NumberPickerPage),"NumberPicker",new Uri("ms-appx:///Icon/Colors/NumberPicker.png")),
                 }
             },
 
@@ -131,7 +141,7 @@ namespace FanKit
         }
 
 
-        #region Initialize：初始化
+        #region Initialize
 
 
         //扩展标题栏
@@ -168,7 +178,7 @@ namespace FanKit
         #endregion
 
 
-        #region ImageVisible：图片可视
+        #region ImageVisible
 
 
         private bool isImageVisible;
@@ -189,9 +199,18 @@ namespace FanKit
         #endregion
 
 
-        #region Navigate：页面跳转
+        #region Navigate
 
 
+        private void BackButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {         
+            //Back
+            if (this.NavigationFrame.CanGoBack)  this.NavigationFrame.GoBack();
+
+            //Back
+            if (this.NavigationFrame.CanGoBack) this.BackButton.Content = "\uE0D5";
+            else this.BackButton.Content = "\uE80F";
+        }
         private void HomeButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Navigate(typeof(FanKit.Frames.Others.SplashPage));
         private void SettingButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Navigate(typeof(FanKit.Frames.Others.SettingPage));
         private void SampleCategoryControl_ItemClick(Type page) => this.Navigate(page);
@@ -206,6 +225,9 @@ namespace FanKit
     
             //Navigate
             this.NavigationFrame.Navigate(page);
+
+            //Back
+            this.BackButton.Content = "\uE0D5";
         }
 
 
@@ -215,7 +237,7 @@ namespace FanKit
         //Sample Category Control
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.HomeButton.IsChecked = false;
+            this.BackButton.IsChecked = false;
             this.SettingButton.IsChecked = false;
 
             if (e.ClickedItem is SampleCategory category)
@@ -231,7 +253,7 @@ namespace FanKit
             }
         }
 
-
+   
     }
 }
 

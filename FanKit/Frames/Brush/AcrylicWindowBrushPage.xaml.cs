@@ -14,8 +14,6 @@ namespace FanKit.Frames.Brush
             this.TopRun2.Text = "SystemControlAcrylicWindowBrush";
             this.TopRun3.Text = "}\" /> ";
         }
-        protected override void OnNavigatedFrom(NavigationEventArgs e) => SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = this.Frame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
-
 
         private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
