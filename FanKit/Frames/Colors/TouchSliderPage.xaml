@@ -1,38 +1,16 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Control.PopupMenuPage"
+    x:Class="FanKit.Frames.Colors.TouchSliderPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FanKit.Frames.Control"
+    xmlns:local="using:FanKit.Frames.Colors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+   xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     mc:Ignorable="d"
-    NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
 
-    
-    <Page.Resources>
-        
-        <Style x:Key="BoderStyle" TargetType="Border">
-            <Setter Property="MinWidth" Value="90" />
-            <Setter Property="MinHeight" Value="40" />
-            <Setter Property="Margin" Value="15" />
-            <Setter Property="Padding" Value="4" />
-            <Setter Property="CornerRadius" Value="8" />
-        </Style>
-        <Style x:Key="LeftBoderStyle" TargetType="Border" BasedOn="{StaticResource BoderStyle}">
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
-        </Style>
-        <Style x:Key="RightBoderStyle" TargetType="Border" BasedOn="{StaticResource BoderStyle}">
-            <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
-        </Style>
-    
-    </Page.Resources>
-
-    
-    <Grid>
+    <Grid  >
 
         <!--触发状态-->
         <VisualStateManager.VisualStateGroups>
@@ -107,60 +85,75 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <ScrollViewer Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                
+                <Border  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                    <TextBlock Text="Touch Slider" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                </Border>
+                
+                
+                <TextBlock Text="SliderStyle0:" Grid.Row="1" Margin="4" VerticalAlignment="Bottom"/>
+                <local:TouchSlider x:Name="TouchSliderControl0"
+                    Grid.Row="2" IsStyle="True"
+                    ValueChangeStarted="TouchSliderControl0_ValueChangeStarted" 
+                    ValueChangeDelta="TouchSliderControl0_ValueChangeDelta" 
+                    ValueChangeCompleted="TouchSliderControl0_ValueChangeCompleted"
+                     />
+                <Border x:Name="TexBlockBorder0" Grid.Row="1" Height="40" Width="100" CornerRadius="20,0,0,20" Visibility="Collapsed"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-                <StackPanel Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    
-                    <Border  Height="100" Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-                        <TextBlock Text="Popup Menu" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-                    </Border>
+                    <!--Visibility="Visible"动画：上浮并显现-->
+                    <animations:Implicit.ShowAnimations>
+                        <animations:TranslationAnimation Duration="0:0:0.5" From="100,0,0" To="0,0,0"/>
+                        <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+                    </animations:Implicit.ShowAnimations>
 
-                    <Border Style="{StaticResource LeftBoderStyle}">
-                        <local:PopupMenu x:Name="PopupMenuControl" Text="{x:Bind TextBlock0.Text}">
-                            <TextBlock x:Name="TextBlock0" Text="Deep Dark Fantasy" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
-                    </Border>
+                    <!--Visibility="Collapsed"动画：下降并消失-->
+                    <animations:Implicit.HideAnimations>
+                        <animations:TranslationAnimation Duration="0:0:0.5" From="0,0,0" To="100,0,0"/>
+                        <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+                    </animations:Implicit.HideAnimations>
 
-                    <Border Style="{StaticResource RightBoderStyle}">
-                        <local:PopupMenu Text="{x:Bind TextBlock1.Text}">
-                            <TextBlock x:Name="TextBlock1" Text="Boy Next Door" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
-                    </Border> 
+                    <TextBlock x:Name="TexBlock0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 
-                    <Border Style="{StaticResource LeftBoderStyle}">
-                        <local:PopupMenu  Text="{x:Bind TextBlock2.Text}">
-                            <TextBlock x:Name="TextBlock2" Text="Do you like what you see?" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
-                    </Border>
-                    
-                    <Border Style="{StaticResource RightBoderStyle}">
-                        <local:PopupMenu  Text="{x:Bind TextBlock3.Text}">
-                            <TextBlock x:Name="TextBlock3" Text="take it boy" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
-                    </Border>
-                    
-                    <Border Style="{StaticResource LeftBoderStyle}">
-                        <local:PopupMenu Text="{x:Bind TextBlock4.Text}">
-                            <TextBlock x:Name="TextBlock4" Text="thank you sir" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
-                    </Border>
+                </Border>
 
-                    <Border Style="{StaticResource RightBoderStyle}">
-                        <local:PopupMenu  Text="{x:Bind TextBlock5.Text}">
-                            <TextBlock  x:Name="TextBlock5" TextWrapping="WrapWholeWords" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}">
-                                <Span>My name is Van,</Span>
-                                <LineBreak/>
-                                <Span>I'm an artist,</Span>
-                                <LineBreak/>
-                                <Span>I'm a performance artist. </Span>
-                                <LineBreak/>
-                                <Span>I'm hired for people to fulfill their fantasies, their deep dark fantasies.</Span>
-                            </TextBlock>
-                        </local:PopupMenu>
-                    </Border>
 
-                </StackPanel>                
-            </ScrollViewer>
+                <TextBlock Text="SliderStyle1:" Grid.Row="3" Margin="4" VerticalAlignment="Bottom"/>
+                <local:TouchSlider x:Name="TouchSliderControl1"
+                    Grid.Row="4"
+                    ValueChangeStarted="TouchSliderControl1_ValueChangeStarted" 
+                    ValueChangeDelta="TouchSliderControl1_ValueChangeDelta" 
+                    ValueChangeCompleted="TouchSliderControl1_ValueChangeCompleted"
+                    />
+                <Border x:Name="TexBlockBorder1" Grid.Row="3" Height="40" Width="100" CornerRadius="20,0,0,20" Visibility="Collapsed"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+
+                    <!--Visibility="Visible"动画：上浮并显现-->
+                    <animations:Implicit.ShowAnimations>
+                        <animations:TranslationAnimation Duration="0:0:0.5" From="100,0,0" To="0,0,0"/>
+                        <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+                    </animations:Implicit.ShowAnimations>
+
+                    <!--Visibility="Collapsed"动画：下降并消失-->
+                    <animations:Implicit.HideAnimations>
+                        <animations:TranslationAnimation Duration="0:0:0.5" From="0,0,0" To="100,0,0"/>
+                        <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+                    </animations:Implicit.HideAnimations>
+
+                    <TextBlock x:Name="TexBlock1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+
+                </Border>
+
+
+            </Grid>
         </Grid>
 
 
@@ -180,30 +173,36 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Button Width="100" Margin="22" Content="Popup" VerticalAlignment="Top" Tapped="Button_Tapped"/>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                      
-                            <Span FontStyle="Italic">Create a new UserControls and named "PopupMenuControl",Please put the document in the code is copied to the "PopupMenuControl.xaml"</Span>
+                            <Span FontStyle="Italic">Create a new UserControls and named "TouchSliderControl",Please put the document in the code is copied to the "TouchSliderControl.xaml"</Span>
                             <LineBreak/>
                             <LineBreak/>
-
-                            <Span FontStyle="Italic">Phone:</Span>
-                            <LineBreak/>
-                            <Span FontWeight="SemiBold">Holding</Span>
-                            <Span> the chat bubble.</Span>
                             
+                            <Span FontStyle="Italic">Pressed:</Span>           
+                            <LineBreak/>
+                            <Span> When you</Span>   
+                            <Span FontWeight="SemiBold"> pressed </Span>
+                            <Span>the Slider, trigger events </Span>   
+                            <Span FontWeight="SemiBold">"ValueChangeStarted" </Span>
                             <LineBreak/>
                             <LineBreak/>       
                             
-                            <Span FontStyle="Italic">PC:</Span>
-                            <LineBreak/>                  
-                            <Span FontWeight="SemiBold">DoubleTapped </Span>
-                            <Span FontWeight="SemiBold">RightTapped </Span>
-                            <Span>the chat bubble.</Span>
-
+                            <Span FontStyle="Italic">Move:</Span>  
                             <LineBreak/>
+                            <Span> When you move</Span>    
+                            <Span FontWeight="SemiBold"> move </Span>
+                            <Span>the Slider , trigger events </Span>    
+                            <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
                             <LineBreak/>
-                            <Span FontStyle="Italic">Popup will pop up!</Span>
+                            <LineBreak/>       
+                            
+                            <Span FontStyle="Italic">Released:</Span>  
+                            <LineBreak/>
+                            <Span> When you</Span>
+                            <Span FontWeight="SemiBold"> released </Span>
+                            <Span>the Slider , trigger events </Span>
+                            <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
 
                         </TextBlock>
                     </StackPanel>

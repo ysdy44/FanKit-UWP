@@ -105,28 +105,28 @@
     <Compile Include="Control\SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\AcrylicWindowBrushPage.xaml.cs">
+    <Compile Include="Frames\Brushes\AcrylicWindowBrushPage.xaml.cs">
       <DependentUpon>AcrylicWindowBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\AcrylicElementBrushPage.xaml.cs">
+    <Compile Include="Frames\Brushes\AcrylicElementBrushPage.xaml.cs">
       <DependentUpon>AcrylicElementBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\ColorPage.xaml.cs">
+    <Compile Include="Frames\Brushes\ColorPage.xaml.cs">
       <DependentUpon>ColorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\InkToolbarBrushPage.xaml.cs">
+    <Compile Include="Frames\Brushes\InkToolbarBrushPage.xaml.cs">
       <DependentUpon>InkToolbarBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\LegacyBrushPage.xaml.cs">
+    <Compile Include="Frames\Brushes\LegacyBrushPage.xaml.cs">
       <DependentUpon>LegacyBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\OtherBrushPage.xaml.cs">
+    <Compile Include="Frames\Brushes\OtherBrushPage.xaml.cs">
       <DependentUpon>OtherBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\RevealBackgroundBrushPage.xaml.cs">
+    <Compile Include="Frames\Brushes\RevealBackgroundBrushPage.xaml.cs">
       <DependentUpon>RevealBackgroundBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\RevealBorderBrushPage.xaml.cs">
+    <Compile Include="Frames\Brushes\RevealBorderBrushPage.xaml.cs">
       <DependentUpon>RevealBorderBrushPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\NumberPicker.xaml.cs">
@@ -135,8 +135,14 @@
     <Compile Include="Frames\Colors\NumberPickerPage.xaml.cs">
       <DependentUpon>NumberPickerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Control\ExpandTextViewControl.xaml.cs">
-      <DependentUpon>ExpandTextViewControl.xaml</DependentUpon>
+    <Compile Include="Frames\Colors\TouchSlider.xaml.cs">
+      <DependentUpon>TouchSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\TouchSliderPage.xaml.cs">
+      <DependentUpon>TouchSliderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Control\ExpandTextView.xaml.cs">
+      <DependentUpon>ExpandTextView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Control\ExpandTextViewPage.xaml.cs">
       <DependentUpon>ExpandTextViewPage.xaml</DependentUpon>
@@ -147,23 +153,17 @@
     <Compile Include="Frames\Library\DataTemplateAdaptiverPage.xaml.cs">
       <DependentUpon>DataTemplateAdaptiverPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Control\PopupMenuControl.xaml.cs">
-      <DependentUpon>PopupMenuControl.xaml</DependentUpon>
+    <Compile Include="Frames\Control\PopupMenu.xaml.cs">
+      <DependentUpon>PopupMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Control\PopupMenuPage.xaml.cs">
       <DependentUpon>PopupMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Control\TabBarControl.xaml.cs">
-      <DependentUpon>TabBarControl.xaml</DependentUpon>
+    <Compile Include="Frames\Control\TabButton.xaml.cs">
+      <DependentUpon>TabButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Control\TabBarPage.xaml.cs">
       <DependentUpon>TabBarPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Control\TouchSliderControl.xaml.cs">
-      <DependentUpon>TouchSliderControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Control\TouchSliderPage.xaml.cs">
-      <DependentUpon>TouchSliderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Library\DetailsViewService.cs" />
     <Compile Include="Frames\Library\DetailsViewPage.xaml.cs">
@@ -201,13 +201,13 @@
     <Compile Include="Frames\Others\SplashPage.xaml.cs">
       <DependentUpon>SplashPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Brush\SystemBrushPage.xaml.cs">
+    <Compile Include="Frames\Brushes\SystemBrushPage.xaml.cs">
       <DependentUpon>SystemBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Style\ButtonStylePage.xaml.cs">
+    <Compile Include="Frames\Styles\ButtonStylePage.xaml.cs">
       <DependentUpon>ButtonStylePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Style\TextblockStylePage.xaml.cs">
+    <Compile Include="Frames\Styles\TextblockStylePage.xaml.cs">
       <DependentUpon>TextblockStylePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Template\FloatActionButtonPage.xaml.cs">
@@ -275,15 +275,15 @@
     <Content Include="Assets\BadgeLogo.scale-150.png" />
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
-    <Content Include="Icon\Brush\AcrylicElementBrush.png" />
-    <Content Include="Icon\Brush\AcrylicWindowBrush.png" />
-    <Content Include="Icon\Brush\Color.png" />
-    <Content Include="Icon\Brush\InkToolbarBrush.png" />
-    <Content Include="Icon\Brush\LegacyBrush.png" />
-    <Content Include="Icon\Brush\OthersBrush.png" />
-    <Content Include="Icon\Brush\RevealBackgroundBrush.png" />
-    <Content Include="Icon\Brush\RevealBorderBrush.png" />
-    <Content Include="Icon\Brush\SystemBrush.png" />
+    <Content Include="Icon\Brushes\AcrylicElementBrush.png" />
+    <Content Include="Icon\Brushes\AcrylicWindowBrush.png" />
+    <Content Include="Icon\Brushes\Color.png" />
+    <Content Include="Icon\Brushes\InkToolbarBrush.png" />
+    <Content Include="Icon\Brushes\LegacyBrush.png" />
+    <Content Include="Icon\Brushes\OthersBrush.png" />
+    <Content Include="Icon\Brushes\RevealBackgroundBrush.png" />
+    <Content Include="Icon\Brushes\RevealBorderBrush.png" />
+    <Content Include="Icon\Brushes\SystemBrush.png" />
     <Content Include="Icon\Colors\NumberPicker.png" />
     <Content Include="Icon\Control\ExpandTextView.png" />
     <Content Include="Icon\Helpers\Stretch.png" />
@@ -292,7 +292,7 @@
     <Content Include="Icon\Library\DataTemplateAdaptiver.png" />
     <Content Include="Icon\Control\PopupMenu.png" />
     <Content Include="Icon\Control\TabBar.png" />
-    <Content Include="Icon\Control\TouchSlider.png" />
+    <Content Include="Icon\Colors\TouchSlider.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -355,8 +355,8 @@
     <Content Include="Icon\Shadow.png" />
     <Content Include="Icon\SplashScreen.png" />
     <Content Include="Icon\Square.png" />
-    <Content Include="Icon\Style\ButtonStyle.png" />
-    <Content Include="Icon\Style\TextBlockStyle.png" />
+    <Content Include="Icon\Styles\ButtonStyle.png" />
+    <Content Include="Icon\Styles\TextBlockStyle.png" />
     <Content Include="Icon\Template\FloatActionButton.png" />
     <Content Include="Icon\Template\FlyoutTemplate.png" />
     <Content Include="Icon\Template\SplitPanel.png" />
@@ -382,9 +382,9 @@
     <Content Include="TXT\Control\TabBarUserCs.txt" />
     <Content Include="TXT\Control\TabBarUserXaml.txt" />
     <Content Include="TXT\Control\TabBarXaml.txt" />
-    <Content Include="TXT\Control\TouchSliderUserCs.txt" />
-    <Content Include="TXT\Control\TouchSliderUserXaml.txt" />
-    <Content Include="TXT\Control\TouchSliderXaml.txt" />
+    <Content Include="TXT\Colors\TouchSliderUserCs.txt" />
+    <Content Include="TXT\Colors\TouchSliderUserXaml.txt" />
+    <Content Include="TXT\Colors\TouchSliderXaml.txt" />
     <Content Include="TXT\Library\DetailsViewCs.txt" />
     <Content Include="TXT\Library\DetailsViewService.txt" />
     <Content Include="TXT\Library\DetailsViewXaml.txt" />
@@ -422,35 +422,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\AcrylicWindowBrushPage.xaml">
+    <Page Include="Frames\Brushes\AcrylicWindowBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\AcrylicElementBrushPage.xaml">
+    <Page Include="Frames\Brushes\AcrylicElementBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\ColorPage.xaml">
+    <Page Include="Frames\Brushes\ColorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\InkToolbarBrushPage.xaml">
+    <Page Include="Frames\Brushes\InkToolbarBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\LegacyBrushPage.xaml">
+    <Page Include="Frames\Brushes\LegacyBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\OtherBrushPage.xaml">
+    <Page Include="Frames\Brushes\OtherBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\RevealBackgroundBrushPage.xaml">
+    <Page Include="Frames\Brushes\RevealBackgroundBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\RevealBorderBrushPage.xaml">
+    <Page Include="Frames\Brushes\RevealBorderBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -462,7 +462,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Control\ExpandTextViewControl.xaml">
+    <Page Include="Frames\Colors\TouchSlider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Colors\TouchSliderPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Control\ExpandTextView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -478,7 +486,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Control\PopupMenuControl.xaml">
+    <Page Include="Frames\Control\PopupMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -486,19 +494,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Control\TabBarControl.xaml">
+    <Page Include="Frames\Control\TabButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\TabBarPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Control\TouchSliderControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Control\TouchSliderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -546,15 +546,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Brush\SystemBrushPage.xaml">
+    <Page Include="Frames\Brushes\SystemBrushPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Style\ButtonStylePage.xaml">
+    <Page Include="Frames\Styles\ButtonStylePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Style\TextblockStylePage.xaml">
+    <Page Include="Frames\Styles\TextblockStylePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

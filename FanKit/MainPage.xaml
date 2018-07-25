@@ -570,10 +570,10 @@
             </Grid.ColumnDefinitions>
 
             <!--Button and Shadow-->
-            <InkToolbarCustomToggleButton x:Name="BackButton" Background="Transparent" Grid.Column="0" Content="&#xE80F;" FontSize="20" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="BackButton_Tapped"/>
-            <Rectangle Grid.Column="1" Width="20" HorizontalAlignment="Left" Fill="{StaticResource AppRightDeepGradientBrush}"/>
-            <Rectangle Grid.Column="1" Width="20" HorizontalAlignment="Right" Fill="{StaticResource AppLeftDeepGradientBrush}"/>
-            <InkToolbarCustomToggleButton x:Name="SettingButton"  Background="Transparent" Grid.Column="2" Content="&#xE115;" FontSize="20" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="SettingButton_Tapped"/>
+            <InkToolbarCustomToggleButton x:Name="BackButton" Background="Transparent" Grid.Column="0" Content="&#xE80F;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="BackButton_Tapped"/>
+            <Rectangle Visibility="Collapsed" Grid.Column="1" Width="20" HorizontalAlignment="Left" Fill="{StaticResource AppRightGradientBrush}"/>
+            <Rectangle Visibility="Collapsed" Grid.Column="1" Width="20" HorizontalAlignment="Right" Fill="{StaticResource AppLeftGradientBrush}"/>
+            <InkToolbarCustomToggleButton x:Name="SettingButton"  Background="Transparent" Grid.Column="2" Content="&#xE115;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="SettingButton_Tapped"/>
 
             <!--ListView-->
             <ListView x:Name="ListView" 

@@ -45,21 +45,21 @@ namespace FanKit
 
             new SampleCategory
             {
-                Name="Brush",
+                Name="Brushes",
                 Samples=new List<Sample>
                 {
-                    new Sample( typeof(FanKit.Frames.Brush.SystemBrushPage),"SystemBrushes",new Uri("ms-appx:///Icon/Brush/SystemBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brush.LegacyBrushPage),"LegacyBrushes",new Uri("ms-appx:///Icon/Brush/LegacyBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brush.InkToolbarBrushPage),"InkToolbarBrushes",new Uri("ms-appx:///Icon/Brush/InkToolbarBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brush.OtherBrushPage),"OthersBrush",new Uri("ms-appx:///Icon/Brush/OthersBrush.png")),
+                    new Sample( typeof(FanKit.Frames.Brushes.SystemBrushPage),"SystemBrushes",new Uri("ms-appx:///Icon/Brushes/SystemBrush.png")),
+                    new Sample(typeof(FanKit.Frames.Brushes.LegacyBrushPage),"LegacyBrushes",new Uri("ms-appx:///Icon/Brushes/LegacyBrush.png")),
+                    new Sample(typeof(FanKit.Frames.Brushes.InkToolbarBrushPage),"InkToolbarBrushes",new Uri("ms-appx:///Icon/Brushes/InkToolbarBrush.png")),
+                    new Sample(typeof(FanKit.Frames.Brushes.OtherBrushPage),"OthersBrush",new Uri("ms-appx:///Icon/Brushes/OthersBrush.png")),
                     
-                    new Sample(typeof(FanKit.Frames.Brush.AcrylicElementBrushPage),"AcrylicElementBrushes",new Uri("ms-appx:///Icon/Brush/AcrylicElementBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brush.AcrylicWindowBrushPage),"AcrylicWindowBrushes",new Uri("ms-appx:///Icon/Brush/AcrylicWindowBrush.png")),
+                    new Sample(typeof(FanKit.Frames.Brushes.AcrylicElementBrushPage),"AcrylicElementBrushes",new Uri("ms-appx:///Icon/Brushes/AcrylicElementBrush.png")),
+                    new Sample(typeof(FanKit.Frames.Brushes.AcrylicWindowBrushPage),"AcrylicWindowBrushes",new Uri("ms-appx:///Icon/Brushes/AcrylicWindowBrush.png")),
 
-                    new Sample(typeof(FanKit.Frames.Brush.RevealBorderBrushPage),"RevealBorderBrushes",new Uri("ms-appx:///Icon/Brush/RevealBorderBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brush.RevealBackgroundBrushPage),"RevealBackgroundBrushes",new Uri("ms-appx:///Icon/Brush/RevealBackgroundBrush.png")),
+                    new Sample(typeof(FanKit.Frames.Brushes.RevealBorderBrushPage),"RevealBorderBrushes",new Uri("ms-appx:///Icon/Brushes/RevealBorderBrush.png")),
+                    new Sample(typeof(FanKit.Frames.Brushes.RevealBackgroundBrushPage),"RevealBackgroundBrushes",new Uri("ms-appx:///Icon/Brushes/RevealBackgroundBrush.png")),
 
-                    new Sample(typeof(FanKit.Frames.Brush.ColorPage),"Colors",new Uri("ms-appx:///Icon/Brush/Color.png")),
+                    new Sample(typeof(FanKit.Frames.Brushes.ColorPage),"Colors",new Uri("ms-appx:///Icon/Brushes/Color.png")),
                 }
             },
 
@@ -68,8 +68,8 @@ namespace FanKit
                 Name ="Style",
                 Samples=new List<Sample>
                 {
-                    new Sample(typeof(FanKit.Frames.Style.TextblockStylePage),"TextblockStyle",new Uri("ms-appx:///Icon/Style/TextBlockStyle.png")),
-                    new Sample(typeof(FanKit.Frames.Style.ButtonStylePage),"ButtonStyle",new Uri("ms-appx:///Icon/Style/ButtonStyle.png")),
+                    new Sample(typeof(FanKit.Frames.Styles.TextblockStylePage),"TextblockStyle",new Uri("ms-appx:///Icon/Styles/TextBlockStyle.png")),
+                    new Sample(typeof(FanKit.Frames.Styles.ButtonStylePage),"ButtonStyle",new Uri("ms-appx:///Icon/Styles/ButtonStyle.png")),
                 }
             },
             
@@ -102,7 +102,6 @@ namespace FanKit
                 {
                     new Sample(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu",new Uri("ms-appx:///Icon/Control/PopupMenu.png")),
                     new Sample(typeof(FanKit.Frames.Control.TabBarPage),"TabBar",new Uri("ms-appx:///Icon/Control/TabBar.png")),
-                    new Sample(typeof(FanKit.Frames.Control.TouchSliderPage),"TouchSlider",new Uri("ms-appx:///Icon/Control/TouchSlider.png")),
                     new Sample(typeof(FanKit.Frames.Control.ExpandTextViewPage),"ExpandTextView",new Uri("ms-appx:///Icon/Control/ExpandTextView.png")),
                 }
             },
@@ -125,6 +124,7 @@ namespace FanKit
                 Samples=new List<Sample>
                 {
                     new Sample(typeof(FanKit.Frames.Colors.NumberPickerPage),"NumberPicker",new Uri("ms-appx:///Icon/Colors/NumberPicker.png")),
+                    new Sample(typeof(FanKit.Frames.Colors.TouchSliderPage),"TouchSlider",new Uri("ms-appx:///Icon/Colors/TouchSlider.png")),
                 }
             },
 
