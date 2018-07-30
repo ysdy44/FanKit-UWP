@@ -129,11 +129,23 @@
     <Compile Include="Frames\Brushes\RevealBorderBrushPage.xaml.cs">
       <DependentUpon>RevealBorderBrushPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\HSLPicker.xaml.cs">
+      <DependentUpon>HSLPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\HSLPickerPage.xaml.cs">
+      <DependentUpon>HSLPickerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Colors\NumberPicker.xaml.cs">
       <DependentUpon>NumberPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\NumberPickerPage.xaml.cs">
       <DependentUpon>NumberPickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\RGBPickerPage.xaml.cs">
+      <DependentUpon>RGBPickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\RGBPicker.xaml.cs">
+      <DependentUpon>RGBPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\TouchSlider.xaml.cs">
       <DependentUpon>TouchSlider.xaml</DependentUpon>
@@ -284,7 +296,9 @@
     <Content Include="Icon\Brushes\RevealBackgroundBrush.png" />
     <Content Include="Icon\Brushes\RevealBorderBrush.png" />
     <Content Include="Icon\Brushes\SystemBrush.png" />
+    <Content Include="Icon\Colors\HSLPicker.png" />
     <Content Include="Icon\Colors\NumberPicker.png" />
+    <Content Include="Icon\Colors\RGBPicker.png" />
     <Content Include="Icon\Control\ExpandTextView.png" />
     <Content Include="Icon\Helpers\Stretch.png" />
     <Content Include="Icon\Helpers\Transition.png" />
@@ -368,9 +382,15 @@
     <Content Include="Icon\Helpers\Transition\Entrance.png" />
     <Content Include="Icon\Helpers\Transition\Slide.png" />
     <Content Include="Icon\Helpers\Transition\Suppress.png" />
+    <Content Include="TXT\Colors\HSLPickerUserCs.txt" />
+    <Content Include="TXT\Colors\HSLPickerUserXaml.txt" />
+    <Content Include="TXT\Colors\HSLPickerXaml.txt" />
     <Content Include="TXT\Colors\NumberPickerUserCs.txt" />
     <Content Include="TXT\Colors\NumberPickerUserXaml.txt" />
     <Content Include="TXT\Colors\NumberPickerXaml.txt" />
+    <Content Include="TXT\Colors\RGBPickerUserCs.txt" />
+    <Content Include="TXT\Colors\RGBPickerUserXaml.txt" />
+    <Content Include="TXT\Colors\RGBPickerXaml.txt" />
     <Content Include="TXT\Control\ExpandTextViewUserCs.txt" />
     <Content Include="TXT\Control\ExpandTextViewUserXaml.txt" />
     <Content Include="TXT\Control\ExpandTextViewXaml.txt" />
@@ -454,11 +474,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frames\Colors\HSLPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\HSLPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frames\Colors\NumberPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Colors\NumberPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\RGBPickerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Colors\RGBPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

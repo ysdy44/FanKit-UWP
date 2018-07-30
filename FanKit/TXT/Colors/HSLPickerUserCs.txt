@@ -1,0 +1,204 @@
+
+```Csharp
+
+
+using System;
+using Windows.UI;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+
+public sealed partial class HSLPicker : UserControl
+{
+
+    //Delegate
+    public delegate void ColorChangeHandler(object sender, Color Value);
+    public event ColorChangeHandler ColorChange = null;
+
+
+    #region DependencyProperty
+
+
+    private Color color = Color.FromArgb(255, 255, 255, 255);
+    public Color Color
+    {
+        get => color;
+        set
+        {
+            color = value;
+            this.HSL = this.RGBtoHSL(value);
+        }
+    }
+
+
+    public HSL HSL
+    {
+        get { return (HSL)GetValue(HSLProperty); }
+        set { SetValue(HSLProperty, value); }
+    }
+    public static readonly DependencyProperty HSLProperty = DependencyProperty.Register(nameof(HSL), typeof(HSL), typeof(HSLPicker), new PropertyMetadata(new HSL(255, 360, 100, 100), new PropertyChangedCallback(HSLOnChanged)));
+    private static void HSLOnChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+    {
+        HSLPicker con = (HSLPicker)sender;
+
+        if (e.NewValue is HSL NewValue) con.HSLChanged(NewValue);
+    }
+    private void HSLChanged(HSL value)
+    {
+        double H = value.H;//(0~360)
+        double S = value.S;//(0~1)
+        double L = value.L;//(0~1)
+
+
+        //H          
+        this.HSlider.Value = this.HPicker.Value = (int)H;
+        this.HG.Color = this.HA.Color = HSLtoRGB(255, 0, S, L);
+        this.HB.Color = this.HSLtoRGB(255, 60, S, L);
+        this.HC.Color = this.HSLtoRGB(255, 120, S, L);
+        this.HD.Color = this.HSLtoRGB(255, 180, S, L);
+        this.HE.Color = this.HSLtoRGB(255, 240, S, L);
+        this.HF.Color = this.HSLtoRGB(255, 300, S, L);
+        //S
+        this.SSlider.Value = this.SPicker.Value = (int)S;
+        this.SLeft.Color = this.HSLtoRGB(255, H, 0.0d, L);
+        this.SRight.Color = this.HSLtoRGB(255, H, 100.0d, L);
+        //L
+        this.LSlider.Value = this.LPicker.Value = (int)L;
+        this.LLeft.Color = this.HSLtoRGB(255, H, S, 0.0d);
+        this.LRight.Color = this.HSLtoRGB(255, H, S, 100.0d);
+
+
+        Color c = HSLtoRGB(255, H, S, L);
+        this.color = c;
+        this.ColorChange?.Invoke(this, c);
+    }
+
+
+    #endregion
+
+
+
+    private void HSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.HSL = new HSL(this.HSL.A, e.NewValue, this.HSL.S, this.HSL.L);
+    private void SSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.HSL = new HSL(this.HSL.A, this.HSL.H, (int)e.NewValue, this.HSL.L);
+    private void LSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.HSL = new HSL(this.HSL.A, this.HSL.H, this.HSL.S, (int)e.NewValue);
+
+    private void HPicker_ValueChange(object sender, int Value) => this.HSL = new HSL(this.HSL.A, Value, this.HSL.S, this.HSL.L);
+    private void SPicker_ValueChange(object sender, int Value) => this.HSL = new HSL(this.HSL.A, this.HSL.H, (int)Value, this.HSL.L);
+    private void LPicker_ValueChange(object sender, int Value) => this.HSL = new HSL(this.HSL.A, this.HSL.H, this.HSL.S, (int)Value);
+
+
+    /// <summary>
+    /// HSL to RGB 
+    /// </summary>
+    /// <param name="A">A(W):0~100</param>
+    /// <param name="H">H(X):0~360</param>
+    /// <param name="S">S(Y):0~100</param>
+    /// <param name="L">L(Z):0~100</param>
+    /// <returns>Color form RGB</returns>
+    public Color HSLtoRGB(byte A, double H, double S, double L)
+    {
+        double hh = H % 360.0;
+        double ss = S / 100.0;
+        double ll = L / 100.0;
+
+        if (ss == 0.0)
+        {
+            byte lllllllll = (byte)(ll * 255.0);
+            return Color.FromArgb((byte)A, lllllllll, lllllllll, lllllllll);
+        }
+        else
+        {
+            double dhh = hh / 60.0;
+            int nhh = (int)Math.Floor(dhh);
+            double rhh = dhh - nhh;
+
+            double rr = ll * (1.0 - ss);
+            double gg = ll * (1.0 - (ss * rhh));
+            double bb = ll * (1.0 - (ss * (1.0 - rhh)));
+
+            switch (nhh)
+            {
+                case 0: return Color.FromArgb((byte)A, (byte)(ll * 255.0), (byte)(bb * 255.0), (byte)(rr * 255.0));
+                case 1: return Color.FromArgb((byte)A, (byte)(gg * 255.0), (byte)(ll * 255.0), (byte)(rr * 255.0));
+                case 2: return Color.FromArgb((byte)A, (byte)(rr * 255.0), (byte)(ll * 255.0), (byte)(bb * 255.0));
+                case 3: return Color.FromArgb((byte)A, (byte)(rr * 255.0), (byte)(gg * 255.0), (byte)(ll * 255.0));
+                case 4: return Color.FromArgb((byte)A, (byte)(bb * 255.0), (byte)(rr * 255.0), (byte)(ll * 255.0));
+                default: return Color.FromArgb((byte)A, (byte)(ll * 255.0), (byte)(rr * 255.0), (byte)(gg * 255.0));
+            }
+        }
+    }
+
+    /// <summary>
+    /// RGB to HSL
+    /// </summary>
+    /// <param name="color">Color form RGB</param>
+    /// <returns>A(W):0~100, H(X):0~360, S(Y):0~100, L(Z):0~100</returns>
+    public HSL RGBtoHSL(Color color)
+    {
+        float R = color.R / 255.0f;
+        float G = color.G / 255.0f;
+        float B = color.B / 255.0f;
+
+        float max = Math.Max(Math.Max(R, G), B);
+        float min = Math.Min(Math.Min(R, G), B);
+        float L = (min + max) / 2.0f;
+
+        if (L <= 0.0) return new HSL(color.A, 0, 0, 0);
+
+        float dist = max - min;
+        float S = dist;
+
+        if (S > 0.0)
+        {
+            if (L <= 0.5f) S /= (max + min);
+            else S /= (2.0f - max - min);
+        }
+        else return new HSL(color.A, 0, 0, 0);
+
+        float rr = (max - R) / dist;
+        float gg = (max - G) / dist;
+        float bb = (max - B) / dist;
+
+        float H;
+        if (R == max)
+        {
+            if (G == min) H = 5.0f + bb;
+            else H = 1.0f - gg;
+        }
+        else if (G == max)
+        {
+            if (B == min) H = 3.0f - bb;
+            else H = 3.0f - bb;
+        }
+        else// if (B == max)
+        {
+            if (R == min) H = 3.0f + gg;
+            else H = 5.0f - rr;
+        }
+
+        return new HSL(color.A, (float)(H * 60d), (float)(S * 100.0d), (float)(L * 200.0d));
+    }
+}
+
+/// <summary>
+/// Color form HSL
+/// </summary>
+public class HSL
+{
+    public byte A;
+    public double H;
+    public double S;
+    public double L;
+
+    public HSL(byte A, double H, double S, double L)
+    {
+        this.A = A;
+        this.H = H;
+        this.S = S;
+        this.L = L;
+    }
+}
+
+
+
+```

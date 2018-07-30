@@ -1,0 +1,16 @@
+
+```xaml
+
+
+
+<Grid Width="200" Height="230" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+
+   <local:RGBPicker 
+       x:Name="RGBPicker" 
+       ColorChange="RGBPicker_ColorChange"/>
+
+</Grid>
+
+
+
+```

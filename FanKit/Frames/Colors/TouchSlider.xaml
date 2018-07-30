@@ -286,3 +286,6 @@
     <Slider x:Name="Slider" Style="{StaticResource SliderStyle0}" ValueChanged="Slider_ValueChanged"/>
 
 </UserControl>
+
+
+

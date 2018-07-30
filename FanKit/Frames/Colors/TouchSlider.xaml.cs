@@ -7,21 +7,18 @@ namespace FanKit.Frames.Colors
 {
     public sealed partial class TouchSlider : UserControl
     {
-
-        public Brush SliderBackground
-        {
-            get => this.Slider.Background;
-            set => this.Slider.Background = value;
-        }
-        public Brush SliderForeground
-        {
-            get => this.Slider.Foreground;
-            set => this.Slider.Foreground = value;
-        }
-
+        
 
         #region DependencyProperty
 
+
+        public double Value { get => this.Slider.Value; set => this.Slider.Value = value; }
+        public double Minimum { get => this.Slider.Minimum; set => this.Slider.Minimum = value; }
+        public double Maximum { get => this.Slider.Maximum; set => this.Slider.Maximum = value; }
+
+        public Brush SliderForeground { get => this.Slider.Foreground; set => this.Slider.Foreground = value; }
+        public Brush SliderBackground { get => this.Slider.Background; set => this.Slider.Background = value; }
+        
 
         /// <summary>
         /// <see cref="TouchSlider"/>'s IsStyle.
@@ -31,8 +28,7 @@ namespace FanKit.Frames.Colors
             get { return (bool)GetValue(IsStyleProperty); }
             set { SetValue(IsStyleProperty, value); }
         }
-        public static readonly DependencyProperty IsStyleProperty =
-            DependencyProperty.Register(nameof(IsStyle), typeof(bool), typeof(TouchSlider), new PropertyMetadata(false, new PropertyChangedCallback(IsStyleOnChanged)));
+        public static readonly DependencyProperty IsStyleProperty =DependencyProperty.Register(nameof(IsStyle), typeof(bool), typeof(TouchSlider), new PropertyMetadata(false, new PropertyChangedCallback(IsStyleOnChanged)));
         private static void IsStyleOnChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             if (sender is TouchSlider con)
@@ -41,9 +37,9 @@ namespace FanKit.Frames.Colors
             }
         }
       
-         
 
         #endregion
+
 
         //event
         private RangeBaseValueChangedEventArgs e;

@@ -125,6 +125,8 @@ namespace FanKit
                 {
                     new Sample(typeof(FanKit.Frames.Colors.NumberPickerPage),"NumberPicker",new Uri("ms-appx:///Icon/Colors/NumberPicker.png")),
                     new Sample(typeof(FanKit.Frames.Colors.TouchSliderPage),"TouchSlider",new Uri("ms-appx:///Icon/Colors/TouchSlider.png")),
+                    new Sample(typeof(FanKit.Frames.Colors.RGBPickerPage),"RGBPicker",new Uri("ms-appx:///Icon/Colors/RGBPicker.png")),
+                    new Sample(typeof(FanKit.Frames.Colors.HSLPickerPage),"HSLPicker",new Uri("ms-appx:///Icon/Colors/HSLPicker.png")),
                 }
             },
 

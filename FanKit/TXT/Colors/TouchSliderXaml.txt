@@ -3,6 +3,7 @@
 
 
 <local:TouchSliderControl 
+    Background="Gray"
      ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
      ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
      ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"

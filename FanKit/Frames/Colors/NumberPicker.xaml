@@ -101,7 +101,7 @@
     <Button  x:Name="Button" Height="24" Style="{StaticResource ButtonStyle}" Tapped="Button_Tapped">
         <Button.Flyout>
             <Flyout  x:Name="Flyout" Placement="Bottom" >
-                <Grid Width="180" Height="180">
+                <Grid Width="180" Height="180" Margin="-10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
