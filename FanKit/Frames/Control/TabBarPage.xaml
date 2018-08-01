@@ -309,13 +309,13 @@
                      Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}"
                       Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" >
 
-                    <!--Visibility="Visible"动画：上浮并显现-->
+                    <!--Visibility="Visible" Show-->
                     <animations:Implicit.ShowAnimations>
                         <animations:TranslationAnimation Duration="0:0:1" From="0,50,0" To="0,0,0"/>
                         <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
                     </animations:Implicit.ShowAnimations>
 
-                    <!--Visibility="Collapsed"动画：下降并消失-->
+                    <!--Visibility="Collapsed" Hide-->
                     <animations:Implicit.HideAnimations>
                         <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,50,0"/>
                         <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>

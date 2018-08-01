@@ -19,12 +19,23 @@
 
         <!--DataTemplate-->
         <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
-            <Border Padding="2"
-                    Width="{Binding ElementName=Adaptiver,Path=SizeWidth}" 
-                    Height="{Binding ElementName=Adaptiver,Path=SizeHeight}" >
-                <Border  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <Border 
+                Width="{Binding ElementName=Adaptiver,Path=SizeWidth}" 
+                Height="{Binding ElementName=Adaptiver,Path=SizeHeight}" 
+                >
+                <Grid Margin="4" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Height="{Binding ElementName=Adaptiver,Path=SizeWidth}" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="40" Glyph="&#xEB9F;" Foreground="White"/>
+                    </Border>
+                    
                     <TextBlock  Text="{x:Bind}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
+                </Grid>
+                
             </Border>
         </DataTemplate>
         
@@ -105,13 +116,13 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="1" Grid.Row="1" 
-                  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
                 <GridView x:Name="AdaptiverGridView" ItemTemplate="{StaticResource ItemTemplate}">
 
                     <GridView.ItemContainerStyle>
                         <Style TargetType="GridViewItem" >
                             <Setter Property="Margin" Value="0" />
+                            <Setter Property="Padding" Value="0" />
                             <Setter Property="HorizontalAlignment" Value="Stretch" />
                             <Setter Property="VerticalAlignment" Value="Stretch" />
                         </Style>
@@ -215,5 +226,4 @@
     </Grid>
 </Page>
 
-    
-    
+

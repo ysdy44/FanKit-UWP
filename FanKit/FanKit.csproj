@@ -153,6 +153,12 @@
     <Compile Include="Frames\Colors\TouchSliderPage.xaml.cs">
       <DependentUpon>TouchSliderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\WheelPicker.xaml.cs">
+      <DependentUpon>WheelPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\WheelPickerPage.xaml.cs">
+      <DependentUpon>WheelPickerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Control\ExpandTextView.xaml.cs">
       <DependentUpon>ExpandTextView.xaml</DependentUpon>
     </Compile>
@@ -299,6 +305,7 @@
     <Content Include="Icon\Colors\HSLPicker.png" />
     <Content Include="Icon\Colors\NumberPicker.png" />
     <Content Include="Icon\Colors\RGBPicker.png" />
+    <Content Include="Icon\Colors\WheelPicker.png" />
     <Content Include="Icon\Control\ExpandTextView.png" />
     <Content Include="Icon\Helpers\Stretch.png" />
     <Content Include="Icon\Helpers\Transition.png" />
@@ -354,7 +361,9 @@
     <Content Include="Icon\Logo.png" />
     <Content Include="Icon\LogoB.png" />
     <Content Include="Icon\Library\Palette.png" />
+    <Content Include="Icon\LogoD.png" />
     <Content Include="Icon\Others\ToolKit.PNG" />
+    <Content Include="Icon\Others\Win2d.PNG" />
     <Content Include="Icon\pexels-photo-688659.jpg" />
     <Content Include="Icon\Photos\BisonBadlandsChillin.jpg" />
     <Content Include="Icon\Photos\ColumbiaRiverGorge.jpg" />
@@ -391,6 +400,9 @@
     <Content Include="TXT\Colors\RGBPickerUserCs.txt" />
     <Content Include="TXT\Colors\RGBPickerUserXaml.txt" />
     <Content Include="TXT\Colors\RGBPickerXaml.txt" />
+    <Content Include="TXT\Colors\WheelPickerUserCs.txt" />
+    <Content Include="TXT\Colors\WheelPickerUserXaml.txt" />
+    <Content Include="TXT\Colors\WheelPickerXaml.txt" />
     <Content Include="TXT\Control\ExpandTextViewUserCs.txt" />
     <Content Include="TXT\Control\ExpandTextViewUserXaml.txt" />
     <Content Include="TXT\Control\ExpandTextViewXaml.txt" />
@@ -505,6 +517,14 @@
     <Page Include="Frames\Colors\TouchSliderPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Colors\WheelPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\WheelPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\ExpandTextView.xaml">
       <SubType>Designer</SubType>

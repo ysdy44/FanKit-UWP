@@ -24,22 +24,14 @@ namespace FanKit
     public sealed partial class MainPage : Page
     {
         
-        #region ImageButtonVisible
-
-
         //delegate
         public delegate void ImageButtonVisibleChangedHandler(double Offset);
         public static event ImageButtonVisibleChangedHandler ImageButtonVisibleChanged = null;
-
         //Methon
         public static void ImageButtonVisibleChange(double Offset) => ImageButtonVisibleChanged?.Invoke(Offset);
-
-
-        #endregion
-
-        #region SampleCategory
-
         
+
+        //SampleCategory
         List<SampleCategory> SampleCategory = new List<SampleCategory>
         {
 
@@ -127,15 +119,13 @@ namespace FanKit
                     new Sample(typeof(FanKit.Frames.Colors.TouchSliderPage),"TouchSlider",new Uri("ms-appx:///Icon/Colors/TouchSlider.png")),
                     new Sample(typeof(FanKit.Frames.Colors.RGBPickerPage),"RGBPicker",new Uri("ms-appx:///Icon/Colors/RGBPicker.png")),
                     new Sample(typeof(FanKit.Frames.Colors.HSLPickerPage),"HSLPicker",new Uri("ms-appx:///Icon/Colors/HSLPicker.png")),
+                    new Sample(typeof(FanKit.Frames.Colors.WheelPickerPage),"WheelPicker",new Uri("ms-appx:///Icon/Colors/WheelPicker.png")),
                 }
             },
 
         };
 
-
-        #endregion
         
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -170,8 +160,9 @@ namespace FanKit
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             this.NavigationFrame.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
+         //   this.NavigationFrame.Navigate(typeof(FanKit.Frames.Colors.HSLPickerPage));//页面跳转
 
-            //ImageButtonVisible：图片按钮可视
+            //ImageButtonVisible
             FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.sos.VerticalOffset = Offset;
         }
 
@@ -236,7 +227,7 @@ namespace FanKit
         #endregion
 
 
-        //Sample Category Control
+        //SampleCategory
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.BackButton.IsChecked = false;
@@ -245,17 +236,11 @@ namespace FanKit
             if (e.ClickedItem is SampleCategory category)
             {
                 if (this.SampleCategoryControl.Category == category)
-                {
                     this.SampleCategoryControl.Category = null;
-                }
                 else
-                {
                     this.SampleCategoryControl.Category = category;
-                }
             }
         }
-
-   
     }
 }
 

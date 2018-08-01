@@ -1,0 +1,17 @@
+
+```xaml
+
+
+<Grid Width="200" Height="230" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+           
+     <local:WheelPicker 
+        x:Name="WheelPicker" 
+        ColorChange="WheelPicker_ColorChange"/>
+
+
+</Grid>
+
+
+
+
+```

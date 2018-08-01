@@ -1,39 +1,68 @@
 
 ```xaml
 
-<FlipView >
+<Grid RequestedTheme="Dark" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/BisonBadlandsChillin.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/ColumbiaRiverGorge.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/GrandTetons.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/MilkyWayStHelensHikePurple.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/NorthernCascadesReflection.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/Owl.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/ShootingOnAutoOnTheDrone.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/SmithnRockDownTheRiverView.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/SnowyInterbayt.jpg"/>
-    </local:ScalableGrid>
-    <local:ScalableGrid>
-        <Image Source="ms-appx:///Icon/Photos/SpeedTripleAtristsPoint.jpg"/>
-    </local:ScalableGrid>
+    <FlipView x:Name="FlipView" Tapped="FlipView_Tapped">
 
-</FlipView>
+        <local:ScalableGrid>
+            <Image Source="ms-appx:///Icon/Photos/BisonBadlandsChillin.jpg"/>
+        </local:ScalableGrid>
+        
+        <local:ScalableGrid>
+            <Image Source="ms-appx:///Icon/Photos/ColumbiaRiverGorge.jpg"/>
+        </local:ScalableGrid>
+        
+        <local:ScalableGrid>
+            <Image Source="ms-appx:///Icon/Photos/GrandTetons.jpg"/>
+        </local:ScalableGrid>
+        
+        <local:ScalableGrid>
+            <Image Source="ms-appx:///Icon/Photos/MilkyWayStHelensHikePurple.jpg"/>
+        </local:ScalableGrid> 
+
+    </FlipView>
+ 
+
+    <Grid  x:Name="FlipViewGrid" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" >
+
+        <!--Visibility="Visible" Show-->
+        <animations:Implicit.ShowAnimations>
+            <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+        </animations:Implicit.ShowAnimations>
+
+        <!--Visibility="Collapsed" Hide-->
+        <animations:Implicit.HideAnimations>
+            <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+        </animations:Implicit.HideAnimations>
+
+        <Grid.Background>
+            <LinearGradientBrush  StartPoint="0.5,1" EndPoint="0.5,0">
+                <GradientStop Color="#88000000" Offset="0"/>
+                <GradientStop Color="#33000000" Offset="0.5"/>
+                <GradientStop Color="#00000000" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MinWidth="50" MaxWidth="80"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="1*" MinWidth="50" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Run Text="{Binding ElementName=FlipView,Path=SelectedIndex,Mode=OneWay}"/>
+                        <Span>/ 10</Span>
+        </TextBlock>
+
+        <Button Grid.Column="2" Grid.Row="1"  Style="{StaticResource AppBoldButtonStyle}" >
+            <Viewbox  Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Path Fill="White" Width="1024" Height="1024" Data="M316.012,736L707.012,736L707.012,788L316.012,788L316.012,736ZM415,297L595,297L595,485L689,485L505,696.009L321,485L415,485L415,297Z"/>
+            </Viewbox>
+        </Button>
+
+    </Grid>
+
+</Grid>
 
 ```

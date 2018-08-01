@@ -81,9 +81,18 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="Grid" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*" MinWidth="200" MaxWidth="400" />
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="230" />
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
 
-            
-            <Grid Width="200" Height="230" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+            <Grid Grid.Column="1" Grid.Row="1" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                 <local:RGBPicker x:Name="RGBPicker" ColorChange="RGBPicker_ColorChange"/>
             </Grid>
         </Grid>

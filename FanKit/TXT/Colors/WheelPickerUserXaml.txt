@@ -1,0 +1,26 @@
+
+```xaml
+
+
+
+<UserControl
+    x:Class="FanKit.Frames.Colors.WheelPicker" >
+
+     <canvas:CanvasControl  
+        x:Name="CanvasControl" 
+                        
+        Draw="CanvasControl_Draw" 
+        SizeChanged="CanvasControl_SizeChanged"
+           
+        ManipulationMode="All"
+        ManipulationStarted="CanvasControl_ManipulationStarted"
+        ManipulationDelta="CanvasControl_ManipulationDelta"
+        ManipulationCompleted="CanvasControl_ManipulationCompleted"
+        />
+    
+</UserControl>
+
+
+
+
+```

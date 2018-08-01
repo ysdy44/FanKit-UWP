@@ -147,12 +147,12 @@
 
                 <Grid  x:Name="FlipViewGrid" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" >
 
-                    <!--Visibility="Visible"动画：上浮并显现-->
+                    <!--Visibility="Visible" Show-->
                     <animations:Implicit.ShowAnimations>
                         <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
                     </animations:Implicit.ShowAnimations>
 
-                    <!--Visibility="Collapsed"动画：下降并消失-->
+                    <!--Visibility="Collapsed" Hide-->
                     <animations:Implicit.HideAnimations>
                         <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
                     </animations:Implicit.HideAnimations>
@@ -241,5 +241,10 @@
 
     </Grid>
 </Page>
+
+
+
+
+
 
 

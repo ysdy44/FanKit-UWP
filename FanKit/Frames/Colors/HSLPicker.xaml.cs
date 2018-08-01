@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Numerics;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace FanKit.Frames.Colors
 {
@@ -35,7 +24,7 @@ namespace FanKit.Frames.Colors
             set
             {
                 color = value;
-                this.HSL = this.RGBtoHSL(value);
+                this.HSL = RGBtoHSL(value);
             }
         }
 
@@ -54,27 +43,27 @@ namespace FanKit.Frames.Colors
         }
         private void HSLChanged(HSL value)
         {
-            double H= value.H;//（0~360）
-            double S = value.S;//（0~1）
-            double L = value.L;//（0~1）
+            double H= value.H;
+            double S = value.S;
+            double L = value.L;
 
 
             //H          
            this. HSlider.Value = this.HPicker.Value = (int)H;
             this.HG.Color = this.HA.Color = HSLtoRGB(255, 0, S, L);
-            this.HB.Color = this.HSLtoRGB(255, 60, S, L);
-            this.HC.Color = this.HSLtoRGB(255, 120, S, L);
-            this.HD.Color = this.HSLtoRGB(255, 180, S, L);
-            this.HE.Color = this.HSLtoRGB(255, 240, S, L);
-            this.HF.Color = this.HSLtoRGB(255, 300, S, L);
+            this.HB.Color = HSLtoRGB(255, 60, S, L);
+            this.HC.Color = HSLtoRGB(255, 120, S, L);
+            this.HD.Color = HSLtoRGB(255, 180, S, L);
+            this.HE.Color = HSLtoRGB(255, 240, S, L);
+            this.HF.Color = HSLtoRGB(255, 300, S, L);
             //S
-            this.SSlider.Value = this.SPicker.Value = (int)S;
-            this.SLeft.Color = this.HSLtoRGB(255, H, 0.0d, L);
-            this.SRight.Color = this.HSLtoRGB(255, H, 100.0d, L);
+            this.SSlider.Value = SPicker.Value = (int)S;
+            this.SLeft.Color = HSLtoRGB(255, H, 0.0d, L);
+            this.SRight.Color = HSLtoRGB(255, H, 100.0d, L);
             //L
-            this.LSlider.Value = this.LPicker.Value = (int)L;
-            this.LLeft.Color = this.HSLtoRGB(255, H, S, 0.0d);
-            this.LRight.Color = this.HSLtoRGB(255, H, S, 100.0d);
+            this.LSlider.Value = LPicker.Value = (int)L;
+            this.LLeft.Color = HSLtoRGB(255, H, S, 0.0d);
+            this.LRight.Color = HSLtoRGB(255, H, S, 100.0d);
 
 
             Color c = HSLtoRGB(255, H, S, L);
@@ -101,66 +90,76 @@ namespace FanKit.Frames.Colors
         private void LPicker_ValueChange(object sender, int Value) => this.HSL = new HSL(this.HSL.A, this.HSL.H, this.HSL.S, (int)Value);
 
 
+        #region RGB HSL
+
+
         /// <summary>
         /// HSL to RGB 
         /// </summary>
-        /// <param name="A">A(W):0~100</param>
+        /// <param name="A">A(W):0~255</param>
         /// <param name="H">H(X):0~360</param>
         /// <param name="S">S(Y):0~100</param>
         /// <param name="L">L(Z):0~100</param>
         /// <returns>Color form RGB</returns>
-        public Color HSLtoRGB(byte A, double H, double S, double L)
+        public static Color HSLtoRGB(byte A, double H, double S, double L)
         {
+            double s = S / 100.0;
+            double l = L / 100.0;
+            byte ll = (byte)(l * 255.0);
+
+            if (s == 0.0) return Color.FromArgb(A, ll, ll, ll);
+
             double hh = H % 360.0;
-            double ss = S / 100.0;
-            double ll = L / 100.0;
+            double dhh = hh / 60.0;
+            int nhh = (int)Math.Floor(dhh);
+            double rhh = dhh - nhh;
 
-            if (ss == 0.0)
+            byte rr = (byte)(l * (1.0 - s) * 255.0);
+            byte gg = (byte)(l * (1.0 - (s * rhh)) * 255.0);
+            byte bb = (byte)(l * (1.0 - (s * (1.0 - rhh))) * 255.0);
+
+            switch (nhh)
             {
-                byte lllllllll = (byte)(ll * 255.0);
-                return Color.FromArgb((byte)A, lllllllll, lllllllll, lllllllll);
-            }
-            else
-            {
-                double dhh = hh / 60.0;
-                int nhh = (int)Math.Floor(dhh);
-                double rhh = dhh - nhh;
-
-                double rr = ll * (1.0 - ss);
-                double gg = ll * (1.0 - (ss * rhh));
-                double bb = ll * (1.0 - (ss * (1.0 - rhh)));
-
-                switch (nhh)
-                {
-                    case 0: return Color.FromArgb((byte)A, (byte)(ll * 255.0), (byte)(bb * 255.0), (byte)(rr * 255.0));
-                    case 1: return Color.FromArgb((byte)A, (byte)(gg * 255.0), (byte)(ll * 255.0), (byte)(rr * 255.0));
-                    case 2: return Color.FromArgb((byte)A, (byte)(rr * 255.0), (byte)(ll * 255.0), (byte)(bb * 255.0));
-                    case 3: return Color.FromArgb((byte)A, (byte)(rr * 255.0), (byte)(gg * 255.0), (byte)(ll * 255.0));
-                    case 4: return Color.FromArgb((byte)A, (byte)(bb * 255.0), (byte)(rr * 255.0), (byte)(ll * 255.0));
-                    default: return Color.FromArgb((byte)A, (byte)(ll * 255.0), (byte)(rr * 255.0), (byte)(gg * 255.0));
-                }
+                case 0: return Color.FromArgb(A, ll, bb, rr);
+                case 1: return Color.FromArgb(A, gg, ll, rr);
+                case 2: return Color.FromArgb(A, rr, ll, bb);
+                case 3: return Color.FromArgb(A, rr, gg, ll);
+                case 4: return Color.FromArgb(A, bb, rr, ll);
+                default: return Color.FromArgb(A, ll, rr, gg);
             }
         }
+        public static Color HSLtoRGB(double H)
+        {
+            double hh = H / 60;
+            byte xhh = (byte)((1 - Math.Abs(hh % 2 - 1)) * 255);
+
+            if (hh < 1) return Color.FromArgb(255, 255, xhh, 0);
+            else if (hh < 2) return Color.FromArgb(255, xhh, 255, 0);
+            else if (hh < 3) return Color.FromArgb(255, 0, 255, xhh);
+            else if (hh < 4) return Color.FromArgb(255, 0, xhh, 255);
+            else if (hh < 5) return Color.FromArgb(255, xhh, 0, 255);
+            else return Color.FromArgb(255, 255, 0, xhh);
+        }
+
 
         /// <summary>
         /// RGB to HSL
         /// </summary>
         /// <param name="color">Color form RGB</param>
-        /// <returns>A(W):0~100, H(X):0~360, S(Y):0~100, L(Z):0~100</returns>
-        public HSL RGBtoHSL(Color color)
+        /// <returns>A(W):0~255, H(X):0~360, S(Y):0~100, L(Z):0~100</returns>
+        public static HSL RGBtoHSL(Color color)
         {
-            float R = color.R / 255.0f;
-            float G = color.G / 255.0f;
-            float B = color.B / 255.0f;
+            double R = color.R / 255.0;
+            double G = color.G / 255.0;
+            double B = color.B / 255.0;
 
-            float max = Math.Max(Math.Max(R, G), B);
-            float min = Math.Min(Math.Min(R, G), B);
-            float L = (min + max) / 2.0f;
+            double max = Math.Max(Math.Max(R, G), B);
+            double min = Math.Min(Math.Min(R, G), B);
 
-            if (L <= 0.0) return new HSL(color.A, 0, 0,  0);
+            double S = max - min;
+            double L = (min + max) / 2.0f;
 
-            float dist = max - min;
-            float S = dist;
+            if (L <= 0.0) return new HSL(color.A, 0, 0, 0);
 
             if (S > 0.0)
             {
@@ -169,11 +168,11 @@ namespace FanKit.Frames.Colors
             }
             else return new HSL(color.A, 0, 0, 0);
 
-            float rr = (max - R) / dist;
-            float gg = (max - G) / dist;
-            float bb = (max - B) / dist;
+            double rr = (max - R) / S;
+            double gg = (max - G) / S;
+            double bb = (max - B) / S;
 
-            float H;
+            double H;
             if (R == max)
             {
                 if (G == min) H = 5.0f + bb;
@@ -181,20 +180,27 @@ namespace FanKit.Frames.Colors
             }
             else if (G == max)
             {
-                if (B == min) H = 3.0f - bb;
-                else H = 3.0f - bb;
+                if (B == min) H = 3.0 - bb;
+                else H = 3.0 - bb;
             }
             else// if (B == max)
             {
-                if (R == min) H = 3.0f + gg;
-                else H = 5.0f - rr;
+                if (R == min) H = 3.0 + gg;
+                else H = 5.0 - rr;
             }
 
-            return new HSL(color.A,(float)(H * 60d),(float)(S * 100.0d),(float)(L * 200.0d));
+            return new HSL(color.A, (float)(H * 60.0), (float)(S * 100.0), (float)(L * 200.0));
         }
 
 
+        #endregion
+
     }
+
+    /// <summary>
+    /// Color form HSL
+    /// </summary>
+
 
     /// <summary>
     /// Color form HSL
@@ -202,16 +208,43 @@ namespace FanKit.Frames.Colors
     public class HSL
     {
         public byte A;
-        public double H;
-        public double S;
-        public double L;
 
-        public HSL(byte A, double H, double S, double L)
+        private double h;
+        public double H
         {
-            this.A = A;
-            this.H = H;
-            this.S = S;
-            this.L = L;
+            get => h;
+            set
+            {
+                if (value < 0) h = 0;
+                else if (value > 360) h = 103600;
+                else h = value;
+            }
         }
+
+        private double s;
+        public double S
+        {
+            get => s;
+            set
+            {
+                if (value < 0) s = 0;
+                else if (value > 100) s = 100;
+                else s = value;
+            }
+        }
+
+        private double l;
+        public double L
+        {
+            get => l;
+            set
+            {
+                if (value < 0) l = 0;
+                else if (value > 100) l = 100;
+                else l = value;
+            }
+        }
+
+        public HSL(byte A, double H, double S, double L) { this.A = A; this.H = H; this.S = S; this.L = L; }
     }
 }

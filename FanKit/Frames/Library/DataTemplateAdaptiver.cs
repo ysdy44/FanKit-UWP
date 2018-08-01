@@ -11,30 +11,6 @@ namespace FanKit.Frames.Library
         #region DependencyProperty
 
 
-        //DependencyProperty
-        public FrameworkElement PanelElement
-        {
-            get { return (FrameworkElement)GetValue(PanelElementProperty); }
-            set { SetValue(PanelElementProperty, value); }
-        }
-        public static DependencyProperty PanelElementProperty = DependencyProperty.Register(nameof(PanelElement), typeof(FrameworkElement), typeof(DataTemplateAdaptiver), new PropertyMetadata(null, OnPanelElementChanged));
-        private static void OnPanelElementChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (sender is DataTemplateAdaptiver con)
-            {
-                if (e.NewValue != e.OldValue)
-                {
-                    con.PanelElement.SizeChanged += con.OnSizeChanged;
-                }
-            }
-        }
-
-         
-
-        #endregion
-
-
-
         //Width
         public double sizeWidth;
         public double SizeWidth
@@ -58,16 +34,27 @@ namespace FanKit.Frames.Library
             }
         }
 
-        public double imageHeight;
-        public double ImageHeight
+        //DependencyProperty
+        public FrameworkElement PanelElement
         {
-            get => imageHeight;
-            set
+            get { return (FrameworkElement)GetValue(PanelElementProperty); }
+            set { SetValue(PanelElementProperty, value); }
+        }
+        public static DependencyProperty PanelElementProperty = DependencyProperty.Register(nameof(PanelElement), typeof(FrameworkElement), typeof(DataTemplateAdaptiver), new PropertyMetadata(null, OnPanelElementChanged));
+        private static void OnPanelElementChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (sender is DataTemplateAdaptiver con)
             {
-                imageHeight = value;
-                OnPropertyChanged(nameof(ImageHeight));
+                if (e.NewValue != e.OldValue)
+                {
+                    con.PanelElement.SizeChanged += con.OnSizeChanged;
+                }
             }
         }
+
+
+        #endregion
+
 
         protected void OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -75,7 +62,6 @@ namespace FanKit.Frames.Library
 
             this.SizeWidth = width;
             this.SizeHeight = width * 1.6d;
-            this.ImageHeight = width * 1.1d;
         }
 
         private double GetSizeWidth(double width)
@@ -88,11 +74,14 @@ namespace FanKit.Frames.Library
         }
 
 
-
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)=>  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        protected void OnPropertyChanged(string name)=> PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }
+
+
+
+
 
 
 
