@@ -1,0 +1,59 @@
+
+```xaml
+
+
+
+<UserControl
+    x:Class="FanKit.Frames.Colors.WheelPicker" 
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Padding="12,12,12,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="80" MaxWidth="120"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1*" MinWidth="80" MaxWidth="120"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ComboBox x:Name="ComboBox" BorderThickness="0" HorizontalAlignment="Stretch">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="local:PaletteBase">
+                        <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <local:NumberPicker x:Name="Picker" Grid.Column="2" Grid.Row="0"  ValueChange="Picker_ValueChange"/>
+            <local:TouchSlider x:Name="Slider" Grid.ColumnSpan="3" Grid.Row="1"  ValueChangeDelta="Slider_ValueChangeDelta"/>
+        </Grid>
+
+        <canvas:CanvasControl  
+        x:Name="CanvasControl" Grid.Row="1"
+                        
+        Draw="CanvasControl_Draw" 
+        SizeChanged="CanvasControl_SizeChanged"
+           
+        ManipulationMode="All"
+        ManipulationStarted="CanvasControl_ManipulationStarted"
+        ManipulationDelta="CanvasControl_ManipulationDelta"
+        ManipulationCompleted="CanvasControl_ManipulationCompleted"
+        />
+    </Grid>
+    
+</UserControl>
+
+
+
+
+```

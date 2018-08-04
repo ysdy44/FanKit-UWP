@@ -30,9 +30,10 @@ namespace FanKit.Frames.Colors
             if (e.NewValue is int value)
             {
                 con.Button.Content =  value.ToString() + " " + con.Unit;
-               
+
                 //Delegate
-                con.ValueChange?.Invoke(con, value);
+                if (con.ValueChange!=null)
+                  con.ValueChange?.Invoke(con, value);
             }
         }
 
@@ -110,7 +111,7 @@ namespace FanKit.Frames.Colors
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e) => this.Button.Content = this.Value.ToString() + " " + this.Unit;
-        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             //cache value
             if (this.Value >= 0)
@@ -128,24 +129,24 @@ namespace FanKit.Frames.Colors
         }
 
         //Number
-        private void Zero_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10;
-        private void One_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 1;
-        private void Two_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 2;
-        private void Three_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 3;
-        private void Four_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 4;
-        private void Five_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 5;
-        private void Six_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 6;
-        private void Seven_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 7;
-        private void Eight_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 8;
-        private void Nine_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 9;
+        private void Zero_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10;
+        private void One_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 1;
+        private void Two_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 2;
+        private void Three_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 3;
+        private void Four_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 4;
+        private void Five_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 5;
+        private void Six_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 6;
+        private void Seven_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 7;
+        private void Eight_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 8;
+        private void Nine_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 9;
       
         //Back, Negative
-        private void Back_Tapped(object sender, TappedRoutedEventArgs e) => this.NewValue = this.NewValue / 10;
-        private void Negative_Tapped(object sender, TappedRoutedEventArgs e) => this.IsNegative = !this.IsNegative;
+        private void Back_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue / 10;
+        private void Negative_Click(object sender, RoutedEventArgs e) => this.IsNegative = !this.IsNegative;
        
         //OK, Cancel
-        private void OK_Tapped(object sender, TappedRoutedEventArgs e) => this.Value = this.GetValue(this.NewValue);
-        private void Cancel_Tapped(object sender, TappedRoutedEventArgs e) => this.Value = this.GetValue(this.OldValue);
+        private void OK_Click(object sender, RoutedEventArgs e) => this.Value = this.GetValue(this.NewValue);
+        private void Cancel_Click(object sender, RoutedEventArgs e) => this.Value = this.GetValue(this.OldValue);
         private int GetValue(int num)
         {
             this.Flyout.Hide();
@@ -157,7 +158,7 @@ namespace FanKit.Frames.Colors
 
             return value;
         }
-      
 
+    
     }
 }

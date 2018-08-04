@@ -98,7 +98,7 @@
     </UserControl.Resources>
 
     
-    <Button  x:Name="Button" Height="24" Style="{StaticResource ButtonStyle}" Tapped="Button_Tapped">
+    <Button  x:Name="Button" Height="24" Style="{StaticResource ButtonStyle}" Click="Button_Click">
         <Button.Flyout>
             <Flyout  x:Name="Flyout" Placement="Bottom" >
                 <Grid Width="180" Height="180" Margin="-10">
@@ -115,29 +115,29 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button  x:Name="Seven" Grid.Row="0" Grid.Column="0" Content="7" Style="{StaticResource ButtonStyle}" Tapped="Seven_Tapped"/>
-                    <Button x:Name="Eight" Grid.Row="0" Grid.Column="1" Content="8" Style="{StaticResource ButtonStyle}" Tapped="Eight_Tapped"/>
-                    <Button x:Name="Nine" Grid.Row="0" Grid.Column="2" Content="9" Style="{StaticResource ButtonStyle}" Tapped="Nine_Tapped"/>
-                    <Button x:Name="Back" Grid.Row="0" Grid.Column="3" Content="&#xEB96;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource ButtonStyle}" Tapped="Back_Tapped"/>
+                    <Button  x:Name="Seven" Grid.Row="0" Grid.Column="0" Content="7" Style="{StaticResource ButtonStyle}" Click="Seven_Click"/>
+                    <Button x:Name="Eight" Grid.Row="0" Grid.Column="1" Content="8" Style="{StaticResource ButtonStyle}" Click="Eight_Click"/>
+                    <Button x:Name="Nine" Grid.Row="0" Grid.Column="2" Content="9" Style="{StaticResource ButtonStyle}" Click="Nine_Click"/>
+                    <Button x:Name="Back" Grid.Row="0" Grid.Column="3" Content="&#xEB96;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource ButtonStyle}" Click="Back_Click"/>
 
-                    <Button x:Name="Four" Grid.Row="1" Grid.Column="0" Content="4" Style="{StaticResource ButtonStyle}" Tapped="Four_Tapped"/>
-                    <Button  x:Name="Five" Grid.Row="1" Grid.Column="1" Content="5" Style="{StaticResource ButtonStyle}" Tapped="Five_Tapped"/>
-                    <Button x:Name="Six" Grid.Row="1" Grid.Column="2" Content="6" Style="{StaticResource ButtonStyle}" Tapped="Six_Tapped"/>
+                    <Button x:Name="Four" Grid.Row="1" Grid.Column="0" Content="4" Style="{StaticResource ButtonStyle}" Click="Four_Click"/>
+                    <Button  x:Name="Five" Grid.Row="1" Grid.Column="1" Content="5" Style="{StaticResource ButtonStyle}" Click="Five_Click"/>
+                    <Button x:Name="Six" Grid.Row="1" Grid.Column="2" Content="6" Style="{StaticResource ButtonStyle}" Click="Six_Click"/>
                     <Button x:Name="Decimal" Grid.Row="1" Grid.Column="3" Content="." Style="{StaticResource ButtonStyle}" />
 
-                    <Button  x:Name="One" Grid.Row="2" Grid.Column="0" Content="1" Style="{StaticResource ButtonStyle}" Tapped="One_Tapped"/>
-                    <Button x:Name="Two" Grid.Row="2" Grid.Column="1" Content="2" Style="{StaticResource ButtonStyle}" Tapped="Two_Tapped"/>
-                    <Button x:Name="Three" Grid.Row="2" Grid.Column="2" Content="3" Style="{StaticResource ButtonStyle}" Tapped="Three_Tapped"/>
-                    <Button x:Name="Negative" Grid.Row="2" Grid.Column="3" Content="-" Style="{StaticResource ButtonStyle}" Tapped="Negative_Tapped"/>
+                    <Button  x:Name="One" Grid.Row="2" Grid.Column="0" Content="1" Style="{StaticResource ButtonStyle}" Click="One_Click"/>
+                    <Button x:Name="Two" Grid.Row="2" Grid.Column="1" Content="2" Style="{StaticResource ButtonStyle}" Click="Two_Click"/>
+                    <Button x:Name="Three" Grid.Row="2" Grid.Column="2" Content="3" Style="{StaticResource ButtonStyle}" Click="Three_Click"/>
+                    <Button x:Name="Negative" Grid.Row="2" Grid.Column="3" Content="-" Style="{StaticResource ButtonStyle}" Click="Negative_Click"/>
 
-                    <Button x:Name="Zero" Grid.Row="3" Grid.Column="0" Content="0" Style="{StaticResource ButtonStyle}" Tapped="Zero_Tapped"/>
+                    <Button x:Name="Zero" Grid.Row="3" Grid.Column="0" Content="0" Style="{StaticResource ButtonStyle}" Click="Zero_Click"/>
                     <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="OK" FontSize="22" Grid.Column="0" Content="&#xEC61;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource ButtonStyle}" Tapped="OK_Tapped"/>
-                        <Button x:Name="Cancel" FontSize="22" Grid.Column="1" Content="&#xEB90;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource ButtonStyle}" Tapped="Cancel_Tapped"/>
+                        <Button x:Name="OK" FontSize="22" Grid.Column="0" Content="&#xEC61;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource ButtonStyle}" Click="OK_Click"/>
+                        <Button x:Name="Cancel" FontSize="22" Grid.Column="1" Content="&#xEB90;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource ButtonStyle}" Click="Cancel_Click"/>
                     </Grid>
 
                 </Grid>

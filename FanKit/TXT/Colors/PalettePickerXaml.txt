@@ -1,0 +1,16 @@
+
+```xaml
+
+
+<Grid Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+           
+     <local:PalettePicker 
+        x:Name="PalettePicker" 
+        ColorChange="PalettePicker_ColorChange"/>
+
+</Grid>
+
+
+
+
+```

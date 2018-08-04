@@ -17,7 +17,7 @@
 
     <Page.Resources>
 
-        <!--ImageVisible：图片可视-->
+        <!--ImageVisible-->
         <SolidColorBrush x:Name="SolidColorBrush" Color="Transparent"/>
         <ImageBrush x:Name="ImageBrush" ImageSource="ms-appx:///Icon/HERO.jpg" Stretch="UniformToFill"/>
 
@@ -531,8 +531,7 @@
             <!--NavigationFrame-->
             <Frame x:Name="NavigationFrame"/>
 
-
-            <!--FAB按钮-->
+            <!--FAB Button-->
             <Button 
             Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}"
             Style="{StaticResource AppFABButtonStyle}"
@@ -544,7 +543,6 @@
                     <animations:TranslationAnimation Duration="0:0:1" From="0,100,0" To="0,0,0"/>
                     <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
                 </animations:Implicit.ShowAnimations>
-
                 <!--Visibility="Collapsed" Hide-->
                 <animations:Implicit.HideAnimations>
                     <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,100,0"/>
@@ -578,7 +576,6 @@
             <!--ListView-->
             <ListView x:Name="ListView" 
                       Grid.Column="1" FontWeight="SemiLight" 
-                      ItemsSource="{x:Bind SampleCategory}"
                       ItemContainerStyle="{StaticResource ListViewItemStyle}"
                       IsItemClickEnabled="True" ItemClick="ListView_ItemClick"
                       ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Disabled">

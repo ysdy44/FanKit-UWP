@@ -270,7 +270,11 @@
 
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarToggleButton Content="AppBarToggleButton"/>
+                    <AppBarToggleButton Label="Button">
+                        <AppBarToggleButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarToggleButton.Icon>
+                    </AppBarToggleButton>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>No style</Paragraph>
                     </RichTextBlock>
@@ -278,7 +282,11 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarToggleButton Content="AppBarToggleButton" Style="{ThemeResource AppBarToggleButtonRevealStyle}"/>
+                    <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealStyle}">
+                        <AppBarToggleButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarToggleButton.Icon>
+                    </AppBarToggleButton>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarToggleButtonRevealStyle</Paragraph>
                     </RichTextBlock>
@@ -286,7 +294,11 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarToggleButton Content="AppBarToggleButton" Style="{ThemeResource AppBarToggleButtonRevealOverflowStyle}"/>
+                    <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealOverflowStyle}">
+                        <AppBarToggleButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarToggleButton.Icon>
+                    </AppBarToggleButton>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarToggleButtonRevealOverflowStyle</Paragraph>
                     </RichTextBlock>
@@ -294,7 +306,11 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <AppBarToggleButton Content="AppBarToggleButton" Style="{ThemeResource AppBarToggleButtonRevealLabelsOnRightStyle}"/>
+                    <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealLabelsOnRightStyle}">
+                        <AppBarToggleButton.Icon>
+                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                        </AppBarToggleButton.Icon>
+                    </AppBarToggleButton>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>AppBarToggleButtonRevealLabelsOnRightStyle</Paragraph>
                     </RichTextBlock>

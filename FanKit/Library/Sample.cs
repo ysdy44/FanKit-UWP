@@ -11,13 +11,6 @@ namespace FanKit.Library
         public Type Page;
         public string Name;
         public Uri Uri;
-        public string Summary;
-
-        public Sample(Type page, string name, Uri uri)
-        {
-            this.Page = page;
-            this.Name = name;
-            this.Uri = uri;
-        }
+        public string Summary; 
     }
 }

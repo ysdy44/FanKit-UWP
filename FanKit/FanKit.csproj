@@ -141,6 +141,16 @@
     <Compile Include="Frames\Colors\NumberPickerPage.xaml.cs">
       <DependentUpon>NumberPickerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\PaletteBase.cs" />
+    <Compile Include="Frames\Colors\PaletteHue.cs" />
+    <Compile Include="Frames\Colors\PaletteLightness.cs" />
+    <Compile Include="Frames\Colors\PalettePicker.xaml.cs">
+      <DependentUpon>PalettePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\PalettePickerPage.xaml.cs">
+      <DependentUpon>PalettePickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\PaletteSaturation.cs" />
     <Compile Include="Frames\Colors\RGBPickerPage.xaml.cs">
       <DependentUpon>RGBPickerPage.xaml</DependentUpon>
     </Compile>
@@ -286,6 +296,15 @@
     </AppxManifest>
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
+    <Content Include="Icon\Colors\PalettePicker.png" />
+    <Content Include="TXT\Colors\PaletteBaseCs.txt" />
+    <Content Include="TXT\Colors\PaletteHueCs.txt" />
+    <Content Include="TXT\Colors\PaletteLightnessCs.txt" />
+    <Content Include="TXT\Colors\PalettePickerUserCs.txt" />
+    <Content Include="TXT\Colors\PalettePickerUserXaml.txt" />
+    <Content Include="TXT\Colors\PalettePickerXaml.txt" />
+    <Content Include="TXT\Colors\PaletteSaturationCs.txt" />
+    <Content Include="TXT\Samples.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\BadgeLogo.scale-100.png" />
@@ -502,6 +521,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frames\Colors\PalettePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\PalettePickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frames\Colors\RGBPickerPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -696,14 +723,23 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MaterialLibs">
+      <Version>0.1.14</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI">
       <Version>3.0.0</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
+      <Version>3.0.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
       <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

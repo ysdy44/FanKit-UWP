@@ -31,8 +31,7 @@ namespace FanKit.Frames.Colors
             this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/WheelPickerUserXaml.txt");
             this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/WheelPickerUserCs.txt");
         }
-
-        private void WheelPicker_ColorChange(object sender, Color Value) => this.PaletteSolidBrush.Color = Value;
-      
+        private void WheelPicker_ColorChange(object sender, Color Value)=>   this.PaletteSolidBrush.Color = Value;
+   
     }
 }

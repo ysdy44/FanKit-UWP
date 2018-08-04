@@ -18,131 +18,39 @@ using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using FanKit.Library;
+using MaterialLibs;
+using Newtonsoft.Json;
+using Windows.Storage;
+using Windows.System;
 
 namespace FanKit
 {
     public sealed partial class MainPage : Page
     {
-        
         //delegate
         public delegate void ImageButtonVisibleChangedHandler(double Offset);
         public static event ImageButtonVisibleChangedHandler ImageButtonVisibleChanged = null;
         //Methon
         public static void ImageButtonVisibleChange(double Offset) => ImageButtonVisibleChanged?.Invoke(Offset);
-        
-
-        //SampleCategory
-        List<SampleCategory> SampleCategory = new List<SampleCategory>
-        {
-
-            new SampleCategory
-            {
-                Name="Brushes",
-                Samples=new List<Sample>
-                {
-                    new Sample( typeof(FanKit.Frames.Brushes.SystemBrushPage),"SystemBrushes",new Uri("ms-appx:///Icon/Brushes/SystemBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brushes.LegacyBrushPage),"LegacyBrushes",new Uri("ms-appx:///Icon/Brushes/LegacyBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brushes.InkToolbarBrushPage),"InkToolbarBrushes",new Uri("ms-appx:///Icon/Brushes/InkToolbarBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brushes.OtherBrushPage),"OthersBrush",new Uri("ms-appx:///Icon/Brushes/OthersBrush.png")),
-                    
-                    new Sample(typeof(FanKit.Frames.Brushes.AcrylicElementBrushPage),"AcrylicElementBrushes",new Uri("ms-appx:///Icon/Brushes/AcrylicElementBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brushes.AcrylicWindowBrushPage),"AcrylicWindowBrushes",new Uri("ms-appx:///Icon/Brushes/AcrylicWindowBrush.png")),
-
-                    new Sample(typeof(FanKit.Frames.Brushes.RevealBorderBrushPage),"RevealBorderBrushes",new Uri("ms-appx:///Icon/Brushes/RevealBorderBrush.png")),
-                    new Sample(typeof(FanKit.Frames.Brushes.RevealBackgroundBrushPage),"RevealBackgroundBrushes",new Uri("ms-appx:///Icon/Brushes/RevealBackgroundBrush.png")),
-
-                    new Sample(typeof(FanKit.Frames.Brushes.ColorPage),"Colors",new Uri("ms-appx:///Icon/Brushes/Color.png")),
-                }
-            },
-
-            new SampleCategory
-            {
-                Name ="Style",
-                Samples=new List<Sample>
-                {
-                    new Sample(typeof(FanKit.Frames.Styles.TextblockStylePage),"TextblockStyle",new Uri("ms-appx:///Icon/Styles/TextBlockStyle.png")),
-                    new Sample(typeof(FanKit.Frames.Styles.ButtonStylePage),"ButtonStyle",new Uri("ms-appx:///Icon/Styles/ButtonStyle.png")),
-                }
-            },
-            
-            new SampleCategory
-            {
-                Name ="Helpers",
-                Samples=new List<Sample>
-                {
-                    new Sample(typeof(FanKit.Frames.Helpers.TransitionPage),"Transition",new Uri("ms-appx:///Icon/Helpers/Transition.png")),
-                    new Sample(typeof(FanKit.Frames.Helpers.StretchPage),"Stretch",new Uri("ms-appx:///Icon/Helpers/Stretch.png")),
-                }
-            },
-
-            new SampleCategory
-            {
-                Name="Template",
-                Samples=new List<Sample>
-                {
-                    new Sample(typeof(FanKit.Frames.Template.FlyoutTemplatePage),"FlyoutTemplate",new Uri("ms-appx:///Icon/Template/FlyoutTemplate.png")),
-                    new Sample(typeof(FanKit.Frames.Template.TagChipPage),"TagChipControl",new Uri("ms-appx:///Icon/Template/TagChip.png")),
-                    new Sample(typeof(FanKit.Frames.Template.FloatActionButtonPage),"FloatActionButton",new Uri("ms-appx:///Icon/Template/FloatActionButton.png")),
-                    new Sample(typeof(FanKit.Frames.Template.SplitPanelPage),"SplitPanel",new Uri("ms-appx:///Icon/Template/SplitPanel.png")),
-                }
-            },
-
-            new SampleCategory
-            {
-                Name ="Control",
-                Samples=new List<Sample>
-                {
-                    new Sample(typeof(FanKit.Frames.Control.PopupMenuPage),"PopupMenu",new Uri("ms-appx:///Icon/Control/PopupMenu.png")),
-                    new Sample(typeof(FanKit.Frames.Control.TabBarPage),"TabBar",new Uri("ms-appx:///Icon/Control/TabBar.png")),
-                    new Sample(typeof(FanKit.Frames.Control.ExpandTextViewPage),"ExpandTextView",new Uri("ms-appx:///Icon/Control/ExpandTextView.png")),
-                }
-            },
-
-            new SampleCategory
-            {
-                Name ="Library",
-                Samples=new List<Sample>
-                {
-                    new Sample(typeof(FanKit.Frames.Library.PalettePage),"Palette",new Uri("ms-appx:///Icon/Library/Palette.png")),
-                    new Sample(typeof(FanKit.Frames.Library.DataTemplateAdaptiverPage),"DataTemplateAdaptiver",new Uri("ms-appx:///Icon/Library/DataTemplateAdaptiver.png")),
-                    new Sample(typeof(FanKit.Frames.Library.DetailsViewPage),"DetailsView",new Uri("ms-appx:///Icon/Library/DetailsView.png")),
-                    new Sample(typeof(FanKit.Frames.Library.ScalableGridPage),"ScalableGrid",new Uri("ms-appx:///Icon/Library/ScalableGrid.png")),
-                }
-            },
-
-            new SampleCategory
-            {
-                Name ="Colors",
-                Samples=new List<Sample>
-                {
-                    new Sample(typeof(FanKit.Frames.Colors.NumberPickerPage),"NumberPicker",new Uri("ms-appx:///Icon/Colors/NumberPicker.png")),
-                    new Sample(typeof(FanKit.Frames.Colors.TouchSliderPage),"TouchSlider",new Uri("ms-appx:///Icon/Colors/TouchSlider.png")),
-                    new Sample(typeof(FanKit.Frames.Colors.RGBPickerPage),"RGBPicker",new Uri("ms-appx:///Icon/Colors/RGBPicker.png")),
-                    new Sample(typeof(FanKit.Frames.Colors.HSLPickerPage),"HSLPicker",new Uri("ms-appx:///Icon/Colors/HSLPicker.png")),
-                    new Sample(typeof(FanKit.Frames.Colors.WheelPickerPage),"WheelPicker",new Uri("ms-appx:///Icon/Colors/WheelPicker.png")),
-                }
-            },
-
-        };
-
+         
         
         public MainPage()
         {
             this.InitializeComponent();
-            this.ExtendAcrylicIntoTitleBar(); //扩展标题栏
+            this.ExtendAcrylicIntoTitleBar(); //TitleBar
         }
 
 
         #region Initialize
 
 
-        //扩展标题栏
+        //TitleBar
         private void ExtendAcrylicIntoTitleBar()
         {
-            //扩展标题栏
+            //TitleBar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = false;
 
-            //标题栏颜色
+            //TitleBar
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
 
             Color background = Color.FromArgb(255, 0, 178, 240);
@@ -157,13 +65,16 @@ namespace FanKit
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             this.NavigationFrame.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
-         //   this.NavigationFrame.Navigate(typeof(FanKit.Frames.Colors.HSLPickerPage));//页面跳转
-
+ 
             //ImageButtonVisible
             FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.sos.VerticalOffset = Offset;
+
+            //SampleCategory
+            string json = await FanKit.Library.File.GetFile("ms-appx:///TXT/Samples.json");
+            this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SampleCategory>>(json);
         }
 
 

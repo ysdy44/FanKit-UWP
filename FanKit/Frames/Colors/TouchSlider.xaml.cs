@@ -58,7 +58,7 @@ namespace FanKit.Frames.Colors
         private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             this.e = e;
-            this.ValueChangeDelta?.Invoke(sender, this.e);
+           this.ValueChangeDelta?.Invoke(sender, this.e);
         }
 
         //State Changed
@@ -70,7 +70,7 @@ namespace FanKit.Frames.Colors
                 if (e.NewState.Name == "Pressed")
                 {
                     IsPressed = true;
-                    this.ValueChangeStarted?.Invoke(sender, this.e);
+                  this.ValueChangeStarted?.Invoke(sender, this.e);
                 }
 
                 if (e.NewState.Name != "Pressed")
@@ -78,7 +78,7 @@ namespace FanKit.Frames.Colors
                     if (IsPressed == true)
                     {
                         IsPressed = false;
-                        this.ValueChangeCompleted?.Invoke(sender, this.e);
+                     this.ValueChangeCompleted?.Invoke(sender, this.e);
                     }
                 }
             }

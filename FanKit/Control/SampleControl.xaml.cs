@@ -27,8 +27,9 @@ namespace FanKit.Control
             get => sample;
             set
             {
-                this.TextBlock.Text = value.Name;
-                this.Image.Source = new BitmapImage(value.Uri);
+                this.TextBlock0.Text = this.TextBlock1.Text = value.Name;
+                this.Image0.Source = this.Image1.Source = new BitmapImage(value.Uri);
+                this.RichTextBlock.Text = value.Summary;
                 sample = value;
             }
         }
@@ -59,7 +60,6 @@ namespace FanKit.Control
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Flyout.ShowAt(this);
             e.Handled = true;
         }
 

@@ -26,11 +26,12 @@
 
         <controls:DropShadowPanel Color="Black" ShadowOpacity="0.2" BlurRadius="40"
                                             HorizontalContentAlignment="Stretch" >
-
+            <!--Visibility="Visible" Show-->
             <animations:Implicit.ShowAnimations>
                 <animations:TranslationAnimation From="0, -100, 0" To="0" Duration="0:0:0.3"></animations:TranslationAnimation>
                 <animations:OpacityAnimation From="0" To="1" Duration="0:0:0.3"></animations:OpacityAnimation>
             </animations:Implicit.ShowAnimations>
+            <!--Visibility="Collapsed" Hide-->
             <animations:Implicit.HideAnimations>
                 <animations:TranslationAnimation To="0, -100, 0" From="0" Duration="0:0:0.2"></animations:TranslationAnimation>
                 <animations:OpacityAnimation To="0" From="1" Duration="0:0:0.2"></animations:OpacityAnimation>

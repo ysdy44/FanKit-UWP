@@ -1,29 +1,33 @@
-﻿using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.Brushes;
-using Microsoft.Graphics.Canvas.UI.Xaml;
+﻿using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
+using System.Collections.Generic;
 using System.Numerics;
-using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
-
 
 namespace FanKit.Frames.Colors
 {
-    public sealed partial class WheelPicker : UserControl
+    public partial class PalettePicker : UserControl
     {
-
         //Delegate
         public delegate void ColorChangeHandler(object sender, Color Value);
         public event ColorChangeHandler ColorChange = null;
 
+        //Value
+        public Vector2 Center = new Vector2(50, 50);
+        public float SquareWidth = 100;
+        public float SquareHeight = 100;
+        public float SquareHalfWidth => this.SquareWidth / 2;
+        public float SquareHalfHeight => this.SquareHeight / 2;
+        public float StrokePadding = 12;
 
         #region DependencyProperty
-        
 
-        private Color color = Color.FromArgb(255, 255, 255, 255);
+
+        protected Color color = Color.FromArgb(255, 255, 255, 255);
         public Color Color
         {
             get => color;
@@ -40,104 +44,109 @@ namespace FanKit.Frames.Colors
             get { return (HSL)GetValue(HSLProperty); }
             set { SetValue(HSLProperty, value); }
         }
-        public static readonly DependencyProperty HSLProperty = DependencyProperty.Register(nameof(HSL), typeof(HSL), typeof(WheelPicker), new PropertyMetadata(new HSL(255, 360, 100, 100), new PropertyChangedCallback(HSLOnChanged)));
+        public static readonly DependencyProperty HSLProperty = DependencyProperty.Register(nameof(HSL), typeof(HSL), typeof(PalettePicker), new PropertyMetadata(new HSL(255, 360, 100, 100), new PropertyChangedCallback(HSLOnChanged)));
         private static void HSLOnChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            WheelPicker con = (WheelPicker)sender;
+            PalettePicker con = (PalettePicker)sender;
 
             if (e.NewValue is HSL NewValue) con.HSLChanged(NewValue);
         }
-        private void HSLChanged(HSL value)
+        public virtual void HSLChanged(HSL value)
         {
-            byte A = value.A;
-            double H = value.H;
-            double S = value.S;
-            double L = value.L;
+            byte A = HSL.A;
+            double H = HSL.H;
+            double S = HSL.S;
+            double L = HSL.L;
 
-            this.color = HSLtoRGB(A, H, S, L);
-            this.ColorChange?.Invoke(this, this.color);
+            this.Slider.Value = this.Picker.Value = this.PaletteBase.GetValue(value);
+            this.Slider.SliderBackground = this.PaletteBase.GetSliderBrush(value);
 
             this.CanvasControl.Invalidate();
+
+            this.color = HSLtoRGB(A,H,S,L);
+            this.ColorChange?.Invoke(this, this.Color);
         }
 
 
         #endregion
 
 
-        Vector2 Center = new Vector2(50, 50);
-        float Radio = 100;
+        private PaletteBase paletteBase;
+        public PaletteBase PaletteBase
+        {
+            get => paletteBase;
+            set
+            {
+                if (value != null)
+                {
+                    this.Picker.Unit = value.Unit;
+                    this.Slider.Minimum = this.Picker.Minimum = value.Minimum;
+                    this.Slider.Maximum = this.Picker.Maximum = value.Maximum;
 
-        float StrokeWidth = 8;
-        float SquareRadio => (this.Radio - this.StrokeWidth) / 1.414213562373095f;
+                    this.Slider.Value = this.Picker.Value = value.GetValue(this.HSL);
+                    this.Slider.SliderBackground = value.GetSliderBrush(this.HSL);
 
+                    this.CanvasControl.Invalidate();
 
-        public WheelPicker()
+                    this.paletteBase = value;
+                }
+            }
+        }
+        public List<PaletteBase> PaletteBases = new List<PaletteBase>
+        {
+            new PaletteHue(),
+            new PaletteSaturation(),
+            new PaletteLightness(),
+        };
+
+        public PalettePicker()
         {
             this.InitializeComponent();
+
+            this.ComboBox.ItemsSource = this.PaletteBases;
+            this.ComboBox.SelectionChanged += (s, e) => this.PaletteBase = this.PaletteBases[this.ComboBox.SelectedIndex];
+            this.ComboBox.Loaded += (s, e) => this.ComboBox.SelectedIndex = 0;
         }
 
 
-        private void CanvasControl_SizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)
+        private void Picker_ValueChange(object sender, int Value)
+        {
+            if (this.PaletteBase!=null) this.HSL = this.PaletteBase.GetHSL(this.HSL, Value);
+        }
+        private void Slider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            if (this.PaletteBase != null) this.HSL = this.PaletteBase.GetHSL(this.HSL, (int)e.NewValue);
+        }
+
+
+        private void CanvasControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             this.Center = e.NewSize.ToVector2() / 2;
 
-            this.Radio = (float)Math.Min(e.NewSize.Width, e.NewSize.Height) / 2 - this.StrokeWidth;
+            this.SquareWidth = (float)e.NewSize.Width - this.StrokePadding * 2;
+            this.SquareHeight = (float)e.NewSize.Height - this.StrokePadding * 2;
         }
-        private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
-        {
-            //Wheel           
-            args.DrawingSession.DrawCircle(this.Center, this.Radio , Windows.UI.Colors.Gray,this.StrokeWidth*2);
-            for (float angle = 0; angle < (float)Math.PI * 2; angle += (float)(2 * Math.PI) / (int)(Math.PI * Radio * 2 / this.StrokeWidth)) args.DrawingSession.FillCircle((float)Math.Cos(angle) * this.Radio + this.Center.X, (float)Math.Sin(angle) * this.Radio + this.Center.Y, this.StrokeWidth, HSLtoRGB(((angle * 180.0 / Math.PI) + 360.0) % 360.0));
-            args.DrawingSession.DrawCircle(this.Center, this.Radio - this.StrokeWidth, Windows.UI.Colors.Gray);
-            args.DrawingSession.DrawCircle(this.Center, this.Radio + this.StrokeWidth, Windows.UI.Colors.Gray);
-
-            //Thumb
-            double ang = (float)(((this.HSL.H + 360.0) % 360.0) * Math.PI / 180.0);
-            float wx = (float)Math.Cos(ang) * this.Radio + this.Center.X;
-            float wy = (float)Math.Sin(ang) * this.Radio + this.Center.Y;
-            args.DrawingSession.DrawCircle(wx, wy, 8, Windows.UI.Colors.Black, 4);
-            args.DrawingSession.DrawCircle(wx, wy, 8, Windows.UI.Colors.White, 2);
+        private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args) =>this.PaletteBase.Draw(this.CanvasControl, args.DrawingSession,this.HSL,this.Center,this.SquareHalfWidth,this.SquareHalfHeight);
 
 
-            //Palette
-            Rect rect = new Rect(this.Center.X - this.SquareRadio, this.Center.Y - this.SquareRadio, this.SquareRadio * 2, this.SquareRadio * 2);
-            args.DrawingSession.FillRoundedRectangle(rect, 4, 4, new CanvasLinearGradientBrush(this.CanvasControl, Windows.UI.Colors.White, HSLtoRGB(this.HSL.H)) { StartPoint = new Vector2(this.Center.X - this.SquareRadio, this.Center.Y), EndPoint = new Vector2(this.Center.X + this.SquareRadio, this.Center.Y) });
-            args.DrawingSession.FillRoundedRectangle(rect, 4, 4, new CanvasLinearGradientBrush(this.CanvasControl, Windows.UI.Colors.Transparent, Windows.UI.Colors.Black) { StartPoint = new Vector2(this.Center.X, this.Center.Y - this.SquareRadio), EndPoint = new Vector2(this.Center.X, this.Center.Y + this.SquareRadio) });
-            args.DrawingSession.DrawRoundedRectangle(rect, 4, 4, Windows.UI.Colors.Gray);
-
-            //Thumb 
-            float px = ((float)this.HSL.S - 50) * this.SquareRadio / 50 + this.Center.X;
-            float py = (50 - (float)this.HSL.L) * this.SquareRadio / 50 + this.Center.Y;
-            args.DrawingSession.DrawCircle(px, py, 8, Windows.UI.Colors.Black, 4);
-            args.DrawingSession.DrawCircle(px, py, 8, Windows.UI.Colors.White, 2);
-        }
-
-
-
-        bool IsWheel = false;
-        bool IsPalette = false;
-        Vector2 v;
+        protected bool IsPalette = false;
+        protected Vector2 v;
         private void CanvasControl_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
             v = e.Position.ToVector2() - this.Center;
 
-            this.IsWheel = v.Length() + this.StrokeWidth > this.Radio && v.Length() - this.StrokeWidth < this.Radio;
-            this.IsPalette = Math.Abs(v.X) < this.SquareRadio && Math.Abs(v.Y) < this.SquareRadio;
+            this.IsPalette = Math.Abs(v.X) < this.SquareWidth && Math.Abs(v.Y) < this.SquareHeight;
         }
         private void CanvasControl_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-            if (this.IsWheel|| this.IsPalette)
+            if (this.IsPalette)
             {
                 v += e.Delta.Translation.ToVector2();
 
-                double H = (((Math.Atan2(v.Y, v.X)) * 180.0 / Math.PI) + 360.0) % 360.0;
-                double S = v.X  * 50 / this.SquareRadio + 50;
-                double L = 50 - v.Y   * 50 / this.SquareRadio;
-
-                this.HSL = new HSL(this.HSL.A,this.IsWheel ? H : this.HSL.H,this.IsPalette ? S : this.HSL.S,this.IsPalette ? L : this.HSL.L);
+                this.HSL = this.PaletteBase.Delta(this.HSL, v, this.SquareHalfWidth, this.SquareHalfHeight);
             }
         }
-        private void CanvasControl_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e) => this.IsWheel = this.IsPalette = false;
+        private void CanvasControl_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e) => this.IsPalette = false;
 
 
         #region RGB HSL
@@ -243,11 +252,20 @@ namespace FanKit.Frames.Colors
         }
 
 
-
-
-
-
-        #endregion
-
+        #endregion   }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

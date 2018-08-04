@@ -43,32 +43,30 @@ namespace FanKit.Frames.Colors
         }
         private void HSLChanged(HSL value)
         {
-            double H= value.H;
+            byte A = value.A;
+            double H = value.H;
             double S = value.S;
             double L = value.L;
 
-
             //H          
            this. HSlider.Value = this.HPicker.Value = (int)H;
-            this.HG.Color = this.HA.Color = HSLtoRGB(255, 0, S, L);
-            this.HB.Color = HSLtoRGB(255, 60, S, L);
-            this.HC.Color = HSLtoRGB(255, 120, S, L);
-            this.HD.Color = HSLtoRGB(255, 180, S, L);
-            this.HE.Color = HSLtoRGB(255, 240, S, L);
-            this.HF.Color = HSLtoRGB(255, 300, S, L);
+            this.HG.Color = this.HA.Color = HSLtoRGB(A, 0, S, L);
+            this.HB.Color = HSLtoRGB(A, 60, S, L);
+            this.HC.Color = HSLtoRGB(A, 120, S, L);
+            this.HD.Color = HSLtoRGB(A, 180, S, L);
+            this.HE.Color = HSLtoRGB(A, 240, S, L);
+            this.HF.Color = HSLtoRGB(A, 300, S, L);
             //S
             this.SSlider.Value = SPicker.Value = (int)S;
-            this.SLeft.Color = HSLtoRGB(255, H, 0.0d, L);
-            this.SRight.Color = HSLtoRGB(255, H, 100.0d, L);
+            this.SLeft.Color = HSLtoRGB(A, H, 0.0d, L);
+            this.SRight.Color = HSLtoRGB(A, H, 100.0d, L);
             //L
             this.LSlider.Value = LPicker.Value = (int)L;
-            this.LLeft.Color = HSLtoRGB(255, H, S, 0.0d);
-            this.LRight.Color = HSLtoRGB(255, H, S, 100.0d);
+            this.LLeft.Color = HSLtoRGB(A, H, S, 0.0d);
+            this.LRight.Color = HSLtoRGB(A, H, S, 100.0d);
 
-
-            Color c = HSLtoRGB(255, H, S, L);
-            this.color = c;
-            this.ColorChange?.Invoke(this, c);
+            this.color = HSLtoRGB(A, H, S, L);
+            this.ColorChange?.Invoke(this, this.color);
         }
 
 
@@ -196,11 +194,7 @@ namespace FanKit.Frames.Colors
         #endregion
 
     }
-
-    /// <summary>
-    /// Color form HSL
-    /// </summary>
-
+    
 
     /// <summary>
     /// Color form HSL
@@ -216,7 +210,7 @@ namespace FanKit.Frames.Colors
             set
             {
                 if (value < 0) h = 0;
-                else if (value > 360) h = 103600;
+                else if (value > 360) h = 360;
                 else h = value;
             }
         }

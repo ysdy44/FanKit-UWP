@@ -11,11 +11,11 @@
     
     <Grid  Padding="12"  Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
 
-        <!--触发状态-->
+        <!--VisualState-->
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
 
-                <!--PC状态-->
+                <!--PC-->
                 <VisualState >
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger  MinWindowWidth="800" />
@@ -30,7 +30,7 @@
                     </VisualState.Setters>
                 </VisualState>
 
-                <!--手机状态-->
+               <!--Phone-->
                 <VisualState  >
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />

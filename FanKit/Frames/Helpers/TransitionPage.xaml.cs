@@ -24,6 +24,7 @@ namespace FanKit.Frames.Helpers
         {
             this.InitializeComponent();
         }
+        
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {

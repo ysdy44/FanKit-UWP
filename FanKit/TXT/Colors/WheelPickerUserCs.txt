@@ -50,15 +50,15 @@ public sealed partial class WheelPicker : UserControl
     }
     private void HSLChanged(HSL value)
     {
+        byte A = value.A;
         double H = value.H;
         double S = value.S;
         double L = value.L;
 
+        this.color = HSLtoRGB(A, H, S, L);
+        this.ColorChange?.Invoke(this, this.color);
 
-
-        Color c = HSLtoRGB(255, H, S, L);
-        this.color = c;
-        this.ColorChange?.Invoke(this, c);
+        this.CanvasControl.Invalidate();
     }
 
 
@@ -111,27 +111,25 @@ public sealed partial class WheelPicker : UserControl
 
     bool IsWheel = false;
     bool IsPalette = false;
-    Vector2 sssssv;
+    Vector2 v;
     private void CanvasControl_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
     {
-        sssssv = e.Position.ToVector2();
-        Vector2 v = e.Position.ToVector2() - this.Center;
+         v = e.Position.ToVector2() - this.Center;
 
         this.IsWheel = v.Length() + this.StrokeWidth > this.Radio && v.Length() - this.StrokeWidth < this.Radio;
         this.IsPalette = Math.Abs(v.X) < this.SquareRadio && Math.Abs(v.Y) < this.SquareRadio;
-
-        this.CanvasControl.Invalidate();
     }
     private void CanvasControl_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
     {
         if (this.IsWheel || this.IsPalette)
-        {
-            double H = (((Math.Atan2(sssssv.Y + e.Cumulative.Translation.Y - this.Center.Y, sssssv.X + e.Cumulative.Translation.X - this.Center.X)) * 180.0 / Math.PI) + 360.0) % 360.0;
-            double S = (sssssv.X + e.Cumulative.Translation.X - this.Center.X) * 50 / this.SquareRadio + 50;
-            double L = 50 - (sssssv.Y + e.Cumulative.Translation.Y - this.Center.Y) * 50 / this.SquareRadio;
+        {                
+		    v += e.Delta.Translation.ToVector2();
+
+            double H = (((Math.Atan2(v.Y, v.X)) * 180.0 / Math.PI) + 360.0) % 360.0;
+            double S = v.X  * 50 / this.SquareRadio + 50;
+            double L = 50 - v.Y   * 50 / this.SquareRadio;
 
             this.HSL = new HSL(this.HSL.A, this.IsWheel ? H : this.HSL.H, this.IsPalette ? S : this.HSL.S, this.IsPalette ? L : this.HSL.L);
-            this.CanvasControl.Invalidate();
         }
     }
     private void CanvasControl_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e) => this.IsWheel = this.IsPalette = false;
