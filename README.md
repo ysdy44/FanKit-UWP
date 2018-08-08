@@ -1,5 +1,5 @@
 # FanKit
-Developer tools，This UWP application includes generic.xaml some theme resources
+This developer tools includes generic.xaml some theme resources,and some beautiful style with the controls
 
 get it from windows 10 store:
 https://www.microsoft.com/store/productId/9PD2JJZQF524
