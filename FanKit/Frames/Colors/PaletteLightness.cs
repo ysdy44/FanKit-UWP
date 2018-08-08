@@ -41,7 +41,7 @@ namespace FanKit.Frames.Colors
         public CanvasGradientStop[] ForegroundStops = new CanvasGradientStop[]
         {
             new CanvasGradientStop { Position = 0.0f, Color = Color.FromArgb(0,128,128,128) },
-            new CanvasGradientStop { Position = 1.0f, Color = Windows.UI.Colors.Gray }
+            new CanvasGradientStop { Position = 1.0f, Color = Windows.UI.Colors.White }
         };
 
         public PaletteLightness()
