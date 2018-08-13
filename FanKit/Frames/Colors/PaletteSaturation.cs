@@ -61,8 +61,8 @@ namespace FanKit.Frames.Colors
             double S = HSL.S;
             double L = HSL.L;
 
-            this.SliderBrush.GradientStops[0].Color = HSLtoRGB(A, H, 0.0d, L);
-            this.SliderBrush.GradientStops[1].Color = HSLtoRGB(A, H, 100.0d, L);
+            this.SliderBrush.GradientStops[0].Color = HSL.HSLtoRGB(A, H, 0.0d, L);
+            this.SliderBrush.GradientStops[1].Color = HSL.HSLtoRGB(A, H, 100.0d, L);
 
             return this.SliderBrush;
         }
@@ -100,3 +100,7 @@ namespace FanKit.Frames.Colors
     }
 
 }
+
+
+
+

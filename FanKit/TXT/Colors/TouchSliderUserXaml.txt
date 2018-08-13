@@ -3,6 +3,7 @@
 
 
 <UserControl
+    x:Class="FanKit.Frames.Colors.TouchSlider"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Center">
 

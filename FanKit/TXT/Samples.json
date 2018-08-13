@@ -132,10 +132,10 @@
             "Summary": "Popup menu,black menu displayed on chat bubbles"
           },
           {
-            "Page": "FanKit.Frames.Control.TabBarPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "TabBar",
-            "Uri": "ms-appx:///Icon/Control/TabBar.png",
-            "Summary": "Tab bar button"
+            "Page": "FanKit.Frames.Control.TabButtonPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "Name": "TabButton",
+            "Uri": "ms-appx:///Icon/Control/TabButton.png",
+            "Summary": "Tab button"
           },
           {
             "Page": "FanKit.Frames.Control.ExpandTextViewPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",

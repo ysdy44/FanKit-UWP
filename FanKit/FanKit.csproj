@@ -129,6 +129,7 @@
     <Compile Include="Frames\Brushes\RevealBorderBrushPage.xaml.cs">
       <DependentUpon>RevealBorderBrushPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\HSL.cs" />
     <Compile Include="Frames\Colors\HSLPicker.xaml.cs">
       <DependentUpon>HSLPicker.xaml</DependentUpon>
     </Compile>
@@ -190,8 +191,8 @@
     <Compile Include="Frames\Control\TabButton.xaml.cs">
       <DependentUpon>TabButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Control\TabBarPage.xaml.cs">
-      <DependentUpon>TabBarPage.xaml</DependentUpon>
+    <Compile Include="Frames\Control\TabButtonPage.xaml.cs">
+      <DependentUpon>TabButtonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Library\DetailsViewService.cs" />
     <Compile Include="Frames\Library\DetailsViewPage.xaml.cs">
@@ -297,6 +298,7 @@
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\PalettePicker.png" />
+    <Content Include="TXT\Colors\HSL.txt" />
     <Content Include="TXT\Colors\PaletteBaseCs.txt" />
     <Content Include="TXT\Colors\PaletteHueCs.txt" />
     <Content Include="TXT\Colors\PaletteLightnessCs.txt" />
@@ -331,7 +333,7 @@
     <Content Include="Icon\HEROS.jpg" />
     <Content Include="Icon\Library\DataTemplateAdaptiver.png" />
     <Content Include="Icon\Control\PopupMenu.png" />
-    <Content Include="Icon\Control\TabBar.png" />
+    <Content Include="Icon\Control\TabButton.png" />
     <Content Include="Icon\Colors\TouchSlider.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
@@ -581,7 +583,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Control\TabBarPage.xaml">
+    <Page Include="Frames\Control\TabButtonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

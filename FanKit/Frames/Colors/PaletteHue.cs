@@ -17,9 +17,7 @@ using Windows.UI.Xaml.Media;
 
 namespace FanKit.Frames.Colors
 {
-    /// <summary> 
-    /// Palette Hue
-    /// </summary>
+    /// <summary> Palette Hue</summary>
     public class PaletteHue : PaletteBase
     {
         public LinearGradientBrush SliderBrush = new LinearGradientBrush(new GradientStopCollection()
@@ -58,12 +56,12 @@ namespace FanKit.Frames.Colors
             double L = HSL.L;
 
             this.SliderBrush.GradientStops[6].Color =
-            this.SliderBrush.GradientStops[0].Color = HSLtoRGB(A, 0, S, L);
-            this.SliderBrush.GradientStops[1].Color = HSLtoRGB(A, 60, S, L);
-            this.SliderBrush.GradientStops[2].Color = HSLtoRGB(A, 120, S, L);
-            this.SliderBrush.GradientStops[3].Color = HSLtoRGB(A, 180, S, L);
-            this.SliderBrush.GradientStops[4].Color = HSLtoRGB(A, 240, S, L);
-            this.SliderBrush.GradientStops[5].Color = HSLtoRGB(A, 300, S, L);
+            this.SliderBrush.GradientStops[0].Color = HSL.HSLtoRGB(A, 0, S, L);
+            this.SliderBrush.GradientStops[1].Color = HSL.HSLtoRGB(A, 60, S, L);
+            this.SliderBrush.GradientStops[2].Color = HSL.HSLtoRGB(A, 120, S, L);
+            this.SliderBrush.GradientStops[3].Color = HSL.HSLtoRGB(A, 180, S, L);
+            this.SliderBrush.GradientStops[4].Color = HSL.HSLtoRGB(A, 240, S, L);
+            this.SliderBrush.GradientStops[5].Color = HSL.HSLtoRGB(A, 300, S, L);
 
             return SliderBrush;
         }
@@ -72,7 +70,7 @@ namespace FanKit.Frames.Colors
         {
             //Palette
             Rect rect = new Rect(Center.X - SquareHalfWidth, Center.Y - SquareHalfHeight, SquareHalfWidth * 2, SquareHalfHeight * 2);
-            ds.FillRoundedRectangle(rect, 4, 4, new CanvasLinearGradientBrush(CanvasControl, Windows.UI.Colors.White, HSLtoRGB(HSL.H)) { StartPoint = new Vector2(Center.X - SquareHalfWidth, Center.Y), EndPoint = new Vector2(Center.X + SquareHalfWidth, Center.Y) });
+            ds.FillRoundedRectangle(rect, 4, 4, new CanvasLinearGradientBrush(CanvasControl, Windows.UI.Colors.White, HSL.HSLtoRGB(HSL.H)) { StartPoint = new Vector2(Center.X - SquareHalfWidth, Center.Y), EndPoint = new Vector2(Center.X + SquareHalfWidth, Center.Y) });
             ds.FillRoundedRectangle(rect, 4, 4, new CanvasLinearGradientBrush(CanvasControl, Windows.UI.Colors.Transparent, Windows.UI.Colors.Black) { StartPoint = new Vector2(Center.X, Center.Y - SquareHalfHeight), EndPoint = new Vector2(Center.X, Center.Y + SquareHalfHeight) });
             ds.DrawRoundedRectangle(rect, 4, 4, Windows.UI.Colors.Gray);
 
@@ -91,3 +89,8 @@ namespace FanKit.Frames.Colors
         }
     }
 }
+
+
+
+
+

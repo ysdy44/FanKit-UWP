@@ -4,6 +4,7 @@
 
 
 <UserControl
+    x:Class="FanKit.Frames.Control.PopupMenu"
     Background="Transparent"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch"

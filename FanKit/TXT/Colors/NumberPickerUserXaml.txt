@@ -2,7 +2,8 @@
 ```xaml
 
 
-<UserControl
+<UserControl   
+    x:Class="FanKit.Frames.Colors.NumberPicker"
     Loaded="UserControl_Loaded">
     
     

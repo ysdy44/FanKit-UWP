@@ -127,6 +127,49 @@
                             <Span >and </Span>
                             <Span FontWeight="SemiBold">Lightness .</Span>
 
+                            
+                            
+                            <LineBreak/>
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Span >public class  </Span>
+                            <Span FontWeight="SemiBold"  >HSL </Span>                      
+
+                            <LineBreak/>
+                            <Span >{</Span>
+                            
+                            <LineBreak/>
+                            <Span >----public byte </Span>
+                            <Span FontWeight="SemiBold"  >A; </Span>                      
+
+                            <LineBreak/>
+                            <Span >----public double </Span>                           
+                            <Span FontWeight="SemiBold"  >H; </Span>                      
+
+                            <LineBreak/>
+                            <Span >----public double </Span>                           
+                            <Span FontWeight="SemiBold"  >S; </Span>                      
+
+                            <LineBreak/>
+                            <Span >----public double </Span>         
+                            <Span FontWeight="SemiBold"  >L; </Span>    
+                            
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Span >----public static Color</Span>  
+                            <Span FontWeight="SemiBold"  >HSLtoRGB</Span>    
+                            <Span >(byte A, double H, double S, double L)</Span>
+                            <LineBreak/>
+                            <Span >----public static Color HSLtoRGB(double H)</Span>
+                            
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Span >----public static HSL</Span>  
+                            <Span FontWeight="SemiBold"  >RGBtoHSL</Span>    
+                            <Span >(Color color)</Span>
+
+                            <LineBreak/>
+                            <Span >}</Span>
 
                         </TextBlock>
                     </StackPanel>
@@ -144,6 +187,11 @@
                 <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="HSL" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer>
+                        <controls:MarkdownTextBlock x:Name="MarkdownText4"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

@@ -4,6 +4,7 @@
 
 
 <UserControl
+    x:Class="FanKit.Frames.Control.TabButton"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch" 
     SizeChanged="UserControl_SizeChanged">

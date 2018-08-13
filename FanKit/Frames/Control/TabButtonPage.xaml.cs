@@ -6,10 +6,10 @@ using Windows.UI.Xaml.Navigation;
 
 namespace FanKit.Frames.Control
 {
-    public sealed partial class TabBarPage : Page
+    public sealed partial class TabButtonPage : Page
     {
 
-        public TabBarPage()
+        public TabButtonPage()
         {
             this.InitializeComponent();
         }
