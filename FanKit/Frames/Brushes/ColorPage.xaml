@@ -14,7 +14,7 @@
 
     <Page.Resources>
 
-        <!--列表视图样式-->
+        <!--Style-->
         <Style x:Name="ListViewStyle" TargetType="ListView">
             <Setter Property="SelectionMode" Value="None"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -38,7 +38,7 @@
             </Setter>
         </Style>
 
-        <!--列表子项样式-->
+        <!--ItemContainerStyle-->
         <Style x:Name="ListViewItemContainerStyle" TargetType="ListViewItem">
             <Setter Property="MaxWidth" Value="{StaticResource AppDetailMaxWidth}"/>
             <Setter Property="Height" Value="110"/>
@@ -52,7 +52,7 @@
 
     <Grid>
 
-        <!--主体-->
+        <!--Body-->
         <ListView     
             HeaderTemplate="{StaticResource AppListViewBaseHeader}"
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
@@ -62,7 +62,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="Alt colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -110,7 +110,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="Base colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -158,7 +158,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="Chrome colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -270,7 +270,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="List colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -294,7 +294,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="ChromeAlt colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -318,7 +318,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="RevealAlt colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -366,7 +366,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="RevealBase colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -414,7 +414,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="RevealChrome colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -510,7 +510,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="Others colors" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem  >
                 <ListViewItem.Background>
@@ -541,7 +541,7 @@
 
         </ListView>
 
-        <!--顶栏-->
+        <!--Head-->
         <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <Border>
                 <Border HorizontalAlignment="Center" VerticalAlignment="Center" >

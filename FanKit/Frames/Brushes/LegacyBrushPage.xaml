@@ -14,7 +14,7 @@
     
     <Page.Resources>
 
-        <!--列表视图样式-->
+        <!--Style-->
         <Style x:Name="ListViewStyle" TargetType="ListView">
             <Setter Property="SelectionMode" Value="None"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -38,7 +38,7 @@
             </Setter>
         </Style>
 
-        <!--列表子项样式-->
+        <!--ItemContainerStyle-->
         <Style x:Name="ListViewItemContainerStyle" TargetType="ListViewItem">
             <Setter Property="MaxWidth" Value="{StaticResource AppDetailMaxWidth}"/>
             <Setter Property="Height" Value="110"/>
@@ -52,7 +52,7 @@
     
     <Grid>
 
-        <!--主体-->
+        <!--Body-->
         <ListView  
             HeaderTemplate="{StaticResource AppListViewBaseHeader}"
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
@@ -62,7 +62,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="AppBar brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource AppBarBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>AppBarBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -136,7 +136,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="AutoSuggest brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource AutoSuggestBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>AutoSuggestBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -147,7 +147,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="Application brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ApplicationForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ApplicationForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -173,7 +173,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="BackButton brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource BackButtonBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>BackButtonBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -199,7 +199,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="Button brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ButtonBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ButtonBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -237,7 +237,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="CheckBox brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource CheckBoxBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>CheckBoxBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -287,7 +287,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="ComboBox brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
             
                 <ListViewItem  Background="{ThemeResource ComboBoxArrowDisabledForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ComboBoxArrowDisabledForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -400,7 +400,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="ContentDialog brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ContentDialogBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ContentDialogBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -420,7 +420,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="DatePicker brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource DatePickerHeaderForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>DatePickerHeaderForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -434,7 +434,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="DefaultTex brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource DefaultTextForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>DefaultTextForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -445,7 +445,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="FlipView brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource FlipViewButtonBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>FlipViewButtonBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -480,7 +480,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="Flyout brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>FlyoutBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -494,7 +494,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="FocusVisual brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource FocusVisualBlackStrokeThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>FocusVisualBlackStrokeThemeBrush</Paragraph></RichTextBlock>
@@ -508,7 +508,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="HyperlinkButton brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource HyperlinkButtonBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>HyperlinkButtonBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -534,7 +534,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="HubSectionHeader brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource HubSectionHeaderPointerOverForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>HubSectionHeaderPointerOverForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -548,7 +548,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="IMECandidate brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource IMECandidateBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>IMECandidateBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -601,7 +601,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ListBox brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ListBoxBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ListBoxBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -624,7 +624,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ListPickerFlyout brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ListPickerFlyoutPresenterSelectedItemForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ListPickerFlyoutPresenterSelectedItemForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -638,7 +638,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ListViewGroupHeader brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ListViewGroupHeaderForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ListViewGroupHeaderForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -655,7 +655,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ListBoxItem brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ListBoxItemDisabledForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ListBoxItemDisabledForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -693,7 +693,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ListViewItem brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ListViewItemCheckHintThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ListViewItemCheckHintThemeBrush</Paragraph></RichTextBlock>
@@ -746,7 +746,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="LoopingSelector brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource LoopingSelectorForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>LoopingSelectorForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -763,7 +763,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="Media brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource MediaButtonForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>MediaButtonForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -807,7 +807,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="MenuFlyout brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource MenuFlyoutItemFocusedBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>MenuFlyoutItemFocusedBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -839,7 +839,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="Pivot brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource PivotForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>PivotForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -889,7 +889,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ProgressBar brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ProgressBarBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ProgressBarBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -909,7 +909,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="RadioButton brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource RadioButtonBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>RadioButtonBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -959,7 +959,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="RepeatButton brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource RepeatButtonBorderThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>RepeatButtonBorderThemeBrush</Paragraph></RichTextBlock>
@@ -994,7 +994,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ScrollBar brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ScrollBarButtonForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ScrollBarButtonForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -1053,7 +1053,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="SearchBox brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SearchBoxBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>SearchBoxBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -1121,7 +1121,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="SemanticZoomButton brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SemanticZoomButtonBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>SemanticZoomButtonBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -1156,7 +1156,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="SettingsFlyout brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SettingsFlyoutBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>SettingsFlyoutBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -1176,7 +1176,7 @@
             <TextBlock Text="Slider brushes" Style="{StaticResource AppTextBlockStyle}"/>
             <ListViewHeaderItem>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SliderBorderThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>SliderBorderThemeBrush</Paragraph></RichTextBlock>
@@ -1250,7 +1250,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="TextBox brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource TextBoxForegroundHeaderThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>TextBoxForegroundHeaderThemeBrush</Paragraph></RichTextBlock>
@@ -1312,7 +1312,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="Thumb brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ThumbBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ThumbBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -1338,7 +1338,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="TimePicker brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource TimePickerForegroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>TimePickerForegroundThemeBrush</Paragraph></RichTextBlock>
@@ -1352,7 +1352,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ToggleButton brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ToggleButtonBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ToggleButtonBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -1417,7 +1417,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ToggleSwitch brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ToggleSwitchCurtainDisabledBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ToggleSwitchCurtainDisabledBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -1491,7 +1491,7 @@
             <ListViewHeaderItem>
             <TextBlock Text="ToolTip brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource ToolTipBackgroundThemeBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}"><Paragraph>ToolTipBackgroundThemeBrush</Paragraph></RichTextBlock>
@@ -1508,7 +1508,7 @@
 
             </ListView>
 
-        <!--顶栏-->
+        <!--Head-->
         <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <Border>
                 <Border HorizontalAlignment="Center" VerticalAlignment="Center" >

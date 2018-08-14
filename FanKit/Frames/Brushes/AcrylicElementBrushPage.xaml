@@ -14,7 +14,7 @@
 
     <Page.Resources>
 
-        <!--列表视图样式-->
+        <!--Style-->
         <Style x:Name="ListViewStyle" TargetType="ListView">
             <Setter Property="SelectionMode" Value="None"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -38,7 +38,7 @@
             </Setter>
         </Style>
 
-        <!--列表子项样式-->
+        <!--ItemContainerStyle-->
         <Style x:Name="ListViewItemContainerStyle" TargetType="ListViewItem">
             <Setter Property="MaxWidth" Value="{StaticResource AppDetailMaxWidth}"/>
             <Setter Property="Height" Value="110"/>
@@ -52,7 +52,7 @@
 
     <Grid>
 
-        <!--主体-->
+        <!--Body-->
         <ListView     
             HeaderTemplate="{StaticResource AppListViewBaseHeader}"
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
@@ -62,7 +62,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="AcrylicElement brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAcrylicElementBrush}" >
                 <ListViewItem.BorderBrush>
@@ -78,7 +78,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="Accent brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" >
                 <ListViewItem.BorderBrush>
@@ -110,7 +110,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="MediumHigh brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" >
                 <ListViewItem.BorderBrush>
@@ -125,7 +125,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="ChromeMediumLow brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}" >
                 <ListViewItem.BorderBrush>
@@ -141,7 +141,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="BaseHigh brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseHighAcrylicElementBrush}" >
                 <ListViewItem.BorderBrush>
@@ -173,7 +173,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="ChromeLow brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeLowAcrylicElementBrush}" >
                 <ListViewItem.BorderBrush>
@@ -205,7 +205,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="BaseLow brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseLowAcrylicElementBrush}" >
                 <ListViewItem.BorderBrush>
@@ -229,7 +229,7 @@
             <ListViewHeaderItem>
                 <TextBlock Text="Alt brushes" Style="{StaticResource AppTextBlockStyle}"/>
             </ListViewHeaderItem>
-            <!--#region Border：边框-->
+            <!--#region Border-->
 
             <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAltLowAcrylicElementBrush}" >
                 <ListViewItem.BorderBrush>
@@ -261,7 +261,7 @@
 
         </ListView>
 
-        <!--顶栏-->
+        <!--Head-->
         <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <Border >
                 <Border HorizontalAlignment="Center" VerticalAlignment="Center" >

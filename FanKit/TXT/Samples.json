@@ -77,20 +77,26 @@
     },
     {
         "Name": "Helpers",
-        "Samples": [
-          {
-            "Page": "FanKit.Frames.Helpers.TransitionPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "Transition",
-            "Uri": "ms-appx:///Icon/Helpers/Transition.png",
-            "Summary": "Provides page navigation animations,to create a smooth and smooth transition effect"
-          },
-          {
-            "Page": "FanKit.Frames.Helpers.StretchPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "Stretch",
-            "Uri": "ms-appx:///Icon/Helpers/Stretch.png",
-            "Summary": "Describes how to resize the content to fill the space allocated for it."
-          }
-        ]
+      "Samples": [
+        {
+          "Page": "FanKit.Frames.Helpers.TransitionPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "Transition",
+          "Uri": "ms-appx:///Icon/Helpers/Transition.png",
+          "Summary": "Provides page navigation animations,to create a smooth and smooth transition effect"
+        },
+        {
+          "Page": "FanKit.Frames.Helpers.StretchPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "Stretch",
+          "Uri": "ms-appx:///Icon/Helpers/Stretch.png",
+          "Summary": "Describes how to resize the content to fill the space allocated for it."
+        },
+        {
+          "Page": "FanKit.Frames.Helpers.FontWeightPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "FontWeight",
+          "Uri": "ms-appx:///Icon/Helpers/FontWeight.png",
+          "Summary": "Gets or sets the top-level font weight for the TextBlock."
+        }
+      ]
     },
     {
         "Name": "Template",

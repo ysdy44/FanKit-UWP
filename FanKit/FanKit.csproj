@@ -176,6 +176,9 @@
     <Compile Include="Frames\Control\ExpandTextViewPage.xaml.cs">
       <DependentUpon>ExpandTextViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Helpers\FontWeightPage.xaml.cs">
+      <DependentUpon>FontWeightPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Helpers\StretchPage.xaml.cs">
       <DependentUpon>StretchPage.xaml</DependentUpon>
     </Compile>
@@ -298,6 +301,7 @@
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\PalettePicker.png" />
+    <Content Include="Icon\Helpers\FontWeight.png" />
     <Content Include="TXT\Colors\HSL.txt" />
     <Content Include="TXT\Colors\PaletteBaseCs.txt" />
     <Content Include="TXT\Colors\PaletteHueCs.txt" />
@@ -560,6 +564,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\ExpandTextViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Helpers\FontWeightPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,7 +21,11 @@ namespace FanKit.Frames.Helpers
         public StretchPage()
         {
             this.InitializeComponent();
-        }
+
+            this.TopRun1.Text = "<Image  Stretch=\"";
+            this.TopRun2.Text = "None";
+            this.TopRun3.Text = "\" /> ";
+         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

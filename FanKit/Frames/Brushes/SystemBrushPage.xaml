@@ -14,7 +14,7 @@
 
     <Page.Resources>
 
-        <!--列表视图样式-->
+        <!--Style-->
         <Style x:Name="ListViewStyle" TargetType="ListView">
             <Setter Property="SelectionMode" Value="None"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -38,7 +38,7 @@
             </Setter>
         </Style>
 
-        <!--列表子项样式-->
+        <!--ItemContainerStyle-->
         <Style x:Name="ListViewItemContainerStyle" TargetType="ListViewItem">
             <Setter Property="MaxWidth" Value="{StaticResource AppDetailMaxWidth}"/>
             <Setter Property="Height" Value="110"/>
@@ -52,7 +52,7 @@
     
     <Grid>
 
-        <!--主体-->
+        <!--Body-->
         <ListView     
             HeaderTemplate="{StaticResource AppListViewBaseHeader}"
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
@@ -62,7 +62,7 @@
             
             
                  <ListViewHeaderItem><TextBlock Text="Background brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SystemControlBackgroundAccentBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -153,7 +153,7 @@
                 <!--#endregion-->
 
                  <ListViewHeaderItem><TextBlock Text="Disabled brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SystemControlDisabledAccentBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -209,7 +209,7 @@
                 <!--#endregion-->
 
                  <ListViewHeaderItem><TextBlock Text="Focus brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SystemControlFocusVisualPrimaryBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -230,7 +230,7 @@
                 <!--#endregion-->
 
                  <ListViewHeaderItem><TextBlock Text="Foreground brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SystemControlForegroundAccentBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -331,7 +331,7 @@
                 <!--#endregion-->
 
                  <ListViewHeaderItem><TextBlock Text="Highlight brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SystemControlHighlightAccentBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -478,7 +478,7 @@
                 <!--#endregion-->
 
                  <ListViewHeaderItem><TextBlock Text="Hyper brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SystemControlHyperlinkTextBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -504,7 +504,7 @@
                 <!--#endregion-->
 
                  <ListViewHeaderItem><TextBlock Text="Page brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundAltMediumBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -560,7 +560,7 @@
                 <!--#endregion-->
 
                  <ListViewHeaderItem><TextBlock Text="Transparent brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border：边框-->
+                <!--#region Border-->
 
                 <ListViewItem  Background="{ThemeResource SystemControlTransparentBrush}" >
                     <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -573,7 +573,7 @@
             </ListView>
 
 
-        <!--顶栏-->
+        <!--Head-->
         <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <Border>
                 <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
