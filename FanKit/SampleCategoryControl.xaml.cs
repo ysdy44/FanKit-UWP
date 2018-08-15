@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Uwp.UI.Animations;
 
-namespace FanKit.Control
+namespace FanKit
 {
     public sealed partial class SampleCategoryControl : UserControl
     {
@@ -67,6 +67,11 @@ namespace FanKit.Control
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e) => this.ItemClick?.Invoke((e.ClickedItem as Sample).Page);
         private void ShadowGrid_Tapped(object sender, TappedRoutedEventArgs e) => this.Category = null;
+
+
+
+
+
 
     }
 }

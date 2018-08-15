@@ -102,7 +102,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\SampleCategoryControl.xaml.cs">
+    <Compile Include="SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Brushes\AcrylicWindowBrushPage.xaml.cs">
@@ -296,9 +296,6 @@
     <Compile Include="Frames\Template\SplitButton.xaml.cs">
       <DependentUpon>SplitButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\SampleControl.xaml.cs">
-      <DependentUpon>SampleControl.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -485,7 +482,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Control\SampleCategoryControl.xaml">
+    <Page Include="SampleCategoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -722,10 +719,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Template\SplitButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\SampleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

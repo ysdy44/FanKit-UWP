@@ -9,7 +9,6 @@
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:library="using:FanKit.Library"
-    xmlns:con="using:FanKit.Control"
     mc:Ignorable="d"
     Loaded="Page_Loaded"
     Background="{ThemeResource AppBarBackgroundThemeBrush}">
@@ -556,7 +555,7 @@
 
 
         <!--ShadowGrid-->
-        <con:SampleCategoryControl x:Name="SampleCategoryControl" Grid.Row="1" ItemClick="SampleCategoryControl_ItemClick"/>
+        <local:SampleCategoryControl x:Name="SampleCategoryControl" Grid.Row="1" ItemClick="SampleCategoryControl_ItemClick"/>
 
 
         <!--TopBar-->
