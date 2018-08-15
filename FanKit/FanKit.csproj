@@ -158,6 +158,12 @@
     <Compile Include="Frames\Colors\RGBPicker.xaml.cs">
       <DependentUpon>RGBPicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\StrawPicker.xaml.cs">
+      <DependentUpon>StrawPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\StrawPickerPage.xaml.cs">
+      <DependentUpon>StrawPickerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Colors\TouchSlider.xaml.cs">
       <DependentUpon>TouchSlider.xaml</DependentUpon>
     </Compile>
@@ -301,6 +307,7 @@
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\PalettePicker.png" />
+    <Content Include="Icon\Colors\StrawPicker.png" />
     <Content Include="Icon\Helpers\FontWeight.png" />
     <Content Include="TXT\Colors\HSL.txt" />
     <Content Include="TXT\Colors\PaletteBaseCs.txt" />
@@ -310,6 +317,9 @@
     <Content Include="TXT\Colors\PalettePickerUserXaml.txt" />
     <Content Include="TXT\Colors\PalettePickerXaml.txt" />
     <Content Include="TXT\Colors\PaletteSaturationCs.txt" />
+    <Content Include="TXT\Colors\StrawPickerUserCs.txt" />
+    <Content Include="TXT\Colors\StrawPickerUserXaml.txt" />
+    <Content Include="TXT\Colors\StrawPickerXaml.txt" />
     <Content Include="TXT\Samples.json" />
   </ItemGroup>
   <ItemGroup>
@@ -543,6 +553,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frames\Colors\StrawPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\StrawPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frames\Colors\TouchSlider.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -757,6 +775,11 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties TXT_4Samples_1json__JSONSchema="http://json.schemastore.org/ansible-stable-2.5" />
+    </VisualStudio>
+  </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

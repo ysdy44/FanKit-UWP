@@ -218,6 +218,12 @@
           "Name": "PalettePicker",
           "Uri": "ms-appx:///Icon/Colors/PalettePicker.png",
           "Summary": "Color palette picker"
+        },
+        {
+          "Page": "FanKit.Frames.Colors.StrawPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "StrawPicker",
+          "Uri": "ms-appx:///Icon/Colors/StrawPicker.png",
+          "Summary": "Color straw picker"
         }
       ]
     }
