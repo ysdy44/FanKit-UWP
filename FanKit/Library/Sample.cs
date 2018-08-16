@@ -54,21 +54,9 @@ namespace FanKit.Library
                 OnPropertyChanged(nameof(Summary));
             }
         }
-
         
-        private Visibility visibility = Visibility.Collapsed;
-        public Visibility Visibility
-        {
-            get => visibility;
-            set
-            {
-                visibility = value;
-                OnPropertyChanged(nameof(Visibility));
-            }
-        }
 
-        public void Entered(object sender, PointerRoutedEventArgs e) => Visibility = Visibility.Visible;
-        public void Exited(object sender, PointerRoutedEventArgs e) => Visibility = Visibility.Collapsed;
+        public void Button_Tapped(object sender, TappedRoutedEventArgs e)=> e.Handled = true;
 
 
         public event PropertyChangedEventHandler PropertyChanged;

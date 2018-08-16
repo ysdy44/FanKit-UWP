@@ -68,10 +68,6 @@ namespace FanKit
         private void GridView_ItemClick(object sender, ItemClickEventArgs e) => this.ItemClick?.Invoke((e.ClickedItem as Sample).Page);
         private void ShadowGrid_Tapped(object sender, TappedRoutedEventArgs e) => this.Category = null;
 
-
-
-
-
-
+     
     }
 }

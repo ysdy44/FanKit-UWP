@@ -6,80 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
-    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"    
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:library="using:FanKit.Library"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-
-    <UserControl.Resources>
  
-        <!--DataTemplate-->
-        <DataTemplate x:Key="DataTemplate" x:DataType="library:Sample">
-            <Grid x:Name="RootGrid"
-                  Background="Transparent"
-                  
-                  PointerEntered="{x:Bind Entered}"
-                  PointerExited="{x:Bind Exited}"
-                  PointerPressed="{x:Bind Entered}"
-                  PointerReleased="{x:Bind Exited}"
-                  PointerCanceled="{x:Bind Exited}"
-
-          >
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="12"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-
-                <Image Visibility="{x:Bind Visibility,Mode=OneWay}"
-                    Margin="12,8" Grid.Row="1"  Grid.ColumnSpan="2"
-                       Source="ms-appx:///Icon/Shadow.png" Stretch="Uniform" 
-                       extensions:VisualExtensions.NormalizedCenterPoint="0.5" >
-                     
-                    <!--Visibility="Visible" Show-->
-                    <animations:Implicit.ShowAnimations>
-                        <animations:Vector3Animation Target="Scale" Duration="0:0:0.6" From="1" To="1.6"></animations:Vector3Animation>
-                        <animations:OpacityAnimation Duration="0:0:0.6" From="0.0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
-                    <!--Visibility="Collapsed" Hide-->
-                    <animations:Implicit.HideAnimations>
-                        <animations:Vector3Animation Target="Scale" Duration="0:0:1.2" To="1" From="1.6"></animations:Vector3Animation>
-                        <animations:OpacityAnimation Duration="0:0:1.2" From="1.0" To="0.0"/>
-                    </animations:Implicit.HideAnimations>
-                    
-                </Image>
-
-                <controls:ImageEx Source="{x:Bind Uri,Mode=OneWay}" Margin="12,8" Grid.Row="1" Grid.ColumnSpan="2" Stretch="Uniform"/>
-
-                <Grid Grid.Row="2" Margin="12,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="{x:Bind Name,Mode=OneWay}" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                    <Button  Grid.Column="1" Width="30" Content="&#xE2AD;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}" >
-                        <Button.Flyout>
-                            <Flyout>
-                                <Grid Margin="-12">
-                                    <StackPanel Width="200" Padding="10">
-                                        <controls:ImageEx  Source="{x:Bind Uri,Mode=OneWay}" Stretch="Uniform"/>
-                                        <TextBlock Text="{x:Bind Name,Mode=OneWay}"  VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
-                                        <TextBlock Text="{x:Bind Summary,Mode=OneWay}" Grid.Row="1" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                                    </StackPanel>
-                                </Grid>
-                            </Flyout>
-                        </Button.Flyout>
-                    </Button>
-                </Grid>
-
-            </Grid>
-        </DataTemplate>
-        
-    </UserControl.Resources>
     
     <Grid x:Name="ShadowGrid" Visibility="Collapsed" Tapped="ShadowGrid_Tapped">
 
@@ -114,15 +47,20 @@
                             ScrollViewer.VerticalScrollMode="Enabled"
                             IsItemClickEnabled="True" ItemClick="GridView_ItemClick"
                             animations:ReorderGridAnimation.Duration="300"  
-                            ItemTemplate="{StaticResource DataTemplate}"
-                            Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                             Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
 
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
-
+                
+                <GridView.ItemTemplate>
+                    <DataTemplate   x:DataType="library:Sample">
+                        <local:SampleControl Sample="{x:Bind}"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+        
                 <GridView.ItemContainerStyle>
                     <Style TargetType="GridViewItem">
                         <Setter Property="Width" Value="150"/>
