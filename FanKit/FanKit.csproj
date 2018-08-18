@@ -108,6 +108,9 @@
     <Compile Include="Frames\Colors\AlphaPickerPage.xaml.cs">
       <DependentUpon>AlphaPickerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\ColorPicker.xaml.cs">
+      <DependentUpon>ColorPicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
@@ -502,6 +505,10 @@
     <Page Include="Frames\Colors\AlphaPickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="SampleCategoryControl.xaml">
       <SubType>Designer</SubType>

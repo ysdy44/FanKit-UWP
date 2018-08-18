@@ -3,12 +3,14 @@
 
 
 
-      <Border Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <local:StrawPicker x:Name="StrawPicker"
-                                       ColorChangeStarted="StrawPicker_ColorChangeStarted"
-                                       ColorChangeDelta="StrawPicker_ColorChangeDelta" 
-                                       ColorChangeCompleted="StrawPicker_ColorChangeCompleted"/>
-                </Border>
+ <Border Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+   
+      <local:StrawPicker x:Name="StrawPicker"
+            ColorChangeStarted="StrawPicker_ColorChangeStarted"
+            ColorChangeDelta="StrawPicker_ColorChangeDelta" 
+            ColorChangeCompleted="StrawPicker_ColorChangeCompleted"/>
+
+</Border>
 
 
 

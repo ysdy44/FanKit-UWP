@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace FanKit.Frames.Colors
 {
-    /// <summary>Color form HSL</summary>
+    /// <summary>
+    /// Color form HSL
+    /// </summary>
     public class HSL
     {
         public byte A;
@@ -49,6 +50,7 @@ namespace FanKit.Frames.Colors
         }
 
         public HSL(byte A, double H, double S, double L) { this.A = A; this.H = H; this.S = S; this.L = L; }
+
 
 
 
@@ -152,5 +154,6 @@ namespace FanKit.Frames.Colors
             return new HSL(color.A, (float)(H * 60.0), (float)(S * 100.0), (float)(L * 200.0));
         }
 
+        
     }
 }

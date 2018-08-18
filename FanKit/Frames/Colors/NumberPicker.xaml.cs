@@ -10,7 +10,7 @@ namespace FanKit.Frames.Colors
     {
 
         //Delegate
-        public delegate void ValueChangeHandler(object sender, int Value);
+        public delegate void ValueChangeHandler(object sender, int value);
         public event ValueChangeHandler ValueChange = null;
 
 
@@ -30,10 +30,6 @@ namespace FanKit.Frames.Colors
             if (e.NewValue is int value)
             {
                 con.Button.Content =  value.ToString() + " " + con.Unit;
-
-                //Delegate
-                if (con.ValueChange!=null)
-                  con.ValueChange?.Invoke(con, value);
             }
         }
 
@@ -139,15 +135,23 @@ namespace FanKit.Frames.Colors
         private void Seven_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 7;
         private void Eight_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 8;
         private void Nine_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 9;
-
-        //Back, Negative, Clear
+      
+        //Back, Negative
         private void Back_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue / 10;
         private void Negative_Click(object sender, RoutedEventArgs e) => this.IsNegative = !this.IsNegative;
-        private void Clear_Click(object sender, RoutedEventArgs e) => this.NewValue = 0;
-       
+        private void Decimal_Click(object sender, RoutedEventArgs e) => this.NewValue = 0;
+ 
         //OK, Cancel
-        private void OK_Click(object sender, RoutedEventArgs e) => this.Value = this.GetValue(this.NewValue);
-        private void Cancel_Click(object sender, RoutedEventArgs e) => this.Value = this.GetValue(this.OldValue);
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            this.Value = this.GetValue(this.NewValue);
+            this.ValueChange?.Invoke(this, this.Value);
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Value = this.GetValue(this.OldValue);
+            this.ValueChange?.Invoke(this, this.Value);
+        }
         private int GetValue(int num)
         {
             this.Flyout.Hide();
@@ -160,6 +164,6 @@ namespace FanKit.Frames.Colors
             return value;
         }
 
-     
+    
     }
 }

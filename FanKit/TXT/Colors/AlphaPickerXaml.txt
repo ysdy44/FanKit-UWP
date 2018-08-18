@@ -3,9 +3,11 @@
 
 
  <Grid Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-         <local:AlphaPicker 
+        
+		<local:AlphaPicker 
              x:Name="AlphaPicker" 
              ColorChange="AlphaPicker_ColorChange"/>
+
 </Grid>
 
 

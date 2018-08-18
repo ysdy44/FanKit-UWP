@@ -1,17 +1,9 @@
 ﻿using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.UI.Xaml;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Numerics;
 using Windows.Foundation;
 using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
 namespace FanKit.Frames.Colors
@@ -19,15 +11,6 @@ namespace FanKit.Frames.Colors
     /// <summary> Lightness </summary>
     public class PaletteLightness : PaletteBase
     {
-        private readonly LinearGradientBrush SliderBrush = new LinearGradientBrush(new GradientStopCollection()
-        {
-            new GradientStop() { Offset = 0.0f },
-            new GradientStop() { Offset = 1.0f },
-        }, 0)
-        {
-            StartPoint = new Point(0, 0.5),
-            EndPoint = new Point(1, 0.5),
-        };
         public CanvasGradientStop[] BackgroundStops = new CanvasGradientStop[]
         {
             new CanvasGradientStop { Position = 0.0f, Color =  Windows.UI.Colors.Red },
@@ -55,17 +38,26 @@ namespace FanKit.Frames.Colors
         public override HSL GetHSL(HSL HSL, int value) => new HSL(HSL.A, HSL.H, HSL.S, value);
         public override int GetValue(HSL HSL) => (int)HSL.L;
 
-        public override Brush GetSliderBrush(HSL HSL)
+        public override GradientStopCollection GetSliderBrush(HSL HSL)
         {
             byte A = HSL.A;
             double H = HSL.H;
             double S = HSL.S;
             double L = HSL.L;
 
-            this.SliderBrush.GradientStops[0].Color = HSL.HSLtoRGB(A, H, S, 0);
-            this.SliderBrush.GradientStops[1].Color = HSL.HSLtoRGB(A, H, S, 100);
-
-            return this.SliderBrush;
+            return new GradientStopCollection()
+            {
+                new GradientStop()
+                {
+                    Offset = 0.0f ,
+                    Color = HSL.HSLtoRGB(A, H, S, 0)
+                },
+                new GradientStop()
+                {
+                    Offset = 1.0f,
+                    Color = HSL.HSLtoRGB(A, H, S, 100)
+                },
+           };
         }
 
         public override void Draw(CanvasControl CanvasControl, CanvasDrawingSession ds, HSL HSL, Vector2 Center, float SquareHalfWidth, float SquareHalfHeight)

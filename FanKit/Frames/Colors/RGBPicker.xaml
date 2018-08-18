@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:FanKit.Frames.Colors"
+    xmlns:pic="using:FanKit.Frames.Colors"
     mc:Ignorable="d">
 
     
@@ -20,39 +21,39 @@
 
         <!--R-->
         <TextBlock Grid.Row="0" Text="R" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
-        <local:NumberPicker x:Name="RPicker" Grid.Row="0" Minimum="0" Maximum="255" HorizontalAlignment="Right" ValueChange="RPicker_ValueChange"/>
-        <local:TouchSlider x:Name="RSlider" Grid.Row="1" Minimum="0" Maximum="255" ValueChangeDelta="RSlider_ValueChangeDelta">
-            <local:TouchSlider.SliderBackground>
+        <pic:NumberPicker x:Name="RPicker" Grid.Row="0" Minimum="0" Maximum="255" HorizontalAlignment="Right" ValueChange="RPicker_ValueChange"/>
+        <pic:TouchSlider x:Name="RSlider" Grid.Row="1" Minimum="0" Maximum="255" ValueChangeDelta="RSlider_ValueChangeDelta">
+            <pic:TouchSlider.SliderBackground>
                 <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
                     <GradientStop x:Name="RLeft" Offset="0"/>
                     <GradientStop x:Name="RRight"  Offset="1"/>
                 </LinearGradientBrush>
-            </local:TouchSlider.SliderBackground>
-        </local:TouchSlider>
+            </pic:TouchSlider.SliderBackground>
+        </pic:TouchSlider>
 
         <!--G-->
         <TextBlock Grid.Row="2" Text="G" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
-        <local:NumberPicker x:Name="GPicker" Grid.Row="2" Minimum="0" Maximum="255" HorizontalAlignment="Right" ValueChange="GPicker_ValueChange"/>
-        <local:TouchSlider x:Name="GSlider" Grid.Row="3" Minimum="0" Maximum="255" ValueChangeDelta="GSlider_ValueChangeDelta">
-            <local:TouchSlider.SliderBackground>
+        <pic:NumberPicker x:Name="GPicker" Grid.Row="2" Minimum="0" Maximum="255" HorizontalAlignment="Right" ValueChange="GPicker_ValueChange"/>
+        <pic:TouchSlider x:Name="GSlider" Grid.Row="3" Minimum="0" Maximum="255" ValueChangeDelta="GSlider_ValueChangeDelta">
+            <pic:TouchSlider.SliderBackground>
                 <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
                     <GradientStop x:Name="GLeft" Offset="0"/>
                     <GradientStop x:Name="GRight"  Offset="1"/>
                 </LinearGradientBrush>
-            </local:TouchSlider.SliderBackground>
-        </local:TouchSlider>
+            </pic:TouchSlider.SliderBackground>
+        </pic:TouchSlider>
 
         <!--B-->
         <TextBlock Grid.Row="4" Text="B" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
-        <local:NumberPicker x:Name="BPicker" Grid.Row="4" Minimum="0" Maximum="255" HorizontalAlignment="Right" ValueChange="BPicker_ValueChange"/>
-        <local:TouchSlider x:Name="BSlider" Grid.Row="5" Minimum="0" Maximum="255" ValueChangeDelta="BSlider_ValueChangeDelta">
-            <local:TouchSlider.SliderBackground>
+        <pic:NumberPicker x:Name="BPicker" Grid.Row="4" Minimum="0" Maximum="255" HorizontalAlignment="Right" ValueChange="BPicker_ValueChange"/>
+        <pic:TouchSlider x:Name="BSlider" Grid.Row="5" Minimum="0" Maximum="255" ValueChangeDelta="BSlider_ValueChangeDelta">
+            <pic:TouchSlider.SliderBackground>
                 <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
                     <GradientStop x:Name="BLeft" Offset="0"/>
                     <GradientStop x:Name="BRight"  Offset="1"/>
                 </LinearGradientBrush>
-            </local:TouchSlider.SliderBackground>
-        </local:TouchSlider>
+            </pic:TouchSlider.SliderBackground>
+        </pic:TouchSlider>
 
     </Grid>
 

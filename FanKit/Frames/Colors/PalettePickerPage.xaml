@@ -143,7 +143,18 @@
 
                             <LineBreak/>
                             <LineBreak/>
+                            <LineBreak/>
                             <Span >Warning: please reference Win2D in Nuget.</Span>
+                            <LineBreak/>                            <LineBreak/>
+
+                            <LineBreak/>
+                            <Span >PalettePicker.xaml</Span>  <LineBreak/>
+                            <Span >PalettePicker.xaml.cs</Span>  <LineBreak/>
+                            <LineBreak/>
+                            <Span >PaletteBase.cs</Span>  <LineBreak/>
+                            <Span >PaletteHue.cs</Span>  <LineBreak/>
+                            <Span >PaletteLightness.cs</Span>  <LineBreak/>
+                            <Span >PaletteSaturation.cs</Span>  <LineBreak/>
 
                         </TextBlock>
                     </StackPanel>

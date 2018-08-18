@@ -1,43 +1,24 @@
 
 ```xaml
 
-<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto"/>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="120"/>
-    </Grid.ColumnDefinitions>
+<Grid>
 
-    <Border Padding="14" Grid.ColumnSpan="3" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+
+    <Border >
         <TextBlock Text="Number Picker" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
     </Border>
 
-    <TextBlock Grid.Row="1" Text="Value: (defult 0)"/>
-    <Border Grid.Column="2" Grid.Row="1" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
-        <local:NumberPicker Value="0"/>
-    </Border>
+    <TextBlock Text="Value: (defult 0)"/>
+     <local:NumberPicker Value="0"/>
 
-    <TextBlock Grid.Row="2" Text="Minimum: (defult 0)"/>
-    <Border Grid.Column="2" Grid.Row="2" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
-        <local:NumberPicker Minimum="0"/>
-    </Border>
+    <TextBlock Text="Minimum: (defult 0)"/>
+     <local:NumberPicker Minimum="0"/>
 
-    <TextBlock Grid.Row="3" Text="Maximum: (defult 100)"/>
-    <Border Grid.Column="2" Grid.Row="3" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
-        <local:NumberPicker Maximum="100"/>
-    </Border>
+    <TextBlock  Text="Maximum: (defult 100)"/>
+    <local:NumberPicker Maximum="100"/>
 
     <TextBlock Grid.Row="4" Text="Unit: (defult Empty)"/>
-    <Border Grid.Column="2" Grid.Row="4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
-        <local:NumberPicker Unit="%"/>
-    </Border>
+	 <local:NumberPicker Unit="%"/>
 
 </Grid>
 

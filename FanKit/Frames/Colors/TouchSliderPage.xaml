@@ -89,8 +89,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 
@@ -99,14 +99,14 @@
                 </Border>
                 
                 
-                <TextBlock Text="SliderStyle0:" Grid.Row="1" Margin="4" VerticalAlignment="Bottom"/>
-                <local:TouchSlider x:Name="TouchSliderControl0"
+                <TextBlock Text="SliderStyle:" Grid.Row="1" Margin="4" VerticalAlignment="Bottom"/>
+                <local:TouchSlider x:Name="TouchSliderControl"
                     Grid.Row="2" 
-                    ValueChangeStarted="TouchSliderControl0_ValueChangeStarted" 
-                    ValueChangeDelta="TouchSliderControl0_ValueChangeDelta" 
-                    ValueChangeCompleted="TouchSliderControl0_ValueChangeCompleted"
+                    ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
+                    ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
+                    ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
                    />
-                <Border x:Name="TexBlockBorder0" Grid.Row="1" Height="40" Width="100" CornerRadius="20,0,0,20" Visibility="Collapsed"
+                <Border x:Name="TexBlockBorder" Grid.Row="1" Height="40" Width="100" CornerRadius="20,0,0,20" Visibility="Collapsed"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
                     <!--Visibility="Visible" Show-->
@@ -121,37 +121,10 @@
                         <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
                     </animations:Implicit.HideAnimations>
 
-                    <TextBlock x:Name="TexBlock0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock x:Name="TexBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 
                 </Border>
-
-
-                <TextBlock Text="SliderStyle1:" Grid.Row="3" Margin="4" VerticalAlignment="Bottom"/>
-                <local:TouchSlider x:Name="TouchSliderControl1"
-                    Grid.Row="4" IsStyle="True"
-                    ValueChangeStarted="TouchSliderControl1_ValueChangeStarted" 
-                    ValueChangeDelta="TouchSliderControl1_ValueChangeDelta" 
-                    ValueChangeCompleted="TouchSliderControl1_ValueChangeCompleted"
-                    />
-                <Border x:Name="TexBlockBorder1" Grid.Row="3" Height="40" Width="100" CornerRadius="20,0,0,20" Visibility="Collapsed"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-
-                    <!--Visibility="Visible" Show-->
-                    <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:0.5" From="100,0,0" To="0,0,0"/>
-                        <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
-
-                    <!--Visibility="Collapsed" Hide-->
-                    <animations:Implicit.HideAnimations>
-                        <animations:TranslationAnimation Duration="0:0:0.5" From="0,0,0" To="100,0,0"/>
-                        <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
-                    </animations:Implicit.HideAnimations>
-
-                    <TextBlock x:Name="TexBlock1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-
-                </Border>
-
+ 
             </Grid>
         </Grid>
 

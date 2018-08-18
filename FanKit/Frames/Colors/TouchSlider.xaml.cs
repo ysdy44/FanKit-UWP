@@ -19,24 +19,7 @@ namespace FanKit.Frames.Colors
         public Brush SliderForeground { get => this.Slider.Foreground; set => this.Slider.Foreground = value; }
         public Brush SliderBackground { get => this.Slider.Background; set => this.Slider.Background = value; }
         
-
-        /// <summary>
-        /// <see cref="TouchSlider"/>'s IsStyle.
-        /// </summary>
-        public bool IsStyle
-        {
-            get { return (bool)GetValue(IsStyleProperty); }
-            set { SetValue(IsStyleProperty, value); }
-        }
-        public static readonly DependencyProperty IsStyleProperty =DependencyProperty.Register(nameof(IsStyle), typeof(bool), typeof(TouchSlider), new PropertyMetadata(false, new PropertyChangedCallback(IsStyleOnChanged)));
-        private static void IsStyleOnChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (sender is TouchSlider con)
-            {
-                con.Slider.Style = ((bool)e.NewValue ? con.Resources["SliderStyle1"] : con.Resources["SliderStyle0"]) as Style;
-            }
-        }
-      
+        
 
         #endregion
 

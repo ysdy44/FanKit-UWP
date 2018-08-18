@@ -21,13 +21,9 @@ namespace FanKit.Frames.Colors
             this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/TouchSliderUserCs.txt");
         }
 
-        private void TouchSliderControl0_ValueChangeStarted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder0.Visibility = Visibility.Visible;
-        private void TouchSliderControl0_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlock0.Text = e.NewValue.ToString();
-        private void TouchSliderControl0_ValueChangeCompleted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder0.Visibility = Visibility.Collapsed;
-
-        private void TouchSliderControl1_ValueChangeStarted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder1.Visibility = Visibility.Visible;
-        private void TouchSliderControl1_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlock1.Text = e.NewValue.ToString();
-        private void TouchSliderControl1_ValueChangeCompleted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder1.Visibility = Visibility.Collapsed;
-
+        private void TouchSliderControl_ValueChangeStarted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder.Visibility = Visibility.Visible;
+        private void TouchSliderControl_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlock.Text = e.NewValue.ToString();
+        private void TouchSliderControl_ValueChangeCompleted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder.Visibility = Visibility.Collapsed;
+        
     }
 }

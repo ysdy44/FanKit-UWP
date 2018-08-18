@@ -229,7 +229,7 @@
           "Page": "FanKit.Frames.Colors.AlphaPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "Name": "AlphaPicker",
           "Uri": "ms-appx:///Icon/Colors/AlphaPicker.png",
-          "Summary": "Color alpha picker"
+          "Summary": "Color alpha picker,hex code"
         }
       ]
     }

@@ -19,7 +19,7 @@ namespace FanKit.Frames.Colors
         public delegate void ColorChangeHandler(object sender, Color value);
         public event ColorChangeHandler ColorChangeStarted = null;
         public event ColorChangeHandler ColorChangeDelta = null;
-        public event ColorChangeHandler ColorChangeCompleted= null;
+        public event ColorChangeHandler ColorChangeCompleted = null;
 
 
         private Popup popup = new Popup();
@@ -104,7 +104,7 @@ namespace FanKit.Frames.Colors
         }
         private void Border_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-            this.OldColor = this.GetColor(this.bitmap,this.v);
+            this.OldColor = this.GetColor(this.bitmap, this.v);
             this.bitmap.Dispose();
             this.bitmap = null;
 
@@ -120,7 +120,7 @@ namespace FanKit.Frames.Colors
             await render.RenderAsync(element);
             return CanvasBitmap.CreateFromBytes(this.device, await render.GetPixelsAsync(), render.PixelWidth, render.PixelHeight, DirectXPixelFormat.B8G8R8A8UIntNormalized);
         }
-        private Color GetColor(CanvasBitmap bitmap,Vector2 v)
+        private Color GetColor(CanvasBitmap bitmap, Vector2 v)
         {
             if (bitmap != null)
             {
@@ -142,7 +142,3 @@ namespace FanKit.Frames.Colors
 
     }
 }
-
-
-
-

@@ -19,15 +19,6 @@ namespace FanKit.Frames.Colors
     /// <summary> Saturation </summary>
     public class PaletteSaturation : PaletteBase
     {
-        private readonly LinearGradientBrush SliderBrush = new LinearGradientBrush(new GradientStopCollection()
-        {
-            new GradientStop() { Offset = 0.0f },
-            new GradientStop() { Offset = 1.0f },
-        }, 0)
-        {
-            StartPoint = new Point(0, 0.5),
-            EndPoint = new Point(1, 0.5),
-        };
         public CanvasGradientStop[] BackgroundStops = new CanvasGradientStop[]
         {
             new CanvasGradientStop { Position = 0.0f, Color =  Windows.UI.Colors.Red },
@@ -54,17 +45,26 @@ namespace FanKit.Frames.Colors
 
         public override HSL GetHSL(HSL HSL, int value) => new HSL(HSL.A, HSL.H, value, HSL.L);
         public override int GetValue(HSL HSL) => (int)HSL.S;
-        public override Brush GetSliderBrush(HSL HSL)
+        public override GradientStopCollection GetSliderBrush(HSL HSL)
         {
             byte A = HSL.A;
             double H = HSL.H;
             double S = HSL.S;
             double L = HSL.L;
 
-            this.SliderBrush.GradientStops[0].Color = HSL.HSLtoRGB(A, H, 0.0d, L);
-            this.SliderBrush.GradientStops[1].Color = HSL.HSLtoRGB(A, H, 100.0d, L);
-
-            return this.SliderBrush;
+            return new GradientStopCollection()
+            {
+                new GradientStop()
+                {
+                    Offset = 0,
+                    Color = HSL.HSLtoRGB(A, H, 0.0d, L)
+                },
+               new GradientStop()
+                {
+                    Offset = 1,
+                    Color =HSL.HSLtoRGB(A, H, 100.0d, L)
+                },
+            };
         }
 
         public override void Draw(CanvasControl CanvasControl, CanvasDrawingSession ds, HSL HSL, Vector2 Center, float SquareHalfWidth, float SquareHalfHeight)
@@ -100,7 +100,3 @@ namespace FanKit.Frames.Colors
     }
 
 }
-
-
-
-

@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
 
-    <Grid >
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -17,9 +17,8 @@
 
         <Grid Padding="12,12,12,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" MinWidth="80" MaxWidth="120"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="1*" MinWidth="80" MaxWidth="120"/>
+                <ColumnDefinition  Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -27,8 +26,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <ComboBox x:Name="ComboBox" 
-                      BorderThickness="0" HorizontalAlignment="Stretch">
+            <ComboBox x:Name="ComboBox" BorderThickness="1" HorizontalAlignment="Stretch">
                 <ComboBox.ItemTemplate>
                     <DataTemplate x:DataType="local:PaletteBase">
                         <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
@@ -36,20 +34,25 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
 
-            <local:NumberPicker x:Name="Picker" Grid.Column="2" Grid.Row="0"  ValueChange="Picker_ValueChange"/>
-            <local:TouchSlider x:Name="Slider" Grid.ColumnSpan="3" Grid.Row="1"  ValueChangeDelta="Slider_ValueChangeDelta"/>
+            <local:NumberPicker x:Name="Picker" Grid.Column="1" Grid.Row="0" Width="80" ValueChange="Picker_ValueChange"/>
+            <local:TouchSlider x:Name="Slider" Grid.ColumnSpan="2" Grid.Row="1"  ValueChangeDelta="Slider_ValueChangeDelta">
+                <local:TouchSlider.SliderBackground>
+                    <LinearGradientBrush x:Name="LinearGradientBrush"  StartPoint  ="0, 0.5" EndPoint ="1, 0.5">
+                    </LinearGradientBrush>
+                </local:TouchSlider.SliderBackground>
+            </local:TouchSlider>
         </Grid>
 
         <canvas:CanvasControl  
-        x:Name="CanvasControl" Grid.Row="1" MinHeight="180"
+            x:Name="CanvasControl" Grid.Row="1" MinHeight="180"
                         
-        Draw="CanvasControl_Draw" 
-        SizeChanged="CanvasControl_SizeChanged"
+            Draw="CanvasControl_Draw" 
+            SizeChanged="CanvasControl_SizeChanged"
            
-        ManipulationMode="All"
-        ManipulationStarted="CanvasControl_ManipulationStarted"
-        ManipulationDelta="CanvasControl_ManipulationDelta"
-        ManipulationCompleted="CanvasControl_ManipulationCompleted"
+            ManipulationMode="All"
+            ManipulationStarted="CanvasControl_ManipulationStarted"
+            ManipulationDelta="CanvasControl_ManipulationDelta"
+            ManipulationCompleted="CanvasControl_ManipulationCompleted"
         />
     </Grid>
 </UserControl>

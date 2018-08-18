@@ -29,7 +29,7 @@ namespace FanKit.Frames.Colors
         public abstract HSL GetHSL(HSL HSL, int value);
         public abstract int GetValue(HSL HSL);
 
-        public abstract Brush GetSliderBrush(HSL HSL);
+        public abstract GradientStopCollection GetSliderBrush(HSL HSL);
 
         public abstract void Draw(CanvasControl CanvasControl, CanvasDrawingSession ds, HSL HSL, Vector2 Center, float SquareHalfWidth, float SquareHalfHeight);
         public abstract HSL Delta(HSL HSL, Vector2 v, float SquareHalfWidth, float SquareHalfHeight);

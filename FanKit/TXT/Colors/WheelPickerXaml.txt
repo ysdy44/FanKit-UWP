@@ -2,7 +2,7 @@
 ```xaml
 
 
-<Grid Width="200" Height="230" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+<Grid Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
            
      <local:WheelPicker 
         x:Name="WheelPicker" 
