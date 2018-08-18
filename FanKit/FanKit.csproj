@@ -102,6 +102,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\AlphaPicker.xaml.cs">
+      <DependentUpon>AlphaPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\AlphaPickerPage.xaml.cs">
+      <DependentUpon>AlphaPickerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
@@ -306,9 +312,13 @@
     </AppxManifest>
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
+    <Content Include="Icon\Colors\AlphaPicker.png" />
     <Content Include="Icon\Colors\PalettePicker.png" />
     <Content Include="Icon\Colors\StrawPicker.png" />
     <Content Include="Icon\Helpers\FontWeight.png" />
+    <Content Include="TXT\Colors\AlphaPickerUserCs.txt" />
+    <Content Include="TXT\Colors\AlphaPickerUserXaml.txt" />
+    <Content Include="TXT\Colors\AlphaPickerXaml.txt" />
     <Content Include="TXT\Colors\HSL.txt" />
     <Content Include="TXT\Colors\PaletteBaseCs.txt" />
     <Content Include="TXT\Colors\PaletteHueCs.txt" />
@@ -485,6 +495,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Frames\Colors\AlphaPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Colors\AlphaPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SampleCategoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

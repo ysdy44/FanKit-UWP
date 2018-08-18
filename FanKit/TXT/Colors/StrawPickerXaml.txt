@@ -3,9 +3,12 @@
 
 
 
-<Grid Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-    <local:StrawPicker x:Name="StrawPicker" ColorChange="StrawPicker_ColorChange"/>
-</Grid>
+      <Border Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <local:StrawPicker x:Name="StrawPicker"
+                                       ColorChangeStarted="StrawPicker_ColorChangeStarted"
+                                       ColorChangeDelta="StrawPicker_ColorChangeDelta" 
+                                       ColorChangeCompleted="StrawPicker_ColorChangeCompleted"/>
+                </Border>
 
 
 

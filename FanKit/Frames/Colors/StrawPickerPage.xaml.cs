@@ -25,7 +25,7 @@ namespace FanKit.Frames.Colors
         }
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.StrawPicker.Color = Color.FromArgb(255, 0, 187, 255);
+            this.StrawPicker.NewColor = Color.FromArgb(255, 0, 187, 255);
 
             this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/StrawPickerXaml.txt");
             this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/StrawPickerUserXaml.txt");
@@ -33,7 +33,19 @@ namespace FanKit.Frames.Colors
         }
 
  
-        private void StrawPicker_ColorChange(object sender, Color Value) => this.PaletteSolidBrush.Color = Value;
-        
+        private void StrawPicker_ColorChangeStarted(object sender, Color value)
+        {
+            this.PaletteSolidBrush.Color = value;
+        }
+        private void StrawPicker_ColorChangeDelta(object sender, Color value)
+        {
+            this.PaletteSolidBrush.Color = value;
+        }
+        private void StrawPicker_ColorChangeCompleted(object sender, Color value)
+        {
+            this.PaletteSolidBrush.Color = value;
+        }
+
+
     }
 }

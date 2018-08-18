@@ -37,7 +37,7 @@ namespace FanKit.Frames.Colors
             this.MarkdownText7.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteLightnessCs.txt");
         }
 
-        private void PalettePicker_ColorChange(object sender, Color Value) => this.PaletteSolidBrush.Color = Value;
+        private void PalettePicker_ColorChange(object sender, Color value) => this.PaletteSolidBrush.Color = value;
 
     }
 }

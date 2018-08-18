@@ -139,10 +139,11 @@ namespace FanKit.Frames.Colors
         private void Seven_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 7;
         private void Eight_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 8;
         private void Nine_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 9;
-      
-        //Back, Negative
+
+        //Back, Negative, Clear
         private void Back_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue / 10;
         private void Negative_Click(object sender, RoutedEventArgs e) => this.IsNegative = !this.IsNegative;
+        private void Clear_Click(object sender, RoutedEventArgs e) => this.NewValue = 0;
        
         //OK, Cancel
         private void OK_Click(object sender, RoutedEventArgs e) => this.Value = this.GetValue(this.NewValue);
@@ -159,6 +160,6 @@ namespace FanKit.Frames.Colors
             return value;
         }
 
-    
+     
     }
 }

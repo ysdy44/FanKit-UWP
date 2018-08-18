@@ -13,7 +13,7 @@ namespace FanKit.Frames.Colors
     public partial class PalettePicker : UserControl
     {
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color Value);
+        public delegate void ColorChangeHandler(object sender, Color value);
         public event ColorChangeHandler ColorChange = null;
 
         //Value

@@ -10,7 +10,7 @@ public sealed partial class NumberPicker : UserControl
 {
 
     //Delegate
-    public delegate void ValueChangeHandler(object sender, int Value);
+    public delegate void ValueChangeHandler(object sender, int value);
     public event ValueChangeHandler ValueChange = null;
 
 
@@ -142,7 +142,8 @@ private static void UnitOnChang(DependencyObject sender, DependencyPropertyChang
      //Back, Negative
      private void Back_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue / 10;
      private void Negative_Click(object sender, RoutedEventArgs e) => this.IsNegative = !this.IsNegative;
-       
+     private void Clear_Click(object sender, RoutedEventArgs e) => this.NewValue = 0;
+
      //OK, Cancel
      private void OK_Click(object sender, RoutedEventArgs e) => this.Value = this.GetValue(this.NewValue);
      private void Cancel_Click(object sender, RoutedEventArgs e) => this.Value = this.GetValue(this.OldValue);

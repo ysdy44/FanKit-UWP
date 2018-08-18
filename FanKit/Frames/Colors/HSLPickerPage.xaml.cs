@@ -34,6 +34,6 @@ namespace FanKit.Frames.Colors
             this.MarkdownText4.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/HSL.txt");
         }
 
-        private void HSLPicker_ColorChange(object sender, Color Value)=>  this.PaletteSolidBrush.Color = Value;
+        private void HSLPicker_ColorChange(object sender, Color value)=>  this.PaletteSolidBrush.Color = value;
     } 
 }

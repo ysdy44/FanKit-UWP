@@ -1,11 +1,11 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Colors.StrawPickerPage"
+    x:Class="FanKit.Frames.Colors.AlphaPickerPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:FanKit.Frames.Colors"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -80,15 +80,21 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="Grid" >
-            <Border Width="120" Height="120"  VerticalAlignment="Center" HorizontalAlignment="Center"  Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <Border Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <local:StrawPicker x:Name="StrawPicker"
-                                       ColorChangeStarted="StrawPicker_ColorChangeStarted"
-                                       ColorChangeDelta="StrawPicker_ColorChangeDelta" 
-                                       ColorChangeCompleted="StrawPicker_ColorChangeCompleted"/>
-                </Border>
-            </Border>
+        <Grid x:Name="Grid" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*" MinWidth="200" MaxWidth="900" />
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <local:AlphaPicker x:Name="AlphaPicker" ColorChange="AlphaPicker_ColorChange"/>
+            </Grid>
         </Grid>
 
 
@@ -110,13 +116,34 @@
                     <StackPanel>
 
                         <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
-
+                      
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-                            <Span >Hold down the ></Span>
-                            <Span FontWeight="SemiBold">Straw </Span>                      
-                            <Span > icon until it is released to complete the fetch color in the window </Span>
+                            <Span >In mathematics and computing, hexadecimal (also base, or hex) are a positional numeral system with a radix, or base, of It uses sixteen distinct symbols, most often the symbols 0–9 to represent values zero to nine, and a–f (or alternative Ly a–f) to the represent values ten to fifteen. </Span>
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Span >White  #FFFFFF  255,255,255</Span><LineBreak/>
+                            <Span >Black  #000000  0,0,0</Span><LineBreak/>
+                            <Span >Red  #FF0000  255,0,0</Span><LineBreak/>
+                            <Span >Green  #00FF00  0,255,0</Span><LineBreak/>
+                            <Span >Blue  #0000FF  0,0,255</Span><LineBreak/>
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Span >LightPink  #FFB6C1  255,182,193</Span><LineBreak/>
+                   <Span >Pink  #FFC0CB  255,192,203</Span><LineBreak/>
+                   <Span >Crimson  #DC143C  220,20,60</Span><LineBreak/>
+                   <Span >LavenderBlush  #FFF0F5  255,240,245</Span><LineBreak/>
+                   <Span >PaleVioletRed  #DB7093  219,112,147</Span><LineBreak/>
+                   <Span >HotPink  #FF69B4  255,105,180</Span><LineBreak/>
+                   <Span >DeepPink  #FF1493  255,20,147</Span><LineBreak/>
+                   <Span >MediumVioletRed  #C71585  199,21,133</Span><LineBreak/>
+                   <Span >Orchid  #DA70D6  218,112,214</Span><LineBreak/>
+                   <Span >Thistle  #D8BFD8  216,191,216</Span><LineBreak/>
+                   <Span >plum  #DDA0DD  221,160,221</Span><LineBreak/>
+                   <Span >Violet  #EE82EE  238,130,238</Span><LineBreak/>
+                   <Span >Magenta  #FF00FF  255,0,255  </Span><LineBreak/>
+                                    
+
                         </TextBlock>
-                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

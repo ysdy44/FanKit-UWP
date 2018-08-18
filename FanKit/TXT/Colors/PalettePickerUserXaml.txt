@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Padding="12,12,12,0">
+        <Grid Padding="12,0,12,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" MinWidth="80" MaxWidth="120"/>
                 <ColumnDefinition Width="*"/>
@@ -39,7 +39,7 @@
         </Grid>
 
         <canvas:CanvasControl  
-        x:Name="CanvasControl" Grid.Row="1"
+        x:Name="CanvasControl" Grid.Row="1" MinHeight="180"
                         
         Draw="CanvasControl_Draw" 
         SizeChanged="CanvasControl_SizeChanged"

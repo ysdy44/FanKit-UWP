@@ -10,7 +10,7 @@ namespace FanKit.Frames.Colors
     {
 
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color Value);
+        public delegate void ColorChangeHandler(object sender, Color value);
         public event ColorChangeHandler ColorChange = null;
 
         #region DependencyProperty

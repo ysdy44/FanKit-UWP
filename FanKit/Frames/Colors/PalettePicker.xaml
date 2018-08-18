@@ -41,7 +41,7 @@
         </Grid>
 
         <canvas:CanvasControl  
-        x:Name="CanvasControl" Grid.Row="1"
+        x:Name="CanvasControl" Grid.Row="1" MinHeight="180"
                         
         Draw="CanvasControl_Draw" 
         SizeChanged="CanvasControl_SizeChanged"

@@ -34,7 +34,7 @@ namespace FanKit.Frames.Colors
         }
 
 
-        private void RGBPicker_ColorChange(object sender, Color Value)=>  this.PaletteSolidBrush.Color = Value;
+        private void RGBPicker_ColorChange(object sender, Color value)=>  this.PaletteSolidBrush.Color = value;
 
     }
 }
