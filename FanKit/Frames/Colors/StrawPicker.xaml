@@ -30,8 +30,13 @@
 
     </UserControl.Resources>
 
-    <Border Background="Transparent" PointerPressed="Border_PointerPressed" 
-            ManipulationMode="All" ManipulationDelta="Border_ManipulationDelta"  ManipulationCompleted="Border_ManipulationCompleted">
+    <Border Background="Transparent" 
+            PointerPressed="Border_PointerPressed" 
+            
+            ManipulationMode="All" 
+            ManipulationStarted="Border_ManipulationStarted"
+            ManipulationDelta="Border_ManipulationDelta"  
+            ManipulationCompleted="Border_ManipulationCompleted">
         <FontIcon Glyph="&#xEF3C;" FontFamily="Segoe MDL2 Assets"/>
     </Border>
 

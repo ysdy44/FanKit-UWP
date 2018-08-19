@@ -111,6 +111,15 @@
     <Compile Include="Frames\Colors\ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\ColorPickerPage.xaml.cs">
+      <DependentUpon>ColorPickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\SwatchesPicker.xaml.cs">
+      <DependentUpon>SwatchesPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Colors\SwatchesPickerPage.xaml.cs">
+      <DependentUpon>SwatchesPickerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
@@ -316,12 +325,17 @@
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\AlphaPicker.png" />
+    <Content Include="Icon\Colors\ColorPicker.png" />
     <Content Include="Icon\Colors\PalettePicker.png" />
     <Content Include="Icon\Colors\StrawPicker.png" />
+    <Content Include="Icon\Colors\SwatchesPicker.png" />
     <Content Include="Icon\Helpers\FontWeight.png" />
     <Content Include="TXT\Colors\AlphaPickerUserCs.txt" />
     <Content Include="TXT\Colors\AlphaPickerUserXaml.txt" />
     <Content Include="TXT\Colors\AlphaPickerXaml.txt" />
+    <Content Include="TXT\Colors\ColorPickerUserCs.txt" />
+    <Content Include="TXT\Colors\ColorPickerUserXaml.txt" />
+    <Content Include="TXT\Colors\ColorPickerXaml.txt" />
     <Content Include="TXT\Colors\HSL.txt" />
     <Content Include="TXT\Colors\PaletteBaseCs.txt" />
     <Content Include="TXT\Colors\PaletteHueCs.txt" />
@@ -333,6 +347,9 @@
     <Content Include="TXT\Colors\StrawPickerUserCs.txt" />
     <Content Include="TXT\Colors\StrawPickerUserXaml.txt" />
     <Content Include="TXT\Colors\StrawPickerXaml.txt" />
+    <Content Include="TXT\Colors\SwatchesPickerUserCs.txt" />
+    <Content Include="TXT\Colors\SwatchesPickerUserXaml.txt" />
+    <Content Include="TXT\Colors\SwatchesPickerXaml.txt" />
     <Content Include="TXT\Samples.json" />
   </ItemGroup>
   <ItemGroup>
@@ -509,6 +526,18 @@
     <Page Include="Frames\Colors\ColorPicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Colors\ColorPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\SwatchesPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Colors\SwatchesPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SampleCategoryControl.xaml">
       <SubType>Designer</SubType>

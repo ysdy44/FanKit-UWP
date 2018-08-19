@@ -1,11 +1,9 @@
-﻿<UserControl
-    x:Class="FanKit.Frames.Colors.ColorPicker"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FanKit.Frames.Colors"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+
+```xaml
+
+
+
+<UserControl  x:Class="FanKit.Frames.Colors.ColorPicker"
     d:DesignHeight="270"
     d:DesignWidth="200"
     Loaded="UserControl_Loaded">
@@ -57,7 +55,7 @@
         </Grid>
 
         <!--Toggle-->
-        <Grid Grid.Row="1" Height="34" CornerRadius="15" BorderThickness="0,0,1,2"  BorderBrush="#44000000"  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+       <Grid Grid.Row="1" Height="34" CornerRadius="15" BorderThickness="0,0,1,2"  BorderBrush="#44000000"  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -81,3 +79,9 @@
         
     </Grid>
 </UserControl>
+
+
+
+
+
+```

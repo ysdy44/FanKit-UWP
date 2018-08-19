@@ -1,35 +1,14 @@
-﻿using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.UI.Xaml;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Graphics.DirectX;
-using Windows.Graphics.Display;
-using Windows.Graphics.Imaging;
-using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
-using Windows.UI;
+﻿using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
-using System.Globalization;
 
 namespace FanKit.Frames.Colors
 {
     public sealed partial class ColorPicker : UserControl
     {
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color Value);
+        public delegate void ColorChangeHandler(object sender, Color value);
         public event ColorChangeHandler ColorChange = null;
 
         #region DependencyProperty
@@ -44,7 +23,7 @@ namespace FanKit.Frames.Colors
                 {
                     int i = this.Index ?? 0;
 
-                    // if (i == 0) this.SwatchesPicker.Color =value;
+                     if (i == 0) this.SwatchesPicker.Color =value;
                     if (i == 1) this.WheelPicker.Color = value;
                     if (i == 2) this.RGBPicker.Color = value;
                     if (i == 3) this.HSLPicker.Color = value;
@@ -69,7 +48,7 @@ namespace FanKit.Frames.Colors
                     this.RGBButton.IsChecked = i == 2;
                     this.HSLButton.IsChecked = i == 3;
 
-                    // if (i == 0) this.SwatchesPicker.Color = this.SolidColorBrushName.Color;
+                     if (i == 0) this.SwatchesPicker.Color = this.SolidColorBrushName.Color;
                     if (i == 1) this.WheelPicker.Color = this.SolidColorBrushName.Color;
                     if (i == 2) this.RGBPicker.Color = this.SolidColorBrushName.Color;
                     if (i == 3) this.HSLPicker.Color = this.SolidColorBrushName.Color;

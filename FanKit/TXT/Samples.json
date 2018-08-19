@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "Name": "Brushes",
         "Samples": [
@@ -230,6 +230,18 @@
           "Name": "AlphaPicker",
           "Uri": "ms-appx:///Icon/Colors/AlphaPicker.png",
           "Summary": "Color alpha picker,hex code"
+        },
+        {
+          "Page": "FanKit.Frames.Colors.SwatchesPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "SwatchesPicker",
+          "Uri": "ms-appx:///Icon/Colors/SwatchesPicker.png",
+          "Summary": "Swatches picker"
+        },
+        {
+          "Page": "FanKit.Frames.Colors.ColorPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "ColorPicker",
+          "Uri": "ms-appx:///Icon/Colors/ColorPicker.png",
+          "Summary": "Color picker (ง •̀_•́)ง"
         }
       ]
     }

@@ -14,6 +14,8 @@
             <Setter Property="Minimum" Value="0"/>
             <Setter Property="Maximum" Value="255"/>
             <Setter Property="Foreground" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}"/>
             <Setter Property="Background" Value="Gray"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -84,7 +86,7 @@
     </UserControl.Resources>
 
     <!--Value Changed-->
-    <Slider x:Name="Slider" BorderThickness="2" Style="{StaticResource SliderStyle}" ValueChanged="Slider_ValueChanged"/>
+    <Slider x:Name="Slider" Style="{StaticResource SliderStyle}" ValueChanged="Slider_ValueChanged"/>
 
 </UserControl>
 

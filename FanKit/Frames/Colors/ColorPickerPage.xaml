@@ -1,11 +1,11 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Colors.StrawPickerPage"
+    x:Class="FanKit.Frames.Colors.ColorPickerPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:FanKit.Frames.Colors"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -80,15 +80,21 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="Grid" >
-            <Border Width="120" Height="120"  VerticalAlignment="Center" HorizontalAlignment="Center"  Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <Border Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <local:StrawPicker x:Name="StrawPicker"
-                                       ColorChangeStarted="StrawPicker_ColorChangeStarted"
-                                       ColorChangeDelta="StrawPicker_ColorChangeDelta" 
-                                       ColorChangeCompleted="StrawPicker_ColorChangeCompleted"/>
-                </Border>
-            </Border>
+        <Grid x:Name="Grid" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+                <local:ColorPicker x:Name="ColorPicker" Margin="12" Width="200" Height="270"  ColorChange="ColorPicker_ColorChange"/>
+            </Grid>
         </Grid>
 
 
@@ -112,11 +118,8 @@
                         <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
 
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-                            <Span >Hold down the </Span>
-                            <Span FontWeight="SemiBold">Straw </Span>                      
-                            <Span > icon until it is released to complete the fetch color in the window </Span>
+                            <Span>(ง •̀_•́)ง</Span>
                         </TextBlock>
-                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

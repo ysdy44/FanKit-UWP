@@ -80,11 +80,11 @@ namespace FanKit.Frames.Colors
 
 
         Vector2 v;
-        private async void Border_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private void Border_PointerPressed(object sender, PointerRoutedEventArgs e) => v = e.GetCurrentPoint(Window.Current.Content).Position.ToVector2();
+        private async void Border_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
             this.ColorChangeStarted?.Invoke(this, this.OldColor);
 
-            v = e.GetCurrentPoint(Window.Current.Content).Position.ToVector2();
             this.bitmap = await this.GetRenderTargetBitmap(Window.Current.Content);
             this.NewColor = this.GetColor(this.bitmap, this.v);
 
@@ -140,5 +140,6 @@ namespace FanKit.Frames.Colors
             return left;
         }
 
+     
     }
 }

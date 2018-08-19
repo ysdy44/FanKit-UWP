@@ -1,0 +1,17 @@
+
+```xaml
+
+
+<Grid Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+
+    <local:ColorPicker x:Name="ColorPicker" 
+                                   Margin="12" 
+                                   Width="200" Height="270"  
+                                   ColorChange="ColorPicker_ColorChange"/>
+
+</Grid>
+
+
+
+
+```
