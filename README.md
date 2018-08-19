@@ -4,10 +4,10 @@ This developer tools includes generic.xaml some theme resources,and some beautif
 get it from windows 10 store:
 https://www.microsoft.com/store/productId/9PD2JJZQF524
 
-## ThemResource
-
-Copies the key values of resources and applied to the UWP development
+## ColorPicker
 ![](https://github.com/ysdy44/FanKit/blob/master/fankit00.PNG)  
+
+## USerControl
 ![](https://github.com/ysdy44/FanKit/blob/master/fankit01.PNG)  
 ![](https://github.com/ysdy44/FanKit/blob/master/fankit02.PNG)  
 ![](https://github.com/ysdy44/FanKit/blob/master/fankit03.PNG)  
