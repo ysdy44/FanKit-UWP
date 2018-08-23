@@ -120,6 +120,9 @@
     <Compile Include="Frames\Colors\SwatchesPickerPage.xaml.cs">
       <DependentUpon>SwatchesPickerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
+      <DependentUpon>RadiusShadowPanelPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
@@ -330,6 +333,7 @@
     <Content Include="Icon\Colors\StrawPicker.png" />
     <Content Include="Icon\Colors\SwatchesPicker.png" />
     <Content Include="Icon\Helpers\FontWeight.png" />
+    <Content Include="Icon\Template\RadiusShadowPanel.png" />
     <Content Include="TXT\Colors\AlphaPickerUserCs.txt" />
     <Content Include="TXT\Colors\AlphaPickerUserXaml.txt" />
     <Content Include="TXT\Colors\AlphaPickerXaml.txt" />
@@ -492,6 +496,7 @@
     <Content Include="TXT\Template\FloatActionButtonCs.txt" />
     <Content Include="TXT\Template\FloatActionButtonStyle.txt" />
     <Content Include="TXT\Template\FloatActionButtonXaml.txt" />
+    <Content Include="TXT\Template\RadiusShadowPanelXaml.txt" />
     <Content Include="TXT\Template\SplitPanelUserCs.txt" />
     <Content Include="TXT\Template\SplitPanelCs.txt" />
     <Content Include="TXT\Template\SplitPanelUserXaml.txt" />
@@ -536,6 +541,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Colors\SwatchesPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Template\RadiusShadowPanelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -829,11 +838,7 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties TXT_4Samples_1json__JSONSchema="http://json.schemastore.org/ansible-stable-2.5" />
-    </VisualStudio>
-  </ProjectExtensions>
+  <ProjectExtensions />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -18,7 +18,7 @@ namespace FanKit.Frames.Template
         {
             this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelXaml.txt");
             this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelCs.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelUserCs.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelUserXaml.txt");
             this.MarkdownText4.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/SplitPanelUserCs.txt");
         }
 

@@ -100,33 +100,39 @@
     },
     {
         "Name": "Template",
-        "Samples": [
-          {
-            "Page": "FanKit.Frames.Template.FlyoutTemplatePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "FlyoutTemplate",
-            "Uri": "ms-appx:///Icon/Template/Template.png",
-            "Summary": "A style that provides a Flyout control with rounded rectangles, drop shadow, and small arrows."
-          },
-          {
-            "Page": "FanKit.Frames.Template.TagChipPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "TagChipControl",
-            "Uri": "ms-appx:///Icon/Template/TagChip.png",
-            "Summary": "Tag chip control,based on ListView,To get it by the ItemContainStyle."
-          },
-          {
-            "Page": "FanKit.Frames.Template.FloatActionButtonPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "FloatActionButton",
-            "Uri": "ms-appx:///Icon/Template/FloatActionButton.png",
-            "Summary": "Float action button, it hide when you drop the list, it show when you go up the list."
-          },
-          {
-            "Page": "FanKit.Frames.Template.SplitPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "SplitPanel",
-            "Uri": "ms-appx:///Icon/Template/SplitPanel.png",
-            "Summary": "Split panel, it hide when you slide left, it show when you slide right."
+      "Samples": [
+        {
+          "Page": "FanKit.Frames.Template.RadiusShadowPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "RadiusShadowPanel",
+          "Uri": "ms-appx:///Icon/Template/RadiusShadowPanel.png",
+          "Summary": "Makes the layout panel with Corner Radius and drop shadow."
+        },
+        {
+          "Page": "FanKit.Frames.Template.FlyoutTemplatePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "FlyoutTemplate",
+          "Uri": "ms-appx:///Icon/Template/FlyoutTemplate.png",
+          "Summary": "A style that provides a Flyout control with rounded rectangles, drop shadow, and small arrows."
+        },
+        {
+          "Page": "FanKit.Frames.Template.TagChipPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "TagChipControl",
+          "Uri": "ms-appx:///Icon/Template/TagChip.png",
+          "Summary": "Tag chip control,based on ListView,To get it by the ItemContainStyle."
+        },
+        {
+          "Page": "FanKit.Frames.Template.FloatActionButtonPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "FloatActionButton",
+          "Uri": "ms-appx:///Icon/Template/FloatActionButton.png",
+          "Summary": "Float action button, it hide when you drop the list, it show when you go up the list."
+        },
+        {
+          "Page": "FanKit.Frames.Template.SplitPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "SplitPanel",
+          "Uri": "ms-appx:///Icon/Template/SplitPanel.png",
+          "Summary": "Split panel, it hide when you slide left, it show when you slide right."
 
-          }
-        ]
+        }
+      ]
     },
     {
         "Name": "Control",
