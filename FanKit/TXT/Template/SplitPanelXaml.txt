@@ -2,97 +2,95 @@
 ```xaml
 
 
+    xmlns:local="using:FanKit.Frames.Template"
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
 
 
-<Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+<Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
 
-    <Grid.Resources>
+    <!--Dismiss-->
+    <Rectangle x:Name="DismissOverlayBackground" Visibility="Collapsed" Opacity="0" Fill="#33000000" Tapped="Panel_Tapped"/>
 
-        <Storyboard  x:Name="SpliteShow" >
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="OpenGrid" >
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0" KeySpline="0.5,1,1,1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="UIElement.Opacity" Storyboard.TargetName="OpenPanel" >
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1" KeySpline="0.5,1,1,1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+    <Grid  x:Name="OpenGrid" VerticalAlignment="Stretch" HorizontalAlignment="Left" >
+	
+        <!--Offset-->
+        <interactivity:Interaction.Behaviors>
+            <behaviors:Offset x:Name="BehaviorOffset" OffsetX="-300" Duration="600"/>
+        </interactivity:Interaction.Behaviors>
 
-        <Storyboard  x:Name="SpliteFade" >
-            <DoubleAnimation Duration="0:0:0.2" To="-300" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="OpenGrid" />
-            <DoubleAnimation Duration="0:0:0.2" By="1" To="0" Storyboard.TargetProperty="UIElement.Opacity" Storyboard.TargetName="OpenPanel"/>
-        </Storyboard>
-
-    </Grid.Resources>
-
-
-    <Rectangle x:Name="OpenPanel" Visibility="Collapsed" Opacity="0" Fill="{StaticResource AppDarkBrush}" Tapped="Panel_Tapped"/>
-
-    <Grid  x:Name="OpenGrid" Width="320" VerticalAlignment="Stretch" HorizontalAlignment="Left" >
-        <Grid.RenderTransform>
-            <CompositeTransform x:Name="GridCompositeTransform" TranslateX="-300"/>
-        </Grid.RenderTransform>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle  x:Name="SpliteShadow" Opacity="0" Grid.Column="1" Fill="{StaticResource AppRightGradientBrush}" ManipulationMode="TranslateX" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted"/>
-        <Rectangle Fill="{ThemeResource SystemControlBackgroundAltHighBrush}" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted"/>
 
+        <!--Shadow-->    
+		<Rectangle  x:Name="SpliteLeftShadow" Opacity="0" Grid.Column="1"   ManipulationMode="TranslateX" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+            <Rectangle.Fill>
+                <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
+                    <GradientStop Color="#12000000" Offset="0"/>
+                    <GradientStop Color="#06000000" Offset="0.5"/>
+                    <GradientStop Color="#00000000" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+		
+         <!--Content-->
+        <Border x:Name="ContentPanel" Width="300" Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" ManipulationMode="TranslateX" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+            <ListView SelectionMode="None" IsItemClickEnabled="True" VerticalAlignment="Top">
 
-        <ListView SelectionMode="None" IsItemClickEnabled="True" VerticalAlignment="Top">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
 
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
-                </Style>
-            </ListView.ItemContainerStyle>
+                <ListView.Header>
+                    <Border Height="140" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted" >
+                        <TextBlock Text="Split Panel" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                    </Border>
+                </ListView.Header>
 
-            <ListView.Header>
-                <Border Height="140" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted" >
-                    <TextBlock Text="Split Panel" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-                </Border>
-            </ListView.Header>
-
-            <ListViewItem x:Name="HomeItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Home" Data="M310.5,450.75l0,189.75l-153.75,0l0,-234l-27,21l-23.25,-21l277.5,-275.876l277.5,275.876l-21,21l-28.5,-21l0,234l-150.75,0l0,-189.75"/>
-            </ListViewItem>
-            <ListViewItem x:Name="LocalItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Local" Data="M192.75,448.125c0,0 0,96.579 0,140.25c0,5.57 2.212,10.911 6.151,14.849c3.938,3.939 9.279,6.151 14.849,6.151c66.773,0 273.727,0 340.5,0c5.57,0 10.911,-2.212 14.849,-6.151c3.939,-3.938 6.151,-9.279 6.151,-14.849c0,-75.57 0,-333.18 0,-408.75c0,-5.57 -2.212,-10.911 -6.151,-14.849c-3.938,-3.939 -9.279,-6.151 -14.849,-6.151c-57.052,0 -214.448,0 -271.5,0c-11.598,0 -21,9.402 -21,21c0,57.718 0,214.5 0,214.5l-69,54Zm152.97,-231l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.538,-0.001 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Zm78,0l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.538,-0.001 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Zm74.25,0l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.537,0 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="HistoryItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="History" Data="M384,153.75c127.078,0 230.25,103.172 230.25,230.25c0,127.078 -103.172,230.25 -230.25,230.25c-127.078,0 -230.25,-103.172 -230.25,-230.25c0,-127.078 103.172,-230.25 230.25,-230.25Zm12,213l0,-102c0,-12.004 -9.746,-21.75 -21.75,-21.75c-12.004,0 -21.75,9.746 -21.75,21.75l0,146.25l147.75,0c12.211,0 22.125,-9.914 22.125,-22.125c0,-12.211 -9.913,-22.124 -22.125,-22.125l-104.25,0Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="DownloadItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Download" Data="M560.625,610.5l-353.25,0c-13.246,0 -24,-10.754 -24,-24c0,-13.246 10.754,-24 24,-24l353.25,0c13.246,0 24,10.754 24,24c0,13.246 -10.754,24 -24,24Zm-90.375,-263.25l90.375,0l-177.75,170.25l-177.75,-170.25l92.625,0l0,-189.75l172.5,0l0,189.75Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="AccountItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" >
-                <local:SplitButton Label="Account" Data="M315.997,402.326c-34.442,-22.328 -57.247,-61.109 -57.247,-105.175c0,-69.127 56.123,-125.25 125.25,-125.25c69.127,0 125.25,56.123 125.25,125.25c0,44.066 -22.805,82.847 -57.247,105.175c73.923,24.095 126.622,86.318 126.622,159.2c0,11.616 -1.365,23.2 -4.073,34.573l-381.104,0c-2.708,-11.373 -4.073,-22.957 -4.073,-34.573c0,-72.882 52.699,-135.105 126.622,-159.2Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="MessageItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Message" Data="M447,618.75l-114.75,-96.75l114.75,0l0,96.75Zm135.45,-96.75l-393.15,0c-18.793,0 -34.05,-15.257 -34.05,-34.05l0,-272.4c0,-18.793 15.257,-34.05 34.05,-34.05l393.15,0c18.793,0 34.05,15.257 34.05,34.05l0,272.4c0,18.792 -15.257,34.049 -34.05,34.05Zm-198.45,-210c19.869,0 36,16.131 36,36c0,19.869 -16.131,36 -36,36c-19.869,0 -36,-16.131 -36,-36c0,-19.869 16.131,-36 36,-36Zm118.5,0c19.869,0 36,16.131 36,36c0,19.869 -16.131,36 -36,36c-19.869,0 -36,-16.131 -36,-36c0,-19.869 16.131,-36 36,-36Zm-231.75,0c19.869,0 36,16.131 36,36c0,19.869 -16.131,36 -36,36c-19.869,0 -36,-16.131 -36,-36c0,-19.869 16.131,-36 36,-36Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="VIPItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Message" Data="M533.25,589.125l-286.5,0l0,-25.5l286.5,0l0,25.5Zm-161.295,-316.784c-14.796,-6.428 -25.455,-24.366 -25.455,-45.466c0,-26.492 16.803,-48 37.5,-48c20.697,0 37.5,21.508 37.5,48c0,16.446 -6.476,30.972 -16.339,39.623c-14.552,78.076 95.079,127.641 148.486,63.113c-4.34,-7.388 -6.897,-16.449 -6.897,-26.236c0,-24.836 16.467,-45 36.75,-45c20.283,0 36.75,20.164 36.75,45c0,21.552 -12.4,39.586 -28.934,43.978l-61.816,175.022l-6.812,0.149l-2.188,5.851l-132.375,-2.901l-132.375,2.901l-2.188,-5.851l-6.812,-0.149l-61.459,-174.01c-0.263,0.007 -0.527,0.01 -0.791,0.01c-20.283,0 -36.75,-20.164 -36.75,-45c0,-24.836 16.467,-45 36.75,-45c20.283,0 36.75,20.164 36.75,45c0,7.698 -1.582,14.947 -4.369,21.286c0.327,0.544 0.658,1.081 0.991,1.612c1.585,0.366 2.987,1.193 4.128,2.602c51.846,63.992 158.186,18.412 149.955,-56.534Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="MoneyItem" IsEnabled="True" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Money" Data="M581.752,566.625l-395.504,0c-18.143,0 -32.873,-14.73 -32.873,-32.873l0,-299.504c0,-18.143 14.729,-32.873 32.873,-32.873l395.504,0c18.144,0 32.873,14.73 32.873,32.873l0,90.877l-76.125,0c-32.081,0.001 -58.125,26.046 -58.125,58.125c0,32.08 26.044,58.124 58.125,58.125l76.125,0l0,92.377c0,18.143 -14.729,32.872 -32.873,32.873Zm-27.127,-216.75c16.971,0 30.75,13.779 30.75,30.75c0,16.971 -13.779,30.75 -30.75,30.75c-16.971,0 -30.75,-13.779 -30.75,-30.75c0,-16.971 13.779,-30.75 30.75,-30.75Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="TickerItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Ticker" Data="M455.25,559.125l-271.102,0c-17.398,0 -31.523,-14.125 -31.523,-31.523l0,-83.573c23.926,-9.434 40.875,-32.768 40.875,-60.029c0,-27.261 -16.949,-50.595 -40.875,-60.029l0,-83.573c0,-17.398 14.124,-31.523 31.523,-31.523l271.102,0l0,350.25Zm128.602,0l-78.352,0l0,-350.25l78.352,0c17.399,0 31.523,14.125 31.523,31.523l0,83.573c-23.926,9.434 -40.875,32.768 -40.875,60.029c0,27.261 16.949,50.595 40.875,60.029l0,83.573c0,17.398 -14.124,31.523 -31.523,31.523Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="ShopItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Shop" Data="M292.5,550.875c18.627,0 33.75,15.123 33.75,33.75c0,18.627 -15.123,33.75 -33.75,33.75c-18.627,0 -33.75,-15.123 -33.75,-33.75c0,-18.627 15.123,-33.75 33.75,-33.75Zm234,0c18.627,0 33.75,15.123 33.75,33.75c0,18.627 -15.123,33.75 -33.75,33.75c-18.627,0 -33.75,-15.123 -33.75,-33.75c0,-18.627 15.123,-33.75 33.75,-33.75Zm49.5,-16.5l-311.554,0c-7.203,0 -13.37,-5.161 -14.639,-12.251c-9.778,-54.61 -49.277,-275.226 -57.716,-322.36c-0.921,-5.144 -5.395,-8.889 -10.621,-8.889c-9.081,0 -22.951,0 -31.668,0c-2.135,0 -4.184,-0.848 -5.694,-2.358c-1.51,-1.51 -2.358,-3.559 -2.358,-5.694c0,-6.978 0,-17.06 0,-24.281c0,-2.365 0.94,-4.633 2.612,-6.305c1.672,-1.673 3.94,-2.612 6.305,-2.612c15.38,0 46.761,0 62.554,0c5.565,0 10.381,3.871 11.576,9.306l14.453,65.694l387,0l-45.751,211c-2.66,12.271 -13.159,21.274 -25.693,22.031c-56.122,3.393 -207.805,12.563 -259.232,15.672c-4.326,0.261 -8.321,2.405 -10.929,5.867c-2.609,3.461 -3.57,7.891 -2.63,12.122c0,0.001 0,0.002 0,0.002c1.306,5.876 6.517,10.056 12.536,10.056c51.812,0 281.449,0 281.449,0l0,33Z"/>
-            </ListViewItem>
-            <ListViewItem  x:Name="ThemeItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" >
-                <local:SplitButton Label="Theme" Data="M304.809,188.983c-13.566,26.315 -21.227,56.162 -21.227,87.784c0,105.968 86.032,192 192,192c39.962,0 77.089,-12.235 107.836,-33.161c-25.83,83.044 -103.339,143.411 -194.836,143.411c-112.591,0 -204,-91.409 -204,-204c0,-82.741 49.366,-154.044 120.227,-186.034Z"/>
-            </ListViewItem>
-            <ListViewItem x:Name="SettingItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
-                <local:SplitButton Label="Setting" Data="M539.873,208.469c-24.473,-21.732 -53.219,-38.107 -84.394,-48.072l-52.706,36.977c-13.21,-1.329 -26.524,-1.251 -39.719,0.231l-53.132,-36.361c-31.057,10.329 -59.611,27.037 -83.829,49.052l5.671,64.133c-7.756,10.776 -14.346,22.345 -19.659,34.513l-58.056,27.834c-6.584,32.06 -6.391,65.142 0.566,97.123l58.376,27.156c5.454,12.105 12.178,23.597 20.059,34.282l-4.923,64.194c24.473,21.732 53.219,38.107 84.394,48.072l52.706,-36.977c13.21,1.329 26.524,1.251 39.719,-0.231l53.132,36.361c31.057,-10.329 59.611,-27.037 83.829,-49.052l-5.671,-64.133c7.756,-10.776 14.346,-22.345 19.659,-34.513l58.056,-27.834c6.584,-32.06 6.391,-65.142 -0.566,-97.123l-58.376,-27.156c-5.454,-12.105 -12.178,-23.597 -20.059,-34.282l4.923,-64.194Zm-99.968,77.385c54.168,30.855 73.096,99.883 42.241,154.051c-30.855,54.168 -99.883,73.096 -154.051,42.241c-54.168,-30.855 -73.096,-99.883 -42.241,-154.051c30.855,-54.168 99.883,-73.096 154.051,-42.241Z"/>
-            </ListViewItem>
-
-        </ListView>
+                <ListViewItem x:Name="HomeItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Home" Data="M310.5,450.75l0,189.75l-153.75,0l0,-234l-27,21l-23.25,-21l277.5,-275.876l277.5,275.876l-21,21l-28.5,-21l0,234l-150.75,0l0,-189.75"/>
+                </ListViewItem>
+                <ListViewItem x:Name="LocalItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Local" Data="M192.75,448.125c0,0 0,96.579 0,140.25c0,5.57 2.212,10.911 6.151,14.849c3.938,3.939 9.279,6.151 14.849,6.151c66.773,0 273.727,0 340.5,0c5.57,0 10.911,-2.212 14.849,-6.151c3.939,-3.938 6.151,-9.279 6.151,-14.849c0,-75.57 0,-333.18 0,-408.75c0,-5.57 -2.212,-10.911 -6.151,-14.849c-3.938,-3.939 -9.279,-6.151 -14.849,-6.151c-57.052,0 -214.448,0 -271.5,0c-11.598,0 -21,9.402 -21,21c0,57.718 0,214.5 0,214.5l-69,54Zm152.97,-231l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.538,-0.001 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Zm78,0l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.538,-0.001 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Zm74.25,0l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.537,0 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="HistoryItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="History" Data="M384,153.75c127.078,0 230.25,103.172 230.25,230.25c0,127.078 -103.172,230.25 -230.25,230.25c-127.078,0 -230.25,-103.172 -230.25,-230.25c0,-127.078 103.172,-230.25 230.25,-230.25Zm12,213l0,-102c0,-12.004 -9.746,-21.75 -21.75,-21.75c-12.004,0 -21.75,9.746 -21.75,21.75l0,146.25l147.75,0c12.211,0 22.125,-9.914 22.125,-22.125c0,-12.211 -9.913,-22.124 -22.125,-22.125l-104.25,0Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="DownloadItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Download" Data="M560.625,610.5l-353.25,0c-13.246,0 -24,-10.754 -24,-24c0,-13.246 10.754,-24 24,-24l353.25,0c13.246,0 24,10.754 24,24c0,13.246 -10.754,24 -24,24Zm-90.375,-263.25l90.375,0l-177.75,170.25l-177.75,-170.25l92.625,0l0,-189.75l172.5,0l0,189.75Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="AccountItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" >
+                    <local:SplitButton Label="Account" Data="M315.997,402.326c-34.442,-22.328 -57.247,-61.109 -57.247,-105.175c0,-69.127 56.123,-125.25 125.25,-125.25c69.127,0 125.25,56.123 125.25,125.25c0,44.066 -22.805,82.847 -57.247,105.175c73.923,24.095 126.622,86.318 126.622,159.2c0,11.616 -1.365,23.2 -4.073,34.573l-381.104,0c-2.708,-11.373 -4.073,-22.957 -4.073,-34.573c0,-72.882 52.699,-135.105 126.622,-159.2Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="MessageItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Message" Data="M447,618.75l-114.75,-96.75l114.75,0l0,96.75Zm135.45,-96.75l-393.15,0c-18.793,0 -34.05,-15.257 -34.05,-34.05l0,-272.4c0,-18.793 15.257,-34.05 34.05,-34.05l393.15,0c18.793,0 34.05,15.257 34.05,34.05l0,272.4c0,18.792 -15.257,34.049 -34.05,34.05Zm-198.45,-210c19.869,0 36,16.131 36,36c0,19.869 -16.131,36 -36,36c-19.869,0 -36,-16.131 -36,-36c0,-19.869 16.131,-36 36,-36Zm118.5,0c19.869,0 36,16.131 36,36c0,19.869 -16.131,36 -36,36c-19.869,0 -36,-16.131 -36,-36c0,-19.869 16.131,-36 36,-36Zm-231.75,0c19.869,0 36,16.131 36,36c0,19.869 -16.131,36 -36,36c-19.869,0 -36,-16.131 -36,-36c0,-19.869 16.131,-36 36,-36Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="VIPItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Message" Data="M533.25,589.125l-286.5,0l0,-25.5l286.5,0l0,25.5Zm-161.295,-316.784c-14.796,-6.428 -25.455,-24.366 -25.455,-45.466c0,-26.492 16.803,-48 37.5,-48c20.697,0 37.5,21.508 37.5,48c0,16.446 -6.476,30.972 -16.339,39.623c-14.552,78.076 95.079,127.641 148.486,63.113c-4.34,-7.388 -6.897,-16.449 -6.897,-26.236c0,-24.836 16.467,-45 36.75,-45c20.283,0 36.75,20.164 36.75,45c0,21.552 -12.4,39.586 -28.934,43.978l-61.816,175.022l-6.812,0.149l-2.188,5.851l-132.375,-2.901l-132.375,2.901l-2.188,-5.851l-6.812,-0.149l-61.459,-174.01c-0.263,0.007 -0.527,0.01 -0.791,0.01c-20.283,0 -36.75,-20.164 -36.75,-45c0,-24.836 16.467,-45 36.75,-45c20.283,0 36.75,20.164 36.75,45c0,7.698 -1.582,14.947 -4.369,21.286c0.327,0.544 0.658,1.081 0.991,1.612c1.585,0.366 2.987,1.193 4.128,2.602c51.846,63.992 158.186,18.412 149.955,-56.534Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="MoneyItem" IsEnabled="True" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Money" Data="M581.752,566.625l-395.504,0c-18.143,0 -32.873,-14.73 -32.873,-32.873l0,-299.504c0,-18.143 14.729,-32.873 32.873,-32.873l395.504,0c18.144,0 32.873,14.73 32.873,32.873l0,90.877l-76.125,0c-32.081,0.001 -58.125,26.046 -58.125,58.125c0,32.08 26.044,58.124 58.125,58.125l76.125,0l0,92.377c0,18.143 -14.729,32.872 -32.873,32.873Zm-27.127,-216.75c16.971,0 30.75,13.779 30.75,30.75c0,16.971 -13.779,30.75 -30.75,30.75c-16.971,0 -30.75,-13.779 -30.75,-30.75c0,-16.971 13.779,-30.75 30.75,-30.75Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="TickerItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Ticker" Data="M455.25,559.125l-271.102,0c-17.398,0 -31.523,-14.125 -31.523,-31.523l0,-83.573c23.926,-9.434 40.875,-32.768 40.875,-60.029c0,-27.261 -16.949,-50.595 -40.875,-60.029l0,-83.573c0,-17.398 14.124,-31.523 31.523,-31.523l271.102,0l0,350.25Zm128.602,0l-78.352,0l0,-350.25l78.352,0c17.399,0 31.523,14.125 31.523,31.523l0,83.573c-23.926,9.434 -40.875,32.768 -40.875,60.029c0,27.261 16.949,50.595 40.875,60.029l0,83.573c0,17.398 -14.124,31.523 -31.523,31.523Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="ShopItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Shop" Data="M292.5,550.875c18.627,0 33.75,15.123 33.75,33.75c0,18.627 -15.123,33.75 -33.75,33.75c-18.627,0 -33.75,-15.123 -33.75,-33.75c0,-18.627 15.123,-33.75 33.75,-33.75Zm234,0c18.627,0 33.75,15.123 33.75,33.75c0,18.627 -15.123,33.75 -33.75,33.75c-18.627,0 -33.75,-15.123 -33.75,-33.75c0,-18.627 15.123,-33.75 33.75,-33.75Zm49.5,-16.5l-311.554,0c-7.203,0 -13.37,-5.161 -14.639,-12.251c-9.778,-54.61 -49.277,-275.226 -57.716,-322.36c-0.921,-5.144 -5.395,-8.889 -10.621,-8.889c-9.081,0 -22.951,0 -31.668,0c-2.135,0 -4.184,-0.848 -5.694,-2.358c-1.51,-1.51 -2.358,-3.559 -2.358,-5.694c0,-6.978 0,-17.06 0,-24.281c0,-2.365 0.94,-4.633 2.612,-6.305c1.672,-1.673 3.94,-2.612 6.305,-2.612c15.38,0 46.761,0 62.554,0c5.565,0 10.381,3.871 11.576,9.306l14.453,65.694l387,0l-45.751,211c-2.66,12.271 -13.159,21.274 -25.693,22.031c-56.122,3.393 -207.805,12.563 -259.232,15.672c-4.326,0.261 -8.321,2.405 -10.929,5.867c-2.609,3.461 -3.57,7.891 -2.63,12.122c0,0.001 0,0.002 0,0.002c1.306,5.876 6.517,10.056 12.536,10.056c51.812,0 281.449,0 281.449,0l0,33Z"/>
+                </ListViewItem>
+                <ListViewItem  x:Name="ThemeItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted" BorderThickness="0,1,0,0" BorderBrush="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" >
+                    <local:SplitButton Label="Theme" Data="M304.809,188.983c-13.566,26.315 -21.227,56.162 -21.227,87.784c0,105.968 86.032,192 192,192c39.962,0 77.089,-12.235 107.836,-33.161c-25.83,83.044 -103.339,143.411 -194.836,143.411c-112.591,0 -204,-91.409 -204,-204c0,-82.741 49.366,-154.044 120.227,-186.034Z"/>
+                </ListViewItem>
+                <ListViewItem x:Name="SettingItem" ManipulationMode="TranslateX,System" ManipulationStarted="ManipulationStarted" ManipulationDelta="ManipulationDelta" ManipulationCompleted="ManipulationCompleted">
+                    <local:SplitButton Label="Setting" Data="M539.873,208.469c-24.473,-21.732 -53.219,-38.107 -84.394,-48.072l-52.706,36.977c-13.21,-1.329 -26.524,-1.251 -39.719,0.231l-53.132,-36.361c-31.057,10.329 -59.611,27.037 -83.829,49.052l5.671,64.133c-7.756,10.776 -14.346,22.345 -19.659,34.513l-58.056,27.834c-6.584,32.06 -6.391,65.142 0.566,97.123l58.376,27.156c5.454,12.105 12.178,23.597 20.059,34.282l-4.923,64.194c24.473,21.732 53.219,38.107 84.394,48.072l52.706,-36.977c13.21,1.329 26.524,1.251 39.719,-0.231l53.132,36.361c31.057,-10.329 59.611,-27.037 83.829,-49.052l-5.671,-64.133c7.756,-10.776 14.346,-22.345 19.659,-34.513l58.056,-27.834c6.584,-32.06 6.391,-65.142 -0.566,-97.123l-58.376,-27.156c-5.454,-12.105 -12.178,-23.597 -20.059,-34.282l4.923,-64.194Zm-99.968,77.385c54.168,30.855 73.096,99.883 42.241,154.051c-30.855,54.168 -99.883,73.096 -154.051,42.241c-54.168,-30.855 -73.096,-99.883 -42.241,-154.051c30.855,-54.168 99.883,-73.096 154.051,-42.241Z"/>
+                </ListViewItem>
+            </ListView>
+        </Border>
 
     </Grid>
 </Grid>

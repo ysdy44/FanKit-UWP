@@ -18,36 +18,37 @@
             <ColumnDefinition  Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
 
         <!--Body-->
-        <Border Grid.Column="0" Grid.Row="0" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
-            <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="None" />
+        <Border Grid.Column="0" Grid.Row="1" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
+            <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
         <TextBlock Grid.Column="0" Grid.Row="0" Text="None" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
         <!--Body-->
-        <Border Grid.Column="1" Grid.Row="0" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
-            <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="Fill"/>
+        <Border Grid.Column="1" Grid.Row="1" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
+            <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
         <TextBlock Grid.Column="1" Grid.Row="0" Text="Fill" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
         <!--Body-->
-        <Border Grid.Column="0" Grid.Row="1" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
-            <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="Uniform"/>
+        <Border Grid.Column="0" Grid.Row="2" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
+            <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
         <TextBlock Grid.Column="0" Grid.Row="1" Text="Uniform" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
         <!--Body-->
-        <Border Grid.Column="1" Grid.Row="1" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
-            <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="UniformToFill"/>
+        <Border Grid.Column="1" Grid.Row="2" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
+            <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
         <TextBlock Grid.Column="1" Grid.Row="1" Text="UniformToFill" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
         <!--Head-->
-        <Grid  Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+        <Grid Grid.ColumnSpan="2"  Height="70" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <Border >
                 <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <RichTextBlock Foreground="White" FontSize="18">

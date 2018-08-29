@@ -1,81 +1,54 @@
 
 ```Csharp
 
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 
-//Property
-private bool isPaneOpen;
-public bool IsPaneOpen
+
+private double openOpacity;
+public double OpenOpacity
 {
+    get => this.openOpacity;
     set
     {
-        if (value == true)
-        {
-            this.OpenPanel.Visibility = Visibility.Visible;
-            this.SpliteShadow.Opacity = 1.0d;
+        this.DismissOverlayBackground.Visibility = value == 0.0 ? Visibility.Collapsed : Visibility.Visible;
+        this.DismissOverlayBackground.Opacity = value;
+        this.SpliteLeftShadow.Opacity = value;
+        this.BehaviorOffset.OffsetX = (value - 1) * this.ContentPanel.ActualWidth;
 
-            this.SpliteShow.Begin();
-
-            this.TranslateX = this.Transform.TranslateX = this.RightDistance;
-        }
-        else
-        {
-            this.SpliteFade.Begin();
-
-            this.SpliteShadow.Opacity = 0.0d;
-            this.OpenPanel.Visibility = Visibility.Collapsed;
-
-            this.TranslateX = this.Transform.TranslateX = this.LeftDistance;
-        }
-        this.isPaneOpen = value;
+        this.openOpacity = value;
     }
-    get => this.isPaneOpen;
 }
 
-private double translateX;
+private double translateX = -300;
 public double TranslateX
 {
-    set
-    {
-        if (value > this.RightDistance) translateX = this.RightDistance;
-        else if (value < this.LeftDistance) translateX = this.LeftDistance;
-        else translateX = value;
-    }
-    get => translateX;
-}
-
-public CompositeTransform Transform
-{
-    set => this.OpenGrid.RenderTransform = value;
+    set => translateX = value;
     get
     {
-        if (this.OpenGrid.RenderTransform is CompositeTransform transform) return transform;
-        else return null;
+        if (translateX > 0.0d) return 0.0d;
+        else if (translateX < -this.ContentPanel.ActualWidth) return -this.ContentPanel.ActualWidth;
+        else return translateX;
     }
 }
 
-
-//Readonly
-private readonly double LeftDistance = -300;
-private readonly double Boundary = -125;
-private readonly double RightDistance = 0;
-
-
-//Event
 private new void ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
 {
-    this.OpenPanel.Visibility = Visibility.Visible;
-    this.SpliteShadow.Opacity = 1.0d;
+    this.BehaviorOffset.Duration = 0.0d;
+    this.TranslateX = (this.OpenOpacity - 1) * this.ContentPanel.ActualWidth;
 }
 private new void ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
 {
-    this.TranslateX += e.Delta.Translation.X;
-    this.Transform.TranslateX = this.TranslateX;
-    this.OpenPanel.Opacity = (this.TranslateX - this.LeftDistance) / (this.RightDistance - this.LeftDistance);
+    this.translateX += e.Delta.Translation.X / 2;
+    this.OpenOpacity = this.TranslateX / this.ContentPanel.ActualWidth + 1;
 }
 private new void ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
 {
-    this.IsPaneOpen = this.Transform.TranslateX >= this.Boundary;
+    this.BehaviorOffset.Duration = 600.0d;  
+	if (this.TranslateX > -this.ContentPanel.ActualWidth / 2) this.OpenOpacity = 1.0;//Show
+    else this.OpenOpacity = 0.0;//Hide
 }
 
 

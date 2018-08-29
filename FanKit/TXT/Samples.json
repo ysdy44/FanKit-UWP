@@ -159,32 +159,38 @@
     },
     {
         "Name": "Library",
-        "Samples": [
-          {
-            "Page": "FanKit.Frames.Library.PalettePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "Palette",
-            "Uri": "ms-appx:///Icon/Library/Palette.png",
-            "Summary": "Get the main color of a picture"
+      "Samples": [
+        {
+          "Page": "FanKit.Frames.Library.PalettePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "Palette",
+          "Uri": "ms-appx:///Icon/Library/Palette.png",
+          "Summary": "Get the main color of a picture"
+        },
+        {
+          "Page": "FanKit.Frames.Library.DataTemplateAdaptiverPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "DataTemplateAdaptiver",
+          "Uri": "ms-appx:///Icon/Library/DataTemplateAdaptiver.png",
+          "Summary": "Constrain GridItem's width and height.so as to reach a most appropriate proportion."
+        },
+        /* 
+        {
+        "Page",
+        "FanKit.Frames.Library.DetailsViewPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name",
+        "DetailsView",
+        "Uri",
+        "ms-appx:///Icon/Library/DetailsView.png",
+        "Summary",
+        "This layout, in PC mode, will have a more WelcomePage than Phone mode"
           },
-          {
-            "Page": "FanKit.Frames.Library.DataTemplateAdaptiverPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "DataTemplateAdaptiver",
-            "Uri": "ms-appx:///Icon/Library/DataTemplateAdaptiver.png",
-            "Summary": "Constrain GridItem's width and height.so as to reach a most appropriate proportion."
-          },
-          {
-            "Page": "FanKit.Frames.Library.DetailsViewPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "DetailsView",
-            "Uri": "ms-appx:///Icon/Library/DetailsView.png",
-            "Summary": "This layout, in PC mode, will have a more WelcomePage than Phone mode"
-          },
-          {
-            "Page": "FanKit.Frames.Library.ScalableGridPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "ScalableGrid",
-            "Uri": "ms-appx:///Icon/Library/ScalableGrid.png",
-            "Summary": "Phone: double finger zoom, PC: mouse in the middle of the zoom"
-          }
-        ]
+        */
+        {
+          "Page": "FanKit.Frames.Library.ScalableGridPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "ScalableGrid",
+          "Uri": "ms-appx:///Icon/Library/ScalableGrid.png",
+          "Summary": "Phone: double finger zoom, PC: mouse in the middle of the zoom"
+        }
+      ]
     },
     {
         "Name": "Colors",

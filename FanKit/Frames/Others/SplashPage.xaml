@@ -18,7 +18,7 @@
       
         <Image x:Name="SplashImage" Visibility="Visible" Source="ms-appx:///Icon/Logo.png" Stretch="Uniform"/>
         <Image x:Name="TitleImage" Visibility="Visible"  Grid.Row="1"  Source="ms-appx:///Icon/iconL.png" Stretch="Uniform"/>
-        <TextBlock Text="FanKit v1.7" Visibility="Visible" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+        <TextBlock Text="FanKit v2.1" Visibility="Visible" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
       
     </Grid>
  
