@@ -47,7 +47,11 @@ namespace FanKit.Frames.Library
             {
                 if (e.NewValue != e.OldValue)
                 {
-                    con.PanelElement.SizeChanged += con.OnSizeChanged;
+                    con.PanelElement.SizeChanged += (sender2, e2) =>
+                    {
+                        if (e2.NewSize.Width > 100 && e2.NewSize.Height > 100)
+                            con.OnSizeChanged(e2);
+                     };
                 }
             }
         }
@@ -56,7 +60,7 @@ namespace FanKit.Frames.Library
         #endregion
 
 
-        protected void OnSizeChanged(object sender, SizeChangedEventArgs e)
+        protected void OnSizeChanged(SizeChangedEventArgs e)
         {
             double width = this.GetSizeWidth(e.NewSize.Width);
 

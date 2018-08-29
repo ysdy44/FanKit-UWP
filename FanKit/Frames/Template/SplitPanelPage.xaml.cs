@@ -58,7 +58,7 @@ namespace FanKit.Frames.Template
         }
         private new void ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-            this.translateX += e.Delta.Translation.X/2;
+            this.translateX += e.Delta.Translation.X;
             this.OpenOpacity = this.TranslateX / this.ContentPanel.ActualWidth + 1;
         }
         private new void ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)

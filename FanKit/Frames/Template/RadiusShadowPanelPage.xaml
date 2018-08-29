@@ -79,7 +79,7 @@
         <Grid x:Name="Grid"  Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="4*" MinWidth="200" MaxWidth="400"/>
+                <ColumnDefinition Width="4*" MinWidth="200" MaxWidth="500"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -123,6 +123,19 @@
                             <StackPanel>
                                 <FontIcon Glyph="&#xE72D;" FontSize="23" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
                                 <TextBlock Text="Share" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
+                            </StackPanel>
+                        </Button>
+                        <AppBarSeparator/>
+                        <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
+                            <StackPanel>
+                                <FontIcon Glyph="&#xE107;" FontSize="20" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                                <TextBlock Text="Delete" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
+                            <StackPanel>
+                                <FontIcon Glyph="&#xE16F;" FontSize="20" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                                <TextBlock Text="Copy" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>

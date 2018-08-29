@@ -49,8 +49,12 @@ public class DataTemplateAdaptiver : DependencyObject, INotifyPropertyChanged
         if (sender is DataTemplateAdaptiver con)
         {
             if (e.NewValue != e.OldValue)
-            {
-                con.PanelElement.SizeChanged += con.OnSizeChanged;
+            { 
+                   con.PanelElement.SizeChanged +=(sender2,e2=>)=>
+                    {
+                      if (e.NewSize.Width > 100 && e.NewSize.Height > 100) 
+                         con.OnSizeChanged;
+                    }
             }
         }
     }
@@ -59,7 +63,7 @@ public class DataTemplateAdaptiver : DependencyObject, INotifyPropertyChanged
     #endregion
 
 
-    protected void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    protected void OnSizeChanged(SizeChangedEventArgs e)
     {
         double width = this.GetSizeWidth(e.NewSize.Width);
 
