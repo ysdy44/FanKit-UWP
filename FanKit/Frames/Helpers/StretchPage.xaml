@@ -28,24 +28,24 @@
         <Border Grid.Column="0" Grid.Row="1" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
             <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="None" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="None" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
         <!--Body-->
         <Border Grid.Column="1" Grid.Row="1" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
             <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        <TextBlock Grid.Column="1" Grid.Row="0" Text="Fill" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="Fill" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
         <!--Body-->
         <Border Grid.Column="0" Grid.Row="2" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
             <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Uniform" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Uniform" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
         <!--Body-->
         <Border Grid.Column="1" Grid.Row="2" Margin="10" BorderThickness="1" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource SystemControlBackgroundListMediumBrush}">
             <Image Source="ms-appx:///Icon/HEROS.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="UniformToFill" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="UniformToFill" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
         <!--Head-->
         <Grid Grid.ColumnSpan="2"  Height="70" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">

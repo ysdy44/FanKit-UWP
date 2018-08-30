@@ -105,9 +105,11 @@ namespace FanKit.Frames.Colors
         private void Border_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             this.OldColor = this.GetColor(this.bitmap, this.v);
-            this.bitmap.Dispose();
-            this.bitmap = null;
-
+            if (this.bitmap!=null)
+            {
+                this.bitmap.Dispose();
+                this.bitmap = null;
+            }
             //Popup         
             this.popup.IsOpen = false;
         }
