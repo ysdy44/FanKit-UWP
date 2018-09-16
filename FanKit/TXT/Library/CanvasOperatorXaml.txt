@@ -1,0 +1,40 @@
+
+```xaml
+
+xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
+
+
+
+<Page.Resources>
+
+    <!--CanvasOperator-->
+    <local:CanvasOperator x:Name="Operator" 
+             DestinationControl="{Binding ElementName=CanvasControl}"
+                              
+            Single_Start="Single_Start" 
+            Single_Delta="Single_Delta"
+            Single_Complete="Single_Complete"
+            
+            Right_Start="Right_Start"
+            Right_Delta="Right_Delta"
+            Right_Complete="Right_Complete"
+            
+            Double_Start="Double_Start"
+            Double_Delta="Double_Delta"
+            Double_Complete="Double_Complete"
+            
+            Wheel_Changed="Wheel_Changed"
+             />
+
+</Page.Resources>
+
+
+
+<canvas:CanvasControl x:Name="CanvasControl"
+          CreateResources="CanvasControl_CreateResources"
+          Draw="CanvasControl_Draw"
+         />
+
+
+
+```

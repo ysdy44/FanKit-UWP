@@ -120,6 +120,10 @@
     <Compile Include="Frames\Colors\SwatchesPickerPage.xaml.cs">
       <DependentUpon>SwatchesPickerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Library\CanvasOperator.cs" />
+    <Compile Include="Frames\Library\CanvasOperatorPage.xaml.cs">
+      <DependentUpon>CanvasOperatorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
       <DependentUpon>RadiusShadowPanelPage.xaml</DependentUpon>
     </Compile>
@@ -333,6 +337,7 @@
     <Content Include="Icon\Colors\StrawPicker.png" />
     <Content Include="Icon\Colors\SwatchesPicker.png" />
     <Content Include="Icon\Helpers\FontWeight.png" />
+    <Content Include="Icon\Library\CanvasOperator.png" />
     <Content Include="Icon\Template\RadiusShadowPanel.png" />
     <Content Include="TXT\Colors\AlphaPickerUserCs.txt" />
     <Content Include="TXT\Colors\AlphaPickerUserXaml.txt" />
@@ -354,6 +359,9 @@
     <Content Include="TXT\Colors\SwatchesPickerUserCs.txt" />
     <Content Include="TXT\Colors\SwatchesPickerUserXaml.txt" />
     <Content Include="TXT\Colors\SwatchesPickerXaml.txt" />
+    <Content Include="TXT\Library\CanvasOperator.txt" />
+    <Content Include="TXT\Library\CanvasOperatorCs.txt" />
+    <Content Include="TXT\Library\CanvasOperatorXaml.txt" />
     <Content Include="TXT\Samples.json" />
   </ItemGroup>
   <ItemGroup>
@@ -541,6 +549,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Colors\SwatchesPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Library\CanvasOperatorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

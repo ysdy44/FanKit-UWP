@@ -189,6 +189,12 @@
           "Name": "ScalableGrid",
           "Uri": "ms-appx:///Icon/Library/ScalableGrid.png",
           "Summary": "Phone: double finger zoom, PC: mouse in the middle of the zoom"
+        },
+        {
+          "Page": "FanKit.Frames.Library.CanvasOperatorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "CanvasOperator",
+          "Uri": "ms-appx:///Icon/Library/CanvasOperator.png",
+          "Summary": "Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger ."
         }
       ]
     },

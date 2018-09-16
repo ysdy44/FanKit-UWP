@@ -162,7 +162,7 @@ namespace FanKit.Frames.Library
                 double g = G / count;
                 double b = B / count;
 
-             //   if (R + G + B > 96 && R + G + B < 672)
+             //   if (r + g + b > 96 && r + g + b < 672)
                     return Color.FromArgb(255, (byte)r, (byte)g, (byte)b);
               //  else
                   //  return DefaultColor;
