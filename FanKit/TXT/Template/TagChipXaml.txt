@@ -2,10 +2,13 @@
 ```xaml
  xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
 
-<ListView SelectionMode="None"
-          IsItemClickEnabled="True" ItemClick="ListView_ItemClick"
-          Style="{StaticResource ListViewStyle}"
+<ListView 
+          SelectionMode="None" 
+          VerticalAlignment="Center"
+          IsItemClickEnabled="True"
+		  ItemClick="ListView_ItemClick"
           ItemContainerStyle="{StaticResource ItemContainerStyle}">
+
     <ListView.ItemsPanel>
         <ItemsPanelTemplate>
             <controls:WrapPanel/>

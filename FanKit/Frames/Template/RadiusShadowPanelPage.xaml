@@ -89,7 +89,8 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-              
+
+                <!--Shadow-->
                 <Grid Margin="12" VerticalAlignment="Bottom" HorizontalAlignment="Center"  >
                     <controls:DropShadowPanel HorizontalContentAlignment="Stretch" OffsetY="3" ShadowOpacity="0.3" Color="Black">
                         <Rectangle RadiusX="25" RadiusY="25"  Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"
@@ -98,48 +99,51 @@
                            />
                     </controls:DropShadowPanel>
 
-                    <StackPanel x:Name="StackPanel" Padding="20,0" Height="50" Orientation="Horizontal" 
+                    <!--Body-->
+                    <Border x:Name="BottomBorder">
+                        <StackPanel Padding="20,0" Height="50" Orientation="Horizontal" 
                                 extensions:FrameworkElementExtensions.EnableActualSizeBinding="True">
-                        <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
-                            <StackPanel>
-                                <FontIcon Glyph="&#xE109;" FontSize="22" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-                                <TextBlock Text="Add" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
-                            <StackPanel>
-                                <FontIcon Glyph="&#xEB9F;" FontSize="24" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-                                <TextBlock Text="Pictures" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                            </StackPanel>
-                        </Button>
-                        <AppBarSeparator/>
-                        <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
-                            <StackPanel>
-                                <PathIcon Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Center" Data="M3.126,9.217l-1.686,0l0,9.404l18.587,0l0,-9.404l-1.923,0l0,-1.446l3.363,0l0,12.29l-21.467,0l0,-10.844l0,-1.446l3.126,0l0,1.446Zm8.208,5.959l-1.44,0l0,-12.413l-4.239,3.998l-0.99,-1.009l5.941,-5.752l0.008,0.008l0.007,-0.008l5.961,5.752l-1.01,1.009l-4.238,-3.998l0,12.413Z"/>
-                                <TextBlock Text="Save" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
-                            <StackPanel>
-                                <FontIcon Glyph="&#xE72D;" FontSize="23" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-                                <TextBlock Text="Share" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                            </StackPanel>
-                        </Button>
-                        <AppBarSeparator/>
-                        <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
-                            <StackPanel>
-                                <FontIcon Glyph="&#xE107;" FontSize="20" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-                                <TextBlock Text="Delete" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
-                            <StackPanel>
-                                <FontIcon Glyph="&#xE16F;" FontSize="20" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-                                <TextBlock Text="Copy" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-             
+                            <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
+                                <StackPanel>
+                                    <FontIcon Glyph="&#xE109;" FontSize="22" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                                    <TextBlock Text="Add" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
+                                <StackPanel>
+                                    <FontIcon Glyph="&#xEB9F;" FontSize="24" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                                    <TextBlock Text="Pictures" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
+                                </StackPanel>
+                            </Button>
+                            <AppBarSeparator/>
+                            <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
+                                <StackPanel>
+                                    <PathIcon Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Center" Data="M3.126,9.217l-1.686,0l0,9.404l18.587,0l0,-9.404l-1.923,0l0,-1.446l3.363,0l0,12.29l-21.467,0l0,-10.844l0,-1.446l3.126,0l0,1.446Zm8.208,5.959l-1.44,0l0,-12.413l-4.239,3.998l-0.99,-1.009l5.941,-5.752l0.008,0.008l0.007,-0.008l5.961,5.752l-1.01,1.009l-4.238,-3.998l0,12.413Z"/>
+                                    <TextBlock Text="Save" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
+                                <StackPanel>
+                                    <FontIcon Glyph="&#xE72D;" FontSize="23" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                                    <TextBlock Text="Share" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
+                                </StackPanel>
+                            </Button>
+                            <AppBarSeparator/>
+                            <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
+                                <StackPanel>
+                                    <FontIcon Glyph="&#xE107;" FontSize="20" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                                    <TextBlock Text="Delete" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}">
+                                <StackPanel>
+                                    <FontIcon Glyph="&#xE16F;" FontSize="20" FontFamily="Segoe MDL2 Assets"  Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                                    <TextBlock Text="Copy" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
                 </Grid>
                 
             </Grid>
@@ -180,6 +184,12 @@
     </Grid>
 
 </Page>
+
+
+
+
+
+       
 
 
 

@@ -15,28 +15,7 @@
     
     <UserControl.Resources>
 
-        <!--标签的样式-->
-        <Style x:Key="ListViewStyle" TargetType="ListView">
-            <Setter Property="SelectionMode" Value="None" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="ItemContainerTransitions">
-                <Setter.Value>
-                    <TransitionCollection>
-                        <EntranceThemeTransition IsStaggeringEnabled="False" />
-                    </TransitionCollection>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <controls:WrapPanel/>
-                    </ItemsPanelTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!--标签的子项样式-->
+        <!--ItemContainerStyle-->
         <Style x:Key="ItemContainerStyle" TargetType="ListViewItem">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="BorderBrush" Value="{ThemeResource SystemControlHighlightListMediumBrush}" />
@@ -165,11 +144,16 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="Grid"  Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" >
-            
-            <ListView 
+
+            <ListView SelectionMode="None" VerticalAlignment="Center"
                       IsItemClickEnabled="True" ItemClick="ListView_ItemClick"
-                      Style="{StaticResource ListViewStyle}"
                       ItemContainerStyle="{StaticResource ItemContainerStyle}">
+            
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
 
                 <x:String>Deep</x:String>
                 <x:String>Dark</x:String>
