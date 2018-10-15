@@ -172,95 +172,89 @@
           "Uri": "ms-appx:///Icon/Library/DataTemplateAdaptiver.png",
           "Summary": "Constrain GridItem's width and height.so as to reach a most appropriate proportion."
         },
-        /* 
-        {
-        "Page",
-        "FanKit.Frames.Library.DetailsViewPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-        "Name",
-        "DetailsView",
-        "Uri",
-        "ms-appx:///Icon/Library/DetailsView.png",
-        "Summary",
-        "This layout, in PC mode, will have a more WelcomePage than Phone mode"
-          },
-        */
         {
           "Page": "FanKit.Frames.Library.ScalableGridPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "Name": "ScalableGrid",
           "Uri": "ms-appx:///Icon/Library/ScalableGrid.png",
           "Summary": "Phone: double finger zoom, PC: mouse in the middle of the zoom"
         },
-        {
-          "Page": "FanKit.Frames.Library.CanvasOperatorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "CanvasOperator",
-          "Uri": "ms-appx:///Icon/Library/CanvasOperator.png",
-          "Summary": "Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger ."
-        }
       ]
     },
-    {
-        "Name": "Colors",
-      "Samples": [
-        {
-          "Page": "FanKit.Frames.Colors.NumberPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "NumberPicker",
-          "Uri": "ms-appx:///Icon/Colors/NumberPicker.png",
-          "Summary": "Number picker"
-        },
-        {
-          "Page": "FanKit.Frames.Colors.TouchSliderPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "TouchSlider",
-          "Uri": "ms-appx:///Icon/Colors/TouchSlider.png",
-          "Summary": "Touch slider,It has three events : Started, Delta and Completed."
-        },
-        {
-          "Page": "FanKit.Frames.Colors.RGBPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "RGBPicker",
-          "Uri": "ms-appx:///Icon/Colors/RGBPicker.png",
-          "Summary": "RGB of color picker"
-        },
-        {
-          "Page": "FanKit.Frames.Colors.HSLPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "HSLPicker",
-          "Uri": "ms-appx:///Icon/Colors/HSLPicker.png",
-          "Summary": "HSL of color picker"
-        },
-        {
-          "Page": "FanKit.Frames.Colors.WheelPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "WheelPicker",
-          "Uri": "ms-appx:///Icon/Colors/WheelPicker.png",
-          "Summary": "Color wheel picker"
-        },
-        {
-          "Page": "FanKit.Frames.Colors.PalettePickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "PalettePicker",
-          "Uri": "ms-appx:///Icon/Colors/PalettePicker.png",
-          "Summary": "Color palette picker"
-        },
-        {
-          "Page": "FanKit.Frames.Colors.StrawPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "StrawPicker",
-          "Uri": "ms-appx:///Icon/Colors/StrawPicker.png",
-          "Summary": "Color straw picker"
-        },
-        {
-          "Page": "FanKit.Frames.Colors.AlphaPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "AlphaPicker",
-          "Uri": "ms-appx:///Icon/Colors/AlphaPicker.png",
-          "Summary": "Color alpha picker,hex code"
-        },
-        {
-          "Page": "FanKit.Frames.Colors.SwatchesPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "SwatchesPicker",
-          "Uri": "ms-appx:///Icon/Colors/SwatchesPicker.png",
-          "Summary": "Swatches picker"
-        },
-        {
-          "Page": "FanKit.Frames.Colors.ColorPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Name": "ColorPicker",
-          "Uri": "ms-appx:///Icon/Colors/ColorPicker.png",
-          "Summary": "Color picker (ง •̀_•́)ง"
-        }
-      ]
-    }
+  {
+    "Name": "Colors",
+    "Samples": [
+      {
+        "Page": "FanKit.Frames.Colors.NumberPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "NumberPicker",
+        "Uri": "ms-appx:///Icon/Colors/NumberPicker.png",
+        "Summary": "Number picker"
+      },
+      {
+        "Page": "FanKit.Frames.Colors.TouchSliderPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "TouchSlider",
+        "Uri": "ms-appx:///Icon/Colors/TouchSlider.png",
+        "Summary": "Touch slider,It has three events : Started, Delta and Completed."
+      },
+      {
+        "Page": "FanKit.Frames.Colors.RGBPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "RGBPicker",
+        "Uri": "ms-appx:///Icon/Colors/RGBPicker.png",
+        "Summary": "RGB of color picker"
+      },
+      {
+        "Page": "FanKit.Frames.Colors.HSLPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "HSLPicker",
+        "Uri": "ms-appx:///Icon/Colors/HSLPicker.png",
+        "Summary": "HSL of color picker"
+      },
+      {
+        "Page": "FanKit.Frames.Colors.WheelPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "WheelPicker",
+        "Uri": "ms-appx:///Icon/Colors/WheelPicker.png",
+        "Summary": "Color wheel picker"
+      },
+      {
+        "Page": "FanKit.Frames.Colors.PalettePickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "PalettePicker",
+        "Uri": "ms-appx:///Icon/Colors/PalettePicker.png",
+        "Summary": "Color palette picker"
+      },
+      {
+        "Page": "FanKit.Frames.Colors.StrawPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "StrawPicker",
+        "Uri": "ms-appx:///Icon/Colors/StrawPicker.png",
+        "Summary": "Color straw picker"
+      },
+      {
+        "Page": "FanKit.Frames.Colors.AlphaPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "AlphaPicker",
+        "Uri": "ms-appx:///Icon/Colors/AlphaPicker.png",
+        "Summary": "Color alpha picker,hex code"
+      },
+      {
+        "Page": "FanKit.Frames.Colors.SwatchesPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "SwatchesPicker",
+        "Uri": "ms-appx:///Icon/Colors/SwatchesPicker.png",
+        "Summary": "Swatches picker"
+      },
+      {
+        "Page": "FanKit.Frames.Colors.ColorPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "ColorPicker",
+        "Uri": "ms-appx:///Icon/Colors/ColorPicker.png",
+        "Summary": "Color picker (ง •̀_•́)ง"
+      }
+    ]
+  },
+  {
+    "Name": "Win2Ds",
+    "Samples": [
+
+      {
+        "Page": "FanKit.Frames.Win2Ds.CanvasOperatorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "CanvasOperator",
+        "Uri": "ms-appx:///Icon/Win2Ds/CanvasOperator.png",
+        "Summary": "Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger ."
+      }
+    ]
+  }
 ]

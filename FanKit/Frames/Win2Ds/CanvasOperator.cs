@@ -6,7 +6,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 
 
-namespace FanKit.Frames.Library
+namespace FanKit.Frames.Win2Ds
 {
     /// <summary>
     /// Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger .

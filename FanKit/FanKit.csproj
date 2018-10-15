@@ -120,8 +120,8 @@
     <Compile Include="Frames\Colors\SwatchesPickerPage.xaml.cs">
       <DependentUpon>SwatchesPickerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Library\CanvasOperator.cs" />
-    <Compile Include="Frames\Library\CanvasOperatorPage.xaml.cs">
+    <Compile Include="Frames\Win2Ds\CanvasOperator.cs" />
+    <Compile Include="Frames\Win2Ds\CanvasOperatorPage.xaml.cs">
       <DependentUpon>CanvasOperatorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
@@ -228,28 +228,6 @@
     <Compile Include="Frames\Control\TabButtonPage.xaml.cs">
       <DependentUpon>TabButtonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Library\DetailsViewService.cs" />
-    <Compile Include="Frames\Library\DetailsViewPage.xaml.cs">
-      <DependentUpon>DetailsViewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Library\DetailsView\APage.xaml.cs">
-      <DependentUpon>APage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Library\DetailsView\BPage.xaml.cs">
-      <DependentUpon>BPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Library\DetailsView\CPage.xaml.cs">
-      <DependentUpon>CPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Library\DetailsView\DPage.xaml.cs">
-      <DependentUpon>DPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Library\DetailsView\PropertyPage.xaml.cs">
-      <DependentUpon>PropertyPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Library\DetailsView\WelcomePage.xaml.cs">
-      <DependentUpon>WelcomePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Library\Palette.cs" />
     <Compile Include="Frames\Library\PalettePage.xaml.cs">
       <DependentUpon>PalettePage.xaml</DependentUpon>
@@ -337,7 +315,7 @@
     <Content Include="Icon\Colors\StrawPicker.png" />
     <Content Include="Icon\Colors\SwatchesPicker.png" />
     <Content Include="Icon\Helpers\FontWeight.png" />
-    <Content Include="Icon\Library\CanvasOperator.png" />
+    <Content Include="Icon\Win2Ds\CanvasOperator.png" />
     <Content Include="Icon\Template\RadiusShadowPanel.png" />
     <Content Include="TXT\Colors\AlphaPickerUserCs.txt" />
     <Content Include="TXT\Colors\AlphaPickerUserXaml.txt" />
@@ -359,9 +337,9 @@
     <Content Include="TXT\Colors\SwatchesPickerUserCs.txt" />
     <Content Include="TXT\Colors\SwatchesPickerUserXaml.txt" />
     <Content Include="TXT\Colors\SwatchesPickerXaml.txt" />
-    <Content Include="TXT\Library\CanvasOperator.txt" />
-    <Content Include="TXT\Library\CanvasOperatorCs.txt" />
-    <Content Include="TXT\Library\CanvasOperatorXaml.txt" />
+    <Content Include="TXT\Win2Ds\CanvasOperator.txt" />
+    <Content Include="TXT\Win2Ds\CanvasOperatorCs.txt" />
+    <Content Include="TXT\Win2Ds\CanvasOperatorXaml.txt" />
     <Content Include="TXT\Samples.json" />
   </ItemGroup>
   <ItemGroup>
@@ -434,7 +412,6 @@
     <Content Include="Icon\Avatar.jpg" />
     <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\iconL.png" />
-    <Content Include="Icon\Library\DetailsView.png" />
     <Content Include="Icon\Logo.png" />
     <Content Include="Icon\LogoB.png" />
     <Content Include="Icon\Library\Palette.png" />
@@ -494,9 +471,6 @@
     <Content Include="TXT\Colors\TouchSliderUserCs.txt" />
     <Content Include="TXT\Colors\TouchSliderUserXaml.txt" />
     <Content Include="TXT\Colors\TouchSliderXaml.txt" />
-    <Content Include="TXT\Library\DetailsViewCs.txt" />
-    <Content Include="TXT\Library\DetailsViewService.txt" />
-    <Content Include="TXT\Library\DetailsViewXaml.txt" />
     <Content Include="TXT\Library\Palette.txt" />
     <Content Include="Icon\Library\ScalableGrid.png" />
     <Content Include="TXT\Library\ScalableGrid.txt" />
@@ -552,7 +526,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Library\CanvasOperatorPage.xaml">
+    <Page Include="Frames\Win2Ds\CanvasOperatorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -685,34 +659,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\TabButtonPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Library\DetailsViewPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Library\DetailsView\APage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Library\DetailsView\BPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Library\DetailsView\CPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Library\DetailsView\DPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Library\DetailsView\PropertyPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Library\DetailsView\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

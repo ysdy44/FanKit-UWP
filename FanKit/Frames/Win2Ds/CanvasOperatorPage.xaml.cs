@@ -7,7 +7,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 
-namespace FanKit.Frames.Library
+namespace FanKit.Frames.Win2Ds
 {
     public sealed partial class CanvasOperatorPage : Page
     {
@@ -26,9 +26,9 @@ namespace FanKit.Frames.Library
         
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Library/CanvasOperatorXaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Library/CanvasOperatorCs.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Library/CanvasOperator.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/CanvasOperatorXaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/CanvasOperatorCs.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/CanvasOperator.txt");
         }
 
 
