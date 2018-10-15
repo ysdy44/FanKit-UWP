@@ -127,6 +127,10 @@
     <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
       <DependentUpon>RadiusShadowPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Win2Ds\DottedLine.cs" />
+    <Compile Include="Frames\Win2Ds\DottedLinePage.xaml.cs">
+      <DependentUpon>DottedLinePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
@@ -307,6 +311,9 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="TXT\Win2Ds\DottedLine.txt" />
+    <Content Include="TXT\Win2Ds\DottedLineCs.txt" />
+    <Content Include="TXT\Win2Ds\DottedLineXaml.txt" />
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\AlphaPicker.png" />
@@ -317,6 +324,7 @@
     <Content Include="Icon\Helpers\FontWeight.png" />
     <Content Include="Icon\Win2Ds\CanvasOperator.png" />
     <Content Include="Icon\Template\RadiusShadowPanel.png" />
+    <Content Include="Icon\Win2Ds\DottedLine.png" />
     <Content Include="TXT\Colors\AlphaPickerUserCs.txt" />
     <Content Include="TXT\Colors\AlphaPickerUserXaml.txt" />
     <Content Include="TXT\Colors\AlphaPickerXaml.txt" />
@@ -531,6 +539,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Template\RadiusShadowPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Win2Ds\DottedLinePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

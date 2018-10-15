@@ -248,12 +248,17 @@
   {
     "Name": "Win2Ds",
     "Samples": [
-
       {
         "Page": "FanKit.Frames.Win2Ds.CanvasOperatorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "CanvasOperator",
         "Uri": "ms-appx:///Icon/Win2Ds/CanvasOperator.png",
         "Summary": "Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger ."
+      },
+      {
+        "Page": "FanKit.Frames.Win2Ds.DottedLinePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "CanvasOperator",
+        "Uri": "ms-appx:///Icon/Win2Ds/DottedLine.png",
+        "Summary": "the Dotted Line of photoshop"
       }
     ]
   }
