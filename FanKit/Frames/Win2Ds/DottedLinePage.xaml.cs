@@ -50,8 +50,6 @@ namespace FanKit.Frames.Win2Ds
         {
             this.DottedLine = new DottedLine(sender, 6, 1);
             this.RenderTarget = new CanvasRenderTarget(sender, this.CanvasWidth, this.CanvasHeight);
-
-            using (var ds = this.RenderTarget.CreateDrawingSession()) ds.FillRectangle(100, 100, 200, 200, Windows.UI.Colors.Gray);
             this.IsRender = true;
         }
         private void CanvasAnimatedControl_Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
