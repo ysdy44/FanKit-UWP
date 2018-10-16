@@ -1,7 +1,10 @@
 ﻿using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.Brushes;
+using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
+using System.Numerics;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -13,7 +16,7 @@ namespace FanKit.Frames.Win2Ds
     {
         
         DottedLine DottedLine;
-        CanvasRenderTarget RenderTarget;
+        CanvasRenderTarget InPut;
 
         bool IsRender = false;
         float CanvasWidth =1000;
@@ -41,15 +44,16 @@ namespace FanKit.Frames.Win2Ds
             }
         }
 
-
-
-        #region Canvas
+        
+      
+      
+       #region Canvas
 
 
         private void CanvasAnimatedControl_CreateResources(CanvasAnimatedControl sender, CanvasCreateResourcesEventArgs args)
         {
             this.DottedLine = new DottedLine(sender, 6, 1);
-            this.RenderTarget = new CanvasRenderTarget(sender, this.CanvasWidth, this.CanvasHeight);
+            this.InPut = new CanvasRenderTarget(sender, this.CanvasWidth, this.CanvasHeight);
             this.IsRender = true;
         }
         private void CanvasAnimatedControl_Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
@@ -65,13 +69,15 @@ namespace FanKit.Frames.Win2Ds
             {
                 this.IsRender = false;
 
-                this.RenderTarget = new CanvasRenderTarget(this.CanvasAnimatedControl, this.CanvasWidth, this.CanvasHeight);
-                this.DottedLine.Render(sender, 1, 1, this.RenderTarget);
+                this.InPut = new CanvasRenderTarget(this.CanvasAnimatedControl, this.CanvasWidth, this.CanvasHeight);
+                this.DottedLine.Render(sender, 1, 1, this.InPut);
             }
         }
 
 
         #endregion
+            
+            
 
 
 
@@ -95,12 +101,17 @@ namespace FanKit.Frames.Win2Ds
             if (this.IsMove)
             {
                 this.IsMove = false;
-                using (var ds = this.RenderTarget.CreateDrawingSession()) ds.FillRectangle(new Rect(this.MoveStart, this.MoveEnd), Windows.UI.Colors.Gray);
+                using (var ds = this.InPut.CreateDrawingSession()) ds.FillRectangle(new Rect(this.MoveStart, this.MoveEnd), Windows.UI.Colors.Gray);
             }
         }
 
 
+
         #endregion
+
+
+        
+
 
 
     }

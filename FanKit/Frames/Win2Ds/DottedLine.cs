@@ -10,31 +10,23 @@ namespace FanKit.Frames.Win2Ds
     /// <summary>  the Dotted Line of photoshop  </summary>
     public class DottedLine
     {
-        //Brush
-        CanvasGradientStop[] Stops = new CanvasGradientStop[2] { new CanvasGradientStop { Color =Windows.UI.Colors.White, Position = 0 }, new CanvasGradientStop { Color = Windows.UI.Colors.Black, Position = 1 } };
-        CanvasLinearGradientBrush Brush;
-
-        //Vector
-        Vector2 StartPoint;
-        Vector2 EndPoint;
+        //Brush  
         Vector2 Space;
+        CanvasLinearGradientBrush Brush;
+        CanvasGradientStop[] Stops = new CanvasGradientStop[2] { new CanvasGradientStop { Color =Windows.UI.Colors.White, Position = 0 }, new CanvasGradientStop { Color = Windows.UI.Colors.Black, Position = 1 } };
 
         //Image
-        ICanvasImage Image;
-        CanvasCommandList CommandList;
-        
+        ICanvasImage OutPut;
 
         public DottedLine(ICanvasResourceCreator creator, float distance = 6, float space = 1)
-        {
-            this.CommandList = new CanvasCommandList(creator);
-
-            this.StartPoint = new Vector2(0, 0);
-            this.EndPoint = new Vector2(distance, distance);
+        {            
             this.Space = new Vector2(space, space);
 
-            this.Brush = new CanvasLinearGradientBrush(creator, Stops, CanvasEdgeBehavior.Mirror, CanvasAlphaMode.Premultiplied);
-            this.Brush.StartPoint = StartPoint;
-            this.Brush.EndPoint = EndPoint;
+            this.Brush = new CanvasLinearGradientBrush(creator, Stops, CanvasEdgeBehavior.Mirror, CanvasAlphaMode.Premultiplied)
+            {
+                StartPoint = new Vector2(0, 0),
+                EndPoint = new Vector2(distance, distance)
+            };
         }
 
 
@@ -56,22 +48,14 @@ namespace FanKit.Frames.Win2Ds
                 SourceRectangle = new Rect(2, 2, rect.Width - 4, rect.Height - 4),
             };
 
-
-            //CanvasCommandList
-            CanvasCommandList commandList = new CanvasCommandList(creator);
-            using (var ds = commandList.CreateDrawingSession())
-            {
-                ds.Clear(Windows.UI.Colors.Transparent);
-                
-                ds.DrawImage(effect2);
-            }
+            
             //DottedLine
-            this.Image = new LuminanceToAlphaEffect//Alpha
+            this.OutPut = new LuminanceToAlphaEffect//Alpha
             {
                 Source = new EdgeDetectionEffect//Edge
                 {
                     Amount = 1,
-                    Source = commandList
+                    Source = effect2
                 },
             };
         }
@@ -79,26 +63,21 @@ namespace FanKit.Frames.Win2Ds
         //Update
         public void Update()
         {
-            this.StartPoint -= this.Space;
-            this.EndPoint -= this.Space;
-            this.Brush.StartPoint = this.StartPoint;
-            this.Brush.EndPoint = this.EndPoint;
+            this.Brush.StartPoint -= this.Space;
+            this.Brush.EndPoint -= this.Space;
         }
 
         //Draw
         Rect r = new Rect();
         public void Draw(ICanvasResourceCreator creator, CanvasDrawingSession ds, double W, double H, float X = 0, float Y = 0)
         {
-            if (this.Image != null)
+            if (this.OutPut != null)
             {
-                this.CommandList = new CanvasCommandList(creator);
-                this.r.Width = W;
-                this.r.Height = H;
-
-                using (var dds = this.CommandList.CreateDrawingSession())
+                CanvasCommandList CommandList = new CanvasCommandList(creator);
+                using (var dds = CommandList.CreateDrawingSession())
                 {
-                    dds.FillRectangle(0, 0, (float)W, (float)H, Brush);
-                    dds.DrawImage(this.Image, 0, 0, r, 1, CanvasImageInterpolation.NearestNeighbor, CanvasComposite.DestinationIn);
+                    dds.FillRectangle(0, 0, (float)W, (float)H, this.Brush);
+                    dds.DrawImage(this.OutPut, 0, 0, new Rect(0,0,W,H), 1, CanvasImageInterpolation.NearestNeighbor, CanvasComposite.DestinationIn);
                 }
                 ds.DrawImage(CommandList, X, Y);
             }
