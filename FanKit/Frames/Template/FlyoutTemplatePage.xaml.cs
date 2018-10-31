@@ -16,8 +16,8 @@ namespace FanKit.Frames.Template
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/FlyoutTemplateXaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/FlyoutTemplateStyle.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/FlyoutTemplatePage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/FlyoutTemplate.style.txt");
         }
          
 

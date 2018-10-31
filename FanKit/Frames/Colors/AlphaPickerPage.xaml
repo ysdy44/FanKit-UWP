@@ -5,7 +5,8 @@
     xmlns:local="using:FanKit.Frames.Colors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Colors="using:FanKit.Library.Colors"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -93,7 +94,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                <local:AlphaPicker x:Name="AlphaPicker" ColorChange="AlphaPicker_ColorChange"/>
+                <Colors:AlphaPicker x:Name="AlphaPicker" ColorChange="AlphaPicker_ColorChange"/>
             </Grid>
         </Grid>
 

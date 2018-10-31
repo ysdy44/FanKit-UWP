@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:FanKit.Frames.Colors"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Colors="using:FanKit.Library.Colors"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -83,7 +84,7 @@
         <Grid x:Name="Grid" >
             <Border Width="120" Height="120"  VerticalAlignment="Center" HorizontalAlignment="Center"  Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <Border Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <local:StrawPicker x:Name="StrawPicker"
+                    <Colors:StrawPicker x:Name="StrawPicker"
                                        ColorChangeStarted="StrawPicker_ColorChangeStarted"
                                        ColorChangeDelta="StrawPicker_ColorChangeDelta" 
                                        ColorChangeCompleted="StrawPicker_ColorChangeCompleted"/>

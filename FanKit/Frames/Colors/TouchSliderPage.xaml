@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:Colors="using:FanKit.Library.Colors"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -100,7 +101,7 @@
                 
                 
                 <TextBlock Text="SliderStyle:" Grid.Row="1" Margin="4" VerticalAlignment="Bottom"/>
-                <local:TouchSlider x:Name="TouchSliderControl"
+                <Colors:TouchSlider x:Name="TouchSliderControl"
                     Grid.Row="2" 
                     ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
                     ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 

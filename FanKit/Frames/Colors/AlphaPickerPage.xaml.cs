@@ -27,9 +27,9 @@ namespace FanKit.Frames.Colors
         {
             this.AlphaPicker.Color = Color.FromArgb(255, 0, 187, 255);
 
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPickerXaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPickerUserXaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPickerUserCs.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPickerPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPicker.xaml.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPicker.cs.txt");
         }
          
 

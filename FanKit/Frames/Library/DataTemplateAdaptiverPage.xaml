@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Library="using:FanKit.Library.Library"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
    
@@ -15,7 +15,7 @@
     <Page.Resources>
 
         <!--Adaptiver-->
-        <local:DataTemplateAdaptiver x:Name="Adaptiver" PanelElement="{Binding ElementName=AdaptiverGridView}"/>
+        <Library:DataTemplateAdaptiver x:Name="Adaptiver" PanelElement="{Binding ElementName=AdaptiverGridView}"/>
 
         <!--DataTemplate-->
         <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">

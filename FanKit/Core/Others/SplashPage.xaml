@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="FanKit.Frames.Others.SplashPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FanKit.Frames.Others"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fankit="using:FanKit"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
+
+    <Grid   VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="222"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+      
+        <Image x:Name="SplashImage" Visibility="Visible" Source="ms-appx:///Icon/Logo.png" Stretch="Uniform"/>
+        <Image x:Name="TitleImage" Visibility="Visible"  Grid.Row="1"  Source="ms-appx:///Icon/iconL.png" Stretch="Uniform"/>
+        <TextBlock Text="FanKit v1.1.12" Visibility="Visible" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+      
+    </Grid>
+ 
+</Page>
+
+
+
+
+

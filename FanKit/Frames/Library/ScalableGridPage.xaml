@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:Library="using:FanKit.Library.Library"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -88,38 +89,38 @@
             <Grid Grid.Column="1" Grid.Row="1"  RequestedTheme="Dark"
                   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-                <FlipView x:Name="FlipView" Tapped="FlipView_Tapped">  
-                    
-                    <local:ScalableGrid>
+                <FlipView x:Name="FlipView" Tapped="FlipView_Tapped">
+
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/BisonBadlandsChillin.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/ColumbiaRiverGorge.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/GrandTetons.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/MilkyWayStHelensHikePurple.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/NorthernCascadesReflection.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/Owl.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/ShootingOnAutoOnTheDrone.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/SmithnRockDownTheRiverView.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/SnowyInterbayt.jpg"/>
-                    </local:ScalableGrid>
-                    <local:ScalableGrid>
+                    </Library:ScalableGrid>
+                    <Library:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/SpeedTripleAtristsPoint.jpg"/>
-                    </local:ScalableGrid>
+                    </Library:ScalableGrid>
 
                 </FlipView>
 

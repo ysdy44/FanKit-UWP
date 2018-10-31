@@ -27,14 +27,14 @@ namespace FanKit.Frames.Colors
         {
             this.PalettePicker.Color = Color.FromArgb(255, 0, 187, 255);
 
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePickerXaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePickerUserXaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePickerUserCs.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePicker.xaml.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePicker.cs.txt");
 
-            this.MarkdownText4.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteBaseCs.txt"); 
-            this.MarkdownText5.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteHueCs.txt");
-            this.MarkdownText6.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteSaturationCs.txt"); 
-            this.MarkdownText7.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteLightnessCs.txt");
+            this.MarkdownText4.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteBase.cs.txt"); 
+            this.MarkdownText5.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteHue.cs.txt");
+            this.MarkdownText6.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteSaturation.cs.txt"); 
+            this.MarkdownText7.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PaletteLightness.cs.txt");
         }
 
         private void PalettePicker_ColorChange(object sender, Color value) => this.PaletteSolidBrush.Color = value;

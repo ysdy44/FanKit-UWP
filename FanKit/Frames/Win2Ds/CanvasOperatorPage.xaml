@@ -8,6 +8,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:Win2Ds="using:FanKit.Library.Win2Ds"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -15,7 +16,7 @@
     <Page.Resources>
 
         <!--CanvasOperator-->
-        <local:CanvasOperator x:Name="Operator" 
+        <Win2Ds:CanvasOperator x:Name="Operator" 
         
              DestinationControl="{Binding ElementName=CanvasControl}"
                               

@@ -27,9 +27,9 @@ namespace FanKit.Frames.Colors
         {
             this.ColorPicker.Color = Color.FromArgb(255, 0, 187, 255);
 
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/ColorPickerXaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/ColorPickerUserXaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/ColorPickerUserCs.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/ColorPickerPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/ColorPicker.xaml.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/ColorPicker.cs.txt");
         }
 
         private void ColorPicker_ColorChange(object sender, Windows.UI.Color value)

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:local="using:FanKit.Frames.Colors"
+    xmlns:Colors="using:FanKit.Library.Colors"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -93,7 +94,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Column="1" Grid.Row="1" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                <local:WheelPicker x:Name="WheelPicker" ColorChange="WheelPicker_ColorChange"/>
+                <Colors:WheelPicker x:Name="WheelPicker" ColorChange="WheelPicker_ColorChange"/>
             </Grid>
         </Grid>
 

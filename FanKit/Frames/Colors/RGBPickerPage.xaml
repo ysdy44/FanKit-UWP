@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:FanKit.Frames.Colors"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Colors="using:FanKit.Library.Colors"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -93,7 +94,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Column="1" Grid.Row="1" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                <local:RGBPicker x:Name="RGBPicker" ColorChange="RGBPicker_ColorChange"/>
+                <Colors:RGBPicker x:Name="RGBPicker" ColorChange="RGBPicker_ColorChange"/>
             </Grid>
         </Grid>
 

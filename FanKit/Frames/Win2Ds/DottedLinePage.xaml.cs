@@ -9,6 +9,7 @@ using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using FanKit.Library.Win2Ds;
 
 namespace FanKit.Frames.Win2Ds
 {
@@ -29,9 +30,9 @@ namespace FanKit.Frames.Win2Ds
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLineXaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLineCs.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLine.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.cs.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLine.cs.txt");
         }
         private void CanvasAnimatedControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {

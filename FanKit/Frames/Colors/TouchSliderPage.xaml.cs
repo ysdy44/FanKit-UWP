@@ -16,9 +16,9 @@ namespace FanKit.Frames.Colors
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/TouchSliderXaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/TouchSliderUserXaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/TouchSliderUserCs.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/TouchSliderPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/TouchSlider.xaml.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/TouchSlider.cs.txt");
         }
 
         private void TouchSliderControl_ValueChangeStarted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder.Visibility = Visibility.Visible;

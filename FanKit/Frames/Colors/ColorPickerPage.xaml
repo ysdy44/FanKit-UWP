@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
      xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Colors="using:FanKit.Library.Colors"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -93,7 +94,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-                <local:ColorPicker x:Name="ColorPicker" Margin="12" Width="200" Height="270"  ColorChange="ColorPicker_ColorChange"/>
+                <Colors:ColorPicker x:Name="ColorPicker" Margin="12" Width="200" Height="270"  ColorChange="ColorPicker_ColorChange"/>
             </Grid>
         </Grid>
 

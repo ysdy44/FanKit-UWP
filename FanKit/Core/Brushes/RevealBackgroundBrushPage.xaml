@@ -1,0 +1,199 @@
+﻿<Page
+    x:Class="FanKit.Frames.Brushes.RevealBackgroundBrushPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FanKit.Frames.Brushes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
+
+
+    <Page.Resources>
+
+        <!--Style-->
+        <Style x:Name="ListViewStyle" TargetType="ListView">
+            <Setter Property="SelectionMode" Value="None"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="IsItemClickEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListView">
+                        <!--Title：标题-->
+                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                            <ItemsPresenter   
+                                HorizontalAlignment="Stretch"
+                                HeaderTemplate="{TemplateBinding HeaderTemplate}"
+                                FooterTemplate="{TemplateBinding FooterTemplate}"
+                                Header="{TemplateBinding Header}"
+                                 Footer="{TemplateBinding  Footer}"
+                              />
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--ItemContainerStyle-->
+        <Style x:Name="ListViewItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="MaxWidth" Value="{StaticResource AppDetailMaxWidth}"/>
+            <Setter Property="Height" Value="110"/>
+            <Setter Property="Margin" Value="6"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
+
+    </Page.Resources>
+
+
+    <Grid>
+
+        <!--Body-->
+        <ListView     
+            HeaderTemplate="{StaticResource AppListViewBaseHeader}"
+            FooterTemplate="{StaticResource AppListViewBaseFooter}"
+            ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
+            Style="{StaticResource ListViewStyle}">
+
+            <ListViewHeaderItem>
+                <TextBlock Text="BackgroundBase brushes" Style="{StaticResource AppTextBlockStyle}"/>
+            </ListViewHeaderItem>
+            <!--#region Border-->
+
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundBaseLowRevealBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseLowColor}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlBackgroundBaseLowRevealBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBackgroundBaseMediumLowRevealBaseLowBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseMediumLowColor}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlBackgroundBaseMediumLowRevealBaseLowBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+
+            <!--#endregion-->
+
+            <ListViewHeaderItem>
+                <TextBlock Text="Highlight brushes" Style="{StaticResource AppTextBlockStyle}"/>
+            </ListViewHeaderItem>
+            <!--#region Border-->
+
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightAccentRevealBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColor}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlHighlightAccentRevealBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightBaseMediumLowRevealAccentBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemBaseMediumLowColor}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlHighlightBaseMediumLowRevealAccentBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightListLowRevealBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemListLowColor}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlHighlightListLowRevealBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightListMediumRevealBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemListMediumColor}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlHighlightListMediumRevealBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightListMediumRevealListLowBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemListMediumColor}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlHighlightListMediumRevealListLowBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightAccent3RevealBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColorLight3}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlHighlightAccent3RevealBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightAccent2RevealBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColorLight2}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlHighlightAccent2RevealBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlHighlightAccent3RevealAccent2BackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="{ThemeResource SystemAccentColorLight3}" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlHighlightAccent3RevealAccent2BackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+
+            <!--#endregion-->
+
+            <ListViewHeaderItem>
+                <TextBlock Text="Transparent brushes" Style="{StaticResource AppTextBlockStyle}"/>
+            </ListViewHeaderItem>
+            <!--#region Border-->
+
+
+            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlTransparentRevealBackgroundBrush}" >
+                <ListViewItem.BorderBrush>
+                    <SolidColorBrush  Color="Transparent" />
+                </ListViewItem.BorderBrush>
+                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SystemControlTransparentRevealBackgroundBrush</Paragraph>
+                </RichTextBlock>
+            </ListViewItem >
+
+            <!--#endregion-->
+
+        </ListView>
+
+        <!--Head-->
+        <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <Border>
+                <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <RichTextBlock Foreground="White" FontSize="18">
+                        <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
+                        <Paragraph/>
+                        <Paragraph>
+                            <Run x:Name="TopRun1"/>
+                            <Run x:Name="TopRun2" FontWeight="Bold" />
+                            <Run  x:Name="TopRun3"/>
+                        </Paragraph>
+                        <Paragraph/>
+                         <Paragraph>
+                            <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brushes/RevealBackgroundBrushPage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brush/RevealBackgroundBrushPage.xaml</Hyperlink>
+                        </Paragraph>
+                    </RichTextBlock>
+                </Border >
+            </Border >
+        </Grid>
+
+    </Grid>
+</Page>

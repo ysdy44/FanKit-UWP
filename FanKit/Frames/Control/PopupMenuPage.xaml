@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Control="using:FanKit.Library.Control"
     mc:Ignorable="d"
     NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
@@ -116,37 +117,37 @@
                     </Border>
 
                     <Border Style="{StaticResource LeftBoderStyle}">
-                        <local:PopupMenu x:Name="PopupMenuControl" Text="{x:Bind TextBlock0.Text}">
+                        <Control:PopupMenu x:Name="PopupMenuControl" Text="{x:Bind TextBlock0.Text}">
                             <TextBlock x:Name="TextBlock0" Text="Deep Dark Fantasy" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
+                        </Control:PopupMenu>
                     </Border>
 
                     <Border Style="{StaticResource RightBoderStyle}">
-                        <local:PopupMenu Text="{x:Bind TextBlock1.Text}">
+                        <Control:PopupMenu Text="{x:Bind TextBlock1.Text}">
                             <TextBlock x:Name="TextBlock1" Text="Boy Next Door" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
+                        </Control:PopupMenu>
                     </Border> 
 
                     <Border Style="{StaticResource LeftBoderStyle}">
-                        <local:PopupMenu  Text="{x:Bind TextBlock2.Text}">
+                        <Control:PopupMenu  Text="{x:Bind TextBlock2.Text}">
                             <TextBlock x:Name="TextBlock2" Text="Do you like what you see?" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
+                        </Control:PopupMenu>
                     </Border>
                     
                     <Border Style="{StaticResource RightBoderStyle}">
-                        <local:PopupMenu  Text="{x:Bind TextBlock3.Text}">
+                        <Control:PopupMenu  Text="{x:Bind TextBlock3.Text}">
                             <TextBlock x:Name="TextBlock3" Text="take it boy" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
+                        </Control:PopupMenu>
                     </Border>
                     
                     <Border Style="{StaticResource LeftBoderStyle}">
-                        <local:PopupMenu Text="{x:Bind TextBlock4.Text}">
+                        <Control:PopupMenu Text="{x:Bind TextBlock4.Text}">
                             <TextBlock x:Name="TextBlock4" Text="thank you sir" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </local:PopupMenu>
+                        </Control:PopupMenu>
                     </Border>
 
                     <Border Style="{StaticResource RightBoderStyle}">
-                        <local:PopupMenu  Text="{x:Bind TextBlock5.Text}">
+                        <Control:PopupMenu  Text="{x:Bind TextBlock5.Text}">
                             <TextBlock  x:Name="TextBlock5" TextWrapping="WrapWholeWords" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}">
                                 <Span>My name is Van,</Span>
                                 <LineBreak/>
@@ -156,7 +157,7 @@
                                 <LineBreak/>
                                 <Span>I'm hired for people to fulfill their fantasies, their deep dark fantasies.</Span>
                             </TextBlock>
-                        </local:PopupMenu>
+                        </Control:PopupMenu>
                     </Border>
 
                 </StackPanel>                
