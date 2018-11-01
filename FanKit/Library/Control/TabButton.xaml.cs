@@ -3,13 +3,11 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
-
 namespace FanKit.Library.Control
 {
     public sealed partial class TabButton : UserControl
     {
         
-
         #region DependencyProperty
 
 
@@ -65,23 +63,19 @@ namespace FanKit.Library.Control
 
 
         #endregion
-
-        
+                
         public TabButton()
         {
             this.InitializeComponent();
         }
-
-        
+            
         public bool IsHorizontal
         {
             get => this.StackPanel.Orientation == Orientation.Horizontal;
             set => this.StackPanel.Orientation = value ? Orientation.Horizontal : Orientation.Vertical;
         }
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => this.IsHorizontal = e.NewSize.Width > 100;
-
-
+        
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)=>    this.SeletedIndex = this.TabIndex;
-
     }
 }

@@ -3,9 +3,7 @@ using Windows.UI;
 
 namespace FanKit.Library.Colors
 {
-    /// <summary>
-    /// Color form HSL
-    /// </summary>
+    /// <summary> Color form HSL </summary>
     public class HSL
     {
         public byte A;

@@ -4,7 +4,8 @@
 
 
 <UserControl
-    x:Class="FanKit.Frames.Control.PopupMenu"
+    x:Class="FanKit.Library.Control.PopupMenu"
+    xmlns:local="using:FanKit.Library.Control"
     Background="Transparent"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch"
@@ -12,12 +13,12 @@
     DoubleTapped="UserControl_DoubleTapped" 
     RightTapped="UserControl_RightTapped">
 
-   
+    
     <UserControl.Resources>
 
         <!--Style -->
         <Style x:Key="PopupTopFlyoutPresenter" TargetType="FlyoutPresenter" >
-            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+            <Setter Property="Background" Value="{ThemeResource SystemControlHighlightChromeAltLowBrush}"/>
             <Setter Property="Foreground" Value="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -140,12 +141,13 @@
 
             </StackPanel>  
         </Flyout>
-
+        
     </UserControl.Resources>
   
         <ContentPresenter x:Name="ContentPresenter" />
 
 </UserControl>
+
 
 
 

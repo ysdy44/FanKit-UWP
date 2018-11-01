@@ -7,9 +7,7 @@ using Windows.UI.Xaml.Media;
 
 namespace FanKit.Library.Library
 {
-    /// <summary>
-    /// Zoom in and view pictures
-    /// </summary>
+    /// <summary>Zoom in and view pictures</summary>
     public class ScalableGrid : Grid
     {
         private TransformGroup transformGroup;

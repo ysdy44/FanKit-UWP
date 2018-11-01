@@ -2,26 +2,34 @@
 ```xaml
 
 
- <ScrollViewer Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-     <StackPanel VerticalAlignment="Top" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
 
-        <Border  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-            <TextBlock Text="Expand TextView" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-        </Border>
 
-        <ToggleSwitch IsOn="{x:Bind ExpandTextViewControl.IsExpand,Mode=TwoWay}"/>
-        <local:ExpandTextViewControl x:Name="ExpandTextViewControl" Text="My name is Van, I am an artist, a performance artist, I am hired for people to profile their fantasies, their deep dark fantasies. I was going to be a movie star, you know, was modeling and acting. After a hundred or two auditions and small parts, you know, I decided.. that I had enough, then I ceded into escort work"/>
+<Page
+    x:Class="FanKit.Frames.Control.ExpandTextViewPage"
+    xmlns:local="using:FanKit.Frames.Control"
+    xmlns:Control="using:FanKit.Library.Control">
 
-        <ToggleSwitch  IsOn="{x:Bind ExpandTextViewControl0.IsExpand,Mode=TwoWay}"/>
-        <local:ExpandTextViewControl x:Name="ExpandTextViewControl0" Text="The Kink requested a lot of fetishies, so...I just decided to go...um, you know, for master, and change my whole entire house into dungeon, um...dungeon master, now with the full dungeon, in my house. And it's going really well, "/>
+   <ScrollViewer Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+       <StackPanel VerticalAlignment="Top" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
 
-        <ToggleSwitch  IsOn="{x:Bind ExpandTextViewControl1.IsExpand,Mode=TwoWay}"/>
-        <local:ExpandTextViewControl x:Name="ExpandTextViewControl1" Text="I don't know if I feel kind of...um naked, 'cause I am looking at myself for the first time I think, well, not myself, but this aspect of my life for the first time. And it's...man gosh! three to five years already? And I've never thought about it."/>
+          <Border  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+              <TextBlock Text="Expand TextView" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+          </Border>
 
-        <ToggleSwitch  IsOn="{x:Bind ExpandTextViewControl2.IsExpand,Mode=TwoWay}"/>
-        <local:ExpandTextViewControl x:Name="ExpandTextViewControl2" Text="hmmm.. kind of sad, I feel kind of sad right now."/>
+          <ToggleSwitch IsOn="{x:Bind ExpandTextViewControl.IsExpand,Mode=TwoWay}"/>
+          <Control:ExpandTextViewControl x:Name="ExpandTextViewControl" Text="My name is Van, I am an artist, a performance artist, I am hired for people to profile their fantasies, their deep dark fantasies. I was going to be a movie star, you know, was modeling and acting. After a hundred or two auditions and small parts, you know, I decided.. that I had enough, then I ceded into escort work"/>
+
+          <ToggleSwitch  IsOn="{x:Bind ExpandTextViewControl0.IsExpand,Mode=TwoWay}"/>
+          <Control:ExpandTextViewControl x:Name="ExpandTextViewControl0" Text="The Kink requested a lot of fetishies, so...I just decided to go...um, you know, for master, and change my whole entire house into dungeon, um...dungeon master, now with the full dungeon, in my house. And it's going really well, "/>
+
+          <ToggleSwitch  IsOn="{x:Bind ExpandTextViewControl1.IsExpand,Mode=TwoWay}"/>
+          <Control:ExpandTextViewControl x:Name="ExpandTextViewControl1" Text="I don't know if I feel kind of...um naked, 'cause I am looking at myself for the first time I think, well, not myself, but this aspect of my life for the first time. And it's...man gosh! three to five years already? And I've never thought about it."/>
+
+          <ToggleSwitch  IsOn="{x:Bind ExpandTextViewControl2.IsExpand,Mode=TwoWay}"/>
+          <Control:ExpandTextViewControl x:Name="ExpandTextViewControl2" Text="hmmm.. kind of sad, I feel kind of sad right now."/>
  
-    </StackPanel>
-</ScrollViewer>
+      </StackPanel>
+  </ScrollViewer>
+</Page>
 
 ```

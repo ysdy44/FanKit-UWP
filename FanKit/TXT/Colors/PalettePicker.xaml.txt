@@ -2,8 +2,10 @@
 ```xaml
 
 
-
-<UserControl x:Class="FanKit.Frames.Colors.PalettePicker">
+<UserControl
+    x:Class="FanKit.Library.Colors.PalettePicker"
+    xmlns:local="using:FanKit.Library.Colors"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml">
 
 
     <Grid>
@@ -53,8 +55,6 @@
         />
     </Grid>
 </UserControl>
-
-
 
 
 

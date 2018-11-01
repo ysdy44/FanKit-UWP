@@ -3,7 +3,8 @@
 
 
 <UserControl
-    x:Class="FanKit.Frames.Control.ExpandTextView"
+    x:Class="FanKit.Library.Control.ExpandTextView"
+    xmlns:local="using:FanKit.Library.Control"
     Background="Transparent"
     Tapped="UserControl_Tapped">
 
@@ -26,6 +27,7 @@
     </Grid>
     
 </UserControl>
+
 
 
 ```

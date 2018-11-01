@@ -2,7 +2,33 @@
 ```xaml
 
 
-xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+<Page
+    x:Class="FanKit.Frames.Control.PopupMenuPage"
+    xmlns:local="using:FanKit.Frames.Control"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Control="using:FanKit.Library.Control">
+
+	
+  <Page.Resources>
+
+      <Style x:Key="BoderStyle" TargetType="Border">
+          <Setter Property="MinWidth" Value="90" />
+          <Setter Property="MinHeight" Value="40" />
+          <Setter Property="Margin" Value="15" />
+          <Setter Property="Padding" Value="4" />
+          <Setter Property="CornerRadius" Value="8" />
+      </Style>
+      <Style x:Key="LeftBoderStyle" TargetType="Border" BasedOn="{StaticResource BoderStyle}">
+          <Setter Property="HorizontalAlignment" Value="Left" />
+          <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
+      </Style>
+      <Style x:Key="RightBoderStyle" TargetType="Border" BasedOn="{StaticResource BoderStyle}">
+          <Setter Property="HorizontalAlignment" Value="Right" />
+          <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
+      </Style>
+
+  </Page.Resources>
+
 
 <ScrollViewer Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
     <StackPanel Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
@@ -12,37 +38,37 @@ xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
         </Border>
 
         <Border Style="{StaticResource LeftBoderStyle}">
-            <local:PopupMenuControl x:Name="PopupMenuControl" Text="{x:Bind TextBlock0.Text}">
+            <Control:PopupMenuControl x:Name="PopupMenuControl" Text="{x:Bind TextBlock0.Text}">
                 <TextBlock x:Name="TextBlock0" Text="Deep Dark Fantasy" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </local:PopupMenuControl>
+            </Control:PopupMenuControl>
         </Border>
 
         <Border Style="{StaticResource RightBoderStyle}">
-            <local:PopupMenuControl Text="{x:Bind TextBlock1.Text}">
+            <Control:PopupMenuControl Text="{x:Bind TextBlock1.Text}">
                 <TextBlock x:Name="TextBlock1" Text="Boy Next Door" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </local:PopupMenuControl>
+            </Control:PopupMenuControl>
         </Border>
 
         <Border Style="{StaticResource LeftBoderStyle}">
-            <local:PopupMenuControl  Text="{x:Bind TextBlock2.Text}">
+            <Control:PopupMenuControl  Text="{x:Bind TextBlock2.Text}">
                 <TextBlock x:Name="TextBlock2" Text="Do you like what you see?" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </local:PopupMenuControl>
+            </Control:PopupMenuControl>
         </Border>
 
         <Border Style="{StaticResource RightBoderStyle}">
-            <local:PopupMenuControl  Text="{x:Bind TextBlock3.Text}">
+            <Control:PopupMenuControl  Text="{x:Bind TextBlock3.Text}">
                 <TextBlock x:Name="TextBlock3" Text="take it boy" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </local:PopupMenuControl>
+            </Control:PopupMenuControl>
         </Border>
 
         <Border Style="{StaticResource LeftBoderStyle}">
-            <local:PopupMenuControl Text="{x:Bind TextBlock4.Text}">
+            <Control:PopupMenuControl Text="{x:Bind TextBlock4.Text}">
                 <TextBlock x:Name="TextBlock4" Text="thank you sir" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </local:PopupMenuControl>
+            </Control:PopupMenuControl>
         </Border>
 
         <Border Style="{StaticResource RightBoderStyle}">
-            <local:PopupMenuControl  Text="{x:Bind TextBlock5.Text}">
+            <Control:PopupMenuControl  Text="{x:Bind TextBlock5.Text}">
                 <TextBlock  x:Name="TextBlock5" TextWrapping="WrapWholeWords" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}">
                                 <Span>My name is Van,</Span>
                                 <LineBreak/>
@@ -52,31 +78,11 @@ xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
                                 <LineBreak/>
                                 <Span>I'm hired for people to fulfill their fantasies, their deep dark fantasies.</Span>
                 </TextBlock>
-            </local:PopupMenuControl>
+            </Control:PopupMenuControl>
         </Border>
 
-    </StackPanel>
-</ScrollViewer>
-
-
-<Page.Resources>
-
-    <Style x:Key="BoderStyle" TargetType="Border">
-        <Setter Property="MinWidth" Value="90" />
-        <Setter Property="MinHeight" Value="40" />
-        <Setter Property="Margin" Value="15" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="CornerRadius" Value="8" />
-    </Style>
-    <Style x:Key="LeftBoderStyle" TargetType="Border" BasedOn="{StaticResource BoderStyle}">
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAltHighBrush}" />
-    </Style>
-    <Style x:Key="RightBoderStyle" TargetType="Border" BasedOn="{StaticResource BoderStyle}">
-        <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
-    </Style>
-
-</Page.Resources>
+     </StackPanel>
+  </ScrollViewer>
+</Page>
 
 ```

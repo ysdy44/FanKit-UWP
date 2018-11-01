@@ -1,21 +1,17 @@
-﻿using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.Brushes;
-using Microsoft.Graphics.Canvas.Effects;
+﻿using FanKit.Library.Win2Ds;
+using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
-using System.Numerics;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using FanKit.Library.Win2Ds;
 
 namespace FanKit.Frames.Win2Ds
 {
     public sealed partial class DottedLinePage : Page
-    {
-        
+    {        
         DottedLine DottedLine;
         CanvasRenderTarget InPut;
 
@@ -43,9 +39,7 @@ namespace FanKit.Frames.Win2Ds
 
                 this.IsRender = true;
             }
-        }
-
-        
+        }        
       
       
        #region Canvas
@@ -77,12 +71,9 @@ namespace FanKit.Frames.Win2Ds
 
 
         #endregion
-            
-            
+                   
 
-
-
-        #region Pointer
+      #region Pointer
 
 
         bool IsMove;
@@ -109,12 +100,7 @@ namespace FanKit.Frames.Win2Ds
 
 
         #endregion
-
-
-        
-
-
-
+             
     }
 }
 

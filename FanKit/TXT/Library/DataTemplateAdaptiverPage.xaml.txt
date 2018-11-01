@@ -2,72 +2,79 @@
 ```xaml
 
 
-<Page.Resources>
 
-    <!--Adaptiver-->
-    <local:DataTemplateAdaptiver x:Name="Adaptiver" PanelElement="{Binding ElementName=AdaptiverGridView}"/>
+<Page
+    x:Class="FanKit.Frames.Library.DataTemplateAdaptiverPage"
+    xmlns:local="using:FanKit.Frames.Library"
+    xmlns:Library="using:FanKit.Library.Library">
 
-    <!--DataTemplate-->
-    <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
-        <Border 
+
+    <Page.Resources>
+
+        <!--Adaptiver-->
+        <Library:DataTemplateAdaptiver x:Name="Adaptiver" PanelElement="{Binding ElementName=AdaptiverGridView}"/>
+
+        <!--DataTemplate-->
+        <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
+            <Border 
                 Width="{Binding ElementName=Adaptiver,Path=SizeWidth}" 
                 Height="{Binding ElementName=Adaptiver,Path=SizeHeight}" 
                 >
-            <Grid Margin="4" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                <Grid Margin="4" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <Border Height="{Binding ElementName=Adaptiver,Path=SizeWidth}" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-                    <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="40" Glyph="&#xEB9F;" Foreground="White"/>
-                </Border>
+                    <Border Height="{Binding ElementName=Adaptiver,Path=SizeWidth}" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="40" Glyph="&#xEB9F;" Foreground="White"/>
+                    </Border>
 
-                <TextBlock  Text="{x:Bind}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Grid>
+                    <TextBlock  Text="{x:Bind}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
 
-        </Border>
-    </DataTemplate>
+            </Border>
+        </DataTemplate>
 
-</Page.Resources>
-
-
+    </Page.Resources>
 
 
-<GridView x:Name="AdaptiverGridView" ItemTemplate="{StaticResource ItemTemplate}">
 
-    <GridView.ItemContainerStyle>
-        <Style TargetType="GridViewItem" >
-            <Setter Property="Margin" Value="0" />
-            <Setter Property="Padding" Value="0" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-        </Style>
-    </GridView.ItemContainerStyle>
 
-    <GridView.Style>
-        <Style  x:Name="GridViewStyle" TargetType="GridView">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="GridView">
-                        <ScrollViewer x:Name="ScrollViewer" >
-                            <ItemsPresenter HorizontalAlignment="Center" />
-                        </ScrollViewer>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </GridView.Style>
+    <GridView x:Name="AdaptiverGridView" ItemTemplate="{StaticResource ItemTemplate}">
 
-    <x:String>item00</x:String>
-    <x:String>item01</x:String>
-    <x:String>item02</x:String>
-    <x:String>item03</x:String>
-    <x:String>item04</x:String>
-    <x:String>item05</x:String>
+        <GridView.ItemContainerStyle>
+            <Style TargetType="GridViewItem" >
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+            </Style>
+        </GridView.ItemContainerStyle>
 
-</GridView>
+        <GridView.Style>
+            <Style  x:Name="GridViewStyle" TargetType="GridView">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GridView">
+                            <ScrollViewer x:Name="ScrollViewer" >
+                                <ItemsPresenter HorizontalAlignment="Center" />
+                            </ScrollViewer>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </GridView.Style>
 
+        <x:String>item00</x:String>
+        <x:String>item01</x:String>
+        <x:String>item02</x:String>
+        <x:String>item03</x:String>
+        <x:String>item04</x:String>
+        <x:String>item05</x:String>
+
+    </GridView>
+</Page
 
 
 ```

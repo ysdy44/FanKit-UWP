@@ -2,11 +2,20 @@
 ```xaml
 
 
-<local:TouchSliderControl 
-    Background="Gray"
-     ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
-     ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
-     ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
-     />
+<Page
+    x:Class="FanKit.Frames.Colors.TouchSliderPage"
+   xmlns:Colors="using:FanKit.Library.Colors">
+
+  <Colors:TouchSliderControl 
+      Background="Gray"
+       ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
+       ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
+       ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
+       />
+
+</Page>
+
+
+
 
 ```

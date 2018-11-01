@@ -1,10 +1,10 @@
-
+﻿
 ```xaml
 
 
-
 <UserControl
-    x:Class="FanKit.Frames.Colors.HSLPicker">
+    x:Class="FanKit.Library.Colors.HSLPicker"
+    xmlns:local="using:FanKit.Library.Colors">
 
 
     <Grid >
@@ -19,7 +19,7 @@
 
         <!--H-->
         <TextBlock Grid.Row="0" Text="H" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
-        <local:NumberPicker x:Name="HPicker" Grid.Row="0" Unit="o" Minimum="0" Maximum="360" HorizontalAlignment="Right" ValueChange="HPicker_ValueChange"/>
+        <local:NumberPicker x:Name="HPicker" Grid.Row="0" Unit="º" Minimum="0" Maximum="360" HorizontalAlignment="Right" ValueChange="HPicker_ValueChange"/>
         <local:TouchSlider x:Name="HSlider" Grid.Row="1" Minimum="0" Maximum="360" ValueChangeDelta="HSlider_ValueChangeDelta">
             <local:TouchSlider.SliderBackground>
                 <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
@@ -61,7 +61,6 @@
     </Grid>
 
 </UserControl>
-
 
 
 

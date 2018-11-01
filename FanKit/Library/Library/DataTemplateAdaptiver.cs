@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using Windows.UI.Xaml;
 
-
 namespace FanKit.Library.Library
 {
     public class DataTemplateAdaptiver : DependencyObject, INotifyPropertyChanged
@@ -67,7 +66,6 @@ namespace FanKit.Library.Library
             this.SizeWidth = width;
             this.SizeHeight = width * 1.6d;
         }
-
         private double GetSizeWidth(double width)
         {
             double designWidth = Math.Sqrt(Math.Sqrt(width)) * 24d;//design Width

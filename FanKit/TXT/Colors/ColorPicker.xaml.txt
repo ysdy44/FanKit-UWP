@@ -2,8 +2,9 @@
 ```xaml
 
 
-
-<UserControl  x:Class="FanKit.Frames.Colors.ColorPicker"
+<UserControl
+    x:Class="FanKit.Library.Colors.ColorPicker"
+    xmlns:local="using:FanKit.Library.Colors"
     d:DesignHeight="270"
     d:DesignWidth="200"
     Loaded="UserControl_Loaded">
@@ -55,7 +56,7 @@
         </Grid>
 
         <!--Toggle-->
-       <Grid Grid.Row="1" Height="34" CornerRadius="15" BorderThickness="0,0,1,2"  BorderBrush="#44000000"  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+        <Grid Grid.Row="1" Height="34" CornerRadius="15" BorderThickness="0,0,1,2"  BorderBrush="#44000000"  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -79,6 +80,7 @@
         
     </Grid>
 </UserControl>
+
 
 
 

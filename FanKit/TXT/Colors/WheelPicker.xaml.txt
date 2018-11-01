@@ -4,11 +4,10 @@
 
 
 <UserControl
-    x:Class="FanKit.Frames.Colors.WheelPicker" 
-    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
->
+    x:Class="FanKit.Library.Colors.WheelPicker"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml">
 
-     <canvas:CanvasControl  
+    <canvas:CanvasControl  
         x:Name="CanvasControl" 
                         
         Draw="CanvasControl_Draw" 
@@ -21,6 +20,7 @@
         />
     
 </UserControl>
+
 
 
 

@@ -6,23 +6,19 @@ using System.Numerics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-
 namespace FanKit.Frames.Win2Ds
 {
     public sealed partial class CanvasOperatorPage : Page
     {
-
         float Width = 100;
         float Height = 100;
         Vector2 Position;
         float Scale = 1f;
 
-
         public CanvasOperatorPage()
         {
             this.InitializeComponent();
         }
-
         
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -30,8 +26,7 @@ namespace FanKit.Frames.Win2Ds
             this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/CanvasOperatorPage.cs.txt");
             this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/CanvasOperator.cs.txt");
         }
-
-
+        
         #region Operator
 
 
@@ -126,8 +121,7 @@ namespace FanKit.Frames.Win2Ds
 
 
         #endregion
-
-
+        
         #region CanvasControl
 
 
@@ -194,9 +188,7 @@ namespace FanKit.Frames.Win2Ds
 
 
         #endregion
-
-       
-
+              
     }
 }
 

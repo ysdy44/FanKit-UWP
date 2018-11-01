@@ -1,11 +1,14 @@
 
 ```xaml
 
-
+<Page
+    x:Class="FanKit.Frames.Colors.RGBPickerPage"
+    xmlns:local="using:FanKit.Frames.Colors"
+    xmlns:Colors="using:FanKit.Library.Colors">
 
 <Grid Width="200" Height="230" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
 
-   <local:RGBPicker 
+   <Colors:RGBPicker 
        x:Name="RGBPicker" 
        ColorChange="RGBPicker_ColorChange"/>
 

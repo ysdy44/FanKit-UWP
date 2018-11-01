@@ -1,14 +1,20 @@
 
 ```xaml
 
-xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
 
 
+<Page
+    x:Class="FanKit.Frames.Win2Ds.CanvasOperatorPage"
+    xmlns:local="using:FanKit.Frames.Win2Ds"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:Win2Ds="using:FanKit.Library.Win2Ds">
+	   
+   <Page.Resources>
 
-<Page.Resources>
-
-    <!--CanvasOperator-->
-    <local:CanvasOperator x:Name="Operator" 
+       <!--CanvasOperator-->
+       <Win2Ds:CanvasOperator x:Name="Operator" 
              DestinationControl="{Binding ElementName=CanvasControl}"
                               
             Single_Start="Single_Start" 
@@ -26,14 +32,15 @@ xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
             Wheel_Changed="Wheel_Changed"
              />
 
-</Page.Resources>
+   </Page.Resources>
 
 
 
-<canvas:CanvasControl x:Name="CanvasControl"
+   <canvas:CanvasControl x:Name="CanvasControl"
           CreateResources="CanvasControl_CreateResources"
           Draw="CanvasControl_Draw"
          />
+</Page>
 
 
 

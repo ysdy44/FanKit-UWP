@@ -2,9 +2,15 @@
 ```xaml
 
 
+
+<Page
+    x:Class="FanKit.Frames.Colors.PalettePickerPage"
+    xmlns:local="using:FanKit.Frames.Colors"
+    xmlns:Colors="using:FanKit.Library.Colors">
+
 <Grid Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
            
-     <local:PalettePicker 
+     <Colors:PalettePicker 
         x:Name="PalettePicker" 
         ColorChange="PalettePicker_ColorChange"/>
 

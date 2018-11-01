@@ -14,9 +14,7 @@ using Windows.UI;
 namespace FanKit.Library.Library
 {
 
-    /// <summary>
-    /// Palette color from pictures
-    /// </summary>
+    /// <summary>Palette color from pictures </summary>
     public static class Palette
     {
         //The default color

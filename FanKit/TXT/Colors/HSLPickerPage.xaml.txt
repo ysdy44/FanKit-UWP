@@ -1,10 +1,14 @@
 
 ```xaml
 
+<Page
+    x:Class="FanKit.Frames.Colors.HSLPickerPage"
+    xmlns:local="using:FanKit.Frames.Colors"
+    xmlns:Colors="using:FanKit.Library.Colors">
 
 <Grid Width="200" Height="230" Padding="8" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
 
-   <local:HSLPicker 
+   <Colors:HSLPicker 
        x:Name="HSLPicker" 
        ColorChange="HSLPicker_ColorChange"/>
 

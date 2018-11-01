@@ -52,11 +52,7 @@ namespace FanKit.Library.Colors
 
         private void Picker_ValueChange(object sender, int value)=>  this.Color = Windows.UI.Color.FromArgb((byte)value, this.Color.R, this.Color.G, this.Color.B);
         private void Slider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.Color = Windows.UI.Color.FromArgb((byte)e.NewValue, this.Color.R, this.Color.G, this.Color.B);
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
 
         private Color? StringToColor(string s)

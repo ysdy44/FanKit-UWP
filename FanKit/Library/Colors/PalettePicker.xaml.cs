@@ -7,6 +7,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
+
+
 namespace FanKit.Library.Colors
 {
     public partial class PalettePicker : UserControl

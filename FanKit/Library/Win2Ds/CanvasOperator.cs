@@ -5,12 +5,9 @@ using Windows.Devices.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 
-
 namespace FanKit.Library.Win2Ds
 {
-    /// <summary>
-    /// Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger .
-    /// </summary>
+    /// <summary>Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger .</summary>
     public class CanvasOperator : DependencyObject
     {
 

@@ -473,9 +473,9 @@
     <Content Include="TXT\Control\PopupMenu.cs.txt" />
     <Content Include="TXT\Control\PopupMenu.xaml.txt" />
     <Content Include="TXT\Control\PopupMenuPage.xaml.txt" />
-    <Content Include="TXT\Control\TabBar.cs.txt" />
-    <Content Include="TXT\Control\TabBar.xaml.txt" />
-    <Content Include="TXT\Control\TabBarPage.xaml.txt" />
+    <Content Include="TXT\Control\TabBotton.cs.txt" />
+    <Content Include="TXT\Control\TabBotton.xaml.txt" />
+    <Content Include="TXT\Control\TabBottonPage.xaml.txt" />
     <Content Include="TXT\Colors\TouchSlider.cs.txt" />
     <Content Include="TXT\Colors\TouchSlider.xaml.txt" />
     <Content Include="TXT\Colors\TouchSliderPage.xaml.txt" />
@@ -809,6 +809,9 @@
     <Folder Include="Library\Others\" />
     <Folder Include="Library\Styles\" />
     <Folder Include="Library\Template\" />
+    <Folder Include="TXT\Brushes\" />
+    <Folder Include="TXT\Others\" />
+    <Folder Include="TXT\Styles\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

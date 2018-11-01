@@ -1,6 +1,13 @@
 
 ```xaml
 
+
+
+<Page
+    x:Class="FanKit.Frames.Colors.NumberPickerPage"
+    xmlns:local="using:FanKit.Frames.Colors"
+    xmlns:Colors="using:FanKit.Library.Colors">
+
 <Grid>
 
 
@@ -9,16 +16,16 @@
     </Border>
 
     <TextBlock Text="Value: (defult 0)"/>
-     <local:NumberPicker Value="0"/>
+     <Colors:NumberPicker Value="0"/>
 
     <TextBlock Text="Minimum: (defult 0)"/>
-     <local:NumberPicker Minimum="0"/>
+     <Colors:NumberPicker Minimum="0"/>
 
     <TextBlock  Text="Maximum: (defult 100)"/>
-    <local:NumberPicker Maximum="100"/>
+    <Colors:NumberPicker Maximum="100"/>
 
     <TextBlock Grid.Row="4" Text="Unit: (defult Empty)"/>
-	 <local:NumberPicker Unit="%"/>
+	 <Colors:NumberPicker Unit="%"/>
 
 </Grid>
 

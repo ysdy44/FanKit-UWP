@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <ContentControl Content="#" FontWeight="Medium" VerticalAlignment="Center"/>
-        <TextBox x:Name="TextBox" Grid.Column="1" Text="#00000000" MinWidth="120" PlaceholderText="66CCFF" FontWeight="Medium" MinHeight="0" Height="Auto" BorderThickness="1"  LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="TextBox" Grid.Column="1" Text="#00000000" MinWidth="120" PlaceholderText="66CCFF" FontWeight="Medium" MinHeight="0" Height="Auto" BorderThickness="1"  />
 
         <local:NumberPicker x:Name="Picker" Grid.Column="3" Grid.Row="0" Width="80" Minimum="0" Maximum="255" ValueChange="Picker_ValueChange"/>
         <local:TouchSlider x:Name="Slider" Grid.ColumnSpan="4" Grid.Row="1" Minimum="0" Maximum="255" ValueChangeDelta="Slider_ValueChangeDelta">

@@ -5,9 +5,7 @@ using Windows.UI.Xaml.Media;
 
 namespace FanKit.Library.Colors
 {
-    /// <summary>
-    /// Palette Base
-    /// </summary>
+    /// <summary>Palette Base</summary>
     public abstract class PaletteBase
     {
         public string Name;

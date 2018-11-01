@@ -1,18 +1,12 @@
 
 ```xaml
 
-
-<UserControl x:Class="FanKit.Frames.Colors.TouchSlider"
+<UserControl
+    x:Class="FanKit.Library.Colors.TouchSlider"
     HorizontalAlignment="Stretch"
-    VerticalAlignment="Center">
-
-	
-    <Slider x:Name="Slider" Style="{StaticResource SliderStyle}" ValueChanged="Slider_ValueChanged"/>
-
+    VerticalAlignment="Center" >
 
     <UserControl.Resources>
-
-   
         <Style x:Key="SliderStyle" TargetType="Slider">
             <Setter Property="Height" Value="24"/>
             <Setter Property="Minimum" Value="0"/>
@@ -87,9 +81,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+    </UserControl.Resources>
 
-</UserControl.Resources>
+    <!--Value Changed-->
+    <Slider x:Name="Slider" Style="{StaticResource SliderStyle}" ValueChanged="Slider_ValueChanged"/>
 
 </UserControl>
+
 
 ```

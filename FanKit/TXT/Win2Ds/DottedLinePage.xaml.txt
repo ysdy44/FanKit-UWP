@@ -1,21 +1,26 @@
 
 ```xaml
 
-
-xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
-xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+<Page
+    x:Class="FanKit.Frames.Win2Ds.DottedLinePage"
+    xmlns:local="using:FanKit.Frames.Win2Ds"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:Win2Ds="using:FanKit.Library.Win2Ds">
     
-<canvas:CanvasAnimatedControl x:Name="CanvasAnimatedControl"
-      SizeChanged="CanvasAnimatedControl_SizeChanged"
+   <canvas:CanvasAnimatedControl x:Name="CanvasAnimatedControl"
+        SizeChanged="CanvasAnimatedControl_SizeChanged"
               
-      CreateResources="CanvasAnimatedControl_CreateResources"
-      Draw="CanvasAnimatedControl_Draw"
-      Update="CanvasAnimatedControl_Update"
+        CreateResources="CanvasAnimatedControl_CreateResources"
+        Draw="CanvasAnimatedControl_Draw"
+        Update="CanvasAnimatedControl_Update"
               
-      PointerPressed="CanvasAnimatedControl_PointerPressed"
-      PointerMoved="CanvasAnimatedControl_PointerMoved"
-      PointerReleased="CanvasAnimatedControl_PointerReleased"
-      />
+        PointerPressed="CanvasAnimatedControl_PointerPressed"
+        PointerMoved="CanvasAnimatedControl_PointerMoved"
+        PointerReleased="CanvasAnimatedControl_PointerReleased"
+        />
+
+</Page>
 
 
 

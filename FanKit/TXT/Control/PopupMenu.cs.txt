@@ -6,16 +6,21 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.ApplicationModel.DataTransfer;
 
-public sealed partial class PopupMenuControl : UserControl
+namespace FanKit.Library.Control
 {
+    public sealed partial class PopupMenu : UserControl
+    {
 
-        //Property
+        #region DependencyProperty
 
-        /// <summary>show or hide</summary>
+
+        /// <summary>
+        /// show or hide
+        /// </summary>
         private bool isShow;
         public bool IsShow
         {
-            get=>this.isShow;
+            get=> this.isShow;
             set
             {
                 if (value) this.Flyout.ShowAt(this);
@@ -25,7 +30,9 @@ public sealed partial class PopupMenuControl : UserControl
             }
         }
 
-        /// <summary>copy the text</summary>
+        /// <summary>
+        /// copy the text
+        /// </summary>
         private string text;
         public string Text
         {
@@ -33,6 +40,14 @@ public sealed partial class PopupMenuControl : UserControl
             set => this.text = value;
         }
         
+        #endregion
+
+
+        public PopupMenu()
+        {
+            this.InitializeComponent();
+        }
+
 
         private void UserControl_Holding(object sender, HoldingRoutedEventArgs e) => this.IsShow = true;//Flyout
         private void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e) => this.IsShow = true;//Flyout
@@ -45,10 +60,13 @@ public sealed partial class PopupMenuControl : UserControl
             DataPackage dataPackage = new DataPackage();
             dataPackage.SetText(this.Text);
             Clipboard.SetContent(dataPackage);
+
+            this.IsShow = false;//Flyout
         }
 
     }
 }
+
 
 
 

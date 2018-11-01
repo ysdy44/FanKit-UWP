@@ -2,8 +2,8 @@
 ```xaml
 
 
-
-<UserControl x:Class="FanKit.Frames.Colors.SwatchesPicker"
+<UserControl
+    x:Class="FanKit.Library.Colors.SwatchesPicker"
     d:DesignHeight="300"
     d:DesignWidth="200">
 
@@ -184,6 +184,7 @@
     
         </Grid>
 </UserControl>
+
 
 
 

@@ -1,8 +1,10 @@
 
 ```xaml
 
-
-<UserControl x:Class="FanKit.Frames.Colors.StrawPicker">
+<UserControl
+    x:Class="FanKit.Library.Colors.StrawPicker"
+    d:DesignHeight="50"
+    d:DesignWidth="50">
 
     <UserControl.Resources>
 
