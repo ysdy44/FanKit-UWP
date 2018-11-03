@@ -34,7 +34,7 @@ namespace FanKit.Frames.Win2Ds
         private void NodeModeButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.PenModeButton.IsChecked = false;
-            this.CurveNode.EditMode = NodeEditMode.Edit;
+            this.CurveNode.EditMode = NodeEditMode.EditMove;
         }
 
         //Button

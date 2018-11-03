@@ -109,7 +109,7 @@ namespace FanKit.Library.Win2Ds
             ds.FillEllipse(vector, 6, 6, this.Blue);
         }
         /// <summary>
-        /// draw a ⊕ ——
+        /// draw a ——⊕ 
         /// </summary>
         private void DrawNodeControl(CanvasDrawingSession ds, Vector2 vector, Vector2 control)
         {
@@ -127,6 +127,7 @@ namespace FanKit.Library.Win2Ds
 
 
         /// <summary>
+        /// Interpolation: Insert a new point between the selected points
         /// 插值：在选定的点之间插入新的点
         /// </summary>
         public void Interpolation()
@@ -156,7 +157,8 @@ namespace FanKit.Library.Win2Ds
             }
         }
         /// <summary>
-        /// 移出：移出所有选定的点
+        /// Remove: Removes all selected points
+        /// 移除：移除所有选定的点
         /// </summary>
         public void Remove()
         {
@@ -173,7 +175,8 @@ namespace FanKit.Library.Win2Ds
 
 
         /// <summary>
-        /// 锐化：使选定的点之间的连线变成直线
+        /// Sharpening: Making the control line between points into a straight line
+        /// 锐化：使点之间的控制线变成直线
         /// </summary>
         public void Sharp()
         {
@@ -186,6 +189,7 @@ namespace FanKit.Library.Win2Ds
             }
         }
         /// <summary>
+        /// Smoothing: Makes the connection between the selected points into a Bezier curve
         /// 平滑：使选定的点之间的连线变成贝塞尔曲线
         /// </summary>
         public void Smooth()
@@ -194,11 +198,9 @@ namespace FanKit.Library.Win2Ds
             {
                 if (this.Nodes[i].ChooseMode != NodeChooseMode.None)
                 {
-                    //Space为前一个和后一个点的差距
                     Vector2 Space = this.Nodes[i + 1].Vector - this.Nodes[i - 1].Vector;
                     Vector2 Spa = Space / 6;
-
-                    //平滑左右点
+                    
                     this.Nodes[i].LeftControl = this.Nodes[i].Vector + Spa;
                     this.Nodes[i].RightControl = this.Nodes[i].Vector - Spa;
                 }
@@ -219,7 +221,7 @@ namespace FanKit.Library.Win2Ds
             {
                 Add_Start(v);
             }
-            else if (this.EditMode.HasFlag(NodeEditMode.Edit))
+            else if (this.EditMode.HasFlag(NodeEditMode.EditMove))
             {
                 this.Node = null;
 
@@ -245,7 +247,7 @@ namespace FanKit.Library.Win2Ds
             {
                 Add_Delta(v);
             }
-            else if (this.EditMode.HasFlag(NodeEditMode.Edit))
+            else if (this.EditMode.HasFlag(NodeEditMode.EditMove))
             {
                 if (this.Node != null) EditMove_Delta(v);
                 else RectChoose_Delta(v);
@@ -258,7 +260,7 @@ namespace FanKit.Library.Win2Ds
             {
                 Add_Complete(v);
             }
-            else if (this.EditMode.HasFlag(NodeEditMode.Edit))
+            else if (this.EditMode.HasFlag(NodeEditMode.EditMove))
             {
                 if (this.Node != null) EditMove_Complete(v);
                 else RectChoose_Complete(v);
@@ -272,30 +274,13 @@ namespace FanKit.Library.Win2Ds
 
 
         private void Add_Start(Vector2 v)
-        {
-            /* 磁力吸附代码
-             
-            if (this.Node != null) v = this.Node.Vector;
-        
-             * */
-
-            this.Nodes.Add(new Node(v));//添加点
+        {            
+            this.Nodes.Add(new Node(v));
         }
 
         private void Add_Delta(Vector2 v)
         {
-            /* 磁力吸附代码
-             
-
-            foreach (var Pen in this.Nodes)//磁吸所有点
-            {
-                if (Vector2.DistanceSquared(v, Pen.Vect) < 100 )
-                {
-                    v = Pen.Vect;
-                }
-            }
-             */
-            this.Nodes[this.Nodes.Count - 1].SetVector(v); //移动最后一个点
+            this.Nodes[this.Nodes.Count - 1].SetVector(v); 
         }
 
         private void Add_Complete(Vector2 v)
@@ -325,7 +310,7 @@ namespace FanKit.Library.Win2Ds
                 case NodeChooseMode.Vector:
                     {
                         EditMoveStart = v;
-                        if (this.Node.ChooseMode == NodeChooseMode.None)//点击时如果点的点不是选中点，就清空
+                        if (this.Node.ChooseMode == NodeChooseMode.None)
                         {
                             foreach (var item in this.Nodes)
                             {
@@ -349,7 +334,7 @@ namespace FanKit.Library.Win2Ds
         {
             if (this.Node == null)
             {
-                this.RectChooseEnd = v;//移动钢笔矩形
+                this.RectChooseEnd = v;
                 return;
             }
 
@@ -358,19 +343,19 @@ namespace FanKit.Library.Win2Ds
                 case NodeChooseMode.None:
                     break;
                 case NodeChooseMode.Vector:
-                    Vector2 offset = v - EditMoveStart;//位置变化
+                    Vector2 offset = v - EditMoveStart;
 
                     foreach (var item in this.Nodes)
                     {
                         if (item.ChooseMode != NodeChooseMode.None)
                         {
-                            item.Move(offset);//移动所有选定点
+                            item.Move(offset);
                         }
                     }
 
-                    this.Node.SetVector(v); //移动最后一个点
+                    this.Node.SetVector(v); 
 
-                    EditMoveStart = v;//旧
+                    EditMoveStart = v;
                     break;
                 case NodeChooseMode.LeftControl:
                     this.Node.SetLeftControlDelta(v, this.ControlMode);
@@ -387,7 +372,7 @@ namespace FanKit.Library.Win2Ds
         {
             if (this.Node == null)
             {
-                foreach (var item in this.Nodes)//判断钢笔矩形内的点
+                foreach (var item in this.Nodes)
                 {
                     if (item.Vector.X > this.RectChooseStart.X && item.Vector.Y > this.RectChooseStart.Y && item.Vector.X < this.RectChooseEnd.X && item.Vector.Y < this.RectChooseEnd.Y)
                         item.ChooseMode = NodeChooseMode.Vector;
@@ -395,7 +380,7 @@ namespace FanKit.Library.Win2Ds
                         item.ChooseMode = NodeChooseMode.None;
                 }
 
-                this.RectChooseStart = this.RectChooseEnd = Vector2.Zero;//关闭钢笔矩形
+                this.RectChooseStart = this.RectChooseEnd = Vector2.Zero;
                 return;
             }
 
@@ -426,16 +411,16 @@ namespace FanKit.Library.Win2Ds
 
         private void RectChoose_Start(Vector2 v)
         {
-            this.EditMode = NodeEditMode.Edit | NodeEditMode.RectChoose;
+            this.EditMode = NodeEditMode.EditMove | NodeEditMode.RectChoose;
 
             this.RectChooseStart = this.RectChooseEnd = v;
         }
 
         private void RectChoose_Delta(Vector2 v)
         {
-            this.RectChooseEnd = v;//移动钢笔矩形
-
-            //判断钢笔矩形内的点
+            this.RectChooseEnd = v;
+            
+            //choose point which in rect
             float Left = Math.Min(this.RectChooseStart.X, this.RectChooseEnd.X);
             float Top = Math.Min(this.RectChooseStart.Y, this.RectChooseEnd.Y);
             float Right = Math.Max(this.RectChooseStart.X, this.RectChooseEnd.X);
@@ -451,7 +436,7 @@ namespace FanKit.Library.Win2Ds
 
         private void RectChoose_Complete(Vector2 v)
         {
-            this.EditMode = NodeEditMode.Edit;
+            this.EditMode = NodeEditMode.EditMove;
 
             this.RectChoose_Delta(v);
 
@@ -487,12 +472,22 @@ namespace FanKit.Library.Win2Ds
             this.ChooseMode = mode;
         }
 
+
+
+        /// <summary>
+        /// Move nodes
+        /// </summary>
+        /// <param name="v">the change of position</param>
         public void Move(Vector2 v)
         {
             this.Vector += v;
             this.LeftControl += v;
             this.RightControl += v;
         }
+        /// <summary>
+        /// Set the vector of it
+        /// </summary>
+        /// <param name="v">the position</param>
         public void SetVector(Vector2 v)
         {
             Vector2 changed = v - this.Vector;
@@ -576,9 +571,10 @@ namespace FanKit.Library.Win2Ds
 
 
         /// <summary>
-        /// 输入一个向量，判断是否点中了向量或某个控制点
+        /// Returns true if a vector or a control point is in the dot
+        /// 如果点中了向量或某个控制点，返回true
         /// </summary>
-        /// <param name="v"></param>
+        /// <param name="v">the position</param>
         /// <returns></returns>
         public NodeChooseMode GetChooseMode(Vector2 v)
         {
@@ -608,7 +604,7 @@ namespace FanKit.Library.Win2Ds
         Add = 1,
 
         /// <summary> edit the nodes </summary>
-        Edit = 2,
+        EditMove = 2,
 
         /// <summary> choose nodes in the blue rect </summary>
         RectChoose = 4,
