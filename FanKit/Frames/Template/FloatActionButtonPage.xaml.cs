@@ -17,7 +17,7 @@ namespace FanKit.Frames.Template
         {
             this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/FloatActionButtonPage.xaml.txt");
             this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/FloatActionButton.style.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/FloatActionButtonPage.cs.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Template/FloatActionButtonPage.xaml.cs.txt");
         }
 
 

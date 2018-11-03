@@ -102,6 +102,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Win2Ds\CurveNodesPage.xaml.cs">
+      <DependentUpon>CurveNodesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Library\Colors\AlphaPicker.xaml.cs">
       <DependentUpon>AlphaPicker.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,7 @@
     <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
       <DependentUpon>RadiusShadowPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Library\Win2Ds\CurveNodes.cs" />
     <Compile Include="Library\Win2Ds\DottedLine.cs" />
     <Compile Include="Frames\Win2Ds\DottedLinePage.xaml.cs">
       <DependentUpon>DottedLinePage.xaml</DependentUpon>
@@ -311,8 +315,12 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Icon\Win2Ds\CurveNodes.png" />
+    <Content Include="TXT\Win2Ds\CurveNodes.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLine.cs.txt" />
-    <Content Include="TXT\Win2Ds\DottedLinePage.cs.txt" />
+    <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.txt" />
+    <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.cs.txt" />
+    <Content Include="TXT\Win2Ds\DottedLinePage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.txt" />
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
@@ -346,7 +354,7 @@
     <Content Include="TXT\Colors\SwatchesPicker.xaml.txt" />
     <Content Include="TXT\Colors\SwatchesPickerPage.xaml.txt" />
     <Content Include="TXT\Win2Ds\CanvasOperator.cs.txt" />
-    <Content Include="TXT\Win2Ds\CanvasOperatorPage.cs.txt" />
+    <Content Include="TXT\Win2Ds\CanvasOperatorPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\CanvasOperatorPage.xaml.txt" />
     <Content Include="TXT\Samples.json" />
   </ItemGroup>
@@ -483,12 +491,12 @@
     <Content Include="Icon\Library\ScalableGrid.png" />
     <Content Include="TXT\Library\ScalableGrid.cs.txt" />
     <Content Include="TXT\Library\ScalableGridPage.xaml.txt" />
-    <Content Include="TXT\Template\FloatActionButtonPage.cs.txt" />
+    <Content Include="TXT\Template\FloatActionButtonPage.xaml.cs.txt" />
     <Content Include="TXT\Template\FloatActionButton.style.txt" />
     <Content Include="TXT\Template\FloatActionButtonPage.xaml.txt" />
     <Content Include="TXT\Template\RadiusShadowPanelPage.xaml.txt" />
     <Content Include="TXT\Template\SplitButton.cs.txt" />
-    <Content Include="TXT\Template\SplitPanelPage.cs.txt" />
+    <Content Include="TXT\Template\SplitPanelPage.xaml.cs.txt" />
     <Content Include="TXT\Template\SplitButton.xaml.txt" />
     <Content Include="TXT\Template\SplitPanelPage.xaml.txt" />
     <Content Include="TXT\Template\TagChip.style.txt" />
@@ -510,6 +518,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Frames\Win2Ds\CurveNodesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Library\Colors\AlphaPicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

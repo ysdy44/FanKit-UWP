@@ -1,0 +1,26 @@
+
+```xaml
+
+<Page
+    x:Class="FanKit.Frames.Win2Ds.CurveNodesPage"
+    xmlns:local="using:FanKit.Frames.Win2Ds"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:Win2Ds="using:FanKit.Library.Win2Ds">
+    
+       <canvas:CanvasControl x:Name="CanvasControl"
+                                              
+                CreateResources="CanvasControl_CreateResources"
+                Draw="CanvasControl_Draw"
+                                              
+                PointerPressed="CanvasControl_PointerPressed"
+                PointerMoved="CanvasControl_PointerMoved"
+                PointerReleased="CanvasControl_PointerReleased"
+                />    
+
+</Page>
+
+
+
+
+```

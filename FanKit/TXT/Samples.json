@@ -158,7 +158,7 @@
         ]
     },
     {
-        "Name": "Library",
+      "Name": "Library",
       "Samples": [
         {
           "Page": "FanKit.Frames.Library.PalettePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -259,6 +259,12 @@
         "Name": "DottedLine",
         "Uri": "ms-appx:///Icon/Win2Ds/DottedLine.png",
         "Summary": "the Dotted Line of photoshop"
+      },
+      {
+        "Page": "FanKit.Frames.Win2Ds.CurveNodesPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "CurveNodes",
+        "Uri": "ms-appx:///Icon/Win2Ds/CurveNodes.png",
+        "Summary": " Drawing and managing Bezier curves on CanvasControl "
       }
     ]
   }

@@ -92,7 +92,10 @@ namespace FanKit.Frames.Win2Ds
             if (this.IsMove)
             {
                 this.IsMove = false;
-                using (var ds = this.InPut.CreateDrawingSession()) ds.FillRectangle(new Rect(this.MoveStart, this.MoveEnd), Windows.UI.Colors.Gray);
+                using (var ds = this.InPut.CreateDrawingSession()) 
+				{
+    				ds.FillRectangle(new Rect(this.MoveStart, this.MoveEnd), Windows.UI.Colors.Gray);
+				}
             }
         }
 

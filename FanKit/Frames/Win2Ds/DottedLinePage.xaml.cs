@@ -27,7 +27,7 @@ namespace FanKit.Frames.Win2Ds
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.cs.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.xaml.cs.txt");
             this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLine.cs.txt");
         }
         private void CanvasAnimatedControl_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -93,12 +93,14 @@ namespace FanKit.Frames.Win2Ds
             if (this.IsMove)
             {
                 this.IsMove = false;
-                using (var ds = this.InPut.CreateDrawingSession()) ds.FillRectangle(new Rect(this.MoveStart, this.MoveEnd), Windows.UI.Colors.Gray);
+                using (var ds = this.InPut.CreateDrawingSession())
+                {
+                    ds.FillRectangle(new Rect(this.MoveStart, this.MoveEnd), Windows.UI.Colors.Gray);
+                }
             }
         }
 
-
-
+        
         #endregion
              
     }
