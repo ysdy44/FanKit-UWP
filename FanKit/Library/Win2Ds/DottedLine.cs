@@ -7,7 +7,7 @@ using Windows.Foundation;
 
 namespace FanKit.Library.Win2Ds
 {
-    /// <summary>  the Dotted Line of photoshop  </summary>
+    /// <summary>  the Dotted Line of photoshop ,should display the "marching ants" </summary>
     public class DottedLine
     {
         //Brush  

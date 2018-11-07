@@ -258,13 +258,19 @@
         "Page": "FanKit.Frames.Win2Ds.DottedLinePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "DottedLine",
         "Uri": "ms-appx:///Icon/Win2Ds/DottedLine.png",
-        "Summary": "the Dotted Line of photoshop"
+        "Summary": "the Dotted Line of photoshop ,should display the 'marching ants'"
       },
       {
         "Page": "FanKit.Frames.Win2Ds.CurveNodesPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "CurveNodes",
         "Uri": "ms-appx:///Icon/Win2Ds/CurveNodes.png",
         "Summary": " Drawing and managing Bezier curves on CanvasControl "
+      },
+      {
+        "Page": "FanKit.Frames.Win2Ds.MarqueeToolPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "MarqueeTool",
+        "Uri": "ms-appx:///Icon/Win2Ds/MarqueeTool.png",
+        "Summary": "The marquee is a tool that can make selections that are  rectangular and elliptical."
       }
     ]
   }

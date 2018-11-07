@@ -105,6 +105,9 @@
     <Compile Include="Frames\Win2Ds\CurveNodesPage.xaml.cs">
       <DependentUpon>CurveNodesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Win2Ds\MarqueeToolPage.xaml.cs">
+      <DependentUpon>MarqueeToolPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Library\Colors\AlphaPicker.xaml.cs">
       <DependentUpon>AlphaPicker.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,7 @@
     <Compile Include="Frames\Win2Ds\DottedLinePage.xaml.cs">
       <DependentUpon>DottedLinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Library\Win2Ds\MarqueeTool.cs" />
     <Compile Include="SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
@@ -315,13 +319,18 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
+    <Content Include="Icon\Win2Ds\MarqueeTool.png" />
     <Content Include="TXT\Win2Ds\CurveNodes.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLine.cs.txt" />
     <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.txt" />
     <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.txt" />
+    <Content Include="TXT\Win2Ds\MarqueeTools.cs.txt" />
+    <Content Include="TXT\Win2Ds\MarqueeToolsPage.xaml.cs.txt" />
+    <Content Include="TXT\Win2Ds\MarqueeToolsPage.xaml.txt" />
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\AlphaPicker.png" />
@@ -380,7 +389,6 @@
     <Content Include="Icon\Control\ExpandTextView.png" />
     <Content Include="Icon\Helpers\Stretch.png" />
     <Content Include="Icon\Helpers\Transition.png" />
-    <Content Include="Icon\HEROS.jpg" />
     <Content Include="Icon\Library\DataTemplateAdaptiver.png" />
     <Content Include="Icon\Control\PopupMenu.png" />
     <Content Include="Icon\Control\TabButton.png" />
@@ -426,7 +434,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Icon\Avatar.jpg" />
-    <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\iconL.png" />
     <Content Include="Icon\Logo.png" />
     <Content Include="Icon\LogoB.png" />
@@ -519,6 +526,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Frames\Win2Ds\CurveNodesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Win2Ds\MarqueeToolPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
