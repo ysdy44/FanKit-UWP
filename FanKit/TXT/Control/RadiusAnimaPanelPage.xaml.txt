@@ -1,0 +1,24 @@
+
+```xaml
+
+
+
+
+<Page
+    x:Class="FanKit.Frames.Control.RadiusAnimaPanelPage"
+    xmlns:local="using:FanKit.Frames.Control"
+    xmlns:Control="using:FanKit.Library.Control">
+
+    <Grid Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+       <Control:RadiusAnimaPanel>
+          <Control:RadiusAnimaPanel.CenterContent>
+             <Border Height="22" MinWidth="50" Margin="20,0" Background="Red"  >
+                  <TextBlock HorizontalAlignment="Center" Foreground="White"/>
+              </Border>
+          </Control:RadiusAnimaPanel.CenterContent>
+       </Control:RadiusAnimaPanel>
+    </Grid>
+
+</Page>
+
+```

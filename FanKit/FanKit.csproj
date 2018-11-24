@@ -102,6 +102,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\RadiusAnimaPanelPage.xaml.cs">
+      <DependentUpon>RadiusAnimaPanelPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Win2Ds\CurveNodesPage.xaml.cs">
       <DependentUpon>CurveNodesPage.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,9 @@
     </Compile>
     <Compile Include="Frames\Colors\SwatchesPickerPage.xaml.cs">
       <DependentUpon>SwatchesPickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Control\RadiusAnimaControl.xaml.cs">
+      <DependentUpon>RadiusAnimaControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Library\Win2Ds\CanvasOperator.cs" />
     <Compile Include="Frames\Win2Ds\CanvasOperatorPage.xaml.cs">
@@ -319,9 +325,13 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Icon\Control\RadiusAnimaPanel.png" />
     <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
     <Content Include="Icon\Win2Ds\MarqueeTool.png" />
+    <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
+    <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
+    <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
     <Content Include="TXT\Win2Ds\CurveNodes.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLine.cs.txt" />
     <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.txt" />
@@ -488,9 +498,9 @@
     <Content Include="TXT\Control\PopupMenu.cs.txt" />
     <Content Include="TXT\Control\PopupMenu.xaml.txt" />
     <Content Include="TXT\Control\PopupMenuPage.xaml.txt" />
-    <Content Include="TXT\Control\TabBotton.cs.txt" />
-    <Content Include="TXT\Control\TabBotton.xaml.txt" />
-    <Content Include="TXT\Control\TabBottonPage.xaml.txt" />
+    <Content Include="TXT\Control\TabButton.cs.txt" />
+    <Content Include="TXT\Control\TabButton.xaml.txt" />
+    <Content Include="TXT\Control\TabButtonPage.xaml.txt" />
     <Content Include="TXT\Colors\TouchSlider.cs.txt" />
     <Content Include="TXT\Colors\TouchSlider.xaml.txt" />
     <Content Include="TXT\Colors\TouchSliderPage.xaml.txt" />
@@ -525,6 +535,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Frames\Control\RadiusAnimaPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frames\Win2Ds\CurveNodesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -566,6 +580,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Win2Ds\DottedLinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Library\Control\RadiusAnimaControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

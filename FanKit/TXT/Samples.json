@@ -136,26 +136,32 @@
     },
     {
         "Name": "Control",
-        "Samples": [
-          {
-            "Page": "FanKit.Frames.Control.PopupMenuPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "PopupMenu",
-            "Uri": "ms-appx:///Icon/Control/PopupMenu.png",
-            "Summary": "Popup menu,black menu displayed on chat bubbles"
-          },
-          {
-            "Page": "FanKit.Frames.Control.TabButtonPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "TabButton",
-            "Uri": "ms-appx:///Icon/Control/TabButton.png",
-            "Summary": "Tab button"
-          },
-          {
-            "Page": "FanKit.Frames.Control.ExpandTextViewPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Name": "ExpandTextView",
-            "Uri": "ms-appx:///Icon/Control/ExpandTextView.png",
-            "Summary": "Expand text view,it shrinks or expands when clicked."
-          }
-        ]
+      "Samples": [
+        {
+          "Page": "FanKit.Frames.Control.RadiusAnimaPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "RadiusAnimaControl",
+          "Uri": "ms-appx:///Icon/Control/RadiusAnimaPanel.png",
+          "Summary": "The shadow panel of the control will also follow the animation, if you change the width of the contents of the control."
+        },
+        {
+          "Page": "FanKit.Frames.Control.PopupMenuPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "PopupMenu",
+          "Uri": "ms-appx:///Icon/Control/PopupMenu.png",
+          "Summary": "Popup menu,black menu displayed on chat bubbles"
+        },
+        {
+          "Page": "FanKit.Frames.Control.TabButtonPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "TabButton",
+          "Uri": "ms-appx:///Icon/Control/TabButton.png",
+          "Summary": "Tab button"
+        },
+        {
+          "Page": "FanKit.Frames.Control.ExpandTextViewPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "ExpandTextView",
+          "Uri": "ms-appx:///Icon/Control/ExpandTextView.png",
+          "Summary": "Expand text view,it shrinks or expands when clicked."
+        }
+      ]
     },
     {
       "Name": "Library",

@@ -1,0 +1,38 @@
+
+```xaml
+
+
+<UserControl
+    x:Class="FanKit.Library.Control.RadiusAnimaPanel"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+	>
+
+    <Grid Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <!--Animation-->
+        <Grid.Resources>
+            <Storyboard  x:Name="Storyboard" >
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Width)"   Storyboard.TargetName="Rectangle" EnableDependentAnimation ="True">
+                    <SplineDoubleKeyFrame x:Name="Frame" KeyTime="0:0:0.2" Value="200" KeySpline="0.5,1,1,1"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </Grid.Resources>
+
+        <!--Shadow-->
+        <controls:DropShadowPanel HorizontalContentAlignment="Stretch" OffsetY="3" ShadowOpacity="0.3" Color="Black">
+            <Rectangle x:Name="Rectangle" Height="50" RadiusX="25" RadiusY="25"  Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+        </controls:DropShadowPanel>
+
+        <!--Content-->
+        <Border x:Name="Border" Height="50" MinWidth="100" HorizontalAlignment="Center" SizeChanged="Border_SizeChanged">
+            <!--Content-->
+        </Border>
+
+    </Grid>
+
+</UserControl>
+
+
+
+
+```

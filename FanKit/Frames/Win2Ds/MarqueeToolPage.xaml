@@ -203,7 +203,7 @@
                                 <StackPanel  x:Name="AppbarControl2" Orientation="Horizontal" Height="50" Padding="20,0" HorizontalAlignment="Center"
                                             extensions:FrameworkElementExtensions.EnableActualSizeBinding="True">
                                   
-                                    <ToggleButton x:Name="New" Width="60" Height="Auto" IsChecked="True" VerticalAlignment="Stretch" BorderThickness="1" Background="Transparent" Tapped="New_Tapped">
+                                    <ToggleButton x:Name="New" Width="70" Height="Auto" IsChecked="True" VerticalAlignment="Stretch" BorderThickness="1" Background="Transparent" Tapped="New_Tapped">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>
@@ -213,7 +213,7 @@
                                             <TextBlock Grid.Row="1" Text="New" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
                                         </Grid>
                                     </ToggleButton>
-                                    <ToggleButton x:Name="Add" Width="60" Height="Auto" IsChecked="False" VerticalAlignment="Stretch" BorderThickness="1" Background="Transparent" Tapped="Add_Tapped">
+                                    <ToggleButton x:Name="Add" Width="70" Height="Auto" IsChecked="False" VerticalAlignment="Stretch" BorderThickness="1" Background="Transparent" Tapped="Add_Tapped">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>
@@ -223,7 +223,7 @@
                                             <TextBlock Grid.Row="1" Text="Add" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
                                         </Grid>
                                     </ToggleButton>
-                                    <ToggleButton x:Name="Subtract" Width="60" Height="Auto" IsChecked="False" VerticalAlignment="Stretch" BorderThickness="1" Background="Transparent" Tapped="Subtract_Tapped">
+                                    <ToggleButton x:Name="Subtract" Width="70" Height="Auto" IsChecked="False" VerticalAlignment="Stretch" BorderThickness="1" Background="Transparent" Tapped="Subtract_Tapped">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>
@@ -233,7 +233,7 @@
                                             <TextBlock Grid.Row="1" Text="Subtract" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
                                         </Grid>
                                     </ToggleButton>
-                                <ToggleButton x:Name="Intersect" Width="60" Height="Auto" IsChecked="False" VerticalAlignment="Stretch" BorderThickness="1" Background="Transparent" Tapped="Intersect_Tapped">
+                                <ToggleButton x:Name="Intersect" Width="70" Height="Auto" IsChecked="False" VerticalAlignment="Stretch" BorderThickness="1" Background="Transparent" Tapped="Intersect_Tapped">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*"/>
