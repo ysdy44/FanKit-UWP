@@ -107,12 +107,20 @@ namespace FanKit.Frames.Win2Ds
         {
             if (space > 0)
             {
-                if (this.Scale < 10f)     this.Scale *= 1.1f;
-             }
+                if (this.Scale < 10f)
+                {
+                    this.Scale *= 1.1f;
+                    this.Position = point + (this.Position - point) * 1.1f;
+                }
+            }
             else
             {
-                if (this.Scale > 0.1f)     this.Scale /= 1.1f;
-             }
+                if (this.Scale > 0.1f)
+                {
+                    this.Scale /= 1.1f;
+                    this.Position = point + (this.Position - point) / 1.1f;
+                }
+            }
 
             this.Invalidate("Wheel_Changed", Visibility.Visible);
         }

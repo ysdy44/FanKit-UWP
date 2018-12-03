@@ -53,7 +53,7 @@ namespace FanKit.Frames.Win2Ds
         }
         private void CanvasAnimatedControl_Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
-            this.DottedLine.Draw(sender, args.DrawingSession, this.CanvasWidth, this.CanvasHeight);
+            this.DottedLine.Draw(sender, args.DrawingSession, new Rect(0, 0, this.CanvasWidth, this.CanvasHeight));
             if (this.IsMove) args.DrawingSession.DrawRectangle(new Rect(this.MoveStart, this.MoveEnd), Windows.UI.Colors.Gray);
         }
         private void CanvasAnimatedControl_Update(ICanvasAnimatedControl sender, CanvasAnimatedUpdateEventArgs args)
@@ -65,7 +65,7 @@ namespace FanKit.Frames.Win2Ds
                 this.IsRender = false;
 
                 this.InPut = new CanvasRenderTarget(this.CanvasAnimatedControl, this.CanvasWidth, this.CanvasHeight);
-                this.DottedLine.Render(sender, 1, 1, this.InPut);
+                this.DottedLine.Render(sender, this.InPut);
             }
         }
 

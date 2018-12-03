@@ -7,22 +7,25 @@ using Windows.Foundation;
 
 namespace FanKit.Library.Win2Ds
 {
-    /// <summary>  the Dotted Line of photoshop ,should display the "marching ants" </summary>
+    /// <summary> The Dotted Line of photoshop  </summary>
     public class DottedLine
     {
         //Brush  
-        Vector2 Space;
-        CanvasLinearGradientBrush Brush;
-        CanvasGradientStop[] Stops = new CanvasGradientStop[2] { new CanvasGradientStop { Color =Windows.UI.Colors.White, Position = 0 }, new CanvasGradientStop { Color = Windows.UI.Colors.Black, Position = 1 } };
+        Vector2 space;
+        readonly CanvasLinearGradientBrush brush;
+        readonly CanvasGradientStop[] stops = new CanvasGradientStop[2] { new CanvasGradientStop { Color = Windows.UI.Colors.White, Position = 0 }, new CanvasGradientStop { Color = Windows.UI.Colors.Black, Position = 1 } };
 
         //Image
-        ICanvasImage OutPut;
+        public ICanvasImage OutPut;
 
+        /// <summary> Initialize DottedLine</summary>
+        /// <param name="distance">Distance between black and white</param>
+        /// <param name="space">Refresh, change the position of the gradient</param>
         public DottedLine(ICanvasResourceCreator creator, float distance = 6, float space = 1)
-        {            
-            this.Space = new Vector2(space, space);
+        {
+            this.space = new Vector2(space, space);
 
-            this.Brush = new CanvasLinearGradientBrush(creator, Stops, CanvasEdgeBehavior.Mirror, CanvasAlphaMode.Premultiplied)
+            this.brush = new CanvasLinearGradientBrush(creator, stops, CanvasEdgeBehavior.Mirror, CanvasAlphaMode.Premultiplied)
             {
                 StartPoint = new Vector2(0, 0),
                 EndPoint = new Vector2(distance, distance)
@@ -30,57 +33,109 @@ namespace FanKit.Library.Win2Ds
         }
 
 
-        //Render:When your image has changed, call it
-        public void Render(ICanvasResourceCreator creator, float scaleX, float scaleY, ICanvasImage image)
+        /// <summary>Update</summary>
+        public void Update()
         {
-            //Scale :zoom up
-            ScaleEffect effect = new ScaleEffect
-            {
-                Source = image,
-                Scale = new Vector2(1 / scaleX, 1 / scaleY),
-                InterpolationMode = CanvasImageInterpolation.NearestNeighbor,
-            };
-            //Crop:So that it does not exceed the canvas boundary
-            Rect rect = effect.GetBounds(creator);
-            CropEffect effect2 = new CropEffect
-            {
-                Source = effect,
-                SourceRectangle = new Rect(2, 2, rect.Width - 4, rect.Height - 4),
-            };
+            this.brush.StartPoint -= this.space;
+            this.brush.EndPoint -= this.space;
+        }
 
-            
+
+        /// <summary>Draw</summary>
+        /// <param name="canvasBounds">the bounds of this CanvasCOntrol.</param>
+        public void Draw(ICanvasResourceCreator creator, CanvasDrawingSession ds, Rect canvasBounds)
+        {
+            if (this.OutPut == null) return;
+
+            CanvasCommandList commandList = new CanvasCommandList(creator);
+            using (var dds = commandList.CreateDrawingSession())
+            {
+                dds.FillRectangle(canvasBounds, this.brush);
+                dds.DrawImage(this.OutPut, 0, 0, canvasBounds, 1, CanvasImageInterpolation.NearestNeighbor, CanvasComposite.DestinationIn);
+            }
+            ds.DrawImage(commandList);
+        }
+
+
+        /// <summary>
+        /// Render
+        /// When your image has changed, call it
+        /// </summary>
+        /// <param name="image">Marquee selection</param>
+        public void Render(ICanvasResourceCreator creator, ICanvasImage image)
+        {
+            //Crop:So that it does not exceed the canvas boundary
+            CanvasCommandList commandList = new CanvasCommandList(creator);
+            using (var ds = commandList.CreateDrawingSession())
+            {
+                ds.Clear(Windows.UI.Colors.Transparent);
+                ds.DrawImage(new CropEffect
+                {
+                    SourceRectangle = image.GetBounds(creator),
+                    Source = image,
+                });
+            }
+
             //DottedLine
             this.OutPut = new LuminanceToAlphaEffect//Alpha
             {
                 Source = new EdgeDetectionEffect//Edge
                 {
                     Amount = 1,
-                    Source = effect2
-                },
+                    Source = commandList
+                }
             };
         }
 
-        //Update
-        public void Update()
+        public void Render(ICanvasResourceCreator creator, ICanvasImage image, Matrix3x2 matrix)
         {
-            this.Brush.StartPoint -= this.Space;
-            this.Brush.EndPoint -= this.Space;
+            //Transform by matrix
+            Transform2DEffect effect = new Transform2DEffect
+            {
+                Source = image,
+                TransformMatrix = matrix
+            };
+
+            //Crop:So that it does not exceed the canvas boundary
+            CanvasCommandList commandList = new CanvasCommandList(creator);
+            using (var ds = commandList.CreateDrawingSession())
+            {
+                ds.Clear(Windows.UI.Colors.Transparent);
+                ds.DrawImage(new CropEffect
+                {
+                    SourceRectangle = this.GetMatrixRect(image.GetBounds(creator), matrix),
+                    Source = effect,
+                });
+            }
+
+            //DottedLine
+            this.OutPut = new LuminanceToAlphaEffect//Alpha
+            {
+                Source = new EdgeDetectionEffect//Edge
+                {
+                    Amount = 1,
+                    Source = commandList
+                }
+            };
         }
 
-        //Draw
-        Rect r = new Rect();
-        public void Draw(ICanvasResourceCreator creator, CanvasDrawingSession ds, double W, double H, float X = 0, float Y = 0)
+        private Rect GetMatrixRect(Rect rect, Matrix3x2 matrix)
         {
-            if (this.OutPut != null)
-            {
-                CanvasCommandList CommandList = new CanvasCommandList(creator);
-                using (var dds = CommandList.CreateDrawingSession())
-                {
-                    dds.FillRectangle(0, 0, (float)W, (float)H, this.Brush);
-                    dds.DrawImage(this.OutPut, 0, 0, new Rect(0,0,W,H), 1, CanvasImageInterpolation.NearestNeighbor, CanvasComposite.DestinationIn);
-                }
-                ds.DrawImage(CommandList, X, Y);
-            }
+            /*
+              Vector2 a = new Vector2((float)rect.Left, (float)rect.Top);
+              Vector2 b = new Vector2((float)rect.Right, (float)rect.Bottom);
+              Vector2 aa = Vector2.Transform(a, matrix);
+              Vector2 bb = Vector2.Transform(b, matrix);
+
+              return new Rect(aa.X + 2, aa.Y + 2, bb.X - aa.X - 4, bb.Y - aa.Y - 4);
+           */
+            return new Rect
+            (
+               x: rect.X * matrix.M11 + matrix.M31,
+               y: rect.Y * matrix.M22 + matrix.M32,
+               width: rect.Width * matrix.M11,
+               height: rect.Width * matrix.M22
+            );
         }
 
     }

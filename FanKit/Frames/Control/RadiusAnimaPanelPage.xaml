@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
- 
+  
 
     <Grid>
 
@@ -107,7 +107,6 @@
                             <Span >The shadow panel of the control will also follow the animation,</Span>
                             <LineBreak/>
                             <Span >if you change the width of the contents of the control. </Span>
-
 
                         </TextBlock>
                         

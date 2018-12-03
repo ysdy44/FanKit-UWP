@@ -40,28 +40,28 @@ namespace FanKit.Frames.Win2Ds
             this.EllipticalToolButton.IsChecked = false;
             this.PolygonalToolButton.IsChecked = false;
             this.FreeHandToolButton.IsChecked = false;
-            this.MarqueeTool.Tool = ToolType.Rectangular;
+            this.MarqueeTool.Tool = MarqueeToolType.Rectangular;
         }
         private void EllipticalToolButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.RectangularToolButton.IsChecked = false;
             this.PolygonalToolButton.IsChecked = false;
             this.FreeHandToolButton.IsChecked = false;
-            this.MarqueeTool.Tool = ToolType.Elliptical;
+            this.MarqueeTool.Tool = MarqueeToolType.Elliptical;
         }
         private void PolygonalToolButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.RectangularToolButton.IsChecked = false;
             this.EllipticalToolButton.IsChecked = false;
             this.FreeHandToolButton.IsChecked = false;
-            this.MarqueeTool.Tool = ToolType.Polygonal;
+            this.MarqueeTool.Tool = MarqueeToolType.Polygonal;
         }
         private void FreeHandToolButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.RectangularToolButton.IsChecked = false;
             this.EllipticalToolButton.IsChecked = false;
             this.PolygonalToolButton.IsChecked = false;
-            this.MarqueeTool.Tool = ToolType.FreeHand;
+            this.MarqueeTool.Tool = MarqueeToolType.FreeHand;
         }
 
 
@@ -95,28 +95,28 @@ namespace FanKit.Frames.Win2Ds
             this.Add.IsChecked = false;
             this.Subtract.IsChecked = false;
             this.Intersect.IsChecked = false;
-            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.CompositeMode.New;
+            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.MarqueeCompositeMode.New;
         }
         private void Add_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.New.IsChecked = false;
             this.Subtract.IsChecked = false;
             this.Intersect.IsChecked = false;
-            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.CompositeMode.Add;
+            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.MarqueeCompositeMode.Add;
         }
         private void Subtract_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.New.IsChecked = false;
             this.Add.IsChecked = false;
             this.Intersect.IsChecked = false;
-            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.CompositeMode.Subtract;
+            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.MarqueeCompositeMode.Subtract;
         }
         private void Intersect_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.New.IsChecked = false;
             this.Add.IsChecked = false;
             this.Subtract.IsChecked = false;
-            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.CompositeMode.Intersect;
+            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.MarqueeCompositeMode.Intersect;
         }
 
 
