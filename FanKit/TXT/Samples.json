@@ -95,6 +95,12 @@
           "Name": "FontWeight",
           "Uri": "ms-appx:///Icon/Helpers/FontWeight.png",
           "Summary": "Gets or sets the top-level font weight for the TextBlock."
+        },
+        {
+          "Page": "FanKit.Frames.Helpers.ColorsPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Name": "Colors",
+          "Uri": "ms-appx:///Icon/Helpers/Colors.png.png",
+          "Summary": "All color of Windows.UI.Colors."
         }
       ]
     },

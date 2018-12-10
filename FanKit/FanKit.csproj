@@ -105,6 +105,9 @@
     <Compile Include="Frames\Control\RadiusAnimaPanelPage.xaml.cs">
       <DependentUpon>RadiusAnimaPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Helpers\ColorsPage.xaml.cs">
+      <DependentUpon>ColorsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Win2Ds\CurveNodesPage.xaml.cs">
       <DependentUpon>CurveNodesPage.xaml</DependentUpon>
     </Compile>
@@ -326,6 +329,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Icon\Control\RadiusAnimaPanel.png" />
+    <Content Include="Icon\Helpers\Colors.png" />
     <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
     <Content Include="Icon\Win2Ds\MarqueeTool.png" />
@@ -536,6 +540,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Frames\Control\RadiusAnimaPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Helpers\ColorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
