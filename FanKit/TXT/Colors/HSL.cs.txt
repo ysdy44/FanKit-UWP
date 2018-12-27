@@ -1,7 +1,5 @@
 
 ```Csharp
-
-
 using System;
 using Windows.UI;
 
@@ -88,40 +86,45 @@ namespace FanKit.Library.Colors
         /// <returns> Color </returns>
         public static Color HSLtoRGB(byte a, double h, double s, double l)
         {
-            double H = h / 360;
-            double S = s / 100;
-            double L = l / 100;
-
-            if (S == 0)
+            if (s == 0)
             {
-                byte i = (byte)(L * 255.0);
-                return Color.FromArgb(a, i, i, i);
+                byte ll = (byte)(l / 100 * 255);
+                return Color.FromArgb(a, ll, ll, ll);
             }
+            
+            double S = s / 100;
+            double V = l / 100;
 
-            double var_2;
-            if (L < 0.5) var_2 = L * (1 + S);
-            else var_2 = (L + S) - (S * L);
+            int H1 = (int)(h * 1.0f / 60);
+            double F = h / 60 - H1;
+            double P = V * (1.0f - S);
+            double Q = V * (1.0f - F * S);
+            double T = V * (1.0f - (1.0f - F) * S);
+            
+            double R = 0f, G = 0f, B = 0f;
+            switch (H1)
+            {
+                case 0: R = V; G = T; B = P; break;
+                case 1: R = Q; G = V; B = P; break;
+                case 2: R = P; G = V; B = T; break;
+                case 3: R = P; G = Q; B = V; break;
+                case 4: R = T; G = P; B = V; break;
+                case 5: R = V; G = P; B = Q; break;
+            }                       
 
-            double var_1 = 2.0 * L - var_2;
+            R = R * 255;
+            while (R > 255) R -= 255;
+            while (R < 0) R += 255;
 
-            return Color.FromArgb
-            (
-               a: a,
-               r: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, H + (1.0 / 3.0))),
-               g: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, H)),
-               b: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, H - (1.0 / 3.0)))
-            );
-        }
+            G = G * 255;
+            while (G > 255) G -= 255;
+            while (G < 0) G += 255;
 
-        private static double HtoRGB(double v1, double v2, double vH)
-        {
-            if (vH < 0) vH += 1;
-            if (vH > 1) vH -= 1;
-            if (6.0 * vH < 1) return v1 + (v2 - v1) * 6.0 * vH;
-            if (2.0 * vH < 1) return v2;
-            if (3.0 * vH < 2) return v1 + (v2 - v1) * ((2.0 / 3.0) - vH) * 6.0;
-
-            return v1;
+            B = B * 255;
+            while (B > 255) B -= 255;
+            while (B < 0) B += 255;
+            
+            return Color.FromArgb(a, (byte)R, (byte)G, (byte)B);
         }
 
 
@@ -139,52 +142,34 @@ namespace FanKit.Library.Colors
         /// <returns> HSL </returns>
         public static HSL RGBtoHSL(byte a, byte r, byte g, byte b)
         {
-            double del_R, del_G, del_B;
+            double R = r * 1.0f / 255;
+            double G = g * 1.0f / 255;
+            double B = b * 1.0f / 255;
 
-            double R = r / 255.0;
-            double G = g / 255.0;
-            double B = b / 255.0;
+            double min = Math.Min(Math.Min(R, G), B);
+            double max = Math.Max(Math.Max(R, G), B);
+                       
+            double H=0, S, V;
+ 
+            if (max == min) { H = 0; }
 
-            double Min = Math.Min(R, Math.Min(G, B));//Min. value of RGB
-            double Max = Math.Max(R, Math.Max(G, B));//Max. value of RGB
-            double del_Max = Max - Min;//Delta RGB value
+            else if (max == R && G > B) H = 60 * (G - B) * 1.0f / (max - min) + 0;            
+            else if (max == R && G < B)H = 60 * (G - B) * 1.0f / (max - min) + 360;            
+            else if (max == G)H = H = 60 * (B - R) * 1.0f / (max - min) + 120;            
+            else if (max == B) H = H = 60 * (R - G) * 1.0f / (max - min) + 240;
+            
+            if (max == 0)  S = 0;          
+            else S = (max - min) * 1.0f / max;            
 
-            double L = (Max + Min) / 2.0;
-            double H = 0;
-            double S;
+            V = max;
 
-            if (del_Max == 0)//This is a gray, no chroma...
-            {
-                //H = 2.0/3.0;  
-                H = 0;
-                S = 0;
-            }
-            else//Chromatic data...
-            {
-                if (L < 0.5) S = del_Max / (Max + Min);
-                else S = del_Max / (2 - Max - Min);
-
-                del_R = (((Max - R) / 6.0) + (del_Max / 2.0)) / del_Max;
-                del_G = (((Max - G) / 6.0) + (del_Max / 2.0)) / del_Max;
-                del_B = (((Max - B) / 6.0) + (del_Max / 2.0)) / del_Max;
-
-                if (R == Max) H = del_B - del_G;
-                else if (G == Max) H = (1.0 / 3.0) + del_R - del_B;
-                else if (B == Max) H = (2.0 / 3.0) + del_G - del_R;
-
-                if (H < 0) H += 1;
-                if (H > 1) H -= 1;
-            }
-
-            return new HSL(a, H * 360, S * 100, L * 100);
+            return new HSL(a, H, (S * 100), V * 100);
         }
 
 
     }
+
 }
-
-
-
 
 
 
