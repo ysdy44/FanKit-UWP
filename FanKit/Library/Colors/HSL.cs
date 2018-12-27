@@ -6,9 +6,10 @@ namespace FanKit.Library.Colors
     /// <summary> Color form HSL </summary>
     public class HSL
     {
+        /// <summary> Alpha </summary>
         public byte A;
 
-        private double h;
+        /// <summary> Hue </summary>
         public double H
         {
             get => h;
@@ -19,8 +20,9 @@ namespace FanKit.Library.Colors
                 else h = value;
             }
         }
+        private double h;
 
-        private double s;
+        /// <summary> Saturation </summary>
         public double S
         {
             get => s;
@@ -31,8 +33,9 @@ namespace FanKit.Library.Colors
                 else s = value;
             }
         }
+        private double s;
 
-        private double l;
+        /// <summary> Lightness </summary>
         public double L
         {
             get => l;
@@ -43,49 +46,16 @@ namespace FanKit.Library.Colors
                 else l = value;
             }
         }
+        private double l;
+
 
         public HSL(byte A, double H, double S, double L) { this.A = A; this.H = H; this.S = S; this.L = L; }
 
 
-
-
-
-        /// <summary>
-        /// HSL to RGB 
-        /// </summary>
-        /// <param name="A">A(W):0~255</param>
-        /// <param name="H">H(X):0~360</param>
-        /// <param name="S">S(Y):0~100</param>
-        /// <param name="L">L(Z):0~100</param>
-        /// <returns>Color form RGB</returns>
-        public static Color HSLtoRGB(byte A, double H, double S, double L)
-        {
-            double s = S / 100.0;
-            double l = L / 100.0;
-            byte ll = (byte)(l * 255.0);
-
-            if (s == 0.0) return Color.FromArgb(A, ll, ll, ll);
-
-            double hh = H % 360.0;
-            double dhh = hh / 60.0;
-            int nhh = (int)Math.Floor(dhh);
-            double rhh = dhh - nhh;
-
-            byte rr = (byte)(l * (1.0 - s) * 255.0);
-            byte gg = (byte)(l * (1.0 - (s * rhh)) * 255.0);
-            byte bb = (byte)(l * (1.0 - (s * (1.0 - rhh))) * 255.0);
-
-            switch (nhh)
-            {
-                case 0: return Color.FromArgb(A, ll, bb, rr);
-                case 1: return Color.FromArgb(A, gg, ll, rr);
-                case 2: return Color.FromArgb(A, rr, ll, bb);
-                case 3: return Color.FromArgb(A, rr, gg, ll);
-                case 4: return Color.FromArgb(A, bb, rr, ll);
-                default: return Color.FromArgb(A, ll, rr, gg);
-            }
-        }
-        public static Color HSLtoRGB(double H)
+        /// <summary> RGB to HSL </summary>
+        /// <param name="H"> Hue </param>
+        /// <returns> Color </returns>
+        public static Color HSLtoColor(double H)
         {
             double hh = H / 60;
             byte xhh = (byte)((1 - Math.Abs(hh % 2 - 1)) * 255);
@@ -97,58 +67,87 @@ namespace FanKit.Library.Colors
             else if (hh < 5) return Color.FromArgb(255, xhh, 0, 255);
             else return Color.FromArgb(255, 255, 0, xhh);
         }
+        /// <summary> RGB to HSL </summary>
+        /// <param name="hsl"> HSL </param>
+        /// <returns> Color </returns>
+        public static Color HSLtoRGB(HSL hsl)
+        {
+            if (hsl.S == 0)
+            {
+                byte l = (byte)(hsl.L * 255.0);
+                return Color.FromArgb(hsl.A, l, l, l);
+            }
+
+            double var_2;
+            if (hsl.L < 0.5) var_2 = hsl.L * (1 + hsl.S);
+            else var_2 = (hsl.L + hsl.S) - (hsl.S * hsl.L);
+
+            double var_1 = 2.0 * hsl.L - var_2;
+
+            return Color.FromArgb
+            (
+               a: hsl.A,
+               r: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, hsl.H + (1.0 / 3.0))),
+               g: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, hsl.H)),
+               b: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, hsl.H - (1.0 / 3.0)))
+            );
+        }
+        private static double HtoRGB(double v1, double v2, double vH)
+        {
+            if (vH < 0) vH += 1;
+            if (vH > 1) vH -= 1;
+            if (6.0 * vH < 1) return v1 + (v2 - v1) * 6.0 * vH;
+            if (2.0 * vH < 1) return v2;
+            if (3.0 * vH < 2) return v1 + (v2 - v1) * ((2.0 / 3.0) - vH) * 6.0;
+
+            return v1;
+        }
 
 
-        /// <summary>
-        /// RGB to HSL
-        /// </summary>
-        /// <param name="color">Color form RGB</param>
-        /// <returns>A(W):0~255, H(X):0~360, S(Y):0~100, L(Z):0~100</returns>
+        /// <summary> RGB to HSL </summary>
+        /// <param name="color"> Color </param>
+        /// <returns> HSL </returns>
         public static HSL RGBtoHSL(Color color)
         {
+            double del_R, del_G, del_B;
+
             double R = color.R / 255.0;
             double G = color.G / 255.0;
             double B = color.B / 255.0;
 
-            double max = Math.Max(Math.Max(R, G), B);
-            double min = Math.Min(Math.Min(R, G), B);
+            double Min = Math.Min(R, Math.Min(G, B));//Min. value of RGB
+            double Max = Math.Max(R, Math.Max(G, B));//Max. value of RGB
+            double del_Max = Max - Min;//Delta RGB value
 
-            double S = max - min;
-            double L = (min + max) / 2.0f;
+            double L = (Max + Min) / 2.0;
+            double H = 0;
+            double S;
 
-            if (L <= 0.0) return new HSL(color.A, 0, 0, 0);
-
-            if (S > 0.0)
+            if (del_Max == 0)//This is a gray, no chroma...
             {
-                if (L <= 0.5f) S /= (max + min);
-                else S /= (2.0f - max - min);
+                //H = 2.0/3.0;  
+                H = 0;
+                S = 0;
             }
-            else return new HSL(color.A, 0, 0, 0);
+            else//Chromatic data...
+            {
+                if (L < 0.5) S = del_Max / (Max + Min);
+                else S = del_Max / (2 - Max - Min);
 
-            double rr = (max - R) / S;
-            double gg = (max - G) / S;
-            double bb = (max - B) / S;
+                del_R = (((Max - R) / 6.0) + (del_Max / 2.0)) / del_Max;
+                del_G = (((Max - G) / 6.0) + (del_Max / 2.0)) / del_Max;
+                del_B = (((Max - B) / 6.0) + (del_Max / 2.0)) / del_Max;
 
-            double H;
-            if (R == max)
-            {
-                if (G == min) H = 5.0f + bb;
-                else H = 1.0f - gg;
-            }
-            else if (G == max)
-            {
-                if (B == min) H = 3.0 - bb;
-                else H = 3.0 - bb;
-            }
-            else// if (B == max)
-            {
-                if (R == min) H = 3.0 + gg;
-                else H = 5.0 - rr;
+                if (R == Max) H = del_B - del_G;
+                else if (G == Max) H = (1.0 / 3.0) + del_R - del_B;
+                else if (B == Max) H = (2.0 / 3.0) + del_G - del_R;
+
+                if (H < 0) H += 1;
+                if (H > 1) H -= 1;
             }
 
-            return new HSL(color.A, (float)(H * 60.0), (float)(S * 100.0), (float)(L * 200.0));
+            return new HSL(color.A, H, S, L);
         }
 
-        
     }
 }

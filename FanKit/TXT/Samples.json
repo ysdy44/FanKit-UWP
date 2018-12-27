@@ -99,7 +99,7 @@
         {
           "Page": "FanKit.Frames.Helpers.ColorsPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "Name": "Colors",
-          "Uri": "ms-appx:///Icon/Helpers/Colors.png.png",
+          "Uri": "ms-appx:///Icon/Helpers/Colors.png",
           "Summary": "All color of Windows.UI.Colors."
         }
       ]
