@@ -6,6 +6,7 @@ namespace FanKit.Library.Colors
     /// <summary> Color form HSL </summary>
     public class HSL
     {
+
         /// <summary> Alpha </summary>
         public byte A;
 
@@ -49,13 +50,15 @@ namespace FanKit.Library.Colors
         private double l;
 
 
+
         public HSL(byte A, double H, double S, double L) { this.A = A; this.H = H; this.S = S; this.L = L; }
+
 
 
         /// <summary> RGB to HSL </summary>
         /// <param name="H"> Hue </param>
         /// <returns> Color </returns>
-        public static Color HSLtoColor(double H)
+        public static Color HSLtoRGB(double H)
         {
             double hh = H / 60;
             byte xhh = (byte)((1 - Math.Abs(hh % 2 - 1)) * 255);
@@ -67,31 +70,45 @@ namespace FanKit.Library.Colors
             else if (hh < 5) return Color.FromArgb(255, xhh, 0, 255);
             else return Color.FromArgb(255, 255, 0, xhh);
         }
+
         /// <summary> RGB to HSL </summary>
         /// <param name="hsl"> HSL </param>
         /// <returns> Color </returns>
-        public static Color HSLtoRGB(HSL hsl)
+        public static Color HSLtoRGB(HSL hsl) => HSL.HSLtoRGB(hsl.A, hsl.H, hsl.S, hsl.L);
+
+        /// <summary> RGB to HSL </summary>
+        /// <param name="a"> Alpha </param>
+        /// <param name="h"> Hue </param>
+        /// <param name="s"> Saturation </param>
+        /// <param name="l"> Lightness </param>
+        /// <returns> Color </returns>
+        public static Color HSLtoRGB(byte a, double h, double s, double l)
         {
-            if (hsl.S == 0)
+            double H = h / 360;
+            double S = s / 100;
+            double L = l / 100;
+
+            if (S == 0)
             {
-                byte l = (byte)(hsl.L * 255.0);
-                return Color.FromArgb(hsl.A, l, l, l);
+                byte i = (byte)(L * 255.0);
+                return Color.FromArgb(a, i, i, i);
             }
 
             double var_2;
-            if (hsl.L < 0.5) var_2 = hsl.L * (1 + hsl.S);
-            else var_2 = (hsl.L + hsl.S) - (hsl.S * hsl.L);
+            if (L < 0.5) var_2 = L * (1 + S);
+            else var_2 = (L + S) - (S * L);
 
-            double var_1 = 2.0 * hsl.L - var_2;
+            double var_1 = 2.0 * L - var_2;
 
             return Color.FromArgb
             (
-               a: hsl.A,
-               r: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, hsl.H + (1.0 / 3.0))),
-               g: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, hsl.H)),
-               b: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, hsl.H - (1.0 / 3.0)))
+               a: a,
+               r: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, H + (1.0 / 3.0))),
+               g: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, H)),
+               b: (byte)(255.0 * HSL.HtoRGB(var_1, var_2, H - (1.0 / 3.0)))
             );
         }
+
         private static double HtoRGB(double v1, double v2, double vH)
         {
             if (vH < 0) vH += 1;
@@ -104,16 +121,25 @@ namespace FanKit.Library.Colors
         }
 
 
+
         /// <summary> RGB to HSL </summary>
         /// <param name="color"> Color </param>
         /// <returns> HSL </returns>
-        public static HSL RGBtoHSL(Color color)
+        public static HSL RGBtoHSL(Color color) => HSL.RGBtoHSL(color.A, color.R, color.G, color.B);
+
+        /// <summary> RGB to HSL </summary>
+        /// <param name="a"> Alpha </param>
+        /// <param name="r"> Red </param>
+        /// <param name="g"> Green </param>
+        /// <param name="b"> Blue </param>
+        /// <returns> HSL </returns>
+        public static HSL RGBtoHSL(byte a, byte r, byte g, byte b)
         {
             double del_R, del_G, del_B;
 
-            double R = color.R / 255.0;
-            double G = color.G / 255.0;
-            double B = color.B / 255.0;
+            double R = r / 255.0;
+            double G = g / 255.0;
+            double B = b / 255.0;
 
             double Min = Math.Min(R, Math.Min(G, B));//Min. value of RGB
             double Max = Math.Max(R, Math.Max(G, B));//Max. value of RGB
@@ -146,8 +172,10 @@ namespace FanKit.Library.Colors
                 if (H > 1) H -= 1;
             }
 
-            return new HSL(color.A, H, S, L);
+            return new HSL(a, H * 360, S * 100, L * 100);
         }
+
 
     }
 }
+

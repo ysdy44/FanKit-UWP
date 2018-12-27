@@ -1,7 +1,5 @@
 
 ```Csharp
-
-
 using Microsoft.Graphics.Canvas;
 using System;
 using System.Linq;
@@ -149,10 +147,5 @@ namespace FanKit.Library.Colors
      
     }
 }
-
-
-
-
-
 
 ```

@@ -21,16 +21,16 @@ namespace FanKit.Library.Colors
             get { return (int)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
-        public static readonly DependencyProperty ValueProperty =DependencyProperty.Register(nameof(Value), typeof(int), typeof(NumberPicker), new PropertyMetadata(0, new PropertyChangedCallback(ValueOnChang)));
-        private static void ValueOnChang(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(int), typeof(NumberPicker), new PropertyMetadata(0, (sender, e) =>
         {
             NumberPicker con = (NumberPicker)sender;
 
             if (e.NewValue is int value)
             {
-                con.Button.Content =  value.ToString() + " " + con.Unit;
+                con.Button.Content = value.ToString() + " " + con.Unit;
             }
-        }
+        }));
+
 
 
         public int Minimum

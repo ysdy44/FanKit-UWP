@@ -4,7 +4,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 
-
 namespace FanKit.Library.Colors
 {
     public sealed partial class AlphaPicker : UserControl
@@ -21,13 +20,16 @@ namespace FanKit.Library.Colors
             get { return (Color)GetValue(ColorProperty); }
             set { SetValue(ColorProperty, value); }
         }
-        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(HSLPicker), new PropertyMetadata(null, new PropertyChangedCallback(ColorOnChanged)));
-        private static void ColorOnChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(HSLPicker), new PropertyMetadata(null, (sender, e) =>
         {
             AlphaPicker con = (AlphaPicker)sender;
 
-            if (e.NewValue is Color NewValue) con.ColorChanged(NewValue);
-        }
+            if (e.NewValue is Color NewValue)
+            {
+                con.ColorChanged(NewValue);
+            }
+        }));
+      
         private void ColorChanged(Color value)
         {
             this.Slider.Value = value.A;

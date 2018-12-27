@@ -20,13 +20,16 @@ namespace FanKit.Library.Colors
             get { return (Color)GetValue(ColorProperty); }
             set { SetValue(ColorProperty, value); }
         }
-        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(HSLPicker), new PropertyMetadata(null, new PropertyChangedCallback(ColorOnChanged)));
-        private static void ColorOnChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(HSLPicker), new PropertyMetadata(Windows.UI.Colors.White, (sender, e) =>
         {
             RGBPicker con = (RGBPicker)sender;
 
-            if (e.NewValue is Color NewValue) con.ColorChanged(NewValue);
-        }
+            if (e.NewValue is Color NewValue)
+            {
+                con.ColorChanged(NewValue);
+            }
+        }));
+
         private void ColorChanged(Color value)
         {
             //R

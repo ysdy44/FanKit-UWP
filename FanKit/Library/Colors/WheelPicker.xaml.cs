@@ -39,13 +39,16 @@ namespace FanKit.Library.Colors
             get { return (HSL)GetValue(HSLProperty); }
             set { SetValue(HSLProperty, value); }
         }
-        public static readonly DependencyProperty HSLProperty = DependencyProperty.Register(nameof(HSL), typeof(HSL), typeof(WheelPicker), new PropertyMetadata(new HSL(255, 360, 100, 100), new PropertyChangedCallback(HSLOnChanged)));
-        private static void HSLOnChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        public static readonly DependencyProperty HSLProperty = DependencyProperty.Register(nameof(HSL), typeof(HSL), typeof(WheelPicker), new PropertyMetadata(new HSL(255, 360, 100, 100), (sender, e) =>
         {
             WheelPicker con = (WheelPicker)sender;
 
-            if (e.NewValue is HSL NewValue) con.HSLChanged(NewValue);
-        }
+            if (e.NewValue is HSL NewValue)
+            {
+                con.HSLChanged(NewValue);
+            }
+        }));
+
         private void HSLChanged(HSL value)
         {
             byte A = value.A;
