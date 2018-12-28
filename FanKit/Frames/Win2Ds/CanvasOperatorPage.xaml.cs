@@ -10,8 +10,8 @@ namespace FanKit.Frames.Win2Ds
 {
     public sealed partial class CanvasOperatorPage : Page
     {
-        float Width = 100;
-        float Height = 100;
+        float CanvasWidth = 100;
+        float CanvasHeight = 100;
         Vector2 Position;
         float Scale = 1f;
 
@@ -51,19 +51,18 @@ namespace FanKit.Frames.Win2Ds
 
 
 
-
-        Vector2 Right_Start_Point;
-        Vector2 Right_Start_Position;
+        Vector2 rightStartPoint;
+        Vector2 rightStartPosition;
         private void Right_Start(Vector2 point)
         {
-            this.Right_Start_Point = point;
-            this.Right_Start_Position = this.Position;
+            this.rightStartPoint = point;
+            this.rightStartPosition = this.Position;
 
             this.Invalidate("Right_Start", Visibility.Visible);
         }
         private void Right_Delta(Vector2 point)
         {
-            this.Position = this.Right_Start_Position - this.Right_Start_Point + point;
+            this.Position = this.rightStartPosition - this.rightStartPoint + point;
 
             this.Invalidate("Right_Delta");
         }
@@ -73,27 +72,26 @@ namespace FanKit.Frames.Win2Ds
         }
 
 
-
-
-        Vector2 Double_Start_Center;
-        Vector2 Double_Start_Position;
-        float Double_Start_Scale;
-        float Double_Start_Space;
+        
+        Vector2 doubleStartCenter;
+        Vector2 doubleStartPosition;
+        float doubleStartScale;
+        float doubleStartSpace;
         private void Double_Start(Vector2 center, float space)
         {
-            this.Double_Start_Center = center;
-            this.Double_Start_Position = this.Position;
+            this.doubleStartCenter = (center - this.Position) / this.Scale + new Vector2(this.CanvasWidth / 2, this.CanvasHeight / 2);
+            this.doubleStartPosition = this.Position;
 
-            this.Double_Start_Space = space;
-            this.Double_Start_Scale = this.Scale;
+            this.doubleStartSpace = space;
+            this.doubleStartScale = this.Scale;
 
             this.Invalidate("Double_Start", Visibility.Visible);
         }
         private void Double_Delta(Vector2 center, float space)
         {
-            this.Position = this.Double_Start_Position - this.Double_Start_Center + center;
+            this.Scale = this.doubleStartScale / this.doubleStartSpace * space;
 
-            this.Scale = this.Double_Start_Scale / this.Double_Start_Space * space;
+            this.Position = center - (this.doubleStartCenter - new Vector2(this.CanvasWidth / 2, this.CanvasHeight / 2)) * this.Scale;
 
             this.Invalidate("Double_Delta");
         }
@@ -149,11 +147,10 @@ namespace FanKit.Frames.Win2Ds
         {
             this.RulerDraw(args.DrawingSession,this.Position,this.Scale);
 
-            args.DrawingSession.Transform = Matrix3x2.CreateScale(this.Scale) * Matrix3x2.CreateTranslation(this.Position);
-            args.DrawingSession.FillRectangle(-this.Width / 2, -this.Height / 2, this.Width, this.Height,Windows.UI.Colors.Gray);
+            args.DrawingSession.Transform = Matrix3x2.CreateTranslation(-this.CanvasWidth / 2, -this.CanvasHeight / 2) * Matrix3x2.CreateScale(this.Scale) * Matrix3x2.CreateTranslation(this.Position);
+            args.DrawingSession.FillRectangle(-this.CanvasWidth / 2, -this.CanvasHeight / 2, this.CanvasWidth, this.CanvasHeight,Windows.UI.Colors.Gray);
         }
-
-
+        
 
 
         CanvasTextFormat RulerTextFormat = new CanvasTextFormat() { FontSize = 12, HorizontalAlignment = CanvasHorizontalAlignment.Center, VerticalAlignment = CanvasVerticalAlignment.Center, };
@@ -199,8 +196,3 @@ namespace FanKit.Frames.Win2Ds
               
     }
 }
-
-
-
-
-
