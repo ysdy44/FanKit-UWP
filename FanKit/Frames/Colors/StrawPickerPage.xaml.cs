@@ -25,7 +25,7 @@ namespace FanKit.Frames.Colors
         }
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.StrawPicker.NewColor = Color.FromArgb(255, 0, 187, 255);
+            this.StrawPicker.Color = Color.FromArgb(255, 0, 187, 255);
 
             this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/StrawPickerPage.xaml.txt");
             this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/StrawPicker.xaml.txt");

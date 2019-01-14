@@ -115,5 +115,10 @@ namespace FanKit.Library.Colors
             this.SolidColorBrushName.Color = value;
             this.ColorChange?.Invoke(this, value);
         }
+
+        private void StrawPicker_ColorChange(object sender, Color value)
+        {
+
+        }
     }
 }
