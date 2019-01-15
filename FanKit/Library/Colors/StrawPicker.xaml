@@ -14,6 +14,8 @@
         <SolidColorBrush x:Name="SolidColorBrushName" x:Key="SolidColorBrushKey" Color="White"/>
         <SolidColorBrush x:Name="SolidColorBrushNameOld" x:Key="SolidColorBrushKeyOld" Color="White"/>
 
+        <ContentControl x:Name="aaaa">
+        </ContentControl>
     </UserControl.Resources>
 
     <Border Background="Transparent" 

@@ -10,7 +10,6 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:library="using:FanKit.Library"
     mc:Ignorable="d"
-    Loaded="Page_Loaded"
     Background="{ThemeResource AppBarBackgroundThemeBrush}">
 
 
@@ -532,11 +531,11 @@
             <Frame x:Name="NavigationFrame"/>
 
             <!--FAB Button-->
-            <Button 
+            <Button x:Name="ImageVisibleButton"
             Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}"
             Style="{StaticResource AppFABButtonStyle}"
-            extensions:VisualExtensions.CenterPoint="32,32,0"
-            Tapped="Border_Tapped">
+            extensions:VisualExtensions.CenterPoint="32,32,0">
+
 
                 <!--Visibility="Visible" Show-->
                 <animations:Implicit.ShowAnimations>

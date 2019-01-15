@@ -26,65 +26,16 @@ using Windows.System;
 namespace FanKit
 {
     public sealed partial class MainPage : Page
-    {
+    {   
+        //Navigate
+        public static Action<Type> Navigate;
+
         //delegate
         public delegate void ImageButtonVisibleChangedHandler(double Offset);
         public static event ImageButtonVisibleChangedHandler ImageButtonVisibleChanged = null;
+     
         //Methon
         public static void ImageButtonVisibleChange(double Offset) => ImageButtonVisibleChanged?.Invoke(Offset);
-         
-        
-        public MainPage()
-        {
-            this.InitializeComponent();
-            this.ExtendAcrylicIntoTitleBar(); //TitleBar
-        }
-
-
-        #region Initialize
-
-
-        //TitleBar
-        private void ExtendAcrylicIntoTitleBar()
-        {
-            //TitleBar
-            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = false;
-
-            //TitleBar
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            Color background = Color.FromArgb(255, 0, 178, 240);
-            titleBar.BackgroundColor = background;
-            titleBar.ButtonBackgroundColor = background;
-            titleBar.ButtonInactiveBackgroundColor = background;
-
-            titleBar.ButtonHoverBackgroundColor = Colors.Gray;
-            titleBar.ButtonPressedBackgroundColor = Colors.Gray;
-
-            //Back按钮
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-        }
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.NavigationFrame.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
- 
-            //ImageButtonVisible
-            FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.sos.VerticalOffset = Offset;
-
-            //SampleCategory
-            string json = await FanKit.Library.File.GetFile("ms-appx:///TXT/Samples.json");
-            this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SampleCategory>>(json);
-        }
-
-
-
-        #endregion
-
-
-        #region ImageVisible
-
-
         private bool isImageVisible;
         public bool IsImageVisible
         {
@@ -97,45 +48,85 @@ namespace FanKit
                 isImageVisible = value;
             }
         }
-        private void Border_Tapped(object sender, TappedRoutedEventArgs e) => this.IsImageVisible = !this.IsImageVisible;
+
+        public MainPage()
+        {
+            this.InitializeComponent();
 
 
-        #endregion
+            //delegate
+            this.ImageVisibleButton.Tapped += (sender, e) => this.IsImageVisible = !this.IsImageVisible;
 
 
-        #region Navigate
+            //Navigate
+            MainPage.Navigate = (page) =>
+            {
+                //Sample Category Control
+                this.SampleCategoryControl.Category = null;
+
+                //Navigate
+                this.ListView.SelectedIndex = -1;
+
+                //Navigate
+                this.NavigationFrame.Navigate(page);
+
+                //Back
+                this.BackButton.Content = "\uE0D5";
+            };
 
 
+            // this.ExtendAcrylicIntoTitleBar(); //TitleBar
+            {
+                //TitleBar
+                CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = false;
+
+                //TitleBar
+                ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+                Color background = Color.FromArgb(255, 0, 178, 240);
+                titleBar.BackgroundColor = background;
+                titleBar.ButtonBackgroundColor = background;
+                titleBar.ButtonInactiveBackgroundColor = background;
+
+                titleBar.ButtonHoverBackgroundColor = Colors.Gray;
+                titleBar.ButtonPressedBackgroundColor = Colors.Gray;
+
+                //Back按钮
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            }
+
+
+            this.Loaded += async (sender, e) =>
+            {
+                //Frame          
+                MainPage.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
+
+                //ImageButtonVisible
+                FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.sos.VerticalOffset = Offset;
+
+                //SampleCategory
+                string json = await FanKit.Library.File.GetFile("ms-appx:///TXT/Samples.json");
+                this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SampleCategory>>(json);
+            };
+
+        }
+
+
+
+
+        private void HomeButton_Tapped(object sender, TappedRoutedEventArgs e) => MainPage.Navigate(typeof(FanKit.Frames.Others.SplashPage));
+        private void SettingButton_Tapped(object sender, TappedRoutedEventArgs e) => MainPage.Navigate(typeof(FanKit.Frames.Others.SettingPage));
+        private void SampleCategoryControl_ItemClick(Type page) => MainPage.Navigate(page);
         private void BackButton_Tapped(object sender, TappedRoutedEventArgs e)
-        {         
+        {
             //Back
-            if (this.NavigationFrame.CanGoBack)  this.NavigationFrame.GoBack();
+            if (this.NavigationFrame.CanGoBack) this.NavigationFrame.GoBack();
 
             //Back
             if (this.NavigationFrame.CanGoBack) this.BackButton.Content = "\uE0D5";
             else this.BackButton.Content = "\uE80F";
         }
-        private void HomeButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Navigate(typeof(FanKit.Frames.Others.SplashPage));
-        private void SettingButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Navigate(typeof(FanKit.Frames.Others.SettingPage));
-        private void SampleCategoryControl_ItemClick(Type page) => this.Navigate(page);
 
-        private void Navigate(Type page)
-        {
-            //Sample Category Control
-            this.SampleCategoryControl.Category = null;
-
-            //Navigate
-            this.ListView.SelectedIndex = -1;
-    
-            //Navigate
-            this.NavigationFrame.Navigate(page);
-
-            //Back
-            this.BackButton.Content = "\uE0D5";
-        }
-
-
-        #endregion
 
 
         //SampleCategory
@@ -152,6 +143,8 @@ namespace FanKit
                     this.SampleCategoryControl.Category = category;
             }
         }
+
+
     }
 }
 
