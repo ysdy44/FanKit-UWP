@@ -1,5 +1,6 @@
 
 ```Csharp
+
 using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
@@ -22,7 +23,7 @@ namespace FanKit.Library.Colors
 
 
         #region DependencyProperty
-        
+
 
         private Color color = Color.FromArgb(255, 255, 255, 255);
         public Color Color
@@ -64,23 +65,23 @@ namespace FanKit.Library.Colors
             this.CanvasControl.Invalidate();
         }
 
-         
+
 
         public SolidColorBrush Stroke
         {
             get { return (SolidColorBrush)GetValue(StrokeProperty); }
             set { SetValue(StrokeProperty, value); }
         }
-        public static readonly DependencyProperty StrokeProperty =DependencyProperty.Register(nameof(Stroke), typeof(SolidColorBrush), typeof(WheelPicker), new PropertyMetadata(new SolidColorBrush(Windows.UI.Colors.Gray)));
+        public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(nameof(Stroke), typeof(SolidColorBrush), typeof(WheelPicker), new PropertyMetadata(new SolidColorBrush(Windows.UI.Colors.Gray)));
 
 
         #endregion
 
-        
+
         Vector2 Center = new Vector2(50, 50);
         float Radio = 100;
 
-        float StrokeWidth = 8;
+        readonly float StrokeWidth = 8;
         float SquareRadio => (this.Radio - this.StrokeWidth) / 1.414213562373095f;
 
 
@@ -99,7 +100,7 @@ namespace FanKit.Library.Colors
         private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
             //Wheel           
-            args.DrawingSession.DrawCircle(this.Center, this.Radio , this.Stroke.Color,this.StrokeWidth*2);
+            args.DrawingSession.DrawCircle(this.Center, this.Radio, this.Stroke.Color, this.StrokeWidth * 2);
             for (float angle = 0; angle < (float)Math.PI * 2; angle += (float)(2 * Math.PI) / (int)(Math.PI * Radio * 2 / this.StrokeWidth)) args.DrawingSession.FillCircle((float)Math.Cos(angle) * this.Radio + this.Center.X, (float)Math.Sin(angle) * this.Radio + this.Center.Y, this.StrokeWidth, HSL.HSLtoRGB(((angle * 180.0 / Math.PI) + 360.0) % 360.0));
             args.DrawingSession.DrawCircle(this.Center, this.Radio - this.StrokeWidth, this.Stroke.Color);
             args.DrawingSession.DrawCircle(this.Center, this.Radio + this.StrokeWidth, this.Stroke.Color);
@@ -129,31 +130,45 @@ namespace FanKit.Library.Colors
 
         bool IsWheel = false;
         bool IsPalette = false;
-        Vector2 v;
+        Vector2 Vector;
         private void CanvasControl_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
-            v = e.Position.ToVector2() - this.Center;
+            this.Vector = e.Position.ToVector2() - this.Center;
 
-            this.IsWheel = v.Length() + this.StrokeWidth > this.Radio && v.Length() - this.StrokeWidth < this.Radio;
-            this.IsPalette = Math.Abs(v.X) < this.SquareRadio && Math.Abs(v.Y) < this.SquareRadio;
+            this.IsWheel = this.Vector.Length() + this.StrokeWidth > this.Radio && this.Vector.Length() - this.StrokeWidth < this.Radio;
+            this.IsPalette = Math.Abs(this.Vector.X) < this.SquareRadio && Math.Abs(this.Vector.Y) < this.SquareRadio;
+
+            if (this.IsWheel) this.HSL = this.GetWheelHSL(this.HSL, this.Vector);
+            if (this.IsPalette) this.HSL = this.GetPaletteHSL(this.HSL, this.Vector);
         }
         private void CanvasControl_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-            if (this.IsWheel|| this.IsPalette)
-            {
-                v += e.Delta.Translation.ToVector2();
+            this.Vector += e.Delta.Translation.ToVector2();
 
-                double H = (((Math.Atan2(v.Y, v.X)) * 180.0 / Math.PI) + 360.0) % 360.0;
-                double S = v.X  * 50 / this.SquareRadio + 50;
-                double L = 50 - v.Y   * 50 / this.SquareRadio;
-
-                this.HSL = new HSL(this.HSL.A,this.IsWheel ? H : this.HSL.H,this.IsPalette ? S : this.HSL.S,this.IsPalette ? L : this.HSL.L);
-            }
+            if (this.IsWheel) this.HSL = this.GetWheelHSL(this.HSL, this.Vector);
+            if (this.IsPalette) this.HSL = this.GetPaletteHSL(this.HSL, this.Vector);
         }
         private void CanvasControl_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e) => this.IsWheel = this.IsPalette = false;
 
-        
+
+        private HSL GetWheelHSL(HSL hsl, Vector2 vector)
+        {
+            double H = (((Math.Atan2(vector.Y, vector.X)) * 180.0 / Math.PI) + 360.0) % 360.0;
+
+            return new HSL(hsl.A, H, hsl.S, hsl.L);
+        }
+        private HSL GetPaletteHSL(HSL hsl, Vector2 vector)
+        {
+            double S = vector.X * 50 / this.SquareRadio + 50;
+            double L = 50 - vector.Y * 50 / this.SquareRadio;
+
+            return new HSL(hsl.A, hsl.H, S, L);
+        }
     }
 }
+
+
+
+
 
 ```
