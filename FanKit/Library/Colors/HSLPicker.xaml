@@ -7,6 +7,34 @@
     xmlns:local="using:FanKit.Library.Colors"
     mc:Ignorable="d">
 
+    
+    <UserControl.Resources>
+
+        <!--H-->
+        <LinearGradientBrush x:Name="HBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop x:Name="HA" Offset="0"/>
+            <GradientStop x:Name="HB" Offset="0.16666667"/>
+            <GradientStop x:Name="HC" Offset="0.33333333"/>
+            <GradientStop x:Name="HD" Offset="0.5"/>
+            <GradientStop x:Name="HE" Offset="0.66666667"/>
+            <GradientStop x:Name="HF" Offset="0.83333333"/>
+            <GradientStop x:Name="HG" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!--S-->
+        <LinearGradientBrush x:Name="SBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop x:Name="SLeft" Offset="0"/>
+            <GradientStop x:Name="SRight" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!--L-->
+        <LinearGradientBrush x:Name="LBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop x:Name="LLeft" Offset="0"/>
+            <GradientStop x:Name="LRight" Offset="1"/>
+        </LinearGradientBrush>
+
+    </UserControl.Resources>
+    
 
     <Grid >
         <Grid.RowDefinitions>
@@ -21,44 +49,17 @@
         <!--H-->
         <TextBlock Grid.Row="0" Text="H" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
         <local:NumberPicker x:Name="HPicker" Grid.Row="0" Unit="º" Minimum="0" Maximum="360" HorizontalAlignment="Right" ValueChange="HPicker_ValueChange"/>
-        <local:TouchSlider x:Name="HSlider" Grid.Row="1" Minimum="0" Maximum="360" ValueChangeDelta="HSlider_ValueChangeDelta">
-            <local:TouchSlider.SliderBackground>
-                <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
-                    <GradientStop x:Name="HA" Offset="0"/>
-                    <GradientStop x:Name="HB" Offset="0.16666667"/>
-                    <GradientStop x:Name="HC" Offset="0.33333333"/>
-                    <GradientStop x:Name="HD" Offset="0.5"/>
-                    <GradientStop x:Name="HE" Offset="0.66666667"/>
-                    <GradientStop x:Name="HF" Offset="0.83333333"/>
-                    <GradientStop x:Name="HG" Offset="1"/>
-                </LinearGradientBrush>
-            </local:TouchSlider.SliderBackground>
-        </local:TouchSlider>
+        <local:TouchSlider x:Name="HSlider" Grid.Row="1" Minimum="0" Maximum="360" SliderBackground="{StaticResource HBrush}" ValueChangeDelta="HSlider_ValueChangeDelta"/>
 
         <!--S-->
         <TextBlock Grid.Row="2" Text="S" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
         <local:NumberPicker x:Name="SPicker" Grid.Row="2" Unit="%" Minimum="0" Maximum="100" HorizontalAlignment="Right" ValueChange="SPicker_ValueChange"/>
-        <local:TouchSlider x:Name="SSlider" Grid.Row="3" Minimum="0" Maximum="100" ValueChangeDelta="SSlider_ValueChangeDelta">
-            <local:TouchSlider.SliderBackground>
-                <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
-                    <GradientStop x:Name="SLeft" Offset="0"/>
-                    <GradientStop x:Name="SRight" Offset="1"/>
-                </LinearGradientBrush>
-            </local:TouchSlider.SliderBackground>
-        </local:TouchSlider>
+        <local:TouchSlider x:Name="SSlider" Grid.Row="3" Minimum="0" Maximum="100" SliderBackground="{StaticResource SBrush}" ValueChangeDelta="SSlider_ValueChangeDelta"/>
 
         <!--L-->
         <TextBlock Grid.Row="4" Text="L" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
         <local:NumberPicker x:Name="LPicker" Grid.Row="4" Unit="%" Minimum="0" Maximum="100" HorizontalAlignment="Right" ValueChange="LPicker_ValueChange"/>
-        <local:TouchSlider x:Name="LSlider" Grid.Row="5" Minimum="0" Maximum="100" ValueChangeDelta="LSlider_ValueChangeDelta">
-            <local:TouchSlider.SliderBackground>
-                <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
-                    <GradientStop x:Name="LLeft" Offset="0"/>
-                    <GradientStop x:Name="LRight" Offset="1"/>
-                </LinearGradientBrush>
-            </local:TouchSlider.SliderBackground>
-        </local:TouchSlider>
+        <local:TouchSlider x:Name="LSlider" Grid.Row="5" Minimum="0" Maximum="100" SliderBackground="{StaticResource LBrush}" ValueChangeDelta="LSlider_ValueChangeDelta"/>
 
     </Grid>
-
 </UserControl>
