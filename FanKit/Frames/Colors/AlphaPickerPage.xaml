@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Colors="using:FanKit.Library.Colors"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:frames="using:FanKit.Frames"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -17,106 +18,21 @@
     </Page.Resources>
 
 
-    <Grid  >
-
-        <!--VisualState-->
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-
-                <!--PC-->
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="800" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-
-                        <Setter Target="HorizontalGridSplitter.Visibility" Value="Visible" />
-                        <Setter Target="VerticalGridSplitter.Visibility" Value="Collapsed" />
-
-                        <Setter Target="Grid.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Grid.(Grid.RowSpan)" Value="3" />
-
-                        <Setter Target="Border.(Grid.Column)" Value="2" />
-                        <Setter Target="Border.(Grid.Row)" Value="0" />
-                        <Setter Target="Border.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Border.(Grid.RowSpan)" Value="3" />
-
-                    </VisualState.Setters>
-                </VisualState>
+    <frames:PageLayout1>
 
 
-                <!--Phone-->
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-
-                        <Setter Target="HorizontalGridSplitter.Visibility" Value="Collapsed" />
-                        <Setter Target="VerticalGridSplitter.Visibility" Value="Visible" />
-
-                        <Setter Target="Grid.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Grid.(Grid.RowSpan)" Value="1" />
-
-                        <Setter Target="Border.(Grid.Column)" Value="0" />
-                        <Setter Target="Border.(Grid.Row)" Value="2" />
-                        <Setter Target="Border.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Border.(Grid.RowSpan)" Value="1" />
-
-                    </VisualState.Setters>
-                </VisualState>
-
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-
-        <Grid x:Name="Grid" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="4*" MinWidth="200" MaxWidth="900" />
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                <Colors:AlphaPicker x:Name="AlphaPicker" ColorChange="AlphaPicker_ColorChange"/>
-            </Grid>
-        </Grid>
+        <frames:PageLayout1.ShowContent>
+            <Colors:AlphaPicker x:Name="AlphaPicker" ColorChange="AlphaPicker_ColorChange"/>
+        </frames:PageLayout1.ShowContent>
 
 
-        <controls:GridSplitter x:Name="HorizontalGridSplitter" Style="{StaticResource GridSplitterStyle}" Grid.Column="1" Grid.RowSpan="3">
-            <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE769;" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
-            </controls:GridSplitter.Element>
-        </controls:GridSplitter>
-        <controls:GridSplitter x:Name="VerticalGridSplitter" Style="{StaticResource GridSplitterStyle}" Grid.Row="1" Grid.ColumnSpan="3">
-            <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE76F;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
-            </controls:GridSplitter.Element>
-        </controls:GridSplitter>
-
-
-        <Border  x:Name="Border" Grid.Column="2" Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <frames:PageLayout1.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
                         <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
-                      
+
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span >In mathematics and computing, hexadecimal (also base, or hex) are a positional numeral system with a radix, or base, of It uses sixteen distinct symbols, most often the symbols 0–9 to represent values zero to nine, and a–f (or alternative Ly a–f) to the represent values ten to fifteen. </Span>
                             <LineBreak/>
@@ -141,7 +57,7 @@
                    <Span >plum  #DDA0DD  221,160,221</Span><LineBreak/>
                    <Span >Violet  #EE82EE  238,130,238</Span><LineBreak/>
                    <Span >Magenta  #FF00FF  255,0,255  </Span><LineBreak/>
-                                    
+
 
                         </TextBlock>
                     </StackPanel>
@@ -162,7 +78,8 @@
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>
-        </Border>
+        </frames:PageLayout1.DetailContent>
 
-    </Grid>
+
+    </frames:PageLayout1>
 </Page>

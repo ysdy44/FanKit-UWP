@@ -18,7 +18,6 @@ using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using FanKit.Library;
-using MaterialLibs;
 using Newtonsoft.Json;
 using Windows.Storage;
 using Windows.System;

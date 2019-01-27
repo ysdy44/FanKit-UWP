@@ -8,6 +8,7 @@
    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:frames="using:FanKit.Frames"
     mc:Ignorable="d"
     NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
@@ -80,127 +81,58 @@
     </UserControl.Resources>
 
 
-    <Grid >
-
-        <!--VisualState-->
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-
-                <!--PC-->
-                <VisualState >
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="800" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-
-                        <Setter Target="HorizontalGridSplitter.Visibility" Value="Visible" />
-                        <Setter Target="VerticalGridSplitter.Visibility" Value="Collapsed" />
-
-                        <Setter Target="Grid.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Grid.(Grid.RowSpan)" Value="3" />
-
-                        <Setter Target="Border.(Grid.Column)" Value="2" />
-                        <Setter Target="Border.(Grid.Row)" Value="0" />
-                        <Setter Target="Border.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Border.(Grid.RowSpan)" Value="3" />
-
-                    </VisualState.Setters>
-                </VisualState>
+    <frames:PageLayout2>
 
 
-               <!--Phone-->
-                <VisualState  >
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
+        <frames:PageLayout2.ShowContent>
+            <Grid >
 
-                        <Setter Target="HorizontalGridSplitter.Visibility" Value="Collapsed" />
-                        <Setter Target="VerticalGridSplitter.Visibility" Value="Visible" />
-
-                        <Setter Target="Grid.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Grid.(Grid.RowSpan)" Value="1" />
-
-                        <Setter Target="Border.(Grid.Column)" Value="0" />
-                        <Setter Target="Border.(Grid.Row)" Value="2" />
-                        <Setter Target="Border.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Border.(Grid.RowSpan)" Value="1" />
-
-                    </VisualState.Setters>
-                </VisualState>
-
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-
-        <Grid x:Name="Grid"  Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" >
-
-            <ListView SelectionMode="None" VerticalAlignment="Center"
+                <ListView SelectionMode="None" VerticalAlignment="Center"
                       IsItemClickEnabled="True" ItemClick="ListView_ItemClick"
                       ItemContainerStyle="{StaticResource ItemContainerStyle}">
-            
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <controls:WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
 
-                <x:String>Deep</x:String>
-                <x:String>Dark</x:String>
-                <x:String>Fantasy</x:String>
-                <x:String>Boy</x:String>
-                <x:String>Next</x:String>
-                <x:String>Door</x:String>
-                <x:String>As we can</x:String>
-                <x:String>Get it out</x:String>
-                <x:String>Attention move</x:String>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <controls:WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
 
-            </ListView>
+                    <x:String>Deep</x:String>
+                    <x:String>Dark</x:String>
+                    <x:String>Fantasy</x:String>
+                    <x:String>Boy</x:String>
+                    <x:String>Next</x:String>
+                    <x:String>Door</x:String>
+                    <x:String>As we can</x:String>
+                    <x:String>Get it out</x:String>
+                    <x:String>Attention move</x:String>
 
-            <Border x:Name="TexBlockBorder" Height="40" Margin="40" Padding="20,0" CornerRadius="20" Visibility="Collapsed"
+                </ListView>
+
+                <Border x:Name="TexBlockBorder" Height="40" Margin="40" Padding="20,0" CornerRadius="20" Visibility="Collapsed"
                     VerticalAlignment="Bottom" HorizontalAlignment="Center"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-                <!--Visibility="Visible" Show-->
-                <animations:Implicit.ShowAnimations>
-                    <animations:TranslationAnimation Duration="0:0:1" From="0,100,0" To="0,0,0"/>
-                    <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
-                </animations:Implicit.ShowAnimations>
+                    <!--Visibility="Visible" Show-->
+                    <animations:Implicit.ShowAnimations>
+                        <animations:TranslationAnimation Duration="0:0:1" From="0,100,0" To="0,0,0"/>
+                        <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
+                    </animations:Implicit.ShowAnimations>
 
-                <!--Visibility="Collapsed" Hide-->
-                <animations:Implicit.HideAnimations>
-                    <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,100,0"/>
-                    <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
-                </animations:Implicit.HideAnimations>
-        
-                <TextBlock x:Name="TexBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    <!--Visibility="Collapsed" Hide-->
+                    <animations:Implicit.HideAnimations>
+                        <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,100,0"/>
+                        <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
+                    </animations:Implicit.HideAnimations>
 
-            </Border>
-        </Grid>
+                    <TextBlock x:Name="TexBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+
+                </Border>
+
+            </Grid>
+        </frames:PageLayout2.ShowContent>
 
 
-        <controls:GridSplitter x:Name="HorizontalGridSplitter" Style="{StaticResource GridSplitterStyle}"  Grid.Column="1" Grid.RowSpan="3">
-            <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE769;" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
-            </controls:GridSplitter.Element>
-        </controls:GridSplitter>
-        <controls:GridSplitter x:Name="VerticalGridSplitter" Style="{StaticResource GridSplitterStyle}"  Grid.Row="1" Grid.ColumnSpan="3">
-            <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE76F;" VerticalAlignment="Center"  FontFamily="Segoe MDL2 Assets"/>
-            </controls:GridSplitter.Element>
-        </controls:GridSplitter>
-
-        
-        <Border  x:Name="Border" Grid.Column="2" Grid.Row="2"  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <frames:PageLayout2.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
@@ -222,7 +154,8 @@
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>
-        </Border>
+        </frames:PageLayout2.DetailContent>
 
-    </Grid>
+
+    </frames:PageLayout2>
 </Page>

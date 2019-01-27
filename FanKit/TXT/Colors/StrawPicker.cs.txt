@@ -192,7 +192,7 @@ namespace FanKit.Library.Colors
 
         private int GetLeft(int bitmapWidth, float x, double windowWidth)
         {
-            int left = (int)(bitmapWidth * x / windowWidth);
+            int left = (int)(bitmapWidth * (x / windowWidth));
 
             if (left < 0) return 0;
             else if (left >= bitmapWidth) return bitmapWidth - 1;

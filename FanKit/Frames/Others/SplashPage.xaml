@@ -2,7 +2,9 @@
     x:Class="FanKit.Frames.Others.SplashPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   xmlns:apiContractNotPresent5="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,5)"
+    xmlns:apiContractPresent5="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
+ 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     NavigationCacheMode="Enabled">
@@ -19,7 +21,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="IconPanel" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+        <Grid x:Name="IconPanel" VerticalAlignment="Center" HorizontalAlignment="Center" 
+              apiContractNotPresent5:Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"
+              apiContractPresent5:Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"
+              >
             <Grid.RowDefinitions>
                 <RowDefinition Height="222"/>
                 <RowDefinition Height="50"/>
@@ -30,7 +35,10 @@
             <TextBlock Text="FanKit v1.1.15" Visibility="Visible" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
         </Grid>
 
-        <Border x:Name="NewPanel" Padding="12" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBaseMediumLowAcrylicElementMediumBrush}">
+        <Border x:Name="NewPanel" Padding="12" HorizontalAlignment="Center" 
+               apiContractNotPresent5:Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"
+               apiContractPresent5:Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"
+              >
             <StackPanel>
             
                 <TextBlock Text="What's the new?" Style="{ThemeResource BaseTextBlockStyle}"/>

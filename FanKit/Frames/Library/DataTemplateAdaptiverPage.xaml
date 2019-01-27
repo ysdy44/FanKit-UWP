@@ -10,8 +10,8 @@
     mc:Ignorable="d"
     NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
-   
-    
+
+
     <Page.Resources>
 
         <!--Adaptiver-->
@@ -32,16 +32,16 @@
                     <Border Height="{Binding ElementName=Adaptiver,Path=SizeWidth}" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
                         <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="40" Glyph="&#xEB9F;" Foreground="White"/>
                     </Border>
-                    
+
                     <TextBlock  Text="{x:Bind}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
-                
+
             </Border>
         </DataTemplate>
-        
+
     </Page.Resources>
-    
-    
+
+
     <Grid>
         <!--VisualState-->
         <VisualStateManager.VisualStateGroups>
@@ -69,7 +69,7 @@
                 </VisualState>
 
 
-               <!--Phone-->
+                <!--Phone-->
                 <VisualState>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
@@ -163,7 +163,7 @@
 
                 </GridView>
             </Grid>
-            
+
         </Grid>
 
 
@@ -222,7 +222,7 @@
             </Pivot>
         </Border>
 
-    
+
     </Grid>
 </Page>
 

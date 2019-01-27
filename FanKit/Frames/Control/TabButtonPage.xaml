@@ -8,6 +8,7 @@
     xmlns:Control="using:FanKit.Library.Control"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:frames="using:FanKit.Frames"
     mc:Ignorable="d"
     NavigationCacheMode="Enabled"
     Loaded="Page_Loaded">
@@ -49,89 +50,18 @@
             </Style>
 
     </Page.Resources>
-    
-    <Grid>
-
-        <!--VisualState-->
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-
-                <!--PC-->
-                <VisualState >
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="800" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-
-                        <Setter Target="HorizontalGridSplitter.Visibility" Value="Visible" />
-                        <Setter Target="VerticalGridSplitter.Visibility" Value="Collapsed" />
-
-                        <Setter Target="Grid.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Grid.(Grid.RowSpan)" Value="3" />
-
-                        <Setter Target="Border.(Grid.Column)" Value="2" />
-                        <Setter Target="Border.(Grid.Row)" Value="0" />
-                        <Setter Target="Border.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Border.(Grid.RowSpan)" Value="3" />
-
-                    </VisualState.Setters>
-                </VisualState>
 
 
-               <!--Phone-->
-                <VisualState  >
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
+    <frames:PageLayout>
 
-                        <Setter Target="HorizontalGridSplitter.Visibility" Value="Collapsed" />
-                        <Setter Target="VerticalGridSplitter.Visibility" Value="Visible" />
 
-                        <Setter Target="Grid.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Grid.(Grid.RowSpan)" Value="1" />
-
-                        <Setter Target="Border.(Grid.Column)" Value="0" />
-                        <Setter Target="Border.(Grid.Row)" Value="2" />
-                        <Setter Target="Border.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Border.(Grid.RowSpan)" Value="1" />
-
-                    </VisualState.Setters>
-                </VisualState>
-
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-
-        <Grid x:Name="Grid" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="4*" MinWidth="200" MaxWidth="900" />
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="6*" MinHeight="400"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Column="1" Grid.Row="1" 
-                  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <frames:PageLayout.ShowContent>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
                 <Pivot x:Name="TabPivot" >
                     <PivotItem>
                         <GridView Style="{StaticResource GridViewStyle}" ItemContainerStyle="{StaticResource GridViewItemStyle}">
-                        
+
                             <x:String>item00</x:String>
                             <x:String>item01</x:String>
                             <x:String>item02</x:String>
@@ -159,40 +89,7 @@
                             <x:String>item23</x:String>
                             <x:String>item24</x:String>
                             <x:String>item25</x:String>
-                        
-                        </GridView>
-                    </PivotItem>
-                    <PivotItem>
-                        <GridView Style="{StaticResource GridViewStyle}" ItemContainerStyle="{StaticResource GridViewItemStyle}">
-                        
-                            <x:String>item00</x:String>
-                            <x:String>item01</x:String>
-                            <x:String>item02</x:String>
-                            <x:String>item03</x:String>
-                            <x:String>item04</x:String>
-                            <x:String>item05</x:String>
-                            <x:String>item06</x:String>
-                            <x:String>item07</x:String>
-                            <x:String>item08</x:String>
-                            <x:String>item09</x:String>
-                            <x:String>item10</x:String>
-                            <x:String>item11</x:String>
-                            <x:String>item12</x:String>
-                            <x:String>item13</x:String>
-                            <x:String>item14</x:String>
-                            <x:String>item15</x:String>
-                            <x:String>item16</x:String>
-                            <x:String>item17</x:String>
 
-                            <x:String>item18</x:String>
-                            <x:String>item19</x:String>
-                            <x:String>item20</x:String>
-                            <x:String>item21</x:String>
-                            <x:String>item22</x:String>
-                            <x:String>item23</x:String>
-                            <x:String>item24</x:String>
-                            <x:String>item25</x:String>
-                            
                         </GridView>
                     </PivotItem>
                     <PivotItem>
@@ -225,7 +122,40 @@
                             <x:String>item23</x:String>
                             <x:String>item24</x:String>
                             <x:String>item25</x:String>
-                            
+
+                        </GridView>
+                    </PivotItem>
+                    <PivotItem>
+                        <GridView Style="{StaticResource GridViewStyle}" ItemContainerStyle="{StaticResource GridViewItemStyle}">
+
+                            <x:String>item00</x:String>
+                            <x:String>item01</x:String>
+                            <x:String>item02</x:String>
+                            <x:String>item03</x:String>
+                            <x:String>item04</x:String>
+                            <x:String>item05</x:String>
+                            <x:String>item06</x:String>
+                            <x:String>item07</x:String>
+                            <x:String>item08</x:String>
+                            <x:String>item09</x:String>
+                            <x:String>item10</x:String>
+                            <x:String>item11</x:String>
+                            <x:String>item12</x:String>
+                            <x:String>item13</x:String>
+                            <x:String>item14</x:String>
+                            <x:String>item15</x:String>
+                            <x:String>item16</x:String>
+                            <x:String>item17</x:String>
+
+                            <x:String>item18</x:String>
+                            <x:String>item19</x:String>
+                            <x:String>item20</x:String>
+                            <x:String>item21</x:String>
+                            <x:String>item22</x:String>
+                            <x:String>item23</x:String>
+                            <x:String>item24</x:String>
+                            <x:String>item25</x:String>
+
                         </GridView>
                     </PivotItem>
                     <PivotItem>
@@ -353,7 +283,7 @@
                             <FontIcon Glyph="&#xE121;" FontFamily="Segoe UI Symbol"/>
                         </Control:TabButton.Icon>
                     </Control:TabButton>
-                    
+
                 </Grid>
 
                 <Grid  x:Name="TopTabBar" Height="50" 
@@ -374,9 +304,9 @@
                     <animations:Implicit.HideAnimations>
                         <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
                     </animations:Implicit.HideAnimations>
-                        
+
                     </TextBlock>
-                    
+
                     <Button Foreground="White"
                             HorizontalAlignment="Left"
                             Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}"
@@ -391,7 +321,7 @@
                         <animations:Implicit.HideAnimations>
                             <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
                         </animations:Implicit.HideAnimations>
-                        
+
                         <TextBlock FontSize="14">
                         <Run  FontSize="16" FontFamily="Segoe MDL2 Assets" Text="&#xE96F;"/>
                         <Span> GoBack</Span>
@@ -399,24 +329,12 @@
                     </Button>
 
                 </Grid>
-         
+
             </Grid>
-        </Grid>
+        </frames:PageLayout.ShowContent>
 
 
-        <controls:GridSplitter x:Name="HorizontalGridSplitter" Style="{StaticResource GridSplitterStyle}" Grid.Column="1" Grid.RowSpan="3">
-            <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE769;" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
-            </controls:GridSplitter.Element>
-        </controls:GridSplitter>
-        <controls:GridSplitter x:Name="VerticalGridSplitter" Style="{StaticResource GridSplitterStyle}" Grid.Row="1" Grid.ColumnSpan="3">
-            <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE76F;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
-            </controls:GridSplitter.Element>
-        </controls:GridSplitter>
-
-
-        <Border  x:Name="Border" Grid.Column="2" Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <frames:PageLayout.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
@@ -454,7 +372,8 @@
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>
-        </Border>
+        </frames:PageLayout.DetailContent>
 
-    </Grid>
+
+    </frames:PageLayout>
 </Page>

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Colors="using:FanKit.Library.Colors"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:frames="using:FanKit.Frames"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -15,102 +16,19 @@
         <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey"/>
 
     </Page.Resources>
+    
+    
+    <frames:PageLayout2>
 
 
-    <Grid  >
-
-        <!--VisualState-->
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-
-                <!--PC-->
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="800" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-
-                        <Setter Target="HorizontalGridSplitter.Visibility" Value="Visible" />
-                        <Setter Target="VerticalGridSplitter.Visibility" Value="Collapsed" />
-
-                        <Setter Target="Grid.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Grid.(Grid.RowSpan)" Value="3" />
-
-                        <Setter Target="Border.(Grid.Column)" Value="2" />
-                        <Setter Target="Border.(Grid.Row)" Value="0" />
-                        <Setter Target="Border.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="Border.(Grid.RowSpan)" Value="3" />
-
-                    </VisualState.Setters>
-                </VisualState>
-
-
-                <!--Phone-->
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-
-                        <Setter Target="HorizontalGridSplitter.Visibility" Value="Collapsed" />
-                        <Setter Target="VerticalGridSplitter.Visibility" Value="Visible" />
-
-                        <Setter Target="Grid.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Grid.(Grid.RowSpan)" Value="1" />
-
-                        <Setter Target="Border.(Grid.Column)" Value="0" />
-                        <Setter Target="Border.(Grid.Row)" Value="2" />
-                        <Setter Target="Border.(Grid.ColumnSpan)" Value="3" />
-                        <Setter Target="Border.(Grid.RowSpan)" Value="1" />
-
-                    </VisualState.Setters>
-                </VisualState>
-
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-
-        <Grid x:Name="Grid" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+        <frames:PageLayout2.ShowContent>
+            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <Colors:ColorPicker x:Name="ColorPicker" Margin="12" Width="200" Height="270"  ColorChange="ColorPicker_ColorChange"/>
-            </Grid>
-        </Grid>
+            </Border>
+        </frames:PageLayout2.ShowContent>
 
 
-        <controls:GridSplitter x:Name="HorizontalGridSplitter" Style="{StaticResource GridSplitterStyle}" Grid.Column="1" Grid.RowSpan="3">
-            <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE769;" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
-            </controls:GridSplitter.Element>
-        </controls:GridSplitter>
-        <controls:GridSplitter x:Name="VerticalGridSplitter" Style="{StaticResource GridSplitterStyle}" Grid.Row="1" Grid.ColumnSpan="3">
-            <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE76F;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
-            </controls:GridSplitter.Element>
-        </controls:GridSplitter>
-
-
-        <Border  x:Name="Border" Grid.Column="2" Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <frames:PageLayout2.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
@@ -138,7 +56,8 @@
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>
-        </Border>
+        </frames:PageLayout2.DetailContent>
 
-    </Grid>
+
+    </frames:PageLayout2>
 </Page>
