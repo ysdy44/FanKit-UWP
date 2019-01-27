@@ -1,19 +1,16 @@
 
+
 ```xaml
+
 
 <Page
     x:Class="FanKit.Frames.Colors.AlphaPickerPage"
-    xmlns:Colors="using:FanKit.Library.Colors">
-
- <Grid Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-        
-		<Colors:AlphaPicker 
-             x:Name="AlphaPicker" 
-             ColorChange="AlphaPicker_ColorChange"/>
-
-</Grid>
-
-
+    xmlns:Colors="using:FanKit.Library.Colors"
+    >
+	          
+      <Colors:AlphaPicker x:Name="AlphaPicker" AlphaChange="AlphaPicker_AlphaChange"/>
+      
+</Page>
 
 
 ```

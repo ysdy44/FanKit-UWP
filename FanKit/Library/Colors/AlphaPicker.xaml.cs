@@ -1,69 +1,99 @@
-﻿using System.Globalization;
+﻿using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.Brushes;
+using Microsoft.Graphics.Canvas.Effects;
+using Microsoft.Graphics.Canvas.UI.Xaml;
+using System.Numerics;
 using Windows.UI;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 
 namespace FanKit.Library.Colors
 {
     public sealed partial class AlphaPicker : UserControl
     {
+
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color Value);
-        public event ColorChangeHandler ColorChange = null;
+        public event AlphaChangeHandler AlphaChange;
 
         #region DependencyProperty
 
 
-        public Color Color
+        private byte alpha = 255;
+        private byte _Alpha
         {
-            get { return (Color)GetValue(ColorProperty); }
-            set { SetValue(ColorProperty, value); }
-        }
-        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(HSLPicker), new PropertyMetadata(null, (sender, e) =>
-        {
-            AlphaPicker con = (AlphaPicker)sender;
-
-            if (e.NewValue is Color NewValue)
+            get => this.alpha;
+            set
             {
-                con.ColorChanged(NewValue);
+                this.AlphaChange?.Invoke(this, value);
+                CanvasControl.Invalidate();
+
+                this.alpha = value;
             }
-        }));
-      
-        private void ColorChanged(Color value)
+        }
+        public byte Alpha
         {
-            this.Slider.Value = value.A;
-            this.Picker.Value = value.A;
-            this.Left.Color = Color.FromArgb(0, value.R, value.G, value.B);
-            this.Right.Color = Color.FromArgb(255, value.R, value.G, value.B);
+            get => this.alpha;
+            set
+            {
+                //A
+                this.ASlider.Value = this.APicker.Value = (int)value;
 
-            this.TextBox.Text = this.ColorToString(value);
-
-            this.ColorChange?.Invoke(this, value);
+                this.alpha = value;
+            }
         }
 
 
         #endregion
 
-
         public AlphaPicker()
         {
             this.InitializeComponent();
+           
+            //Slider
+            this.ASlider.ValueChangeDelta += (object sender, double value) => this.Alpha = this._Alpha = (byte)value;
+            //Picker
+            this.APicker.ValueChange += (object sender, int value) => this.Alpha = this._Alpha = (byte)value;
         }
 
-
-        private void Picker_ValueChange(object sender, int value)=>  this.Color = Windows.UI.Color.FromArgb((byte)value, this.Color.R, this.Color.G, this.Color.B);
-        private void Slider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.Color = Windows.UI.Color.FromArgb((byte)e.NewValue, this.Color.R, this.Color.G, this.Color.B);
-        
-
-
-        private Color? StringToColor(string s)
+        private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
-            if (s.Length == 6) return Color.FromArgb(255, (byte)int.Parse(s.Substring(0, 2), NumberStyles.HexNumber), (byte)int.Parse(s.Substring(2, 2), NumberStyles.HexNumber), (byte)int.Parse(s.Substring(4, 2), NumberStyles.HexNumber));
-            else if (s.Length == 8) return Color.FromArgb((byte)int.Parse(s.Substring(0, 2), NumberStyles.HexNumber), (byte)int.Parse(s.Substring(2, 2), NumberStyles.HexNumber), (byte)int.Parse(s.Substring(4, 2), NumberStyles.HexNumber), (byte)int.Parse(s.Substring(6, 2), NumberStyles.HexNumber));
-            return null;
+            float width = (float)sender.Size.Width;
+            float height = (float)sender.Size.Height;
+
+
+            args.DrawingSession.DrawImage(new DpiCompensationEffect
+            {
+                Source = new ScaleEffect
+                {
+                    Scale = new Vector2(height / 3),
+                    InterpolationMode = CanvasImageInterpolation.NearestNeighbor,
+                    Source = new BorderEffect
+                    {
+                        ExtendX = CanvasEdgeBehavior.Wrap,
+                        ExtendY = CanvasEdgeBehavior.Wrap,
+                        Source = CanvasBitmap.CreateFromColors
+                        (
+                            resourceCreator: sender,
+                            widthInPixels: 2,
+                            heightInPixels: 2,
+                            colors: new Color[]
+                            {
+                                 Windows.UI.Colors.LightGray,
+                                 Windows.UI.Colors.White,
+                                 Windows.UI.Colors.White,
+                                 Windows.UI.Colors.LightGray
+                            }
+                         )
+                    }
+                }
+            });
+
+
+            args.DrawingSession.FillRectangle(0, 0, width, height, new CanvasLinearGradientBrush(sender, Windows.UI.Colors.Transparent, Windows.UI.Colors.DimGray)
+            {
+                StartPoint = new Vector2(0, height / 2),
+                EndPoint = new Vector2(width, height / 2)
+            });
         }
-        private string ColorToString(Color c) => (c.R.ToString("x2") + c.G.ToString("x2") + c.B.ToString("x2").ToString()).ToUpper();
 
     }
 }

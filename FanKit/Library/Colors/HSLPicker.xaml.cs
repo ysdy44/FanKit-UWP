@@ -1,74 +1,65 @@
 ﻿using Windows.UI;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 
 namespace FanKit.Library.Colors
 {
-    public sealed partial class HSLPicker : UserControl
+    public sealed partial class HSLPicker : UserControl, IPicker
     {
 
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color value);
         public event ColorChangeHandler ColorChange = null;
+        public Color GetColor() => HSL.HSLtoRGB(this.HSL);
+        public void SetColor(Color value) => this.HSL = HSL.RGBtoHSL(value);
 
 
         #region DependencyProperty
 
 
-        private Color color = Color.FromArgb(255, 255, 255, 255);
-        public Color Color
+        private HSL hsl = new HSL { A = 255, H = 0, S = 1, L = 1 };
+        private HSL _HSL
         {
-            get => color;
+            get => this.hsl;
             set
             {
-                color = value;
-                this.HSL = HSL.RGBtoHSL(value);
+                this.ColorChange?.Invoke(this, HSL.HSLtoRGB(value.A, value.H, value.S, value.L));
+
+                this.hsl = value;
             }
         }
-
-
         public HSL HSL
         {
-            get { return (HSL)GetValue(HSLProperty); }
-            set { SetValue(HSLProperty, value); }
-        }
-        public static readonly DependencyProperty HSLProperty = DependencyProperty.Register(nameof(HSL), typeof(HSL), typeof(HSLPicker), new PropertyMetadata(new HSL(255, 360, 100, 100), (sender, e) =>
-        {
-            HSLPicker con = (HSLPicker)sender;
-
-            if (e.NewValue is HSL NewValue)
+            get => this.hsl;
+            set
             {
-                con.HSLChanged(NewValue);
+                byte A = value.A;
+                double H = value.H;
+                double S = value.S;
+                double L = value.L;
+
+                //H          
+                this.HSlider.Value = this.HPicker.Value = (int)H;
+                this.HG.Color = this.HA.Color = HSL.HSLtoRGB(A, 0, S, L);
+                this.HB.Color = HSL.HSLtoRGB(A, 60, S, L);
+                this.HC.Color = HSL.HSLtoRGB(A, 120, S, L);
+                this.HD.Color = HSL.HSLtoRGB(A, 180, S, L);
+                this.HE.Color = HSL.HSLtoRGB(A, 240, S, L);
+                this.HF.Color = HSL.HSLtoRGB(A, 300, S, L);
+                //S
+                this.SSlider.Value = SPicker.Value = (int)S;
+                this.SLeft.Color = HSL.HSLtoRGB(A, H, 0.0d, L);
+                this.SRight.Color = HSL.HSLtoRGB(A, H, 100.0d, L);
+                //L
+                this.LSlider.Value = LPicker.Value = (int)L;
+                this.LLeft.Color = HSL.HSLtoRGB(A, H, S, 0.0d);
+                this.LRight.Color = HSL.HSLtoRGB(A, H, S, 100.0d);
+
+                this.hsl = value;
             }
-        }));
-
-        private void HSLChanged(HSL value)
+        }
+        public Color Color
         {
-            byte A = value.A;
-            double H = value.H;
-            double S = value.S;
-            double L = value.L;
-
-            //H          
-            this.HSlider.Value = this.HPicker.Value = (int)H;
-            this.HG.Color = this.HA.Color = HSL.HSLtoRGB(A, 0, S, L);
-            this.HB.Color = HSL.HSLtoRGB(A, 60, S, L);
-            this.HC.Color = HSL.HSLtoRGB(A, 120, S, L);
-            this.HD.Color = HSL.HSLtoRGB(A, 180, S, L);
-            this.HE.Color = HSL.HSLtoRGB(A, 240, S, L);
-            this.HF.Color = HSL.HSLtoRGB(A, 300, S, L);
-            //S
-            this.SSlider.Value = SPicker.Value = (int)S;
-            this.SLeft.Color = HSL.HSLtoRGB(A, H, 0.0d, L);
-            this.SRight.Color = HSL.HSLtoRGB(A, H, 100.0d, L);
-            //L
-            this.LSlider.Value = LPicker.Value = (int)L;
-            this.LLeft.Color = HSL.HSLtoRGB(A, H, S, 0.0d);
-            this.LRight.Color = HSL.HSLtoRGB(A, H, S, 100.0d);
-
-            this.color = HSL.HSLtoRGB(A, H, S, L);
-            this.ColorChange?.Invoke(this, this.color);
+            get => this.GetColor();
+            set => this.SetColor(value);
         }
 
 
@@ -78,16 +69,16 @@ namespace FanKit.Library.Colors
         public HSLPicker()
         {
             this.InitializeComponent();
+
+            //Slider
+            this.HSlider.ValueChangeDelta += (sender, value) => this.HSL = this._HSL = new HSL(this.hsl.A, value, this.hsl.S, this.hsl.L);
+            this.SSlider.ValueChangeDelta += (sender, value) => this.HSL = this._HSL = new HSL(this.hsl.A, this.hsl.H, value, this.hsl.L);
+            this.LSlider.ValueChangeDelta += (sender, value) => this.HSL = this._HSL = new HSL(this.hsl.A, this.hsl.H, this.hsl.S, value);
+
+            //Picker
+            this.HPicker.ValueChange += (sender, Value) => this.HSL = this._HSL = new HSL(this.hsl.A, Value, this.hsl.S, this.HSL.L);
+            this.SPicker.ValueChange += (sender, Value) => this.HSL = this._HSL = new HSL(this.hsl.A, this.hsl.H, Value, this.hsl.L);
+            this.LPicker.ValueChange += (sender, Value) => this.HSL = this._HSL = new HSL(this.hsl.A, this.hsl.H, this.hsl.S, Value);
         }
-
-
-        private void HSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.HSL = new HSL(this.HSL.A, e.NewValue, this.HSL.S, this.HSL.L);
-        private void SSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.HSL = new HSL(this.HSL.A, this.HSL.H, (int)e.NewValue, this.HSL.L);
-        private void LSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.HSL = new HSL(this.HSL.A, this.HSL.H, this.HSL.S, (int)e.NewValue);
-
-        private void HPicker_ValueChange(object sender, int Value) => this.HSL = new HSL(this.HSL.A, Value, this.HSL.S, this.HSL.L);
-        private void SPicker_ValueChange(object sender, int Value) => this.HSL = new HSL(this.HSL.A, this.HSL.H, (int)Value, this.HSL.L);
-        private void LPicker_ValueChange(object sender, int Value) => this.HSL = new HSL(this.HSL.A, this.HSL.H, this.HSL.S, (int)Value);
-
     }
 }

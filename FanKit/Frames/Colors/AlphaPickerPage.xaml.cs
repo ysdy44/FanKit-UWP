@@ -25,17 +25,24 @@ namespace FanKit.Frames.Colors
         }
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.AlphaPicker.Color = Color.FromArgb(255, 0, 187, 255);
+            this.AlphaPicker.Alpha = 255;
 
             this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPickerPage.xaml.txt");
             this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPicker.xaml.txt");
             this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/AlphaPicker.cs.txt");
         }
-         
 
-        private void AlphaPicker_ColorChange(object sender, Color value)
+
+        private void AlphaPicker_AlphaChange(object sender, byte value)
         {
-            this.PaletteSolidBrush.Color = value;
+            this.PaletteSolidBrush.Color = Color.FromArgb
+            (
+                value,
+                this.PaletteSolidBrush.Color.R,
+                this.PaletteSolidBrush.Color.G,
+                this.PaletteSolidBrush.Color.B
+            );
         }
+
     }
 }

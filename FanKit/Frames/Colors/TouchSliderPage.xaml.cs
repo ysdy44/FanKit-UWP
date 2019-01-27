@@ -21,9 +21,13 @@ namespace FanKit.Frames.Colors
             this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/TouchSlider.cs.txt");
         }
 
-        private void TouchSliderControl_ValueChangeStarted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder.Visibility = Visibility.Visible;
-        private void TouchSliderControl_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlock.Text = e.NewValue.ToString();
-        private void TouchSliderControl_ValueChangeCompleted(object sender, RangeBaseValueChangedEventArgs e) => this.TexBlockBorder.Visibility = Visibility.Collapsed;
-        
+        private void TouchSliderControl_ValueChangeStarted(object sender, double value) => this.TexBlockBorder.Visibility = Visibility.Visible;
+        private void TouchSliderControl_ValueChangeDelta(object sender, double value) => this.TexBlock.Text = ((int)value).ToString();
+        private void TouchSliderControl_ValueChangeCompleted(object sender, double value) => this.TexBlockBorder.Visibility = Visibility.Collapsed;
+
+        private void TouchSliderControl_ValueChange(object sender, double value)
+        {
+
+        }
     }
 }

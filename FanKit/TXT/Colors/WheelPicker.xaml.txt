@@ -1,11 +1,13 @@
 
-```xaml
 
+```xaml
 
 
 <UserControl
     x:Class="FanKit.Library.Colors.WheelPicker"
-    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml">
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    MinHeight="200"
+    >
 
     <canvas:CanvasControl  
         x:Name="CanvasControl" 
@@ -18,11 +20,8 @@
         ManipulationDelta="CanvasControl_ManipulationDelta"
         ManipulationCompleted="CanvasControl_ManipulationCompleted"
         />
-    
+
 </UserControl>
-
-
-
 
 
 ```

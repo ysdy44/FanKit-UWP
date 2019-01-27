@@ -32,20 +32,9 @@ namespace FanKit.Frames.Colors
             this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/StrawPicker.cs.txt");
         }
 
- 
-        private void StrawPicker_ColorChangeStarted(object sender, Color value)
+        private void StrawPicker_ColorChange(object sender, Color value)
         {
             this.PaletteSolidBrush.Color = value;
         }
-        private void StrawPicker_ColorChangeDelta(object sender, Color value)
-        {
-            this.PaletteSolidBrush.Color = value;
-        }
-        private void StrawPicker_ColorChangeCompleted(object sender, Color value)
-        {
-            this.PaletteSolidBrush.Color = value;
-        }
-
-
     }
 }

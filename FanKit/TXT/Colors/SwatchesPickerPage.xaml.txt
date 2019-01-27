@@ -1,23 +1,16 @@
 
+
 ```xaml
+
 
 <Page
     x:Class="FanKit.Frames.Colors.SwatchesPickerPage"
-    xmlns:local="using:FanKit.Frames.Colors"
-    xmlns:Colors="using:FanKit.Library.Colors">
+    xmlns:Colors="using:FanKit.Library.Colors"
+    >
 
+     <Colors:SwatchesPicker x:Name="SwatchesPicker" Margin="12" Width="200" Height="270"  ColorChange="SwatchesPicker_ColorChange"/>
 
-  <Grid Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-
-      <Colors:ColorPicker x:Name="ColorPicker" 
-                                   Margin="12" 
-                                   Width="200" Height="270"  
-                                   ColorChange="ColorPicker_ColorChange"/>
-
-  </Grid>
 </Page>
-
-
 
 
 ```

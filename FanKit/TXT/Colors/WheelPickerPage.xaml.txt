@@ -1,22 +1,15 @@
 
+
 ```xaml
 
 <Page
     x:Class="FanKit.Frames.Colors.WheelPickerPage"
-    xmlns:local="using:FanKit.Frames.Colors"
-    xmlns:Colors="using:FanKit.Library.Colors">
+    xmlns:Colors="using:FanKit.Library.Colors"
+   > 
 
-  <Grid Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-           
-       <Colors:WheelPicker 
-          x:Name="WheelPicker" 
-          ColorChange="WheelPicker_ColorChange"/>
-
-  </Grid>
+     <Colors:WheelPicker x:Name="WheelPicker" ColorChange="WheelPicker_ColorChange"/>
 
 </Page>
-
-
 
 
 ```

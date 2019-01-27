@@ -201,16 +201,12 @@
     <Compile Include="Frames\Colors\NumberPickerPage.xaml.cs">
       <DependentUpon>NumberPickerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Colors\PaletteBase.cs" />
-    <Compile Include="Library\Colors\PaletteHue.cs" />
-    <Compile Include="Library\Colors\PaletteLightness.cs" />
     <Compile Include="Library\Colors\PalettePicker.xaml.cs">
       <DependentUpon>PalettePicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\PalettePickerPage.xaml.cs">
       <DependentUpon>PalettePickerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Colors\PaletteSaturation.cs" />
     <Compile Include="Frames\Colors\RGBPickerPage.xaml.cs">
       <DependentUpon>RGBPickerPage.xaml</DependentUpon>
     </Compile>
@@ -347,6 +343,7 @@
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
     <Content Include="Icon\Win2Ds\MarqueeTool.png" />
     <Content Include="Icon\Win2Ds\TransformController.png" />
+    <Content Include="TXT\Colors\PalettePickerPage.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
@@ -356,9 +353,12 @@
     <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\MarqueeTools.cs.txt" />
-    <Content Include="TXT\Win2Ds\MarqueeToolsPage.xaml.cs.txt" />
-    <Content Include="TXT\Win2Ds\MarqueeToolsPage.xaml.txt" />
+    <Content Include="TXT\Win2Ds\MarqueeTool.cs.txt" />
+    <Content Include="TXT\Win2Ds\MarqueeToolPage.xaml.cs.txt" />
+    <Content Include="TXT\Win2Ds\MarqueeToolPage.xaml.txt" />
+    <Content Include="TXT\Win2Ds\TransformController.cs.txt" />
+    <Content Include="TXT\Win2Ds\TransformControllerPage.xaml.cs.txt" />
+    <Content Include="TXT\Win2Ds\TransformControllerPage.xaml.txt" />
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\AlphaPicker.png" />
@@ -377,13 +377,9 @@
     <Content Include="TXT\Colors\ColorPicker.xaml.txt" />
     <Content Include="TXT\Colors\ColorPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\HSL.cs.txt" />
-    <Content Include="TXT\Colors\PaletteBase.cs.txt" />
-    <Content Include="TXT\Colors\PaletteHue.cs.txt" />
-    <Content Include="TXT\Colors\PaletteLightness.cs.txt" />
     <Content Include="TXT\Colors\PalettePicker.cs.txt" />
     <Content Include="TXT\Colors\PalettePicker.xaml.txt" />
     <Content Include="TXT\Colors\PalettePickerPage.xaml.txt" />
-    <Content Include="TXT\Colors\PaletteSaturation.cs.txt" />
     <Content Include="TXT\Colors\StrawPicker.cs.txt" />
     <Content Include="TXT\Colors\StrawPicker.xaml.txt" />
     <Content Include="TXT\Colors\StrawPickerPage.xaml.txt" />

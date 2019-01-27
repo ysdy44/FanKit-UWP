@@ -22,7 +22,7 @@
 
 
         <frames:PageLayout1.ShowContent>
-            <Colors:AlphaPicker x:Name="AlphaPicker" ColorChange="AlphaPicker_ColorChange"/>
+            <Colors:AlphaPicker x:Name="AlphaPicker" AlphaChange="AlphaPicker_AlphaChange"/>
         </frames:PageLayout1.ShowContent>
 
 

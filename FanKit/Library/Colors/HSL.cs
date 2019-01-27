@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Microsoft.Graphics.Canvas;
+using System;
+using System.Numerics;
 using Windows.UI;
 
 namespace FanKit.Library.Colors
 {
+    //Delegate
+    public delegate void AlphaChangeHandler(object sender, byte value);
+    public delegate void ColorChangeHandler(object sender, Color value);
+
     /// <summary> Color form HSL </summary>
-    public class HSL
+    public struct HSL
     {
 
         /// <summary> Alpha </summary>
@@ -51,7 +57,7 @@ namespace FanKit.Library.Colors
 
 
 
-        public HSL(byte A, double H, double S, double L) { this.A = A; this.H = H; this.S = S; this.L = L; }
+        public HSL(byte A, double H, double S, double L) { this.A = A; this.h = H; this.s = L; this.l = L; this.H = H; this.S = S; this.L = L; }
 
 
 
@@ -84,12 +90,14 @@ namespace FanKit.Library.Colors
         /// <returns> Color </returns>
         public static Color HSLtoRGB(byte a, double h, double s, double l)
         {
+            if (h == 360) h = 0;
+
             if (s == 0)
             {
                 byte ll = (byte)(l / 100 * 255);
                 return Color.FromArgb(a, ll, ll, ll);
             }
-            
+
             double S = s / 100;
             double V = l / 100;
 
@@ -98,7 +106,7 @@ namespace FanKit.Library.Colors
             double P = V * (1.0f - S);
             double Q = V * (1.0f - F * S);
             double T = V * (1.0f - (1.0f - F) * S);
-            
+
             double R = 0f, G = 0f, B = 0f;
             switch (H1)
             {
@@ -108,7 +116,7 @@ namespace FanKit.Library.Colors
                 case 3: R = P; G = Q; B = V; break;
                 case 4: R = T; G = P; B = V; break;
                 case 5: R = V; G = P; B = Q; break;
-            }                       
+            }
 
             R = R * 255;
             while (R > 255) R -= 255;
@@ -121,7 +129,7 @@ namespace FanKit.Library.Colors
             B = B * 255;
             while (B > 255) B -= 255;
             while (B < 0) B += 255;
-            
+
             return Color.FromArgb(a, (byte)R, (byte)G, (byte)B);
         }
 
@@ -146,18 +154,18 @@ namespace FanKit.Library.Colors
 
             double min = Math.Min(Math.Min(R, G), B);
             double max = Math.Max(Math.Max(R, G), B);
-                       
-            double H=0, S, V;
- 
+
+            double H = 0, S, V;
+
             if (max == min) { H = 0; }
 
-            else if (max == R && G > B) H = 60 * (G - B) * 1.0f / (max - min) + 0;            
-            else if (max == R && G < B)H = 60 * (G - B) * 1.0f / (max - min) + 360;            
-            else if (max == G)H = H = 60 * (B - R) * 1.0f / (max - min) + 120;            
+            else if (max == R && G > B) H = 60 * (G - B) * 1.0f / (max - min) + 0;
+            else if (max == R && G < B) H = 60 * (G - B) * 1.0f / (max - min) + 360;
+            else if (max == G) H = H = 60 * (B - R) * 1.0f / (max - min) + 120;
             else if (max == B) H = H = 60 * (R - G) * 1.0f / (max - min) + 240;
-            
-            if (max == 0)  S = 0;          
-            else S = (max - min) * 1.0f / max;            
+
+            if (max == 0) S = 0;
+            else S = (max - min) * 1.0f / max;
 
             V = max;
 
@@ -165,7 +173,13 @@ namespace FanKit.Library.Colors
         }
 
 
+        /// <summary> Draw a ⊙. </summary>
+        public static void DrawThumb(CanvasDrawingSession ds, Vector2 vector) => HSL.DrawThumb(ds, vector.X, vector.Y);
+        public static void DrawThumb(CanvasDrawingSession ds, float px, float py)
+        {
+            ds.DrawCircle(px, py, 9, Windows.UI.Colors.Black, 5);
+            ds.DrawCircle(px, py, 9, Windows.UI.Colors.White, 3);
+        }
+
     }
-
 }
-

@@ -1,37 +1,34 @@
 
-```xaml
 
+```xaml
 
 <UserControl
     x:Class="FanKit.Library.Colors.StrawPicker"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="50"
-    d:DesignWidth="50">
+    >
 
     <UserControl.Resources>
-
-        <!--Color-->
         <SolidColorBrush x:Name="SolidColorBrushName" x:Key="SolidColorBrushKey" Color="White"/>
-        <SolidColorBrush x:Name="SolidColorBrushNameOld" x:Key="SolidColorBrushKeyOld" Color="White"/>
-
     </UserControl.Resources>
 
-    <Border Background="Transparent" 
+
+    <StackPanel Orientation="Horizontal">
+        <Border Width="32" Background="Transparent" 
             PointerPressed="Border_PointerPressed" 
             
             ManipulationMode="All" 
             ManipulationStarted="Border_ManipulationStarted"
             ManipulationDelta="Border_ManipulationDelta"  
             ManipulationCompleted="Border_ManipulationCompleted">
-        <FontIcon Glyph="&#xEF3C;" FontFamily="Segoe MDL2 Assets"/>
-    </Border>
+            <FontIcon Glyph="&#xEF3C;" FontFamily="Segoe MDL2 Assets" />
+        </Border>
 
+        <Border x:Name="Ellipse" Width="40" Background="Transparent"  >
+            <Ellipse Width="22" Height="22" StrokeThickness="1" Stroke="Gray" Fill="{StaticResource SolidColorBrushKey}" 
+                     HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+
+    </StackPanel>
 </UserControl>
-
 
 
 ```

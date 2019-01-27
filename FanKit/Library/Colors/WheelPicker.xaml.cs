@@ -11,55 +11,48 @@ using Windows.UI.Xaml.Media;
 
 namespace FanKit.Library.Colors
 {
-    public sealed partial class WheelPicker : UserControl
+    public sealed partial class WheelPicker : UserControl, IPicker
     {
 
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color value);
         public event ColorChangeHandler ColorChange = null;
+        public Color GetColor() => HSL.HSLtoRGB(this.HSL);
+        public void SetColor(Color value) => this.HSL = HSL.RGBtoHSL(value);
 
 
         #region DependencyProperty
 
 
-        private Color color = Color.FromArgb(255, 255, 255, 255);
-        public Color Color
+        private HSL hsl = new HSL { A = 255, H = 0, S = 1, L = 1 };
+        private HSL _HSL
         {
-            get => color;
+            get => this.hsl;
             set
             {
-                color = value;
-                this.HSL = HSL.RGBtoHSL(value);
+                this.ColorChange?.Invoke(this, HSL.HSLtoRGB(value.A, value.H, value.S, value.L));
+
+                this.hsl = value;
             }
         }
-
-
         public HSL HSL
         {
-            get { return (HSL)GetValue(HSLProperty); }
-            set { SetValue(HSLProperty, value); }
-        }
-        public static readonly DependencyProperty HSLProperty = DependencyProperty.Register(nameof(HSL), typeof(HSL), typeof(WheelPicker), new PropertyMetadata(new HSL(255, 360, 100, 100), (sender, e) =>
-        {
-            WheelPicker con = (WheelPicker)sender;
-
-            if (e.NewValue is HSL NewValue)
+            get => this.hsl;
+            set
             {
-                con.HSLChanged(NewValue);
+                byte A = value.A;
+                double H = value.H;
+                double S = value.S;
+                double L = value.L;
+
+                this.CanvasControl.Invalidate();
+
+                this.hsl = value;
             }
-        }));
-
-        private void HSLChanged(HSL value)
+        }
+        public Color Color
         {
-            byte A = value.A;
-            double H = value.H;
-            double S = value.S;
-            double L = value.L;
-
-            this.color = HSL.HSLtoRGB(A, H, S, L);
-            this.ColorChange?.Invoke(this, this.color);
-
-            this.CanvasControl.Invalidate();
+            get => this.GetColor();
+            set => this.SetColor(value);
         }
 
 
@@ -106,8 +99,7 @@ namespace FanKit.Library.Colors
             double ang = (float)(((this.HSL.H + 360.0) % 360.0) * Math.PI / 180.0);
             float wx = (float)Math.Cos(ang) * this.Radio + this.Center.X;
             float wy = (float)Math.Sin(ang) * this.Radio + this.Center.Y;
-            args.DrawingSession.DrawCircle(wx, wy, 8, Windows.UI.Colors.Black, 4);
-            args.DrawingSession.DrawCircle(wx, wy, 8, Windows.UI.Colors.White, 2);
+            HSL.DrawThumb(args.DrawingSession, wx, wy);
 
 
             //Palette
@@ -119,8 +111,7 @@ namespace FanKit.Library.Colors
             //Thumb 
             float px = ((float)this.HSL.S - 50) * this.SquareRadio / 50 + this.Center.X;
             float py = (50 - (float)this.HSL.L) * this.SquareRadio / 50 + this.Center.Y;
-            args.DrawingSession.DrawCircle(px, py, 8, Windows.UI.Colors.Black, 4);
-            args.DrawingSession.DrawCircle(px, py, 8, Windows.UI.Colors.White, 2);
+            HSL.DrawThumb(args.DrawingSession, px, py);
         }
 
 
@@ -135,17 +126,18 @@ namespace FanKit.Library.Colors
             this.IsWheel = this.Vector.Length() + this.StrokeWidth > this.Radio && this.Vector.Length() - this.StrokeWidth < this.Radio;
             this.IsPalette = Math.Abs(this.Vector.X) < this.SquareRadio && Math.Abs(this.Vector.Y) < this.SquareRadio;
 
-            if (this.IsWheel) this.HSL = this.GetWheelHSL(this.HSL, this.Vector);
-            if (this.IsPalette) this.HSL = this.GetPaletteHSL(this.HSL, this.Vector);
+            if (this.IsWheel) this.HSL = this._HSL = this.GetWheelHSL(this.hsl, this.Vector);
+            if (this.IsPalette) this.HSL = this._HSL = this.GetPaletteHSL(this.hsl, this.Vector);
         }
         private void CanvasControl_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             this.Vector += e.Delta.Translation.ToVector2();
 
-            if (this.IsWheel) this.HSL = this.GetWheelHSL(this.HSL, this.Vector);
-            if (this.IsPalette) this.HSL = this.GetPaletteHSL(this.HSL, this.Vector);
+            if (this.IsWheel) this.HSL = this._HSL = this.GetWheelHSL(this.hsl, this.Vector);
+            if (this.IsPalette) this.HSL = this._HSL = this.GetPaletteHSL(this.hsl, this.Vector);
         }
         private void CanvasControl_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e) => this.IsWheel = this.IsPalette = false;
+
 
 
         private HSL GetWheelHSL(HSL hsl, Vector2 vector)
@@ -161,5 +153,7 @@ namespace FanKit.Library.Colors
 
             return new HSL(hsl.A, hsl.H, S, L);
         }
+
+
     }
 }

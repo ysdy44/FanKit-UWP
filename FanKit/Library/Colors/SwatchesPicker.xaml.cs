@@ -6,11 +6,15 @@ using Windows.UI.Xaml.Input;
 
 namespace FanKit.Library.Colors
 {
-    public sealed partial class SwatchesPicker : UserControl
+    public sealed partial class SwatchesPicker : UserControl, IPicker
     {
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color value);
         public event ColorChangeHandler ColorChange = null;
+
+        private Color color = Color.FromArgb(255, 255, 255, 255);
+        public Color GetColor() => color;
+        public void SetColor(Color value) => color = value;
+
 
         private bool isMultiSelect;
         public bool IsMultiSelect
@@ -73,7 +77,7 @@ namespace FanKit.Library.Colors
             set { SetValue(ColorProperty, value); }
         }
         public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(StrawPicker), new PropertyMetadata(Windows.UI.Colors.White));
-         
+
 
         #endregion
 
@@ -82,18 +86,18 @@ namespace FanKit.Library.Colors
             this.InitializeComponent();
         }
 
-        private void RemoveButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.RemoveAt(this.GridView.SelectedIndex==-1?0 :this.GridView.SelectedIndex);
-        private void AddButton_Tapped(object sender, TappedRoutedEventArgs e)=>  this.Collection.Insert(0,this.Color);
+        private void RemoveButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.RemoveAt(this.GridView.SelectedIndex == -1 ? 0 : this.GridView.SelectedIndex);
+        private void AddButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.Insert(0, this.Color);
         private void MultiSelectToggleButton_Checked(object sender, RoutedEventArgs e) => this.IsMultiSelect = true;
         private void MultiSelectToggleButton_Unchecked(object sender, RoutedEventArgs e) => this.IsMultiSelect = false;
-    
+
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (e.ClickedItem is Color item)
             {
-                this.Color = item;
-                this.ColorChange?.Invoke(this, item);
+                this.color = item;
+                this.ColorChange?.Invoke(this, this.color);
             }
         }
         private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

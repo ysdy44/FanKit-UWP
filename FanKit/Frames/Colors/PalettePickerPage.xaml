@@ -1,13 +1,11 @@
 ﻿<Page
     x:Class="FanKit.Frames.Colors.PalettePickerPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FanKit.Frames.Colors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:Colors="using:FanKit.Library.Colors"
     xmlns:frames="using:FanKit.Frames"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
@@ -23,7 +21,7 @@
 
 
         <frames:PageLayout.ShowContent>
-            <Colors:PalettePicker x:Name="PalettePicker" ColorChange="PalettePicker_ColorChange"/>
+            <ContentControl x:Name="ContentControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
         </frames:PageLayout.ShowContent>
 
 
@@ -33,7 +31,13 @@
                     <StackPanel>
 
                         <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
-
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="HueButton" Content="Hue" />
+                            <AppBarSeparator/>
+                            <Button x:Name="SaturationButton" Content="Saturation" />
+                            <AppBarSeparator/>
+                            <Button x:Name="LightnessButton" Content="Lightness"/>
+                        </StackPanel>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                               
                             <Span FontStyle="Italic">Hue mode:</Span>
@@ -81,34 +85,19 @@
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>
                 </PivotItem>
+                <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer>
+                        <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
+                    </ScrollViewer>
+                </PivotItem>
                 <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
+                        <controls:MarkdownTextBlock x:Name="MarkdownText3" />
                     </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="Base" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText4"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="H" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText5"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="S" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText6"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="L" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText7"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

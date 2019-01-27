@@ -1,58 +1,29 @@
 
-```xaml
 
+```xaml
 
 <UserControl
     x:Class="FanKit.Library.Colors.PalettePicker"
-    xmlns:local="using:FanKit.Library.Colors"
-    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml">
+    xmlns:Colors="using:FanKit.Library.Colors"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    MinHeight="240" >
+
+
+    <UserControl.Resources>
+        <LinearGradientBrush x:Name="LinearGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5"/>
+    </UserControl.Resources>
 
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
-        <Grid Padding="12,12,12,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition  Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Colors:TouchSlider x:Name="Slider" Grid.Row="1" SliderBrush="{StaticResource LinearGradientBrush}"/>
 
-            <ComboBox x:Name="ComboBox" BorderThickness="1" HorizontalAlignment="Stretch">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate x:DataType="local:PaletteBase">
-                        <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+        <canvas:CanvasControl  x:Name="CanvasControl" />
 
-            <local:NumberPicker x:Name="Picker" Grid.Column="1" Grid.Row="0" Width="80" ValueChange="Picker_ValueChange"/>
-            <local:TouchSlider x:Name="Slider" Grid.ColumnSpan="2" Grid.Row="1"  ValueChangeDelta="Slider_ValueChangeDelta">
-                <local:TouchSlider.SliderBackground>
-                    <LinearGradientBrush x:Name="LinearGradientBrush"  StartPoint  ="0, 0.5" EndPoint ="1, 0.5">
-                    </LinearGradientBrush>
-                </local:TouchSlider.SliderBackground>
-            </local:TouchSlider>
-        </Grid>
-
-        <canvas:CanvasControl  
-            x:Name="CanvasControl" Grid.Row="1" MinHeight="180"
-                        
-            Draw="CanvasControl_Draw" 
-            SizeChanged="CanvasControl_SizeChanged"
-           
-            ManipulationMode="All"
-            ManipulationStarted="CanvasControl_ManipulationStarted"
-            ManipulationDelta="CanvasControl_ManipulationDelta"
-            ManipulationCompleted="CanvasControl_ManipulationCompleted"
-        />
     </Grid>
 </UserControl>
 

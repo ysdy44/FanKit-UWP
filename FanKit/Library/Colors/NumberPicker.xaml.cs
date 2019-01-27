@@ -2,7 +2,6 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-
 namespace FanKit.Library.Colors
 {
     public sealed partial class NumberPicker : UserControl
@@ -21,7 +20,8 @@ namespace FanKit.Library.Colors
             get { return (int)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(int), typeof(NumberPicker), new PropertyMetadata(0, (sender, e) =>
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(int), typeof(NumberPicker), new PropertyMetadata(0, new PropertyChangedCallback(ValueOnChang)));
+        private static void ValueOnChang(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             NumberPicker con = (NumberPicker)sender;
 
@@ -29,8 +29,7 @@ namespace FanKit.Library.Colors
             {
                 con.Button.Content = value.ToString() + " " + con.Unit;
             }
-        }));
-
+        }
 
 
         public int Minimum
@@ -38,16 +37,16 @@ namespace FanKit.Library.Colors
             get { return (int)GetValue(MinimumProperty); }
             set { SetValue(MinimumProperty, value); }
         }
-        public static readonly DependencyProperty MinimumProperty =DependencyProperty.Register(nameof(Minimum), typeof(int), typeof(NumberPicker), new PropertyMetadata(0));
-    
+        public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(nameof(Minimum), typeof(int), typeof(NumberPicker), new PropertyMetadata(0));
+
 
         public int Maximum
         {
             get { return (int)GetValue(MaximumProperty); }
             set { SetValue(MaximumProperty, value); }
         }
-        public static readonly DependencyProperty MaximumProperty =DependencyProperty.Register(nameof(Maximum), typeof(int), typeof(NumberPicker), new PropertyMetadata(100));
-       
+        public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(nameof(Maximum), typeof(int), typeof(NumberPicker), new PropertyMetadata(100));
+
 
 
         public string Unit
@@ -55,7 +54,7 @@ namespace FanKit.Library.Colors
             get { return (string)GetValue(UnitProperty); }
             set { SetValue(UnitProperty, value); }
         }
-        public static readonly DependencyProperty UnitProperty =DependencyProperty.Register(nameof(Unit), typeof(string), typeof(NumberPicker), new PropertyMetadata(string.Empty, new PropertyChangedCallback(UnitOnChang)));
+        public static readonly DependencyProperty UnitProperty = DependencyProperty.Register(nameof(Unit), typeof(string), typeof(NumberPicker), new PropertyMetadata(string.Empty, new PropertyChangedCallback(UnitOnChang)));
         private static void UnitOnChang(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             NumberPicker con = (NumberPicker)sender;
@@ -134,12 +133,12 @@ namespace FanKit.Library.Colors
         private void Seven_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 7;
         private void Eight_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 8;
         private void Nine_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue * 10 + 9;
-      
+
         //Back, Negative
         private void Back_Click(object sender, RoutedEventArgs e) => this.NewValue = this.NewValue / 10;
         private void Negative_Click(object sender, RoutedEventArgs e) => this.IsNegative = !this.IsNegative;
         private void Decimal_Click(object sender, RoutedEventArgs e) => this.NewValue = 0;
- 
+
         //OK, Cancel
         private void OK_Click(object sender, RoutedEventArgs e)
         {
@@ -163,6 +162,6 @@ namespace FanKit.Library.Colors
             return value;
         }
 
-    
+
     }
 }

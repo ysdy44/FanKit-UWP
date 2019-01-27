@@ -15,10 +15,13 @@ namespace FanKit.Frames.Others
 
         List<Type> Pages = new List<Type>
         {
+            typeof(FanKit.Frames.Win2Ds.TransformControllerPage),
+            typeof(FanKit.Frames.Win2Ds.MarqueeToolPage),
+            typeof(FanKit.Frames.Colors.ColorPickerPage),
+            typeof(FanKit.Frames.Colors.TouchSliderPage),
+            typeof(FanKit.Frames.Colors.StrawPickerPage),
             typeof(FanKit.Frames.Control.RadiusAnimaPanelPage),
             typeof(FanKit.Frames.Helpers.ColorsPage),
-            typeof(FanKit.Frames.Colors.StrawPickerPage),
-            typeof(FanKit.Frames.Win2Ds.MarqueeToolPage),
          };
 
         public SplashPage()
@@ -50,10 +53,11 @@ namespace FanKit.Frames.Others
         private UIElement BuildUIElement(Type page)
         {
             string[] splits = page.ToString().Split('.');
+            string name = splits.Last();
 
             HyperlinkButton hyperlinkButton = new HyperlinkButton
             {
-                Content = splits[splits.Length - 2] + ">" + splits.Last()
+                Content = splits[splits.Length - 2] + ">" + name.Remove(name.Length-4)
             };
 
             hyperlinkButton.Tapped += (sender, e) => MainPage.Navigate(page);

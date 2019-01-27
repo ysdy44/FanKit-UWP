@@ -158,10 +158,7 @@ namespace FanKit.Library.Colors
     public sealed partial class StrawPicker : UserControl
     {
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color value);
-        public event ColorChangeHandler ColorChangeStarted = null;
-        public event ColorChangeHandler ColorChangeDelta = null;
-        public event ColorChangeHandler ColorChangeCompleted = null;
+        public event ColorChangeHandler ColorChange = null;
 
         PopupSize PopupSize;
 
@@ -176,26 +173,12 @@ namespace FanKit.Library.Colors
             VerticalAlignment = VerticalAlignment.Center
         };
 
-        #region DependencyProperty
-
 
         public Color Color
         {
-            get { return (Color)GetValue(ColorProperty); }
-            set { SetValue(ColorProperty, value); }
+            get => this.SolidColorBrushName.Color;
+            set => this.SolidColorBrushName.Color = value;
         }
-        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(StrawPicker), new PropertyMetadata(Windows.UI.Colors.White, (sender, e) =>
-        {
-            StrawPicker con = (StrawPicker)sender;
-
-            if (e.NewValue is Color value)
-            {
-                con.SolidColorBrushName.Color = value;
-            }
-        }));
-
-
-        #endregion
 
 
         public StrawPicker()
@@ -211,10 +194,12 @@ namespace FanKit.Library.Colors
             this.CanvasControl.Draw += this.CanvasControl_Draw;
 
             this.PopupSize = new PopupSize(this.CanvasControl, this.TextBlock, this.SolidColorBrushName, 100);
+
+            this.Ellipse.Tapped += (sender, e) =>this.ColorChange?.Invoke(this, this.Color);//Delegate
         }
 
         //Canvas
-        private void CanvasControl_Draw(CanvasControl sender, Microsoft.Graphics.Canvas.UI.Xaml.CanvasDrawEventArgs args)
+        private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
             if (this.Bitmap == null) return;
 
@@ -239,8 +224,6 @@ namespace FanKit.Library.Colors
             this.Color = StrawRender.GetColor(this.Bitmap, this.PopupSize.Postion);
 
             this.PopupSize.IsOpen = true;
-
-            this.ColorChangeStarted?.Invoke(this, this.Color);//Delegate
         }
 
         private void Border_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
@@ -250,8 +233,6 @@ namespace FanKit.Library.Colors
             this.Color = StrawRender.GetColor(this.Bitmap, this.PopupSize.Postion);
             this.CanvasControl.Invalidate();
             this.TextBlock.Text = this.Color.ToString();
-
-            this.ColorChangeDelta?.Invoke(this, this.Color);//Delegate
         }
 
         private void Border_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
@@ -261,8 +242,6 @@ namespace FanKit.Library.Colors
             this.Dispose();
 
             this.PopupSize.IsOpen = false;
-
-            this.ColorChangeCompleted?.Invoke(this, this.Color);//Delegate
         }
 
         public void Dispose()

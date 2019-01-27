@@ -1,22 +1,20 @@
 
-```xaml
 
+```xaml
 
 
 <Page
     x:Class="FanKit.Frames.Colors.PalettePickerPage"
-    xmlns:local="using:FanKit.Frames.Colors"
-    xmlns:Colors="using:FanKit.Library.Colors">
-
-<Grid Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-           
-     <Colors:PalettePicker 
-        x:Name="PalettePicker" 
-        ColorChange="PalettePicker_ColorChange"/>
-
-</Grid>
+    >
 
 
+    <Page.Resources>
+        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey"/>
+    </Page.Resources>
+
+    <ContentControl x:Name="ContentControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+
+</Page>
 
 
 ```

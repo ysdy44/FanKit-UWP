@@ -90,7 +90,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Border x:Name="ShowBorder" Grid.Column="1" Grid.Row="1"     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Border x:Name="ShowBorder" Grid.Column="1" Grid.Row="1" Padding="12" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <!--Show-->
             </Border>
         </Grid>

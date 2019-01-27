@@ -6,10 +6,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Loaded="UserControl_Loaded">
-    
-    
+
+
     <UserControl.Resources>
-  
+
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="FontWeight" Value="SemiBold" />
@@ -22,19 +22,16 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}" />
-            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
             <Setter Property="Width" Value="Auto" />
             <Setter Property="MinHeight" Value="48" />
-            <Setter Property="UseSystemFocusVisuals" Value="True" />
         </Style>
 
     </UserControl.Resources>
 
-    
+
     <Button  x:Name="Button" Height="24" Style="{StaticResource ButtonStyle}" Click="Button_Click">
         <Button.Flyout>
-            <Flyout  x:Name="Flyout" Placement="Bottom">
+            <Flyout  x:Name="Flyout" Placement="Bottom" >
                 <Grid Width="180" Height="180" Margin="-10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>

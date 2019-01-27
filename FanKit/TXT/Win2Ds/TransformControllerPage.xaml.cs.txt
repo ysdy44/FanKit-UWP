@@ -1,4 +1,8 @@
-﻿using FanKit.Library.Win2Ds;
+
+```Csharp
+
+
+using FanKit.Library.Win2Ds;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.UI;
@@ -21,14 +25,6 @@ namespace FanKit.Frames.Win2Ds
         public TransformControllerPage()
         {
             this.InitializeComponent();
-        }
-
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/TransformControllerPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/TransformControllerPage.xaml.cs.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/TransformController.cs.txt");
         }
 
 
@@ -104,3 +100,7 @@ namespace FanKit.Frames.Win2Ds
 
     }
 }
+
+
+
+```

@@ -26,9 +26,9 @@ namespace FanKit.Frames.Win2Ds
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolsPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolsPage.xaml.cs.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeTools.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.cs.txt");
+            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeTool.cs.txt");
         }
 
         #region UI
@@ -176,7 +176,6 @@ namespace FanKit.Frames.Win2Ds
                 this.MarqueeTool.Operator_Complete(e.GetCurrentPoint(this.CanvasControl).Position.ToVector2());
                 this.CanvasControl.Invalidate();
             }
-
         }
 
 

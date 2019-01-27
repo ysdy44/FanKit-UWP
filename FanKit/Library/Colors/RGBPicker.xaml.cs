@@ -1,56 +1,56 @@
 ﻿using Windows.UI;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 
 namespace FanKit.Library.Colors
 {
-    public sealed partial class RGBPicker : UserControl
+    public sealed partial class RGBPicker : UserControl, IPicker
     {
 
         //Delegate
-        public delegate void ColorChangeHandler(object sender, Color Value);
         public event ColorChangeHandler ColorChange = null;
+        public Color GetColor() => this.Color;
+        public void SetColor(Color value) => this.Color = value;
+
 
         #region DependencyProperty
 
 
+        private Color color = Color.FromArgb(255, 255, 255, 255);
+        private Color _Color
+        {
+            get => this.color;
+            set
+            {
+                this.ColorChange?.Invoke(this, value);
+
+                this.color = value;
+            }
+        }
         public Color Color
         {
-            get { return (Color)GetValue(ColorProperty); }
-            set { SetValue(ColorProperty, value); }
-        }
-        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(HSLPicker), new PropertyMetadata(Windows.UI.Colors.White, (sender, e) =>
-        {
-            RGBPicker con = (RGBPicker)sender;
-
-            if (e.NewValue is Color NewValue)
+            get => this.color;
+            set
             {
-                con.ColorChanged(NewValue);
+                //R
+                this.RSlider.Value = value.R;
+                this.RPicker.Value = value.R;
+                this.RLeft.Color = Color.FromArgb(255, 0, value.G, value.B);
+                this.RRight.Color = Color.FromArgb(255, 255, value.G, value.B);
+
+                //G
+                this.GSlider.Value = value.G;
+                this.GPicker.Value = value.G;
+                this.GLeft.Color = Color.FromArgb(255, value.R, 0, value.B);
+                this.GRight.Color = Color.FromArgb(255, value.R, 255, value.B);
+
+                //B
+                this.BSlider.Value = value.B;
+                this.BPicker.Value = value.B;
+                this.BLeft.Color = Color.FromArgb(255, value.R, value.G, 0);
+                this.BRight.Color = Color.FromArgb(255, value.R, value.G, 255);
+
+                this.color = value;
             }
-        }));
-
-        private void ColorChanged(Color value)
-        {
-            //R
-            this.RSlider.Value = value.R;
-            this.RPicker.Value = value.R;
-            this.RLeft.Color = Color.FromArgb(255, 0, value.G, value.B);
-            this.RRight.Color = Color.FromArgb(255, 255, value.G, value.B);
-
-            //G
-            this.GSlider.Value = value.G;
-            this.GPicker.Value = value.G;
-            this.GLeft.Color = Color.FromArgb(255, value.R, 0, value.B);
-            this.GRight.Color = Color.FromArgb(255, value.R, 255, value.B);
-
-            //B
-            this.BSlider.Value = value.B;
-            this.BPicker.Value = value.B;
-            this.BLeft.Color = Color.FromArgb(255, value.R, value.G, 0);
-            this.BRight.Color = Color.FromArgb(255, value.R, value.G, 255);
-
-            this.ColorChange?.Invoke(this,value);
         }
 
 
@@ -60,18 +60,16 @@ namespace FanKit.Library.Colors
         public RGBPicker()
         {
             this.InitializeComponent();
+
+            //Slider
+            this.RSlider.ValueChangeDelta += (sender, value) => this.Color = this._Color = Color.FromArgb(this.color.A, (byte)value, this.color.G, this.color.B);
+            this.GSlider.ValueChangeDelta += (sender, value) => this.Color = this._Color = Color.FromArgb(this.color.A, this.color.R, (byte)value, this.color.B);
+            this.BSlider.ValueChangeDelta += (sender, value) => this.Color = this._Color = Color.FromArgb(this.color.A, this.color.R, this.color.G, (byte)value);
+
+            //Picker
+            this.RPicker.ValueChange += (sender, Value) => this.Color = this._Color = Color.FromArgb(this.color.A, (byte)Value, this.color.G, this.color.B);
+            this.GPicker.ValueChange += (sender, Value) => this.Color = this._Color = Color.FromArgb(this.color.A, this.color.R, (byte)Value, this.color.B);
+            this.BPicker.ValueChange += (sender, Value) => this.Color = this._Color = Color.FromArgb(this.color.A, this.color.R, this.color.G, (byte)Value);
         }
-
-
-        //Slider
-        private void RSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.Color = Color.FromArgb(this.Color.A, (byte)e.NewValue, this.Color.G, this.Color.B);
-        private void GSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.Color = Color.FromArgb(this.Color.A, this.Color.R, (byte)e.NewValue, this.Color.B);
-        private void BSlider_ValueChangeDelta(object sender, RangeBaseValueChangedEventArgs e) => this.Color = Color.FromArgb(this.Color.A, this.Color.R, this.Color.G, (byte)e.NewValue);
-
-        //Picker
-        private void RPicker_ValueChange(object sender, int Value) => this.Color = Color.FromArgb(this.Color.A, (byte)Value, this.Color.G, this.Color.B);
-        private void GPicker_ValueChange(object sender, int Value) => this.Color = Color.FromArgb(this.Color.A, this.Color.R, (byte)Value, this.Color.B);
-        private void BPicker_ValueChange(object sender, int Value) => this.Color = Color.FromArgb(this.Color.A, this.Color.R, this.Color.G, (byte)Value);
-       
     }
 }

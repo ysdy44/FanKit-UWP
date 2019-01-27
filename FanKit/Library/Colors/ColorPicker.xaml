@@ -7,77 +7,63 @@
     xmlns:local="using:FanKit.Library.Colors"
     mc:Ignorable="d"
     d:DesignHeight="270"
-    d:DesignWidth="200"
-    Loaded="UserControl_Loaded">
-    
-    
+    d:DesignWidth="200">
+
+
     <UserControl.Resources>
 
         <!--Color-->
         <SolidColorBrush x:Name="SolidColorBrushName" x:Key="SolidColorBrushKey" Color="White"/>
 
-        <!--Flyout-->
-        <Flyout x:Name="Dialog" Placement="Full" LightDismissOverlayMode="On">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <local:AlphaPicker x:Name="AlphaPicker" ColorChange="Picker_ColorChange" />
-                <local:PalettePicker x:Name="PalettePicker" Grid.Row="1" ColorChange="Picker_ColorChange"/>
-            </Grid>
-        </Flyout>
-        
     </UserControl.Resources>
 
 
-    <Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="4"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
+    <StackPanel >
+
         <!--Head-->
-        <Grid Height="36">
+        <Grid Height="40">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid>
                 <Ellipse x:Name="Ellipse" Width="22" Height="22" Fill="{StaticResource SolidColorBrushKey}" />
                 <Ellipse StrokeThickness="4" Width="25" Height="25" Stroke="Gray"/>
                 <Ellipse StrokeThickness="2" Width="23" Height="23" Stroke="White"/>
-                <Border Background="Transparent" Tapped="Ellipse_Tapped"/>
             </Grid>
-            <TextBlock Grid.Column="1" Text="Color" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <local:StrawPicker  Grid.Column="2" ColorChangeStarted="StrawPicker_ColorChangeStarted" ColorChangeDelta="StrawPicker_ColorChangeDelta" ColorChangeCompleted="StrawPicker_ColorChangeCompleted"/>
+            <TextBlock Visibility="Collapsed" Grid.Column="1" Text="Color" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <local:StrawPicker x:Name="StrawPicker" Grid.Column="2"/>
         </Grid>
 
         <!--Toggle-->
-        <Grid Grid.Row="1" Height="34" CornerRadius="15" BorderThickness="0,0,1,2"  BorderBrush="#44000000"  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            <ToggleButton x:Name="SwatchesButton" Grid.Column="0" Content="&#xE138;" FontFamily="Segoe UI Symbol" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="SwatchesButton_Click"/>
-            <ToggleButton x:Name="WheelButton" Grid.Column="1" Content="&#xE2B1;" FontSize="16" FontFamily="Segoe MDL2 Assets" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="WheelButton_Click"/>
-            <ToggleButton x:Name="RGBButton" Grid.Column="2" Content="RGB" FontSize="13" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="RGBButton_Click"/>
-            <ToggleButton x:Name="HSLButton" Grid.Column="3" Content="HSL" FontSize="13" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="HSLButton_Click"/>
+        <Grid Grid.Row="1" >
+            <ComboBox x:Name="ComboBox" ItemsSource="{x:Bind Pickers}" >
+                <ComboBox.Style>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="Background" Value="{ThemeResource AppBarBackgroundThemeBrush}" />
+                        <Setter Property="BorderBrush" Value="{ThemeResource AppBarBorderThemeBrush}" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Top" />
+                    </Style>
+                </ComboBox.Style>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="local:Picker">
+                        <TextBlock Text="{x:Bind Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </Grid>
 
         <!--Body-->
-        <Grid Grid.Row="3">
-            <local:SwatchesPicker x:Name="SwatchesPicker" Visibility="Collapsed" ColorChange="Picker_ColorChange"/>
-            <local:WheelPicker x:Name="WheelPicker" Visibility="Collapsed" ColorChange="Picker_ColorChange"/>
-            <local:RGBPicker x:Name="RGBPicker" Visibility="Collapsed" ColorChange="Picker_ColorChange"/>
-            <local:HSLPicker x:Name="HSLPicker" Visibility="Collapsed" ColorChange="Picker_ColorChange"/>
-        </Grid>
-       
-        
-    </Grid>
+        <ContentControl x:Name="ContentControl" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+
+        <!--Alpha-->
+        <local:AlphaPicker x:Name="AlphaPicker" />
+
+        <ContentControl Height="12"/>
+
+    </StackPanel>
 </UserControl>

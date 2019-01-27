@@ -1,32 +1,53 @@
 
-```xaml
 
+```xaml
 
 
 <Page
     x:Class="FanKit.Frames.Colors.NumberPickerPage"
-    xmlns:local="using:FanKit.Frames.Colors"
-    xmlns:Colors="using:FanKit.Library.Colors">
+    xmlns:Colors="using:FanKit.Library.Colors"
+    >
 
-<Grid>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
 
+        <Border Padding="14" Grid.ColumnSpan="3" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+            <TextBlock Text="Number Picker" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+        </Border>
 
-    <Border >
-        <TextBlock Text="Number Picker" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-    </Border>
+        <TextBlock Grid.Row="1" Text="Value: (defult 0)" Margin="12,0" VerticalAlignment="Center"/>
+        <Border Grid.Column="2" Grid.Row="1" Margin="12,0" Padding="8,4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
+            <Colors:NumberPicker x:Name="NumberPicker0" Value="0"/>
+        </Border>
 
-    <TextBlock Text="Value: (defult 0)"/>
-     <Colors:NumberPicker Value="0"/>
+        <TextBlock Grid.Row="2" Text="Minimum: (defult 0)" Margin="12,0" VerticalAlignment="Center"/>
+        <Border Grid.Column="2" Grid.Row="2" Margin="12,0" Padding="8,4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
+            <Colors:NumberPicker x:Name="NumberPicker1" Minimum="0"/>
+        </Border>
 
-    <TextBlock Text="Minimum: (defult 0)"/>
-     <Colors:NumberPicker Minimum="0"/>
+        <TextBlock Grid.Row="3" Text="Maximum: (defult 100)" Margin="12,0" VerticalAlignment="Center"/>
+        <Border Grid.Column="2" Grid.Row="3" Margin="12,0" Padding="8,4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
+            <Colors:NumberPicker x:Name="NumberPicker2" Maximum="100"/>
+        </Border>
 
-    <TextBlock  Text="Maximum: (defult 100)"/>
-    <Colors:NumberPicker Maximum="100"/>
+        <TextBlock Grid.Row="4" Text="Unit: (defult Empty)" Margin="12,0" VerticalAlignment="Center"/>
+        <Border Grid.Column="2" Grid.Row="4" Margin="12,0" Padding="8,4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
+            <Colors:NumberPicker x:Name="NumberPicker3" Unit="%"/>
+        </Border>
 
-    <TextBlock Grid.Row="4" Text="Unit: (defult Empty)"/>
-	 <Colors:NumberPicker Unit="%"/>
+    </Grid>
+</Page>
 
-</Grid>
 
 ```

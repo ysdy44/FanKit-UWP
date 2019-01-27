@@ -22,8 +22,8 @@
 
 
         <frames:PageLayout2.ShowContent>
-            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <Colors:ColorPicker x:Name="ColorPicker" Margin="12" Width="200" Height="270"  ColorChange="ColorPicker_ColorChange"/>
+            <Border Width="222" Padding="12" VerticalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Colors:ColorPicker x:Name="ColorPicker" ColorChange="ColorPicker_ColorChange"/>
             </Border>
         </frames:PageLayout2.ShowContent>
 
@@ -61,3 +61,7 @@
 
     </frames:PageLayout2>
 </Page>
+
+    
+    
+    

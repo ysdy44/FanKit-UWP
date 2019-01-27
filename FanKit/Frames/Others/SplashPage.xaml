@@ -45,10 +45,10 @@
                 <ItemsControl x:Name="ItemsControl"/>
 
                 <ContentControl Height="12"/>
-                
-                <TextBlock Text="More" Style="{ThemeResource BaseTextBlockStyle}"/>
-                <ContentControl Height="4"/>
-                <TextBlock Text="Choose more from the Appbar." 
+
+                <TextBlock Visibility="Collapsed" Text="More" Style="{ThemeResource BaseTextBlockStyle}"/>
+                <ContentControl Visibility="Collapsed" Height="4"/>
+                <TextBlock Visibility="Collapsed" Text="Choose more from the Appbar." 
                            Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
                 
             </StackPanel>

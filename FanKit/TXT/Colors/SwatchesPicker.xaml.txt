@@ -1,13 +1,13 @@
 
-```xaml
 
+```xaml
 
 <UserControl
     x:Class="FanKit.Library.Colors.SwatchesPicker"
-    d:DesignHeight="300"
-    d:DesignWidth="200">
+    Height="220"
+    >
 
-    
+
     <UserControl.Resources>
 
         <!--DataTemplate-->
@@ -170,7 +170,7 @@
                   ItemTemplate="{StaticResource DataTemplate}"
                   Style="{StaticResource AppGridViewStyle}"
                   ItemContainerStyle="{StaticResource AppItemContainerStyle}"/>
-     
+
         <Grid Margin="6" CornerRadius="16" Width="180" Height="36" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0,0,1,3" BorderBrush="#44000000" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -181,12 +181,9 @@
             <ToggleButton x:Name="MultiSelectToggleButton" Grid.Column="1" Content="&#xF5EE;" FontSize="18" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0" Background="Transparent" Checked="MultiSelectToggleButton_Checked" Unchecked="MultiSelectToggleButton_Unchecked"/>
             <Button x:Name="RemoveButton" Grid.Column="2" Width="Auto" Content="&#xE107;" FontSize="20" FontFamily="Segoe UI Symbol" HorizontalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}" Tapped="RemoveButton_Tapped"/>
         </Grid>
-    
-        </Grid>
+
+    </Grid>
 </UserControl>
-
-
-
 
 
 

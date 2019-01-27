@@ -24,15 +24,12 @@
 
 
         <frames:PageLayout2.ShowContent>
-            <Border Width="120" Height="120"  VerticalAlignment="Center" HorizontalAlignment="Center"  
+            <Border Width="150" Height="120"  VerticalAlignment="Center" HorizontalAlignment="Center"  
                        apiContractNotPresent5:Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"
                        apiContractPresent5:Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"
                >
-                <Border Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <Colors:StrawPicker x:Name="StrawPicker"
-                                       ColorChangeStarted="StrawPicker_ColorChangeStarted"
-                                       ColorChangeDelta="StrawPicker_ColorChangeDelta" 
-                                       ColorChangeCompleted="StrawPicker_ColorChangeCompleted"/>
+                <Border Width="80" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <Colors:StrawPicker x:Name="StrawPicker" ColorChange="StrawPicker_ColorChange"/>
                 </Border>
             </Border>
         </frames:PageLayout2.ShowContent>

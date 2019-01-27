@@ -1,6 +1,6 @@
 ﻿
-```xaml
 
+```xaml
 
 <UserControl
     x:Class="FanKit.Library.Colors.HSLPicker"
@@ -8,10 +8,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="using:FanKit.Library.Colors"
-    mc:Ignorable="d">
+    xmlns:Colors="using:FanKit.Library.Colors"
+    mc:Ignorable="d"
+    Height="170"
+    >
 
-    
+
     <UserControl.Resources>
 
         <!--H-->
@@ -38,9 +40,9 @@
         </LinearGradientBrush>
 
     </UserControl.Resources>
-    
 
-    <Grid >
+
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="1*"/>
@@ -51,23 +53,23 @@
         </Grid.RowDefinitions>
 
         <!--H-->
-        <TextBlock Grid.Row="0" Text="H" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
-        <local:NumberPicker x:Name="HPicker" Grid.Row="0" Unit="º" Minimum="0" Maximum="360" HorizontalAlignment="Right" ValueChange="HPicker_ValueChange"/>
-        <local:TouchSlider x:Name="HSlider" Grid.Row="1" Minimum="0" Maximum="360" SliderBackground="{StaticResource HBrush}" ValueChangeDelta="HSlider_ValueChangeDelta"/>
+        <TextBlock Grid.Row="0" Text="H" Opacity="0.8"/>
+        <Colors:NumberPicker x:Name="HPicker" Grid.Row="0" Unit="º" Minimum="0" Maximum="360" HorizontalAlignment="Right" />
+        <Colors:TouchSlider x:Name="HSlider" Grid.Row="1" Minimum="0" Maximum="360" SliderBrush="{StaticResource HBrush}" />
 
         <!--S-->
-        <TextBlock Grid.Row="2" Text="S" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
-        <local:NumberPicker x:Name="SPicker" Grid.Row="2" Unit="%" Minimum="0" Maximum="100" HorizontalAlignment="Right" ValueChange="SPicker_ValueChange"/>
-        <local:TouchSlider x:Name="SSlider" Grid.Row="3" Minimum="0" Maximum="100" SliderBackground="{StaticResource SBrush}" ValueChangeDelta="SSlider_ValueChangeDelta"/>
+        <TextBlock Grid.Row="2" Text="S" Opacity="0.8"/>
+        <Colors:NumberPicker x:Name="SPicker" Grid.Row="2" Unit="%" Minimum="0" Maximum="100" HorizontalAlignment="Right" />
+        <Colors:TouchSlider x:Name="SSlider" Grid.Row="3" Minimum="0" Maximum="100" SliderBrush="{StaticResource SBrush}" />
 
         <!--L-->
-        <TextBlock Grid.Row="4" Text="L" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold"/>
-        <local:NumberPicker x:Name="LPicker" Grid.Row="4" Unit="%" Minimum="0" Maximum="100" HorizontalAlignment="Right" ValueChange="LPicker_ValueChange"/>
-        <local:TouchSlider x:Name="LSlider" Grid.Row="5" Minimum="0" Maximum="100" SliderBackground="{StaticResource LBrush}" ValueChangeDelta="LSlider_ValueChangeDelta"/>
+        <TextBlock Grid.Row="4" Text="L" Opacity="0.8"/>
+        <Colors:NumberPicker x:Name="LPicker" Grid.Row="4" Unit="%" Minimum="0" Maximum="100" HorizontalAlignment="Right" />
+        <Colors:TouchSlider x:Name="LSlider" Grid.Row="5" Minimum="0" Maximum="100" SliderBrush="{StaticResource LBrush}" />
 
     </Grid>
-</UserControl>
 
+</UserControl>
 
 
 

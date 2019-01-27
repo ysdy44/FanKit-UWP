@@ -1,21 +1,42 @@
 
+
 ```xaml
+
 
 
 <Page
     x:Class="FanKit.Frames.Colors.TouchSliderPage"
-   xmlns:Colors="using:FanKit.Library.Colors">
+    xmlns:Colors="using:FanKit.Library.Colors"
+    >
 
-  <Colors:TouchSliderControl 
-      Background="Gray"
-       ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
-       ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
-       ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
-       />
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
 
+        <Border Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+            <TextBlock Text="Touch Slider" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+        </Border>
+
+
+        <TextBlock Text="Slider:" Grid.Row="1" Margin="4" VerticalAlignment="Bottom"/>
+        <Colors:TouchSlider x:Name="TouchSliderControl"
+                    Grid.Row="2" 
+                    ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
+                    ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
+                    ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
+                   />
+
+        <Border x:Name="TexBlockBorder" Grid.Row="1" Height="40" Width="100" CornerRadius="20,0,0,20" Visibility="Collapsed" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+            <TextBlock x:Name="TexBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+        </Border>
+
+    </Grid>
 </Page>
-
-
 
 
 ```
