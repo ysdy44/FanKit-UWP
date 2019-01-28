@@ -4,7 +4,7 @@ This is a cool UWP DeveloperTool that includes Brushes, Styles, Controls, ColorP
 
 ## Get it
 
-Get it from windows 10 store:
+Get it from windows 10 store:<br>
 https://www.microsoft.com/store/productId/9PD2JJZQF524
 
 
@@ -29,7 +29,7 @@ Including  generic.xaml some theme resources,and some beautiful style with the c
 
 ## Colors
 
-Provides controls and selections that can select colors.
+Provides controls and selections that can select colors.<br>
 RGB HSL Wheel Hue Saturation Lightness......
 ![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot001.png)
 
@@ -37,11 +37,11 @@ RGB HSL Wheel Hue Saturation Lightness......
 
 ## Win2Ds
 
-Please reference Win2D in Nuget.
+Please reference Win2D in Nuget.<br>
 CanvasOperator DottedLine CurveNodes MarqueeTool TransformController......
 ![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot002.png)
 
 
-The application has its usage method and code, please update it in time (the code is earlier than the application).
+The application has its usage method and code, please update it in time (the code is earlier than the application).<br>
 
 to be continued......
