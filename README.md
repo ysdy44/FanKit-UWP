@@ -23,7 +23,7 @@ https://www.microsoft.com/store/productId/9PD2JJZQF524
 ##  Brushes & Style & Templete & Control
 
 Including  generic.xaml some theme resources,and some beautiful style with the controls.
-![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot000.PNG)
+![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot000.png)
 
 
 
@@ -31,7 +31,7 @@ Including  generic.xaml some theme resources,and some beautiful style with the c
 
 Provides controls and selections that can select colors.
 RGB HSL Wheel Hue Saturation Lightness......
-![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot001.PNG)
+![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot001.png)
 
 
 
@@ -39,7 +39,7 @@ RGB HSL Wheel Hue Saturation Lightness......
 
 Please reference Win2D in Nuget.
 CanvasOperator DottedLine CurveNodes MarqueeTool TransformController......
-![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot002.PNG)
+![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot002.png)
 
 
 The application has its usage method and code, please update it in time (the code is earlier than the application).
