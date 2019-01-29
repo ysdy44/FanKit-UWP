@@ -177,7 +177,6 @@ namespace FanKit.Library.Colors
         }
 
 
-        /// <summary> Draw a กั. </summary>
         public static void DrawThumb(CanvasDrawingSession ds, Vector2 vector) => HSL.DrawThumb(ds, vector.X, vector.Y);
         public static void DrawThumb(CanvasDrawingSession ds, float px, float py)
         {

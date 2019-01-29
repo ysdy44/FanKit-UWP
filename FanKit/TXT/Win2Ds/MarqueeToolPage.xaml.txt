@@ -8,17 +8,16 @@
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     xmlns:Win2Ds="using:FanKit.Library.Win2Ds">
     
-            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <canvas:CanvasControl x:Name="CanvasControl"
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+             <canvas:CanvasControl x:Name="CanvasControl"
+                     CreateResources="CanvasControl_CreateResources"
+                     Draw="CanvasControl_Draw"
                                               
-                              CreateResources="CanvasControl_CreateResources"
-                              Draw="CanvasControl_Draw"
-                                              
-                              PointerPressed="CanvasControl_PointerPressed"
-                              PointerMoved="CanvasControl_PointerMoved"
-                              PointerReleased="CanvasControl_PointerReleased"
-                              />
-            </Grid>
+                     PointerPressed="CanvasControl_PointerPressed"
+                     PointerMoved="CanvasControl_PointerMoved"
+                     PointerReleased="CanvasControl_PointerReleased"
+             />
+        </Grid>
 </Page>
 
 

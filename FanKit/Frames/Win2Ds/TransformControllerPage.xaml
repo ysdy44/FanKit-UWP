@@ -31,6 +31,8 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
                         <Button Margin="12" Content="Reset" Tapped="Button_Tapped"/>
+                        <CheckBox x:Name="CenterCheckBox" Content="Center" Margin="14,0"/>
+                        <CheckBox x:Name="RatioCheckBox" Content="Ratio" Margin="14,0"/>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                   
                             <Span FontStyle="Italic">Drag and drop nodes and manipulate transformer libraries. .</Span>

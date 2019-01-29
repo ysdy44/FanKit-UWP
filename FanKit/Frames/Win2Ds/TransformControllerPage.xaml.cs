@@ -21,6 +21,13 @@ namespace FanKit.Frames.Win2Ds
         public TransformControllerPage()
         {
             this.InitializeComponent();
+
+            //Center
+            this.CenterCheckBox.Checked += (sender, e) => TransformController.IsCenter = true;
+            this.CenterCheckBox.Unchecked += (sender, e) => TransformController.IsCenter = false;
+            //Ratio
+            this.RatioCheckBox.Checked += (sender, e) => TransformController.IsRatio = true;
+            this.RatioCheckBox.Unchecked += (sender, e) => TransformController.IsRatio = false;
         }
 
 

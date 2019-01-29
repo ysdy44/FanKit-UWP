@@ -9,7 +9,6 @@
     xmlns:Win2Ds="using:FanKit.Library.Win2Ds">
     
        <canvas:CanvasControl x:Name="CanvasControl"
-                                              
                 CreateResources="CanvasControl_CreateResources"
                 Draw="CanvasControl_Draw"
                                               
