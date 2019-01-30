@@ -28,6 +28,9 @@ namespace FanKit.Frames.Win2Ds
             //Ratio
             this.RatioCheckBox.Checked += (sender, e) => TransformController.IsRatio = true;
             this.RatioCheckBox.Unchecked += (sender, e) => TransformController.IsRatio = false;
+            //StepFrequency
+            this.StepFrequencyCheckBox.Checked += (sender, e) => TransformController.IsStepFrequency = true;
+            this.StepFrequencyCheckBox.Unchecked += (sender, e) => TransformController.IsStepFrequency = false;
         }
 
 
@@ -39,7 +42,7 @@ namespace FanKit.Frames.Win2Ds
         }
 
 
-        private TransformController.Transformer GetTransformer(double controlWidth, double controlHeight, double bitmapWidth, double bitmapHeight) => Transformer.CreateFromSize((float)bitmapWidth, (float)bitmapHeight, new Vector2((float)(controlWidth) / 2, (float)(controlHeight) / 2), (float)((bitmapWidth * 2 < controlWidth && bitmapHeight * 2 < controlWidth) ? 1.0 : (controlWidth > controlHeight) ? controlHeight / 2 / bitmapHeight : controlHeight / 2 / bitmapWidth));
+        private TransformController.Transformer GetTransformer(double controlWidth, double controlHeight, double bitmapWidth, double bitmapHeight) => Transformer.CreateFromSize(width: (float)bitmapWidth, height: (float)bitmapHeight, postion: new Vector2((float)controlWidth / 2, (float)controlHeight / 2), scale: (float)((bitmapWidth * 2 < controlWidth && bitmapHeight * 2 < controlWidth) ? 1.0 : (controlWidth > controlHeight) ? controlHeight / 2 / bitmapHeight : controlHeight / 2 / bitmapWidth));
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Layer.Transformer = this.GetTransformer(this.CanvasControl.ActualWidth, this.CanvasControl.ActualHeight, this.Layer.Transformer.Width, this.Layer.Transformer.Height);
@@ -69,10 +72,10 @@ namespace FanKit.Frames.Win2Ds
                 Source = this.Layer.Image
             });
 
-            Transformer.DrawBoundNodes(args.DrawingSession, this.Layer.Transformer);
+            Transformer.DrawBoundNodes(args.DrawingSession, this.Layer.Transformer, this.Layer.Transformer.Matrix);
         }
-        
-        
+
+
         #endregion
 
 
@@ -84,14 +87,16 @@ namespace FanKit.Frames.Win2Ds
         {
             this.IsMove = true;
 
-            this.Controller.Start(e.GetCurrentPoint(this.CanvasControl).Position.ToVector2(), this.Layer);
+            Vector2 point = e.GetCurrentPoint(this.CanvasControl).Position.ToVector2();
+            this.Controller.Start(point, this.Layer, this.Layer.Transformer.Matrix,1);
             this.CanvasControl.Invalidate();
         }
         private void CanvasControl_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
             if (this.IsMove)
             {
-                this.Controller.Delta(e.GetCurrentPoint(this.CanvasControl).Position.ToVector2(), this.Layer);
+                Vector2 point = e.GetCurrentPoint(this.CanvasControl).Position.ToVector2();
+                this.Controller.Delta(point, this.Layer, this.Layer.Transformer.Matrix,1);
                 this.CanvasControl.Invalidate();
             }         
         }
@@ -101,7 +106,8 @@ namespace FanKit.Frames.Win2Ds
             {
                 this.IsMove = false;
 
-                this.Controller.Complete(e.GetCurrentPoint(this.CanvasControl).Position.ToVector2(), this.Layer);
+                Vector2 point = e.GetCurrentPoint(this.CanvasControl).Position.ToVector2();
+                this.Controller.Complete(point, this.Layer, this.Layer.Transformer.Matrix,1);
                 this.CanvasControl.Invalidate();
             }
         }
