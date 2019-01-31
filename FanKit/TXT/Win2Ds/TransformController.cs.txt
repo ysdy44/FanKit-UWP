@@ -1,8 +1,5 @@
 ﻿
 ```Csharp
-
-
-
 using Microsoft.Graphics.Canvas;
 using System;
 using System.Collections.Generic;
@@ -575,10 +572,15 @@ namespace FanKit.Library.Win2Ds
         protected abstract class SkewHorizontalController : SkewController, IController
         {
             //@Override
-            public abstract void SetRadian(Layer layer, float skew);
+            public abstract float GetRadian(float skew);
 
-            /// <summary> Visually really Scale (For Skew, Scale is't really Scale.) </summary>
-            Vector2 RealScale;
+            /// <summary> Visually really XScale (For Skew, XScale is't really XScale.) </summary>
+            float RealXScale;
+            /// <summary> Visually really YScale (For Skew, YScale is't really YScale.) </summary>
+            float RealYScale;
+
+            bool IsFlipHorizontal;
+            bool IsFlipVertical;
 
             public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
             {
@@ -586,25 +588,38 @@ namespace FanKit.Library.Win2Ds
 
                 //RealScale
                 float value = base.StartTransformer.Skew;
-                float cos = (float)Math.Abs(Math.Cos(value));
-                this.RealScale = new Vector2(base.StartTransformer.XScale * cos, base.StartTransformer.YScale / cos);
+                float cos = (float)Math.Cos(value);
+                this.RealXScale =Math.Abs(base.StartTransformer.XScale * cos);
+                this.RealYScale = Math.Abs(base.StartTransformer.YScale / cos);
+
+                //Flip
+                this.IsFlipHorizontal = base.StartTransformer.XScale < 0;
+                this.IsFlipVertical = base.StartTransformer.YScale < 0;
             }
             public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
             {
                 Vector2 footPoint = Transformer.FootPoint(point, base.LineA, base.LineB);
-                float radians = Transformer.VectorToRadians(footPoint - base.Center);
+                float radians = Transformer.VectorToRadians(footPoint - base.Center) % Transformer.PI;
 
                 //Radian
-                this.SetRadian(layer, radians);
+                 layer.Transformer.Radian = (!this.IsFlipHorizontal)?
+                        this.GetRadian(radians):
+                        this.GetRadian(radians)+Transformer.PI;
 
                 //Skew
                 float value = radians + (base.StartTransformer.Skew - base.StartTransformer.Radian);
-                layer.Transformer.Skew = value;
+                layer.Transformer.Skew = value%Transformer.PI;
 
                 //Scale
-                float cos = (float)Math.Abs(Math.Cos(value));
-                layer.Transformer.XScale = this.RealScale.X / cos;
-                layer.Transformer.YScale = this.RealScale.Y * cos;
+                float cos = (float)Math.Cos(value);
+
+                layer.Transformer.XScale = (!this.IsFlipHorizontal) ?
+                    Math.Abs(this.RealXScale / cos) :
+                    -Math.Abs(this.RealXScale / cos);
+
+                layer.Transformer.YScale = (!this.IsFlipVertical) ?
+                    Math.Abs(this.RealYScale * cos) :
+                    layer.Transformer.YScale = -Math.Abs(this.RealYScale * cos);
             }
         }
         /// <summary> SkewLeft </summary>
@@ -612,14 +627,14 @@ namespace FanKit.Library.Win2Ds
         {
             public override Vector2 GetLineA(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformLeftTop(matrix);
             public override Vector2 GetLineB(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformLeftBottom(matrix);
-            public override void SetRadian(Layer layer, float skew) => layer.Transformer.Radian = skew + Transformer.PI;
+            public override float GetRadian( float skew) => ( skew + Transformer.PI)%Transformer.PI;
         }
         /// <summary> SkewRight </summary>
         private class SkewRightController : SkewHorizontalController
         {
             public override Vector2 GetLineA(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformRightTop(matrix);
             public override Vector2 GetLineB(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformRightBottom(matrix);
-            public override void SetRadian(Layer layer, float skew) => layer.Transformer.Radian = skew;
+            public override float GetRadian( float skew) =>   skew % Transformer.PI;
         }
 
 
@@ -873,8 +888,9 @@ namespace FanKit.Library.Win2Ds
         {
             public override void SetScale(Layer layer, float scale, bool isFlip, bool isRatio)
             {
-                if (isFlip) layer.Transformer.XScale = base.StartTransformer.XScale * scale;
-                else layer.Transformer.XScale = base.StartTransformer.XScale * -scale;
+                layer.Transformer.XScale = isFlip ?
+                    base.StartTransformer.XScale * scale :
+                    base.StartTransformer.XScale * -scale;
 
                 if (isRatio) layer.Transformer.YScale = base.StartTransformer.YScale * scale;
             }
@@ -900,8 +916,9 @@ namespace FanKit.Library.Win2Ds
         {
             public override void SetScale(Layer layer, float scale, bool isFlip, bool isRatio)
             {
-                if (isFlip) layer.Transformer.YScale = base.StartTransformer.YScale * scale;
-                else layer.Transformer.YScale = base.StartTransformer.YScale * -scale;
+                layer.Transformer.YScale = isFlip?
+                    base.StartTransformer.YScale * scale:
+                    base.StartTransformer.YScale * -scale;
 
                 if (isRatio) layer.Transformer.XScale = base.StartTransformer.XScale * scale;
             }
@@ -1028,11 +1045,13 @@ namespace FanKit.Library.Win2Ds
 
             public void SetScale(Layer layer, float xScale, float yScale, bool isFlipHorizontal, bool isFlipVertical)
             {
-                if (!isFlipHorizontal) layer.Transformer.XScale = base.StartTransformer.XScale * -xScale;
-                else layer.Transformer.XScale = base.StartTransformer.XScale * xScale;
+                layer.Transformer.XScale = (!isFlipHorizontal) ?
+                    base.StartTransformer.XScale * -xScale :
+                    base.StartTransformer.XScale * xScale;
 
-                if (!isFlipVertical) layer.Transformer.YScale = base.StartTransformer.YScale * -yScale;
-                else layer.Transformer.YScale = base.StartTransformer.YScale * yScale;
+                layer.Transformer.YScale = (!isFlipVertical)?
+                    base.StartTransformer.YScale * -yScale:
+                    base.StartTransformer.YScale * yScale;
             }
         }
         /// <summary> ScaleLeftTop </summary>
@@ -1078,7 +1097,5 @@ namespace FanKit.Library.Win2Ds
 
     }
 }
-
-
 
 ```
