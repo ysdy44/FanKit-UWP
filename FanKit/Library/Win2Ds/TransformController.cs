@@ -498,10 +498,10 @@ namespace FanKit.Library.Win2Ds
 
             public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
             {
-                this.StartPostion = point * scale;
+                this.StartPostion = point / scale;
                 this.StartTransformerPostion = layer.Transformer.Postion;
             }
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) => layer.Transformer.Postion = (point * scale) + (this.StartTransformerPostion - this.StartPostion);
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) => layer.Transformer.Postion = (point / scale) + (this.StartTransformerPostion - this.StartPostion);
             public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
         }
 
