@@ -34,6 +34,52 @@
                         <CheckBox x:Name="CenterCheckBox" Content="Center" Margin="14,0"/>
                         <CheckBox x:Name="RatioCheckBox" Content="Ratio" Margin="14,0"/>
                         <CheckBox x:Name="StepFrequencyCheckBox" Content="StepFrequency" Margin="14,0"/>
+                        <Grid Width="200" Height="120" Margin="12" BorderThickness="1" BorderBrush="Gray" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="00" VerticalAlignment="Center">
+                                <Span >X:</Span>
+                                <Run x:Name="RunX" FontWeight="Bold"/>   
+                                <Span>dp</Span>
+                            </TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="00" VerticalAlignment="Center">
+                                <Span>Y:</Span>
+                                <Run x:Name="RunY" FontWeight="Bold"/>        
+                                <Span>dp</Span>
+                            </TextBlock>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
+                                <Span>Width:</Span>
+                                <Run x:Name="RunW" FontWeight="Bold"/>
+                                <Span>%</Span>
+                            </TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+                                <Span>Height:</Span>
+                                <Run x:Name="RunH" FontWeight="Bold"/>
+                                <Span>%</Span>
+                            </TextBlock>
+
+                            <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                                <Span>Radian:</Span>
+                                <Run x:Name="RunR" FontWeight="Bold"/>
+                                <Span>º</Span>
+                            </TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
+                                <Span>Skew:</Span>
+                                <Run x:Name="RunS" FontWeight="Bold"/>
+                                <Span>º</Span>
+                            </TextBlock>                            
+                            
+                        </Grid>
+                        
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                   
                             <Span FontStyle="Italic">Drag and drop nodes and manipulate transformer libraries. .</Span>

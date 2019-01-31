@@ -66,6 +66,17 @@ namespace FanKit.Frames.Win2Ds
         }
         private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
+            this.RunX.Text = ((int)this.Layer.Transformer.Postion.X).ToString();
+            this.RunY.Text = ((int)this.Layer.Transformer.Postion.Y).ToString();
+
+            //this.RunW.Text = ((int)(this.Layer.Transformer.Width * this.Layer.Transformer.XScale)).ToString();
+            //this.RunH.Text = ((int)(this.Layer.Transformer.Height * this.Layer.Transformer.YScale)).ToString();
+            this.RunW.Text = ((int)(100 * this.Layer.Transformer.XScale)).ToString();
+            this.RunH.Text = ((int)(100 * this.Layer.Transformer.YScale)).ToString();
+
+            this.RunR.Text = ((int)(this.Layer.Transformer.Radian /Transformer.PI * 180)).ToString();
+            this.RunS.Text = ((int)(this.Layer.Transformer.Skew / Transformer.PI * 180)).ToString();
+
             args.DrawingSession.DrawImage(new Transform2DEffect
             {
                 TransformMatrix = this.Layer.Transformer.Matrix,
@@ -117,3 +128,5 @@ namespace FanKit.Frames.Win2Ds
 
     }
 }
+
+

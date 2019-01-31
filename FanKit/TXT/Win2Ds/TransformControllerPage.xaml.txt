@@ -10,12 +10,12 @@
     
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <canvas:CanvasControl x:Name="CanvasControl"
-                     CreateResources="CanvasControl_CreateResources"
-                     Draw="CanvasControl_Draw"
+                  CreateResources="CanvasControl_CreateResources"
+                  Draw="CanvasControl_Draw"
                                               
-                     PointerPressed="CanvasControl_PointerPressed"
-                     PointerMoved="CanvasControl_PointerMoved"
-                     PointerReleased="CanvasControl_PointerReleased"
+                  PointerPressed="CanvasControl_PointerPressed"
+                  PointerMoved="CanvasControl_PointerMoved"
+                  PointerReleased="CanvasControl_PointerReleased"
              />
         </Grid>
 </Page>
