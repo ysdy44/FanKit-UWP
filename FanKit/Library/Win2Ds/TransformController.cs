@@ -8,9 +8,10 @@ namespace FanKit.Library.Win2Ds
     /// <summary> Drag and drop nodes and manipulate transformer libraries. </summary>
     public class TransformController
     {
-        /// <summary> Scaling around the center. (or Scale with Side)</summary>
+
+        /// <summary> Scaling around the center. </summary>
         public static bool IsCenter;
-        /// <summary> Maintain a ratio when scaling. (or Free)</summary>
+        /// <summary> Maintain a ratio when scaling. </summary>
         public static bool IsRatio;
         /// <summary> Step Frequency when spinning. </summary>
         public static bool IsStepFrequency;
@@ -431,9 +432,9 @@ namespace FanKit.Library.Win2Ds
         /// <summary> Controller interface </summary>
         public interface IController
         {
-            void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale);
-            void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale);
-            void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale);
+            void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0);
+            void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0);
+            void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0);
         }
 
         /// <summary> Controller </summary>
@@ -462,18 +463,18 @@ namespace FanKit.Library.Win2Ds
                 {TransformerMode.ScaleLeftBottom,  new ScaleLeftBottomController()},
             };
 
-            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale=1, float radian=0)
             {
                 this.Mode = Transformer.ContainsNodeMode(point, layer.Transformer, layer.Transformer.Matrix);
-                this.ControllerDictionary[this.Mode].Start(point, layer, matrix, scale);
+                this.ControllerDictionary[this.Mode].Start(point, layer, matrix, scale, radian);
             }
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0)
             {
-                this.ControllerDictionary[this.Mode].Delta(point, layer, matrix, scale);
+                this.ControllerDictionary[this.Mode].Delta(point, layer, matrix, scale, radian);
             }
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0)
             {
-                this.ControllerDictionary[this.Mode].Delta(point, layer, matrix, scale);
+                this.ControllerDictionary[this.Mode].Delta(point, layer, matrix, scale, radian);
                 this.Mode = TransformerMode.None;
             }
         }
@@ -485,9 +486,9 @@ namespace FanKit.Library.Win2Ds
         /// <summary> None </summary>
         private class NoneController : IController
         {
-            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
         }
 
         /// <summary> Translation </summary>
@@ -496,13 +497,27 @@ namespace FanKit.Library.Win2Ds
             Vector2 StartTransformerPostion;
             Vector2 StartPostion;
 
-            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 this.StartPostion = point / scale;
                 this.StartTransformerPostion = layer.Transformer.Postion;
             }
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) => layer.Transformer.Postion = (point / scale) + (this.StartTransformerPostion - this.StartPostion);
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
+            {
+                Vector2 vector = point / scale - this.StartPostion;
+
+                layer.Transformer.Postion = this.StartTransformerPostion + this.GetRotatedVector(vector, radian);
+            }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+
+            private Vector2 GetRotatedVector(Vector2 vector, float radian)
+            {
+                if (radian == 0) return vector;
+
+                float cos = (float)Math.Cos(radian);
+                float sin = (float)Math.Sin(radian);
+                return new Vector2(cos * vector.X + sin * vector.Y, -sin * vector.X + cos * vector.Y);
+            }
         }
 
         /// <summary> Rotation </summary>
@@ -514,21 +529,21 @@ namespace FanKit.Library.Win2Ds
             float StartTransformerRadian;
             float StartRadian;
 
-            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 this.Center = layer.Transformer.TransformCenter(matrix);
 
                 this.StartTransformerRadian = layer.Transformer.Radian;
                 this.StartRadian = Transformer.VectorToRadians(point - this.Center);
             }
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 this.Radian = Transformer.VectorToRadians(point - this.Center);
-                float radian = this.StartTransformerRadian - this.StartRadian + this.Radian;
+                float radian2 = this.StartTransformerRadian - this.StartRadian + this.Radian;
 
-                layer.Transformer.Radian = TransformController.IsStepFrequency ? Transformer.RadiansStepFrequency(radian) : radian;
+                layer.Transformer.Radian = TransformController.IsStepFrequency ? Transformer.RadiansStepFrequency(radian2) : radian2;
             }
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
         }
 
 
@@ -553,7 +568,7 @@ namespace FanKit.Library.Win2Ds
             /// <summary> Point b (right point on the same side of the point) </summary>
             protected Vector2 LineB;
 
-            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 this.StartTransformer.CopyWith(layer.Transformer);
                 this.Center = layer.Transformer.TransformCenter(matrix);
@@ -561,8 +576,8 @@ namespace FanKit.Library.Win2Ds
                 this.LineA = this.GetLineA(layer, matrix);
                 this.LineB = this.GetLineB(layer, matrix);
             }
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
         }
 
 
@@ -580,33 +595,33 @@ namespace FanKit.Library.Win2Ds
             bool IsFlipHorizontal;
             bool IsFlipVertical;
 
-            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                base.Start(point, layer, matrix, scale);
+                base.Start(point, layer, matrix, scale, radian);
 
                 //RealScale
                 float value = base.StartTransformer.Skew;
                 float cos = (float)Math.Cos(value);
-                this.RealXScale =Math.Abs(base.StartTransformer.XScale * cos);
+                this.RealXScale = Math.Abs(base.StartTransformer.XScale * cos);
                 this.RealYScale = Math.Abs(base.StartTransformer.YScale / cos);
 
                 //Flip
                 this.IsFlipHorizontal = base.StartTransformer.XScale < 0;
                 this.IsFlipVertical = base.StartTransformer.YScale < 0;
             }
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 Vector2 footPoint = Transformer.FootPoint(point, base.LineA, base.LineB);
                 float radians = Transformer.VectorToRadians(footPoint - base.Center) % Transformer.PI;
 
                 //Radian
-                 layer.Transformer.Radian = (!this.IsFlipHorizontal)?
-                        this.GetRadian(radians):
-                        this.GetRadian(radians)+Transformer.PI;
+                layer.Transformer.Radian = (!this.IsFlipHorizontal) ?
+                       this.GetRadian(radians) :
+                       this.GetRadian(radians) + Transformer.PI;
 
                 //Skew
                 float value = radians + (base.StartTransformer.Skew - base.StartTransformer.Radian);
-                layer.Transformer.Skew = value%Transformer.PI;
+                layer.Transformer.Skew = value % Transformer.PI;
 
                 //Scale
                 float cos = (float)Math.Cos(value);
@@ -625,21 +640,21 @@ namespace FanKit.Library.Win2Ds
         {
             public override Vector2 GetLineA(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformLeftTop(matrix);
             public override Vector2 GetLineB(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformLeftBottom(matrix);
-            public override float GetRadian( float skew) => ( skew + Transformer.PI)%Transformer.PI;
+            public override float GetRadian(float skew) => (skew + Transformer.PI) % Transformer.PI;
         }
         /// <summary> SkewRight </summary>
         private class SkewRightController : SkewHorizontalController
         {
             public override Vector2 GetLineA(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformRightTop(matrix);
             public override Vector2 GetLineB(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformRightBottom(matrix);
-            public override float GetRadian( float skew) =>   skew % Transformer.PI;
+            public override float GetRadian(float skew) => skew % Transformer.PI;
         }
 
 
         /// <summary> SkewVertical (Top Bottom) </summary>
         protected abstract class SkewVerticalController : SkewController, IController
         {
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 Vector2 footPoint = Transformer.FootPoint(point, base.LineA, base.LineB);
                 float radians = Transformer.VectorToRadians(footPoint - base.Center);
@@ -796,7 +811,7 @@ namespace FanKit.Library.Win2Ds
             protected bool IsFlipVertical;
 
 
-            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 this.StartTransformer.CopyWith(layer.Transformer);
 
@@ -811,8 +826,8 @@ namespace FanKit.Library.Win2Ds
                 this.IsFlipHorizontal = this.StartTransformer.XScale < 0;
                 this.IsFlipVertical = this.StartTransformer.YScale < 0;
             }
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale) { }
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
 
             protected void SetPostion(Layer layer, VectorSinCos sinCos, float scale)
             {
@@ -835,21 +850,21 @@ namespace FanKit.Library.Win2Ds
             //@Override
             public abstract void SetScale(Layer layer, float scale, bool isFlip, bool isRatio);
 
-            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                base.Start(point, layer, matrix, scale);
+                base.Start(point, layer, matrix, scale, radian);
                 base.Point = this.GetPoint(layer.Transformer, matrix);//@Override
 
                 //Diagonal line
                 base.Line = new VectorLine(base.Point, this.GetDiagonal(layer.Transformer, matrix));  //@Override
             }
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 //Point on diagonal line
                 Vector2 footPoint = Transformer.FootPoint(point, base.Line.Diagonal, base.Point);
                 VectorDistance distance = VectorDistance.GetVectorDistance(footPoint, base.Point, base.Line);
 
-                if (TransformController.IsCenter) 
+                if (TransformController.IsCenter)
                 {
                     //Scale
                     float xyScale = distance.FC / distance.PC;
@@ -914,8 +929,8 @@ namespace FanKit.Library.Win2Ds
         {
             public override void SetScale(Layer layer, float scale, bool isFlip, bool isRatio)
             {
-                layer.Transformer.YScale = isFlip?
-                    base.StartTransformer.YScale * scale:
+                layer.Transformer.YScale = isFlip ?
+                    base.StartTransformer.YScale * scale :
                     base.StartTransformer.YScale * -scale;
 
                 if (isRatio) layer.Transformer.XScale = base.StartTransformer.XScale * scale;
@@ -953,9 +968,9 @@ namespace FanKit.Library.Win2Ds
             VectorLine HorizontalLine;
             VectorLine VerticalLine;
 
-            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                base.Start(point, layer, matrix, scale);
+                base.Start(point, layer, matrix, scale, radian);
                 base.Point = this.GetPoint(layer.Transformer, matrix);//@Override
 
                 //Diagonal line
@@ -965,7 +980,7 @@ namespace FanKit.Library.Win2Ds
             }
 
 
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale)
+            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
                 //Point on diagonal line
                 Vector2 footPoint = Transformer.FootPoint(point, base.Line.Diagonal, base.Point);
@@ -1047,8 +1062,8 @@ namespace FanKit.Library.Win2Ds
                     base.StartTransformer.XScale * -xScale :
                     base.StartTransformer.XScale * xScale;
 
-                layer.Transformer.YScale = (!isFlipVertical)?
-                    base.StartTransformer.YScale * -yScale:
+                layer.Transformer.YScale = (!isFlipVertical) ?
+                    base.StartTransformer.YScale * -yScale :
                     base.StartTransformer.YScale * yScale;
             }
         }
@@ -1059,7 +1074,7 @@ namespace FanKit.Library.Win2Ds
             public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightBottom(matrix);
             public override Vector2 GetHorizontalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightTop(matrix);
             public override Vector2 GetVerticalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftBottom(matrix);
-            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2((-sinCos.XCos - sinCos.YSin), (sinCos.XSin - sinCos.YCos));
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(-sinCos.XCos - sinCos.YSin, sinCos.XSin - sinCos.YCos);
         }
         /// <summary> ScaleRightTop </summary>
         public class ScaleRightTopController : ScaleCornerController
@@ -1068,7 +1083,7 @@ namespace FanKit.Library.Win2Ds
             public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftBottom(matrix);
             public override Vector2 GetHorizontalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftTop(matrix);
             public override Vector2 GetVerticalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightBottom(matrix);
-            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2((sinCos.XCos - sinCos.YSin), (-sinCos.XSin - sinCos.YCos));
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(sinCos.XCos - sinCos.YSin, -sinCos.XSin - sinCos.YCos);
         }
         /// <summary> ScaleRightBottom </summary>
         public class ScaleRightBottomController : ScaleCornerController
@@ -1077,7 +1092,7 @@ namespace FanKit.Library.Win2Ds
             public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftTop(matrix);
             public override Vector2 GetHorizontalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftBottom(matrix);
             public override Vector2 GetVerticalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightTop(matrix);
-            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2((sinCos.XCos + sinCos.YSin), (-sinCos.XSin + sinCos.YCos));
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(sinCos.XCos + sinCos.YSin, -sinCos.XSin + sinCos.YCos);
         }
         /// <summary> ScaleLeftBottom </summary>
         public class ScaleLeftBottomController : ScaleCornerController
