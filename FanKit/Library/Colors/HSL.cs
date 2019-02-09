@@ -17,6 +17,7 @@ namespace FanKit.Library.Colors
         public byte A;
 
         /// <summary> Hue </summary>
+        private double h;
         public double H
         {
             get => h;
@@ -27,7 +28,6 @@ namespace FanKit.Library.Colors
                 else h = value;
             }
         }
-        private double h;
 
         /// <summary> Saturation </summary>
         public double S
@@ -101,13 +101,13 @@ namespace FanKit.Library.Colors
             double S = s / 100;
             double V = l / 100;
 
-            int H1 = (int)(h * 1.0f / 60);
+            int H1 = (int)(h * 1.0 / 60);
             double F = h / 60 - H1;
-            double P = V * (1.0f - S);
-            double Q = V * (1.0f - F * S);
-            double T = V * (1.0f - (1.0f - F) * S);
+            double P = V * (1.0 - S);
+            double Q = V * (1.0 - F * S);
+            double T = V * (1.0 - (1.0 - F) * S);
 
-            double R = 0f, G = 0f, B = 0f;
+            double R = 0, G = 0, B = 0;
             switch (H1)
             {
                 case 0: R = V; G = T; B = P; break;
@@ -148,9 +148,9 @@ namespace FanKit.Library.Colors
         /// <returns> HSL </returns>
         public static HSL RGBtoHSL(byte a, byte r, byte g, byte b)
         {
-            double R = r * 1.0f / 255;
-            double G = g * 1.0f / 255;
-            double B = b * 1.0f / 255;
+            double R = r * 1.0 / 255;
+            double G = g * 1.0 / 255;
+            double B = b * 1.0 / 255;
 
             double min = Math.Min(Math.Min(R, G), B);
             double max = Math.Max(Math.Max(R, G), B);
@@ -159,13 +159,13 @@ namespace FanKit.Library.Colors
 
             if (max == min) { H = 0; }
 
-            else if (max == R && G > B) H = 60 * (G - B) * 1.0f / (max - min) + 0;
-            else if (max == R && G < B) H = 60 * (G - B) * 1.0f / (max - min) + 360;
-            else if (max == G) H = H = 60 * (B - R) * 1.0f / (max - min) + 120;
-            else if (max == B) H = H = 60 * (R - G) * 1.0f / (max - min) + 240;
+            else if (max == R && G > B) H = 60 * (G - B) * 1.0 / (max - min) + 0;
+            else if (max == R && G < B) H = 60 * (G - B) * 1.0 / (max - min) + 360;
+            else if (max == G) H = H = 60 * (B - R) * 1.0 / (max - min) + 120;
+            else if (max == B) H = H = 60 * (R - G) * 1.0 / (max - min) + 240;
 
             if (max == 0) S = 0;
-            else S = (max - min) * 1.0f / max;
+            else S = (max - min) * 1.0 / max;
 
             V = max;
 

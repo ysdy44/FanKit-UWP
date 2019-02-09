@@ -1,0 +1,16 @@
+
+
+```xaml
+
+
+<Page
+    x:Class="FanKit.Frames.Colors.HexPickerPage"
+    xmlns:Colors="using:FanKit.Library.Colors"
+    >
+	          
+         <Colors:HexPicker x:Name="HexPicker" ColorChange="HexPicker_ColorChange"/>
+      
+</Page>
+
+
+```

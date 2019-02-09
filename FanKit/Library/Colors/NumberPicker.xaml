@@ -29,7 +29,7 @@
     </UserControl.Resources>
 
 
-    <Button  x:Name="Button" Height="24" Style="{StaticResource ButtonStyle}" Click="Button_Click">
+    <Button x:Name="Button" Height="24" Style="{StaticResource ButtonStyle}" Click="Button_Click">
         <Button.Flyout>
             <Flyout  x:Name="Flyout" Placement="Bottom" >
                 <Grid Width="180" Height="180" Margin="-10">

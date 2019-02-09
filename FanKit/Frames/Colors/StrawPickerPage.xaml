@@ -46,6 +46,13 @@
                             <Span >Hold down the </Span>
                             <Span FontWeight="SemiBold">Straw </Span>                      
                             <Span > icon until it is released to complete the fetch color in the window </Span>
+                            
+                            <LineBreak/>
+                            <LineBreak/>
+                            
+                            <Span > Pressed the </Span>
+                            <Span FontWeight="SemiBold">Elliptic </Span>                      
+                            <Span > to change the color.</Span>
                         </TextBlock>
 
                     </StackPanel>

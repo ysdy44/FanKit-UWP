@@ -100,6 +100,8 @@ namespace FanKit.Library.Win2Ds
                 this.Radian = transformer.Radian;
                 this.Skew = transformer.Skew;
             }
+            public static Transformer Zero => new Transformer();
+            public static Transformer One => new Transformer() { XScale = 1,YScale=1};
             public static Transformer CreateFromSize(float width, float height, Vector2 postion, float scale = 1.0f, float radian = 0.0f, bool disabledRadian = false) => new Transformer
             {
                 Width = width,
@@ -162,6 +164,15 @@ namespace FanKit.Library.Win2Ds
                 Vector2 v = Vector2.Transform(point, transformer.InverseMatrix);
                 return v.X > 0 && v.X < transformer.Width && v.Y > 0 && v.Y < transformer.Height;
             }
+            public static bool ContainsBound(Vector2 point, Vector2 leftTop, Vector2 rightTop, Vector2 rightBottom, Vector2 leftBottom)
+            {
+                float a = (rightTop.X - leftTop.X) * (point.Y - leftTop.Y) - (rightTop.Y - leftTop.Y) * (point.X - leftTop.X);
+                float b = (rightBottom.X - rightTop.X) * (point.Y - rightTop.Y) - (rightBottom.Y - rightTop.Y) * (point.X - rightTop.X);
+                float c = (leftBottom.X - rightBottom.X) * (point.Y - rightBottom.Y) - (leftBottom.Y - rightBottom.Y) * (point.X - rightBottom.X);
+                float d = (leftTop.X - leftBottom.X) * (point.Y - leftBottom.Y) - (leftTop.Y - leftBottom.Y) * (point.X - leftBottom.X);
+                return (a > 0 && b > 0 && c > 0 && d > 0) || (a < 0 && b < 0 && c < 0 && d < 0);
+            }
+
 
 
             /// <summary>
@@ -213,7 +224,7 @@ namespace FanKit.Library.Win2Ds
                 if (Transformer.InNodeRadius(outsideBottom, point)) return TransformerMode.SkewBottom;
 
                 //Translation
-                if (Transformer.ContainsBound(point, transformer)) return TransformerMode.Translation;
+                if (Transformer.ContainsBound(point, leftTop, rightTop, rightBottom, leftBottom)) return TransformerMode.Translation;
 
                 return TransformerMode.None;
             }

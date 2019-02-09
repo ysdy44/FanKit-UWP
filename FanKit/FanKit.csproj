@@ -102,6 +102,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Colors\HexPickerPage.xaml.cs">
+      <DependentUpon>HexPickerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Control\RadiusAnimaPanelPage.xaml.cs">
       <DependentUpon>RadiusAnimaPanelPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,9 @@
     </Compile>
     <Compile Include="Frames\Colors\ColorPickerPage.xaml.cs">
       <DependentUpon>ColorPickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Colors\HexPicker.xaml.cs">
+      <DependentUpon>HexPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Library\Colors\SwatchesPicker.xaml.cs">
       <DependentUpon>SwatchesPicker.xaml</DependentUpon>
@@ -337,12 +343,16 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Icon\Colors\HexPicker.png" />
     <Content Include="Icon\Control\RadiusAnimaPanel.png" />
     <Content Include="Icon\Helpers\Colors.png" />
     <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
     <Content Include="Icon\Win2Ds\MarqueeTool.png" />
     <Content Include="Icon\Win2Ds\TransformController.png" />
+    <Content Include="TXT\Colors\HexPicker.cs.txt" />
+    <Content Include="TXT\Colors\HexPicker.xaml.txt" />
+    <Content Include="TXT\Colors\HexPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\PalettePickerPage.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
@@ -549,6 +559,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Frames\Colors\HexPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frames\Control\RadiusAnimaPanelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -594,6 +608,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Frames\Colors\ColorPickerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Library\Colors\HexPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

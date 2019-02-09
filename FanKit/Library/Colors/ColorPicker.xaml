@@ -11,10 +11,7 @@
 
 
     <UserControl.Resources>
-
-        <!--Color-->
         <SolidColorBrush x:Name="SolidColorBrushName" x:Key="SolidColorBrushKey" Color="White"/>
-
     </UserControl.Resources>
 
 
@@ -24,20 +21,22 @@
         <Grid Height="40">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Grid>
-                <Ellipse x:Name="Ellipse" Width="22" Height="22" Fill="{StaticResource SolidColorBrushKey}" />
+            <Grid >
+                <Ellipse Width="22" Height="22" Fill="{StaticResource SolidColorBrushKey}" />
                 <Ellipse StrokeThickness="4" Width="25" Height="25" Stroke="Gray"/>
                 <Ellipse StrokeThickness="2" Width="23" Height="23" Stroke="White"/>
             </Grid>
-            <TextBlock Visibility="Collapsed" Grid.Column="1" Text="Color" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <local:StrawPicker x:Name="StrawPicker" Grid.Column="2"/>
+            <Button x:Name="HexOrStrawButton" Grid.Column="1" Width="Auto" Content="&#xECE7;" FontSize="18" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}"/>
+
+            <local:HexPicker x:Name="HexPicker" Grid.Column="2" Height="28"/>
+            <local:StrawPicker x:Name="StrawPicker" Grid.Column="2" HorizontalAlignment="Right"/>
         </Grid>
 
         <!--Toggle-->
-        <Grid Grid.Row="1" >
+        <Border Grid.Row="1" >
             <ComboBox x:Name="ComboBox" ItemsSource="{x:Bind Pickers}" >
                 <ComboBox.Style>
                     <Style TargetType="ComboBox">
@@ -55,7 +54,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-        </Grid>
+        </Border>
 
         <!--Body-->
         <ContentControl x:Name="ContentControl" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />

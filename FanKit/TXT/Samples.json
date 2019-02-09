@@ -211,37 +211,43 @@
         "Page": "FanKit.Frames.Colors.RGBPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RGBPicker",
         "Uri": "ms-appx:///Icon/Colors/RGBPicker.png",
-        "Summary": "RGB of color picker"
+        "Summary": "RGB of color picker."
       },
       {
         "Page": "FanKit.Frames.Colors.HSLPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "HSLPicker",
         "Uri": "ms-appx:///Icon/Colors/HSLPicker.png",
-        "Summary": "HSL of color picker"
+        "Summary": "HSL of color picker."
       },
       {
         "Page": "FanKit.Frames.Colors.WheelPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "WheelPicker",
         "Uri": "ms-appx:///Icon/Colors/WheelPicker.png",
-        "Summary": "Color wheel picker"
+        "Summary": "Color wheel picker."
       },
       {
         "Page": "FanKit.Frames.Colors.PalettePickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "PalettePicker",
         "Uri": "ms-appx:///Icon/Colors/PalettePicker.png",
-        "Summary": "Color palette picker"
+        "Summary": "Color palette picker."
       },
       {
         "Page": "FanKit.Frames.Colors.StrawPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "StrawPicker",
         "Uri": "ms-appx:///Icon/Colors/StrawPicker.png",
-        "Summary": "Color straw picker"
+        "Summary": "Color straw picker."
       },
       {
         "Page": "FanKit.Frames.Colors.AlphaPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "AlphaPicker",
         "Uri": "ms-appx:///Icon/Colors/AlphaPicker.png",
-        "Summary": "Color alpha picker,hex code"
+        "Summary": "Color alpha picker."
+      },
+      {
+        "Page": "FanKit.Frames.Colors.HexPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "HexPicker",
+        "Uri": "ms-appx:///Icon/Colors/HexPicker.png",
+        "Summary": "Hex code."
       },
       {
         "Page": "FanKit.Frames.Colors.SwatchesPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",

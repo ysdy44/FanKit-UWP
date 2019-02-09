@@ -1,0 +1,29 @@
+
+
+```xaml
+
+<UserControl
+    x:Class="FanKit.Library.Colors.HexPicker"
+    d:DesignHeight="50"
+    d:DesignWidth="100">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="22"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="#" VerticalAlignment="Center"/>
+        <TextBox x:Name="TextBox" Grid.Column="1" BorderThickness="0"/>
+    </Grid>
+    
+</UserControl>
+
+
+
+
+
+
+
+
+
+```
