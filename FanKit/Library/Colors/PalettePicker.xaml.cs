@@ -147,7 +147,7 @@ namespace FanKit.Library.Colors
         public abstract void Draw(CanvasControl CanvasControl, CanvasDrawingSession ds, HSL HSL, Vector2 Center, float SquareHalfWidth, float SquareHalfHeight);
         public abstract HSL Delta(HSL HSL, Vector2 v, float SquareHalfWidth, float SquareHalfHeight);
     }
-    
+
     /// <summary> Palette Hue</summary>
     public class PaletteHue : PaletteBase
     {
@@ -220,7 +220,8 @@ namespace FanKit.Library.Colors
             //Thumb 
             float px = ((float)HSL.S - 50) * SquareHalfWidth / 50 + Center.X;
             float py = (50 - (float)HSL.L) * SquareHalfHeight / 50 + Center.Y;
-            HSL.DrawThumb(ds, px, py);
+            ds.DrawCircle(px, py, 9, Windows.UI.Colors.Black, 5);
+            ds.DrawCircle(px, py, 9, Windows.UI.Colors.White, 3);
         }
         public override HSL Delta(HSL HSL, Vector2 v, float SquareHalfWidth, float SquareHalfHeight)
         {
@@ -303,7 +304,8 @@ namespace FanKit.Library.Colors
             //Thumb 
             float px = ((float)HSL.H - 180) * SquareHalfWidth / 180 + Center.X;
             float py = ((float)(50 - HSL.L)) * SquareHalfHeight / 50 + Center.Y;
-            HSL.DrawThumb(ds, px, py);
+            ds.DrawCircle(px, py, 9, Windows.UI.Colors.Black, 5);
+            ds.DrawCircle(px, py, 9, Windows.UI.Colors.White, 3);
         }
         public override HSL Delta(HSL HSL, Vector2 v, float SquareHalfWidth, float SquareHalfHeight)
         {
@@ -386,7 +388,8 @@ namespace FanKit.Library.Colors
             //Thumb 
             float px = ((float)HSL.H - 180) * SquareHalfWidth / 180 + Center.X;
             float py = (50 - (float)HSL.S) * SquareHalfHeight / 50 + Center.Y;
-            HSL.DrawThumb(ds, px, py);
+            ds.DrawCircle(px, py, 9, Windows.UI.Colors.Black, 5);
+            ds.DrawCircle(px, py, 9, Windows.UI.Colors.White, 3);
         }
         public override HSL Delta(HSL HSL, Vector2 v, float SquareHalfWidth, float SquareHalfHeight)
         {

@@ -171,15 +171,5 @@ namespace FanKit.Library.Colors
 
             return new HSL(a, H, (S * 100), V * 100);
         }
-
-
-        /// <summary> Draw a ⊙. </summary>
-        public static void DrawThumb(CanvasDrawingSession ds, Vector2 vector) => HSL.DrawThumb(ds, vector.X, vector.Y);
-        public static void DrawThumb(CanvasDrawingSession ds, float px, float py)
-        {
-            ds.DrawCircle(px, py, 9, Windows.UI.Colors.Black, 5);
-            ds.DrawCircle(px, py, 9, Windows.UI.Colors.White, 3);
-        }
-
     }
 }
