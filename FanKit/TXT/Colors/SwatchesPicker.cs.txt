@@ -1,7 +1,6 @@
 
 ```Csharp
 
-
 using System.Collections.ObjectModel;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -71,19 +70,7 @@ namespace FanKit.Colors
             Color.FromArgb(255, 255, 69, 0),Color.FromArgb(255, 255, 99, 71),Color.FromArgb(255, 255, 228, 225),Color.FromArgb(255, 250, 128, 114),Color.FromArgb(255, 255, 250, 250),Color.FromArgb(255, 240, 128, 128),Color.FromArgb(255, 188, 143, 143),Color.FromArgb(255, 205, 92, 92),
             Color.FromArgb(255, 165, 42, 42),Color.FromArgb(255, 178, 34, 34),Color.FromArgb(255, 139, 0, 0),Color.FromArgb(255, 128, 0, 0),
         };
-
-        #region DependencyProperty
-
-
-        public Color Color
-        {
-            get { return (Color)GetValue(ColorProperty); }
-            set { SetValue(ColorProperty, value); }
-        }
-        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(StrawPicker), new PropertyMetadata(Windows.UI.Colors.White));
-
-
-        #endregion
+        
 
         public SwatchesPicker()
         {
@@ -91,7 +78,7 @@ namespace FanKit.Colors
         }
 
         private void RemoveButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.RemoveAt(this.GridView.SelectedIndex == -1 ? 0 : this.GridView.SelectedIndex);
-        private void AddButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.Insert(0, this.Color);
+        private void AddButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.Insert(0, this.color);
         private void MultiSelectToggleButton_Checked(object sender, RoutedEventArgs e) => this.IsMultiSelect = true;
         private void MultiSelectToggleButton_Unchecked(object sender, RoutedEventArgs e) => this.IsMultiSelect = false;
 
@@ -110,11 +97,8 @@ namespace FanKit.Colors
             this.RemoveButton.IsEnabled = (index >= 0 && index < Collection.Count);
         }
 
-
     }
 }
-
-
 
 
 ```
