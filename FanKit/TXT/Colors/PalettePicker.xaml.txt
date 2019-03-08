@@ -3,8 +3,8 @@
 ```xaml
 
 <UserControl
-    x:Class="FanKit.Library.Colors.PalettePicker"
-    xmlns:Colors="using:FanKit.Library.Colors"
+    x:Class="FanKit.Colors.PalettePicker"
+    xmlns:Colors="using:FanKit.Colors"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     MinHeight="240" >
 

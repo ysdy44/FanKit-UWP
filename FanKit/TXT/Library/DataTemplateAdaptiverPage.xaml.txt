@@ -6,7 +6,7 @@
 <Page
     x:Class="FanKit.Frames.Library.DataTemplateAdaptiverPage"
     xmlns:local="using:FanKit.Frames.Library"
-    xmlns:Library="using:FanKit.Library.Library">
+    xmlns:Library="using:FanKit.Library">
 
 
     <Page.Resources>

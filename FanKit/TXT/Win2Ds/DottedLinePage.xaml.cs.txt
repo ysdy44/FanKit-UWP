@@ -3,7 +3,7 @@
 
 
 
-using FanKit.Library.Win2Ds;
+using FanKit.Win2Ds;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;

@@ -6,7 +6,7 @@
 
 <Page
     x:Class="FanKit.Frames.Colors.TouchSliderPage"
-    xmlns:Colors="using:FanKit.Library.Colors"
+    xmlns:Colors="using:FanKit.Colors"
     >
 
     <Grid >

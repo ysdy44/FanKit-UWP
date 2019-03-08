@@ -16,9 +16,9 @@ namespace FanKit.Frames.Control
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Control/TabButtonPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Control/TabButton.xaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Control/TabButton.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/TabButtonPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/TabButton.xaml.txt");
+            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/TabButton.cs.txt");
 
             this.sos.ShowChanged += (IsShow) =>
             {

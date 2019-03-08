@@ -6,7 +6,7 @@ using System;
 using System.ComponentModel;
 using Windows.UI.Xaml;
 
-namespace FanKit.Library.Library
+namespace FanKit.Library
 {
     public class DataTemplateAdaptiver : DependencyObject, INotifyPropertyChanged
     {

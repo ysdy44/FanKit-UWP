@@ -8,7 +8,7 @@ using System.Numerics;
 using Windows.Foundation;
 
 
-namespace FanKit.Library.Win2Ds
+namespace FanKit.Win2Ds
 {
     /// <summary> The Dotted Line of photoshop  </summary>
     public class DottedLine

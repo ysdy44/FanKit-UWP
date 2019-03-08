@@ -4,7 +4,7 @@
 
 <Page
     x:Class="FanKit.Frames.Colors.WheelPickerPage"
-    xmlns:Colors="using:FanKit.Library.Colors"
+    xmlns:Colors="using:FanKit.Colors"
    > 
 
      <Colors:WheelPicker x:Name="WheelPicker" ColorChange="WheelPicker_ColorChange"/>

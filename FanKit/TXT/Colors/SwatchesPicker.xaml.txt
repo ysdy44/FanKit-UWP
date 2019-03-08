@@ -3,7 +3,7 @@
 ```xaml
 
 <UserControl
-    x:Class="FanKit.Library.Colors.SwatchesPicker"
+    x:Class="FanKit.Colors.SwatchesPicker"
     Height="220"
     >
 

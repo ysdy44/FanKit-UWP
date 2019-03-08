@@ -2,7 +2,7 @@
 ```Csharp
 
 
-using FanKit.Library.Win2Ds;
+using FanKit.Win2Ds;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.UI;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using static FanKit.Library.Win2Ds.TransformController;
+using static FanKit.Win2Ds.TransformController;
 
 namespace FanKit.Frames.Win2Ds
 {

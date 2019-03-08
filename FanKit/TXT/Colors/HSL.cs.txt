@@ -7,7 +7,7 @@ using System;
 using System.Numerics;
 using Windows.UI;
 
-namespace FanKit.Library.Colors
+namespace FanKit.Colors
 {
     //Delegate
     public delegate void AlphaChangeHandler(object sender, byte value);

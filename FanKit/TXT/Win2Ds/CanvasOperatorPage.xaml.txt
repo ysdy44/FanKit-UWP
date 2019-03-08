@@ -9,7 +9,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
-    xmlns:Win2Ds="using:FanKit.Library.Win2Ds">
+    xmlns:Win2Ds="using:FanKit.Win2Ds">
 	   
    <Page.Resources>
 

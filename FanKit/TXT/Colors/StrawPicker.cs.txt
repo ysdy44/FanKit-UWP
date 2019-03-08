@@ -20,7 +20,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
 
-namespace FanKit.Library.Colors
+namespace FanKit.Colors
 {
 
     /// <summary> A boxed Popup with Postionand Size. </summary>

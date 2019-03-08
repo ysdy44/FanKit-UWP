@@ -5,7 +5,7 @@
 
 <Page
     x:Class="FanKit.Frames.Colors.HexPickerPage"
-    xmlns:Colors="using:FanKit.Library.Colors"
+    xmlns:Colors="using:FanKit.Colors"
     >
 	          
          <Colors:HexPicker x:Name="HexPicker" ColorChange="HexPicker_ColorChange"/>

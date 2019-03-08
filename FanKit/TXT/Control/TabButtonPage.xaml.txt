@@ -6,7 +6,7 @@
 
 <Page
     x:Class="FanKit.Frames.Control.TabButtonPage"
-    xmlns:Control="using:FanKit.Library.Control"
+    xmlns:Control="using:FanKit.Control"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     Loaded="Page_Loaded">

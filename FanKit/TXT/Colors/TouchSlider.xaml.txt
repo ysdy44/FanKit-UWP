@@ -4,7 +4,7 @@
 
 
 <UserControl
-    x:Class="FanKit.Library.Colors.TouchSlider"
+    x:Class="FanKit.Colors.TouchSlider"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Center" 
    >

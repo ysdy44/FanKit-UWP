@@ -8,7 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
-namespace FanKit.Library.Colors
+namespace FanKit.Colors
 {
     public sealed partial class SwatchesPicker : UserControl, IPicker
     {

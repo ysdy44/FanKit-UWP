@@ -5,7 +5,7 @@
 using Windows.UI;
 using Windows.UI.Xaml.Controls;
 
-namespace FanKit.Library.Colors
+namespace FanKit.Colors
 {
     public sealed partial class RGBPicker : UserControl, IPicker
     {

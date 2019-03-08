@@ -6,7 +6,7 @@
     xmlns:local="using:FanKit.Frames.Win2Ds"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
-    xmlns:Win2Ds="using:FanKit.Library.Win2Ds">
+    xmlns:Win2Ds="using:FanKit.Win2Ds">
     
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
              <canvas:CanvasControl x:Name="CanvasControl"

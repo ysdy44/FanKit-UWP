@@ -1,0 +1,264 @@
+﻿using System;
+using Windows.Foundation;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+
+namespace FanKit.Library
+{
+    /// <summary>Zoom in and view pictures</summary>
+    public class ScalableGrid : Grid
+    {
+        private TransformGroup transformGroup;
+        private ScaleTransform scaleTransform;
+        private TranslateTransform translateTransform;
+
+
+        public ScalableGrid()
+        {
+            //Transform
+            this.scaleTransform = new ScaleTransform();
+            this.translateTransform = new TranslateTransform();
+            this.transformGroup = new TransformGroup();
+            this.transformGroup.Children.Add(scaleTransform);
+            this.transformGroup.Children.Add(translateTransform);
+            this.RenderTransform = transformGroup;
+
+            //Manipulation
+            this.ManipulationMode = ManipulationModes.System | ManipulationModes.Scale;
+            this.ManipulationStarted += ScalableGrid_ManipulationStarted;
+            this.ManipulationDelta += ScalableGrid_ManipulationDelta;
+            this.ManipulationCompleted += ScalableGrid_ManipulationCompleted;
+
+            //Mouse
+            this.PointerPressed += ScalableGrid_PointerPressed;
+            this.PointerReleased += ScalableGrid_PointerReleased;
+            this.PointerWheelChanged += ScalableGrid_PointerWheelChanged;
+
+            //FrameworkElement
+            this.Loaded += ScalableGrid_Loaded;
+            this.SizeChanged += (a, b) =>
+            {
+                this.scaleTransform.CenterX = this.ActualWidth / 2;
+                this.scaleTransform.CenterY = this.ActualHeight / 2;
+            };
+            this.DoubleTapped += ScalableGrid_DoubleTapped;
+        }
+
+
+
+        private void ScalableGrid_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            scaleTransform.ScaleX = scaleTransform.ScaleY = 1;
+            this.translateTransform.X = 0;
+            this.translateTransform.Y = 0;
+            this.ManipulationMode = ManipulationModes.System | ManipulationModes.Scale;
+        }
+
+        private void ScalableGrid_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Loaded -= ScalableGrid_Loaded;
+            scaleTransform.CenterX = this.ActualWidth / 2;
+            scaleTransform.CenterY = this.ActualHeight / 2;
+        }
+
+
+        #region Manipulation
+
+        private void ScalableGrid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        {
+            //Center
+            scaleTransform.CenterX = e.Position.X;
+            scaleTransform.CenterY = e.Position.Y;
+        }
+        private void ScalableGrid_ManipulationDelta(object sender, Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs e)
+        {
+            //this.ManipulationMode = this.SetCurrentMainpulationModes();
+            if (scaleTransform.ScaleX == 1 && scaleTransform.ScaleY == 1)
+            {
+                this.ManipulationMode = ManipulationModes.System | ManipulationModes.Scale;
+            }
+            else
+            {
+                this.ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.TranslateY | ManipulationModes.Scale | ManipulationModes.TranslateInertia;
+            }
+
+            scaleTransform.ScaleX *= e.Delta.Scale;
+            scaleTransform.ScaleY *= e.Delta.Scale;
+            if (scaleTransform.ScaleY < 0.5)
+            {
+                scaleTransform.ScaleX = scaleTransform.ScaleY = 0.5;
+            }
+            else if (scaleTransform.ScaleY > 4)
+            {
+                scaleTransform.ScaleX = scaleTransform.ScaleY = 4;
+
+                translateTransform.X += e.Delta.Translation.X;
+                translateTransform.Y += e.Delta.Translation.Y;
+                StopWhenTranslateToEdge();
+            }
+        }
+
+
+
+        private void ScalableGrid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if (scaleTransform.ScaleY < 1)
+            {
+                scaleTransform.ScaleX = scaleTransform.ScaleY = 1;
+            }
+        }
+        private void StopWhenTranslateToEdge()
+        {
+            double width = this.ActualWidth * (scaleTransform.ScaleX - 1) / 2;
+            if (translateTransform.X > 0)
+            {
+                if (width < translateTransform.X)
+                {
+                    translateTransform.X = width;
+                }
+            }
+            else if (translateTransform.X < 0)
+            {
+                if (-width > translateTransform.X)
+                {
+                    translateTransform.X = -width;
+                }
+            }
+
+            double height = this.ActualHeight * (scaleTransform.ScaleY - 1) / 2;
+            if (height < translateTransform.Y)
+            {
+                translateTransform.Y = height;
+            }
+            else if (translateTransform.Y < 0)
+            {
+                if (-height > translateTransform.Y)
+                {
+                    translateTransform.Y = -height;
+                }
+            }
+        }
+
+        private ManipulationModes SetCurrentMainpulationModes()
+        {
+            if (scaleTransform.ScaleX == 1 && scaleTransform.ScaleY == 1)
+            {
+                this.translateTransform.X = 0;
+                this.translateTransform.Y = 0;
+                return ManipulationModes.System | ManipulationModes.Scale;
+            }
+
+            var modes = ManipulationModes.Scale;
+            var parentElement = this.Parent as FrameworkElement;
+            if (parentElement == null)
+            {
+                throw new NotImplementedException("ScalableGrid should be child of one FrameworkElement");
+            }
+
+            var position = this.TransformToVisual(parentElement).TransformPoint(new Point());
+            if (position.Y <= 0 || position.Y + this.ActualHeight >= parentElement.ActualHeight)
+            {
+                modes = modes | ManipulationModes.TranslateY;
+            }
+
+            if (position.X <= 0 || position.X + this.ActualWidth >= parentElement.ActualWidth)
+            {
+                modes = modes | ManipulationModes.TranslateX;
+            }
+
+            return modes;
+        }
+
+
+        #endregion
+
+
+        #region Mouse
+
+
+        bool isPreaaed = false;
+
+        private void ScalableGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            var p = e.GetCurrentPoint(this);
+
+            if (p.PointerDevice.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
+            {
+                isPreaaed = true;
+            }
+        }
+        private void ScalableGrid_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            var p = e.GetCurrentPoint(this);
+
+            if (p.PointerDevice.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
+            {
+                isPreaaed = false;
+
+                //reply center
+                scaleTransform.CenterX = 0;
+                scaleTransform.CenterY = 0;
+                //reply scale
+                scaleTransform.ScaleX = 1;
+                scaleTransform.ScaleY = 1;
+            }
+        }
+
+
+
+        private void ScalableGrid_PointerWheelChanged(object sender, PointerRoutedEventArgs e)
+        {
+            var p = e.GetCurrentPoint(this);
+
+            if (p.PointerDevice.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
+            {
+                if (isPreaaed)
+                {
+                    //change center
+                    Point postion = p.RawPosition;
+                    scaleTransform.CenterX = postion.X;
+                    scaleTransform.CenterY = postion.Y;
+
+                    //change scale
+                    double Delta = e.GetCurrentPoint(this).Properties.MouseWheelDelta;//-120~120
+                    Change(Delta);
+
+                    e.Handled = true;
+                }
+            }
+        }
+
+
+
+
+
+        private void Change(double Delta)
+        {
+            double scale = Math.Abs(Delta / 100d);//1~1.2
+
+            if (Delta > 0)
+            {
+                scaleTransform.ScaleX *= scale;
+                scaleTransform.ScaleY *= scale;
+
+                if (scaleTransform.ScaleX > 3) scaleTransform.ScaleX = 3;
+                if (scaleTransform.ScaleY > 3) scaleTransform.ScaleY = 3;
+            }
+            else
+            {
+                scaleTransform.ScaleX /= scale;
+                scaleTransform.ScaleY /= scale;
+
+                if (scaleTransform.ScaleX < 0.5) scaleTransform.ScaleX = 0.5;
+                if (scaleTransform.ScaleY < 0.5) scaleTransform.ScaleY = 0.5;
+            }
+        }
+
+
+        #endregion
+
+    }
+
+}

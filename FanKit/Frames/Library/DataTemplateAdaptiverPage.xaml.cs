@@ -14,8 +14,8 @@ namespace FanKit.Frames.Library
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Library/DataTemplateAdaptiverPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Library/DataTemplateAdaptiver.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/DataTemplateAdaptiverPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/DataTemplateAdaptiver.cs.txt");
          }
     }
 }

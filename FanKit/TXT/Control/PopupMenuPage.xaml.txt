@@ -6,7 +6,7 @@
     x:Class="FanKit.Frames.Control.PopupMenuPage"
     xmlns:local="using:FanKit.Frames.Control"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:Control="using:FanKit.Library.Control">
+    xmlns:Control="using:FanKit.Control">
 
 	
   <Page.Resources>

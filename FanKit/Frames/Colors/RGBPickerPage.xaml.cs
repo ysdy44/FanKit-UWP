@@ -28,9 +28,9 @@ namespace FanKit.Frames.Colors
         {
             this.RGBPicker.Color = Color.FromArgb(255, 0, 187, 255);
 
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/RGBPickerPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/RGBPicker.xaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/RGBPicker.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/RGBPickerPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/RGBPicker.xaml.txt");
+            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/RGBPicker.cs.txt");
         }
 
 

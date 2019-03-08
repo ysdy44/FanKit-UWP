@@ -3,7 +3,7 @@
 
 
 
-using FanKit.Library.Win2Ds;
+using FanKit.Win2Ds;
 using System.Numerics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

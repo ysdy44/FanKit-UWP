@@ -4,8 +4,8 @@
 
 
 <UserControl
-    x:Class="FanKit.Library.Colors.ColorPicker"
-    xmlns:local="using:FanKit.Library.Colors"
+    x:Class="FanKit.Colors.ColorPicker"
+    xmlns:local="using:FanKit.Colors"
     mc:Ignorable="d"
     d:DesignHeight="270"
     d:DesignWidth="200">

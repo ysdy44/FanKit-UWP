@@ -35,7 +35,7 @@ namespace FanKit.Frames.Library
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Library/Palette.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/Palette.cs.txt");
         }
 
 
@@ -44,7 +44,7 @@ namespace FanKit.Frames.Library
             int index = this.CarouselControl.SelectedIndex;
             Uri uri = this.list[index];
 
-            var color = await FanKit.Library.Library.Palette.GetPaletteFormImage(uri);
+            var color = await FanKit.Library.Palette.GetPaletteFormImage(uri);
             this.PaletteSolidBrush.Color = this.PaletteAcrylicBrush.TintColor = this.PaletteAcrylicBrush.FallbackColor = color;
         }
 

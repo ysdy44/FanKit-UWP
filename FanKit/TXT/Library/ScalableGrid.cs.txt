@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
-namespace FanKit.Library.Library
+namespace FanKit.Library
 {
     /// <summary>Zoom in and view pictures</summary>
     public class ScalableGrid : Grid

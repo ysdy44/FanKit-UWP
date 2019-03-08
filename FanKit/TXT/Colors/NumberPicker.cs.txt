@@ -7,7 +7,7 @@ using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace FanKit.Library.Colors
+namespace FanKit.Colors
 {
     public sealed partial class NumberPicker : UserControl
     {

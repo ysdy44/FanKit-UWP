@@ -5,7 +5,7 @@
 
 <Page
     x:Class="FanKit.Frames.Colors.SwatchesPickerPage"
-    xmlns:Colors="using:FanKit.Library.Colors"
+    xmlns:Colors="using:FanKit.Colors"
     >
 
      <Colors:SwatchesPicker x:Name="SwatchesPicker" Margin="12" Width="200" Height="270"  ColorChange="SwatchesPicker_ColorChange"/>

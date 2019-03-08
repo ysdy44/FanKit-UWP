@@ -1,4 +1,4 @@
-﻿using FanKit.Library.Win2Ds;
+﻿using FanKit.Win2Ds;
 using Microsoft.Graphics.Canvas;
 using System;
 using System.Numerics;
@@ -26,9 +26,9 @@ namespace FanKit.Frames.Win2Ds
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.cs.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeTool.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.cs.txt");
+            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeTool.cs.txt");
         }
 
         #region UI
@@ -95,28 +95,28 @@ namespace FanKit.Frames.Win2Ds
             this.Add.IsChecked = false;
             this.Subtract.IsChecked = false;
             this.Intersect.IsChecked = false;
-            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.MarqueeCompositeMode.New;
+            this.MarqueeTool.CompositeMode = FanKit.Win2Ds.MarqueeCompositeMode.New;
         }
         private void Add_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.New.IsChecked = false;
             this.Subtract.IsChecked = false;
             this.Intersect.IsChecked = false;
-            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.MarqueeCompositeMode.Add;
+            this.MarqueeTool.CompositeMode = FanKit.Win2Ds.MarqueeCompositeMode.Add;
         }
         private void Subtract_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.New.IsChecked = false;
             this.Add.IsChecked = false;
             this.Intersect.IsChecked = false;
-            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.MarqueeCompositeMode.Subtract;
+            this.MarqueeTool.CompositeMode = FanKit.Win2Ds.MarqueeCompositeMode.Subtract;
         }
         private void Intersect_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.New.IsChecked = false;
             this.Add.IsChecked = false;
             this.Subtract.IsChecked = false;
-            this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.MarqueeCompositeMode.Intersect;
+            this.MarqueeTool.CompositeMode = FanKit.Win2Ds.MarqueeCompositeMode.Intersect;
         }
 
 

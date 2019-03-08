@@ -27,9 +27,9 @@ namespace FanKit.Frames.Colors
         {
             this.HexPicker.Color = Color.FromArgb(255, 0, 187, 255);
 
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/HexPickerPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/HexPicker.xaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/HexPicker.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/HexPickerPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/HexPicker.xaml.txt");
+            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/HexPicker.cs.txt");
         }
 
         private void HexPicker_ColorChange(object sender, Windows.UI.Color value)

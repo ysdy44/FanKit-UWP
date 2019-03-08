@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace FanKit.Library.Win2Ds
+namespace FanKit.Win2Ds
 {
     /// <summary> Drag and drop nodes and manipulate transformer libraries. </summary>
     public class TransformController

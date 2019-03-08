@@ -3,7 +3,7 @@
 ```xaml
 
 <UserControl
-    x:Class="FanKit.Library.Colors.AlphaPicker"
+    x:Class="FanKit.Colors.AlphaPicker"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     d:DesignHeight="50"
     d:DesignWidth="200">

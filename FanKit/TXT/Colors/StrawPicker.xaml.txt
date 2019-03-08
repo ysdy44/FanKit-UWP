@@ -3,7 +3,7 @@
 ```xaml
 
 <UserControl
-    x:Class="FanKit.Library.Colors.StrawPicker"
+    x:Class="FanKit.Colors.StrawPicker"
     >
 
     <UserControl.Resources>

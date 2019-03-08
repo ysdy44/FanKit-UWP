@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Uwp.UI.Animations;
+using FanKit.Sample;
 
 namespace FanKit
 {
@@ -65,7 +66,7 @@ namespace FanKit
             this.InitializeComponent();
         }
 
-        private void GridView_ItemClick(object sender, ItemClickEventArgs e) => this.ItemClick?.Invoke((e.ClickedItem as Sample).Page);
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e) => this.ItemClick?.Invoke((e.ClickedItem as Sample.Sample).Page);
         private void ShadowGrid_Tapped(object sender, TappedRoutedEventArgs e) => this.Category = null;
 
      

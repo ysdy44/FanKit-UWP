@@ -30,7 +30,7 @@ namespace FanKit.Frames.Helpers
         {
             this.Frame.Navigate(typeof(FanKit.Frames.Helpers.Transition.WelcomePage));
 
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Helpers/Transition.style.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Helpers/Transition.style.txt");
         }
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)

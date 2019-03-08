@@ -4,8 +4,8 @@
 
 
 <UserControl
-    x:Class="FanKit.Library.Colors.RGBPicker"
-    xmlns:Colors="using:FanKit.Library.Colors"
+    x:Class="FanKit.Colors.RGBPicker"
+    xmlns:Colors="using:FanKit.Colors"
     mc:Ignorable="d"
     Height="170" >
 

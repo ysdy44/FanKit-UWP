@@ -3,7 +3,7 @@
 
 
 <UserControl
-    x:Class="FanKit.Library.Control.RadiusAnimaPanel"
+    x:Class="FanKit.Control.RadiusAnimaPanel"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
 	>
 

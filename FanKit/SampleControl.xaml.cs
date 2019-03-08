@@ -20,16 +20,16 @@ namespace FanKit
     public sealed partial class SampleControl : UserControl
     {
 
-        public Sample Sample
+        public Sample.Sample Sample
         {
-            get { return (Sample)GetValue(SampleProperty); }
+            get { return (Sample.Sample)GetValue(SampleProperty); }
             set { SetValue(SampleProperty, value); }
         }
-        public static readonly DependencyProperty SampleProperty =  DependencyProperty.Register("Sample", typeof(Sample), typeof(SampleControl), new PropertyMetadata(0, (sender, e) =>
+        public static readonly DependencyProperty SampleProperty =  DependencyProperty.Register("Sample", typeof(Sample.Sample), typeof(SampleControl), new PropertyMetadata(0, (sender, e) =>
         {
             if (sender is SampleControl con)
             {
-                if (e.NewValue is Sample  value)
+                if (e.NewValue is Sample.Sample value)
                 {
                     con.ViewModel = value;
                 }

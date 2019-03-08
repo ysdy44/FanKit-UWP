@@ -1,4 +1,4 @@
-﻿using FanKit.Library.Colors;
+﻿using FanKit.Colors;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -39,11 +39,11 @@ namespace FanKit.Frames.Colors
         {  
             this.Color = Color.FromArgb(255, 0, 187, 255);
 
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.cs.txt");
 
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePicker.xaml.txt");
-            this.MarkdownText4.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/PalettePicker.cs.txt");
+            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/PalettePicker.xaml.txt");
+            this.MarkdownText4.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/PalettePicker.cs.txt");
          }       
 
     }

@@ -5,7 +5,7 @@
 
 <Page
     x:Class="FanKit.Frames.Colors.StrawPickerPage"
-    xmlns:Colors="using:FanKit.Library.Colors"
+    xmlns:Colors="using:FanKit.Colors"
     >
 
    <Border Width="80" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

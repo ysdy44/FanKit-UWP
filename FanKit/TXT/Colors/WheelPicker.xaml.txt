@@ -4,7 +4,7 @@
 
 
 <UserControl
-    x:Class="FanKit.Library.Colors.WheelPicker"
+    x:Class="FanKit.Colors.WheelPicker"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     MinHeight="200"
     >

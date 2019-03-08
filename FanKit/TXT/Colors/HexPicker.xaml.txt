@@ -3,7 +3,7 @@
 ```xaml
 
 <UserControl
-    x:Class="FanKit.Library.Colors.HexPicker"
+    x:Class="FanKit.Colors.HexPicker"
     d:DesignHeight="50"
     d:DesignWidth="100">
 

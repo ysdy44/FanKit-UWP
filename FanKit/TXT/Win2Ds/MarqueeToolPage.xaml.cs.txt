@@ -5,7 +5,7 @@
 
 
 
-using FanKit.Library.Win2Ds;
+using FanKit.Win2Ds;
 using Microsoft.Graphics.Canvas;
 using System;
 using System.Numerics;
@@ -68,10 +68,10 @@ namespace FanKit.Frames.Win2Ds
 
 
         //CompositeMode
-        private void New_Tapped(object sender, TappedRoutedEventArgs e) => this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.CompositeMode.New;
-        private void Add_Tapped(object sender, TappedRoutedEventArgs e) => this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.CompositeMode.Add;
-        private void Subtract_Tapped(object sender, TappedRoutedEventArgs e) => this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.CompositeMode.Subtract;
-        private void Intersect_Tapped(object sender, TappedRoutedEventArgs e) => this.MarqueeTool.CompositeMode = FanKit.Library.Win2Ds.CompositeMode.Intersect;
+        private void New_Tapped(object sender, TappedRoutedEventArgs e) => this.MarqueeTool.CompositeMode = FanKit.Win2Ds.CompositeMode.New;
+        private void Add_Tapped(object sender, TappedRoutedEventArgs e) => this.MarqueeTool.CompositeMode = FanKit.Win2Ds.CompositeMode.Add;
+        private void Subtract_Tapped(object sender, TappedRoutedEventArgs e) => this.MarqueeTool.CompositeMode = FanKit.Win2Ds.CompositeMode.Subtract;
+        private void Intersect_Tapped(object sender, TappedRoutedEventArgs e) => this.MarqueeTool.CompositeMode = FanKit.Win2Ds.CompositeMode.Intersect;
 
 
         #endregion

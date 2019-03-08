@@ -21,6 +21,7 @@ using FanKit.Library;
 using Newtonsoft.Json;
 using Windows.Storage;
 using Windows.System;
+using FanKit.Sample;
 
 namespace FanKit
 {
@@ -87,8 +88,8 @@ namespace FanKit
                 titleBar.ButtonBackgroundColor = background;
                 titleBar.ButtonInactiveBackgroundColor = background;
 
-                titleBar.ButtonHoverBackgroundColor = Colors.Gray;
-                titleBar.ButtonPressedBackgroundColor = Colors.Gray;
+                titleBar.ButtonHoverBackgroundColor =Windows.UI.Colors.Gray;
+                titleBar.ButtonPressedBackgroundColor =Windows.UI.Colors.Gray;
 
                 //Back按钮
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
@@ -104,7 +105,7 @@ namespace FanKit
                 FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.sos.VerticalOffset = Offset;
 
                 //SampleCategory
-                string json = await FanKit.Library.File.GetFile("ms-appx:///TXT/Samples.json");
+                string json = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Samples.json");
                 this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SampleCategory>>(json);
             };
 

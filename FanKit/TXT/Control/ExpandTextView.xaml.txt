@@ -3,8 +3,8 @@
 
 
 <UserControl
-    x:Class="FanKit.Library.Control.ExpandTextView"
-    xmlns:local="using:FanKit.Library.Control"
+    x:Class="FanKit.Control.ExpandTextView"
+    xmlns:local="using:FanKit.Control"
     Background="Transparent"
     Tapped="UserControl_Tapped">
 

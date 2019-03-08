@@ -2,7 +2,9 @@
 ```Csharp
 
 
- using Microsoft.Graphics.Canvas;
+
+
+using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Geometry;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,10 @@ using System.Numerics;
 using Windows.Foundation;
 using Windows.UI;
 
-namespace FanKit.Library.Win2Ds
+namespace FanKit.Win2Ds
 {
     /// <summary> Drawing and managing Bezier curves on CanvasControl </summary>
-    class CurveNodes
+    public class CurveNodes
     {
         readonly Color Blue = Color.FromArgb(255, 54, 135, 230);
         readonly Color TranslucentBlue = Color.FromArgb(90, 54, 135, 230);
@@ -57,7 +59,7 @@ namespace FanKit.Library.Win2Ds
             {
                 if (item.ChooseMode == NodeChooseMode.None) this.DrawNodeVector(ds, item.Vector);
                 else
-                {                    
+                {
                     this.DrawNodeControl(ds, item.Vector, item.RightControl);
                     this.DrawNodeControl(ds, item.Vector, item.LeftControl);
 
@@ -108,9 +110,9 @@ namespace FanKit.Library.Win2Ds
         /// </summary>
         private void DrawNodeVector2(CanvasDrawingSession ds, Vector2 vector)
         {
-            ds.FillCircle(vector,  10, this.Shadow);
+            ds.FillCircle(vector, 10, this.Shadow);
             ds.FillCircle(vector, 8, this.White);
-            ds.FillCircle(vector,  6, this.Blue);
+            ds.FillCircle(vector, 6, this.Blue);
         }
         /// <summary>
         /// draw a ——⊕ 
@@ -119,9 +121,9 @@ namespace FanKit.Library.Win2Ds
         {
             ds.DrawLine(control, vector, this.Blue, 1);
 
-            ds.FillCircle(control, 8,  this.Shadow);
-            ds.FillCircle(control, 7,  this.Blue);
-            ds.FillCircle(control, 6,  this.White);
+            ds.FillCircle(control, 8, this.Shadow);
+            ds.FillCircle(control, 7, this.Blue);
+            ds.FillCircle(control, 6, this.White);
         }
 
 
@@ -137,7 +139,7 @@ namespace FanKit.Library.Win2Ds
         public void Interpolation()
         {
             NodeChooseMode isChecked = NodeChooseMode.None;
-                       
+
             List<int> list = new List<int> { };
 
             for (int i = 0; i < this.Nodes.Count; i++)
@@ -146,7 +148,7 @@ namespace FanKit.Library.Win2Ds
                 {
                     list.Add(i);
                 }
-                
+
                 isChecked = this.Nodes[i].ChooseMode;
             }
 
@@ -154,7 +156,7 @@ namespace FanKit.Library.Win2Ds
             {
                 int index = list[i] + i;
                 Vector2 vect = this.Nodes[index - 1].Vector + this.Nodes[index].Vector;
-                
+
                 Node node = new Node(vect / 2);
                 node.ChooseMode = NodeChooseMode.Vector;
                 this.Nodes.Insert(index, node);
@@ -204,7 +206,7 @@ namespace FanKit.Library.Win2Ds
                 {
                     Vector2 Space = this.Nodes[i + 1].Vector - this.Nodes[i - 1].Vector;
                     Vector2 Spa = Space / 6;
-                    
+
                     this.Nodes[i].LeftControl = this.Nodes[i].Vector + Spa;
                     this.Nodes[i].RightControl = this.Nodes[i].Vector - Spa;
                 }
@@ -278,13 +280,13 @@ namespace FanKit.Library.Win2Ds
 
 
         private void Add_Start(Vector2 v)
-        {            
+        {
             this.Nodes.Add(new Node(v));
         }
 
         private void Add_Delta(Vector2 v)
         {
-            this.Nodes[this.Nodes.Count - 1].SetVector(v); 
+            this.Nodes[this.Nodes.Count - 1].SetVector(v);
         }
 
         private void Add_Complete(Vector2 v)
@@ -357,7 +359,7 @@ namespace FanKit.Library.Win2Ds
                         }
                     }
 
-                    this.Node.SetVector(v); 
+                    this.Node.SetVector(v);
 
                     EditMoveStart = v;
                     break;
@@ -423,7 +425,7 @@ namespace FanKit.Library.Win2Ds
         private void RectChoose_Delta(Vector2 v)
         {
             this.RectChooseEnd = v;
-            
+
             //choose point which in rect
             float Left = Math.Min(this.RectChooseStart.X, this.RectChooseEnd.X);
             float Top = Math.Min(this.RectChooseStart.Y, this.RectChooseEnd.Y);
@@ -453,7 +455,7 @@ namespace FanKit.Library.Win2Ds
     }
 
     /// <summary>  CurveNodes's node </summary>
-    class Node
+    public class Node
     {
         public Vector2 Vector;
         public Vector2 LeftControl;
@@ -602,7 +604,7 @@ namespace FanKit.Library.Win2Ds
 
     /// <summary>  CurveNodes's edit mode </summary>
     [Flags]
-    enum NodeEditMode
+    public enum NodeEditMode
     {
         /// <summary>  add new node </summary>
         Add = 1,
@@ -615,7 +617,7 @@ namespace FanKit.Library.Win2Ds
     }
 
     /// <summary> vector or control point </summary>
-    enum NodeChooseMode
+    public enum NodeChooseMode
     {
         /// <summary> none </summary>
         None,
@@ -631,7 +633,7 @@ namespace FanKit.Library.Win2Ds
     }
 
     /// <summary> control mode of the control point  </summary>
-    enum NodeControlMode
+    public enum NodeControlMode
     {
         /// <summary> Two control point mirroring </summary>
         Mirrored,
@@ -645,7 +647,6 @@ namespace FanKit.Library.Win2Ds
 
 
 }
-
 
 
 

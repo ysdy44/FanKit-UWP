@@ -15,7 +15,7 @@ using System.Linq;
 using System.Numerics;
 using Windows.UI;
 
-namespace FanKit.Library.Win2Ds
+namespace FanKit.Win2Ds
 {
     /// <summary>The marquee is a tool that can make selections that are  rectangular and elliptical.</summary>
     public class MarqueeTool

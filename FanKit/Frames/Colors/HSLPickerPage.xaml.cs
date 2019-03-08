@@ -28,10 +28,10 @@ namespace FanKit.Frames.Colors
         {
             this.HSLPicker.Color = Color.FromArgb(255, 0, 187, 255);
 
-            this.MarkdownText1.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/HSLPickerPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/HSLPicker.xaml.txt");
-            this.MarkdownText3.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/HSLPicker.cs.txt");
-            this.MarkdownText4.Text = await FanKit.Library.File.GetFile("ms-appx:///TXT/Colors/HSL.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/HSLPickerPage.xaml.txt");
+            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/HSLPicker.xaml.txt");
+            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/HSLPicker.cs.txt");
+            this.MarkdownText4.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/HSL.cs.txt");
         }
 
         private void HSLPicker_ColorChange(object sender, Color value)=>  this.PaletteSolidBrush.Color = value;

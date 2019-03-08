@@ -9,7 +9,7 @@
     xmlns:local="using:FanKit.Frames.Library"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
-    xmlns:Library="using:FanKit.Library.Library">
+    xmlns:Library="using:FanKit.Library">
 
 
     <Grid RequestedTheme="Dark" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

@@ -129,44 +129,24 @@
     <Compile Include="Frames\Win2Ds\TransformControllerPage.xaml.cs">
       <DependentUpon>TransformControllerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Colors\AlphaPicker.xaml.cs">
-      <DependentUpon>AlphaPicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Colors\AlphaPickerPage.xaml.cs">
       <DependentUpon>AlphaPickerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library\Colors\ColorPicker.xaml.cs">
-      <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\ColorPickerPage.xaml.cs">
       <DependentUpon>ColorPickerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Colors\HexPicker.xaml.cs">
-      <DependentUpon>HexPicker.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library\Colors\SwatchesPicker.xaml.cs">
-      <DependentUpon>SwatchesPicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Colors\SwatchesPickerPage.xaml.cs">
       <DependentUpon>SwatchesPickerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Control\RadiusAnimaControl.xaml.cs">
-      <DependentUpon>RadiusAnimaControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library\Win2Ds\CanvasOperator.cs" />
     <Compile Include="Frames\Win2Ds\CanvasOperatorPage.xaml.cs">
       <DependentUpon>CanvasOperatorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
       <DependentUpon>RadiusShadowPanelPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Win2Ds\TransformController.cs" />
-    <Compile Include="Library\Win2Ds\CurveNodes.cs" />
-    <Compile Include="Library\Win2Ds\DottedLine.cs" />
     <Compile Include="Frames\Win2Ds\DottedLinePage.xaml.cs">
       <DependentUpon>DottedLinePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Win2Ds\MarqueeTool.cs" />
     <Compile Include="SampleCategoryControl.xaml.cs">
       <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
     </Compile>
@@ -194,21 +174,11 @@
     <Compile Include="Frames\Brushes\RevealBorderBrushPage.xaml.cs">
       <DependentUpon>RevealBorderBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Colors\HSL.cs" />
-    <Compile Include="Library\Colors\HSLPicker.xaml.cs">
-      <DependentUpon>HSLPicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Colors\HSLPickerPage.xaml.cs">
       <DependentUpon>HSLPickerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Colors\NumberPicker.xaml.cs">
-      <DependentUpon>NumberPicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Colors\NumberPickerPage.xaml.cs">
       <DependentUpon>NumberPickerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library\Colors\PalettePicker.xaml.cs">
-      <DependentUpon>PalettePicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\PalettePickerPage.xaml.cs">
       <DependentUpon>PalettePickerPage.xaml</DependentUpon>
@@ -216,29 +186,14 @@
     <Compile Include="Frames\Colors\RGBPickerPage.xaml.cs">
       <DependentUpon>RGBPickerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Colors\RGBPicker.xaml.cs">
-      <DependentUpon>RGBPicker.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library\Colors\StrawPicker.xaml.cs">
-      <DependentUpon>StrawPicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Colors\StrawPickerPage.xaml.cs">
       <DependentUpon>StrawPickerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library\Colors\TouchSlider.xaml.cs">
-      <DependentUpon>TouchSlider.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\TouchSliderPage.xaml.cs">
       <DependentUpon>TouchSliderPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Colors\WheelPicker.xaml.cs">
-      <DependentUpon>WheelPicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Colors\WheelPickerPage.xaml.cs">
       <DependentUpon>WheelPickerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library\Control\ExpandTextView.xaml.cs">
-      <DependentUpon>ExpandTextView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Control\ExpandTextViewPage.xaml.cs">
       <DependentUpon>ExpandTextViewPage.xaml</DependentUpon>
@@ -252,23 +207,15 @@
     <Compile Include="Frames\Library\DataTemplateAdaptiverPage.xaml.cs">
       <DependentUpon>DataTemplateAdaptiverPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Control\PopupMenu.xaml.cs">
-      <DependentUpon>PopupMenu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Control\PopupMenuPage.xaml.cs">
       <DependentUpon>PopupMenuPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Library\Control\TabButton.xaml.cs">
-      <DependentUpon>TabButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Control\TabButtonPage.xaml.cs">
       <DependentUpon>TabButtonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Library\Palette.cs" />
     <Compile Include="Frames\Library\PalettePage.xaml.cs">
       <DependentUpon>PalettePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Library\ScalableGrid.cs" />
     <Compile Include="Frames\Library\ScalableGridPage.xaml.cs">
       <DependentUpon>ScalableGridPage.xaml</DependentUpon>
     </Compile>
@@ -296,7 +243,6 @@
     <Compile Include="Frames\Template\SplitPanelPage.xaml.cs">
       <DependentUpon>SplitPanelPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\Library\DataTemplateAdaptiver.cs" />
     <Compile Include="Frames\Helpers\Transition\CommonPage.xaml.cs">
       <DependentUpon>CommonPage.xaml</DependentUpon>
     </Compile>
@@ -321,10 +267,10 @@
     <Compile Include="Frames\Helpers\Transition\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\File.cs" />
-    <Compile Include="Library\Sample.cs" />
-    <Compile Include="Library\SampleCategory.cs" />
-    <Compile Include="Library\ScrollOffsetShow.cs" />
+    <Compile Include="Sample\File.cs" />
+    <Compile Include="Sample\Sample.cs" />
+    <Compile Include="Sample\SampleCategory.cs" />
+    <Compile Include="Sample\ScrollOffsetShow.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -595,27 +541,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Library\Colors\AlphaPicker.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Frames\Colors\AlphaPickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Library\Colors\ColorPicker.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Frames\Colors\ColorPickerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Library\Colors\HexPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Library\Colors\SwatchesPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -632,10 +562,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Win2Ds\DottedLinePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Library\Control\RadiusAnimaControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -675,23 +601,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Library\Colors\HSLPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Frames\Colors\HSLPickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Library\Colors\NumberPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Frames\Colors\NumberPickerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Library\Colors\PalettePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -703,35 +617,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Library\Colors\RGBPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Library\Colors\StrawPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Frames\Colors\StrawPickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Library\Colors\TouchSlider.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Frames\Colors\TouchSliderPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Library\Colors\WheelPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Frames\Colors\WheelPickerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Library\Control\ExpandTextView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -751,15 +645,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Library\Control\PopupMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Frames\Control\PopupMenuPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Library\Control\TabButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -897,14 +783,27 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Library\Brushes\" />
-    <Folder Include="Library\Helpers\" />
-    <Folder Include="Library\Others\" />
-    <Folder Include="Library\Styles\" />
-    <Folder Include="Library\Template\" />
     <Folder Include="TXT\Brushes\" />
     <Folder Include="TXT\Others\" />
     <Folder Include="TXT\Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FanKit.Control\FanKit.Control.csproj">
+      <Project>{b3c72dcb-090f-4c63-b5ed-b018cef76d2d}</Project>
+      <Name>FanKit.Control</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanKit.Library\FanKit.Library.csproj">
+      <Project>{4318061e-f24f-4e63-b08f-59e59f4a1175}</Project>
+      <Name>FanKit.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FanKit.Pickers\FanKit.Colors.csproj">
+      <Project>{669c9391-6912-485d-a00f-7307385ba31e}</Project>
+      <Name>FanKit.Colors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Win2Ds\FanKit.Win2Ds.csproj">
+      <Project>{b856d2d1-4ffa-45e7-b074-fef15a99e1b2}</Project>
+      <Name>FanKit.Win2Ds</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

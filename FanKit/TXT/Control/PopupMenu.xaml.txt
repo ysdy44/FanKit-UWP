@@ -4,8 +4,8 @@
 
 
 <UserControl
-    x:Class="FanKit.Library.Control.PopupMenu"
-    xmlns:local="using:FanKit.Library.Control"
+    x:Class="FanKit.Control.PopupMenu"
+    xmlns:local="using:FanKit.Control"
     Background="Transparent"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch"

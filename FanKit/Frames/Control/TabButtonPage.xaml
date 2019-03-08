@@ -4,8 +4,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:library="using:FanKit.Library"
-    xmlns:Control="using:FanKit.Library.Control"
+    xmlns:sample="using:FanKit.Sample"
+    xmlns:Control="using:FanKit.Control"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:frames="using:FanKit.Frames"
@@ -17,7 +17,7 @@
     <Page.Resources>
 
         <!--ScrollOffsetShow-->
-        <library:ScrollOffsetShow x:Name="sos" />
+        <sample:ScrollOffsetShow x:Name="sos" />
 
         
         <!--Storyboard-->
