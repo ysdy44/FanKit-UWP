@@ -1,5 +1,4 @@
-﻿
-    <Page
+﻿<Page
     x:Class="FanKit.Frames.Library.PalettePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,9 +9,9 @@
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
-        
+
     <Page.Resources>
-        
+
         <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey" Color="White" />
         <AcrylicBrush x:Name="PaletteAcrylicBrush" x:Key="PaletteAcrylicBrushKey" BackgroundSource="Backdrop" TintColor="White"  TintOpacity="0.6" FallbackColor="{StaticResource SystemChromeMediumColor}" />
 
@@ -57,16 +56,21 @@
                             
                             <Span FontStyle="Italic">how to use:</Span>                    
                             <LineBreak/>
-                            <Span>Color = await FanKit.Frames.Library.Palette.</Span>
+                            <Span>Color = await FanKit.Library.Palette.</Span>
                             <Span FontWeight="SemiBold">GetPaletteFormImage</Span>
                             <Span>(uri);</Span>
 
                         </TextBlock>
                     </StackPanel>
                 </PivotItem>
-                <PivotItem Header="Library" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer  >
                         <controls:MarkdownTextBlock x:Name="MarkdownText1" />
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="Library" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer  >
+                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

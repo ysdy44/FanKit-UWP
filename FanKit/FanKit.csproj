@@ -303,6 +303,7 @@
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
+    <Content Include="TXT\Library\Palette.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\CurveNodes.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLine.cs.txt" />
     <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.txt" />

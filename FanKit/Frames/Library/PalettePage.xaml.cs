@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
 
 namespace FanKit.Frames.Library
 {
@@ -11,7 +9,7 @@ namespace FanKit.Frames.Library
     {
 
         List<Uri> list = new List<Uri>
-            {
+        {
                 new Uri("ms-appx:///Icon/Photos/BisonBadlandsChillin.jpg"),
                 new Uri("ms-appx:///Icon/Photos/ColumbiaRiverGorge.jpg"),
 
@@ -26,7 +24,7 @@ namespace FanKit.Frames.Library
 
                 new Uri("ms-appx:///Icon/Photos/SnowyInterbayt.jpg"),
                 new Uri("ms-appx:///Icon/Photos/SpeedTripleAtristsPoint.jpg"),
-            };
+        };
 
         public PalettePage()
         {
@@ -35,7 +33,8 @@ namespace FanKit.Frames.Library
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/Palette.cs.txt");
+            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/Palette.xaml.cs.txt");
+            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/Palette.cs.txt");
         }
 
 
@@ -52,3 +51,8 @@ namespace FanKit.Frames.Library
 
     }
 }
+
+
+
+
+

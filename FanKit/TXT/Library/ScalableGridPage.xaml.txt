@@ -3,50 +3,51 @@
 
 
 
-
 <Page
     x:Class="FanKit.Frames.Library.ScalableGridPage"
-    xmlns:local="using:FanKit.Frames.Library"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
-    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
-    xmlns:Library="using:FanKit.Library">
+    xmlns:Library="using:FanKit.Library"
+    >
 
 
-    <Grid RequestedTheme="Dark" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Black">
 
         <FlipView x:Name="FlipView" Tapped="FlipView_Tapped">
 
-            <local:ScalableGrid>
+            <Library:ScalableGrid>
                 <Image Source="ms-appx:///Icon/Photos/BisonBadlandsChillin.jpg"/>
-            </local:ScalableGrid>
-
-            <local:ScalableGrid>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
                 <Image Source="ms-appx:///Icon/Photos/ColumbiaRiverGorge.jpg"/>
-            </local:ScalableGrid>
-
-            <local:ScalableGrid>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
                 <Image Source="ms-appx:///Icon/Photos/GrandTetons.jpg"/>
-            </local:ScalableGrid>
-
-            <local:ScalableGrid>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
                 <Image Source="ms-appx:///Icon/Photos/MilkyWayStHelensHikePurple.jpg"/>
-            </local:ScalableGrid>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
+                <Image Source="ms-appx:///Icon/Photos/NorthernCascadesReflection.jpg"/>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
+                <Image Source="ms-appx:///Icon/Photos/Owl.jpg"/>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
+                <Image Source="ms-appx:///Icon/Photos/ShootingOnAutoOnTheDrone.jpg"/>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
+                <Image Source="ms-appx:///Icon/Photos/SmithnRockDownTheRiverView.jpg"/>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
+                <Image Source="ms-appx:///Icon/Photos/SnowyInterbayt.jpg"/>
+            </Library:ScalableGrid>
+            <Library:ScalableGrid>
+                <Image Source="ms-appx:///Icon/Photos/SpeedTripleAtristsPoint.jpg"/>
+            </Library:ScalableGrid>
 
         </FlipView>
 
 
         <Grid  x:Name="FlipViewGrid" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" >
-
-            <!--Visibility="Visible" Show-->
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
-            </animations:Implicit.ShowAnimations>
-
-            <!--Visibility="Collapsed" Hide-->
-            <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
-            </animations:Implicit.HideAnimations>
-
             <Grid.Background>
                 <LinearGradientBrush  StartPoint="0.5,1" EndPoint="0.5,0">
                     <GradientStop Color="#88000000" Offset="0"/>
@@ -62,18 +63,22 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Run Text="{Binding ElementName=FlipView,Path=SelectedIndex,Mode=OneWay}"/>
-                    <Span>/ 10</Span>
+                        <Run Text="{Binding ElementName=FlipView,Path=SelectedIndex,Mode=OneWay}"/>
+                        <Span>/ 10</Span>
             </TextBlock>
 
             <Button Grid.Column="2" Grid.Row="1"  Style="{StaticResource AppBoldButtonStyle}" >
                 <PathIcon Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M18.029,20.83l-13.396,0c-0.503,0 -0.911,-0.408 -0.911,-0.911c0,-0.502 0.408,-0.91 0.911,-0.91l13.396,0c0.502,0 0.91,0.408 0.91,0.91c0,0.503 -0.408,0.911 -0.91,0.911Zm-3.427,-9.984l3.427,0l-6.741,6.457l-6.741,-6.457l3.513,0l0,-7.196l6.542,0l0,7.196Z"/>
             </Button>
-
         </Grid>
 
     </Grid>
+
 </Page>
+
+
+
+
 
 
 
