@@ -4,28 +4,36 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Width="70"
+    d:DesignHeight="50"
+    d:DesignWidth="50">
 
     <UserControl.Resources>
+        <!--Color-->
         <SolidColorBrush x:Name="SolidColorBrushName" x:Key="SolidColorBrushKey" Color="White"/>
     </UserControl.Resources>
 
-
-    <StackPanel Orientation="Horizontal">
-        <Border Width="32" Background="Transparent" 
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Border Background="Transparent" 
             PointerPressed="Border_PointerPressed" 
             
             ManipulationMode="All" 
             ManipulationStarted="Border_ManipulationStarted"
             ManipulationDelta="Border_ManipulationDelta"  
             ManipulationCompleted="Border_ManipulationCompleted">
-            <FontIcon Glyph="&#xEF3C;" FontFamily="Segoe MDL2 Assets" />
+            <FontIcon Glyph="&#xEF3C;" FontFamily="Segoe MDL2 Assets" Style="{ThemeResource AppIconElement}"/>
         </Border>
 
-        <Border x:Name="Ellipse" Width="40" Background="Transparent"  >
+        <Border x:Name="Ellipse" Grid.Column="1" Background="Transparent"  >
             <Ellipse Width="22" Height="22" StrokeThickness="1" Stroke="Gray" Fill="{StaticResource SolidColorBrushKey}" 
                      HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
 
-    </StackPanel>
+    </Grid>
 </UserControl>

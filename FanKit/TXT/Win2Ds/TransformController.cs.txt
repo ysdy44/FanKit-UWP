@@ -1,7 +1,6 @@
 ﻿
 ```Csharp
 
-
 using Microsoft.Graphics.Canvas;
 using System;
 using System.Collections.Generic;
@@ -1125,6 +1124,5 @@ namespace FanKit.Win2Ds
 
     }
 }
-
 
 ```

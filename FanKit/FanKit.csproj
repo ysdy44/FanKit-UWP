@@ -801,8 +801,8 @@
       <Project>{669c9391-6912-485d-a00f-7307385ba31e}</Project>
       <Name>FanKit.Colors</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Win2Ds\FanKit.Win2Ds.csproj">
-      <Project>{b856d2d1-4ffa-45e7-b074-fef15a99e1b2}</Project>
+    <ProjectReference Include="..\FanKit.Win2Ds\FanKit.Win2Ds.csproj">
+      <Project>{cb1ac7a8-daef-4723-84ed-24549646a642}</Project>
       <Name>FanKit.Win2Ds</Name>
     </ProjectReference>
   </ItemGroup>
