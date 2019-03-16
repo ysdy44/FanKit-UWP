@@ -66,8 +66,8 @@ namespace FanKit.Frames.Win2Ds
         }
         private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
         {
-            this.RunX.Text = ((int)this.Layer.Transformer.Postion.X).ToString();
-            this.RunY.Text = ((int)this.Layer.Transformer.Postion.Y).ToString();
+            this.RunX.Text = ((int)this.Layer.Transformer.Position.X).ToString();
+            this.RunY.Text = ((int)this.Layer.Transformer.Position.Y).ToString();
 
             //this.RunW.Text = ((int)(this.Layer.Transformer.Width * this.Layer.Transformer.XScale)).ToString();
             //this.RunH.Text = ((int)(this.Layer.Transformer.Height * this.Layer.Transformer.YScale)).ToString();
