@@ -278,9 +278,6 @@
     <Compile Include="Frames\Template\TagChipPage.xaml.cs">
       <DependentUpon>TagChipPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Template\SplitButton.xaml.cs">
-      <DependentUpon>SplitButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SampleControl.xaml.cs">
       <DependentUpon>SampleControl.xaml</DependentUpon>
     </Compile>
@@ -483,9 +480,7 @@
     <Content Include="TXT\Template\FloatActionButton.style.txt" />
     <Content Include="TXT\Template\FloatActionButtonPage.xaml.txt" />
     <Content Include="TXT\Template\RadiusShadowPanelPage.xaml.txt" />
-    <Content Include="TXT\Template\SplitButton.cs.txt" />
     <Content Include="TXT\Template\SplitPanelPage.xaml.cs.txt" />
-    <Content Include="TXT\Template\SplitButton.xaml.txt" />
     <Content Include="TXT\Template\SplitPanelPage.xaml.txt" />
     <Content Include="TXT\Template\TagChip.style.txt" />
     <Content Include="TXT\Template\FlyoutTemplate.style.txt" />
@@ -731,10 +726,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Frames\Template\TagChipPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Template\SplitButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
