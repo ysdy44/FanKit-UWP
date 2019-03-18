@@ -22,14 +22,15 @@ namespace FanKit.Frames.Win2Ds
         public DottedLinePage()
         {
             this.InitializeComponent();
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.xaml.cs.txt");
+                this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLine.cs.txt");
+            };
         }
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLinePage.xaml.cs.txt");
-            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/DottedLine.cs.txt");
-        }
+
         private void CanvasAnimatedControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (Math.Abs(e.NewSize.Width-this.CanvasWidth)>10)

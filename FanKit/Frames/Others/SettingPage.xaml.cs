@@ -1,7 +1,5 @@
-﻿using Windows.UI.Core;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
 
 namespace FanKit.Frames.Others
 {
@@ -10,27 +8,21 @@ namespace FanKit.Frames.Others
         public SettingPage()
         {
             this.InitializeComponent();
-        }
+            this.LightRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Light);
+            this.NightRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Dark);
+            this.DefaultRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Default);
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (Window.Current.Content is FrameworkElement frameworkElement)
+            this.Loaded += (sender, e) =>
             {
-                GetTheme(frameworkElement.RequestedTheme);
-            }
+                if (Window.Current.Content is FrameworkElement frameworkElement)
+                {
+                    this.LightRadioButton.IsChecked = RequestedTheme == ElementTheme.Light;
+                    this.NightRadioButton.IsChecked = RequestedTheme == ElementTheme.Dark;
+                    this.DefaultRadioButton.IsChecked = RequestedTheme == ElementTheme.Default;
+                }
+            };
         }
 
-        private void LightRadioButton_Checked(object sender, RoutedEventArgs e) => SetTheme(ElementTheme.Light);
-        private void NightRadioButton_Checked(object sender, RoutedEventArgs e) => SetTheme(ElementTheme.Dark);
-        private void DefaultRadioButton_Checked(object sender, RoutedEventArgs e) => SetTheme(ElementTheme.Default);
-
-
-        private void GetTheme(ElementTheme RequestedTheme)
-        {
-            LightRadioButton.IsChecked = RequestedTheme == ElementTheme.Light;
-            NightRadioButton.IsChecked = RequestedTheme == ElementTheme.Dark;
-            DefaultRadioButton.IsChecked = RequestedTheme == ElementTheme.Default;
-        }
         private void SetTheme(ElementTheme RequestedTheme)
         {
             if (Window.Current.Content is FrameworkElement frameworkElement)
@@ -38,7 +30,5 @@ namespace FanKit.Frames.Others
                 frameworkElement.RequestedTheme = RequestedTheme;
             }
         }
-
-
     }
 }

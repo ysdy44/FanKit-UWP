@@ -8,8 +8,7 @@
      xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:Colors="using:FanKit.Colors"
     xmlns:frames="using:FanKit.Frames"
-    mc:Ignorable="d"
-    Loaded="Page_Loaded">
+    mc:Ignorable="d">
 
 
     <Page.Resources>

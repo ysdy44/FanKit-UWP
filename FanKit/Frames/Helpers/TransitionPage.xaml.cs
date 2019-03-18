@@ -1,36 +1,21 @@
-﻿using FanKit.Library;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using System;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
 
 namespace FanKit.Frames.Helpers
 {
     public sealed partial class TransitionPage : Page
     {
-
         public TransitionPage()
         {
             this.InitializeComponent();
-        }
-        
+            this.Loaded += async (sender, e) =>
+            {
+                this.Frame.Navigate(typeof(FanKit.Frames.Helpers.Transition.WelcomePage));
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(FanKit.Frames.Helpers.Transition.WelcomePage));
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Helpers/Transition.style.txt");
 
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Helpers/Transition.style.txt");
+            };
         }
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)

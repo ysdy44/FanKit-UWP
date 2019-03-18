@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Library
@@ -29,12 +28,11 @@ namespace FanKit.Frames.Library
         public PalettePage()
         {
             this.InitializeComponent();
-        }
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/Palette.xaml.cs.txt");
-            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/Palette.cs.txt");
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/Palette.xaml.cs.txt");
+                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/Palette.cs.txt");
+            };
         }
 
 

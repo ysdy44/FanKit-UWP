@@ -116,8 +116,8 @@
     <Compile Include="RadiusAnimaControl.xaml.cs">
       <DependentUpon>RadiusAnimaControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TabButton.xaml.cs">
-      <DependentUpon>TabButton.xaml</DependentUpon>
+    <Compile Include="ThemeControl.xaml.cs">
+      <DependentUpon>ThemeControl.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\FanKit.Control.rd.xml" />
   </ItemGroup>
@@ -142,9 +142,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TabButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="ThemeControl.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

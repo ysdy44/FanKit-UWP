@@ -7,9 +7,7 @@
     xmlns:apiContractPresent5="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    MaxWidth="{StaticResource AppDetailMaxWidth}"
-    Loaded="Page_Loaded"
-    NavigationCacheMode="Enabled"    >
+    MaxWidth="{StaticResource AppDetailMaxWidth}">
 
     <Grid 
           apiContractNotPresent5:Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"
@@ -22,11 +20,11 @@
                 <Border Margin="14" Height="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
                 <!--ThemeMode-->
                 <TextBlock Text="Theme Mode" Style="{ThemeResource TitleTextBlockStyle}"/>
-                <RadioButton x:Name="LightRadioButton" Content="Light" Checked="LightRadioButton_Checked"/>
-                <RadioButton  x:Name="NightRadioButton" Content="Night" Checked="NightRadioButton_Checked"/>
-                <RadioButton  x:Name="DefaultRadioButton" Content="Use system setting" Checked="DefaultRadioButton_Checked"/>
+                <RadioButton x:Name="LightRadioButton" Content="Light"/>
+                <RadioButton  x:Name="NightRadioButton" Content="Night"/>
+                <RadioButton  x:Name="DefaultRadioButton" Content="Use system setting"/>
 
-                
+
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
                 <!--Open source-->
                 <TextBlock Text="Open source" Style="{ThemeResource TitleTextBlockStyle}"/>

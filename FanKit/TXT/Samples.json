@@ -144,6 +144,12 @@
     "Name": "Control",
     "Samples": [
       {
+        "Page": "FanKit.Frames.Control.ThemeControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "ThemeControl",
+        "Uri": "ms-appx:///Icon/Control/ThemeControl.png",
+        "Summary": "Click the button to toggle sensitive themes for your application."
+      },
+      {
         "Page": "FanKit.Frames.Control.RadiusAnimaPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RadiusAnimaControl",
         "Uri": "ms-appx:///Icon/Control/RadiusAnimaPanel.png",
@@ -154,12 +160,6 @@
         "Name": "PopupMenu",
         "Uri": "ms-appx:///Icon/Control/PopupMenu.png",
         "Summary": "Popup menu,black menu displayed on chat bubbles"
-      },
-      {
-        "Page": "FanKit.Frames.Control.TabButtonPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-        "Name": "TabButton",
-        "Uri": "ms-appx:///Icon/Control/TabButton.png",
-        "Summary": "Tab button"
       },
       {
         "Page": "FanKit.Frames.Control.ExpandTextViewPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",

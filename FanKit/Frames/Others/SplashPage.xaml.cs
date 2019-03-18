@@ -15,12 +15,12 @@ namespace FanKit.Frames.Others
 
         List<Type> Pages = new List<Type>
         {
+            typeof(FanKit.Frames.Control.ThemeControlPage),
             typeof(FanKit.Frames.Win2Ds.TransformControllerPage),
             typeof(FanKit.Frames.Win2Ds.MarqueeToolPage),
             typeof(FanKit.Frames.Colors.ColorPickerPage),
             typeof(FanKit.Frames.Colors.TouchSliderPage),
             typeof(FanKit.Frames.Colors.StrawPickerPage),
-            typeof(FanKit.Frames.Control.RadiusAnimaPanelPage),
             typeof(FanKit.Frames.Helpers.ColorsPage),
          };
 

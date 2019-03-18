@@ -1,35 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
+﻿using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
- 
+
 namespace FanKit.Frames.Control
-{ 
+{
     public sealed partial class RadiusAnimaPanelPage : Page
     {
         public RadiusAnimaPanelPage()
         {
             this.InitializeComponent();
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanelPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanel.xaml.txt");
+                this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanel.cs.txt");
+            };
         }
-
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanelPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanel.xaml.txt");
-            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanel.cs.txt");
-        }
-
+         
 
         double WidthText
         {

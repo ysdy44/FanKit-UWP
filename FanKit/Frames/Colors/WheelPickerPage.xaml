@@ -8,8 +8,7 @@
     xmlns:local="using:FanKit.Frames.Colors"
     xmlns:Colors="using:FanKit.Colors"
     xmlns:frames="using:FanKit.Frames"
-    mc:Ignorable="d"
-    Loaded="Page_Loaded">
+    mc:Ignorable="d">
 
 
     <Page.Resources>

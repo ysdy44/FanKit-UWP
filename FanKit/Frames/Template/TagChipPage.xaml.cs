@@ -9,13 +9,13 @@ namespace FanKit.Frames.Template
         public TagChipPage()
         {
             this.InitializeComponent();
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/TagChipPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/TagChip.style.txt");
+            };
         }
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/TagChipPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/TagChip.style.txt");
-        }
+        
 
         private async void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {

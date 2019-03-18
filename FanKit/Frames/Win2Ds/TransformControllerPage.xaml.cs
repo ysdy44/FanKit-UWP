@@ -21,6 +21,12 @@ namespace FanKit.Frames.Win2Ds
         public TransformControllerPage()
         {
             this.InitializeComponent();
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/TransformControllerPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/TransformControllerPage.xaml.cs.txt");
+                this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/TransformController.cs.txt");
+            };
 
             //Center
             this.CenterCheckBox.Checked += (sender, e) => TransformController.IsCenter = true;
@@ -32,15 +38,7 @@ namespace FanKit.Frames.Win2Ds
             this.StepFrequencyCheckBox.Checked += (sender, e) => TransformController.IsStepFrequency = true;
             this.StepFrequencyCheckBox.Unchecked += (sender, e) => TransformController.IsStepFrequency = false;
         }
-
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/TransformControllerPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/TransformControllerPage.xaml.cs.txt");
-            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/TransformController.cs.txt");
-        }
-
+        
 
         private TransformController.Transformer GetTransformer(double controlWidth, double controlHeight, double bitmapWidth, double bitmapHeight) => Transformer.CreateFromSize(width: (float)bitmapWidth, height: (float)bitmapHeight, postion: new Vector2((float)controlWidth / 2, (float)controlHeight / 2), scale: (float)((bitmapWidth * 2 < controlWidth && bitmapHeight * 2 < controlWidth) ? 1.0 : (controlWidth > controlHeight) ? controlHeight / 2 / bitmapHeight : controlHeight / 2 / bitmapWidth));
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)

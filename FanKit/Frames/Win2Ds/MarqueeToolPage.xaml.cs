@@ -18,18 +18,17 @@ namespace FanKit.Frames.Win2Ds
         public MarqueeToolPage()
         {
             this.InitializeComponent();
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.cs.txt");
+                this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeTool.cs.txt");
+            };
 
             //MarqueeTool
             this.MarqueeTool.Complete += () => this.MarqueeTool.Render(this.CanvasControl, this.Selection);
         }
-
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeToolPage.xaml.cs.txt");
-            this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Win2Ds/MarqueeTool.cs.txt");
-        }
+        
 
         #region UI
 

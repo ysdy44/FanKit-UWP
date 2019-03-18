@@ -1,0 +1,79 @@
+﻿using Windows.UI;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+namespace FanKit.Control
+{
+    /// <summary> Click the button to toggle sensitive themes for your application. </summary>
+    public sealed partial class ThemeControl : UserControl
+    {
+        #region DependencyProperty
+
+        /// <summary>
+        /// Color of <see cref="ApplicationViewTitleBar"/>.
+        /// </summary>
+        public Color Color
+        {
+            get { return (Color)GetValue(ColorProperty); }
+            set { SetValue(ColorProperty, value); }
+        }
+        public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(nameof(Color), typeof(Color), typeof(ThemeControl), new PropertyMetadata(Colors.White, (sender, e) =>
+        {
+            ThemeControl con = (ThemeControl)sender;
+
+            if (e.NewValue is Color value)
+            {
+                con.TitleBar.BackgroundColor =
+                con.TitleBar.InactiveBackgroundColor =
+                con.TitleBar.ButtonBackgroundColor =
+                con.TitleBar.ButtonInactiveBackgroundColor = value;
+            }
+        }));
+
+        #endregion
+
+        /// <summary>
+        /// Theme of current <see cref="Window"/>.
+        /// </summary>
+        public ElementTheme Theme
+        {
+            get => this.theme;
+            set
+            {
+                if (Window.Current.Content is FrameworkElement frameworkElement)
+                {
+                    frameworkElement.RequestedTheme = value;
+                }
+
+                if (value == ElementTheme.Dark)
+                {
+                    this.DarkStoryboar.Begin();//Storyboard
+                }
+                else
+                {
+                    this.LightStoryboard.Begin();//Storyboard
+                }
+
+                this.theme = value;
+            }
+        }
+        private ElementTheme theme;
+
+        ApplicationViewTitleBar TitleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+        public ThemeControl()
+        {
+            this.InitializeComponent();
+            this.Button.Tapped += (s, e) => this.Theme = (this.Theme == ElementTheme.Dark) ? ElementTheme.Light : ElementTheme.Dark;
+            this.Loaded += (s, e) =>
+            {
+                //this.Theme = (App.Current.RequestedTheme == ApplicationTheme.Dark) ? ElementTheme.Dark : ElementTheme.Light;
+                if (Window.Current.Content is FrameworkElement frameworkElement)
+                {
+                    this.Theme = frameworkElement.RequestedTheme;
+                }
+            };
+        }
+    }
+}

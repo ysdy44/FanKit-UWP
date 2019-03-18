@@ -7,9 +7,7 @@
     xmlns:Control="using:FanKit.Control"
     xmlns:frames="using:FanKit.Frames"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d"
-    NavigationCacheMode="Enabled"
-    Loaded="Page_Loaded">
+    mc:Ignorable="d">
 
     
     <Page.Resources>

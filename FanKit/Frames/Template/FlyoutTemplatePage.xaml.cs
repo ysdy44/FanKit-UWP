@@ -1,9 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Navigation;
 
 namespace FanKit.Frames.Template
 {
@@ -12,14 +9,12 @@ namespace FanKit.Frames.Template
         public FlyoutTemplatePage()
         {
             this.InitializeComponent();
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/FlyoutTemplatePage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/FlyoutTemplate.style.txt");
+            };
         }
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/FlyoutTemplatePage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/FlyoutTemplate.style.txt");
-        }
-         
 
 
         private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
@@ -44,8 +39,5 @@ namespace FanKit.Frames.Template
             await Task.Delay(500);
             this.FlyoutBottom.Hide();
         }
-
-
-
     }
 }

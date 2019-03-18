@@ -108,6 +108,9 @@
     <Compile Include="Frames\Control\RadiusAnimaPanelPage.xaml.cs">
       <DependentUpon>RadiusAnimaPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\ThemeControlPage.xaml.cs">
+      <DependentUpon>ThemeControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Helpers\ColorsPage.xaml.cs">
       <DependentUpon>ColorsPage.xaml</DependentUpon>
     </Compile>
@@ -210,9 +213,6 @@
     <Compile Include="Frames\Control\PopupMenuPage.xaml.cs">
       <DependentUpon>PopupMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Control\TabButtonPage.xaml.cs">
-      <DependentUpon>TabButtonPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Library\PalettePage.xaml.cs">
       <DependentUpon>PalettePage.xaml</DependentUpon>
     </Compile>
@@ -288,6 +288,7 @@
     </AppxManifest>
     <Content Include="Icon\Colors\HexPicker.png" />
     <Content Include="Icon\Control\RadiusAnimaPanel.png" />
+    <Content Include="Icon\Control\ThemeControl.png" />
     <Content Include="Icon\Helpers\Colors.png" />
     <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
@@ -300,6 +301,9 @@
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
+    <Content Include="TXT\Control\ThemeControl.cs.txt" />
+    <Content Include="TXT\Control\ThemeControl.xaml.txt" />
+    <Content Include="TXT\Control\ThemeControlPage.xaml.txt" />
     <Content Include="TXT\Library\Palette.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\CurveNodes.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLine.cs.txt" />
@@ -369,7 +373,6 @@
     <Content Include="Icon\Helpers\Transition.png" />
     <Content Include="Icon\Library\DataTemplateAdaptiver.png" />
     <Content Include="Icon\Control\PopupMenu.png" />
-    <Content Include="Icon\Control\TabButton.png" />
     <Content Include="Icon\Colors\TouchSlider.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
@@ -466,9 +469,6 @@
     <Content Include="TXT\Control\PopupMenu.cs.txt" />
     <Content Include="TXT\Control\PopupMenu.xaml.txt" />
     <Content Include="TXT\Control\PopupMenuPage.xaml.txt" />
-    <Content Include="TXT\Control\TabButton.cs.txt" />
-    <Content Include="TXT\Control\TabButton.xaml.txt" />
-    <Content Include="TXT\Control\TabButtonPage.xaml.txt" />
     <Content Include="TXT\Colors\TouchSlider.cs.txt" />
     <Content Include="TXT\Colors\TouchSlider.xaml.txt" />
     <Content Include="TXT\Colors\TouchSliderPage.xaml.txt" />
@@ -506,6 +506,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\RadiusAnimaPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\ThemeControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -645,10 +649,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Control\TabButtonPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Frames\Library\PalettePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -774,11 +774,7 @@
       <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TXT\Brushes\" />
-    <Folder Include="TXT\Others\" />
-    <Folder Include="TXT\Styles\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FanKit.Control\FanKit.Control.csproj">
       <Project>{b3c72dcb-090f-4c63-b5ed-b018cef76d2d}</Project>

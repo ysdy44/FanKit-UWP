@@ -9,14 +9,12 @@ namespace FanKit.Frames.Template
         public SplitPanelPage()
         {
             this.InitializeComponent();
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/SplitPanelPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/SplitPanelPage.xaml.cs.txt");
+            };
         }
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/SplitPanelPage.xaml.txt");
-            this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/SplitPanelPage.xaml.cs.txt");
-        }
-               
 
 
         private double openOpacity;
