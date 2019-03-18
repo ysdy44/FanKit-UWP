@@ -12,10 +12,9 @@ namespace FanKit.Colors
         //Delegate
         public event ColorChangeHandler ColorChange = null;
 
-        private Color color = Color.FromArgb(255, 255, 255, 255);
-        public Color GetColor() => color;
-        public void SetColor(Color value) => color = value;
-
+        public Color Color = Color.FromArgb(255, 255, 255, 255);
+        public Color GetColor() => this.Color;
+        public void SetColor(Color value) => this.Color = value;
 
         private bool isMultiSelect;
         public bool IsMultiSelect
@@ -75,7 +74,7 @@ namespace FanKit.Colors
         }
 
         private void RemoveButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.RemoveAt(this.GridView.SelectedIndex == -1 ? 0 : this.GridView.SelectedIndex);
-        private void AddButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.Insert(0, new SolidColorBrush(this.color));
+        private void AddButton_Tapped(object sender, TappedRoutedEventArgs e) => this.Collection.Insert(0, new SolidColorBrush(this.Color));
         private void MultiSelectToggleButton_Checked(object sender, RoutedEventArgs e) => this.IsMultiSelect = true;
         private void MultiSelectToggleButton_Unchecked(object sender, RoutedEventArgs e) => this.IsMultiSelect = false;
 
@@ -84,8 +83,8 @@ namespace FanKit.Colors
         {
             if (e.ClickedItem is SolidColorBrush item)
             {
-                this.color = item.Color;
-                this.ColorChange?.Invoke(this, this.color);
+                this.Color = item.Color;
+                this.ColorChange?.Invoke(this, this.Color);
             }
         }
         private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
