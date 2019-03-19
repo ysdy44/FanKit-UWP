@@ -108,6 +108,9 @@
     <Compile Include="Frames\Control\RadiusAnimaPanelPage.xaml.cs">
       <DependentUpon>RadiusAnimaPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\SplitPanelControlPage.xaml.cs">
+      <DependentUpon>SplitPanelControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Control\ThemeControlPage.xaml.cs">
       <DependentUpon>ThemeControlPage.xaml</DependentUpon>
     </Compile>
@@ -240,9 +243,6 @@
     <Compile Include="Frames\Template\FlyoutTemplatePage.xaml.cs">
       <DependentUpon>FlyoutTemplatePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Template\SplitPanelPage.xaml.cs">
-      <DependentUpon>SplitPanelPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Helpers\Transition\CommonPage.xaml.cs">
       <DependentUpon>CommonPage.xaml</DependentUpon>
     </Compile>
@@ -301,6 +301,7 @@
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
+    <Content Include="TXT\Control\SplitPanelControl.xaml.txt" />
     <Content Include="TXT\Control\ThemeControl.cs.txt" />
     <Content Include="TXT\Control\ThemeControl.xaml.txt" />
     <Content Include="TXT\Control\ThemeControlPage.xaml.txt" />
@@ -440,7 +441,7 @@
     <Content Include="Icon\Styles\TextBlockStyle.png" />
     <Content Include="Icon\Template\FloatActionButton.png" />
     <Content Include="Icon\Template\FlyoutTemplate.png" />
-    <Content Include="Icon\Template\SplitPanel.png" />
+    <Content Include="Icon\Control\SplitPanelControl.png" />
     <Content Include="Icon\Template\TagChip.png" />
     <Content Include="Icon\Helpers\Transition\Transition.png" />
     <Content Include="Icon\Helpers\Transition\Common.png" />
@@ -480,8 +481,8 @@
     <Content Include="TXT\Template\FloatActionButton.style.txt" />
     <Content Include="TXT\Template\FloatActionButtonPage.xaml.txt" />
     <Content Include="TXT\Template\RadiusShadowPanelPage.xaml.txt" />
-    <Content Include="TXT\Template\SplitPanelPage.xaml.cs.txt" />
-    <Content Include="TXT\Template\SplitPanelPage.xaml.txt" />
+    <Content Include="TXT\Control\SplitPanelControl.xaml.cs.txt" />
+    <Content Include="TXT\Control\SplitPanelControlPage.xaml.txt" />
     <Content Include="TXT\Template\TagChip.style.txt" />
     <Content Include="TXT\Template\FlyoutTemplate.style.txt" />
     <Content Include="TXT\Template\TagChipPage.xaml.txt" />
@@ -506,6 +507,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\RadiusAnimaPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\SplitPanelControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -682,10 +687,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Template\FlyoutTemplatePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Template\SplitPanelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

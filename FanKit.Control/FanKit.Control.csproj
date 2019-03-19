@@ -116,6 +116,9 @@
     <Compile Include="RadiusAnimaControl.xaml.cs">
       <DependentUpon>RadiusAnimaControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SplitPanelControl.xaml.cs">
+      <DependentUpon>SplitPanelControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ThemeControl.xaml.cs">
       <DependentUpon>ThemeControl.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
     <Page Include="RadiusAnimaControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SplitPanelControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ThemeControl.xaml">
       <SubType>Designer</SubType>

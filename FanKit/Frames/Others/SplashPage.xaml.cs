@@ -1,12 +1,8 @@
-﻿using FanKit.Library;
-using Windows.UI.Core;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
-using Windows.UI.Xaml.Input;
-using System;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Others
 {
@@ -16,12 +12,12 @@ namespace FanKit.Frames.Others
         List<Type> Pages = new List<Type>
         {
             typeof(FanKit.Frames.Control.ThemeControlPage),
+            typeof(FanKit.Frames.Control.SplitPanelControlPage),
             typeof(FanKit.Frames.Win2Ds.TransformControllerPage),
             typeof(FanKit.Frames.Win2Ds.MarqueeToolPage),
             typeof(FanKit.Frames.Colors.ColorPickerPage),
             typeof(FanKit.Frames.Colors.TouchSliderPage),
             typeof(FanKit.Frames.Colors.StrawPickerPage),
-            typeof(FanKit.Frames.Helpers.ColorsPage),
          };
 
         public SplashPage()

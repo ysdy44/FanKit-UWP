@@ -130,13 +130,6 @@
         "Name": "FloatActionButton",
         "Uri": "ms-appx:///Icon/Template/FloatActionButton.png",
         "Summary": "Float action button, it hide when you drop the list, it show when you go up the list."
-      },
-      {
-        "Page": "FanKit.Frames.Template.SplitPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-        "Name": "SplitPanel",
-        "Uri": "ms-appx:///Icon/Template/SplitPanel.png",
-        "Summary": "Split panel, it hide when you slide left, it show when you slide right."
-
       }
     ]
   },
@@ -148,6 +141,12 @@
         "Name": "ThemeControl",
         "Uri": "ms-appx:///Icon/Control/ThemeControl.png",
         "Summary": "Click the button to toggle sensitive themes for your application."
+      },
+      {
+        "Page": "FanKit.Frames.Control.SplitPanelControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "SplitPanelControl",
+        "Uri": "ms-appx:///Icon/Control/SplitPanelControl.png",
+        "Summary": "Split panel, it hide when you slide left, it show when you slide right."
       },
       {
         "Page": "FanKit.Frames.Control.RadiusAnimaPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
