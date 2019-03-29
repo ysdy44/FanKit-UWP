@@ -217,7 +217,7 @@ namespace FanKit.Win2Ds
                 //Rotation
                 if (Transformer.InNodeRadius(outsideTop, point)) return TransformerMode.Rotation;
 
-                //Rotation
+                //Skew
                 //if (Transformer.InNodeRadius(outsideLeft, point)) return TransformerMode.SkewLeft;
                 //if (Transformer.InNodeRadius(outsideTop, point)) return TransformerMode.SkewTop;
                 if (Transformer.InNodeRadius(outsideRight, point)) return TransformerMode.SkewRight;

@@ -30,6 +30,7 @@
         <frames:PageLayout.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer>
                     <StackPanel>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                   
@@ -40,7 +41,12 @@
                             <Span>it will appear a flowing dashed line</Span>
 
                         </TextBlock>
-                    </StackPanel>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceWin2dControl/>
+
+                        </StackPanel>
+                    </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>

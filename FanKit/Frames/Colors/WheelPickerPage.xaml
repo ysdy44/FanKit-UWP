@@ -75,6 +75,10 @@
                             <Span >Warning: please reference Win2D in Nuget.</Span>
 
                         </TextBlock>
+
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceWin2dControl/>
+                            
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

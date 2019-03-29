@@ -294,6 +294,12 @@
         "Name": "TransformController",
         "Uri": "ms-appx:///Icon/Win2Ds/TransformController.png",
         "Summary": "Drag and drop nodes and manipulate transformer libraries."
+      },
+      {
+        "Page": "FanKit.Frames.Win2Ds.HomographyControllerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "HomographyController",
+        "Uri": "ms-appx:///Icon/Win2Ds/HomographyController.png",
+        "Summary": "Drag and drop nodes and manipulate transformer libraries (Homography found through LeftTop,RightTop,RightBottom,LeftBottom Points)."
       }
     ]
   }

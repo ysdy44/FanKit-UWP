@@ -6,6 +6,7 @@
     xmlns:apiContractNotPresent5="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,5)"
     xmlns:apiContractPresent5="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:frames="using:FanKit.Frames"
     mc:Ignorable="d"
     MaxWidth="{StaticResource AppDetailMaxWidth}">
 
@@ -21,8 +22,8 @@
                 <!--ThemeMode-->
                 <TextBlock Text="Theme Mode" Style="{ThemeResource TitleTextBlockStyle}"/>
                 <RadioButton x:Name="LightRadioButton" Content="Light"/>
-                <RadioButton  x:Name="NightRadioButton" Content="Night"/>
-                <RadioButton  x:Name="DefaultRadioButton" Content="Use system setting"/>
+                <RadioButton x:Name="NightRadioButton" Content="Night"/>
+                <RadioButton x:Name="DefaultRadioButton" Content="Use system setting"/>
 
 
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
@@ -32,38 +33,15 @@
 
                 
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
+              
+                
                 <!--Reference-->
                 <TextBlock Text="Reference" Style="{ThemeResource TitleTextBlockStyle}"/>
                 <Rectangle Height="12"/>
-                <Grid Height="60">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="12"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Image Height="60" Width="60" Grid.RowSpan="2" Source="ms-appx:///Icon/Others/ToolKit.PNG" Stretch="UniformToFill"/>
-                    <TextBlock Grid.Column="2" Text="Windows Community Toolkit Sample App"/>
-                    <HyperlinkButton Grid.Column="2" Grid.Row="1" Content="from windows store" NavigateUri="https://www.microsoft.com/store/productId/9NBLGGH4TLCQ"/>
-                </Grid>
-                <Rectangle Height="12"/>
-                <Grid Height="60">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="12"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Image Height="60" Width="60" Grid.RowSpan="2" Source="ms-appx:///Icon/Others/Win2d.PNG" Stretch="UniformToFill"/>
-                    <TextBlock Grid.Column="2" Text="Win2D"/>
-                    <HyperlinkButton Grid.Column="2" Grid.Row="1" Content="from github" NavigateUri="https://github.com/Microsoft/Win2D-samples"/>
-                </Grid>
+                <frames:ReferenceToolKitControl/>
+                <frames:ReferenceWin2dControl/>
+                <frames:ReferenceMathNetControl/>
+                <Rectangle Height="12"/>            
 
 
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>

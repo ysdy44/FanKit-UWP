@@ -35,6 +35,10 @@
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span >The alpha channel of the color</Span>
                         </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceWin2dControl/>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

@@ -77,6 +77,10 @@
                             <Span >PaletteSaturation.cs</Span>  <LineBreak/>
 
                         </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceWin2dControl/>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

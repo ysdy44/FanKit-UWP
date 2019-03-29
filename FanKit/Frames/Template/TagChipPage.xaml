@@ -132,11 +132,16 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
+                       
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span FontWeight="SemiBold">Tag Clip</Span>
                             <Span>'s layout is </Span>
                             <Span FontWeight="SemiBold">WrapPanel</Span>
                         </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceToolKitControl/>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

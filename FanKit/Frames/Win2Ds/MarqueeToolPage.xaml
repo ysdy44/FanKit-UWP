@@ -30,7 +30,8 @@
         <frames:PageLayout.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <StackPanel>
+                    <ScrollViewer>
+                        <StackPanel>
 
                         <!--Toggle-->
                         <Grid Height="34" Width="320" Margin="4" CornerRadius="15" BorderThickness="0,0,1,2"  BorderBrush="#44000000"  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -173,7 +174,12 @@
                             <Span>The marquee is a tool that can make selections that are  rectangular and elliptical.</Span>
 
                         </TextBlock>
+
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceWin2dControl/>
+
                     </StackPanel>
+                    </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>

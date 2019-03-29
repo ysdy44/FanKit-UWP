@@ -73,7 +73,8 @@
         <frames:PageLayout.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <StackPanel>
+                    <ScrollViewer>
+                        <StackPanel>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                   
                             <Span FontStyle="Italic">Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger .</Span>
@@ -100,7 +101,12 @@
 
 
                         </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceWin2dControl/>
+
                     </StackPanel>
+                    </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>

@@ -78,11 +78,15 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                           
+                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span>Makes the layout panel with Corner Radius and drop shadow.</Span>
-
                         </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceToolKitControl/>
+                        <frames:ReferenceWin2dControl/>
+
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

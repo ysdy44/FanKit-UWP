@@ -114,6 +114,10 @@
                             <Span FontStyle="Italic">Float Action Button will hide when u turn!</Span>
 
                         </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceToolKitControl/>
+
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

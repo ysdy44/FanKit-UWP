@@ -29,7 +29,8 @@
         <frames:PageLayout.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <StackPanel>
+                    <ScrollViewer>
+                        <StackPanel>
 
                         <!--Toggle-->
                         <Grid Height="34" Width="200" Margin="4" CornerRadius="15" BorderThickness="0,0,1,2"  BorderBrush="#44000000"  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -201,7 +202,12 @@
                             <Span>In node mode, choose the node and move.</Span>
 
                         </TextBlock>
+
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceWin2dControl/>
+
                     </StackPanel>
+                    </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
