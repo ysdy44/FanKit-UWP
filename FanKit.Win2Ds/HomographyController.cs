@@ -76,6 +76,19 @@ namespace FanKit.Win2Ds
             public Matrix3x2 Matrix => Transformer.FindHomography(this.SrcLeftTop, this.SrcRightTop, this.SrcRightBottom, this.SrcLeftBottom, this.DstLeftTop, this.DstRightTop, this.DstRightBottom, this.DstLeftBottom);
             public Matrix3x2 InverseMatrix => Transformer.FindHomography(this.DstLeftTop, this.DstRightTop, this.DstRightBottom, this.DstLeftBottom, this.SrcLeftTop, this.SrcRightTop, this.SrcRightBottom, this.SrcLeftBottom);
 
+            public static Transformer CreateFromVector(Vector2 leftTop, Vector2 rightBottom) => new Transformer
+            {
+                //Source
+                SrcLeftTop = leftTop,
+                SrcRightTop = new Vector2(rightBottom.X, leftTop.Y),
+                SrcRightBottom = rightBottom,
+                SrcLeftBottom = new Vector2(leftTop.X, rightBottom.Y),
+                //Destination
+                DstLeftTop = leftTop,
+                DstRightTop = new Vector2(rightBottom.X, leftTop.Y),
+                DstRightBottom = rightBottom,
+                DstLeftBottom = new Vector2(leftTop.X, rightBottom.Y),
+            };
             public static Transformer CreateFromSize(float width, float height, Vector2 postion, float scale = 1, bool disabledRadian = false) => new Transformer
             {
                 //Source
@@ -91,7 +104,7 @@ namespace FanKit.Win2Ds
 
                 DdisabledRadian = disabledRadian
             };
-            public void CopyWith(Layer layer, Transformer transformer)
+            public static void CopyWith(Layer layer, Transformer transformer)
             {
                 layer.Transformer.DstLeftTop = transformer.DstLeftTop;
                 layer.Transformer.DstRightTop = transformer.DstRightTop;
@@ -523,13 +536,13 @@ namespace FanKit.Win2Ds
             public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
             {
                 base.Start(point, layer, matrix, inverseMatrix);
-                Vector2 DstPoint = Vector2.Transform(point, inverseMatrix);
-                this.StartPostion = DstPoint;
+                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
+                this.StartPostion = dstPoint;
             }
             public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
             {
-                Vector2 DstPoint = Vector2.Transform(point, inverseMatrix);
-                Vector2 vector = DstPoint - this.StartPostion;
+                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
+                Vector2 vector = dstPoint - this.StartPostion;
 
                 Transformer.Add
                 (
@@ -541,20 +554,21 @@ namespace FanKit.Win2Ds
         }
 
         /// <summary> Rotation </summary>
-        private class RotationController : NoneController, IController
+        public class RotationController : NoneController, IController
         {
             float StartRadian;
 
             public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
             {
                 base.Start(point, layer, matrix, inverseMatrix);
-                this.StartRadian = this.GetRadian(layer.Transformer.DstRight, layer.Transformer.DstLeft);
+                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
+                this.StartRadian = Transformer.VectorToRadians(dstPoint - base.StartTransformer.DstCenter);
             }
             public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
             {
-                Vector2 DstPoint = Vector2.Transform(point, inverseMatrix);
-                float radian2 = Transformer.PiHalf - this.StartRadian + Transformer.VectorToRadians(DstPoint - base.StartTransformer.DstCenter);
-                float radiansStepFrequency = HomographyController.IsStepFrequency ? Transformer.RadiansStepFrequency(radian2) : radian2;
+                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
+                float radian = -this.StartRadian + Transformer.VectorToRadians(dstPoint - base.StartTransformer.DstCenter);
+                float radiansStepFrequency = HomographyController.IsStepFrequency ? Transformer.RadiansStepFrequency(radian) : radian;
                 Matrix3x2 matrix2 = Matrix3x2.CreateRotation(radiansStepFrequency, base.StartTransformer.DstCenter);
 
                 Transformer.Multiplies
@@ -563,18 +577,6 @@ namespace FanKit.Win2Ds
                     startTransformer: base.StartTransformer,
                     matrix: matrix2
                 );
-            }
-
-            public float GetRadian(Vector2 DstRight, Vector2 DstLeft)
-            {
-                if (DstRight.Y == DstLeft.Y)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return Transformer.VectorToRadians(DstRight - DstLeft);
-                }
             }
         }
 
@@ -586,7 +588,7 @@ namespace FanKit.Win2Ds
 
 
         /// <summary> Skew </summary>
-        protected abstract class SkewController : NoneController, IController
+        public abstract class SkewController : NoneController, IController
         {
             //@Override
             public abstract Vector2 GetLineA();
@@ -609,7 +611,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> SkewLeft </summary>
-        protected class SkewLeftController : SkewController, IController
+        public class SkewLeftController : SkewController, IController
         {
             public override Vector2 GetLineA() => base.StartTransformer.DstLeftTop;
             public override Vector2 GetLineB() => base.StartTransformer.DstLeftBottom;
@@ -626,7 +628,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> SkewTop </summary>
-        protected class SkewTopController : SkewController, IController
+        public class SkewTopController : SkewController, IController
         {
             public override Vector2 GetLineA() => base.StartTransformer.DstLeftTop;
             public override Vector2 GetLineB() => base.StartTransformer.DstRightTop;
@@ -643,7 +645,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> SkewRight </summary>
-        protected class SkewRightController : SkewController, IController
+        public class SkewRightController : SkewController, IController
         {
             public override Vector2 GetLineA() => base.StartTransformer.DstRightTop;
             public override Vector2 GetLineB() => base.StartTransformer.DstRightBottom;
@@ -660,7 +662,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> SkewBottom </summary>
-        protected class SkewBottomController : SkewController, IController
+        public class SkewBottomController : SkewController, IController
         {
             public override Vector2 GetLineA() => base.StartTransformer.DstLeftBottom;
             public override Vector2 GetLineB() => base.StartTransformer.DstRightBottom;
@@ -729,7 +731,7 @@ namespace FanKit.Win2Ds
 
 
         /// <summary> Scale </summary>
-        protected abstract class ScaleController : NoneController, IController
+        public abstract class ScaleController : NoneController, IController
         {
             //@Override
             public abstract Vector2 GetPoint();
@@ -744,15 +746,15 @@ namespace FanKit.Win2Ds
 
 
         /// <summary> ScaleAround (Left Top Right Bottom) </summary>
-        protected abstract class ScaleAroundController : ScaleController, IController
+        public abstract class ScaleAroundController : ScaleController, IController
         {
             //@Override
             public abstract void SetTransformer(Layer layer, Vector2 vector);
 
             public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
             {
-                Vector2 DstPoint = Vector2.Transform(point, inverseMatrix);
-                Vector2 footPoint = Transformer.FootPoint(DstPoint, this.GetPoint(), this.GetDiagonalPoint());
+                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
+                Vector2 footPoint = Transformer.FootPoint(dstPoint, this.GetPoint(), this.GetDiagonalPoint());
 
                 if (HomographyController.IsRatio)
                 {
@@ -777,7 +779,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> ScaleLeft </summary>
-        protected class ScaleLeftController : ScaleAroundController
+        public class ScaleLeftController : ScaleAroundController
         {
             public override Vector2 GetPoint() => base.StartTransformer.DstLeft;
             public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstRight;
@@ -794,7 +796,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> ScaleTop </summary>
-        protected class ScaleTopController : ScaleAroundController
+        public class ScaleTopController : ScaleAroundController
         {
             public override Vector2 GetPoint() => base.StartTransformer.DstTop;
             public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstBottom;
@@ -811,7 +813,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> ScaleRight </summary>
-        protected class ScaleRightController : ScaleAroundController
+        public class ScaleRightController : ScaleAroundController
         {
             public override Vector2 GetPoint() => base.StartTransformer.DstRight;
             public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstLeft;
@@ -828,7 +830,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> ScaleBottom </summary>
-        protected class ScaleBottomController : ScaleAroundController
+        public class ScaleBottomController : ScaleAroundController
         {
             public override Vector2 GetPoint() => base.StartTransformer.DstBottom;
             public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstTop;
@@ -853,7 +855,7 @@ namespace FanKit.Win2Ds
 
 
         /// <summary> ScaleCorner (LeftTop RightTop RightBottom LeftBottom) </summary>
-        protected abstract class ScaleCornerController : ScaleController, IController
+        public abstract class ScaleCornerController : ScaleController, IController
         {
             //@Override
             public abstract void SetPoint(Layer layer, Vector2 point);
@@ -872,12 +874,12 @@ namespace FanKit.Win2Ds
             }
             public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
             {
-                Vector2 DstPoint = Vector2.Transform(point, inverseMatrix);
+                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
 
                 if (HomographyController.IsRatio)
                 {
                     Vector2 center = HomographyController.IsCenter ? base.StartTransformer.DstCenter : this.GetDiagonalPoint();
-                    Vector2 footPoint = Transformer.FootPoint(DstPoint, this.GetPoint(), center);
+                    Vector2 footPoint = Transformer.FootPoint(dstPoint, this.GetPoint(), center);
                     LineDistance distance = new LineDistance(footPoint, this.GetPoint(), center);
                     Matrix3x2 matrix2 = Matrix3x2.CreateScale(LineDistance.Scale(distance), center);
 
@@ -891,22 +893,22 @@ namespace FanKit.Win2Ds
                 else
                 {
                     Vector2 center = (HomographyController.IsCenter) ?
-                        base.StartTransformer.DstCenter + base.StartTransformer.DstCenter - DstPoint :
+                        base.StartTransformer.DstCenter + base.StartTransformer.DstCenter - dstPoint :
                         this.GetDiagonalPoint();
 
-                    this.SetPoint(layer, DstPoint);
+                    this.SetPoint(layer, dstPoint);
                     this.SetDiagonalPoint(layer, center);
                     this.SetHorizontalPoint(layer, Transformer.IntersectionPoint
                     (
-                       DstPoint,
-                       DstPoint - this.StartHorizontal,
+                       dstPoint,
+                       dstPoint - this.StartHorizontal,
                        center + this.StartVertical,
                        center
                     ));
                     this.SetVerticalPoint(layer, Transformer.IntersectionPoint
                     (
-                        line1A: DstPoint,
-                        line1B: DstPoint - this.StartVertical,
+                        line1A: dstPoint,
+                        line1B: dstPoint - this.StartVertical,
                         line2A: center + this.StartHorizontal,
                         line2B: center
                     ));
@@ -914,7 +916,7 @@ namespace FanKit.Win2Ds
             }
         }
         /// <summary> ScaleLeftTop </summary>
-        protected class ScaleLeftTopController : ScaleCornerController
+        public class ScaleLeftTopController : ScaleCornerController
         {
             public override Vector2 GetPoint() => base.StartTransformer.DstLeftTop;
             public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstRightBottom;
@@ -924,7 +926,7 @@ namespace FanKit.Win2Ds
             public override void SetVerticalPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftBottom = point;
         }
         /// <summary> ScaleRightTop </summary>
-        protected class ScaleRightTopController : ScaleCornerController
+        public class ScaleRightTopController : ScaleCornerController
         {
             public override Vector2 GetPoint() => base.StartTransformer.DstRightTop;
             public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstLeftBottom;
@@ -934,7 +936,7 @@ namespace FanKit.Win2Ds
             public override void SetVerticalPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightBottom = point;
         }
         /// <summary> ScaleRightBottom </summary>
-        protected class ScaleRightBottomController : ScaleCornerController
+        public class ScaleRightBottomController : ScaleCornerController
         {
             public override Vector2 GetPoint() => base.StartTransformer.DstRightBottom;
             public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstLeftTop;
@@ -944,7 +946,7 @@ namespace FanKit.Win2Ds
             public override void SetVerticalPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightTop = point;
         }
         /// <summary> ScaleLeftBottom </summary>
-        protected class ScaleLeftBottomController : ScaleCornerController
+        public class ScaleLeftBottomController : ScaleCornerController
         {
             public override Vector2 GetPoint() => base.StartTransformer.DstLeftBottom;
             public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstRightTop;
@@ -958,5 +960,4 @@ namespace FanKit.Win2Ds
         #endregion
 
     }
-
 }

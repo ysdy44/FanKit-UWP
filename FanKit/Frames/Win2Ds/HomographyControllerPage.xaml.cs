@@ -49,7 +49,7 @@ namespace FanKit.Frames.Win2Ds
         }
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Layer.Transformer.CopyWith(this.Layer, this.GetTransformer(this.CanvasControl.ActualWidth, this.CanvasControl.ActualHeight, this.Layer.Image.SizeInPixels.Width, this.Layer.Image.SizeInPixels.Height));
+            Transformer.CopyWith(this.Layer, this.GetTransformer(this.CanvasControl.ActualWidth, this.CanvasControl.ActualHeight, this.Layer.Image.SizeInPixels.Width, this.Layer.Image.SizeInPixels.Height));
 
             this.CanvasControl.Invalidate();
         }

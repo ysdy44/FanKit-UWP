@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="43956ysdy44.FanKit" Publisher="CN=9DF2B1A6-C2CE-481C-9997-A3B93DA91100" Version="1.1.15.0" />
+  <Identity Name="43956ysdy44.FanKit" Publisher="CN=9DF2B1A6-C2CE-481C-9997-A3B93DA91100" Version="1.2.0.0" />
   <mp:PhoneIdentity PhoneProductId="8e3bedc0-5162-452a-82d4-ddd08a857a3b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>FanKit</DisplayName>
@@ -18,6 +18,11 @@
       <uap:VisualElements DisplayName="FanKit" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="This application includes generic.xaml some theme resources,and some beautiful style with the controls" BackgroundColor="#00b2f0">
         <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png" ShortName="FanKit">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#00b2f0" />
       </uap:VisualElements>

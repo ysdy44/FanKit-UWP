@@ -21,8 +21,7 @@
         </Grid.RowDefinitions>
         <Image Height="60" Width="60" Grid.RowSpan="2" Source="ms-appx:///Icon/Reference/MathNet.PNG" Stretch="UniformToFill"/>
         <TextBlock Grid.Column="2" Text="MathNet.Numerics"/>
-      <!--
-        <HyperlinkButton Grid.Column="2" Grid.Row="1" Content="from windows store" NavigateUri="https://www.microsoft.com/store/productId/9NBLGGH4TLCQ"/>
-        --> 
+        <TextBlock Grid.Column="2" Grid.Row="1"  Text="search in Nuget" Opacity="0.5"/>
+
     </Grid>
 </UserControl>
