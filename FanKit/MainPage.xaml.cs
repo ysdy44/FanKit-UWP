@@ -53,7 +53,6 @@ namespace FanKit
         {
             this.InitializeComponent();
 
-
             //delegate
             this.ImageVisibleButton.Tapped += (sender, e) => this.IsImageVisible = !this.IsImageVisible;
 

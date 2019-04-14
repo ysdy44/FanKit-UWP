@@ -126,8 +126,8 @@
     <Compile Include="Frames\PageLayout.xaml.cs">
       <DependentUpon>PageLayout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\ReferenceMathNetControl.xaml.cs">
-      <DependentUpon>ReferenceMathNetControl.xaml</DependentUpon>
+    <Compile Include="Frames\ReferenceOpenCvControl.xaml.cs">
+      <DependentUpon>ReferenceOpenCvControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\ReferenceToolKitControl.xaml.cs">
       <DependentUpon>ReferenceToolKitControl.xaml</DependentUpon>
@@ -293,6 +293,12 @@
     <Compile Include="SampleControl.xaml.cs">
       <DependentUpon>SampleControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Win2Ds\CanvasOperator.cs" />
+    <Compile Include="Win2Ds\CurveNodes.cs" />
+    <Compile Include="Win2Ds\DottedLine.cs" />
+    <Compile Include="Win2Ds\HomographyController.cs" />
+    <Compile Include="Win2Ds\MarqueeTool.cs" />
+    <Compile Include="Win2Ds\TransformController.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -303,7 +309,7 @@
     <Content Include="Icon\Control\ThemeControl.png" />
     <Content Include="Icon\Helpers\Colors.png" />
     <Content Include="Icon\HERO.jpg" />
-    <Content Include="Icon\Reference\MathNet.PNG" />
+    <Content Include="Icon\Reference\OpenCv.PNG" />
     <Content Include="Icon\Reference\ToolKit.PNG" />
     <Content Include="Icon\Reference\Win2d.PNG" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
@@ -550,7 +556,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\ReferenceMathNetControl.xaml">
+    <Page Include="Frames\ReferenceOpenCvControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -803,6 +809,9 @@
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.0.181011001</Version>
     </PackageReference>
+    <PackageReference Include="OpenCvSharp3-AnyCPU">
+      <Version>4.0.0.20181129</Version>
+    </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
     </PackageReference>
@@ -820,10 +829,6 @@
     <ProjectReference Include="..\FanKit.Pickers\FanKit.Colors.csproj">
       <Project>{669c9391-6912-485d-a00f-7307385ba31e}</Project>
       <Name>FanKit.Colors</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FanKit.Win2Ds\FanKit.Win2Ds.csproj">
-      <Project>{cb1ac7a8-daef-4723-84ed-24549646a642}</Project>
-      <Name>FanKit.Win2Ds</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

@@ -40,7 +40,7 @@
                 <Rectangle Height="12"/>
                 <frames:ReferenceToolKitControl/>
                 <frames:ReferenceWin2dControl/>
-                <frames:ReferenceMathNetControl/>
+                <frames:ReferenceOpenCvControl/>
                 <Rectangle Height="12"/>            
 
 
