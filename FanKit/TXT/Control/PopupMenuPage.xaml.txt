@@ -39,45 +39,25 @@
 
         <Border Style="{StaticResource LeftBoderStyle}">
             <Control:PopupMenuControl x:Name="PopupMenuControl" Text="{x:Bind TextBlock0.Text}">
-                <TextBlock x:Name="TextBlock0" Text="Deep Dark Fantasy" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                <TextBlock x:Name="TextBlock0" Text="Hello" Style="{ThemeResource SubtitleTextBlockStyle}"/>
             </Control:PopupMenuControl>
         </Border>
 
         <Border Style="{StaticResource RightBoderStyle}">
             <Control:PopupMenuControl Text="{x:Bind TextBlock1.Text}">
-                <TextBlock x:Name="TextBlock1" Text="Boy Next Door" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                <TextBlock x:Name="TextBlock1" Text="How are you?" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
             </Control:PopupMenuControl>
         </Border>
 
         <Border Style="{StaticResource LeftBoderStyle}">
             <Control:PopupMenuControl  Text="{x:Bind TextBlock2.Text}">
-                <TextBlock x:Name="TextBlock2" Text="Do you like what you see?" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                <TextBlock x:Name="TextBlock2" Text="I am fine, and you?" Style="{ThemeResource SubtitleTextBlockStyle}"/>
             </Control:PopupMenuControl>
         </Border>
 
         <Border Style="{StaticResource RightBoderStyle}">
             <Control:PopupMenuControl  Text="{x:Bind TextBlock3.Text}">
-                <TextBlock x:Name="TextBlock3" Text="take it boy" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
-        </Border>
-
-        <Border Style="{StaticResource LeftBoderStyle}">
-            <Control:PopupMenuControl Text="{x:Bind TextBlock4.Text}">
-                <TextBlock x:Name="TextBlock4" Text="thank you sir" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
-        </Border>
-
-        <Border Style="{StaticResource RightBoderStyle}">
-            <Control:PopupMenuControl  Text="{x:Bind TextBlock5.Text}">
-                <TextBlock  x:Name="TextBlock5" TextWrapping="WrapWholeWords" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}">
-                                <Span>My name is Van,</Span>
-                                <LineBreak/>
-                                <Span>I'm an artist,</Span>
-                                <LineBreak/>
-                                <Span>I'm a performance artist. </Span>
-                                <LineBreak/>
-                                <Span>I'm hired for people to fulfill their fantasies, their deep dark fantasies.</Span>
-                </TextBlock>
+                <TextBlock x:Name="TextBlock3" Text="I am fine, too." Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
             </Control:PopupMenuControl>
         </Border>
 

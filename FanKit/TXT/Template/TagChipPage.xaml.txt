@@ -14,16 +14,16 @@
             <controls:WrapPanel/>
         </ItemsPanelTemplate>
     </ListView.ItemsPanel>
-
-    <x:String>Deep</x:String>
-    <x:String>Dark</x:String>
-    <x:String>Fantasy</x:String>
-    <x:String>Boy</x:String>
-    <x:String>Next</x:String>
-    <x:String>Door</x:String>
-    <x:String>As we can</x:String>
-    <x:String>Get it out</x:String>
-    <x:String>Attention move</x:String>
+    
+    <x:String>Red</x:String>
+    <x:String>Orange</x:String>                    
+    <x:String>Yellow</x:String>
+    <x:String>Green</x:String>
+    <x:String>Blue</x:String>
+    <x:String>Purple</x:String>
+    <x:String>Black and white</x:String>
+    <x:String>Rainbow color</x:String>
+    <x:String>Colorful</x:String>     
 
 </ListView>
 

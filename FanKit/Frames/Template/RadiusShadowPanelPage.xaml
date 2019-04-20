@@ -85,7 +85,6 @@
                         
                         <TextBlock Text="Reference:" Margin="12" />
                         <frames:ReferenceToolKitControl/>
-                        <frames:ReferenceWin2dControl/>
 
                     </StackPanel>
                 </PivotItem>
