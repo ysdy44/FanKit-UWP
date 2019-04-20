@@ -32,6 +32,7 @@ Including  generic.xaml some theme resources,and some beautiful style with the c
 Provides controls and selections that can select colors.<br>
 RGB HSL Wheel Hue Saturation Lightness......
 ![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot001.png)
+![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot003.png)
 
 
 
