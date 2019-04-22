@@ -15,25 +15,8 @@
     <Page.Resources>
 
         <!--CanvasOperator-->
-        <Win2Ds:CanvasOperator x:Name="Operator" 
-        
-             DestinationControl="{Binding ElementName=CanvasControl}"
-                              
-            Single_Start="Single_Start" 
-            Single_Delta="Single_Delta"
-            Single_Complete="Single_Complete"
-            
-            Right_Start="Right_Start"
-            Right_Delta="Right_Delta"
-            Right_Complete="Right_Complete"
-            
-            Double_Start="Double_Start"
-            Double_Delta="Double_Delta"
-            Double_Complete="Double_Complete"
-            
-            Wheel_Changed="Wheel_Changed"
-                              
-             />
+        <Win2Ds:CanvasOperator x:Name="CanvasOperator"         
+             DestinationControl="{Binding ElementName=CanvasControl}"/>
  
     </Page.Resources>
 
@@ -44,28 +27,25 @@
         <frames:PageLayout.ShowContent>
             <Grid>
 
-
-                <canvas:CanvasControl x:Name="CanvasControl"
-                                      CreateResources="CanvasControl_CreateResources"
-                                      Draw="CanvasControl_Draw"
-                                      />
+                <canvas:CanvasControl x:Name="CanvasControl" />
 
                 <Border x:Name="TipBorder" IsHitTestVisible="False" Height="32" CornerRadius="16" Visibility="Collapsed" Margin="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
                     <!--Visibility="Visible" Show-->
                     <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:1" From="0,100,0" To="0,0,0"/>
-                        <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
+                        <animations:TranslationAnimation Duration="0:0:0.3" From="0,50,0" To="0,0,0"/>
+                        <animations:OpacityAnimation Duration="0:0:0.3" From="0.0" To="1.0"/>
                     </animations:Implicit.ShowAnimations>
 
                     <!--Visibility="Collapsed" Hide-->
                     <animations:Implicit.HideAnimations>
-                        <animations:TranslationAnimation Duration="0:0:1" From="0,0,0" To="0,100,0"/>
-                        <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
+                        <animations:TranslationAnimation Duration="0:0:0.6" From="0,0,0" To="0,50,0"/>
+                        <animations:OpacityAnimation Duration="0:0:0.6" From="1.0" To="0.0"/>
                     </animations:Implicit.HideAnimations>
 
                     <TextBlock x:Name="TipTextBlock" Margin="12,0" VerticalAlignment="Center" Foreground="White" FontWeight="Medium"/>
                 </Border>
+            
             </Grid>
         </frames:PageLayout.ShowContent>
 

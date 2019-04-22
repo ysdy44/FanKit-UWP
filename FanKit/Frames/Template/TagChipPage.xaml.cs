@@ -11,8 +11,8 @@ namespace FanKit.Frames.Template
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/TagChipPage.xaml.txt");
-                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/TagChip.style.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Template/TagChipPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Template/TagChip.style.txt");
             };
         }
         

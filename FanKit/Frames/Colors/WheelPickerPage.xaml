@@ -4,16 +4,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:local="using:FanKit.Frames.Colors"
-    xmlns:Colors="using:FanKit.Colors"
     xmlns:frames="using:FanKit.Frames"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
 
     <Page.Resources>
 
-        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey"/>
+        <SolidColorBrush x:Name="SolidColorBrush" x:Key="SolidColorBrushKey"/>
 
     </Page.Resources>
 
@@ -22,7 +21,7 @@
 
 
         <frames:PageLayout.ShowContent>
-            <Colors:WheelPicker x:Name="WheelPicker" ColorChange="WheelPicker_ColorChange"/>
+            <hsvColorPickers:WheelPicker x:Name="WheelPicker"/>
         </frames:PageLayout.ShowContent>
 
 
@@ -31,7 +30,8 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
+                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+                       
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                      
                             <Span >The </Span>
@@ -40,7 +40,7 @@
                             <Span FontWeight="SemiBold">Hue </Span>
                             <Span FontWeight="SemiBold">Saturation </Span>                      
                             <Span >and </Span>
-                            <Span FontWeight="SemiBold">Lightness .</Span>
+                            <Span FontWeight="SemiBold">Value .</Span>
 
                             <LineBreak/>
                             <LineBreak/>
@@ -63,37 +63,22 @@
                             <LineBreak/>
                             <LineBreak/>
                             
-                            <Span FontStyle="Italic">Lightness :</Span>
+                            <Span FontStyle="Italic">Value :</Span>
                             <LineBreak/>
                             <Span >Translate Y palette to change the </Span>
-                            <Span FontWeight="SemiBold">Lightness </Span>
+                            <Span FontWeight="SemiBold">Value </Span>
                             <Span >of the color.</Span>
-                            
-
-                            <LineBreak/>
-                            <LineBreak/>
-                            <Span >Warning: please reference Win2D in Nuget.</Span>
 
                         </TextBlock>
 
                         <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceWin2dControl/>
+                        <frames:ReferenceHSVColorPickerControl/>
                             
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

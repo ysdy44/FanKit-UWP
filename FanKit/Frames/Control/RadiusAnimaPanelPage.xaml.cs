@@ -10,9 +10,9 @@ namespace FanKit.Frames.Control
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanelPage.xaml.txt");
-                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanel.xaml.txt");
-                this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanel.cs.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanelPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanel.xaml.txt");
+                this.MarkdownText3.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/RadiusAnimaPanel.cs.txt");
             };
         }
          

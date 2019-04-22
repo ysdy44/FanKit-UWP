@@ -4,16 +4,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:frames="using:FanKit.Frames"
     mc:Ignorable="d">
 
 
     <Page.Resources>
-
-        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey"/>
-
+        <SolidColorBrush x:Name="SolidColorBrush" x:Key="SolidColorBrushKey"/>
     </Page.Resources>
 
 
@@ -21,7 +19,7 @@
 
 
         <frames:PageLayout1.ShowContent>
-            <Colors:AlphaPicker x:Name="AlphaPicker" AlphaChange="AlphaPicker_AlphaChange"/>
+            <hsvColorPickers:AlphaPicker x:Name="AlphaPicker"/>
         </frames:PageLayout1.ShowContent>
 
 
@@ -30,30 +28,20 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
+                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
 
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span >The alpha channel of the color</Span>
                         </TextBlock>
                         
                         <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceWin2dControl/>
+                        <frames:ReferenceHSVColorPickerControl/>
                         
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

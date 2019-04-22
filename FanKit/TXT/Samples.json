@@ -204,7 +204,7 @@
         "Page": "FanKit.Frames.Colors.TouchSliderPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "TouchSlider",
         "Uri": "ms-appx:///Icon/Colors/TouchSlider.png",
-        "Summary": "Touch slider,It has three events : Started, Delta and Completed."
+        "Summary": "Touch slider, It has three events : Started, Delta and Completed."
       },
       {
         "Page": "FanKit.Frames.Colors.RGBPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -213,10 +213,10 @@
         "Summary": "RGB of color picker."
       },
       {
-        "Page": "FanKit.Frames.Colors.HSLPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-        "Name": "HSLPicker",
-        "Uri": "ms-appx:///Icon/Colors/HSLPicker.png",
-        "Summary": "HSL of color picker."
+        "Page": "FanKit.Frames.Colors.HSVPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "HSVPicker",
+        "Uri": "ms-appx:///Icon/Colors/HSVPicker.png",
+        "Summary": "HSV of color picker."
       },
       {
         "Page": "FanKit.Frames.Colors.WheelPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",

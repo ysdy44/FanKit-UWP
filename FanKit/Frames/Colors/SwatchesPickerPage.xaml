@@ -1,20 +1,17 @@
 ﻿<Page
     x:Class="FanKit.Frames.Colors.SwatchesPickerPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FanKit.Frames.Colors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:Colors="using:FanKit.Colors"
     xmlns:frames="using:FanKit.Frames"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
 
     <Page.Resources>
-
-        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey"/>
-
+        <SolidColorBrush x:Name="SolidColorBrush" x:Key="SolidColorBrushKey"/>
     </Page.Resources>
 
 
@@ -23,7 +20,7 @@
 
         <frames:PageLayout2.ShowContent>
             <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <Colors:SwatchesPicker x:Name="SwatchesPicker" Margin="12" Width="200" Height="240"  ColorChange="SwatchesPicker_ColorChange"/>
+                <hsvColorPickers:SwatchesPicker x:Name="SwatchesPicker" Margin="12"/>
             </Border>
         </frames:PageLayout2.ShowContent>
 
@@ -31,28 +28,18 @@
         <frames:PageLayout2.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <StackPanel>
+                    <StackPanel>
 
-                            <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
-                            
-                        </StackPanel>
+                        <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
 
-                    </ScrollViewer>
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceHSVColorPickerControl/>
+
+                    </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

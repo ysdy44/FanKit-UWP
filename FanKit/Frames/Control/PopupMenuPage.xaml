@@ -9,9 +9,9 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    
+
     <Page.Resources>
-        
+
         <Style x:Key="BoderStyle" TargetType="Border">
             <Setter Property="MinWidth" Value="90" />
             <Setter Property="MinHeight" Value="40" />
@@ -27,7 +27,7 @@
             <Setter Property="HorizontalAlignment" Value="Right" />
             <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAccentBrush}" />
         </Style>
-    
+
     </Page.Resources>
 
 
@@ -43,29 +43,29 @@
                         <TextBlock Text="Popup Menu" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
                     </Border>
 
-        <Border Style="{StaticResource LeftBoderStyle}">
-            <Control:PopupMenuControl x:Name="PopupMenuControl" Text="{x:Bind TextBlock0.Text}">
-                <TextBlock x:Name="TextBlock0" Text="Hello" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
-        </Border>
+                    <Border Style="{StaticResource LeftBoderStyle}">
+                        <Control:PopupMenu x:Name="PopupMenu" Text="{x:Bind TextBlock0.Text}">
+                            <TextBlock x:Name="TextBlock0" Text="Hello" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                        </Control:PopupMenu>
+                    </Border>
 
-        <Border Style="{StaticResource RightBoderStyle}">
-            <Control:PopupMenuControl Text="{x:Bind TextBlock1.Text}">
-                <TextBlock x:Name="TextBlock1" Text="How are you?" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
-        </Border>
+                    <Border Style="{StaticResource RightBoderStyle}">
+                        <Control:PopupMenu Text="{x:Bind TextBlock1.Text}">
+                            <TextBlock x:Name="TextBlock1" Text="How are you?" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                        </Control:PopupMenu>
+                    </Border>
 
-        <Border Style="{StaticResource LeftBoderStyle}">
-            <Control:PopupMenuControl  Text="{x:Bind TextBlock2.Text}">
-                <TextBlock x:Name="TextBlock2" Text="I am fine, and you?" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
-        </Border>
+                    <Border Style="{StaticResource LeftBoderStyle}">
+                        <Control:PopupMenu  Text="{x:Bind TextBlock2.Text}">
+                            <TextBlock x:Name="TextBlock2" Text="I am fine, and you?" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                        </Control:PopupMenu>
+                    </Border>
 
-        <Border Style="{StaticResource RightBoderStyle}">
-            <Control:PopupMenuControl  Text="{x:Bind TextBlock3.Text}">
-                <TextBlock x:Name="TextBlock3" Text="I am fine, too." Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
-        </Border>
+                    <Border Style="{StaticResource RightBoderStyle}">
+                        <Control:PopupMenu  Text="{x:Bind TextBlock3.Text}">
+                            <TextBlock x:Name="TextBlock3" Text="I am fine, too." Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                        </Control:PopupMenu>
+                    </Border>
 
                 </StackPanel>
             </ScrollViewer>
@@ -76,10 +76,10 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Button Width="100" Margin="22" Content="Popup" VerticalAlignment="Top" Tapped="Button_Tapped"/>
+                        <Button x:Name="Button" Width="100" Margin="22" Content="Popup" VerticalAlignment="Top"/>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                      
-                            <Span FontStyle="Italic">Create a new UserControls and named "PopupMenuControl",Please put the document in the code is copied to the "PopupMenuControl.xaml"</Span>
+                            <Span FontStyle="Italic">Create a new UserControls and named "PopupMenu",Please put the document in the code is copied to the "PopupMenu.xaml"</Span>
                             <LineBreak/>
                             <LineBreak/>
 

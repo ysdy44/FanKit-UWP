@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:FanKit"
-    xmlns:sample="using:FanKit.Sample"
+    xmlns:samples="using:FanKit.Samples"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     mc:Ignorable="d"
@@ -18,10 +18,8 @@
         <SolidColorBrush x:Name="SolidColorBrush" Color="Transparent"/>
         <ImageBrush x:Name="ImageBrush" ImageSource="ms-appx:///Icon/HERO.jpg" Stretch="UniformToFill"/>
 
-
         <!--ScrollOffsetShow-->
-        <sample:ScrollOffsetShow x:Name="sos"/>
-
+        <samples:ScrollOffsetShow x:Name="sos"/>
 
         <!--Style-->
         <Style x:Key="ListViewItemStyle" TargetType="ListViewItem">
@@ -530,11 +528,7 @@
             <Frame x:Name="NavigationFrame"/>
 
             <!--FAB Button-->
-            <Button x:Name="ImageVisibleButton"
-            Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}"
-            Style="{StaticResource AppFABButtonStyle}"
-            extensions:VisualExtensions.CenterPoint="32,32,0">
-
+            <Button x:Name="ImageVisibleButton" Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}" Style="{StaticResource AppFABButtonStyle}"            extensions:VisualExtensions.CenterPoint="32,32,0">
 
                 <!--Visibility="Visible" Show-->
                 <animations:Implicit.ShowAnimations>
@@ -554,7 +548,7 @@
 
 
         <!--ShadowGrid-->
-        <local:SampleCategoryControl x:Name="SampleCategoryControl" Grid.Row="1" ItemClick="SampleCategoryControl_ItemClick"/>
+        <local:SamplesCategoryControl x:Name="SamplesCategoryControl" Grid.Row="1" />
 
 
         <!--TopBar-->
@@ -566,21 +560,19 @@
             </Grid.ColumnDefinitions>
 
             <!--Button and Shadow-->
-            <InkToolbarCustomToggleButton x:Name="BackButton" Background="Transparent" Grid.Column="0" Content="&#xE80F;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="BackButton_Tapped"/>
+            <InkToolbarCustomToggleButton x:Name="BackButton" Background="Transparent" Grid.Column="0" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
             <Rectangle Visibility="Collapsed" Grid.Column="1" Width="20" HorizontalAlignment="Left" Fill="{StaticResource AppRightGradientBrush}"/>
             <Rectangle Visibility="Collapsed" Grid.Column="1" Width="20" HorizontalAlignment="Right" Fill="{StaticResource AppLeftGradientBrush}"/>
-            <InkToolbarCustomToggleButton x:Name="SettingButton"  Background="Transparent" Grid.Column="2" Content="&#xE115;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Tapped="SettingButton_Tapped"/>
+            <InkToolbarCustomToggleButton x:Name="SettingButton"  Background="Transparent" Grid.Column="2" Content="&#xE115;" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
 
             <!--ListView-->
             <ListView x:Name="ListView" 
                       Grid.Column="1" FontWeight="SemiLight" 
                       ItemContainerStyle="{StaticResource ListViewItemStyle}"
-                      IsItemClickEnabled="True" ItemClick="ListView_ItemClick"
                       ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Disabled">
 
-
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="sample:SampleCategory">
+                    <DataTemplate x:DataType="samples:SampleCategory">
                         <TextBlock Text="{x:Bind Name}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>

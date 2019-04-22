@@ -1,16 +1,16 @@
-
-
 ```xaml
+
 
 
 <Page
     x:Class="FanKit.Frames.Colors.SwatchesPickerPage"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
     >
 
-     <Colors:SwatchesPicker x:Name="SwatchesPicker" Margin="12" Width="200" Height="240" ColorChange="SwatchesPicker_ColorChange"/>
+       <hsvColorPickers:SwatchesPicker x:Name="SwatchesPicker" Margin="12"/>
 
 </Page>
+
 
 
 ```

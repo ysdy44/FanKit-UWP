@@ -13,17 +13,7 @@
 
 
         <frames:PageLayout.ShowContent>
-            <canvas:CanvasAnimatedControl x:Name="CanvasAnimatedControl"
-                                      SizeChanged="CanvasAnimatedControl_SizeChanged"
-                                              
-                                      CreateResources="CanvasAnimatedControl_CreateResources"
-                                      Draw="CanvasAnimatedControl_Draw"
-                                      Update="CanvasAnimatedControl_Update"
-                                              
-                                      PointerPressed="CanvasAnimatedControl_PointerPressed"
-                                      PointerMoved="CanvasAnimatedControl_PointerMoved"
-                                      PointerReleased="CanvasAnimatedControl_PointerReleased"
-                                      />
+            <canvas:CanvasAnimatedControl x:Name="CanvasAnimatedControl" />
         </frames:PageLayout.ShowContent>
 
 

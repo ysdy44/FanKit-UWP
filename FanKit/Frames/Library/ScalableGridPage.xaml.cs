@@ -11,8 +11,8 @@ namespace FanKit.Frames.Library
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/ScalableGridPage.xaml.txt");
-                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Library/ScalableGrid.cs.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Library/ScalableGridPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Library/ScalableGrid.cs.txt");
             };
         }
         

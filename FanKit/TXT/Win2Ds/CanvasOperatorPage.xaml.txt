@@ -5,41 +5,17 @@
 
 <Page
     x:Class="FanKit.Frames.Win2Ds.CanvasOperatorPage"
-    xmlns:local="using:FanKit.Frames.Win2Ds"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"  
-    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     xmlns:Win2Ds="using:FanKit.Win2Ds">
 	   
    <Page.Resources>
-
        <!--CanvasOperator-->
-       <Win2Ds:CanvasOperator x:Name="Operator" 
-             DestinationControl="{Binding ElementName=CanvasControl}"
-                              
-            Single_Start="Single_Start" 
-            Single_Delta="Single_Delta"
-            Single_Complete="Single_Complete"
-            
-            Right_Start="Right_Start"
-            Right_Delta="Right_Delta"
-            Right_Complete="Right_Complete"
-            
-            Double_Start="Double_Start"
-            Double_Delta="Double_Delta"
-            Double_Complete="Double_Complete"
-            
-            Wheel_Changed="Wheel_Changed"
-             />
-
+       <Win2Ds:CanvasOperator x:Name="CanvasOperator" 
+	        DestinationControl="{Binding ElementName=CanvasControl}"/>
    </Page.Resources>
 
+   <canvas:CanvasControl x:Name="CanvasControl"/>
 
-
-   <canvas:CanvasControl x:Name="CanvasControl"
-          CreateResources="CanvasControl_CreateResources"
-          Draw="CanvasControl_Draw"
-         />
 </Page>
 
 

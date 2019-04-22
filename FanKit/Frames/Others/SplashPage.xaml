@@ -29,10 +29,12 @@
                 <RowDefinition Height="222"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
-            <Image x:Name="SplashImage" Visibility="Visible" Source="ms-appx:///Icon/Logo.png" Stretch="Uniform"/>
-            <Image x:Name="TitleImage" Visibility="Visible"  Grid.Row="1"  Source="ms-appx:///Icon/iconL.png" Stretch="Uniform"/>
-            <TextBlock Text="FanKit v1.1.15" Visibility="Visible" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+            <Image x:Name="SplashImage" Source="ms-appx:///Icon/Logo.png" Stretch="Uniform"/>
+            <Image x:Name="TitleImage"  Grid.Row="1"  Source="ms-appx:///Icon/iconL.png" Stretch="Uniform"/>
+            <TextBlock Text="FanKit v1.1.15" Grid.Row="2" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+            <TextBlock Text="UWP Developer Tools" Grid.Row="3" HorizontalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
         </Grid>
 
         <Border x:Name="NewPanel" Padding="12" HorizontalAlignment="Center" 
@@ -48,9 +50,7 @@
 
                 <TextBlock Visibility="Collapsed" Text="More" Style="{ThemeResource BaseTextBlockStyle}"/>
                 <ContentControl Visibility="Collapsed" Height="4"/>
-                <TextBlock Visibility="Collapsed" Text="Choose more from the Appbar." 
-                           Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-                
+                <TextBlock Visibility="Collapsed" Text="Choose more from the Appbar." Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"/>
             </StackPanel>
         </Border>
          

@@ -1,0 +1,16 @@
+
+
+```xaml
+
+
+<Page
+    x:Class="FanKit.Frames.Colors.HSVPickerPage"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
+    >
+	    
+   <hsvColorPickers:HSVPicker x:Name="HSVPicker"/>
+
+</Page>
+
+
+```

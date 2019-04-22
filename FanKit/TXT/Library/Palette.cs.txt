@@ -101,7 +101,7 @@ namespace FanKit.Library
                 //saturation
                 double sumS = 0;
 
-                //lightness
+                //value
                 double sumV = 0;
                 double sumHue = 0;
 

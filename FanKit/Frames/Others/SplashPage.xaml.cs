@@ -28,7 +28,9 @@ namespace FanKit.Frames.Others
 
             this.SizeChanged += (sender, e) =>
               {
-                  if (e.NewSize.Width>600)
+                  if (e.NewSize == e.PreviousSize) return;
+
+                  if (e.NewSize.Width > 600)
                   {
                       Grid.SetColumn(this.IconPanel, 0);
                       Grid.SetRow(this.IconPanel, 0);
@@ -37,10 +39,10 @@ namespace FanKit.Frames.Others
                   }
                   else
                   {
-                          Grid.SetColumn(this.IconPanel, 0);
-                          Grid.SetRow(this.IconPanel, 0);
-                          Grid.SetColumn(this.NewPanel, 0);
-                          Grid.SetRow(this.NewPanel, 2);
+                      Grid.SetColumn(this.IconPanel, 0);
+                      Grid.SetRow(this.IconPanel, 0);
+                      Grid.SetColumn(this.NewPanel, 0);
+                      Grid.SetRow(this.NewPanel, 2);
                   }
               };
          }

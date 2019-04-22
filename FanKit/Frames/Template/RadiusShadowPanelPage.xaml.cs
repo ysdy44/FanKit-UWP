@@ -22,7 +22,7 @@ namespace FanKit.Frames.Template
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Template/RadiusShadowPanelPage.xaml.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Template/RadiusShadowPanelPage.xaml.txt");
             };
         }
     }

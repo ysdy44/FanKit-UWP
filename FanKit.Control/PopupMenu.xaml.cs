@@ -1,20 +1,12 @@
-﻿using Windows.UI.Xaml;
+﻿using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.ApplicationModel.DataTransfer;
 
 namespace FanKit.Control
 {
     public sealed partial class PopupMenu : UserControl
     {
-
-        #region DependencyProperty
-
-
-        /// <summary>
-        /// show or hide
-        /// </summary>
-        private bool isShow;
+         
+        /// <summary> Show or hide. </summary>
         public bool IsShow
         {
             get=> this.isShow;
@@ -26,32 +18,29 @@ namespace FanKit.Control
                 this.isShow = value;
             }
         }
+        private bool isShow;
 
-        /// <summary>
-        /// copy the text
-        /// </summary>
-        private string text;
-        public string Text
-        {
-            get => this.text;
-            set => this.text = value;
-        }
+        /// <summary> Coped. </summary>
+        public string Text { get; set; }
         
-        #endregion
-
 
         public PopupMenu()
         {
             this.InitializeComponent();
+            this.Holding += (s, e) => this.IsShow = true;//Flyout
+            this.DoubleTapped += (s, e) => this.IsShow = true;//Flyout
+            this.RightTapped += (s, e) => this.IsShow = true;//Flyout
+
+            this.Button0.Tapped += (s, e) => this.Copy();
+            this.Button1.Tapped += (s, e) => this.Copy();
+            this.Button2.Tapped += (s, e) => this.Copy();
+            this.Button3.Tapped += (s, e) => this.Copy();
+            this.Button4.Tapped += (s, e) => this.Copy();
+            this.Button5.Tapped += (s, e) => this.Copy();
+            this.Button6.Tapped += (s, e) => this.Copy();
         }
 
-
-        private void UserControl_Holding(object sender, HoldingRoutedEventArgs e) => this.IsShow = true;//Flyout
-        private void UserControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e) => this.IsShow = true;//Flyout
-        private void UserControl_RightTapped(object sender, RightTappedRoutedEventArgs e) => this.IsShow = true;//Flyout
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Copy()
         {
             //Clipboard
             DataPackage dataPackage = new DataPackage();
@@ -60,6 +49,5 @@ namespace FanKit.Control
 
             this.IsShow = false;//Flyout
         }
-
     }
 }

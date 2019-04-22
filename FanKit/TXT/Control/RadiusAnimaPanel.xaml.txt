@@ -24,7 +24,7 @@
         </controls:DropShadowPanel>
 
         <!--Content-->
-        <Border x:Name="Border" Height="50" MinWidth="100" HorizontalAlignment="Center" SizeChanged="Border_SizeChanged">
+        <Border x:Name="Border" Height="50" MinWidth="100" HorizontalAlignment="Center">
             <!--Content-->
         </Border>
 

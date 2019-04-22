@@ -9,7 +9,7 @@
 
 
     <Page.Resources>
-        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey"/>
+        <SolidColorBrush x:Name="SolidColorBrush" x:Key="SolidColorBrushKey"/>
     </Page.Resources>
 
     <ContentControl x:Name="ContentControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />

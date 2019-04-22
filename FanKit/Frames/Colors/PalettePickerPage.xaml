@@ -10,9 +10,7 @@
 
 
     <Page.Resources>
-
-        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey"/>
-
+        <SolidColorBrush x:Name="SolidColorBrush" x:Key="SolidColorBrushKey"/>
     </Page.Resources>
 
 
@@ -29,20 +27,20 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
+                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
                         <StackPanel Orientation="Horizontal">
                             <Button x:Name="HueButton" Content="Hue" />
                             <AppBarSeparator/>
                             <Button x:Name="SaturationButton" Content="Saturation" />
                             <AppBarSeparator/>
-                            <Button x:Name="LightnessButton" Content="Lightness"/>
+                            <Button x:Name="ValueButton" Content="Value"/>
                         </StackPanel>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                               
                             <Span FontStyle="Italic">Hue mode:</Span>
                             <LineBreak/>
                             <Span >Slide determines H of color.</Span>
-                            <Span >Palette determines S,L of color.</Span>
+                            <Span >Palette determines S,V of color.</Span>
 
                             <LineBreak/>
                             <LineBreak/>
@@ -50,36 +48,19 @@
                             <Span FontStyle="Italic">Saturation mode:</Span>
                           <LineBreak/>
                             <Span >Slide determines S of color.</Span>
-                            <Span >Palette determines H,L of color.</Span>
+                            <Span >Palette determines H,V of color.</Span>
 
                             <LineBreak/>
                             <LineBreak/>
                             
-                            <Span FontStyle="Italic">Lightness mode:</Span>
+                            <Span FontStyle="Italic">Value mode:</Span>
                       <LineBreak/>
-                            <Span >Slide determines L of color.</Span>
+                            <Span >Slide determines V of color.</Span>
                             <Span >Palette determines H,S of color.</Span>
-                            
-
-                            <LineBreak/>
-                            <LineBreak/>
-                            <LineBreak/>
-                            <Span >Warning: please reference Win2D in Nuget.</Span>
-                            <LineBreak/>                            <LineBreak/>
-
-                            <LineBreak/>
-                            <Span >PalettePicker.xaml</Span>  <LineBreak/>
-                            <Span >PalettePicker.xaml.cs</Span>  <LineBreak/>
-                            <LineBreak/>
-                            <Span >PaletteBase.cs</Span>  <LineBreak/>
-                            <Span >PaletteHue.cs</Span>  <LineBreak/>
-                            <Span >PaletteLightness.cs</Span>  <LineBreak/>
-                            <Span >PaletteSaturation.cs</Span>  <LineBreak/>
-
                         </TextBlock>
                         
                         <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceWin2dControl/>
+                        <frames:ReferenceHSVColorPickerControl/>
                         
                     </StackPanel>
                 </PivotItem>
@@ -91,16 +72,6 @@
                 <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText4"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

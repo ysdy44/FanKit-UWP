@@ -4,7 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Sample="using:FanKit.Sample"
+    xmlns:samples="using:FanKit.Samples"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     mc:Ignorable="d"
@@ -14,19 +14,11 @@
     <UserControl.Resources>
 
         <!--ViewModel-->
-        <Sample:Sample  x:Name="ViewModel"/>
+        <samples:Sample x:Name="ViewModel"/>
         
     </UserControl.Resources>
     
-    <Grid x:Name="RootGrid"
-                  Background="Transparent"
-                  
-                  PointerEntered="Entered"
-                  PointerExited="Exited"
-                  PointerPressed="Exited"
-                  PointerReleased="Exited"
-                  PointerCanceled="Exited"
-          >
+    <Grid x:Name="RootGrid" Background="Transparent">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="12"/>
@@ -44,7 +36,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="{x:Bind ViewModel.Name,Mode=OneWay}" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
-            <Button  Grid.Column="1" Width="30" Content="&#xE946;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}" Tapped="Button_Tapped">
+            <Button x:Name="Button" Grid.Column="1" Width="30" Content="&#xE946;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}">
                 <Button.Flyout>
                     <Flyout>
                         <Grid Margin="-12">

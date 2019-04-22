@@ -61,7 +61,7 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Button Width="100" Margin="22" Content="Open" VerticalAlignment="Top" Tapped="Button_Tapped"/>
+                        <Button x:Name="Button" Width="100" Margin="22" Content="Open" VerticalAlignment="Top"/>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                           
                             <Span FontStyle="Italic">Phone:</Span>

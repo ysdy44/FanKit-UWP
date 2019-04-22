@@ -1,0 +1,92 @@
+﻿<Page
+    x:Class="FanKit.Frames.Colors.HSVPickerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:frames="using:FanKit.Frames"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+
+
+    <Page.Resources>
+
+        <SolidColorBrush x:Name="SolidColorBrush" x:Key="SolidColorBrushKey"/>
+
+    </Page.Resources>
+
+    
+    <frames:PageLayout1>
+
+
+        <frames:PageLayout1.ShowContent>
+            <hsvColorPickers:HSVPicker x:Name="HSVPicker"/>
+        </frames:PageLayout1.ShowContent>
+
+
+        <frames:PageLayout1.DetailContent>
+            <Pivot>
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <StackPanel>
+
+                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+
+                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                                                     
+                            <Span >The </Span>
+                            <Span FontWeight="SemiBold">color </Span>
+                            <Span >composed of three components,  </Span>
+                            <Span FontWeight="SemiBold">Hue </Span>
+                            <Span FontWeight="SemiBold">Saturation </Span>                      
+                            <Span >and </Span>
+                            <Span FontWeight="SemiBold">Value .</Span>
+
+                            
+                            
+                            <LineBreak/>
+                            <LineBreak/>
+                            <LineBreak/>
+                            <Span >public class  </Span>
+                            <Span FontWeight="SemiBold"  >HSV </Span>                      
+
+                            <LineBreak/>
+                            <Span >{</Span>
+                            
+                            <LineBreak/>
+                            <Span >----public byte </Span>
+                            <Span FontWeight="SemiBold"  >A; </Span>                      
+
+                            <LineBreak/>
+                            <Span >----public float </Span>                           
+                            <Span FontWeight="SemiBold"  >H; </Span>                      
+
+                            <LineBreak/>
+                            <Span >----public float </Span>                           
+                            <Span FontWeight="SemiBold"  >S; </Span>                      
+
+                            <LineBreak/>
+                            <Span >----public float </Span>         
+                            <Span FontWeight="SemiBold"  >V; </Span>    
+                            
+                            <LineBreak/>
+                            <Span >}</Span>
+
+                        </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceHSVColorPickerControl/>
+
+                    </StackPanel>
+                </PivotItem>
+                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer>
+                        <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
+                    </ScrollViewer>
+                </PivotItem>
+            </Pivot>
+        </frames:PageLayout1.DetailContent>
+
+
+    </frames:PageLayout1>
+</Page>

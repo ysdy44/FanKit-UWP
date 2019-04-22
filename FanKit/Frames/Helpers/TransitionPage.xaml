@@ -143,10 +143,10 @@
                             </ListView>
                         
                             <StackPanel Orientation="Horizontal" Margin="12" >
-                            <Button x:Name="Back" Width="100" IsEnabled="False"  Content="Back"  Tapped="Back_Tapped"/>
-                            <Rectangle Width="12"/>
-                            <Button x:Name="Button" Width="100" Content="Navigate"  Style="{ThemeResource AccentButtonStyle}" Tapped="Button_Tapped"/>
-                        </StackPanel>
+                                <Button x:Name="Back" Width="100" IsEnabled="False"  Content="Back"/>
+                                <Rectangle Width="12"/>
+                                <Button x:Name="Button" Width="100" Content="Navigate"  Style="{ThemeResource AccentButtonStyle}" />
+                            </StackPanel>
                     </StackPanel>
                     </ScrollViewer>
                 </PivotItem>

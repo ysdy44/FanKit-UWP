@@ -22,24 +22,24 @@
             <TextBlock Text="Expand TextView" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
         </Border>
 
-        <ToggleSwitch  Margin="12,0" IsOn="{x:Bind ExpandTextViewControl.IsExpand,Mode=TwoWay}"/>
+        <ToggleSwitch  Margin="12,0" IsOn="{x:Bind ExpandTextView.IsExpand,Mode=TwoWay}"/>
         <Border Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
-            <control:ExpandTextView x:Name="ExpandTextViewControl" Text="This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. "/>
+            <control:ExpandTextView x:Name="ExpandTextView" Text="This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. This is a demo text doesn't make any sense. "/>
         </Border>
 
-        <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextViewControl0.IsExpand,Mode=TwoWay}"/>
+        <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextView0.IsExpand,Mode=TwoWay}"/>
         <Border Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
-            <control:ExpandTextView x:Name="ExpandTextViewControl0" Text="This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense."/>
+            <control:ExpandTextView x:Name="ExpandTextView0" Text="This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense."/>
         </Border>
 
-        <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextViewControl1.IsExpand,Mode=TwoWay}"/>
+        <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextView1.IsExpand,Mode=TwoWay}"/>
         <Border Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
-            <control:ExpandTextView x:Name="ExpandTextViewControl1" Text="This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense."/>
+            <control:ExpandTextView x:Name="ExpandTextView1" Text="This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense.This is a demo text doesn't make any sense."/>
         </Border>
 
-        <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextViewControl2.IsExpand,Mode=TwoWay}"/>
+        <ToggleSwitch Margin="12,0" IsOn="{x:Bind ExpandTextView2.IsExpand,Mode=TwoWay}"/>
         <Border Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
-            <control:ExpandTextView x:Name="ExpandTextViewControl2" Text="This is a demo text doesn't make any sense."/>
+            <control:ExpandTextView x:Name="ExpandTextView2" Text="This is a demo text doesn't make any sense."/>
         </Border>
 
 

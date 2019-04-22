@@ -38,27 +38,27 @@
         </Border>
 
         <Border Style="{StaticResource LeftBoderStyle}">
-            <Control:PopupMenuControl x:Name="PopupMenuControl" Text="{x:Bind TextBlock0.Text}">
+            <Control:PopupMenu x:Name="PopupMenu" Text="{x:Bind TextBlock0.Text}">
                 <TextBlock x:Name="TextBlock0" Text="Hello" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
+            </Control:PopupMenu>
         </Border>
 
         <Border Style="{StaticResource RightBoderStyle}">
-            <Control:PopupMenuControl Text="{x:Bind TextBlock1.Text}">
+            <Control:PopupMenu Text="{x:Bind TextBlock1.Text}">
                 <TextBlock x:Name="TextBlock1" Text="How are you?" Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
+            </Control:PopupMenu>
         </Border>
 
         <Border Style="{StaticResource LeftBoderStyle}">
-            <Control:PopupMenuControl  Text="{x:Bind TextBlock2.Text}">
+            <Control:PopupMenu  Text="{x:Bind TextBlock2.Text}">
                 <TextBlock x:Name="TextBlock2" Text="I am fine, and you?" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
+            </Control:PopupMenu>
         </Border>
 
         <Border Style="{StaticResource RightBoderStyle}">
-            <Control:PopupMenuControl  Text="{x:Bind TextBlock3.Text}">
+            <Control:PopupMenu  Text="{x:Bind TextBlock3.Text}">
                 <TextBlock x:Name="TextBlock3" Text="I am fine, too." Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-            </Control:PopupMenuControl>
+            </Control:PopupMenu>
         </Border>
 
      </StackPanel>

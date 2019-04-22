@@ -14,14 +14,7 @@
 
 
         <frames:PageLayout.ShowContent>
-            <canvas:CanvasControl x:Name="CanvasControl"
-                                      CreateResources="CanvasControl_CreateResources"
-                                      Draw="CanvasControl_Draw"
-                                              
-                                      PointerPressed="CanvasControl_PointerPressed"
-                                      PointerMoved="CanvasControl_PointerMoved"
-                                      PointerReleased="CanvasControl_PointerReleased"
-                                      />
+            <canvas:CanvasControl x:Name="CanvasControl"/>
         </frames:PageLayout.ShowContent>
 
 
@@ -30,7 +23,7 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <StackPanel>
-                            <Button Margin="12" Content="Reset"  Tapped="Button_Tapped"/>
+                            <Button x:Name="Button" Margin="12" Content="Reset"/>
                             <CheckBox x:Name="CenterCheckBox" Content="Center" Margin="14,0"/>
                             <CheckBox x:Name="RatioCheckBox" Content="Ratio" Margin="14,0"/>
                             <CheckBox x:Name="StepFrequencyCheckBox" Content="StepFrequency" Margin="14,0"/>
@@ -45,21 +38,21 @@
                                 </Grid.RowDefinitions>
 
                                 <TextBlock Grid.Column="0" Grid.Row="00" VerticalAlignment="Center">
-                                <Span >LeftTop:</Span>
-                                <Run x:Name="RunLeftTop" FontWeight="Bold"/>
+                                    <Span >LeftTop:</Span>
+                                    <Run x:Name="RunLeftTop" FontWeight="Bold"/>
                                 </TextBlock>
                                 <TextBlock Grid.Column="1" Grid.Row="00" VerticalAlignment="Center">
-                                <Span>RightTop:</Span>
-                                <Run x:Name="RunRightTop" FontWeight="Bold"/>
+                                    <Span>RightTop:</Span>
+                                    <Run x:Name="RunRightTop" FontWeight="Bold"/>
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
-                                <Span>LeftBottom:</Span>
-                                <Run x:Name="RunLeftBottom" FontWeight="Bold"/>
+                                    <Span>LeftBottom:</Span>
+                                    <Run x:Name="RunLeftBottom" FontWeight="Bold"/>
                                 </TextBlock>
                                 <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
-                                <Span>RightBottom:</Span>
-                                <Run x:Name="RunRightBottom" FontWeight="Bold"/>
+                                    <Span>RightBottom:</Span>
+                                    <Run x:Name="RunRightBottom" FontWeight="Bold"/>
                                 </TextBlock>
 
                             </Grid>
@@ -100,7 +93,6 @@
 
                             <TextBlock Text="Reference:" Margin="12" />
                             <frames:ReferenceWin2dControl/>
-                            <frames:ReferenceOpenCvControl/>
 
                         </StackPanel>
                     </ScrollViewer>

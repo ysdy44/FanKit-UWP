@@ -1,17 +1,18 @@
-
-
 ```xaml
+
 
 
 <Page
     x:Class="FanKit.Frames.Colors.StrawPickerPage"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
     >
 
-   <Border Width="80" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-        <Colors:StrawPicker x:Name="StrawPicker" ColorChange="StrawPicker_ColorChange"/>
+    <Border Width="80" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+        <hsvColorPickers:StrawPicker x:Name="StrawPicker" Background="Transparent"/>
     </Border>
+
 </Page>
+
 
 
 ```

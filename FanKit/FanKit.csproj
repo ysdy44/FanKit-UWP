@@ -126,8 +126,8 @@
     <Compile Include="Frames\PageLayout.xaml.cs">
       <DependentUpon>PageLayout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\ReferenceOpenCvControl.xaml.cs">
-      <DependentUpon>ReferenceOpenCvControl.xaml</DependentUpon>
+    <Compile Include="Frames\ReferenceHSVColorPickerControl.xaml.cs">
+      <DependentUpon>ReferenceHSVColorPickerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\ReferenceToolKitControl.xaml.cs">
       <DependentUpon>ReferenceToolKitControl.xaml</DependentUpon>
@@ -165,8 +165,8 @@
     <Compile Include="Frames\Win2Ds\DottedLinePage.xaml.cs">
       <DependentUpon>DottedLinePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SampleCategoryControl.xaml.cs">
-      <DependentUpon>SampleCategoryControl.xaml</DependentUpon>
+    <Compile Include="SamplesCategoryControl.xaml.cs">
+      <DependentUpon>SamplesCategoryControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Brushes\AcrylicWindowBrushPage.xaml.cs">
       <DependentUpon>AcrylicWindowBrushPage.xaml</DependentUpon>
@@ -192,8 +192,8 @@
     <Compile Include="Frames\Brushes\RevealBorderBrushPage.xaml.cs">
       <DependentUpon>RevealBorderBrushPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Colors\HSLPickerPage.xaml.cs">
-      <DependentUpon>HSLPickerPage.xaml</DependentUpon>
+    <Compile Include="Frames\Colors\HSVPickerPage.xaml.cs">
+      <DependentUpon>HSVPickerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\NumberPickerPage.xaml.cs">
       <DependentUpon>NumberPickerPage.xaml</DependentUpon>
@@ -279,10 +279,10 @@
     <Compile Include="Frames\Helpers\Transition\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sample\File.cs" />
-    <Compile Include="Sample\Sample.cs" />
-    <Compile Include="Sample\SampleCategory.cs" />
-    <Compile Include="Sample\ScrollOffsetShow.cs" />
+    <Compile Include="Samples\File.cs" />
+    <Compile Include="Samples\Sample.cs" />
+    <Compile Include="Samples\SampleCategory.cs" />
+    <Compile Include="Samples\ScrollOffsetShow.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -293,12 +293,6 @@
     <Compile Include="SampleControl.xaml.cs">
       <DependentUpon>SampleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Win2Ds\CanvasOperator.cs" />
-    <Compile Include="Win2Ds\CurveNodes.cs" />
-    <Compile Include="Win2Ds\DottedLine.cs" />
-    <Compile Include="Win2Ds\HomographyController.cs" />
-    <Compile Include="Win2Ds\MarqueeTool.cs" />
-    <Compile Include="Win2Ds\TransformController.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -309,15 +303,13 @@
     <Content Include="Icon\Control\ThemeControl.png" />
     <Content Include="Icon\Helpers\Colors.png" />
     <Content Include="Icon\HERO.jpg" />
-    <Content Include="Icon\Reference\OpenCv.PNG" />
+    <Content Include="Icon\Reference\HSVColorPickers.PNG" />
     <Content Include="Icon\Reference\ToolKit.PNG" />
     <Content Include="Icon\Reference\Win2d.PNG" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
     <Content Include="Icon\Win2Ds\HomographyController.png" />
     <Content Include="Icon\Win2Ds\MarqueeTool.png" />
     <Content Include="Icon\Win2Ds\TransformController.png" />
-    <Content Include="TXT\Colors\HexPicker.cs.txt" />
-    <Content Include="TXT\Colors\HexPicker.xaml.txt" />
     <Content Include="TXT\Colors\HexPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\PalettePickerPage.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
@@ -354,21 +346,10 @@
     <Content Include="Icon\Win2Ds\CanvasOperator.png" />
     <Content Include="Icon\Template\RadiusShadowPanel.png" />
     <Content Include="Icon\Win2Ds\DottedLine.png" />
-    <Content Include="TXT\Colors\AlphaPicker.cs.txt" />
-    <Content Include="TXT\Colors\AlphaPicker.xaml.txt" />
     <Content Include="TXT\Colors\AlphaPickerPage.xaml.txt" />
-    <Content Include="TXT\Colors\ColorPicker.cs.txt" />
-    <Content Include="TXT\Colors\ColorPicker.xaml.txt" />
     <Content Include="TXT\Colors\ColorPickerPage.xaml.txt" />
-    <Content Include="TXT\Colors\HSL.cs.txt" />
-    <Content Include="TXT\Colors\PalettePicker.cs.txt" />
-    <Content Include="TXT\Colors\PalettePicker.xaml.txt" />
     <Content Include="TXT\Colors\PalettePickerPage.xaml.txt" />
-    <Content Include="TXT\Colors\StrawPicker.cs.txt" />
-    <Content Include="TXT\Colors\StrawPicker.xaml.txt" />
     <Content Include="TXT\Colors\StrawPickerPage.xaml.txt" />
-    <Content Include="TXT\Colors\SwatchesPicker.cs.txt" />
-    <Content Include="TXT\Colors\SwatchesPicker.xaml.txt" />
     <Content Include="TXT\Colors\SwatchesPickerPage.xaml.txt" />
     <Content Include="TXT\Win2Ds\CanvasOperator.cs.txt" />
     <Content Include="TXT\Win2Ds\CanvasOperatorPage.xaml.cs.txt" />
@@ -390,7 +371,7 @@
     <Content Include="Icon\Brushes\RevealBackgroundBrush.png" />
     <Content Include="Icon\Brushes\RevealBorderBrush.png" />
     <Content Include="Icon\Brushes\SystemBrush.png" />
-    <Content Include="Icon\Colors\HSLPicker.png" />
+    <Content Include="Icon\Colors\HSVPicker.png" />
     <Content Include="Icon\Colors\NumberPicker.png" />
     <Content Include="Icon\Colors\RGBPicker.png" />
     <Content Include="Icon\Colors\WheelPicker.png" />
@@ -472,17 +453,9 @@
     <Content Include="Icon\Helpers\Transition\Entrance.png" />
     <Content Include="Icon\Helpers\Transition\Slide.png" />
     <Content Include="Icon\Helpers\Transition\Suppress.png" />
-    <Content Include="TXT\Colors\HSLPicker.cs.txt" />
-    <Content Include="TXT\Colors\HSLPicker.xaml.txt" />
-    <Content Include="TXT\Colors\HSLPickerPage.xaml.txt" />
-    <Content Include="TXT\Colors\NumberPicker.cs.txt" />
-    <Content Include="TXT\Colors\NumberPicker.xaml.txt" />
+    <Content Include="TXT\Colors\HSVPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\NumberPickerPage.xaml.txt" />
-    <Content Include="TXT\Colors\RGBPicker.cs.txt" />
-    <Content Include="TXT\Colors\RGBPicker.xaml.txt" />
     <Content Include="TXT\Colors\RGBPickerPage.xaml.txt" />
-    <Content Include="TXT\Colors\WheelPicker.cs.txt" />
-    <Content Include="TXT\Colors\WheelPicker.xaml.txt" />
     <Content Include="TXT\Colors\WheelPickerPage.xaml.txt" />
     <Content Include="TXT\Control\ExpandTextView.cs.txt" />
     <Content Include="TXT\Control\ExpandTextView.xaml.txt" />
@@ -492,8 +465,6 @@
     <Content Include="TXT\Control\PopupMenu.cs.txt" />
     <Content Include="TXT\Control\PopupMenu.xaml.txt" />
     <Content Include="TXT\Control\PopupMenuPage.xaml.txt" />
-    <Content Include="TXT\Colors\TouchSlider.cs.txt" />
-    <Content Include="TXT\Colors\TouchSlider.xaml.txt" />
     <Content Include="TXT\Colors\TouchSliderPage.xaml.txt" />
     <Content Include="TXT\Library\Palette.cs.txt" />
     <Content Include="Icon\Library\ScalableGrid.png" />
@@ -556,7 +527,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\ReferenceOpenCvControl.xaml">
+    <Page Include="Frames\ReferenceHSVColorPickerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -608,7 +579,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SampleCategoryControl.xaml">
+    <Page Include="SamplesCategoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -644,7 +615,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Colors\HSLPickerPage.xaml">
+    <Page Include="Frames\Colors\HSVPickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -794,6 +765,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="HSVColorPickers">
+      <Version>1.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.4</Version>
     </PackageReference>
@@ -809,9 +783,6 @@
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.0.181011001</Version>
     </PackageReference>
-    <PackageReference Include="OpenCvSharp3-AnyCPU">
-      <Version>4.0.0.20181129</Version>
-    </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
     </PackageReference>
@@ -826,9 +797,9 @@
       <Project>{4318061e-f24f-4e63-b08f-59e59f4a1175}</Project>
       <Name>FanKit.Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FanKit.Pickers\FanKit.Colors.csproj">
-      <Project>{669c9391-6912-485d-a00f-7307385ba31e}</Project>
-      <Name>FanKit.Colors</Name>
+    <ProjectReference Include="..\FanKit.Win2Ds\FanKit.Win2Ds.csproj">
+      <Project>{902f20ca-e8a3-48ea-a284-777689945ae2}</Project>
+      <Name>FanKit.Win2Ds</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

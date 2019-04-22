@@ -191,7 +191,7 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <Button x:Name="Button" Content="Flyout"
+                <Button x:Name="ButtonCenter" Content="Flyout"
                     Grid.Column="2" Grid.Row="2"  Margin="12"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Style="{ThemeResource AccentButtonStyle}">
@@ -266,7 +266,7 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Button Width="100" Margin="22" Content="Show" VerticalAlignment="Top" Tapped="Button_Tapped"/>
+                        <Button x:Name="Button" Width="100" Margin="22" Content="Show" VerticalAlignment="Top" />
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span FontWeight="SemiBold">Flyout</Span>
                             <Span>have a different direction:</Span>

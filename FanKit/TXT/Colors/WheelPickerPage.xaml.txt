@@ -4,10 +4,10 @@
 
 <Page
     x:Class="FanKit.Frames.Colors.WheelPickerPage"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
    > 
 
-     <Colors:WheelPicker x:Name="WheelPicker" ColorChange="WheelPicker_ColorChange"/>
+     <hsvColorPickers:WheelPicker x:Name="WheelPicker"/>
 
 </Page>
 

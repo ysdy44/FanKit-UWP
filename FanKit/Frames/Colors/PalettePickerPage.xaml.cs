@@ -1,49 +1,51 @@
-﻿using FanKit.Colors;
+﻿using HSVColorPickers;
 using Windows.UI;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Colors
 {
     public sealed partial class PalettePickerPage : Page
-    {
-        Color Color
-        {
-            get => this.PaletteSolidBrush.Color;
-            set => this.PaletteSolidBrush.Color=value;
-        }
-
-        PalettePicker PaletteHue = new PalettePicker(new PaletteHue());
-        PalettePicker PaletteSaturation = new PalettePicker(new PaletteSaturation());
-        PalettePicker PaletteLightness = new PalettePicker(new PaletteLightness());
-
+    { 
+        PalettePicker HuePicker = PalettePicker.CreateFormHue();
+        PalettePicker SaturationPicker = PalettePicker.CreateFormSaturation();
+        PalettePicker ValuePicker = PalettePicker.CreateFormValue();
+        
         public PalettePickerPage()
         {
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.Color = Color.FromArgb(255, 0, 187, 255);
+                this.SolidColorBrush.Color = Color.FromArgb(255, 0, 187, 255);
 
-                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.xaml.txt");
-                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.cs.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Colors/PalettePickerPage.cs.txt");
 
-                this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/PalettePicker.xaml.txt");
-                this.MarkdownText4.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/PalettePicker.cs.txt");
+                //Hue
+                this.ContentControl.Content = this.HuePicker;
+                this.HuePicker.Color = this.SolidColorBrush.Color;
             };
 
-            this.PaletteHue.ColorChange += (sender, value) => this.Color = value;
-            this.PaletteSaturation.ColorChange += (sender, value) => this.Color = value;
-            this.PaletteLightness.ColorChange += (sender, value) => this.Color = value;
-
-            this.HueButton.Tapped += (sender, e) => this.PalettePicker(this.PaletteHue);
-            this.SaturationButton.Tapped += (sender, e) => this.PalettePicker(this.PaletteSaturation);
-            this.LightnessButton.Tapped += (sender, e) => this.PalettePicker(this.PaletteLightness);
+            //Hue
+            this.HuePicker.ColorChange += (s, value) => this.SolidColorBrush.Color = value;
+            this.HueButton.Tapped += (s, e) =>
+            {
+                this.ContentControl.Content = this.HuePicker;
+                this.HuePicker.Color = this.SolidColorBrush.Color;
+            };
+            //Saturation
+            this.SaturationPicker.ColorChange += (s, value) => this.SolidColorBrush.Color = value;
+            this.SaturationButton.Tapped += (s, e) =>
+            {
+                this.ContentControl.Content = this.SaturationPicker;
+                this.SaturationPicker.Color = this.SolidColorBrush.Color;
+            };
+            //Value
+            this.ValuePicker.ColorChange += (s, value) => this.SolidColorBrush.Color = value;
+            this.ValueButton.Tapped += (s, e) => 
+            {
+                this.ContentControl.Content = this.ValuePicker;
+                this.ValuePicker.Color = this.SolidColorBrush.Color;
+            };
         }
-
-        private void PalettePicker(PalettePicker picker)
-        {
-            this.ContentControl.Content = picker;
-            picker.Color = this.Color;
-        }   
-
     }
 }

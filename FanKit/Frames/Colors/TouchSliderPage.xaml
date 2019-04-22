@@ -4,10 +4,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:frames="using:FanKit.Frames"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:frames="using:FanKit.Frames"
     mc:Ignorable="d">
 
 
@@ -30,12 +30,7 @@
 
 
                 <TextBlock Text="Slider:" Grid.Row="1" Margin="4" VerticalAlignment="Bottom"/>
-                <Colors:TouchSlider x:Name="TouchSliderControl"
-                    Grid.Row="2" 
-                    ValueChangeStarted="TouchSliderControl_ValueChangeStarted" 
-                    ValueChangeDelta="TouchSliderControl_ValueChangeDelta" 
-                    ValueChangeCompleted="TouchSliderControl_ValueChangeCompleted"
-                   />
+                <hsvColorPickers:TouchSlider x:Name="TouchSlider" Grid.Row="2" />
                 <Border x:Name="TexBlockBorder" Grid.Row="1" Height="40" Width="100" CornerRadius="20,0,0,20" Visibility="Collapsed"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
@@ -62,12 +57,9 @@
         <frames:PageLayout.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <StackPanel>
-                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-                                                     
-                            <Span FontStyle="Italic">Create a new UserControls and named "TouchSliderControl",Please put the document in the code is copied to the "TouchSliderControl.xaml"</Span>
-                            <LineBreak/>
-                            <LineBreak/>
+                    <ScrollViewer>
+                        <StackPanel>
+                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             
                             <Span FontStyle="Italic">Pressed:</Span>           
                             <LineBreak/>
@@ -94,22 +86,17 @@
                             <Span>the Slider , trigger events </Span>
                             <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
 
-                        </TextBlock>
-                    </StackPanel>
+                            </TextBlock>
+
+                            <TextBlock Text="Reference:" Margin="12" />
+                            <frames:ReferenceHSVColorPickerControl/>
+
+                        </StackPanel>
+                    </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

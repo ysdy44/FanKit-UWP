@@ -5,15 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:frames="using:FanKit.Frames"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
 
     <Page.Resources>
-
-        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey"/>
-
+        <SolidColorBrush x:Name="SolidColorBrush" x:Key="SolidColorBrushKey"/>
     </Page.Resources>
 
 
@@ -21,7 +19,7 @@
 
 
         <frames:PageLayout1.ShowContent>
-            <Colors:RGBPicker x:Name="RGBPicker" ColorChange="RGBPicker_ColorChange"/>
+            <hsvColorPickers:RGBPicker x:Name="RGBPicker"/>
         </frames:PageLayout1.ShowContent>
 
 
@@ -30,11 +28,9 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
+                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
-
-                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-                                                     
+                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">                                                     
                             <Span >The </Span>
                             <Span FontWeight="SemiBold">color </Span>
                             <Span >composed of three components,  </Span>
@@ -42,24 +38,16 @@
                             <Span FontWeight="SemiBold">Green </Span>                      
                             <Span >and </Span>
                             <Span FontWeight="SemiBold">Blue .</Span>
-
-
                         </TextBlock>
+
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceHSVColorPickerControl/>
+
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

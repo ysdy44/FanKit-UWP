@@ -4,7 +4,6 @@
 
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Text;
-using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
 using System.Numerics;
 using Windows.UI.Xaml;
@@ -14,119 +13,125 @@ namespace FanKit.Frames.Win2Ds
 {
     public sealed partial class CanvasOperatorPage : Page
     {
+        //Transform
         float CanvasWidth = 100;
         float CanvasHeight = 100;
         Vector2 Position;
         float Scale = 1f;
-
-        public CanvasOperatorPage()
-        {
-            this.InitializeComponent();
-        }
         
-        
-        #region Operator
-
-
-        private void Single_Start(Vector2 point)
-        {
-            this.Position = point;
-
-            this.Invalidate("Single_Start", Visibility.Visible);
-        }
-        private void Single_Delta(Vector2 point)
-        {
-            this.Position = point;
-
-            this.Invalidate("Single_Delta");
-        }
-        private void Single_Complete(Vector2 point)
-        {
-            this.Position = point;
-
-            this.Invalidate("Single_Complete", Visibility.Collapsed);
-        }
-
-
-
+        //Right
         Vector2 rightStartPoint;
         Vector2 rightStartPosition;
-        private void Right_Start(Vector2 point)
-        {
-            this.rightStartPoint = point;
-            this.rightStartPosition = this.Position;
 
-            this.Invalidate("Right_Start", Visibility.Visible);
-        }
-        private void Right_Delta(Vector2 point)
-        {
-            this.Position = this.rightStartPosition - this.rightStartPoint + point;
-
-            this.Invalidate("Right_Delta");
-        }
-        private void Right_Complete(Vector2 point)
-        {
-            this.Invalidate("Right_Complete", Visibility.Collapsed);
-        }
-
-
-        
+        //Double
         Vector2 doubleStartCenter;
         Vector2 doubleStartPosition;
         float doubleStartScale;
         float doubleStartSpace;
-        private void Double_Start(Vector2 center, float space)
+
+        CanvasTextFormat RulerTextFormat = new CanvasTextFormat() { FontSize = 12, HorizontalAlignment = CanvasHorizontalAlignment.Center, VerticalAlignment = CanvasVerticalAlignment.Center, };
+
+        public CanvasOperatorPage()
         {
-            this.doubleStartCenter = (center - this.Position) / this.Scale + new Vector2(this.CanvasWidth / 2, this.CanvasHeight / 2);
-            this.doubleStartPosition = this.Position;
+            this.InitializeComponent();
 
-            this.doubleStartSpace = space;
-            this.doubleStartScale = this.Scale;
-
-            this.Invalidate("Double_Start", Visibility.Visible);
-        }
-        private void Double_Delta(Vector2 center, float space)
-        {
-            this.Scale = this.doubleStartScale / this.doubleStartSpace * space;
-
-            this.Position = center - (this.doubleStartCenter - new Vector2(this.CanvasWidth / 2, this.CanvasHeight / 2)) * this.Scale;
-
-            this.Invalidate("Double_Delta");
-        }
-        private void Double_Complete(Vector2 center, float space)
-        {
-            this.Invalidate("Double_Complete", Visibility.Collapsed);
-        }
-
-
-        //Wheel Changed
-        private void Wheel_Changed(Vector2 point, float space)
-        {
-            if (space > 0)
+            //Canvas
+            this.CanvasControl.SizeChanged += (s, e) =>
             {
-                if (this.Scale < 10f)
-                {
-                    this.Scale *= 1.1f;
-                    this.Position = point + (this.Position - point) * 1.1f;
-                }
-            }
-            else
+                  if (e.NewSize == e.PreviousSize) return;                  
+                  this.Position.X = (float)e.NewSize.Width / 2;
+                  this.Position.Y = (float)e.NewSize.Height / 2;
+            };
+            this.CanvasControl.Draw += (sender, args) =>
             {
-                if (this.Scale > 0.1f)
-                {
-                    this.Scale /= 1.1f;
-                    this.Position = point + (this.Position - point) / 1.1f;
-                }
-            }
+                this.RulerDraw(args.DrawingSession, this.Position, this.Scale);
 
-            this.Invalidate("Wheel_Changed", Visibility.Visible);
+                args.DrawingSession.Transform = Matrix3x2.CreateTranslation(-this.CanvasWidth / 2, -this.CanvasHeight / 2) * Matrix3x2.CreateScale(this.Scale) * Matrix3x2.CreateTranslation(this.Position);
+                args.DrawingSession.FillRectangle(-this.CanvasWidth / 2, -this.CanvasHeight / 2, this.CanvasWidth, this.CanvasHeight, Windows.UI.Colors.Gray);
+            };
+
+
+            //Single
+            this.CanvasOperator.Single_Start += (point) =>
+            {
+                this.Position = point;
+                this.Invalidate("Single_Start", Visibility.Visible);
+            };
+            this.CanvasOperator.Single_Delta += (point) =>
+            {
+                this.Position = point;
+                this.Invalidate("Single_Delta");
+            };
+            this.CanvasOperator.Single_Complete += (point) =>
+            {
+                this.Position = point;
+                this.Invalidate("Single_Complete", Visibility.Collapsed);
+            };
+
+
+            //Right
+            this.CanvasOperator.Right_Start += (point) =>
+            {
+                this.rightStartPoint = point;
+                this.rightStartPosition = this.Position;
+                this.Invalidate("Right_Start", Visibility.Visible);
+            };
+            this.CanvasOperator.Right_Delta += (point) =>
+            {
+                this.Position = this.rightStartPosition - this.rightStartPoint + point;
+
+                this.Invalidate("Right_Delta");
+            };
+            this.CanvasOperator.Right_Complete += (point) => this.Invalidate("Right_Complete", Visibility.Collapsed);
+
+
+            //Double
+            this.CanvasOperator.Double_Start += (center, space) =>
+            {
+                this.doubleStartCenter = (center - this.Position) / this.Scale + new Vector2(this.CanvasWidth / 2, this.CanvasHeight / 2);
+                this.doubleStartPosition = this.Position;
+
+                this.doubleStartSpace = space;
+                this.doubleStartScale = this.Scale;
+
+                this.Invalidate("Double_Start", Visibility.Visible);
+            };
+            this.CanvasOperator.Double_Delta += (center, space) =>
+            {
+                this.Scale = this.doubleStartScale / this.doubleStartSpace * space;
+
+                this.Position = center - (this.doubleStartCenter - new Vector2(this.CanvasWidth / 2, this.CanvasHeight / 2)) * this.Scale;
+
+                this.Invalidate("Double_Delta");
+            };
+            this.CanvasOperator.Double_Complete += (center, space) => this.Invalidate("Double_Complete", Visibility.Collapsed);
+
+
+            //Wheel
+            this.CanvasOperator.Wheel_Changed += (point, space) =>
+            {
+
+                if (space > 0)
+                {
+                    if (this.Scale < 10f)
+                    {
+                        this.Scale *= 1.1f;
+                        this.Position = point + (this.Position - point) * 1.1f;
+                    }
+                }
+                else
+                {
+                    if (this.Scale > 0.1f)
+                    {
+                        this.Scale /= 1.1f;
+                        this.Position = point + (this.Position - point) / 1.1f;
+                    }
+                }
+
+                this.Invalidate("Wheel_Changed", Visibility.Visible);
+            };
         }
 
-
-
-        #endregion
-        
-        #region CanvasControl
 
 
         public void Invalidate(string text, Visibility? visibility = null)
@@ -136,22 +141,8 @@ namespace FanKit.Frames.Win2Ds
             this.TipTextBlock.Text = text;
             if (visibility != null) this.TipBorder.Visibility = visibility ?? Visibility.Collapsed;
         }
-        private void CanvasControl_CreateResources(CanvasControl sender, Microsoft.Graphics.Canvas.UI.CanvasCreateResourcesEventArgs args)
-        {
-            this.Position.X = (float)this.CanvasControl.ActualWidth / 2;
-            this.Position.Y = (float)this.CanvasControl.ActualHeight / 2;
-        }
-        private void CanvasControl_Draw(CanvasControl sender, CanvasDrawEventArgs args)
-        {
-            this.RulerDraw(args.DrawingSession,this.Position,this.Scale);
-
-            args.DrawingSession.Transform = Matrix3x2.CreateTranslation(-this.CanvasWidth / 2, -this.CanvasHeight / 2) * Matrix3x2.CreateScale(this.Scale) * Matrix3x2.CreateTranslation(this.Position);
-            args.DrawingSession.FillRectangle(-this.CanvasWidth / 2, -this.CanvasHeight / 2, this.CanvasWidth, this.CanvasHeight,Windows.UI.Colors.Gray);
-        }
-        
 
 
-        CanvasTextFormat RulerTextFormat = new CanvasTextFormat() { FontSize = 12, HorizontalAlignment = CanvasHorizontalAlignment.Center, VerticalAlignment = CanvasVerticalAlignment.Center, };
         private void RulerDraw(CanvasDrawingSession ds, Vector2 position, float scale)
         {
             float ActualWidth = (float)this.CanvasControl. ActualWidth;
@@ -187,11 +178,7 @@ namespace FanKit.Frames.Win2Ds
             //Vertical
             for (float Y = (float)position.Y; Y < ActualHeight; Y += spaceFive) ds.DrawText(((int)(Math.Round((Y - position.Y) / scale))).ToString(), 10, Y, Windows.UI.Colors.Gray, RulerTextFormat);
             for (float Y = (float)position.Y; Y > 20; Y -= spaceFive) ds.DrawText(((int)(Math.Round((Y - position.Y) / scale))).ToString(), 10, Y, Windows.UI.Colors.Gray, RulerTextFormat);
-        }
-
-
-        #endregion
-              
+        }       
     }
 }
 

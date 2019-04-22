@@ -4,11 +4,9 @@
 
 <UserControl
     x:Class="FanKit.Control.ExpandTextView"
-    xmlns:local="using:FanKit.Control"
-    Background="Transparent"
-    Tapped="UserControl_Tapped">
+    Background="Transparent">
 
-    <Grid x:Name="Grid" Margin="12,0">
+    <Grid x:Name="RootGrid" Margin="12,0" >
 
         <StackPanel  VerticalAlignment="Top" >
             <TextBlock x:Name="OriginTextBlock"
@@ -17,7 +15,7 @@
                        TextWrapping="Wrap" />
         </StackPanel>
 
-        <Border VerticalAlignment="Top">
+        <Border VerticalAlignment="Top" >
             <TextBlock x:Name="TrimTextBlock" 
                        LineHeight="24"
                        TextTrimming="WordEllipsis"
@@ -27,6 +25,7 @@
     </Grid>
     
 </UserControl>
+
 
 
 

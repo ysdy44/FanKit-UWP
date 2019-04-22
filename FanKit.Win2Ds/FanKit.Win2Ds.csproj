@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB1AC7A8-DAEF-4723-84ED-24549646A642}</ProjectGuid>
+    <ProjectGuid>{902F20CA-E8A3-48EA-A284-777689945AE2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FanKit.Win2Ds</RootNamespace>
@@ -90,6 +90,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -106,15 +107,18 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CanvasOperator.cs" />
+    <Compile Include="CurveNodes.cs" />
+    <Compile Include="DottedLine.cs" />
+    <Compile Include="HomographyController.cs" />
+    <Compile Include="MarqueeTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransformController.cs" />
     <EmbeddedResource Include="Properties\FanKit.Win2Ds.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.7</Version>
-    </PackageReference>
-    <PackageReference Include="OpenCvSharp3-AnyCPU">
-      <Version>4.0.0.20181129</Version>
     </PackageReference>
     <PackageReference Include="Win2D.uwp">
       <Version>1.23.0</Version>

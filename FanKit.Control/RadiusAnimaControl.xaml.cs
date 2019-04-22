@@ -10,12 +10,12 @@ namespace FanKit.Control
         public RadiusAnimaPanel()
         {
             this.InitializeComponent();
-        }
-
-        private void Border_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            this.Frame.Value = e.NewSize.Width;
-            this.Storyboard.Begin();
+            this.Border.SizeChanged += (s, e) =>
+              {
+                  if (e.NewSize == e.PreviousSize) return;
+                  this.Frame.Value = e.NewSize.Width;
+                  this.Storyboard.Begin();
+              };
         }
     }
 }

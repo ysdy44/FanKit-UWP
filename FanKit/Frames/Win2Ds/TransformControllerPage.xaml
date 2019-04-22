@@ -14,14 +14,7 @@
 
 
         <frames:PageLayout.ShowContent>
-            <canvas:CanvasControl x:Name="CanvasControl"
-                                      CreateResources="CanvasControl_CreateResources"
-                                      Draw="CanvasControl_Draw"
-                                              
-                                      PointerPressed="CanvasControl_PointerPressed"
-                                      PointerMoved="CanvasControl_PointerMoved"
-                                      PointerReleased="CanvasControl_PointerReleased"
-                                      />
+            <canvas:CanvasControl x:Name="CanvasControl"/>
         </frames:PageLayout.ShowContent>
 
 
@@ -30,7 +23,7 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <StackPanel>
-                            <Button Margin="12" Content="Reset"  Tapped="Button_Tapped"/>
+                            <Button x:Name="Button" Margin="12" Content="Reset" />
                             <CheckBox x:Name="CenterCheckBox" Content="Center" Margin="14,0"/>
                             <CheckBox x:Name="RatioCheckBox" Content="Ratio" Margin="14,0"/>
                             <CheckBox x:Name="StepFrequencyCheckBox" Content="StepFrequency" Margin="14,0"/>

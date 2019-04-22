@@ -5,10 +5,10 @@
 
 <Page
     x:Class="FanKit.Frames.Colors.AlphaPickerPage"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
     >
 	          
-      <Colors:AlphaPicker x:Name="AlphaPicker" AlphaChange="AlphaPicker_AlphaChange"/>
+        <hsvColorPickers:AlphaPicker x:Name="AlphaPicker"/>
       
 </Page>
 

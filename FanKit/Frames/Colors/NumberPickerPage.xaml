@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:frames="using:FanKit.Frames"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
@@ -34,22 +34,22 @@
 
                 <TextBlock Grid.Row="1" Text="Value: (defult 0)" Margin="12,0" VerticalAlignment="Center"/>
                 <Border Grid.Column="2" Grid.Row="1" Margin="12,0" Padding="8,4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
-                    <Colors:NumberPicker x:Name="NumberPicker0" Value="0"/>
+                    <hsvColorPickers:NumberPicker x:Name="NumberPicker0" Value="0" Width="Auto" HorizontalAlignment="Stretch"/>
                 </Border>
 
                 <TextBlock Grid.Row="2" Text="Minimum: (defult 0)" Margin="12,0" VerticalAlignment="Center"/>
                 <Border Grid.Column="2" Grid.Row="2" Margin="12,0" Padding="8,4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
-                    <Colors:NumberPicker x:Name="NumberPicker1" Minimum="0"/>
+                    <hsvColorPickers:NumberPicker x:Name="NumberPicker1" Minimum="0" Width="Auto" HorizontalAlignment="Stretch"/>
                 </Border>
 
                 <TextBlock Grid.Row="3" Text="Maximum: (defult 100)" Margin="12,0" VerticalAlignment="Center"/>
                 <Border Grid.Column="2" Grid.Row="3" Margin="12,0" Padding="8,4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
-                    <Colors:NumberPicker x:Name="NumberPicker2" Maximum="100"/>
+                    <hsvColorPickers:NumberPicker x:Name="NumberPicker2" Maximum="100" Width="Auto" HorizontalAlignment="Stretch"/>
                 </Border>
 
                 <TextBlock Grid.Row="4" Text="Unit: (defult Empty)" Margin="12,0" VerticalAlignment="Center"/>
                 <Border Grid.Column="2" Grid.Row="4" Margin="12,0" Padding="8,4" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource FlyoutBorderThemeBrush}">
-                    <Colors:NumberPicker x:Name="NumberPicker3" Unit="%"/>
+                    <hsvColorPickers:NumberPicker x:Name="NumberPicker3" Unit="%" Width="Auto" HorizontalAlignment="Stretch"/>
                 </Border>
 
             </Grid>
@@ -60,25 +60,20 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel Padding="12">
-                        <Slider x:Name="Slider0" Header="Value:" ValueChanged="Slider0_ValueChanged"/>
-                        <Slider x:Name="Slider1" Header="Minimum:" ValueChanged="Slider1_ValueChanged"/>
-                        <Slider x:Name="Slider2" Header="Maximum:" ValueChanged="Slider2_ValueChanged"/>
-                        <TextBox x:Name="TextBox0" Header="Unit:" Text="%" TextChanged="TextBox0_TextChanged"/>
+                     
+                        <Slider x:Name="Slider0" Header="Value:"/>
+                        <Slider x:Name="Slider1" Header="Minimum:"/>
+                        <Slider x:Name="Slider2" Header="Maximum:"/>
+                        <TextBox x:Name="TextBox0" Header="Unit:" Text="%" />
+
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceHSVColorPickerControl/>
+
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

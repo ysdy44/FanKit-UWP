@@ -29,7 +29,7 @@
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
                 <!--Open source-->
                 <TextBlock Text="Open source" Style="{ThemeResource TitleTextBlockStyle}"/>
-                <HyperlinkButton Content="https://github.com/ysdy44/FanKit" NavigateUri="https://github.com/ysdy44/FanKit"/>
+                <HyperlinkButton Content="https://github.com/ysdy44/FanKit-UWP" NavigateUri="https://github.com/ysdy44/FanKit-UWP"/>
 
                 
                 <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
@@ -38,9 +38,11 @@
                 <!--Reference-->
                 <TextBlock Text="Reference" Style="{ThemeResource TitleTextBlockStyle}"/>
                 <Rectangle Height="12"/>
+                
                 <frames:ReferenceToolKitControl/>
                 <frames:ReferenceWin2dControl/>
-                <frames:ReferenceOpenCvControl/>
+                <frames:ReferenceHSVColorPickerControl/>
+
                 <Rectangle Height="12"/>            
 
 

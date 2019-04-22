@@ -10,16 +10,12 @@ namespace FanKit.Frames.Colors
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.RGBPicker.Color = Color.FromArgb(255, 0, 187, 255);
+                this.RGBPicker.Color = this.SolidColorBrush.Color = Color.FromArgb(255, 0, 187, 255);
 
-                this.MarkdownText1.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/RGBPickerPage.xaml.txt");
-                this.MarkdownText2.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/RGBPicker.xaml.txt");
-                this.MarkdownText3.Text = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Colors/RGBPicker.cs.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Colors/RGBPickerPage.xaml.txt");
             };
+
+            this.RGBPicker.ColorChange += (s, value) => this.SolidColorBrush.Color = value;
         }
-         
-
-        private void RGBPicker_ColorChange(object sender, Color value)=>  this.PaletteSolidBrush.Color = value;
-
     }
 }

@@ -5,10 +5,10 @@
 
 <Page
     x:Class="FanKit.Frames.Colors.HexPickerPage"
-    xmlns:Colors="using:FanKit.Colors"
+    xmlns:hsvColorPickers="using:HSVColorPickers"
     >
 	          
-         <Colors:HexPicker x:Name="HexPicker" ColorChange="HexPicker_ColorChange"/>
+         <hsvColorPickers:HexPicker x:Name="HexPicker"/>
       
 </Page>
 

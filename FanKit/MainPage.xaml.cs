@@ -1,149 +1,133 @@
-﻿using System;
+﻿using FanKit.Samples;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
-using FanKit.Library;
-using Newtonsoft.Json;
-using Windows.Storage;
-using Windows.System;
-using FanKit.Sample;
+using Windows.UI.Xaml.Controls;
 
 namespace FanKit
 {
     public sealed partial class MainPage : Page
-    {   
-        //Navigate
+    {
+        /// <summary>
+        /// Navigate:
+        ///    Navigating Mainpage to a new page
+        /// </summary>
         public static Action<Type> Navigate;
-
-        //delegate
-        public delegate void ImageButtonVisibleChangedHandler(double Offset);
-        public static event ImageButtonVisibleChangedHandler ImageButtonVisibleChanged = null;
-     
+         
         //Methon
-        public static void ImageButtonVisibleChange(double Offset) => ImageButtonVisibleChanged?.Invoke(Offset);
+        public static Action<double> ImageButtonVisibleChange;
         private bool isImageVisible;
         public bool IsImageVisible
         {
-            get => isImageVisible;
+            get => this.isImageVisible;
             set
             {
                 if (value) this.NavigationView.Background = this.SolidColorBrush;
                 else this.NavigationView.Background = this.ImageBrush;
 
-                isImageVisible = value;
+                this.isImageVisible = value;
+            }
+        }
+        
+        private bool isCanGoBack;
+        public bool IsCanGoBack
+        {
+            get => this.isCanGoBack;
+            set
+            {
+                if (value)
+                    this.BackButton.Content = "\uE0D5";//Back
+                else
+                    this.BackButton.Content = "\uE80F";//Home
+
+                this.isCanGoBack = value;
             }
         }
 
         public MainPage()
         {
-            this.InitializeComponent();
-
-            //delegate
-            this.ImageVisibleButton.Tapped += (sender, e) => this.IsImageVisible = !this.IsImageVisible;
-
-
-            //Navigate
-            MainPage.Navigate = (page) =>
+            this.InitializeComponent();                 
+            MainPage.ImageButtonVisibleChange = (double offset) => this.sos.VerticalOffset = offset;  //ImageButtonVisible
+            MainPage.Navigate = (page) => //Navigate
             {
                 //Sample Category Control
-                this.SampleCategoryControl.Category = null;
-
-                //Navigate
-                this.ListView.SelectedIndex = -1;
+                this.SamplesCategoryControl.Category = null;
 
                 //Navigate
                 this.NavigationFrame.Navigate(page);
 
                 //Back
-                this.BackButton.Content = "\uE0D5";
+                this.IsCanGoBack = true;
             };
 
+            this.Loaded += async (s, e) =>
+            {
+                //Frame          
+                MainPage.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
+                                                                     
+                //Back   
+                this.IsCanGoBack = false; 
 
-            // this.ExtendAcrylicIntoTitleBar(); //TitleBar
+                //SampleCategory
+                string json = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Samples.json");
+                this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SampleCategory>>(json);
+            };
+                                              
+
             {
                 //TitleBar
                 CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = false;
 
                 //TitleBar
                 ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-                Color background = Color.FromArgb(255, 0, 178, 240);
-                titleBar.BackgroundColor = background;
-                titleBar.ButtonBackgroundColor = background;
-                titleBar.ButtonInactiveBackgroundColor = background;
-
-                titleBar.ButtonHoverBackgroundColor =Windows.UI.Colors.Gray;
-                titleBar.ButtonPressedBackgroundColor =Windows.UI.Colors.Gray;
+                titleBar.BackgroundColor = titleBar.ButtonBackgroundColor = titleBar.ButtonInactiveBackgroundColor = Color.FromArgb(255, 0, 178, 240);
+                titleBar.ButtonHoverBackgroundColor = titleBar.ButtonPressedBackgroundColor = Windows.UI.Colors.Gray;
 
                 //Back按钮
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
 
-
-            this.Loaded += async (sender, e) =>
+            //SampleCategory
+            this.ListView.IsItemClickEnabled = true;
+            this.ListView.ItemClick += (s, e) =>
             {
-                //Frame          
-                MainPage.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
+                this.BackButton.IsChecked = false;
+                this.SettingButton.IsChecked = false;
 
-                //ImageButtonVisible
-                FanKit.MainPage.ImageButtonVisibleChanged += (Offset) => this.sos.VerticalOffset = Offset;
-
-                //SampleCategory
-                string json = await FanKit.Sample.File.GetFile("ms-appx:///TXT/Samples.json");
-                this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SampleCategory>>(json);
+                if (e.ClickedItem is SampleCategory category)
+                {
+                    if (this.SamplesCategoryControl.Category == category)
+                        this.SamplesCategoryControl.Category = null;
+                    else
+                        this.SamplesCategoryControl.Category = category;
+                }
             };
 
+
+            //Button
+            this.ImageVisibleButton.Tapped += (sender, e) => this.IsImageVisible = !this.IsImageVisible;
+            this.SettingButton.Tapped += (s, e) => MainPage.Navigate(typeof(FanKit.Frames.Others.SettingPage));
+            this.SamplesCategoryControl.ItemClick += (page) =>  MainPage.Navigate(page);
+            this.BackButton.Tapped += (s, e) =>
+            { 
+                //Back
+                if (this.NavigationFrame.CanGoBack) this.NavigationFrame.GoBack();
+
+                 //Back
+                 if (this.NavigationFrame.CanGoBack==false)
+                {
+                    this.SamplesCategoryControl.Category = null;
+
+                    this.ListView.SelectedIndex = -1;
+                 }
+
+                 this.IsCanGoBack = this.NavigationFrame.CanGoBack;                  
+             };
         }
-
-
-
-
-        private void HomeButton_Tapped(object sender, TappedRoutedEventArgs e) => MainPage.Navigate(typeof(FanKit.Frames.Others.SplashPage));
-        private void SettingButton_Tapped(object sender, TappedRoutedEventArgs e) => MainPage.Navigate(typeof(FanKit.Frames.Others.SettingPage));
-        private void SampleCategoryControl_ItemClick(Type page) => MainPage.Navigate(page);
-        private void BackButton_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            //Back
-            if (this.NavigationFrame.CanGoBack) this.NavigationFrame.GoBack();
-
-            //Back
-            if (this.NavigationFrame.CanGoBack) this.BackButton.Content = "\uE0D5";
-            else this.BackButton.Content = "\uE80F";
-        }
-
-
-
-        //SampleCategory
-        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            this.BackButton.IsChecked = false;
-            this.SettingButton.IsChecked = false;
-
-            if (e.ClickedItem is SampleCategory category)
-            {
-                if (this.SampleCategoryControl.Category == category)
-                    this.SampleCategoryControl.Category = null;
-                else
-                    this.SampleCategoryControl.Category = category;
-            }
-        }
-
-
     }
 }
 
