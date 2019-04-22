@@ -51,7 +51,7 @@ namespace FanKit.Win2Ds
 
 
         /// <summary> Define Transformer. </summary>
-        public unsafe struct Transformer
+        public struct Transformer
         {
 
             #region Transformer
@@ -146,7 +146,89 @@ namespace FanKit.Win2Ds
 
             #region Homography
 
+            
+            /// <summary> Find Homography. </summary>
+            public static Matrix3x2 FindHomography(Vector2 srcLeftTop, Vector2 srcRightTop, Vector2 srcRightBottom, Vector2 srcLeftBottom, Vector2 dstLeftTop, Vector2 dstRightTop, Vector2 dstRightBottom, Vector2 dstLeftBottom)
+            {
+                float x0 = srcLeftTop.X, x1 = srcRightTop.X, x2 = srcLeftBottom.X, x3 = srcRightBottom.X;
+                float y0 = srcLeftTop.Y, y1 = srcRightTop.Y, y2 = srcLeftBottom.Y, y3 = srcRightBottom.Y;
+                float u0 = dstLeftTop.X, u1 = dstRightTop.X, u2 = dstLeftBottom.X, u3 = dstRightBottom.X;
+                float v0 = dstLeftTop.Y, v1 = dstRightTop.Y, v2 = dstLeftBottom.Y, v3 = dstRightBottom.Y;
+                float[,] A = new float[8, 9]
+                {
+                    { x0, y0, 1, 0, 0, 0, -x0* u0, -y0* u0, u0 },
+                    { x1, y1, 1, 0, 0, 0, -x1* u1, -y1* u1, u1 },
+                    { x2, y2, 1, 0, 0, 0, -x2* u2, -y2* u2, u2 },
+                    { x3, y3, 1, 0, 0, 0, -x3* u3, -y3* u3, u3 },
+                    { 0, 0, 0, x0, y0, 1, -x0* v0, -y0* v0, v0 },
+                    { 0, 0, 0, x1, y1, 1, -x1* v1, -y1* v1, v1 },
+                    { 0, 0, 0, x2, y2, 1, -x2* v2, -y2* v2, v2 },
+                    { 0, 0, 0, x3, y3, 1, -x3* v3, -y3* v3, v3 },
+                };
 
+
+                //epu:A's row  var:A's col-1
+                int row, column;
+                for (row = 0, column = 0; column < 8 && row < 8; column++, row++)
+                {
+                    int max_r = row;
+                    for (int i = row + 1; i < 8; i++)
+                    {
+                        if ((1e-12) < Math.Abs(A[i, column]) - Math.Abs(A[max_r, column]))
+                        {
+                            max_r = i;
+                        }
+                    }
+
+                    if (max_r != row)
+                    {
+                        for (int j = 0; j < 8 + 1; j++)
+                        {
+                            var a = A[row, j];
+                            var b = A[max_r, j];
+                            A[row, j] = b;
+                            A[max_r, j] = a;
+                        }
+                    }
+
+                    for (int i = row + 1; i < 8; i++)
+                    {
+                        if (Math.Abs(A[i, column]) < (1e-12)) continue;
+
+                        float tmp = -A[i, column] / A[row, column];
+
+                        for (int j = column; j < 8 + 1; j++)
+                        {
+                            A[i, j] += tmp * A[row, j];
+                        }
+                    }
+                }
+
+
+                float[] ret = new float[6];
+                for (int i = 8 - 1; i >= 0; i--)
+                {
+                    //Calculate Unique Solutions
+                    float tmp = 0;
+                    for (int j = i + 1; j < 8; j++)
+                    {
+                        float n = ret[j % 6];
+                        tmp += A[i, j] * n;
+                    }
+                    ret[i % 6] = (A[i, 8] - tmp) / A[i, i];
+                }
+
+                return new Matrix3x2
+                (
+                    m11: ret[0], m12: ret[3],
+                    m21: ret[1], m22: ret[4],
+                    m31: ret[2], m32: ret[5]
+                );
+            }
+
+            /*
+           Previous Code:
+             
             /// <summary> Find Homography. </summary>
             public static Matrix3x2 FindHomography(Vector2 SrcLeftTop, Vector2 SrcRightTop, Vector2 SrcRightBottom, Vector2 SrcLeftBottom, Vector2 DstLeftTop, Vector2 DstRightTop, Vector2 DstRightBottom, Vector2 DstLeftBottom)
             {
@@ -261,8 +343,7 @@ namespace FanKit.Win2Ds
 
                 *(ret + 8) = 1;
             }
-
-
+                 */
 
 
             #endregion
