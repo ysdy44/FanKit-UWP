@@ -57,6 +57,7 @@ namespace FanKit.Frames.Win2Ds
                 this.RunRightTop.Text = "(" + ((int)this.Layer.Transformer.DstRightTop.X).ToString() + ", " + ((int)this.Layer.Transformer.DstRightTop.Y).ToString() + ")";
                 this.RunRightBottom.Text = "(" + ((int)this.Layer.Transformer.DstRightBottom.X).ToString() + ", " + ((int)this.Layer.Transformer.DstRightBottom.Y).ToString() + ")";
                 this.RunLeftBottom.Text = "(" + ((int)this.Layer.Transformer.DstLeftBottom.X).ToString() + ", " + ((int)this.Layer.Transformer.DstLeftBottom.Y).ToString() + ")";
+                
 
                 args.DrawingSession.DrawImage(new Transform2DEffect
                 {
@@ -83,6 +84,8 @@ namespace FanKit.Frames.Win2Ds
                     Vector2 point = e.GetCurrentPoint(this.CanvasControl).Position.ToVector2();
                     this.Controller.Delta(point, this.Layer, this.Matrix, this.InverseMatrix);
                     this.CanvasControl.Invalidate();
+
+                    this.point = point;
                 }
             };
             this.CanvasControl.PointerReleased += (sender, e) =>
@@ -97,7 +100,7 @@ namespace FanKit.Frames.Win2Ds
                 }
             };
         }
-
+        Vector2 point;
         private HomographyController.Transformer GetTransformer(double controlWidth, double controlHeight, uint bitmapWidth, uint bitmapHeight)
         {
             float scale = Math.Min((float)controlWidth / bitmapWidth, (float)controlHeight / bitmapHeight)/2;

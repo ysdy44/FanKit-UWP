@@ -1,54 +1,61 @@
-
 ```xaml
 
- 
 
-    <UserControl
+
+ <UserControl
     x:Class="FanKit.Control.SplitPanelControl"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch"
-	>
+    d:DesignHeight="800"
+    d:DesignWidth="200">
 
     <UserControl.Resources>
-        <Storyboard  x:Name="ShowStoryboard" >
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="PanelGrid" >
-                <SplineDoubleKeyFrame x:Name="ShowFrame1" Value="0" KeySpline="0.5,1,1,1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="UIElement.Opacity" Storyboard.TargetName="DismissOverlayBackground" >
-                <SplineDoubleKeyFrame x:Name="ShowFrame2" Value="1" KeySpline="0.5,1,1,1"/>
-            </DoubleAnimationUsingKeyFrames>
+
+        <Storyboard x:Name="ShowStoryboard" >
+            <DoubleAnimation x:Name="ShowFrame1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="PanelGrid" >
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation x:Name="ShowFrame2" By="0" To="1" Storyboard.TargetProperty="UIElement.Opacity" Storyboard.TargetName="DismissOverlayBackground">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
         </Storyboard>
-        <Storyboard  x:Name="FadeStoryboard" >
-            <DoubleAnimation x:Name="FadeAnimation1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="PanelGrid" />
-            <DoubleAnimation x:Name="FadeAnimation2" By="1" To="0" Storyboard.TargetProperty="UIElement.Opacity" Storyboard.TargetName="DismissOverlayBackground"/>
+
+        <Storyboard x:Name="FadeStoryboard" >
+            <DoubleAnimation x:Name="FadeAnimation1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="PanelGrid" >
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation x:Name="FadeAnimation2" By="1" To="0" Storyboard.TargetProperty="UIElement.Opacity" Storyboard.TargetName="DismissOverlayBackground">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
         </Storyboard>
+
     </UserControl.Resources>
 
     <Grid>
-
+        
         <!--Opacity-->
-        <Rectangle x:Name="DismissOverlayBackground" Visibility="Collapsed" Opacity="0" Fill="#33000000" />
+        <Rectangle x:Name="DismissOverlayBackground" Visibility="Collapsed" Opacity="0" Fill="{ThemeResource AppStrokeColor}" />
 
         <Grid x:Name="PanelGrid" VerticalAlignment="Stretch" HorizontalAlignment="Left" >
-
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
 
             <!--Shadow-->
-            <Rectangle  x:Name="SpliteLeftShadow" Opacity="0" Grid.Column="1" >
-                <Rectangle.Fill>
-                    <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
-                        <GradientStop Color="#12000000" Offset="0"/>
-                        <GradientStop Color="#06000000" Offset="0.5"/>
-                        <GradientStop Color="#00000000" Offset="1"/>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
+            <Rectangle  x:Name="SpliteLeftShadow" Opacity="0" Grid.Column="1" Fill="{ThemeResource AppHorizontalShadow}"/>
 
             <!--Content-->
-            <Border x:Name="ContentBorder" Background="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+            <Border x:Name="ContentBorder" Background="{ThemeResource AppForeground}"/>
 
         </Grid>
     </Grid>

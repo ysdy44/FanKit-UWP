@@ -21,6 +21,11 @@ namespace FanKit.Win2Ds
         {
             public CanvasBitmap Image;
             public Transformer Transformer;
+
+            public virtual void ResetTransformer()
+            {
+                //......
+            }
         }
 
 
@@ -181,8 +186,9 @@ namespace FanKit.Win2Ds
             /// <param name="point"> Input point. </param>
             /// <param name="transformer"> Layer's transformer. </param>
             /// <param name="matrix"></param>
+            /// <param name="inverseMatrix"></param>
             /// <returns></returns>
-            public static TransformerMode ContainsNodeMode(Vector2 point, Transformer transformer, Matrix3x2 matrix)
+            public static TransformerMode ContainsNodeMode(Vector2 point, Transformer transformer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
             {
                 //LTRB
                 Vector2 leftTop = transformer.TransformLeftTop(matrix);
@@ -224,7 +230,10 @@ namespace FanKit.Win2Ds
                 if (Transformer.InNodeRadius(outsideBottom, point)) return TransformerMode.SkewBottom;
 
                 //Translation
-                if (Transformer.ContainsBound(point, leftTop, rightTop, rightBottom, leftBottom)) return TransformerMode.Translation;
+                if (Transformer.ContainsBound(point, transformer))
+                {
+                    return TransformerMode.Translation;
+                }
 
                 return TransformerMode.None;
             }
@@ -476,7 +485,7 @@ namespace FanKit.Win2Ds
 
             public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale=1, float radian=0)
             {
-                this.Mode = Transformer.ContainsNodeMode(point, layer.Transformer, layer.Transformer.Matrix);
+                this.Mode = Transformer.ContainsNodeMode(point, layer.Transformer, layer.Transformer.Matrix, layer.Transformer.InverseMatrix);
                 this.ControllerDictionary[this.Mode].Start(point, layer, matrix, scale, radian);
             }
             public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0)
@@ -499,7 +508,7 @@ namespace FanKit.Win2Ds
         {
             public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
             public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) => layer.ResetTransformer();
         }
 
         /// <summary> Translation </summary>

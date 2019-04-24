@@ -1,16 +1,15 @@
-﻿
-```Csharp
+﻿```Csharp
 
-using MathNet.Numerics.LinearAlgebra.Double;
+
 using Microsoft.Graphics.Canvas;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
-using LA = MathNet.Numerics.LinearAlgebra;
 
 namespace FanKit.Win2Ds
 {
-    public class HomographyController
+    /// <summary> Drag and drop nodes and manipulate transformer libraries. </summary>
+    public class TransformController
     {
 
         /// <summary> Scaling around the center. </summary>
@@ -25,6 +24,11 @@ namespace FanKit.Win2Ds
         {
             public CanvasBitmap Image;
             public Transformer Transformer;
+
+            public virtual void ResetTransformer()
+            {
+                //......
+            }
         }
 
 
@@ -54,7 +58,6 @@ namespace FanKit.Win2Ds
             ScaleLeftBottom,
         }
 
-
         /// <summary> Define Transformer. </summary>
         public struct Transformer
         {
@@ -62,101 +65,87 @@ namespace FanKit.Win2Ds
             #region Transformer
 
 
-            //Source
-            public Vector2 SrcLeftTop { get; private set; }
-            public Vector2 SrcRightTop { get; private set; }
-            public Vector2 SrcRightBottom { get; private set; }
-            public Vector2 SrcLeftBottom { get; private set; }
+            public float Width;
+            public float Height;
 
-            //Destination 
-            public Vector2 DstLeftTop { get; set; }
-            public Vector2 DstRightTop { get; set; }
-            public Vector2 DstRightBottom { get; set; }
-            public Vector2 DstLeftBottom { get; set; }
+            public float XScale;// = 1.0f;
+            public float YScale;// = 1.0f;
 
-            public bool DdisabledRadian;
+            public Vector2 Position;
+            public float Radian;
+            public float Skew;
+            public bool DisabledRadian;
 
-            public Matrix3x2 Matrix => Transformer.FindHomography(this.SrcLeftTop, this.SrcRightTop, this.SrcRightBottom, this.SrcLeftBottom, this.DstLeftTop, this.DstRightTop, this.DstRightBottom, this.DstLeftBottom);
-            public Matrix3x2 InverseMatrix => Transformer.FindHomography(this.DstLeftTop, this.DstRightTop, this.DstRightBottom, this.DstLeftBottom, this.SrcLeftTop, this.SrcRightTop, this.SrcRightBottom, this.SrcLeftBottom);
 
-            public static Transformer CreateFromVector(Vector2 leftTop, Vector2 rightBottom) => new Transformer
+            public Matrix3x2 Matrix => this.DisabledRadian ?
+                Matrix3x2.CreateTranslation(-this.Width / 2, -this.Height / 2) *
+                Matrix3x2.CreateScale(this.XScale, this.YScale) *
+                Matrix3x2.CreateTranslation(this.Position) :
+            Matrix3x2.CreateTranslation(-this.Width / 2, -this.Height / 2) *
+                Matrix3x2.CreateScale(this.XScale, this.YScale) *
+                Matrix3x2.CreateSkew(this.Skew, 0) *
+                Matrix3x2.CreateRotation(this.Radian) *
+                Matrix3x2.CreateTranslation(this.Position);
+
+
+            public Matrix3x2 InverseMatrix => this.DisabledRadian ?
+                Matrix3x2.CreateTranslation(-this.Position) *
+                Matrix3x2.CreateScale(1 / this.XScale, 1 / this.YScale) *
+                Matrix3x2.CreateTranslation(this.Width / 2, this.Height / 2) :
+            Matrix3x2.CreateTranslation(-this.Position) *
+                Matrix3x2.CreateRotation(-this.Radian) *
+                Matrix3x2.CreateSkew(-this.Skew, 0) *
+                Matrix3x2.CreateScale(1 / this.XScale, 1 / this.YScale) *
+                Matrix3x2.CreateTranslation(this.Width / 2, this.Height / 2);
+
+
+            public void CopyWith(Transformer transformer)
             {
-                //Source
-                SrcLeftTop = leftTop,
-                SrcRightTop = new Vector2(rightBottom.X, leftTop.Y),
-                SrcRightBottom = rightBottom,
-                SrcLeftBottom = new Vector2(leftTop.X, rightBottom.Y),
-                //Destination
-                DstLeftTop = leftTop,
-                DstRightTop = new Vector2(rightBottom.X, leftTop.Y),
-                DstRightBottom = rightBottom,
-                DstLeftBottom = new Vector2(leftTop.X, rightBottom.Y),
+                this.XScale = transformer.XScale;
+                this.YScale = transformer.YScale;
+
+                this.Position = transformer.Position;
+                this.Radian = transformer.Radian;
+                this.Skew = transformer.Skew;
+            }
+            public static Transformer Zero => new Transformer();
+            public static Transformer One => new Transformer() { XScale = 1,YScale=1};
+            public static Transformer CreateFromSize(float width, float height, Vector2 postion, float scale = 1.0f, float radian = 0.0f, bool disabledRadian = false) => new Transformer
+            {
+                Width = width,
+                Height = height,
+
+                XScale = scale,
+                YScale = scale,
+
+                Position = postion,
+                Radian = radian,
+                Skew = 0,
+                DisabledRadian = disabledRadian
             };
-            public static Transformer CreateFromSize(float width, float height, Vector2 postion, float scale = 1, bool disabledRadian = false) => new Transformer
-            {
-                //Source
-                SrcLeftTop = Vector2.Zero,
-                SrcRightTop = new Vector2(width, 0),
-                SrcRightBottom = new Vector2(width, height),
-                SrcLeftBottom = new Vector2(0, height),
-                //Destination
-                DstLeftTop = postion,
-                DstRightTop = postion + new Vector2(width * scale, 0),
-                DstRightBottom = postion + new Vector2(width * scale, height * scale),
-                DstLeftBottom = postion + new Vector2(0, height * scale),
 
-                DdisabledRadian = disabledRadian
-            };
-            public static void CopyWith(Layer layer, Transformer transformer)
-            {
-                layer.Transformer.DstLeftTop = transformer.DstLeftTop;
-                layer.Transformer.DstRightTop = transformer.DstRightTop;
-                layer.Transformer.DstRightBottom = transformer.DstRightBottom;
-                layer.Transformer.DstLeftBottom = transformer.DstLeftBottom;
+            public Vector2 TransformLeft(Matrix3x2 matrix) => Vector2.Transform(new Vector2(0, this.Height / 2), matrix);
+            public Vector2 TransformTop(Matrix3x2 matrix) => Vector2.Transform(new Vector2(this.Width / 2, 0), matrix);
+            public Vector2 TransformRight(Matrix3x2 matrix) => Vector2.Transform(new Vector2(this.Width, this.Height / 2), matrix);
+            public Vector2 TransformBottom(Matrix3x2 matrix) => Vector2.Transform(new Vector2(this.Width / 2, this.Height), matrix);
 
-                layer.Transformer.DdisabledRadian = transformer.DdisabledRadian;
-            }
+            public Vector2 TransformLeftTop(Matrix3x2 matrix) => matrix.Translation;
+            public Vector2 TransformRightTop(Matrix3x2 matrix) => Vector2.Transform(new Vector2(this.Width, 0), matrix);
+            public Vector2 TransformRightBottom(Matrix3x2 matrix) => Vector2.Transform(new Vector2(this.Width, this.Height), matrix);
+            public Vector2 TransformLeftBottom(Matrix3x2 matrix) => Vector2.Transform(new Vector2(0, this.Height), matrix);
 
-            public Vector2 DstLeft => (this.DstLeftTop + this.DstLeftBottom) / 2;
-            public Vector2 DstTop => (this.DstLeftTop + this.DstRightTop) / 2;
-            public Vector2 DstRight => (this.DstRightTop + this.DstRightBottom) / 2;
-            public Vector2 DstBottom => (this.DstRightBottom + this.DstLeftBottom) / 2;
+            public Vector2 TransformCenter(Matrix3x2 matrix) => Vector2.Transform(new Vector2(this.Width / 2, this.Height / 2), matrix);
 
-            public Vector2 DstCenter => (this.DstLeftTop + this.DstRightBottom) / 2;
-
-            public float DstMinX(Matrix3x2 matrix) => Math.Min(Math.Min(this.DstLeftTop.X, this.DstRightTop.X), Math.Min(this.DstRightBottom.X, this.DstLeftBottom.X));
-            public float DstMaxX(Matrix3x2 matrix) => Math.Max(Math.Max(this.DstLeftTop.X, this.DstRightTop.X), Math.Max(this.DstRightBottom.X, this.DstLeftBottom.X));
-            public float DstMinY(Matrix3x2 matrix) => Math.Min(Math.Min(this.DstLeftTop.Y, this.DstRightTop.Y), Math.Min(this.DstRightBottom.Y, this.DstLeftBottom.Y));
-            public float DstMaxY(Matrix3x2 matrix) => Math.Max(Math.Max(this.DstLeftTop.Y, this.DstRightTop.Y), Math.Max(this.DstRightBottom.Y, this.DstLeftBottom.Y));
-
-
-            /// <summary> Multiplies matrix to layer's transformer. </summary>
-            public static void Add(Layer layer, Transformer startTransformer, Vector2 vector)
-            {
-                layer.Transformer.DstLeftTop = startTransformer.DstLeftTop + vector;
-                layer.Transformer.DstRightTop = startTransformer.DstRightTop + vector;
-                layer.Transformer.DstRightBottom = startTransformer.DstRightBottom + vector;
-                layer.Transformer.DstLeftBottom = startTransformer.DstLeftBottom + vector;
-            }
-            /// <summary> Multiplies vector to layer's ttransformer. </summary>
-            public static void Multiplies(Layer layer, Transformer startTransformer, Matrix3x2 matrix)
-            {
-                layer.Transformer.DstLeftTop = Vector2.Transform(startTransformer.DstLeftTop, matrix);
-                layer.Transformer.DstRightTop = Vector2.Transform(startTransformer.DstRightTop, matrix);
-                layer.Transformer.DstRightBottom = Vector2.Transform(startTransformer.DstRightBottom, matrix);
-                layer.Transformer.DstLeftBottom = Vector2.Transform(startTransformer.DstLeftBottom, matrix);
-            }
-
-
-            /// <summary> Find Homography. </summary>
-            public static Matrix3x2 FindHomography(Vector2 SrcLeftTop, Vector2 SrcRightTop, Vector2 SrcRightBottom, Vector2 SrcLeftBottom, Vector2 DstLeftTop, Vector2 DstRightTop, Vector2 DstRightBottom, Vector2 DstLeftBottom) => Transformer.VectorToMatrix(LA.Double.DenseMatrix.OfArray(new double[8, 8] { { SrcLeftTop.X, SrcLeftTop.Y, 1, 0, 0, 0, -DstLeftTop.X * SrcLeftTop.X, -DstLeftTop.X * SrcLeftTop.Y }, { 0, 0, 0, SrcLeftTop.X, SrcLeftTop.Y, 1, -DstLeftTop.Y * SrcLeftTop.X, -DstLeftTop.Y * SrcLeftTop.Y }, { SrcRightTop.X, SrcRightTop.Y, 1, 0, 0, 0, -DstRightTop.X * SrcRightTop.X, -DstRightTop.X * SrcRightTop.Y }, { 0, 0, 0, SrcRightTop.X, SrcRightTop.Y, 1, -DstRightTop.Y * SrcRightTop.X, -DstRightTop.Y * SrcRightTop.Y }, { SrcRightBottom.X, SrcRightBottom.Y, 1, 0, 0, 0, -DstRightBottom.X * SrcRightBottom.X, -DstRightBottom.X * SrcRightBottom.Y }, { 0, 0, 0, SrcRightBottom.X, SrcRightBottom.Y, 1, -DstRightBottom.Y * SrcRightBottom.X, -DstRightBottom.Y * SrcRightBottom.Y }, { SrcLeftBottom.X, SrcLeftBottom.Y, 1, 0, 0, 0, -DstLeftBottom.X * SrcLeftBottom.X, -DstLeftBottom.X * SrcLeftBottom.Y }, { 0, 0, 0, SrcLeftBottom.X, SrcLeftBottom.Y, 1, -DstLeftBottom.Y * SrcLeftBottom.X, -DstLeftBottom.Y * SrcLeftBottom.Y }, }).PseudoInverse() * new DenseVector(new double[8] { DstLeftTop.X, DstLeftTop.Y, DstRightTop.X, DstRightTop.Y, DstRightBottom.X, DstRightBottom.Y, DstLeftBottom.X, DstLeftBottom.Y }));
-            private static Matrix3x2 VectorToMatrix(LA.Vector<double> parameterVec) => new Matrix3x2((float)parameterVec[0], (float)parameterVec[3], (float)parameterVec[1], (float)parameterVec[4], (float)parameterVec[2], (float)parameterVec[5]);
+            public float TransformMinX(Matrix3x2 matrix) => Math.Min(Math.Min(this.TransformLeftTop(Matrix).X, this.TransformRightTop(Matrix).X), Math.Min(this.TransformRightBottom(Matrix).X, this.TransformLeftBottom(Matrix).X));
+            public float TransformMaxX(Matrix3x2 matrix) => Math.Max(Math.Max(this.TransformLeftTop(Matrix).X, this.TransformRightTop(Matrix).X), Math.Max(this.TransformRightBottom(Matrix).X, this.TransformLeftBottom(Matrix).X));
+            public float TransformMinY(Matrix3x2 matrix) => Math.Min(Math.Min(this.TransformLeftTop(Matrix).Y, this.TransformRightTop(Matrix).Y), Math.Min(this.TransformRightBottom(Matrix).Y, this.TransformLeftBottom(Matrix).Y));
+            public float TransformMaxY(Matrix3x2 matrix) => Math.Max(Math.Max(this.TransformLeftTop(Matrix).Y, this.TransformRightTop(Matrix).Y), Math.Max(this.TransformRightBottom(Matrix).Y, this.TransformLeftBottom(Matrix).Y));
 
 
             #endregion
 
 
-            #region Contains        
+            #region Contains
 
 
             /// <summary> Radius of node'. Defult 12. </summary>
@@ -181,7 +170,7 @@ namespace FanKit.Win2Ds
             public static bool ContainsBound(Vector2 point, Transformer transformer)
             {
                 Vector2 v = Vector2.Transform(point, transformer.InverseMatrix);
-                return v.X > 0 && v.X < transformer.SrcRightBottom.X && v.Y > 0 && v.Y < transformer.SrcRightBottom.Y;
+                return v.X > 0 && v.X < transformer.Width && v.Y > 0 && v.Y < transformer.Height;
             }
             public static bool ContainsBound(Vector2 point, Vector2 leftTop, Vector2 rightTop, Vector2 rightBottom, Vector2 leftBottom)
             {
@@ -200,14 +189,15 @@ namespace FanKit.Win2Ds
             /// <param name="point"> Input point. </param>
             /// <param name="transformer"> Layer's transformer. </param>
             /// <param name="matrix"></param>
+            /// <param name="inverseMatrix"></param>
             /// <returns></returns>
-            public static TransformerMode ContainsNodeMode(Vector2 point, Transformer transformer, Matrix3x2 matrix)
+            public static TransformerMode ContainsNodeMode(Vector2 point, Transformer transformer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
             {
                 //LTRB
-                Vector2 leftTop = Vector2.Transform(transformer.DstLeftTop, matrix);
-                Vector2 rightTop = Vector2.Transform(transformer.DstRightTop, matrix);
-                Vector2 rightBottom = Vector2.Transform(transformer.DstRightBottom, matrix);
-                Vector2 leftBottom = Vector2.Transform(transformer.DstLeftBottom, matrix);
+                Vector2 leftTop = transformer.TransformLeftTop(matrix);
+                Vector2 rightTop = transformer.TransformRightTop(matrix);
+                Vector2 rightBottom = transformer.TransformRightBottom(matrix);
+                Vector2 leftBottom = transformer.TransformLeftBottom(matrix);
 
                 //Scale2
                 if (Transformer.InNodeRadius(leftTop, point)) return TransformerMode.ScaleLeftTop;
@@ -234,23 +224,22 @@ namespace FanKit.Win2Ds
                 Vector2 outsideBottom = Transformer.OutsideNode(centerBottom, centerTop);
 
                 //Rotation
-                if (transformer.DdisabledRadian == false)
-                {
-                    if (Transformer.InNodeRadius(outsideTop, point)) return TransformerMode.Rotation;
+                if (Transformer.InNodeRadius(outsideTop, point)) return TransformerMode.Rotation;
 
-                    //Skew
-                    //if (Transformer.InNodeRadius(outsideLeft, point)) return TransformerMode.SkewLeft;
-                    //if (Transformer.InNodeRadius(outsideTop, point)) return TransformerMode.SkewTop;
-                    if (Transformer.InNodeRadius(outsideRight, point)) return TransformerMode.SkewRight;
-                    if (Transformer.InNodeRadius(outsideBottom, point)) return TransformerMode.SkewBottom;
-                }
+                //Skew
+                //if (Transformer.InNodeRadius(outsideLeft, point)) return TransformerMode.SkewLeft;
+                //if (Transformer.InNodeRadius(outsideTop, point)) return TransformerMode.SkewTop;
+                if (Transformer.InNodeRadius(outsideRight, point)) return TransformerMode.SkewRight;
+                if (Transformer.InNodeRadius(outsideBottom, point)) return TransformerMode.SkewBottom;
 
                 //Translation
-                if (Transformer.ContainsBound(point, leftTop, rightTop, rightBottom, leftBottom)) return TransformerMode.Translation;
+                if (Transformer.ContainsBound(point, transformer))
+                {
+                    return TransformerMode.Translation;
+                }
 
                 return TransformerMode.None;
             }
-
 
             #endregion
 
@@ -261,11 +250,10 @@ namespace FanKit.Win2Ds
             /// <summary> Draw lines on bound. </summary>
             public static void DrawBound(CanvasDrawingSession ds, Transformer transformer, Matrix3x2 matrix)
             {
-                //LTRB
-                Vector2 leftTop = Vector2.Transform(transformer.DstLeftTop, matrix);
-                Vector2 rightTop = Vector2.Transform(transformer.DstRightTop, matrix);
-                Vector2 rightBottom = Vector2.Transform(transformer.DstRightBottom, matrix);
-                Vector2 leftBottom = Vector2.Transform(transformer.DstLeftBottom, matrix);
+                Vector2 leftTop = transformer.TransformLeftTop(matrix);
+                Vector2 rightTop = transformer.TransformRightTop(matrix);
+                Vector2 rightBottom = transformer.TransformRightBottom(matrix);
+                Vector2 leftBottom = transformer.TransformLeftBottom(matrix);
 
                 //LTRB: Line
                 ds.DrawLine(leftTop, rightTop, Windows.UI.Colors.DodgerBlue);
@@ -277,10 +265,10 @@ namespace FanKit.Win2Ds
             public static void DrawBoundNodes(CanvasDrawingSession ds, Transformer transformer, Matrix3x2 matrix)
             {
                 //LTRB
-                Vector2 leftTop = Vector2.Transform(transformer.DstLeftTop, matrix);
-                Vector2 rightTop = Vector2.Transform(transformer.DstRightTop, matrix);
-                Vector2 rightBottom = Vector2.Transform(transformer.DstRightBottom, matrix);
-                Vector2 leftBottom = Vector2.Transform(transformer.DstLeftBottom, matrix);
+                Vector2 leftTop = transformer.TransformLeftTop(matrix);
+                Vector2 rightTop = transformer.TransformRightTop(matrix);
+                Vector2 rightBottom = transformer.TransformRightBottom(matrix);
+                Vector2 leftBottom = transformer.TransformLeftBottom(matrix);
 
                 //Line
                 ds.DrawLine(leftTop, rightTop, Windows.UI.Colors.DodgerBlue);
@@ -312,24 +300,21 @@ namespace FanKit.Win2Ds
                     Transformer.DrawNode2(ds, centerRight);
                 }
 
-                if (transformer.DdisabledRadian == false)
-                {
-                    //Outside
-                    Vector2 outsideLeft = Transformer.OutsideNode(centerLeft, centerRight);
-                    Vector2 outsideTop = Transformer.OutsideNode(centerTop, centerBottom);
-                    Vector2 outsideRight = Transformer.OutsideNode(centerRight, centerLeft);
-                    Vector2 outsideBottom = Transformer.OutsideNode(centerBottom, centerTop);
+                //Outside
+                Vector2 outsideLeft = Transformer.OutsideNode(centerLeft, centerRight);
+                Vector2 outsideTop = Transformer.OutsideNode(centerTop, centerBottom);
+                Vector2 outsideRight = Transformer.OutsideNode(centerRight, centerLeft);
+                Vector2 outsideBottom = Transformer.OutsideNode(centerBottom, centerTop);
 
-                    //Radian
-                    ds.DrawLine(outsideTop, centerTop, Windows.UI.Colors.DodgerBlue);
-                    Transformer.DrawNode(ds, outsideTop);
+                //Radian
+                ds.DrawLine(outsideTop, centerTop, Windows.UI.Colors.DodgerBlue);
+                Transformer.DrawNode(ds, outsideTop);
 
-                    //Skew
-                    //Transformer.DrawNode2(ds, outsideTop);
-                    //Transformer.DrawNode2(ds, outsideLeft);
-                    Transformer.DrawNode2(ds, outsideRight);
-                    Transformer.DrawNode2(ds, outsideBottom);
-                }
+                //Skew:
+                //Transformer.DrawNode2(ds, outsideLeft);
+                //Transformer.DrawNode2(ds, outsideTop);
+                Transformer.DrawNode2(ds, outsideRight);
+                Transformer.DrawNode2(ds, outsideBottom);
             }
 
             /// <summary> Draw a ⊙. </summary>
@@ -461,8 +446,8 @@ namespace FanKit.Win2Ds
 
             #endregion
 
-
         }
+
 
         //---------------------------------------------------------Controller--------------------------------------------------------//
 
@@ -470,12 +455,12 @@ namespace FanKit.Win2Ds
         /// <summary> Controller interface </summary>
         public interface IController
         {
-            void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix);
-            void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix);
-            void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix);
+            void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0);
+            void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0);
+            void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0);
         }
 
-        /// <summary>  </summary>
+        /// <summary> Controller </summary>
         public class Controller : IController
         {
             public TransformerMode Mode = TransformerMode.None;
@@ -501,18 +486,18 @@ namespace FanKit.Win2Ds
                 {TransformerMode.ScaleLeftBottom,  new ScaleLeftBottomController()},
             };
 
-            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale=1, float radian=0)
             {
-                this.Mode = Transformer.ContainsNodeMode(point, layer.Transformer, matrix);
-                this.ControllerDictionary[this.Mode].Start(point, layer, matrix, inverseMatrix);
+                this.Mode = Transformer.ContainsNodeMode(point, layer.Transformer, layer.Transformer.Matrix, layer.Transformer.InverseMatrix);
+                this.ControllerDictionary[this.Mode].Start(point, layer, matrix, scale, radian);
             }
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0)
             {
-                this.ControllerDictionary[this.Mode].Delta(point, layer, matrix, inverseMatrix);
+                this.ControllerDictionary[this.Mode].Delta(point, layer, matrix, scale, radian);
             }
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale = 1, float radian = 0)
             {
-                this.ControllerDictionary[this.Mode].Delta(point, layer, matrix, inverseMatrix);
+                this.ControllerDictionary[this.Mode].Delta(point, layer, matrix, scale, radian);
                 this.Mode = TransformerMode.None;
             }
         }
@@ -522,65 +507,66 @@ namespace FanKit.Win2Ds
 
 
         /// <summary> None </summary>
-        public class NoneController : IController
+        private class NoneController : IController
         {
-            protected Transformer StartTransformer;
-
-            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix) => this.StartTransformer = layer.Transformer;
-            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix) { }
-            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix) { }
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) => layer.ResetTransformer();
         }
 
         /// <summary> Translation </summary>
-        public class TranslationController : NoneController, IController
+        private class TranslationController : IController
         {
+            Vector2 StartTransformerPostion;
             Vector2 StartPostion;
 
-            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                base.Start(point, layer, matrix, inverseMatrix);
-                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
-                this.StartPostion = dstPoint;
+                this.StartPostion = point / scale;
+                this.StartTransformerPostion = layer.Transformer.Position;
             }
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
-                Vector2 vector = dstPoint - this.StartPostion;
+                Vector2 vector = point / scale - this.StartPostion;
 
-                Transformer.Add
-                (
-                    layer: layer,
-                    startTransformer: base.StartTransformer,
-                    vector: vector
-                );
+                layer.Transformer.Position = this.StartTransformerPostion + this.GetRotatedVector(vector, radian);
+            }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+
+            private Vector2 GetRotatedVector(Vector2 vector, float radian)
+            {
+                if (radian == 0) return vector;
+
+                float cos = (float)Math.Cos(radian);
+                float sin = (float)Math.Sin(radian);
+                return new Vector2(cos * vector.X + sin * vector.Y, -sin * vector.X + cos * vector.Y);
             }
         }
 
         /// <summary> Rotation </summary>
-        public class RotationController : NoneController, IController
+        private class RotationController : IController
         {
+            Vector2 Center;
+            float Radian;
+
+            float StartTransformerRadian;
             float StartRadian;
 
-            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                base.Start(point, layer, matrix, inverseMatrix);
-                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
-                this.StartRadian = Transformer.VectorToRadians(dstPoint - base.StartTransformer.DstCenter);
-            }
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
-            {
-                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
-                float radian = -this.StartRadian + Transformer.VectorToRadians(dstPoint - base.StartTransformer.DstCenter);
-                float radiansStepFrequency = HomographyController.IsStepFrequency ? Transformer.RadiansStepFrequency(radian) : radian;
-                Matrix3x2 matrix2 = Matrix3x2.CreateRotation(radiansStepFrequency, base.StartTransformer.DstCenter);
+                this.Center = layer.Transformer.TransformCenter(matrix);
 
-                Transformer.Multiplies
-                (
-                    layer: layer,
-                    startTransformer: base.StartTransformer,
-                    matrix: matrix2
-                );
+                this.StartTransformerRadian = layer.Transformer.Radian;
+                this.StartRadian = Transformer.VectorToRadians(point - this.Center);
             }
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
+            {
+                this.Radian = Transformer.VectorToRadians(point - this.Center);
+                float radian2 = this.StartTransformerRadian - this.StartRadian + this.Radian;
+
+                layer.Transformer.Radian = TransformController.IsStepFrequency ? Transformer.RadiansStepFrequency(radian2) : radian2;
+            }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
         }
 
 
@@ -591,95 +577,126 @@ namespace FanKit.Win2Ds
 
 
         /// <summary> Skew </summary>
-        public abstract class SkewController : NoneController, IController
+        protected abstract class SkewController : IController
         {
             //@Override
-            public abstract Vector2 GetLineA();
-            public abstract Vector2 GetLineB();
-            public abstract void SetTransformer(Layer layer, Vector2 vector);
+            public abstract Vector2 GetLineA(Layer layer, Matrix3x2 matrix);
+            public abstract Vector2 GetLineB(Layer layer, Matrix3x2 matrix);
 
-            Vector2 StartSkew;
+            protected Transformer StartTransformer;
+            protected Vector2 Center;
 
-            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            /// <summary> Point A (left point on the same side of the point) </summary>
+            protected Vector2 LineA;
+            /// <summary> Point b (right point on the same side of the point) </summary>
+            protected Vector2 LineB;
+
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                base.Start(point, layer, matrix, inverseMatrix);
+                this.StartTransformer.CopyWith(layer.Transformer);
+                this.Center = layer.Transformer.TransformCenter(matrix);
 
-                this.StartSkew = Transformer.FootPoint(point, this.GetLineA(), this.GetLineB());
+                this.LineA = this.GetLineA(layer, matrix);
+                this.LineB = this.GetLineB(layer, matrix);
             }
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+        }
+
+
+        /// <summary> SkewHorizontal (Left Right)</summary>
+        protected abstract class SkewHorizontalController : SkewController, IController
+        {
+            //@Override
+            public abstract float GetRadian(float skew);
+
+            /// <summary> Visually really XScale (For Skew, XScale is't really XScale.) </summary>
+            float RealXScale;
+            /// <summary> Visually really YScale (For Skew, YScale is't really YScale.) </summary>
+            float RealYScale;
+
+            bool IsFlipHorizontal;
+            bool IsFlipVertical;
+
+            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                Vector2 postion = Transformer.FootPoint(point, this.GetLineA(), this.GetLineB());
-                Vector2 vector = postion - this.StartSkew;
-                this.SetTransformer(layer, vector);
+                base.Start(point, layer, matrix, scale, radian);
+
+                //RealScale
+                float value = base.StartTransformer.Skew;
+                float cos = (float)Math.Cos(value);
+                this.RealXScale = Math.Abs(base.StartTransformer.XScale * cos);
+                this.RealYScale = Math.Abs(base.StartTransformer.YScale / cos);
+
+                //Flip
+                this.IsFlipHorizontal = base.StartTransformer.XScale < 0;
+                this.IsFlipVertical = base.StartTransformer.YScale < 0;
+            }
+            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
+            {
+                Vector2 footPoint = Transformer.FootPoint(point, base.LineA, base.LineB);
+                float radians = Transformer.VectorToRadians(footPoint - base.Center) % Transformer.PI;
+
+                //Radian
+                layer.Transformer.Radian = (!this.IsFlipHorizontal) ?
+                       this.GetRadian(radians) :
+                       this.GetRadian(radians) + Transformer.PI;
+
+                //Skew
+                float value = radians + (base.StartTransformer.Skew - base.StartTransformer.Radian);
+                layer.Transformer.Skew = value % Transformer.PI;
+
+                //Scale
+                float cos = (float)Math.Cos(value);
+
+                layer.Transformer.XScale = (!this.IsFlipHorizontal) ?
+                    Math.Abs(this.RealXScale / cos) :
+                    -Math.Abs(this.RealXScale / cos);
+
+                layer.Transformer.YScale = (!this.IsFlipVertical) ?
+                    Math.Abs(this.RealYScale * cos) :
+                    layer.Transformer.YScale = -Math.Abs(this.RealYScale * cos);
             }
         }
         /// <summary> SkewLeft </summary>
-        public class SkewLeftController : SkewController, IController
+        private class SkewLeftController : SkewHorizontalController
         {
-            public override Vector2 GetLineA() => base.StartTransformer.DstLeftTop;
-            public override Vector2 GetLineB() => base.StartTransformer.DstLeftBottom;
-            public override void SetTransformer(Layer layer, Vector2 vector)
-            {
-                layer.Transformer.DstLeftTop = base.StartTransformer.DstLeftTop + vector;
-                layer.Transformer.DstLeftBottom = base.StartTransformer.DstLeftBottom + vector;
+            public override Vector2 GetLineA(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformLeftTop(matrix);
+            public override Vector2 GetLineB(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformLeftBottom(matrix);
+            public override float GetRadian(float skew) => (skew + Transformer.PI) % Transformer.PI;
+        }
+        /// <summary> SkewRight </summary>
+        private class SkewRightController : SkewHorizontalController
+        {
+            public override Vector2 GetLineA(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformRightTop(matrix);
+            public override Vector2 GetLineB(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformRightBottom(matrix);
+            public override float GetRadian(float skew) => skew % Transformer.PI;
+        }
 
-                if (HomographyController.IsCenter)
-                {
-                    layer.Transformer.DstRightTop = base.StartTransformer.DstRightTop - vector;
-                    layer.Transformer.DstRightBottom = base.StartTransformer.DstRightBottom - vector;
-                }
+
+        /// <summary> SkewVertical (Top Bottom) </summary>
+        protected abstract class SkewVerticalController : SkewController, IController
+        {
+            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
+            {
+                Vector2 footPoint = Transformer.FootPoint(point, base.LineA, base.LineB);
+                float radians = Transformer.VectorToRadians(footPoint - base.Center);
+
+                float value = -radians + base.StartTransformer.Radian + Transformer.PiHalf;
+                layer.Transformer.Skew = value;
             }
         }
         /// <summary> SkewTop </summary>
-        public class SkewTopController : SkewController, IController
+        private class SkewTopController : SkewVerticalController
         {
-            public override Vector2 GetLineA() => base.StartTransformer.DstLeftTop;
-            public override Vector2 GetLineB() => base.StartTransformer.DstRightTop;
-            public override void SetTransformer(Layer layer, Vector2 vector)
-            {
-                layer.Transformer.DstLeftTop = base.StartTransformer.DstLeftTop + vector;
-                layer.Transformer.DstRightTop = base.StartTransformer.DstRightTop + vector;
-
-                if (HomographyController.IsCenter)
-                {
-                    layer.Transformer.DstLeftBottom = base.StartTransformer.DstLeftBottom - vector;
-                    layer.Transformer.DstRightBottom = base.StartTransformer.DstRightBottom - vector;
-                }
-            }
-        }
-        /// <summary> SkewRight </summary>
-        public class SkewRightController : SkewController, IController
-        {
-            public override Vector2 GetLineA() => base.StartTransformer.DstRightTop;
-            public override Vector2 GetLineB() => base.StartTransformer.DstRightBottom;
-            public override void SetTransformer(Layer layer, Vector2 vector)
-            {
-                layer.Transformer.DstRightTop = base.StartTransformer.DstRightTop + vector;
-                layer.Transformer.DstRightBottom = base.StartTransformer.DstRightBottom + vector;
-
-                if (HomographyController.IsCenter)
-                {
-                    layer.Transformer.DstLeftTop = base.StartTransformer.DstLeftTop - vector;
-                    layer.Transformer.DstLeftBottom = base.StartTransformer.DstLeftBottom - vector;
-                }
-            }
+            public override Vector2 GetLineA(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformLeftTop(matrix);
+            public override Vector2 GetLineB(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformRightTop(matrix);
         }
         /// <summary> SkewBottom </summary>
-        public class SkewBottomController : SkewController, IController
+        private class SkewBottomController : SkewVerticalController
         {
-            public override Vector2 GetLineA() => base.StartTransformer.DstLeftBottom;
-            public override Vector2 GetLineB() => base.StartTransformer.DstRightBottom;
-            public override void SetTransformer(Layer layer, Vector2 vector)
-            {
-                layer.Transformer.DstLeftBottom = base.StartTransformer.DstLeftBottom + vector;
-                layer.Transformer.DstRightBottom = base.StartTransformer.DstRightBottom + vector;
-
-                if (HomographyController.IsCenter)
-                {
-                    layer.Transformer.DstLeftTop = base.StartTransformer.DstLeftTop - vector;
-                    layer.Transformer.DstRightTop = base.StartTransformer.DstRightTop - vector;
-                }
-            }
+            public override Vector2 GetLineA(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformLeftBottom(matrix);
+            public override Vector2 GetLineB(Layer layer, Matrix3x2 matrix) => layer.Transformer.TransformRightBottom(matrix);
         }
 
 
@@ -689,56 +706,158 @@ namespace FanKit.Win2Ds
         #region Scale
 
 
-        /// <summary> 
-        /// Distance of points on these points in a line: 
-        /// ------D[Diagonal Point]、C[Center Point]、P[Point) and F[FootPoint] .
+        /// <summary>
+        /// These points in a line:  
+        /// ------S[Symmetric Point]、D[Diagonal Point]、C[Center Point]、P[Point) and F[FootPoint] .
         /// </summary>
-        public struct LineDistance
+        public struct VectorLine
         {
-            /// <summary> Distance between [Foot Point] and [Center Point] . </summary>
-            public float FC;
-            /// <summary> Distance between [Foot Point] and [Point] . </summary>
-            public float FP;
-            /// <summary> Distance between [Foot Point] and [Diagonal Point] . </summary>
-            public float FD;
-            /// <summary> Distance between [Point] and [Center Point] . </summary>
-            public float PC;
+            /// <summary> Diagonal Point(Such as: Left Point)</summary>
+            public Vector2 Diagonal;
 
+            /// <summary> Symmetric Point(Diagonal Point as origin, the Symmetric Point of a Point) </summary>
+            public Vector2 Symmetric;
+
+            /// <summary> Center Point (The Center Point between Point and Diagonal Point) </summary>
+            public Vector2 Center;
 
             // These points in a line: 
-            //      D[Diagonal Point]、C[Center Point]、P[Point] and F[FootPoint] .
+            //      S[Symmetric Point]、D[Diagonal Point]、C[Center Point]、P[Point) and F[FootPoint] .
             //
             //                                         2m                                           1m                          1m
             //————•————————————————•————————•————————•————
-            //              D                                                          C                                                           P
-            public LineDistance(Vector2 footPoint, Vector2 point, Vector2 center)
-            {
-                var diagonal = center + center - point;
+            //              S                                                          D                            C                             P
 
-                this.FC = Vector2.Distance(footPoint, center);
-                this.FP = Vector2.Distance(footPoint, point);
-                this.FD = Vector2.Distance(footPoint, diagonal);
-                this.PC = Vector2.Distance(point, center);
-            }
 
-            /// <summary> Scale of [Foot Point] betwwen [Center Point] / scale of [Point] betwwen [Center Point] (may be negative)</summary>
-            /// <param name="distance"> The distance </param>
-            /// <returns>Scale</returns>
-            public static float Scale(LineDistance distance)
+            public VectorLine(Vector2 point, Vector2 diagonal)
             {
-                float scale = distance.FC / distance.PC;
-                bool isReverse = (distance.FP < distance.FD);
-                return isReverse ? scale : -scale;
+                this.Diagonal = diagonal;
+                this.Symmetric = diagonal + diagonal - point;
+                this.Center = (point + diagonal) / 2;
             }
         }
 
+        /// <summary> Distance of points on the [VectorLine]. </summary>
+        public struct VectorDistance
+        {
+            /// <summary> Distance between [Foot Point] and [Diagonal Point] . </summary>
+            public float FD;
+            /// <summary> Distance between [Foot Point] and [Point] . </summary>
+            public float FP;
+            /// <summary> Distance between [Foot Point] and [Center Point] . </summary>
+            public float FC;
+            /// <summary> Distance between [Point] and [Center Point] .</summary>
+            public float PC;
+            /// <summary> Distance between [Foot Point] and [Symmetric Point] . </summary>
+            public float FS;
+            /// <summary> Distance between [Point] and [Diagonal Point] . </summary>
+            public float PD;
 
-        /// <summary> Scale </summary>
-        public abstract class ScaleController : NoneController, IController
+            public static VectorDistance GetVectorDistance(Vector2 footPoint, Vector2 point, VectorLine line) => new VectorDistance
+            {
+                FD = Vector2.Distance(footPoint, line.Diagonal),
+                FP = Vector2.Distance(footPoint, point),
+                FC = Vector2.Distance(footPoint, line.Center),
+                PC = Vector2.Distance(point, line.Center),
+                FS = Vector2.Distance(footPoint, line.Symmetric),
+                PD = Vector2.Distance(point, line.Diagonal),
+            };
+
+            /// <summary> F in the left of the P ?</summary>
+            /// <param name="distance"> The distance </param>
+            /// <returns></returns>
+            public static bool IsReverse(VectorDistance distance) => (distance.FD < distance.PD) ? true : (distance.FD < distance.FP);
+        }
+
+        /// <summary> It has four float.:  XCos, XSin, YCos, YSin; </summary>
+        public struct VectorSinCos
+        {
+            /// <summary> The XCos component of the VectorSinCos. </summary>
+            public float XCos;
+            /// <summary> The XSin component of the VectorSinCos. </summary>
+            public float XSin;
+            /// <summary> The YCos component of the VectorSinCos. </summary>
+            public float YCos;
+            /// <summary> The YSin component of the VectorSinCos. </summary>
+            public float YSin;
+
+            /// <summary>
+            /// Creates a vector whose elements have the specified values.
+            /// </summary>
+            /// <param name="xCos"></param>
+            /// <param name="xSin"></param>
+            /// <param name="yCos"></param>
+            /// <param name="ySin"></param>
+            public VectorSinCos(float xCos, float xSin, float yCos, float ySin)
+            {
+                this.XCos = xCos;
+                this.XSin = xSin;
+                this.YCos = yCos;
+                this.YSin = ySin;
+            }
+
+
+            public static VectorSinCos Reverse(VectorSinCos value, bool isReverse)
+            {
+                if (isReverse) return value;
+
+                return new VectorSinCos(-value.XCos, -value.XSin, -value.YCos, -value.YSin);
+            }
+            public static VectorSinCos Reverse(VectorSinCos value, bool isXReverse, bool isYReverse)
+            {
+                if (!isXReverse && !isYReverse) return value;
+
+                if (!isXReverse && isYReverse) return new VectorSinCos(value.XCos, value.XSin, -value.YCos, -value.YSin);
+
+                if (isXReverse && !isYReverse) return new VectorSinCos(-value.XCos, -value.XSin, value.YCos, value.YSin);
+
+                return VectorSinCos.Reverse(value, false);
+            }
+        }
+
+        /// <summary> Scale </summary>         
+        public abstract class ScaleController : IController
         {
             //@Override
-            public abstract Vector2 GetPoint();
-            public abstract Vector2 GetDiagonalPoint();
+            public abstract Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix);
+            public abstract Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix);
+            public abstract Vector2 GetPostion(VectorSinCos sinCos);
+
+
+            protected Transformer StartTransformer;
+            protected VectorSinCos SinCos;
+
+            protected Vector2 Point;
+            protected VectorLine Line;
+
+            protected bool IsFlipHorizontal;
+            protected bool IsFlipVertical;
+
+
+            public void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
+            {
+                this.StartTransformer.CopyWith(layer.Transformer);
+
+                float x = -layer.Transformer.Radian;
+                this.SinCos.XCos = (float)Math.Cos(x);
+                this.SinCos.XSin = (float)Math.Sin(x);
+
+                float y = -layer.Transformer.Radian + layer.Transformer.Skew;
+                this.SinCos.YCos = (float)Math.Cos(y);
+                this.SinCos.YSin = (float)Math.Sin(y);
+
+                this.IsFlipHorizontal = this.StartTransformer.XScale < 0;
+                this.IsFlipVertical = this.StartTransformer.YScale < 0;
+            }
+            public void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+            public void Complete(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian) { }
+
+            protected void SetPostion(Layer layer, VectorSinCos sinCos, float scale)
+            {
+                sinCos = VectorSinCos.Reverse(sinCos, this.IsFlipHorizontal, this.IsFlipVertical);
+                Vector2 vector = this.GetPostion(sinCos);//@Override
+                layer.Transformer.Position = this.StartTransformer.Position + vector / scale;
+            }
         }
 
 
@@ -752,218 +871,269 @@ namespace FanKit.Win2Ds
         public abstract class ScaleAroundController : ScaleController, IController
         {
             //@Override
-            public abstract void SetTransformer(Layer layer, Vector2 vector);
+            public abstract void SetScale(Layer layer, float scale, bool isFlip, bool isRatio);
 
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
-                Vector2 footPoint = Transformer.FootPoint(dstPoint, this.GetPoint(), this.GetDiagonalPoint());
+                base.Start(point, layer, matrix, scale, radian);
+                base.Point = this.GetPoint(layer.Transformer, matrix);//@Override
 
-                if (HomographyController.IsRatio)
+                //Diagonal line
+                base.Line = new VectorLine(base.Point, this.GetDiagonal(layer.Transformer, matrix));  //@Override
+            }
+            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
+            {
+                //Point on diagonal line
+                Vector2 footPoint = Transformer.FootPoint(point, base.Line.Diagonal, base.Point);
+                VectorDistance distance = VectorDistance.GetVectorDistance(footPoint, base.Point, base.Line);
+
+                if (TransformController.IsCenter)
                 {
-                    Vector2 center = HomographyController.IsCenter ? base.StartTransformer.DstCenter : this.GetDiagonalPoint();
-
-                    LineDistance distance = new LineDistance(footPoint, this.GetPoint(), center);
-                    Matrix3x2 matrix2 = Matrix3x2.CreateScale(LineDistance.Scale(distance), center);
-
-                    Transformer.Multiplies
-                    (
-                        layer: layer,
-                        startTransformer: base.StartTransformer,
-                        matrix: matrix2
-                    );
+                    //Scale
+                    float xyScale = distance.FC / distance.PC;
+                    //Flip             
+                    bool isFlip = distance.FD > distance.FP;
+                    //@Override
+                    this.SetScale(layer, xyScale, isFlip, TransformController.IsRatio);
                 }
                 else
                 {
-                    Vector2 vector = footPoint - this.GetPoint();
+                    //Scale
+                    float xyScale = distance.FD / distance.PD;
+                    //Flip
+                    bool isFlip = distance.FS > distance.FP;
+                    //@Override
+                    this.SetScale(layer, xyScale, isFlip, TransformController.IsRatio);
 
-                    this.SetTransformer(layer, vector);
+                    //Postion
+                    float move = distance.FP / 2;
+                    bool isReverse = VectorDistance.IsReverse(distance);
+                    VectorSinCos sinCos = new VectorSinCos
+                    (
+                         base.SinCos.XCos * move, base.SinCos.XSin * move,
+                         base.SinCos.YCos * move, base.SinCos.YSin * move
+                    );
+                    base.SetPostion(layer, VectorSinCos.Reverse(sinCos, isReverse), scale);//@Override
                 }
+            }
+        }
+
+
+        /// <summary> ScaleHorizontal (Left Right) </summary>
+        public abstract class ScaleHorizontalController : ScaleAroundController
+        {
+            public override void SetScale(Layer layer, float scale, bool isFlip, bool isRatio)
+            {
+                layer.Transformer.XScale = isFlip ?
+                    base.StartTransformer.XScale * scale :
+                    base.StartTransformer.XScale * -scale;
+
+                if (isRatio) layer.Transformer.YScale = base.StartTransformer.YScale * scale;
             }
         }
         /// <summary> ScaleLeft </summary>
-        public class ScaleLeftController : ScaleAroundController
+        public class ScaleLeftController : ScaleHorizontalController
         {
-            public override Vector2 GetPoint() => base.StartTransformer.DstLeft;
-            public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstRight;
-            public override void SetTransformer(Layer layer, Vector2 vector)
-            {
-                layer.Transformer.DstLeftTop = base.StartTransformer.DstLeftTop + vector;
-                layer.Transformer.DstLeftBottom = base.StartTransformer.DstLeftBottom + vector;
+            public override Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeft(matrix);
+            public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRight(matrix);
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(sinCos.XCos, -sinCos.XSin);
+        }
+        /// <summary> ScaleRight </summary>
+        public class ScaleRightController : ScaleHorizontalController
+        {
+            public override Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRight(matrix);
+            public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeft(matrix);
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(-sinCos.XCos, sinCos.XSin);
+        }
 
-                if (HomographyController.IsCenter)
-                {
-                    layer.Transformer.DstRightTop = base.StartTransformer.DstRightTop - vector;
-                    layer.Transformer.DstRightBottom = base.StartTransformer.DstRightBottom - vector;
-                }
+
+        /// <summary> ScaleHorizontal (Left Right) </summary>
+        public abstract class ScaleVerticalController : ScaleAroundController
+        {
+            public override void SetScale(Layer layer, float scale, bool isFlip, bool isRatio)
+            {
+                layer.Transformer.YScale = isFlip ?
+                    base.StartTransformer.YScale * scale :
+                    base.StartTransformer.YScale * -scale;
+
+                if (isRatio) layer.Transformer.XScale = base.StartTransformer.XScale * scale;
             }
         }
         /// <summary> ScaleTop </summary>
-        public class ScaleTopController : ScaleAroundController
+        public class ScaleTopController : ScaleVerticalController
         {
-            public override Vector2 GetPoint() => base.StartTransformer.DstTop;
-            public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstBottom;
-            public override void SetTransformer(Layer layer, Vector2 vector)
-            {
-                layer.Transformer.DstLeftTop = base.StartTransformer.DstLeftTop + vector;
-                layer.Transformer.DstRightTop = base.StartTransformer.DstRightTop + vector;
-
-                if (HomographyController.IsCenter)
-                {
-                    layer.Transformer.DstLeftBottom = base.StartTransformer.DstLeftBottom - vector;
-                    layer.Transformer.DstRightBottom = base.StartTransformer.DstRightBottom - vector;
-                }
-            }
-        }
-        /// <summary> ScaleRight </summary>
-        public class ScaleRightController : ScaleAroundController
-        {
-            public override Vector2 GetPoint() => base.StartTransformer.DstRight;
-            public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstLeft;
-            public override void SetTransformer(Layer layer, Vector2 vector)
-            {
-                layer.Transformer.DstRightTop = base.StartTransformer.DstRightTop + vector;
-                layer.Transformer.DstRightBottom = base.StartTransformer.DstRightBottom + vector;
-
-                if (HomographyController.IsCenter)
-                {
-                    layer.Transformer.DstLeftTop = base.StartTransformer.DstLeftTop - vector;
-                    layer.Transformer.DstLeftBottom = base.StartTransformer.DstLeftBottom - vector;
-                }
-            }
+            public override Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformTop(matrix);
+            public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformBottom(matrix);
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(sinCos.YSin, sinCos.YCos);
         }
         /// <summary> ScaleBottom </summary>
-        public class ScaleBottomController : ScaleAroundController
+        public class ScaleBottomController : ScaleVerticalController
         {
-            public override Vector2 GetPoint() => base.StartTransformer.DstBottom;
-            public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstTop;
-            public override void SetTransformer(Layer layer, Vector2 vector)
-            {
-                layer.Transformer.DstLeftBottom = base.StartTransformer.DstLeftBottom + vector;
-                layer.Transformer.DstRightBottom = base.StartTransformer.DstRightBottom + vector;
-
-                if (HomographyController.IsCenter)
-                {
-                    layer.Transformer.DstLeftTop = base.StartTransformer.DstLeftTop - vector;
-                    layer.Transformer.DstRightTop = base.StartTransformer.DstRightTop - vector;
-                }
-            }
+            public override Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformBottom(matrix);
+            public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformTop(matrix);
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(-sinCos.YSin, -sinCos.YCos);
         }
 
 
         #endregion
 
 
-        #region ScaleCornerController
+        #region ScaleCorner
 
 
-        /// <summary> ScaleCorner (LeftTop RightTop RightBottom LeftBottom) </summary>
+        /// <summary> ScaleCorner (LeftTop RightTop RightBottom LeftBottom)</summary>
         public abstract class ScaleCornerController : ScaleController, IController
         {
             //@Override
-            public abstract void SetPoint(Layer layer, Vector2 point);
-            public abstract void SetDiagonalPoint(Layer layer, Vector2 point);
-            public abstract void SetHorizontalPoint(Layer layer, Vector2 point);
-            public abstract void SetVerticalPoint(Layer layer, Vector2 point);
+            public abstract Vector2 GetHorizontalDiagonal(Transformer startTransformer, Matrix3x2 matrix);
+            public abstract Vector2 GetVerticalDiagonal(Transformer startTransformer, Matrix3x2 matrix);
 
-            protected Vector2 StartHorizontal;
-            protected Vector2 StartVertical;
+            VectorLine HorizontalLine;
+            VectorLine VerticalLine;
 
-            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+            public new void Start(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                base.Start(point, layer, matrix, inverseMatrix);
-                this.StartHorizontal = layer.Transformer.DstRight - layer.Transformer.DstLeft;
-                this.StartVertical = layer.Transformer.DstBottom - layer.Transformer.DstTop;
+                base.Start(point, layer, matrix, scale, radian);
+                base.Point = this.GetPoint(layer.Transformer, matrix);//@Override
+
+                //Diagonal line
+                base.Line = new VectorLine(base.Point, this.GetDiagonal(layer.Transformer, matrix));//@Override
+                this.HorizontalLine = new VectorLine(base.Point, this.GetHorizontalDiagonal(layer.Transformer, matrix));//@Override
+                this.VerticalLine = new VectorLine(base.Point, this.GetVerticalDiagonal(layer.Transformer, matrix));//@Override
             }
-            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, Matrix3x2 inverseMatrix)
+
+
+            public new void Delta(Vector2 point, Layer layer, Matrix3x2 matrix, float scale, float radian)
             {
-                Vector2 dstPoint = Vector2.Transform(point, inverseMatrix);
+                //Point on diagonal line
+                Vector2 footPoint = Transformer.FootPoint(point, base.Line.Diagonal, base.Point);
+                VectorDistance distance = VectorDistance.GetVectorDistance(footPoint, base.Point, base.Line);
 
-                if (HomographyController.IsRatio)
+                Vector2 point2 = TransformController.IsRatio ? footPoint : point;
+
+                //Point on horizontal line
+                Vector2 horizontalFootPoint = Transformer.IntersectionPoint(base.Point, this.HorizontalLine.Diagonal, point2, point2 + this.VerticalLine.Diagonal - base.Point);
+                VectorDistance horizontalDistance = VectorDistance.GetVectorDistance(horizontalFootPoint, base.Point, this.HorizontalLine);
+
+                //Point on vertical line
+                Vector2 verticalFootPoint = Transformer.IntersectionPoint(base.Point, this.VerticalLine.Diagonal, point2, point2 + this.HorizontalLine.Diagonal - base.Point);
+                VectorDistance verticalDistance = VectorDistance.GetVectorDistance(verticalFootPoint, base.Point, this.VerticalLine);
+
+                if (TransformController.IsCenter)
                 {
-                    Vector2 center = HomographyController.IsCenter ? base.StartTransformer.DstCenter : this.GetDiagonalPoint();
-                    Vector2 footPoint = Transformer.FootPoint(dstPoint, this.GetPoint(), center);
-                    LineDistance distance = new LineDistance(footPoint, this.GetPoint(), center);
-                    Matrix3x2 matrix2 = Matrix3x2.CreateScale(LineDistance.Scale(distance), center);
-
-                    Transformer.Multiplies
-                    (
-                        layer: layer,
-                        startTransformer: base.StartTransformer,
-                        matrix: matrix2
-                    );
+                    if (TransformController.IsRatio)
+                    {
+                        //Scale
+                        float scale1 = distance.FC / distance.PC;
+                        //Flip              
+                        bool isFlip = distance.FD > distance.FP;
+                        //@Override
+                        this.SetScale(layer, scale1, scale1, isFlip, isFlip);
+                    }
+                    else
+                    {
+                        //Scale
+                        float xScale = horizontalDistance.FC / horizontalDistance.PC;
+                        float yScale = verticalDistance.FC / verticalDistance.PC;
+                        //Flip
+                        bool isFlipHorizontal = horizontalDistance.FD > horizontalDistance.FP;
+                        bool isFlipVertical = verticalDistance.FD > verticalDistance.FP;
+                        //@Override
+                        this.SetScale(layer, xScale, yScale, isFlipHorizontal, isFlipVertical);
+                    }
                 }
                 else
                 {
-                    Vector2 center = (HomographyController.IsCenter) ?
-                        base.StartTransformer.DstCenter + base.StartTransformer.DstCenter - dstPoint :
-                        this.GetDiagonalPoint();
+                    if (TransformController.IsRatio)
+                    {
+                        //Scale
+                        float scale1 = distance.FD / distance.PD;
+                        //Flip
+                        bool isFlip = distance.FS > distance.FP;
+                        //@Override
+                        this.SetScale(layer, scale1, scale1, isFlip, isFlip);
+                    }
+                    else
+                    {
+                        //Scale
+                        float xScale = horizontalDistance.FD / horizontalDistance.PD;
+                        float yScale = verticalDistance.FD / verticalDistance.PD;
+                        //Flip
+                        bool isFlipHorizontal = horizontalDistance.FS > horizontalDistance.FP;
+                        bool isFlipVertical = verticalDistance.FS > verticalDistance.FP;
+                        //@Override
+                        this.SetScale(layer, xScale, yScale, isFlipHorizontal, isFlipVertical);
+                    }
 
-                    this.SetPoint(layer, dstPoint);
-                    this.SetDiagonalPoint(layer, center);
-                    this.SetHorizontalPoint(layer, Transformer.IntersectionPoint
+                    //Postion
+                    float xMove = horizontalDistance.FP / 2;
+                    float yMove = verticalDistance.FP / 2;
+                    bool isXReverse = VectorDistance.IsReverse(horizontalDistance);
+                    bool isYReverse = VectorDistance.IsReverse(verticalDistance);
+                    VectorSinCos sinCos = new VectorSinCos
                     (
-                       dstPoint,
-                       dstPoint - this.StartHorizontal,
-                       center + this.StartVertical,
-                       center
-                    ));
-                    this.SetVerticalPoint(layer, Transformer.IntersectionPoint
-                    (
-                        line1A: dstPoint,
-                        line1B: dstPoint - this.StartVertical,
-                        line2A: center + this.StartHorizontal,
-                        line2B: center
-                    ));
+                         this.SinCos.XCos * xMove, this.SinCos.XSin * xMove,
+                         this.SinCos.YCos * yMove, this.SinCos.YSin * yMove
+                    );
+                    base.SetPostion(layer, VectorSinCos.Reverse(sinCos, isXReverse, isYReverse), scale);
                 }
+            }
+
+            public void SetScale(Layer layer, float xScale, float yScale, bool isFlipHorizontal, bool isFlipVertical)
+            {
+                layer.Transformer.XScale = (!isFlipHorizontal) ?
+                    base.StartTransformer.XScale * -xScale :
+                    base.StartTransformer.XScale * xScale;
+
+                layer.Transformer.YScale = (!isFlipVertical) ?
+                    base.StartTransformer.YScale * -yScale :
+                    base.StartTransformer.YScale * yScale;
             }
         }
         /// <summary> ScaleLeftTop </summary>
         public class ScaleLeftTopController : ScaleCornerController
         {
-            public override Vector2 GetPoint() => base.StartTransformer.DstLeftTop;
-            public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstRightBottom;
-            public override void SetPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftTop = point;
-            public override void SetDiagonalPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightBottom = point;
-            public override void SetHorizontalPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightTop = point;
-            public override void SetVerticalPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftBottom = point;
+            public override Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftTop(matrix);
+            public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightBottom(matrix);
+            public override Vector2 GetHorizontalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightTop(matrix);
+            public override Vector2 GetVerticalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftBottom(matrix);
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(-sinCos.XCos - sinCos.YSin, sinCos.XSin - sinCos.YCos);
         }
         /// <summary> ScaleRightTop </summary>
         public class ScaleRightTopController : ScaleCornerController
         {
-            public override Vector2 GetPoint() => base.StartTransformer.DstRightTop;
-            public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstLeftBottom;
-            public override void SetPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightTop = point;
-            public override void SetDiagonalPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftBottom = point;
-            public override void SetHorizontalPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftTop = point;
-            public override void SetVerticalPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightBottom = point;
+            public override Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightTop(matrix);
+            public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftBottom(matrix);
+            public override Vector2 GetHorizontalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftTop(matrix);
+            public override Vector2 GetVerticalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightBottom(matrix);
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(sinCos.XCos - sinCos.YSin, -sinCos.XSin - sinCos.YCos);
         }
         /// <summary> ScaleRightBottom </summary>
         public class ScaleRightBottomController : ScaleCornerController
         {
-            public override Vector2 GetPoint() => base.StartTransformer.DstRightBottom;
-            public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstLeftTop;
-            public override void SetPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightBottom = point;
-            public override void SetDiagonalPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftTop = point;
-            public override void SetHorizontalPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftBottom = point;
-            public override void SetVerticalPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightTop = point;
+            public override Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightBottom(matrix);
+            public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftTop(matrix);
+            public override Vector2 GetHorizontalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftBottom(matrix);
+            public override Vector2 GetVerticalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightTop(matrix);
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2(sinCos.XCos + sinCos.YSin, -sinCos.XSin + sinCos.YCos);
         }
         /// <summary> ScaleLeftBottom </summary>
         public class ScaleLeftBottomController : ScaleCornerController
         {
-            public override Vector2 GetPoint() => base.StartTransformer.DstLeftBottom;
-            public override Vector2 GetDiagonalPoint() => base.StartTransformer.DstRightTop;
-            public override void SetPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftBottom = point;
-            public override void SetDiagonalPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightTop = point;
-            public override void SetHorizontalPoint(Layer layer, Vector2 point) => layer.Transformer.DstRightBottom = point;
-            public override void SetVerticalPoint(Layer layer, Vector2 point) => layer.Transformer.DstLeftTop = point;
+            public override Vector2 GetPoint(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftBottom(matrix);
+            public override Vector2 GetDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightTop(matrix);
+            public override Vector2 GetHorizontalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformRightBottom(matrix);
+            public override Vector2 GetVerticalDiagonal(Transformer startTransformer, Matrix3x2 matrix) => startTransformer.TransformLeftTop(matrix);
+            public override Vector2 GetPostion(VectorSinCos sinCos) => new Vector2((-sinCos.XCos + sinCos.YSin), (sinCos.XSin + sinCos.YCos));
         }
 
 
         #endregion
 
+
     }
 }
+
 
 
 ```

@@ -10,7 +10,7 @@ namespace FanKit.Control
     public sealed partial class SplitPanelControl : UserControl
     {
         public static readonly double OffsetX = 300;
-        public static readonly TimeSpan ShowTime = new TimeSpan(0, 0, 0, 0, 200);
+        public static readonly TimeSpan ShowTime = new TimeSpan(0, 0, 0, 0, 500);
         public static readonly TimeSpan FadeTime = new TimeSpan(0, 0, 0, 0, 300);
 
         //Content
@@ -56,7 +56,7 @@ namespace FanKit.Control
                 this.isOpen = value;
             }
         }
-        public bool isOpen;
+        private bool isOpen;
 
         private void Open()
         {
@@ -83,9 +83,12 @@ namespace FanKit.Control
             this.TranslateX = -SplitPanelControl.OffsetX; ;
 
             //Storyboard
+            this.ShowFrame1.To = 0;
+            this.ShowFrame1.Duration = this.ShowFrame2.Duration = SplitPanelControl.ShowTime;
+
             this.FadeAnimation1.To = -SplitPanelControl.OffsetX; ;
             this.FadeAnimation1.Duration = this.FadeAnimation2.Duration = SplitPanelControl.FadeTime;
-            this.ShowFrame1.KeyTime = this.ShowFrame2.KeyTime = SplitPanelControl.ShowTime;
+         
             //Transform
             this.TranslateTransform.X = -SplitPanelControl.OffsetX;
             this.PanelGrid.RenderTransform = this.TranslateTransform;

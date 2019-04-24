@@ -22,7 +22,7 @@
         <Image Height="60" Width="60" Grid.RowSpan="2" Source="ms-appx:///Icon/Reference/HSVColorPickers.PNG" Stretch="UniformToFill"/>
         <TextBlock Grid.Column="2" Text="HSVColorPickers"/>
         <RichTextBlock Grid.Column="2" Grid.Row="1" FontSize="13">
-            <Paragraph>Search "HSV Color" in Nuget.</Paragraph>
+            <Paragraph>Search "HSVColor" in Nuget.</Paragraph>
         </RichTextBlock>
     </Grid>
 </UserControl>
