@@ -431,7 +431,7 @@ namespace FanKit.Win2Ds
             /// <summary>
             /// draw a ロ
             /// </summary>
-            private void DrawNodeVector3(CanvasDrawingSession ds, Vector2 vector)
+            public static void DrawNode3(CanvasDrawingSession ds, Vector2 vector)
             {
                 ds.FillRectangle(vector.X - 7, vector.Y - 7, 14, 14, Windows.UI.Color.FromArgb(70, 127, 127, 127));
                 ds.FillRectangle(vector.X - 6, vector.Y - 6, 12, 12, Windows.UI.Colors.DodgerBlue);
@@ -440,7 +440,7 @@ namespace FanKit.Win2Ds
             /// <summary>
             /// draw a ロ
             /// </summary>
-            private void DrawNodeVector4(CanvasDrawingSession ds, Vector2 vector)
+            public static void DrawNode4(CanvasDrawingSession ds, Vector2 vector)
             {
                 ds.FillRectangle(vector.X - 7, vector.Y - 7, 14, 14, Windows.UI.Color.FromArgb(70, 127, 127, 127));
                 ds.FillRectangle(vector.X - 6, vector.Y - 6, 12, 12, Windows.UI.Colors.White);
