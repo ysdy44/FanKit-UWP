@@ -9,16 +9,17 @@ namespace FanKit.Frames.Others
         {
             this.InitializeComponent();
             this.LightRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Light);
-            this.NightRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Dark);
+            this.DarkRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Dark);
             this.DefaultRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Default);
 
             this.Loaded += (sender, e) =>
             {
                 if (Window.Current.Content is FrameworkElement frameworkElement)
                 {
-                    this.LightRadioButton.IsChecked = RequestedTheme == ElementTheme.Light;
-                    this.NightRadioButton.IsChecked = RequestedTheme == ElementTheme.Dark;
-                    this.DefaultRadioButton.IsChecked = RequestedTheme == ElementTheme.Default;
+                    ElementTheme theme = frameworkElement.RequestedTheme;
+                    this.LightRadioButton.IsChecked = (theme == ElementTheme.Light);
+                    this.DarkRadioButton.IsChecked = (theme == ElementTheme.Dark);
+                    this.DefaultRadioButton.IsChecked = (theme == ElementTheme.Default);
                 }
             };
         }
@@ -27,6 +28,8 @@ namespace FanKit.Frames.Others
         {
             if (Window.Current.Content is FrameworkElement frameworkElement)
             {
+                if (frameworkElement.RequestedTheme == RequestedTheme) return;
+
                 frameworkElement.RequestedTheme = RequestedTheme;
             }
         }

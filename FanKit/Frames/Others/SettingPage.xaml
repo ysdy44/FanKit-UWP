@@ -22,7 +22,7 @@
                 <!--ThemeMode-->
                 <TextBlock Text="Theme Mode" Style="{ThemeResource TitleTextBlockStyle}"/>
                 <RadioButton x:Name="LightRadioButton" Content="Light"/>
-                <RadioButton x:Name="NightRadioButton" Content="Night"/>
+                <RadioButton x:Name="DarkRadioButton" Content="Dark"/>
                 <RadioButton x:Name="DefaultRadioButton" Content="Use system setting"/>
 
 
