@@ -1,0 +1,17 @@
+
+```xaml
+
+
+
+<Page
+    x:Class="FanKit.Frames.Win2Ds.IndicatorControlPage"
+    xmlns:win2ds="using:FanKit.Win2Ds"
+    >
+
+   <win2ds:IndicatorControl x:Name="IndicatorControl"/>
+
+</Page>
+
+
+
+```
