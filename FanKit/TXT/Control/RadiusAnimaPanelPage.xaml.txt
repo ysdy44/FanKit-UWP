@@ -5,20 +5,14 @@
 
 
 <Page
-    x:Class="FanKit.Frames.Control.RadiusAnimaPanelPage"
-    xmlns:local="using:FanKit.Frames.Control"
-    xmlns:Control="using:FanKit.Control">
+    x:Class="FanKit.Frames.Control.RemoteControlPage"
+    xmlns:control="using:FanKit.Control">
 
-    <Grid Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-       <Control:RadiusAnimaPanel>
-          <Control:RadiusAnimaPanel.CenterContent>
-             <Border Height="22" MinWidth="50" Margin="20,0" Background="Red"  >
-                  <TextBlock HorizontalAlignment="Center" Foreground="White"/>
-              </Border>
-          </Control:RadiusAnimaPanel.CenterContent>
-       </Control:RadiusAnimaPanel>
-    </Grid>
+         <control:RemoteControl x:Name="RemoteControl"/>
 
 </Page>
+
+
+
 
 ```

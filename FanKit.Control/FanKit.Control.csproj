@@ -119,6 +119,9 @@
     <Compile Include="RadiusAnimaControl.xaml.cs">
       <DependentUpon>RadiusAnimaControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RemoteControl.xaml.cs">
+      <DependentUpon>RemoteControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SplitPanelControl.xaml.cs">
       <DependentUpon>SplitPanelControl.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
     <Page Include="RadiusAnimaControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RemoteControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SplitPanelControl.xaml">
       <SubType>Designer</SubType>

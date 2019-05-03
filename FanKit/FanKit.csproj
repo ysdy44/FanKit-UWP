@@ -109,6 +109,9 @@
     <Compile Include="Frames\Control\RadiusAnimaPanelPage.xaml.cs">
       <DependentUpon>RadiusAnimaPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Control\RemoteControlPage.xaml.cs">
+      <DependentUpon>RemoteControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Control\SplitPanelControlPage.xaml.cs">
       <DependentUpon>SplitPanelControlPage.xaml</DependentUpon>
     </Compile>
@@ -304,6 +307,7 @@
     </AppxManifest>
     <Content Include="Icon\Colors\HexPicker.png" />
     <Content Include="Icon\Control\RadiusAnimaPanel.png" />
+    <Content Include="Icon\Control\RemoteControl.png" />
     <Content Include="Icon\Control\ThemeControl.png" />
     <Content Include="Icon\Helpers\Colors.png" />
     <Content Include="Icon\HERO.jpg" />
@@ -320,6 +324,9 @@
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
+    <Content Include="TXT\Control\RemoteControl.cs.txt" />
+    <Content Include="TXT\Control\RemoteControl.xaml.txt" />
+    <Content Include="TXT\Control\RemoteControlPage.xaml.txt" />
     <Content Include="TXT\Control\SplitPanelControl.xaml.txt" />
     <Content Include="TXT\Control\ThemeControl.cs.txt" />
     <Content Include="TXT\Control\ThemeControl.xaml.txt" />
@@ -508,6 +515,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\RadiusAnimaPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Control\RemoteControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

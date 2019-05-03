@@ -171,6 +171,12 @@
         "Name": "IndicatorControl",
         "Uri": "ms-appx:///Icon/Control/IndicatorControl.png",
         "Summary": ""
+      },
+      {
+        "Page": "FanKit.Frames.Control.RemoteControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "RemoteControl",
+        "Uri": "ms-appx:///Icon/Control/RemoteControl.png",
+        "Summary": ""
       }
     ]
   },
