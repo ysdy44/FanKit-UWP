@@ -1,0 +1,17 @@
+
+```xaml
+
+
+
+<Page
+    x:Class="FanKit.Frames.Control.IndicatorControlPage"
+    xmlns:control="using:FanKit.Control"
+    >
+
+   <control:IndicatorControl x:Name="IndicatorControl"/>
+
+</Page>
+
+
+
+```

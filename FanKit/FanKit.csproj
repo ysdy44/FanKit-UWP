@@ -142,7 +142,7 @@
     <Compile Include="Frames\Win2Ds\HomographyControllerPage.xaml.cs">
       <DependentUpon>HomographyControllerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Win2Ds\IndicatorControlPage.xaml.cs">
+    <Compile Include="Frames\Control\IndicatorControlPage.xaml.cs">
       <DependentUpon>IndicatorControlPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Win2Ds\MarqueeToolPage.xaml.cs">
@@ -312,7 +312,7 @@
     <Content Include="Icon\Reference\Win2d.PNG" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
     <Content Include="Icon\Win2Ds\HomographyController.png" />
-    <Content Include="Icon\Win2Ds\IndicatorControl.png" />
+    <Content Include="Icon\Control\IndicatorControl.png" />
     <Content Include="Icon\Win2Ds\MarqueeTool.png" />
     <Content Include="Icon\Win2Ds\TransformController.png" />
     <Content Include="TXT\Colors\HexPickerPage.xaml.txt" />
@@ -331,9 +331,9 @@
     <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\IndicatorControl.cs.txt" />
-    <Content Include="TXT\Win2Ds\IndicatorControl.xaml.txt" />
-    <Content Include="TXT\Win2Ds\IndicatorControlPage.xaml.txt" />
+    <Content Include="TXT\Control\IndicatorControl.cs.txt" />
+    <Content Include="TXT\Control\IndicatorControl.xaml.txt" />
+    <Content Include="TXT\Control\IndicatorControlPage.xaml.txt" />
     <Content Include="TXT\Win2Ds\HomographyController.cs.txt" />
     <Content Include="TXT\Win2Ds\HomographyControllerPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\HomographyControllerPage.xaml.txt" />
@@ -555,7 +555,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Win2Ds\IndicatorControlPage.xaml">
+    <Page Include="Frames\Control\IndicatorControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

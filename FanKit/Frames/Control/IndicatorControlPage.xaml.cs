@@ -1,7 +1,7 @@
-﻿using FanKit.Win2Ds;
+﻿using FanKit.Control;
 using Windows.UI.Xaml.Controls;
 
-namespace FanKit.Frames.Win2Ds
+namespace FanKit.Frames.Control
 {
     public sealed partial class IndicatorControlPage : Page
     {
@@ -10,9 +10,9 @@ namespace FanKit.Frames.Win2Ds
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Win2Ds/IndicatorControlPage.xaml.txt");
-                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Win2Ds/IndicatorControl.xaml.txt");
-                this.MarkdownText3.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Win2Ds/IndicatorControl.cs.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/IndicatorControlPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/IndicatorControl.xaml.txt");
+                this.MarkdownText3.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/IndicatorControl.cs.txt");
             };
 
             //IndicatorControl

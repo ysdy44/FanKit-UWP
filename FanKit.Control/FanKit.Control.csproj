@@ -109,6 +109,9 @@
     <Compile Include="ExpandTextView.xaml.cs">
       <DependentUpon>ExpandTextView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IndicatorControl.xaml.cs">
+      <DependentUpon>IndicatorControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PopupMenu.xaml.cs">
       <DependentUpon>PopupMenu.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="ExpandTextView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IndicatorControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

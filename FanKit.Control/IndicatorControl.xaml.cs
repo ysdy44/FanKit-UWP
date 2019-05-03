@@ -1,14 +1,11 @@
-
-```Csharp
-
-using System;
+﻿using System;
 using System.Numerics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Shapes;
 
-namespace FanKit.Win2Ds
+namespace FanKit.Control
 {
 
     public enum IndicatorMode
@@ -210,7 +207,3 @@ namespace FanKit.Win2Ds
         }
     }
 }
-
-
-
-```
