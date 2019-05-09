@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml.Controls;
 
-namespace FanKit.Frames.Helpers
+namespace FanKit.Frames.Styles
 {
     public sealed partial class StretchPage : Page
     {

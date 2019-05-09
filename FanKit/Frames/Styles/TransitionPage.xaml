@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Helpers.TransitionPage"
+    x:Class="FanKit.Frames.Styles.TransitionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -117,27 +117,27 @@
                                 </ListView.ItemContainerStyle>
                                 
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/Common.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Styles/Transition/Common.png" Stretch="Uniform"/>
                                     <TextBlock Text="Common" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/Continuum.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Styles/Transition/Continuum.png" Stretch="Uniform"/>
                                     <TextBlock Text="Continuum" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/DrillIn.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Styles/Transition/DrillIn.png" Stretch="Uniform"/>
                                     <TextBlock Text="DrillIn" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/Entrance.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Styles/Transition/Entrance.png" Stretch="Uniform"/>
                                     <TextBlock Text="Entrance" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" VerticalAlignment="Center" Source="ms-appx:///Icon/Helpers/Transition/Slide.png" Stretch="Uniform"/>
+                                    <Image Height="80" VerticalAlignment="Center" Source="ms-appx:///Icon/Styles/Transition/Slide.png" Stretch="Uniform"/>
                                     <TextBlock Text="Slide" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="80" Source="ms-appx:///Icon/Helpers/Transition/Suppress.png" Stretch="Uniform"/>
+                                    <Image Height="80" Source="ms-appx:///Icon/Styles/Transition/Suppress.png" Stretch="Uniform"/>
                                     <TextBlock Text="Suppress" Margin="12" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}"/>
                                 </StackPanel>
                             </ListView>

@@ -12,10 +12,18 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-
+        
         <!--ViewModel-->
         <samples:Sample x:Name="ViewModel"/>
-        
+
+        <!--Background-->
+        <SolidColorBrush x:Name="AccentColor" Color="{ThemeResource SystemAccentColor}"/>
+        <SolidColorBrush x:Name="UnAccentColor" Color="Gray"/>
+
+        <!--Foreground-->
+        <SolidColorBrush x:Name="CheckColor" Color="White"/>
+        <SolidColorBrush x:Name="UnCheckColor" Color="LightGray"/>
+
     </UserControl.Resources>
     
     <Grid x:Name="RootGrid" Background="Transparent">
@@ -26,16 +34,38 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Image x:Name="DropShadowPanel"  Grid.Row="1"  Grid.ColumnSpan="2" Margin="12,8"    Source="ms-appx:///Icon/Shadow.png" Stretch="Uniform"   
-                extensions:VisualExtensions.NormalizedCenterPoint="0.5,0.5,0" />
-        <controls:ImageEx Source="{x:Bind ViewModel.Uri,Mode=OneWay}" Margin="12,8"  Grid.Row="1" Grid.ColumnSpan="2" Stretch="Uniform" />
+        
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="12,8" >
 
+            <!--Shadow-->
+            <Image x:Name="DropShadowPanel" Source="ms-appx:///Icon/Shadow.png" Stretch="Uniform"   
+                extensions:VisualExtensions.NormalizedCenterPoint="0.5,0.5,0" />
+
+            <!--Image-->
+            <controls:ImageEx Source="{x:Bind ViewModel.Uri,Mode=OneWay}" Stretch="Uniform" />
+
+            <!--Flag-->
+            <Border Width="Auto" Height="22" Padding="4,0" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Background="{x:Bind StateToBackgroundConverter(ViewModel.State) ,Mode=OneWay}"
+                    Visibility="{x:Bind StateToVisibilityConverter(ViewModel.State) ,Mode=OneWay}">
+                <TextBlock VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"
+                           Foreground="{x:Bind StateToForegroundConverter(ViewModel.State) ,Mode=OneWay}"
+                           Text="{x:Bind StateToStringConverter(ViewModel.State) ,Mode=OneWay}"
+                           />
+            </Border>
+        </Grid>
+
+        
         <Grid Grid.Row="2" Margin="12,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
+
+            <!--Name-->
             <TextBlock Text="{x:Bind ViewModel.Name,Mode=OneWay}" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+
+            <!--Button-->
             <Button x:Name="Button" Grid.Column="1" Width="30" Content="&#xE946;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}">
                 <Button.Flyout>
                     <Flyout>
@@ -49,6 +79,7 @@
                     </Flyout>
                 </Button.Flyout>
             </Button>
+            
         </Grid>
 
     </Grid>

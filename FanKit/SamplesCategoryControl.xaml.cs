@@ -7,56 +7,56 @@ namespace FanKit
 {
     public sealed partial class SamplesCategoryControl : UserControl
     {
-        #region DependencyProperty
-
-
-        public SampleCategory Category
-        {
-            get { return (SampleCategory)GetValue(CategoryProperty); }
-            set { SetValue(CategoryProperty, value); }
-        }
-        public static readonly DependencyProperty CategoryProperty = DependencyProperty.Register(nameof(Category), typeof(SampleCategory), typeof(SamplesCategoryControl), new PropertyMetadata(null, (sender, e) =>
-        {
-            SamplesCategoryControl con = sender as SamplesCategoryControl;
-
-            if (e.NewValue != null)
-            {
-                if (e.NewValue != e.OldValue)
-                {
-                    if (e.NewValue is SampleCategory category)
-                    {
-                        con.GridView.ItemsSource = category.Samples;
-                        con.ShadowGrid.Visibility = Visibility.Visible;
-
-                        return;
-                    }
-                }
-            }
-
-            con.ShadowGrid.Visibility = Visibility.Collapsed;
-        }));
-
-
-        #endregion
-        
         //Delegate
         public delegate void ItemClickHandler(Type page);
         public event ItemClickHandler ItemClick = null;
-        
+
+        #region DependencyProperty
+
+        /// <summary> ItemsSource </summary>
+        public SampleCategory SampleCategory
+        {
+            get => this.sampleCategory;
+            set
+            {
+                if (value != null)
+                {
+                    if (this.sampleCategory != value)
+                    {
+                        this.GridView.ItemsSource = value.Samples;
+                    }
+                }
+
+                this.sampleCategory = value;
+            }
+        }
+        private SampleCategory sampleCategory;
+         
+
+        #endregion
+
         public SamplesCategoryControl()
         {
             this.InitializeComponent();
-            this.ShadowGrid.Tapped += (s, e) => this.Category = null;
+            this.Visibility = Visibility.Collapsed;
+            this.BlurBorder.Tapped += (s, e) => this.Visibility = Visibility.Collapsed;
 
             this.GridView.IsItemClickEnabled = true;
             this.GridView.ItemClick += (s, e) =>
-             {
+            {                 
                  if (e.ClickedItem is Sample sample)
                  {
-                     Type page = sample.Page;
-                     this.ItemClick?.Invoke(page);//Delegate
-                }
-             };          
+                     switch (sample.State)
+                     {
+                         case SampleState.Disable:
+                            return;                            
+                     }
+                    this.Visibility = Visibility.Collapsed;
+
+                    Type page = sample.Page;
+                    this.ItemClick?.Invoke(page);//Delegate
+                 }
+            };          
         }
     }
 }

@@ -13,11 +13,11 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace FanKit.Frames.Helpers.Transition
+namespace FanKit.Frames.Styles.Transition
 {
-    public sealed partial class ContinuumPage : Page
+    public sealed partial class SuppressPage : Page
     {
-        public ContinuumPage()
+        public SuppressPage()
         {
             this.InitializeComponent();
         }

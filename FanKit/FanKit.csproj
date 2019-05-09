@@ -118,7 +118,7 @@
     <Compile Include="Frames\Control\ThemeControlPage.xaml.cs">
       <DependentUpon>ThemeControlPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\ColorsPage.xaml.cs">
+    <Compile Include="Frames\Styles\ColorsPage.xaml.cs">
       <DependentUpon>ColorsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\PageLayout2.xaml.cs">
@@ -223,10 +223,10 @@
     <Compile Include="Frames\Control\ExpandTextViewPage.xaml.cs">
       <DependentUpon>ExpandTextViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\FontWeightPage.xaml.cs">
+    <Compile Include="Frames\Styles\FontWeightPage.xaml.cs">
       <DependentUpon>FontWeightPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\StretchPage.xaml.cs">
+    <Compile Include="Frames\Styles\StretchPage.xaml.cs">
       <DependentUpon>StretchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Library\DataTemplateAdaptiverPage.xaml.cs">
@@ -262,33 +262,34 @@
     <Compile Include="Frames\Template\FlyoutTemplatePage.xaml.cs">
       <DependentUpon>FlyoutTemplatePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\Transition\CommonPage.xaml.cs">
+    <Compile Include="Frames\Styles\Transition\CommonPage.xaml.cs">
       <DependentUpon>CommonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\Transition\ContinuumPage.xaml.cs">
+    <Compile Include="Frames\Styles\Transition\ContinuumPage.xaml.cs">
       <DependentUpon>ContinuumPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\Transition\DrillInPage.xaml.cs">
+    <Compile Include="Frames\Styles\Transition\DrillInPage.xaml.cs">
       <DependentUpon>DrillInPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\Transition\EntrancePage.xaml.cs">
+    <Compile Include="Frames\Styles\Transition\EntrancePage.xaml.cs">
       <DependentUpon>EntrancePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\Transition\SlidePage.xaml.cs">
+    <Compile Include="Frames\Styles\Transition\SlidePage.xaml.cs">
       <DependentUpon>SlidePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\Transition\SuppressPage.xaml.cs">
+    <Compile Include="Frames\Styles\Transition\SuppressPage.xaml.cs">
       <DependentUpon>SuppressPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\TransitionPage.xaml.cs">
+    <Compile Include="Frames\Styles\TransitionPage.xaml.cs">
       <DependentUpon>TransitionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Helpers\Transition\WelcomePage.xaml.cs">
+    <Compile Include="Frames\Styles\Transition\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\File.cs" />
     <Compile Include="Samples\Sample.cs" />
     <Compile Include="Samples\SampleCategory.cs" />
+    <Compile Include="Samples\SampleState.cs" />
     <Compile Include="Samples\ScrollOffsetShow.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -309,7 +310,7 @@
     <Content Include="Icon\Control\RadiusAnimaPanel.png" />
     <Content Include="Icon\Control\RemoteControl.png" />
     <Content Include="Icon\Control\ThemeControl.png" />
-    <Content Include="Icon\Helpers\Colors.png" />
+    <Content Include="Icon\Styles\Colors.png" />
     <Content Include="Icon\HERO.jpg" />
     <Content Include="Icon\Reference\HSVColorPickers.PNG" />
     <Content Include="Icon\Reference\ToolKit.PNG" />
@@ -357,7 +358,7 @@
     <Content Include="Icon\Colors\PalettePicker.png" />
     <Content Include="Icon\Colors\StrawPicker.png" />
     <Content Include="Icon\Colors\SwatchesPicker.png" />
-    <Content Include="Icon\Helpers\FontWeight.png" />
+    <Content Include="Icon\Styles\FontWeight.png" />
     <Content Include="Icon\Win2Ds\CanvasOperator.png" />
     <Content Include="Icon\Template\RadiusShadowPanel.png" />
     <Content Include="Icon\Win2Ds\DottedLine.png" />
@@ -391,8 +392,8 @@
     <Content Include="Icon\Colors\RGBPicker.png" />
     <Content Include="Icon\Colors\WheelPicker.png" />
     <Content Include="Icon\Control\ExpandTextView.png" />
-    <Content Include="Icon\Helpers\Stretch.png" />
-    <Content Include="Icon\Helpers\Transition.png" />
+    <Content Include="Icon\Styles\Stretch.png" />
+    <Content Include="Icon\Styles\Transition.png" />
     <Content Include="Icon\Library\DataTemplateAdaptiver.png" />
     <Content Include="Icon\Control\PopupMenu.png" />
     <Content Include="Icon\Colors\TouchSlider.png" />
@@ -461,13 +462,13 @@
     <Content Include="Icon\Template\FlyoutTemplate.png" />
     <Content Include="Icon\Control\SplitPanelControl.png" />
     <Content Include="Icon\Template\TagChip.png" />
-    <Content Include="Icon\Helpers\Transition\Transition.png" />
-    <Content Include="Icon\Helpers\Transition\Common.png" />
-    <Content Include="Icon\Helpers\Transition\Continuum.png" />
-    <Content Include="Icon\Helpers\Transition\DrillIn.png" />
-    <Content Include="Icon\Helpers\Transition\Entrance.png" />
-    <Content Include="Icon\Helpers\Transition\Slide.png" />
-    <Content Include="Icon\Helpers\Transition\Suppress.png" />
+    <Content Include="Icon\Styles\Transition\Transition.png" />
+    <Content Include="Icon\Styles\Transition\Common.png" />
+    <Content Include="Icon\Styles\Transition\Continuum.png" />
+    <Content Include="Icon\Styles\Transition\DrillIn.png" />
+    <Content Include="Icon\Styles\Transition\Entrance.png" />
+    <Content Include="Icon\Styles\Transition\Slide.png" />
+    <Content Include="Icon\Styles\Transition\Suppress.png" />
     <Content Include="TXT\Colors\HSVPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\NumberPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\RGBPickerPage.xaml.txt" />
@@ -495,7 +496,7 @@
     <Content Include="TXT\Template\FlyoutTemplate.style.txt" />
     <Content Include="TXT\Template\TagChipPage.xaml.txt" />
     <Content Include="TXT\Template\FlyoutTemplatePage.xaml.txt" />
-    <Content Include="TXT\Helpers\Transition.style.txt" />
+    <Content Include="TXT\Styles\Transition.style.txt" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -530,7 +531,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\ColorsPage.xaml">
+    <Page Include="Frames\Styles\ColorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -670,11 +671,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\FontWeightPage.xaml">
+    <Page Include="Frames\Styles\FontWeightPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\StretchPage.xaml">
+    <Page Include="Frames\Styles\StretchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -722,35 +723,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\Transition\CommonPage.xaml">
+    <Page Include="Frames\Styles\Transition\CommonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\Transition\ContinuumPage.xaml">
+    <Page Include="Frames\Styles\Transition\ContinuumPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\Transition\DrillInPage.xaml">
+    <Page Include="Frames\Styles\Transition\DrillInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\Transition\EntrancePage.xaml">
+    <Page Include="Frames\Styles\Transition\EntrancePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\Transition\SlidePage.xaml">
+    <Page Include="Frames\Styles\Transition\SlidePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\Transition\SuppressPage.xaml">
+    <Page Include="Frames\Styles\Transition\SuppressPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\TransitionPage.xaml">
+    <Page Include="Frames\Styles\TransitionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Helpers\Transition\WelcomePage.xaml">
+    <Page Include="Frames\Styles\Transition\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

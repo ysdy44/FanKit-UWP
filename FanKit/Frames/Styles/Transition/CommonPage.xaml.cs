@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 
-namespace FanKit.Frames.Helpers.Transition
+namespace FanKit.Frames.Styles.Transition
 {
     public sealed partial class CommonPage : Page
     {

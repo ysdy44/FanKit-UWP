@@ -1,10 +1,10 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Helpers.ColorsPage"
+    x:Class="FanKit.Frames.Styles.ColorsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="using:FanKit.Frames.Helpers"
+    xmlns:local="using:FanKit.Frames.Styles"
     mc:Ignorable="d">
 
 
@@ -88,9 +88,6 @@
                             <Run  x:Name="TopRun3"/>
                         </Paragraph>
                         <Paragraph/>
-                        <Paragraph>
-                            <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Helpers/ColorsPage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Helpers/ColorsPage.xaml</Hyperlink>
-                        </Paragraph>
                     </RichTextBlock>
                 </Border >
             </Border >

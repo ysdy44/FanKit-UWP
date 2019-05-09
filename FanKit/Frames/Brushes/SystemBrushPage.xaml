@@ -575,14 +575,10 @@
                     <RichTextBlock Foreground="White" FontSize="18">
                     <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
                     <Paragraph/>
-                    <Paragraph>
-                        <Run x:Name="TopRun1"/>
-                        <Run x:Name="TopRun2" FontWeight="Bold" />
-                        <Run  x:Name="TopRun3"/>
-                        </Paragraph>
-                        <Paragraph/>
                         <Paragraph>
-                            <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brushes/SystemBrushPage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brush/SystemBrushPage.xaml</Hyperlink>
+                            <Run x:Name="TopRun1"/>
+                            <Run x:Name="TopRun2" FontWeight="Bold" />
+                            <Run  x:Name="TopRun3"/>
                         </Paragraph>
                     </RichTextBlock>
                 </Border >

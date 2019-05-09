@@ -60,6 +60,10 @@
                             <Span>(uri);</Span>
 
                         </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceToolKitControl/>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

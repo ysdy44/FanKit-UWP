@@ -17,16 +17,14 @@
     d:DesignWidth="400">
  
     
-    <Grid x:Name="ShadowGrid" Visibility="Collapsed">
-
+    <Grid  x:Name="RootGrid">
         
         <!--Blur-->
-        <Grid.Background>
-            <media:BackdropBlurBrush Amount="3" />
-        </Grid.Background>
-
-        <!--Shadow-->
-        <Rectangle Fill="{StaticResource AppDarkBrush}"/>
+        <Border x:Name="BlurBorder">
+            <Border.Background>
+                <media:BackdropBlurBrush Amount="3" />
+            </Border.Background>
+        </Border>
 
         <controls:DropShadowPanel 
             Color="Black" ShadowOpacity="0.2" BlurRadius="40"
@@ -46,23 +44,24 @@
             <!--GridView-->
             <GridView x:Name="GridView" 
                             SelectionMode="None"
-                            VerticalAlignment="Top"
+                            VerticalAlignment="Top" 
                             ScrollViewer.VerticalScrollMode="Enabled"
                             animations:ReorderGridAnimation.Duration="300"  
-                            Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                            Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
+                          >
 
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <controls:WrapPanel/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
-                
+
                 <GridView.ItemTemplate>
                     <DataTemplate   x:DataType="samples:Sample">
                         <fankit:SampleControl Sample="{x:Bind}"/>
                     </DataTemplate>
                 </GridView.ItemTemplate>
-        
+
                 <GridView.ItemContainerStyle>
                     <Style TargetType="GridViewItem">
                         <Setter Property="Width" Value="150"/>
@@ -70,6 +69,7 @@
                 </GridView.ItemContainerStyle>
 
             </GridView>
+
 
         </controls:DropShadowPanel>
 

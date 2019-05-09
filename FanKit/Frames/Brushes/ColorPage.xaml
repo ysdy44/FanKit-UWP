@@ -561,8 +561,6 @@
                         </Paragraph>
                         <Paragraph>
                             <Run x:Name="Paragraph5"/>
-
-                            <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brushes/ColorPage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Brush/ColorPage.xaml</Hyperlink>
                         </Paragraph>
                     </RichTextBlock>
                 </Border >

@@ -13,11 +13,11 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace FanKit.Frames.Helpers.Transition
+namespace FanKit.Frames.Styles.Transition
 {
-    public sealed partial class DrillInPage : Page
+    public sealed partial class SlidePage : Page
     {
-        public DrillInPage()
+        public SlidePage()
         {
             this.InitializeComponent();
         }

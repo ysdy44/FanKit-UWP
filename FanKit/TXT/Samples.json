@@ -3,54 +3,63 @@
     "Name": "Brushes",
     "Samples": [
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.SystemBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "SystemBrushes",
         "Uri": "ms-appx:///Icon/Brushes/SystemBrush.png",
         "Summary": "SolidColorBrush resources in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.LegacyBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "LegacyBrushes",
         "Uri": "ms-appx:///Icon/Brushes/LegacyBrush.png",
         "Summary": "SolidColorBrush resources in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.InkToolbarBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "InkToolbarBrushes",
         "Uri": "ms-appx:///Icon/Brushes/InkToolbarBrush.png",
         "Summary": "SolidColorBrush resources in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.OtherBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "OthersBrush",
         "Uri": "ms-appx:///Icon/Brushes/OthersBrush.png",
         "Summary": "SolidColorBrush resources in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.AcrylicElementBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "AcrylicElementBrushes",
         "Uri": "ms-appx:///Icon/Brushes/AcrylicElementBrush.png",
         "Summary": "AcrylicBrushes resources in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.AcrylicWindowBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "AcrylicWindowBrushes",
         "Uri": "ms-appx:///Icon/Brushes/AcrylicWindowBrush.png",
         "Summary": "AcrylicBrushes resources in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.RevealBorderBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RevealBorderBrushes",
         "Uri": "ms-appx:///Icon/Brushes/RevealBorderBrush.png",
         "Summary": "RevealBrushes resources in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.RevealBackgroundBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RevealBackgroundBrushes",
         "Uri": "ms-appx:///Icon/Brushes/RevealBackgroundBrush.png",
         "Summary": "RevealBrushes resources in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Brushes.ColorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Colors",
         "Uri": "ms-appx:///Icon/Brushes/Color.png",
@@ -62,44 +71,45 @@
     "Name": "Style",
     "Samples": [
       {
+        "State": 0,
         "Page": "FanKit.Frames.Styles.TextblockStylePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "TextblockStyle",
         "Uri": "ms-appx:///Icon/Styles/TextBlockStyle.png",
         "Summary": "Textblock style in the system generic.xaml file,It can be used to bind"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Styles.ButtonStylePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "ButtonStyle",
         "Uri": "ms-appx:///Icon/Styles/ButtonStyle.png",
         "Summary": "Button style in the system generic.xaml file,It can be used to bind"
-      }
-    ]
-  },
-  {
-    "Name": "Helpers",
-    "Samples": [
+      },
       {
-        "Page": "FanKit.Frames.Helpers.TransitionPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "State": 0,
+        "Page": "FanKit.Frames.Styles.TransitionPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Transition",
-        "Uri": "ms-appx:///Icon/Helpers/Transition.png",
+        "Uri": "ms-appx:///Icon/Styles/Transition.png",
         "Summary": "Provides page navigation animations,to create a smooth and smooth transition effect"
       },
       {
-        "Page": "FanKit.Frames.Helpers.StretchPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "State": 0,
+        "Page": "FanKit.Frames.Styles.StretchPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Stretch",
-        "Uri": "ms-appx:///Icon/Helpers/Stretch.png",
+        "Uri": "ms-appx:///Icon/Styles/Stretch.png",
         "Summary": "Describes how to resize the content to fill the space allocated for it."
       },
       {
-        "Page": "FanKit.Frames.Helpers.FontWeightPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "State": 0,
+        "Page": "FanKit.Frames.Styles.FontWeightPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "FontWeight",
-        "Uri": "ms-appx:///Icon/Helpers/FontWeight.png",
+        "Uri": "ms-appx:///Icon/Styles/FontWeight.png",
         "Summary": "Gets or sets the top-level font weight for the TextBlock."
       },
       {
-        "Page": "FanKit.Frames.Helpers.ColorsPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "State": 0,
+        "Page": "FanKit.Frames.Styles.ColorsPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Colors",
-        "Uri": "ms-appx:///Icon/Helpers/Colors.png",
+        "Uri": "ms-appx:///Icon/Styles/Colors.png",
         "Summary": "All color of Windows.UI.Colors."
       }
     ]
@@ -108,24 +118,28 @@
     "Name": "Template",
     "Samples": [
       {
+        "State": 0,
         "Page": "FanKit.Frames.Template.RadiusShadowPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RadiusShadowPanel",
         "Uri": "ms-appx:///Icon/Template/RadiusShadowPanel.png",
         "Summary": "Makes the layout panel with Corner Radius and drop shadow."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Template.FlyoutTemplatePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "FlyoutTemplate",
         "Uri": "ms-appx:///Icon/Template/FlyoutTemplate.png",
         "Summary": "A style that provides a Flyout control with rounded rectangles, drop shadow, and small arrows."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Template.TagChipPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "TagChipControl",
         "Uri": "ms-appx:///Icon/Template/TagChip.png",
         "Summary": "Tag chip control,based on ListView,To get it by the ItemContainStyle."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Template.FloatActionButtonPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "FloatActionButton",
         "Uri": "ms-appx:///Icon/Template/FloatActionButton.png",
@@ -137,42 +151,49 @@
     "Name": "Control",
     "Samples": [
       {
+        "State": 0,
         "Page": "FanKit.Frames.Control.ThemeControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "ThemeControl",
         "Uri": "ms-appx:///Icon/Control/ThemeControl.png",
         "Summary": "Click the button to toggle sensitive themes for your application."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Control.SplitPanelControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "SplitPanelControl",
         "Uri": "ms-appx:///Icon/Control/SplitPanelControl.png",
         "Summary": "Split panel, it hide when you slide left, it show when you slide right."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Control.RadiusAnimaPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RadiusAnimaControl",
         "Uri": "ms-appx:///Icon/Control/RadiusAnimaPanel.png",
         "Summary": "The shadow panel of the control will also follow the animation, if you change the width of the contents of the control."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Control.PopupMenuPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "PopupMenu",
         "Uri": "ms-appx:///Icon/Control/PopupMenu.png",
         "Summary": "Popup menu,black menu displayed on chat bubbles"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Control.ExpandTextViewPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "ExpandTextView",
         "Uri": "ms-appx:///Icon/Control/ExpandTextView.png",
         "Summary": "Expand text view,it shrinks or expands when clicked."
       },
       {
+        "State": 1,
         "Page": "FanKit.Frames.Control.IndicatorControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "IndicatorControl",
         "Uri": "ms-appx:///Icon/Control/IndicatorControl.png",
         "Summary": ""
       },
       {
+        "State": 1,
         "Page": "FanKit.Frames.Control.RemoteControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RemoteControl",
         "Uri": "ms-appx:///Icon/Control/RemoteControl.png",
@@ -184,18 +205,21 @@
     "Name": "Library",
     "Samples": [
       {
+        "State": 0,
         "Page": "FanKit.Frames.Library.PalettePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Palette",
         "Uri": "ms-appx:///Icon/Library/Palette.png",
         "Summary": "Get the main color of a picture"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Library.DataTemplateAdaptiverPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "DataTemplateAdaptiver",
         "Uri": "ms-appx:///Icon/Library/DataTemplateAdaptiver.png",
         "Summary": "Constrain GridItem's width and height.so as to reach a most appropriate proportion."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Library.ScalableGridPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "ScalableGrid",
         "Uri": "ms-appx:///Icon/Library/ScalableGrid.png",
@@ -207,66 +231,77 @@
     "Name": "Colors",
     "Samples": [
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.NumberPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "NumberPicker",
         "Uri": "ms-appx:///Icon/Colors/NumberPicker.png",
         "Summary": "Number picker"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.TouchSliderPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "TouchSlider",
         "Uri": "ms-appx:///Icon/Colors/TouchSlider.png",
         "Summary": "Touch slider, It has three events : Started, Delta and Completed."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.RGBPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RGBPicker",
         "Uri": "ms-appx:///Icon/Colors/RGBPicker.png",
         "Summary": "RGB of color picker."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.HSVPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "HSVPicker",
         "Uri": "ms-appx:///Icon/Colors/HSVPicker.png",
         "Summary": "HSV of color picker."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.WheelPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "WheelPicker",
         "Uri": "ms-appx:///Icon/Colors/WheelPicker.png",
         "Summary": "Color wheel picker."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.PalettePickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "PalettePicker",
         "Uri": "ms-appx:///Icon/Colors/PalettePicker.png",
         "Summary": "Color palette picker."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.StrawPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "StrawPicker",
         "Uri": "ms-appx:///Icon/Colors/StrawPicker.png",
         "Summary": "Color straw picker."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.AlphaPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "AlphaPicker",
         "Uri": "ms-appx:///Icon/Colors/AlphaPicker.png",
         "Summary": "Color alpha picker."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.HexPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "HexPicker",
         "Uri": "ms-appx:///Icon/Colors/HexPicker.png",
         "Summary": "Hex code."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.SwatchesPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "SwatchesPicker",
         "Uri": "ms-appx:///Icon/Colors/SwatchesPicker.png",
         "Summary": "Swatches picker"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Colors.ColorPickerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "ColorPicker",
         "Uri": "ms-appx:///Icon/Colors/ColorPicker.png",
@@ -278,36 +313,42 @@
     "Name": "Win2Ds",
     "Samples": [
       {
+        "State": 0,
         "Page": "FanKit.Frames.Win2Ds.CanvasOperatorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "CanvasOperator",
         "Uri": "ms-appx:///Icon/Win2Ds/CanvasOperator.png",
         "Summary": "Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger ."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Win2Ds.DottedLinePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "DottedLine",
         "Uri": "ms-appx:///Icon/Win2Ds/DottedLine.png",
         "Summary": "the Dotted Line of photoshop ,should display the 'marching ants'"
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Win2Ds.CurveNodesPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "CurveNodes",
         "Uri": "ms-appx:///Icon/Win2Ds/CurveNodes.png",
         "Summary": " Drawing and managing Bezier curves on CanvasControl "
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Win2Ds.MarqueeToolPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "MarqueeTool",
         "Uri": "ms-appx:///Icon/Win2Ds/MarqueeTool.png",
         "Summary": "The marquee is a tool that can make selections that are  rectangular and elliptical."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Win2Ds.TransformControllerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "TransformController",
         "Uri": "ms-appx:///Icon/Win2Ds/TransformController.png",
         "Summary": "Drag and drop nodes and manipulate transformer libraries."
       },
       {
+        "State": 0,
         "Page": "FanKit.Frames.Win2Ds.HomographyControllerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "HomographyController",
         "Uri": "ms-appx:///Icon/Win2Ds/HomographyController.png",

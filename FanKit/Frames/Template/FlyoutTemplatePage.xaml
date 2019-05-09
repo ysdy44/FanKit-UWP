@@ -275,6 +275,10 @@
                             <Span FontWeight="SemiBold">Right</Span>
                             <Span FontWeight="SemiBold">Bottom</Span>
                         </TextBlock>
+                        
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <frames:ReferenceWin2dControl/>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

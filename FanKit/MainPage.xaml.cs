@@ -7,6 +7,7 @@ using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml;
 
 namespace FanKit
 {
@@ -54,9 +55,6 @@ namespace FanKit
             MainPage.ImageButtonVisibleChange = (double offset) => this.sos.VerticalOffset = offset;  //ImageButtonVisible
             MainPage.Navigate = (page) => //Navigate
             {
-                //Sample Category Control
-                this.SamplesCategoryControl.Category = null;
-
                 //Navigate
                 this.NavigationFrame.Navigate(page);
 
@@ -100,10 +98,18 @@ namespace FanKit
 
                 if (e.ClickedItem is SampleCategory category)
                 {
-                    if (this.SamplesCategoryControl.Category == category)
-                        this.SamplesCategoryControl.Category = null;
-                    else
-                        this.SamplesCategoryControl.Category = category;
+
+                    if (this.SamplesCategoryControl.Visibility == Visibility.Visible)
+                    {
+                        if (this.SamplesCategoryControl.SampleCategory == category)
+                        {
+                            this.SamplesCategoryControl.Visibility = Visibility.Collapsed;
+                            return;
+                        }
+                    }
+
+                    this.SamplesCategoryControl.Visibility = Visibility.Visible;
+                    this.SamplesCategoryControl.SampleCategory = category;
                 }
             };
 
@@ -111,7 +117,7 @@ namespace FanKit
             //Button
             this.ImageVisibleButton.Tapped += (sender, e) => this.IsImageVisible = !this.IsImageVisible;
             this.SettingButton.Tapped += (s, e) => MainPage.Navigate(typeof(FanKit.Frames.Others.SettingPage));
-            this.SamplesCategoryControl.ItemClick += (page) =>  MainPage.Navigate(page);
+            this.SamplesCategoryControl.ItemClick += (page) =>MainPage.Navigate(page);
             this.BackButton.Tapped += (s, e) =>
             { 
                 //Back
@@ -120,7 +126,7 @@ namespace FanKit
                  //Back
                  if (this.NavigationFrame.CanGoBack==false)
                 {
-                    this.SamplesCategoryControl.Category = null;
+                    this.SamplesCategoryControl.Visibility = Visibility.Collapsed;
 
                     this.ListView.SelectedIndex = -1;
                  }

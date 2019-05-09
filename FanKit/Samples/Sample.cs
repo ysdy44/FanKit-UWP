@@ -1,60 +1,71 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 
 namespace FanKit.Samples
 {
     public class Sample : INotifyPropertyChanged
     {
-        private Type page;
+        /// <summary> Sample's state. </summary>
+        public SampleState State
+        {
+            get => this.state;
+            set
+            {
+                this.state = value;
+                this.OnPropertyChanged(nameof(this.State));//Notify
+            }
+        }
+        private SampleState state;
+
+        /// <summary> Sample's frame page. </summary>
         public Type Page
         {
-            get => page;
+            get => this.page;
             set
             {
-                page = value;
-                OnPropertyChanged(nameof(Page));
+                this.page = value;
+                this.OnPropertyChanged(nameof(this.Page));//Notify
             }
         }
+        private Type page;
 
-        private string name;
+        /// <summary> Sample's name. </summary>
         public string Name
         {
-            get => name;
+            get => this.name;
             set
             {
-                name = value;
-                OnPropertyChanged(nameof(Name));
+                this.name = value;
+                this.OnPropertyChanged(nameof(this.Name));//Notify
             }
         }
+        private string name;
 
-        private Uri uri;
+        /// <summary> Sample's image uri. </summary>
         public Uri Uri
         {
-            get => uri;
+            get => this.uri;
             set
             {
-                uri = value;
-                OnPropertyChanged(nameof(Uri));
+                this.uri = value;
+                this.OnPropertyChanged(nameof(this.Uri));//Notify
             }
         }
+        private Uri uri;
 
-        private string summary;
+        /// <summary> Sample's summary. </summary>
         public string Summary
         {
-            get => summary;
+            get => this.summary;
             set
             {
-                summary = value;
-                OnPropertyChanged(nameof(Summary));
+                this.summary = value;
+                this.OnPropertyChanged(nameof(this.Summary));//Notify
             }
         }
-        
+        private string summary;
+
 
         public void Button_Tapped(object sender, TappedRoutedEventArgs e)=> e.Handled = true;
 

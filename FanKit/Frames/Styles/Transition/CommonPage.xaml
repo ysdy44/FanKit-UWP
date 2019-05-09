@@ -1,19 +1,18 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Helpers.Transition.SuppressPage"
+    x:Class="FanKit.Frames.Styles.Transition.CommonPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FanKit.Frames.Helpers.Transition"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" >
 
     <Page.Transitions>
         <TransitionCollection>
-            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppSuppressTransition}"/>
+            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppCommonTransition}"/>
         </TransitionCollection>
     </Page.Transitions>
 
     <Grid  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-        <TextBlock Text="SuppressNavigationTransitionInfo" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+        <TextBlock Text="CommonNavigationTransitionInfo" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
     </Grid>
 </Page>
