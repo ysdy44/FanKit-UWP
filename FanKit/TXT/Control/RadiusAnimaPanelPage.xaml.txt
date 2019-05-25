@@ -5,10 +5,16 @@
 
 
 <Page
-    x:Class="FanKit.Frames.Control.RemoteControlPage"
+    x:Class="FanKit.Control.RadiusAnimaPanel"
     xmlns:control="using:FanKit.Control">
 
-         <control:RemoteControl x:Name="RemoteControl"/>
+     <control:RadiusAnimaPanel>
+          <control:RadiusAnimaPanel.CenterContent>
+               <Border x:Name="Rectangle" Height="22" MinWidth="50" Margin="20,0" Background="Red"  >
+                    <TextBlock x:Name="TextBlock" HorizontalAlignment="Center" Foreground="White"/>
+                </Border>
+           </control:RadiusAnimaPanel.CenterContent>
+      </control:RadiusAnimaPanel>
 
 </Page>
 
