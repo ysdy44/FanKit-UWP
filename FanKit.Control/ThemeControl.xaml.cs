@@ -33,9 +33,16 @@ namespace FanKit.Control
 
         #endregion
 
-        /// <summary>
-        /// Theme of current <see cref="Window"/>.
-        /// </summary>
+        /// <summary> Theme of current <see cref="Application"/>. </summary>
+        public ApplicationTheme ApplicationTheme
+        {
+            set
+            {
+                this.Theme = (value == ApplicationTheme.Dark) ? ElementTheme.Dark : ElementTheme.Light;
+            }
+        }
+
+        /// <summary> Theme of current <see cref="Window"/>. </summary>
         public ElementTheme Theme
         {
             get => this.theme;
@@ -46,34 +53,34 @@ namespace FanKit.Control
                     frameworkElement.RequestedTheme = value;
                 }
 
+                this._Theme = value;
+                this.theme = value;
+            }
+        }
+
+        private ElementTheme _Theme
+        {
+            get => this.theme;
+            set
+            {
                 if (value == ElementTheme.Dark)
-                {
-                    this.DarkStoryboar.Begin();//Storyboard
-                }
+                    this.DarkStoryboard.Begin();//Storyboard                
                 else
-                {
-                    this.LightStoryboard.Begin();//Storyboard
-                }
+                    this.LightStoryboard.Begin();//Storyboard                
 
                 this.theme = value;
             }
         }
+
         private ElementTheme theme;
 
-        ApplicationViewTitleBar TitleBar = ApplicationView.GetForCurrentView().TitleBar;
+        private ApplicationViewTitleBar TitleBar = ApplicationView.GetForCurrentView().TitleBar;
 
         public ThemeControl()
         {
             this.InitializeComponent();
             this.Button.Tapped += (s, e) => this.Theme = (this.Theme == ElementTheme.Dark) ? ElementTheme.Light : ElementTheme.Dark;
-            this.Loaded += (s, e) =>
-            {
-                //this.Theme = (App.Current.RequestedTheme == ApplicationTheme.Dark) ? ElementTheme.Dark : ElementTheme.Light;
-                if (Window.Current.Content is FrameworkElement frameworkElement)
-                {
-                    this.Theme = frameworkElement.RequestedTheme;
-                }
-            };
+            //this.Loaded += (s, e) => this.Theme = (App.Current.RequestedTheme == ApplicationTheme.Dark) ? ElementTheme.Dark : ElementTheme.Light;
         }
     }
 }

@@ -5,12 +5,12 @@
 
  <Page
     x:Class="FanKit.Frames.Control.ThemeControlPage"
-    xmlns:Control="using:FanKit.Control"
+    xmlns:control="using:FanKit.Control"
     >
 
-    <Border Width="120" Height="120"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}">
+    <Border Width="120" Height="120" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}">
         <Border Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-            <Control:ThemeControl Color="{ThemeResource SystemAltHighColor}"/>
+            <control:ThemeControl Color="{ThemeResource SystemAltHighColor}"/>
         </Border>
     </Border>
     
