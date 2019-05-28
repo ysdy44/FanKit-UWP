@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Numerics;
 using Windows.Devices.Input;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
 namespace FanKit.Win2Ds
 {
-    /// <summary>Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger .</summary>
+    /// <summary> 
+    /// Provides single-finger, double-finger, mobile events to pointer events for canvas controls.
+    /// </summary>
     public class CanvasOperator : DependencyObject
     {
 
@@ -15,18 +18,18 @@ namespace FanKit.Win2Ds
 
 
         /// <summary>
-        /// Destination Control
+        /// <see cref = "CanvasOperator" />'s destination control.
         /// </summary>
-        public Windows.UI.Xaml.Controls.Control DestinationControl
+        public Control DestinationControl
         {
-            get { return (Windows.UI.Xaml.Controls.Control)GetValue(DestinationControlProperty); }
+            get { return (Control)GetValue(DestinationControlProperty); }
             set { SetValue(DestinationControlProperty, value); }
         }
-        public static DependencyProperty DestinationControlProperty = DependencyProperty.Register(nameof(DestinationControl), typeof(Windows.UI.Xaml.Controls. Control), typeof(CanvasOperator), new PropertyMetadata(null, (sender, e) =>
+        public static DependencyProperty DestinationControlProperty = DependencyProperty.Register(nameof(DestinationControl), typeof(Windows.UI.Xaml.Controls.Control), typeof(CanvasOperator), new PropertyMetadata(null, (sender, e) =>
         {
             CanvasOperator con = (CanvasOperator)sender;
 
-            if (e.NewValue is Windows.UI.Xaml.Controls.Control value)
+            if (e.NewValue is Control value)
             {
                 value.PointerEntered += con.Control_PointerEntered;
                 value.PointerExited += con.Control_PointerExited;
@@ -45,19 +48,29 @@ namespace FanKit.Win2Ds
         #region Delegate
 
 
-        /// <summary>One Finger | Mouse Left Button | Pen</summary>
+        /// <summary>
+        /// One Finger | Mouse Left Button | Pen
+        /// </summary>
+        /// <param name="point"> The position of the point. </param>
         public delegate void SingleHandler(Vector2 point);
         public event SingleHandler Single_Start = null;
         public event SingleHandler Single_Delta = null;
         public event SingleHandler Single_Complete = null;
 
-        /// <summary>Mouse Right Button </summary>
+        /// <summary>
+        /// Mouse right button
+        /// </summary>
+        /// <param name="point"> The position of the point. </param>
         public delegate void RightHandler(Vector2 point);
         public event RightHandler Right_Start = null;
         public event RightHandler Right_Delta = null;
         public event RightHandler Right_Complete = null;
 
-        /// <summary>Two Fingers</summary>
+        /// <summary>
+        /// Two fingers
+        /// </summary>
+        /// <param name="center"> The center of the double finger. </param>
+        /// <param name="space"> The space between two fingers. </param>
         public delegate void DoubleHandler(Vector2 center, float space);
         public event DoubleHandler Double_Start = null;
         public event DoubleHandler Double_Delta = null;
@@ -72,32 +85,31 @@ namespace FanKit.Win2Ds
         #region PointerRouted
 
 
-        /// <summary>return pointer position</summary>
+        /// <summary> Return pointer position. </summary>
         public Vector2 Pointer_Position(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).Position.ToVector2();
-        /// <summary>return pointer pressure</summary>
+        /// <summary> Return pointer pressure. </summary>
         public float Pointer_Pressure(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).Properties.Pressure;
-        /// <summary>return pointer wheel delta</summary>
+        /// <summary> Return pointer wheel delta. </summary>
         public float Pointer_WheelDelta(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).Properties.MouseWheelDelta;
 
-        /// <summary>touch or not</summary>
+        /// <summary> Touch or not. </summary>
         public bool Pointer_IsTouch(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).PointerDevice.PointerDeviceType == PointerDeviceType.Touch;
-        /// <summary>pen or not</summary>
+        /// <summary> Pen or not. </summary>
         public bool Pointer_IsPen(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).PointerDevice.PointerDeviceType == PointerDeviceType.Pen && e.GetCurrentPoint(this.DestinationControl).Properties.IsBarrelButtonPressed == false && e.GetCurrentPoint(this.DestinationControl).IsInContact;
-        /// <summary>barrel or not</summary>
+        /// <summary> Barrel or not. </summary>
         public bool Pointer_IsBarrel(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).PointerDevice.PointerDeviceType == PointerDeviceType.Pen && e.GetCurrentPoint(this.DestinationControl).Properties.IsBarrelButtonPressed == true && e.GetCurrentPoint(this.DestinationControl).IsInContact;
 
-        /// <summary>mouse or not</summary>
+        /// <summary> Mouse or not. </summary>
         public bool Pointer_IsMouse(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).PointerDevice.PointerDeviceType == PointerDeviceType.Mouse;
-        /// <summary>mouse left button or not</summary>
+        /// <summary> Mouse left button or not. </summary>
         public bool Pointer_IsLeft(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).PointerDevice.PointerDeviceType == PointerDeviceType.Mouse && e.GetCurrentPoint(this.DestinationControl).Properties.IsLeftButtonPressed;
-        /// <summary>mouse right button or not</summary>
+        /// <summary> Mouse right button or not. </summary>
         public bool Pointer_IsRight(PointerRoutedEventArgs e) => e.GetCurrentPoint(this.DestinationControl).Properties.IsRightButtonPressed || e.GetCurrentPoint(this.DestinationControl).Properties.IsMiddleButtonPressed;
 
 
         #endregion
 
         #region Point
-
 
         InputDevice Device = InputDevice.None;
 
@@ -113,18 +125,18 @@ namespace FanKit.Win2Ds
 
 
         //Pointer Entered
-        public void Control_PointerEntered(object sender, PointerRoutedEventArgs e)
+        private void Control_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
         }
         //Pointer Exited
-        public void Control_PointerExited(object sender, PointerRoutedEventArgs e)
+        private void Control_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             this.Control_PointerReleased(sender, e);
         }
 
 
         //Pointer Pressed
-        public void Control_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private void Control_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Vector2 point = this.Pointer_Position(e);
 
@@ -170,7 +182,7 @@ namespace FanKit.Win2Ds
         }
 
         //Pointer Released
-        public void Control_PointerReleased(object sender, PointerRoutedEventArgs e)
+        private void Control_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             Vector2 point = this.Pointer_Position(e);
 
@@ -197,7 +209,7 @@ namespace FanKit.Win2Ds
 
 
         //Pointer Moved
-        public void Control_PointerMoved(object sender, PointerRoutedEventArgs e)
+        private void Control_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
             Vector2 point = this.Pointer_Position(e);
 
@@ -254,7 +266,10 @@ namespace FanKit.Win2Ds
 
     }
 
-    public enum InputDevice
+    /// <summary>
+    /// <see cref = "CanvasOperator" />'s input device.
+    /// </summary>
+    internal enum InputDevice
     {
         None,
 
