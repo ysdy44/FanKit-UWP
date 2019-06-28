@@ -1,0 +1,152 @@
+﻿
+```Csharp
+
+
+ 
+ using Microsoft.Graphics.Canvas.Text;
+using System.Numerics;
+using Windows.UI.Xaml.Controls;
+
+namespace FanKit.Frames.Transformers
+{
+    /// <summary>
+    /// Page of <see cref="FanKit.Transformers.CanvasOperator">.
+    /// </summary>
+    public sealed partial class CanvasOperatorPage : Page
+    {
+
+        //Single
+        Vector2 singlePoint;
+        //Right
+        Vector2 rightPoint;
+        //Double
+        Vector2 doubleCenter;
+        float doubleSpace;
+        //Wheel
+        Vector2 wheelPoint;
+        float wheelSpace;
+
+        string Text { set => this.TipTextBlock.Text = value; }
+
+
+        //@Construct
+        public CanvasOperatorPage()
+        {
+            this.InitializeComponent();
+            this.ResetButton.Tapped += (s, e) =>
+            {
+                this.singlePoint = Vector2.Zero;
+                this.rightPoint = Vector2.Zero;
+                this.doubleCenter = Vector2.Zero;
+                this.doubleSpace = 0;
+                this.wheelPoint = Vector2.Zero;
+                this.wheelSpace = 0;
+
+                this.CanvasControl.Invalidate();
+            };
+
+
+            //Canvas
+            this.CanvasControl.Draw += (sender, args) =>
+            {
+                args.DrawingSession.FillCircle(this.singlePoint, 12, Windows.UI.Colors.OrangeRed);
+
+                args.DrawingSession.FillCircle(this.rightPoint, 12, Windows.UI.Colors.SeaGreen);
+
+                args.DrawingSession.FillCircle(this.doubleCenter, 12, Windows.UI.Colors.DodgerBlue);
+                args.DrawingSession.DrawText(string.Format("{0}", (int)this.doubleSpace), this.doubleCenter, Windows.UI.Colors.White, new CanvasTextFormat
+                {
+                    FontSize = 14,
+                    HorizontalAlignment = CanvasHorizontalAlignment.Center,
+                    VerticalAlignment = CanvasVerticalAlignment.Center,
+                });
+
+                args.DrawingSession.FillCircle(this.wheelPoint, 12, Windows.UI.Colors.Gray);
+                args.DrawingSession.DrawText(string.Format("{0}", (int)this.wheelSpace), this.wheelPoint, Windows.UI.Colors.White, new CanvasTextFormat
+                {
+                    FontSize = 14,
+                    HorizontalAlignment = CanvasHorizontalAlignment.Center,
+                    VerticalAlignment = CanvasVerticalAlignment.Center,
+                });
+
+            };
+
+
+            //Single
+            this.CanvasOperator.Single_Start += (Vector2 point) =>
+            {
+                this.singlePoint = point;
+                this.Text = "Single_Start";
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Single_Delta += (Vector2 point) =>
+            {
+                this.singlePoint = point;
+                this.Text = "Single_Delta";
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Single_Complete += (Vector2 point) =>
+            {
+                this.singlePoint = point;
+                this.Text = "Single_Complete";
+                this.CanvasControl.Invalidate();
+            };
+
+            //Right
+            this.CanvasOperator.Right_Start += (Vector2 point) =>
+            {
+                this.rightPoint = point;
+                this.Text = "Right_Start";
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Right_Delta += (Vector2 point) =>
+            {
+                this.rightPoint = point;
+                this.Text = "Right_Delta";
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Right_Complete += (Vector2 point) =>
+            {
+                this.rightPoint = point;
+                this.Text = "Right_Complete";
+                this.CanvasControl.Invalidate();
+            };
+
+            //Double
+            this.CanvasOperator.Double_Start += (Vector2 center, float space) =>
+            {
+                this.doubleCenter = center;
+                this.doubleSpace = space;
+                this.Text = "Double_Start";
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Double_Delta += (Vector2 center, float space) =>
+            {
+                this.doubleCenter = center;
+                this.doubleSpace = space;
+                this.Text = "Double_Delta";
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Double_Complete += (Vector2 center, float space) =>
+            {
+                this.doubleCenter = center;
+                this.doubleSpace = space;
+                this.Text = "Double_Complete";
+                this.CanvasControl.Invalidate();
+            };
+
+            //Wheel
+            this.CanvasOperator.Wheel_Changed += (Vector2 point, float space) =>
+            {
+                this.wheelPoint = point;
+                this.wheelSpace = space;
+                this.Text = "Wheel_Changed";
+                this.CanvasControl.Invalidate();
+            };
+        }
+    }
+}
+
+
+
+```

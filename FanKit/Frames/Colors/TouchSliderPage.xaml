@@ -8,6 +8,7 @@
     xmlns:hsvColorPickers="using:HSVColorPickers"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
 
 
@@ -89,7 +90,7 @@
                             </TextBlock>
 
                             <TextBlock Text="Reference:" Margin="12" />
-                            <frames:ReferenceHSVColorPickerControl/>
+                            <reference:ReferenceHSVColorPicker/>
 
                         </StackPanel>
                     </ScrollViewer>

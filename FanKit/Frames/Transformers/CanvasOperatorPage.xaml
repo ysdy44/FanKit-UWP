@@ -1,0 +1,105 @@
+﻿<Page
+    x:Class="FanKit.Frames.Transformers.CanvasOperatorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:frames="using:FanKit.Frames"
+    xmlns:reference="using:FanKit.Frames.Reference"
+    xmlns:transformers="using:FanKit.Transformers"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <!--CanvasOperator-->
+        <transformers:CanvasOperator x:Name="CanvasOperator" DestinationControl="{Binding ElementName=CanvasControl}"/>
+    </Page.Resources>
+
+
+    <frames:PageLayout>
+
+
+        <frames:PageLayout.ShowContent>
+            <Grid>
+
+                <canvas:CanvasControl x:Name="CanvasControl" />
+
+                <Border x:Name="TipBorder" IsHitTestVisible="False" Height="32" CornerRadius="16" Margin="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                    <TextBlock x:Name="TipTextBlock" Margin="12,0" VerticalAlignment="Center" Foreground="White" FontWeight="Medium"/>
+                </Border>
+
+            </Grid>
+        </frames:PageLayout.ShowContent>
+
+
+        <frames:PageLayout.DetailContent>
+            <Pivot>
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer>
+                        <StackPanel>
+
+                            <Button x:Name="ResetButton" Margin="12" Content="Reset"/>
+
+                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                                 
+                                <Span FontStyle="Italic">Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger .</Span>
+                                <LineBreak/>
+                                <LineBreak/>
+                          
+
+                                <!--Single-->
+                               <Span Foreground="OrangeRed" FontSize="18">◉</Span>
+                               <Span FontStyle="Italic" >Single:</Span>
+                               <LineBreak/>
+                               <Span> One Finger | Mouse Left Button | Pen</Span>                            
+                               <LineBreak/>
+                               <LineBreak/>            
+                            
+                                <!--Right-->
+                               <Span Foreground="SeaGreen" FontSize="18">◉</Span>
+                               <Span FontStyle="Italic">Right:</Span>
+                               <LineBreak/>                  
+                               <Span>Mouse Right Button </Span>                            
+                               <LineBreak/>
+                               <LineBreak/>        
+                            
+                                <!--Double-->
+                               <Span Foreground="DodgerBlue" FontSize="18">◉</Span>
+                               <Span FontStyle="Italic">Double:</Span>
+                               <LineBreak/>                  
+                               <Span>Two Fingers</Span>                            
+                               <LineBreak/>
+                               <LineBreak/> 
+                            
+                                <!--Wheel-->
+                               <Span Foreground="Gray" FontSize="18">◉</Span>
+                               <Span FontStyle="Italic">Wheel:</Span>
+                               <LineBreak/>                  
+                               <Span>Mouse Wheel </Span>
+                             
+                            </TextBlock>
+
+                            <TextBlock Text="Reference:" Margin="12" />
+                            <reference:ReferenceTransformers/>
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer>
+                        <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer>
+                        <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
+                    </ScrollViewer>
+                </PivotItem>
+            </Pivot>
+        </frames:PageLayout.DetailContent>
+
+
+    </frames:PageLayout>
+</Page>

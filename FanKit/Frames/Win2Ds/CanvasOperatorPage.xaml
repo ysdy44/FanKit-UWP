@@ -9,6 +9,7 @@
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
 
 
@@ -17,10 +18,10 @@
         <!--CanvasOperator-->
         <Win2Ds:CanvasOperator x:Name="CanvasOperator"         
              DestinationControl="{Binding ElementName=CanvasControl}"/>
- 
+
     </Page.Resources>
 
-    
+
     <frames:PageLayout>
 
 
@@ -45,7 +46,7 @@
 
                     <TextBlock x:Name="TipTextBlock" Margin="12,0" VerticalAlignment="Center" Foreground="White" FontWeight="Medium"/>
                 </Border>
-            
+
             </Grid>
         </frames:PageLayout.ShowContent>
 
@@ -55,7 +56,7 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <StackPanel>
-                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                   
                             <Span FontStyle="Italic">Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger .</Span>
                             <LineBreak/>
@@ -80,12 +81,12 @@
                             <Span>Mouse Right Button </Span>
 
 
-                        </TextBlock>
-                        
-                        <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceWin2dControl/>
+                            </TextBlock>
 
-                    </StackPanel>
+                            <TextBlock Text="Reference:" Margin="12" />
+                            <reference:ReferenceWin2d/>
+
+                        </StackPanel>
                     </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
@@ -109,15 +110,3 @@
 
     </frames:PageLayout>
 </Page>
-
-
-
-
-
-
-
-
-
-
-
-

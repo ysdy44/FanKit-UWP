@@ -7,6 +7,7 @@
     xmlns:frames="using:FanKit.Frames"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
 
 
@@ -82,9 +83,10 @@
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span>Makes the layout panel with Corner Radius and drop shadow.</Span>
                         </TextBlock>
-                        
+
                         <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceToolKitControl/>
+                        <reference:ReferenceToolKitControls/>
+                        <reference:ReferenceToolKitExtensions/>
 
                     </StackPanel>
                 </PivotItem>

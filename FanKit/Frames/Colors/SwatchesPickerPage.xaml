@@ -7,6 +7,7 @@
     xmlns:frames="using:FanKit.Frames"
     xmlns:hsvColorPickers="using:HSVColorPickers"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
 
 
@@ -33,7 +34,7 @@
                         <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
 
                         <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceHSVColorPickerControl/>
+                        <reference:ReferenceHSVColorPicker/>
 
                     </StackPanel>
                 </PivotItem>

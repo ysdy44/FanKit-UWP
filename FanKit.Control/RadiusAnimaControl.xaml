@@ -26,10 +26,7 @@
         </controls:DropShadowPanel>
 
         <!--Content-->
-        <Border x:Name="Border" HorizontalAlignment="Center" Padding="12,0" MinHeight="50" MinWidth="100">
-            <!--Content-->
-        </Border>
+        <ContentPresenter x:Name="ContentPresenter" HorizontalAlignment="Center" Padding="12,0" MinHeight="50" MinWidth="100"/>
 
     </Grid>
-
 </UserControl>

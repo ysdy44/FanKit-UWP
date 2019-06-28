@@ -7,6 +7,7 @@
     xmlns:frames="using:FanKit.Frames"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
 
 
@@ -92,8 +93,8 @@
                             </TextBlock>
 
                             <TextBlock Text="Reference:" Margin="12" />
-                            <frames:ReferenceWin2dControl/>
-
+                            <reference:ReferenceWin2d/>
+                            
                         </StackPanel>
                     </ScrollViewer>
                 </PivotItem>

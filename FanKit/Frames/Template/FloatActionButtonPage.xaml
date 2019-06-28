@@ -8,6 +8,7 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
 
     <frames:PageLayout>
@@ -112,9 +113,11 @@
                             <Span FontStyle="Italic">Float Action Button will hide when u turn!</Span>
 
                         </TextBlock>
-                        
+
                         <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceToolKitControl/>
+                        <reference:ReferenceToolKitControls/>
+                        <reference:ReferenceToolKitExtensions/>
+                        <reference:ReferenceToolKitAnimations/>
 
                     </StackPanel>
                 </PivotItem>

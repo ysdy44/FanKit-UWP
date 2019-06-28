@@ -7,6 +7,7 @@
     xmlns:apiContractPresent5="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:frames="using:FanKit.Frames"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d"
     MaxWidth="{StaticResource AppDetailMaxWidth}">
 
@@ -38,10 +39,14 @@
                 <!--Reference-->
                 <TextBlock Text="Reference" Style="{ThemeResource TitleTextBlockStyle}"/>
                 <Rectangle Height="12"/>
-                
-                <frames:ReferenceToolKitControl/>
-                <frames:ReferenceWin2dControl/>
-                <frames:ReferenceHSVColorPickerControl/>
+
+                <reference:ReferenceToolKitControls/>
+                <reference:ReferenceToolKitExtensions/>
+                <reference:ReferenceToolKitAnimations/>
+                <reference:ReferenceWin2d/>
+                <reference:ReferenceHSVColorPicker/>
+                <reference:ReferenceTransformers/>
+
 
                 <Rectangle Height="12"/>            
 

@@ -7,8 +7,9 @@
     xmlns:frames="using:FanKit.Frames"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
-    
+
     <frames:PageLayout>
 
 
@@ -21,8 +22,8 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
-                    <StackPanel>
-                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                        <StackPanel>
+                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                   
                             <Span FontStyle="Italic">DottedLine </Span>
                             <LineBreak/>
@@ -30,10 +31,10 @@
                             <Span>Click and drag the canvas,</Span>
                             <Span>it will appear a flowing dashed line</Span>
 
-                        </TextBlock>
-                        
-                        <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceWin2dControl/>
+                            </TextBlock>
+
+                            <TextBlock Text="Reference:" Margin="12" />
+                            <reference:ReferenceWin2d/>
 
                         </StackPanel>
                     </ScrollViewer>
@@ -59,6 +60,3 @@
 
     </frames:PageLayout>
 </Page>
-
-
-

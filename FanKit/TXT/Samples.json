@@ -310,8 +310,28 @@
     ]
   },
   {
-    "Name": "Win2Ds",
+    "Name": "Transformers",
     "Samples": [
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.CanvasOperatorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "CanvasOperator",
+        "Uri": "ms-appx:///Icon/Transformers/CanvasOperator.png",
+        "Summary": "Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger ."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.TransformerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "Transformer",
+        "Uri": "ms-appx:///Icon/Transformers/Transformer.png",
+        "Summary": "Drag and drop nodes and manipulate transformer libraries."
+      }
+    ]
+  },
+  {
+    "Name": "Win2Ds",
+    "Samples": 
+    [
       {
         "State": 0,
         "Page": "FanKit.Frames.Win2Ds.CanvasOperatorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",

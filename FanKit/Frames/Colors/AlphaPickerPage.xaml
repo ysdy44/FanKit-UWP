@@ -7,6 +7,7 @@
     xmlns:hsvColorPickers="using:HSVColorPickers"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:frames="using:FanKit.Frames"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
 
 
@@ -35,8 +36,9 @@
                         </TextBlock>
                         
                         <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceHSVColorPickerControl/>
-                        
+                        <reference:ReferenceHSVColorPicker/>
+
+
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

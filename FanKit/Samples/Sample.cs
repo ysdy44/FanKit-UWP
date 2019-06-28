@@ -69,8 +69,8 @@ namespace FanKit.Samples
 
         public void Button_Tapped(object sender, TappedRoutedEventArgs e)=> e.Handled = true;
 
-
+        //Notify
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        protected void OnPropertyChanged(string name) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

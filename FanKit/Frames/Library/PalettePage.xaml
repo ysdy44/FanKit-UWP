@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:frames="using:FanKit.Frames"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d">
 
 
@@ -62,8 +63,8 @@
                         </TextBlock>
                         
                         <TextBlock Text="Reference:" Margin="12" />
-                        <frames:ReferenceToolKitControl/>
-                        
+                        <reference:ReferenceWin2d/>
+
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

@@ -2,12 +2,14 @@
 ```xaml
 
 
-<UserControl
+<UserCon<UserControl
     x:Class="FanKit.Control.RadiusAnimaPanel"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-	>
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="400">
 
-    <Grid Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Margin="12"   HorizontalAlignment="Center" VerticalAlignment="Center">
 
         <!--Animation-->
         <Grid.Resources>
@@ -24,12 +26,9 @@
         </controls:DropShadowPanel>
 
         <!--Content-->
-        <Border x:Name="Border" HorizontalAlignment="Center" Padding="12,0" MinHeight="50" MinWidth="100">
-            <!--Content-->
-        </Border>
+        <ContentPresenter x:Name="ContentPresenter" HorizontalAlignment="Center" Padding="12,0" MinHeight="50" MinWidth="100"/>
 
     </Grid>
-
 </UserControl>
 
 
