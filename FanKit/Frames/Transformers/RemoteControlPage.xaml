@@ -1,20 +1,21 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Control.RemoteControlPage"
+    x:Class="FanKit.Frames.Transformers.RemoteControlPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:control="using:FanKit.Control"
+    xmlns:transformers="using:FanKit.Transformers"
     xmlns:frames="using:FanKit.Frames"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
 
     <frames:PageLayout2>
 
 
         <frames:PageLayout2.ShowContent>
-            <control:RemoteControl x:Name="RemoteControl"/>
+            <transformers:RemoteControl x:Name="RemoteControl"/>
         </frames:PageLayout2.ShowContent>
 
 
@@ -22,14 +23,20 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
+                        
+                        <TextBlock Text="Transformed remote control." Margin="12"/>
 
+                        
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+                        
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Run >(</Run>
                             <Run x:Name="RunX"/>
                             <Run >, </Run>
                             <Run x:Name="RunY"/>
                             <Run >) </Run>
-
                         </TextBlock>
                         
                         <Canvas>
@@ -41,16 +48,6 @@
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

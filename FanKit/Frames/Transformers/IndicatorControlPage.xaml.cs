@@ -1,23 +1,47 @@
-﻿using FanKit.Control;
+﻿using FanKit.Transformers;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace FanKit.Frames.Control
+namespace FanKit.Frames.Transformers
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Transformers.IndicatorControl">.
+    /// </summary>
     public sealed partial class IndicatorControlPage : Page
     {
+
+        #region DependencyProperty
+        
+        /// <summary> CanvasTransformer's radian. </summary>
+        public double Radian
+        {
+            get { return (double)GetValue(RadianProperty); }
+            set { SetValue(RadianProperty, value); }
+        }
+        /// <summary> Identifies the <see cref = "IndicatorControlPage.Radian" /> dependency property. </summary>
+        public static readonly DependencyProperty RadianProperty = DependencyProperty.Register(nameof(Radian), typeof(double), typeof(IndicatorControlPage), new PropertyMetadata(0.0d, (sender, e) =>
+        {
+            IndicatorControlPage con = (IndicatorControlPage)sender;
+
+            if (e.NewValue is double value)
+            {
+                con.IndicatorControl.Radians = value;
+            }
+        }));
+        
+        #endregion
+
+        //@Construct
         public IndicatorControlPage()
         {
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/IndicatorControlPage.xaml.txt");
-                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/IndicatorControl.xaml.txt");
-                this.MarkdownText3.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/IndicatorControl.cs.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/IndicatorControlPage.xaml.txt");
             };
 
             //IndicatorControl
-            this.Slider.ValueChanged += (s, e) => this.IndicatorControl.Radians = e.NewValue;
-            this.IndicatorControl.ModeChanged += (mode) => this.TextBlock.Text = mode.ToString();
+            this.IndicatorControl.ModeChanged += (mode) => this.ModeRun.Text = mode.ToString();
 
             //Button
             this.LeftTopButton.Tapped += (s, e) => this.IndicatorControl.Mode = IndicatorMode.LeftTop;

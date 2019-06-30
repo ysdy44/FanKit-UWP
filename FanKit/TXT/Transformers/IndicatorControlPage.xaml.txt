@@ -1,0 +1,14 @@
+```xaml
+
+
+<Page
+    x:Class="FanKit.Frames.Transformers.IndicatorControlPage"
+    xmlns:transformers="using:FanKit.Transformers"
+    >
+
+   <transformers:IndicatorControl x:Name="IndicatorControl"/>
+
+</Page>
+
+
+```

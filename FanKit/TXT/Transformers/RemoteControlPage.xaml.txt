@@ -1,0 +1,14 @@
+﻿```xaml
+
+
+<Page
+    x:Class="FanKit.Frames.Transformers.RemoteControlPage"
+    xmlns:transformers="using:FanKit.Transformers"
+    >
+
+   <transformers:RemoteControl x:Name="RemoteControl"/>
+
+</Page>
+
+
+```

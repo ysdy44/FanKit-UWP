@@ -109,18 +109,12 @@
     <Compile Include="ExpandTextView.xaml.cs">
       <DependentUpon>ExpandTextView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IndicatorControl.xaml.cs">
-      <DependentUpon>IndicatorControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PopupMenu.xaml.cs">
       <DependentUpon>PopupMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RadiusAnimaControl.xaml.cs">
       <DependentUpon>RadiusAnimaControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RemoteControl.xaml.cs">
-      <DependentUpon>RemoteControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="SplitPanelControl.xaml.cs">
       <DependentUpon>SplitPanelControl.xaml</DependentUpon>
@@ -143,10 +137,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="IndicatorControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="PopupMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -154,10 +144,6 @@
     <Page Include="RadiusAnimaControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="RemoteControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SplitPanelControl.xaml">
       <SubType>Designer</SubType>

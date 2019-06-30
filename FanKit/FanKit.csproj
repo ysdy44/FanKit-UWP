@@ -320,7 +320,7 @@
     </AppxManifest>
     <Content Include="Icon\Colors\HexPicker.png" />
     <Content Include="Icon\Control\RadiusAnimaPanel.png" />
-    <Content Include="Icon\Control\RemoteControl.png" />
+    <Content Include="Icon\Transformers\RemoteControl.png" />
     <Content Include="Icon\Control\ThemeControl.png" />
     <Content Include="Icon\Reference\Transformers.png" />
     <Content Include="Icon\Styles\Colors.png" />
@@ -333,7 +333,7 @@
     <Content Include="Icon\Transformers\Transformer.png" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
     <Content Include="Icon\Win2Ds\HomographyController.png" />
-    <Content Include="Icon\Control\IndicatorControl.png" />
+    <Content Include="Icon\Transformers\IndicatorControl.png" />
     <Content Include="Icon\Win2Ds\MarqueeTool.png" />
     <Content Include="Icon\Win2Ds\TransformController.png" />
     <Content Include="TXT\Colors\HexPickerPage.xaml.txt" />
@@ -341,9 +341,7 @@
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
-    <Content Include="TXT\Control\RemoteControl.cs.txt" />
-    <Content Include="TXT\Control\RemoteControl.xaml.txt" />
-    <Content Include="TXT\Control\RemoteControlPage.xaml.txt" />
+    <Content Include="TXT\Transformers\RemoteControlPage.xaml.txt" />
     <Content Include="TXT\Control\SplitPanelControl.xaml.txt" />
     <Content Include="TXT\Control\ThemeControl.cs.txt" />
     <Content Include="TXT\Control\ThemeControl.xaml.txt" />
@@ -363,9 +361,7 @@
     <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.txt" />
-    <Content Include="TXT\Control\IndicatorControl.cs.txt" />
-    <Content Include="TXT\Control\IndicatorControl.xaml.txt" />
-    <Content Include="TXT\Control\IndicatorControlPage.xaml.txt" />
+    <Content Include="TXT\Transformers\IndicatorControlPage.xaml.txt" />
     <Content Include="TXT\Win2Ds\HomographyController.cs.txt" />
     <Content Include="TXT\Win2Ds\HomographyControllerPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\HomographyControllerPage.xaml.txt" />

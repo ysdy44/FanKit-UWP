@@ -184,20 +184,6 @@
         "Name": "ExpandTextView",
         "Uri": "ms-appx:///Icon/Control/ExpandTextView.png",
         "Summary": "Expand text view,it shrinks or expands when clicked."
-      },
-      {
-        "State": 1,
-        "Page": "FanKit.Frames.Control.IndicatorControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-        "Name": "IndicatorControl",
-        "Uri": "ms-appx:///Icon/Control/IndicatorControl.png",
-        "Summary": ""
-      },
-      {
-        "State": 1,
-        "Page": "FanKit.Frames.Control.RemoteControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-        "Name": "RemoteControl",
-        "Uri": "ms-appx:///Icon/Control/RemoteControl.png",
-        "Summary": ""
       }
     ]
   },
@@ -339,6 +325,20 @@
         "Name": "Transformer2",
         "Uri": "ms-appx:///Icon/Transformers/Transformer.png",
         "Summary": "Drag and drop nodes and manipulate transformer libraries."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.IndicatorControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "IndicatorControl",
+        "Uri": "ms-appx:///Icon/Transformers/IndicatorControl.png",
+        "Summary": "Transformed indicator control."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.RemoteControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "RemoteControl",
+        "Uri": "ms-appx:///Icon/Transformers/RemoteControl.png",
+        "Summary": "Transformed remote control."
       }
     ]
   },

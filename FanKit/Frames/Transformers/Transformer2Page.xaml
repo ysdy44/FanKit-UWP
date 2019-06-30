@@ -100,6 +100,7 @@
 
 
                             <TextBlock Text="Reference:" Margin="12" />
+                            <reference:ReferenceWin2d/>
                             <reference:ReferenceTransformers/>
 
                             <ContentControl Height="100"/>

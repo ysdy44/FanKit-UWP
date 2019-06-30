@@ -1,66 +1,68 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Control.IndicatorControlPage"
+    x:Class="FanKit.Frames.Transformers.IndicatorControlPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:frames="using:FanKit.Frames"
-    xmlns:control="using:FanKit.Control"
+    xmlns:transformers="using:FanKit.Transformers"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
 
     <frames:PageLayout2>
 
 
         <frames:PageLayout2.ShowContent>
-            <control:IndicatorControl x:Name="IndicatorControl"/>
+            <transformers:IndicatorControl x:Name="IndicatorControl"/>
         </frames:PageLayout2.ShowContent>
 
 
         <frames:PageLayout2.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <StackPanel>
+                    <ScrollViewer>
+                        <StackPanel>
 
-                        <ContentControl Height="12"/>
-                        
-                        <TextBlock x:Name="TextBlock"/>
-                        <Slider x:Name="Slider" Maximum="360" IsThumbToolTipEnabled="True"/>
-                        
-                        <ContentControl Height="12"/>
+                            <TextBlock Text="Transformed indicator control." Margin="12"/>
 
-                        <Button x:Name="LeftTopButton" Content="LeftTop" Margin="8,1"/>
-                        <Button x:Name="RightTopButton" Content="RightTop" Margin="8,1"/>
-                        <Button x:Name="RightBottomButton" Content="RightBottom" Margin="8,1"/>
-                        <Button x:Name="LeftBottomButton" Content="LeftBottom" Margin="8,1"/>
-                   
-                        <ContentControl Height="12"/>
+                            
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
-                        <Button x:Name="LeftButton" Content="Left" Margin="8,1"/>
-                        <Button x:Name="TopButton" Content="Top" Margin="8,1"/>
-                        <Button x:Name="RightButton" Content="Right" Margin="8,1"/>
-                        <Button x:Name="BottomButton" Content="Bottom" Margin="8,1"/>
-                      
-                        <ContentControl Height="12"/>
 
-                        <Button x:Name="CenterButton" Content="Center" Margin="8,1"/>
+                            <TextBlock Text="Radians:" Margin="12"/>
+                            <Slider Margin="12" Maximum="360" Value="{x:Bind Radian,Mode=TwoWay}" IsThumbToolTipEnabled="True"/>
 
-                    </StackPanel>
+
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                            <TextBlock Margin="12">
+                            <Run>Mode:</Run>
+                            <Run x:Name="ModeRun"/>
+                            </TextBlock>
+
+                            <Button x:Name="LeftTopButton" Content="LeftTop" Margin="12"/>
+                            <Button x:Name="RightTopButton" Content="RightTop" Margin="12"/>
+                            <Button x:Name="RightBottomButton" Content="RightBottom" Margin="12"/>
+                            <Button x:Name="LeftBottomButton" Content="LeftBottom" Margin="12"/>
+
+                            <Button x:Name="LeftButton" Content="Left" Margin="12"/>
+                            <Button x:Name="TopButton" Content="Top" Margin="12"/>
+                            <Button x:Name="RightButton" Content="Right" Margin="12"/>
+                            <Button x:Name="BottomButton" Content="Bottom" Margin="12"/>
+
+                            <Button x:Name="CenterButton" Content="Center" Margin="12"/>
+
+                        </StackPanel>
+                    </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>
