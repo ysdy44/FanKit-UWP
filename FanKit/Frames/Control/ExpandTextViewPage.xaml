@@ -73,18 +73,22 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-
-                        <Button x:Name="Button" Width="100" Margin="22" Content="Expand" VerticalAlignment="Top"/>
-                        <Button x:Name="Button0" Width="100" Margin="22" Content="Expand" VerticalAlignment="Top"/>
-                        <Button x:Name="Button1" Width="100" Margin="22" Content="Expand" VerticalAlignment="Top"/>
-                        <Button x:Name="Button2" Width="100" Margin="22" Content="Expand" VerticalAlignment="Top"/>
-
+                        
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span >Click on </Span>
                             <Span FontWeight="SemiBold">ExpandTextView</Span>
                             <Span > to make it </Span>
                             <Span FontWeight="SemiBold">Expand</Span>
                         </TextBlock>
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                        <Button x:Name="Button" Margin="12" Content="Expand"/>
+                        <Button x:Name="Button0" Margin="12" Content="Expand"/>
+                        <Button x:Name="Button1" Margin="12" Content="Expand"/>
+                        <Button x:Name="Button2" Margin="12" Content="Expand"/>
 
                     </StackPanel>
                 </PivotItem>

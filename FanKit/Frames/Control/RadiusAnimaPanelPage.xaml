@@ -7,7 +7,8 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:control="using:FanKit.Control"
     xmlns:frames="using:FanKit.Frames"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
 
     <frames:PageLayout2>
@@ -15,11 +16,11 @@
 
         <frames:PageLayout2.ShowContent>
             <control:RadiusAnimaPanel>
-                <control:RadiusAnimaPanel.CenterContent>
-                    <Border x:Name="Rectangle" Height="22" MinWidth="50" Margin="20,0" Background="Red"  >
+                <control:RadiusAnimaPanel.CenterChild>
+                    <Border x:Name="Rectangle" Height="22" MinWidth="50" Margin="20,0" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock x:Name="TextBlock" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
-                </control:RadiusAnimaPanel.CenterContent>
+                </control:RadiusAnimaPanel.CenterChild>
             </control:RadiusAnimaPanel>
         </frames:PageLayout2.ShowContent>
 
@@ -36,6 +37,10 @@
                             <Span >if you change the width of the contents of the control. </Span>
 
                         </TextBlock>
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
 
                         <Button x:Name="Button50" Content="Width=50" Margin="12,8"/>

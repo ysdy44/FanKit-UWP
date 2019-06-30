@@ -113,7 +113,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="1" Grid.Row="1"  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
+            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
                 <GridView x:Name="AdaptiverGridView" ItemTemplate="{StaticResource ItemTemplate}">
 
                     <GridView.ItemContainerStyle>

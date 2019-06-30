@@ -31,7 +31,12 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+                        <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
 
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                      
@@ -49,32 +54,37 @@
                             <LineBreak/>
                             <LineBreak/>
                             <Span >public class  </Span>
-                            <Span FontWeight="SemiBold"  >HSV </Span>                      
+                            <Span FontWeight="SemiBold" >HSV </Span>                      
 
                             <LineBreak/>
                             <Span >{</Span>
                             
                             <LineBreak/>
                             <Span >----public byte </Span>
-                            <Span FontWeight="SemiBold"  >A; </Span>                      
+                            <Span FontWeight="SemiBold" >A; </Span>                      
 
                             <LineBreak/>
                             <Span >----public float </Span>                           
-                            <Span FontWeight="SemiBold"  >H; </Span>                      
+                            <Span FontWeight="SemiBold" >H; </Span>                      
 
                             <LineBreak/>
                             <Span >----public float </Span>                           
-                            <Span FontWeight="SemiBold"  >S; </Span>                      
+                            <Span FontWeight="SemiBold" >S; </Span>                      
 
                             <LineBreak/>
                             <Span >----public float </Span>         
-                            <Span FontWeight="SemiBold"  >V; </Span>    
+                            <Span FontWeight="SemiBold" >V; </Span>    
                             
                             <LineBreak/>
                             <Span >}</Span>
 
                         </TextBlock>
-                        
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceHSVColorPicker/>
 

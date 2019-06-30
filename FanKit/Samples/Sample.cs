@@ -4,6 +4,9 @@ using Windows.UI.Xaml.Input;
 
 namespace FanKit.Samples
 {
+    /// <summary>
+    /// Simple sample item.
+    /// </summary>
     public class Sample : INotifyPropertyChanged
     {
         /// <summary> Sample's state. </summary>

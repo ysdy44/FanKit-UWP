@@ -1,42 +1,44 @@
 ﻿using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Animation;
 
 namespace FanKit.Samples
 {
-    public  class ScrollOffsetShow : INotifyPropertyChanged
+    /// <summary>
+    /// The <see cref="ScrollViewer.VerticalOffsetProperty"> changes the <see cref="Button.VisibilityProperty">.
+    /// </summary>
+    public class ScrollOffsetShow : INotifyPropertyChanged
     {
-
         //delegate
         public delegate void ShowChangedHandler(bool IsShow);
         public event ShowChangedHandler ShowChanged = null;
+        
 
-        private Visibility upVisibility = Visibility.Visible;//上划可视
+        /// <summary> Up </summary>
         public Visibility UpVisibility
         {
-            get => upVisibility;
+            get => this.upVisibility;
             set
             {
-                upVisibility = value;
-                OnPropertyChanged("UpVisibility");
+                this.upVisibility = value;
+                OnPropertyChanged(nameof(this.UpVisibility));//Notify
             }
         }
-
-        private Visibility downVisibility = Visibility.Collapsed;//下滑可视
+        private Visibility upVisibility = Visibility.Visible;
+        
+        /// <summary> Down </summary>
         public Visibility DownVisibility
         {
-            get => downVisibility;
+            get => this.downVisibility;
             set
             {
-                downVisibility = value;
-                OnPropertyChanged("DownVisibility");
+                this.downVisibility = value;
+                OnPropertyChanged(nameof(this.DownVisibility));//Notify
             }
         }
+        private Visibility downVisibility = Visibility.Collapsed;
 
-
-
-
+        
         //Property   
         private double Span = 0;//cache
 
@@ -85,15 +87,12 @@ namespace FanKit.Samples
                 verticalOffset = value;
             }
         }
+                
 
-
-
-
-        //Methon
         public void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e) => this.VerticalOffset = ((ScrollViewer)sender).VerticalOffset;
 
 
-
+        //Notify
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }

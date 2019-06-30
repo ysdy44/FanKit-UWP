@@ -6,6 +6,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Others
 {
+    /// <summary>
+    /// Page of splash.
+    /// </summary>
     public sealed partial class SplashPage : Page
     { 
 
@@ -62,7 +65,6 @@ namespace FanKit.Frames.Others
 
             return hyperlinkButton;
         }
-
 
     }
 }

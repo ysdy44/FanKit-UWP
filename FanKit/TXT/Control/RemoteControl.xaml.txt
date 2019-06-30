@@ -18,7 +18,7 @@
 
     <Border x:Name="RootGrid" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Canvas x:Name="Canvas" HorizontalAlignment="Center" VerticalAlignment="Center"   >
+            <Canvas x:Name="Canvas" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
                 <!--Left-->
                 <Path x:Name="LeftPath" 

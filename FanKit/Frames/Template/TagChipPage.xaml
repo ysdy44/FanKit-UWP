@@ -107,7 +107,7 @@
                 </ListView>
 
                 <Border x:Name="TexBlockBorder" Height="40" Margin="40" Padding="20,0" CornerRadius="20" Visibility="Collapsed"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Center"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                    VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
                     <!--Visibility="Visible" Show-->
                     <animations:Implicit.ShowAnimations>
@@ -139,7 +139,12 @@
                             <Span>'s layout is </Span>
                             <Span FontWeight="SemiBold">WrapPanel</Span>
                         </TextBlock>
-                        
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceToolKitControls/>
                         

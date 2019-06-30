@@ -9,7 +9,8 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:reference="using:FanKit.Frames.Reference"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
     <frames:PageLayout>
 
@@ -92,7 +93,14 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Button x:Name="Button" Width="100" Margin="22" Content="Visible" VerticalAlignment="Top"/>
+
+                        <Button x:Name="Button" Margin="12" Content="Visible"/>
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                           
                             <Span FontStyle="Italic">Phone:</Span>
@@ -114,6 +122,11 @@
 
                         </TextBlock>
 
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+                        
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceToolKitControls/>
                         <reference:ReferenceToolKitExtensions/>

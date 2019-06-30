@@ -3,8 +3,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Template
 {
+    /// <summary>
+    /// Page of FloatActionButton.
+    /// </summary>
     public sealed partial class FloatActionButtonPage : Page
     {
+        //@Construct
         public FloatActionButtonPage()
         {
             this.InitializeComponent();
@@ -34,13 +38,12 @@ namespace FanKit.Frames.Template
             get => isShow;
             set
             {
-                if (value != isShow)
-                {
-                    if (value) this.Button.Visibility = Visibility.Collapsed;
-                    else this.Button.Visibility = Visibility.Visible;
+                if (value == this.isShow) return;
 
-                    isShow = value;
-                }
+                if (value) this.FloatActionButton.Visibility = Visibility.Collapsed;
+                else this.FloatActionButton.Visibility = Visibility.Visible;
+
+                this.isShow = value;
             }
         }
 

@@ -7,7 +7,8 @@
     xmlns:control="using:FanKit.Control"
     xmlns:frames="using:FanKit.Frames"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
 
     <frames:PageLayout>
@@ -19,14 +20,14 @@
                     <control:SplitPanelControl.ContentChild>
                         <StackPanel >
 
-                            <Border Height="140"  Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" >
+                            <Border Height="140" Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" >
                                 <TextBlock Text="SplitPanelControl" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
                             </Border>
 
                             <StackPanel Height="44" Orientation="Horizontal">
                                 <Border Width="44">
                                     <Viewbox Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Path Data="M310.5,450.75l0,189.75l-153.75,0l0,-234l-27,21l-23.25,-21l277.5,-275.876l277.5,275.876l-21,21l-28.5,-21l0,234l-150.75,0l0,-189.75" Fill="{ThemeResource SystemControlHighlightBaseMediumBrush}" Width="768" Height="768"  />
+                                        <Path Data="M310.5,450.75l0,189.75l-153.75,0l0,-234l-27,21l-23.25,-21l277.5,-275.876l277.5,275.876l-21,21l-28.5,-21l0,234l-150.75,0l0,-189.75" Fill="{ThemeResource SystemControlHighlightBaseMediumBrush}" Width="768" Height="768" />
                                     </Viewbox>
                                 </Border>
                                 <TextBlock Text="Home" VerticalAlignment="Center" FontWeight="Medium"/>
@@ -35,7 +36,7 @@
                             <StackPanel Height="44" Orientation="Horizontal">
                                 <Border Width="44">
                                     <Viewbox Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Path Data="M192.75,448.125c0,0 0,96.579 0,140.25c0,5.57 2.212,10.911 6.151,14.849c3.938,3.939 9.279,6.151 14.849,6.151c66.773,0 273.727,0 340.5,0c5.57,0 10.911,-2.212 14.849,-6.151c3.939,-3.938 6.151,-9.279 6.151,-14.849c0,-75.57 0,-333.18 0,-408.75c0,-5.57 -2.212,-10.911 -6.151,-14.849c-3.938,-3.939 -9.279,-6.151 -14.849,-6.151c-57.052,0 -214.448,0 -271.5,0c-11.598,0 -21,9.402 -21,21c0,57.718 0,214.5 0,214.5l-69,54Zm152.97,-231l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.538,-0.001 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Zm78,0l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.538,-0.001 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Zm74.25,0l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.537,0 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Z" Fill="{ThemeResource SystemControlHighlightBaseMediumBrush}" Width="768" Height="768"  />
+                                        <Path Data="M192.75,448.125c0,0 0,96.579 0,140.25c0,5.57 2.212,10.911 6.151,14.849c3.938,3.939 9.279,6.151 14.849,6.151c66.773,0 273.727,0 340.5,0c5.57,0 10.911,-2.212 14.849,-6.151c3.939,-3.938 6.151,-9.279 6.151,-14.849c0,-75.57 0,-333.18 0,-408.75c0,-5.57 -2.212,-10.911 -6.151,-14.849c-3.938,-3.939 -9.279,-6.151 -14.849,-6.151c-57.052,0 -214.448,0 -271.5,0c-11.598,0 -21,9.402 -21,21c0,57.718 0,214.5 0,214.5l-69,54Zm152.97,-231l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.538,-0.001 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Zm78,0l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.538,-0.001 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Zm74.25,0l-13.44,0c-9.538,0.001 -17.28,7.744 -17.28,17.28l0,49.44c0,9.537 7.743,17.28 17.28,17.28l13.44,0c9.537,0 17.28,-7.743 17.28,-17.28l0,-49.44c0,-9.536 -7.742,-17.279 -17.28,-17.28Z" Fill="{ThemeResource SystemControlHighlightBaseMediumBrush}" Width="768" Height="768" />
                                     </Viewbox>
                                 </Border>
                                 <TextBlock Text="Local" VerticalAlignment="Center" FontWeight="Medium"/>
@@ -44,7 +45,7 @@
                             <StackPanel Height="44" Orientation="Horizontal">
                                 <Border Width="44">
                                     <Viewbox Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Path Data="M384,153.75c127.078,0 230.25,103.172 230.25,230.25c0,127.078 -103.172,230.25 -230.25,230.25c-127.078,0 -230.25,-103.172 -230.25,-230.25c0,-127.078 103.172,-230.25 230.25,-230.25Zm12,213l0,-102c0,-12.004 -9.746,-21.75 -21.75,-21.75c-12.004,0 -21.75,9.746 -21.75,21.75l0,146.25l147.75,0c12.211,0 22.125,-9.914 22.125,-22.125c0,-12.211 -9.913,-22.124 -22.125,-22.125l-104.25,0Z" Fill="{ThemeResource SystemControlHighlightBaseMediumBrush}" Width="768" Height="768"  />
+                                        <Path Data="M384,153.75c127.078,0 230.25,103.172 230.25,230.25c0,127.078 -103.172,230.25 -230.25,230.25c-127.078,0 -230.25,-103.172 -230.25,-230.25c0,-127.078 103.172,-230.25 230.25,-230.25Zm12,213l0,-102c0,-12.004 -9.746,-21.75 -21.75,-21.75c-12.004,0 -21.75,9.746 -21.75,21.75l0,146.25l147.75,0c12.211,0 22.125,-9.914 22.125,-22.125c0,-12.211 -9.913,-22.124 -22.125,-22.125l-104.25,0Z" Fill="{ThemeResource SystemControlHighlightBaseMediumBrush}" Width="768" Height="768" />
                                     </Viewbox>
                                 </Border>
                                 <TextBlock Text="History" VerticalAlignment="Center" FontWeight="Medium"/>
@@ -61,7 +62,14 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Button x:Name="Button" Width="100" Margin="22" Content="Open" VerticalAlignment="Top"/>
+                        
+                        <Button x:Name="Button" Margin="12" Content="Open"/>
+
+                        
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+                        
+                        
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                           
                             <Span FontStyle="Italic">Phone:</Span>
@@ -82,6 +90,7 @@
                             <Span FontStyle="Italic">SplitPanel like a drawer!</Span>
 
                         </TextBlock>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

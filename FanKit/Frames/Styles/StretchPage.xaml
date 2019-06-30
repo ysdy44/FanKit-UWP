@@ -44,7 +44,7 @@
         <TextBlock Grid.Column="1" Grid.Row="2" Text="UniformToFill" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
         <!--Head-->
-        <Grid Grid.ColumnSpan="2"  Height="70" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+        <Grid Grid.ColumnSpan="2" Height="70" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <Border >
                 <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <RichTextBlock Foreground="White" FontSize="18">

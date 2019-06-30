@@ -46,7 +46,7 @@
                             SelectionMode="None"
                             VerticalAlignment="Top" 
                             ScrollViewer.VerticalScrollMode="Enabled"
-                            animations:ReorderGridAnimation.Duration="300"  
+                            animations:ReorderGridAnimation.Duration="300" 
                             Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
                           >
 

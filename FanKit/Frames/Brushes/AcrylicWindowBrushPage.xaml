@@ -59,7 +59,7 @@
             </ListViewHeaderItem>
             <!--#region Border-->
 
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlAcrylicWindowBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemChromeMediumColor}" />
                 </ListViewItem.BorderBrush>
@@ -75,7 +75,7 @@
             </ListViewHeaderItem>
             <!--#region Border-->
 
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemAccentColor}" />
                 </ListViewItem.BorderBrush>
@@ -83,14 +83,14 @@
                     <Paragraph>SystemControlAccentAcrylicWindowAccentMediumHighBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAccentDark1AcrylicWindowAccentDark1Brush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlAccentDark1AcrylicWindowAccentDark1Brush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemAccentColorDark1}" />
                 </ListViewItem.BorderBrush>    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlAccentDark1AcrylicWindowAccentDark1Brush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAccentDark2AcrylicWindowAccentDark2MediumHighBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlAccentDark2AcrylicWindowAccentDark2MediumHighBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemAccentColorDark2}" />
                 </ListViewItem.BorderBrush>
@@ -106,7 +106,7 @@
             </ListViewHeaderItem>
             <!--#region Border-->
 
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemChromeMediumColor}" />
                 </ListViewItem.BorderBrush>
@@ -122,7 +122,7 @@
             </ListViewHeaderItem>
             <!--#region Border-->
 
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeMediumLowAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlChromeMediumLowAcrylicWindowMediumBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemChromeMediumLowColor}" />
                 </ListViewItem.BorderBrush>
@@ -138,7 +138,7 @@
             </ListViewHeaderItem>
             <!--#region Border-->
 
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseHighAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlBaseHighAcrylicWindowBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemBaseHighColor}" />
                 </ListViewItem.BorderBrush>
@@ -146,14 +146,14 @@
                     <Paragraph>SystemControlBaseHighAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumHighBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumHighBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemBaseHighColor}" />
                 </ListViewItem.BorderBrush>    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlBaseHighAcrylicWindowMediumHighBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemBaseHighColor}" />
                 </ListViewItem.BorderBrush>    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
@@ -168,14 +168,14 @@
             </ListViewHeaderItem>
             <!--#region Border-->
 
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemChromeLowColor}" />
                 </ListViewItem.BorderBrush>    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
                     <Paragraph>SystemControlChromeLowAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemChromeMediumColor}" />
                 </ListViewItem.BorderBrush>
@@ -183,7 +183,7 @@
                     <Paragraph>SystemControlChromeMediumAcrylicWindowMediumBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlChromeHighAcrylicWindowMediumBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemChromeHighColor}" />
                 </ListViewItem.BorderBrush>
@@ -199,7 +199,7 @@
             </ListViewHeaderItem>
             <!--#region Border-->
 
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseLowAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlBaseLowAcrylicWindowBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemBaseLowColor}" />
                 </ListViewItem.BorderBrush>
@@ -207,7 +207,7 @@
                     <Paragraph>SystemControlBaseLowAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlBaseMediumLowAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlBaseMediumLowAcrylicWindowMediumBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemBaseMediumLowColor}" />
                 </ListViewItem.BorderBrush>
@@ -223,7 +223,7 @@
             </ListViewHeaderItem>
             <!--#region Border-->
 
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemAltLowColor}" />
                 </ListViewItem.BorderBrush>
@@ -231,7 +231,7 @@
                     <Paragraph>SystemControlAltLowAcrylicWindowBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemAltMediumLowColor}" />
                 </ListViewItem.BorderBrush>
@@ -239,7 +239,7 @@
                     <Paragraph>SystemControlAltMediumLowAcrylicWindowMediumBrush</Paragraph>
                 </RichTextBlock>
             </ListViewItem >
-            <ListViewItem BorderThickness="0,0,50,0"  Background="{ThemeResource SystemControlAltHighAcrylicWindowBrush}" >
+            <ListViewItem BorderThickness="0,0,50,0" Background="{ThemeResource SystemControlAltHighAcrylicWindowBrush}" >
                 <ListViewItem.BorderBrush>
                     <SolidColorBrush  Color="{ThemeResource SystemAltHighColor}" />
                 </ListViewItem.BorderBrush>

@@ -66,6 +66,11 @@
                         <Slider x:Name="Slider1" Header="Minimum:"/>
                         <Slider x:Name="Slider2" Header="Maximum:"/>
                         <TextBox x:Name="TextBox0" Header="Unit:" Text="%" />
+                        <ContentControl Height="12"/>
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
 
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceHSVColorPicker/>
@@ -83,8 +88,3 @@
 
     </frames:PageLayout>
 </Page>
-
-
-
-
-

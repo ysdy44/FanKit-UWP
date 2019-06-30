@@ -3,16 +3,15 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Others
 {
+    /// <summary>
+    /// Page of setting.
+    /// </summary>
     public sealed partial class SettingPage : Page
     {
         public SettingPage()
         {
             this.InitializeComponent();
-            this.LightRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Light);
-            this.DarkRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Dark);
-            this.DefaultRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Default);
-
-            this.Loaded += (sender, e) =>
+            this.Loaded += (s, e) =>
             {
                 if (Window.Current.Content is FrameworkElement frameworkElement)
                 {
@@ -22,6 +21,10 @@ namespace FanKit.Frames.Others
                     this.DefaultRadioButton.IsChecked = (theme == ElementTheme.Default);
                 }
             };
+
+            this.LightRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Light);
+            this.DarkRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Dark);
+            this.DefaultRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Default);
         }
 
         private void SetTheme(ElementTheme RequestedTheme)

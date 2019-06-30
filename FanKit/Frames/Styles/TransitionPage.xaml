@@ -71,7 +71,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions> 
 
-        <Grid x:Name="Grid"  Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" >
+        <Grid x:Name="Grid" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="4*" MinWidth="200" MaxWidth="400"/>
@@ -83,26 +83,26 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  >
+            <Grid Grid.Column="1" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
                 <Frame x:Name="Frame" />
             </Grid>
      
         </Grid>
 
 
-        <controls:GridSplitter x:Name="HorizontalGridSplitter" Style="{StaticResource GridSplitterStyle}"  Grid.Column="1" Grid.RowSpan="3">
+        <controls:GridSplitter x:Name="HorizontalGridSplitter" Style="{StaticResource GridSplitterStyle}" Grid.Column="1" Grid.RowSpan="3">
             <controls:GridSplitter.Element>
                 <FontIcon Glyph="&#xE769;" HorizontalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
             </controls:GridSplitter.Element>
         </controls:GridSplitter>
-        <controls:GridSplitter x:Name="VerticalGridSplitter" Style="{StaticResource GridSplitterStyle}"  Grid.Row="1" Grid.ColumnSpan="3">
+        <controls:GridSplitter x:Name="VerticalGridSplitter" Style="{StaticResource GridSplitterStyle}" Grid.Row="1" Grid.ColumnSpan="3">
             <controls:GridSplitter.Element>
-                <FontIcon Glyph="&#xE76F;" VerticalAlignment="Center"  FontFamily="Segoe MDL2 Assets"/>
+                <FontIcon Glyph="&#xE76F;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets"/>
             </controls:GridSplitter.Element>
         </controls:GridSplitter>
 
 
-        <Border  x:Name="Border" Grid.Column="2" Grid.Row="2"  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Border  x:Name="Border" Grid.Column="2" Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
@@ -143,9 +143,9 @@
                             </ListView>
                         
                             <StackPanel Orientation="Horizontal" Margin="12" >
-                                <Button x:Name="Back" Width="100" IsEnabled="False"  Content="Back"/>
+                                <Button x:Name="Back" Width="100" IsEnabled="False" Content="Back"/>
                                 <Rectangle Width="12"/>
-                                <Button x:Name="Button" Width="100" Content="Navigate"  Style="{ThemeResource AccentButtonStyle}" />
+                                <Button x:Name="Button" Width="100" Content="Navigate" Style="{ThemeResource AccentButtonStyle}" />
                             </StackPanel>
                     </StackPanel>
                     </ScrollViewer>

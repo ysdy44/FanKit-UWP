@@ -16,7 +16,7 @@
     <Page.Resources>
 
         <!--CanvasOperator-->
-        <Win2Ds:CanvasOperator x:Name="CanvasOperator"         
+        <Win2Ds:CanvasOperator x:Name="CanvasOperator" 
              DestinationControl="{Binding ElementName=CanvasControl}"/>
 
     </Page.Resources>

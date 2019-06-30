@@ -1,5 +1,8 @@
 ﻿namespace FanKit.Samples
 {
+    /// <summary>
+    /// State of <see cref=" FanKit.Samples.Sample">.
+    /// </summary>
     public enum SampleState
     {
         /// <summary> Default state </summary>

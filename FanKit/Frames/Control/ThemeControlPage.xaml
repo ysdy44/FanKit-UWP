@@ -16,7 +16,7 @@
 
 
         <frames:PageLayout2.ShowContent>
-            <Border Width="120" Height="120"  VerticalAlignment="Center" HorizontalAlignment="Center"  
+            <Border Width="120" Height="120" VerticalAlignment="Center" HorizontalAlignment="Center" 
                        apiContractNotPresent5:Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"
                        apiContractPresent5:Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"
                        >

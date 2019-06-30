@@ -33,7 +33,7 @@
                 <TextBlock Text="Slider:" Grid.Row="1" Margin="4" VerticalAlignment="Bottom"/>
                 <hsvColorPickers:TouchSlider x:Name="TouchSlider" Grid.Row="2" />
                 <Border x:Name="TexBlockBorder" Grid.Row="1" Height="40" Width="100" CornerRadius="20,0,0,20" Visibility="Collapsed"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Right"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
                     <!--Visibility="Visible" Show-->
                     <animations:Implicit.ShowAnimations>
@@ -60,34 +60,41 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <StackPanel>
+                            
+                            
                             <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                                                                                  
+                                <Span FontStyle="Italic">Pressed:</Span>           
+                                <LineBreak/>
+                                <Span> When you</Span>   
+                                <Span FontWeight="SemiBold"> pressed </Span>
+                                <Span>the Slider, trigger events </Span>   
+                                <Span FontWeight="SemiBold">"ValueChangeStarted" </Span>
+                                <LineBreak/>
+                                <LineBreak/>       
                             
-                            <Span FontStyle="Italic">Pressed:</Span>           
-                            <LineBreak/>
-                            <Span> When you</Span>   
-                            <Span FontWeight="SemiBold"> pressed </Span>
-                            <Span>the Slider, trigger events </Span>   
-                            <Span FontWeight="SemiBold">"ValueChangeStarted" </Span>
-                            <LineBreak/>
-                            <LineBreak/>       
+                                <Span FontStyle="Italic">Move:</Span>  
+                                <LineBreak/>
+                                <Span> When you move</Span>    
+                                <Span FontWeight="SemiBold"> move </Span>
+                                <Span>the Slider , trigger events </Span>    
+                                <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
+                                <LineBreak/>
+                                <LineBreak/>       
                             
-                            <Span FontStyle="Italic">Move:</Span>  
-                            <LineBreak/>
-                            <Span> When you move</Span>    
-                            <Span FontWeight="SemiBold"> move </Span>
-                            <Span>the Slider , trigger events </Span>    
-                            <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
-                            <LineBreak/>
-                            <LineBreak/>       
-                            
-                            <Span FontStyle="Italic">Released:</Span>  
-                            <LineBreak/>
-                            <Span> When you</Span>
-                            <Span FontWeight="SemiBold"> released </Span>
-                            <Span>the Slider , trigger events </Span>
-                            <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
+                                <Span FontStyle="Italic">Released:</Span>  
+                                <LineBreak/>
+                                <Span> When you</Span>
+                                <Span FontWeight="SemiBold"> released </Span>
+                                <Span>the Slider , trigger events </Span>
+                                <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
 
                             </TextBlock>
+
+
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
 
                             <TextBlock Text="Reference:" Margin="12" />
                             <reference:ReferenceHSVColorPicker/>
@@ -106,8 +113,3 @@
 
     </frames:PageLayout>
 </Page>
-
-
-
-
-

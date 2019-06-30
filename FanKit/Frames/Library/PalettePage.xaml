@@ -13,7 +13,7 @@
     <Page.Resources>
 
         <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey" Color="White" />
-        <AcrylicBrush x:Name="PaletteAcrylicBrush" x:Key="PaletteAcrylicBrushKey" BackgroundSource="Backdrop" TintColor="White"  TintOpacity="0.6" FallbackColor="{StaticResource SystemChromeMediumColor}" />
+        <AcrylicBrush x:Name="PaletteAcrylicBrush" x:Key="PaletteAcrylicBrushKey" BackgroundSource="Backdrop" TintColor="White" TintOpacity="0.6" FallbackColor="{StaticResource SystemChromeMediumColor}" />
 
     </Page.Resources>
 
@@ -24,16 +24,16 @@
         <frames:PageLayout.ShowContent>
             <Border Background="{StaticResource PaletteSolidBrushKey}">
                 <controls:Carousel x:Name="CarouselControl"
-                               InvertPositive="True"  Orientation="Horizontal"
+                               InvertPositive="True" Orientation="Horizontal"
                                ItemDepth="300" ItemMargin="0" ItemRotationX="0" ItemRotationY="45" ItemRotationZ ="0"
                                ItemsSource="{x:Bind list}"
-                           SelectedIndex="3"    SelectionChanged="CarouselControl_SelectionChanged">
+                           SelectedIndex="3" SelectionChanged="CarouselControl_SelectionChanged">
                     <controls:Carousel.EasingFunction>
                         <CubicEase EasingMode="EaseOut" />
                     </controls:Carousel.EasingFunction>
                     <controls:Carousel.ItemTemplate>
                         <DataTemplate >
-                            <Image Source="{Binding}" Width="200" Height="200"  />
+                            <Image Source="{Binding}" Width="200" Height="200" />
                         </DataTemplate>
                     </controls:Carousel.ItemTemplate>
                 </controls:Carousel>
@@ -45,7 +45,14 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
+                        
+                        <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource PaletteSolidBrushKey}"/>
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+                        
+                        
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span>As the theme of the picture color  </Span>
                             <Span FontWeight="SemiBold">Palette</Span>              
@@ -61,6 +68,11 @@
                             <Span>(uri);</Span>
 
                         </TextBlock>
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
                         
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceWin2d/>

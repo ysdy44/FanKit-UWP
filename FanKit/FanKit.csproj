@@ -109,7 +109,7 @@
     <Compile Include="Frames\Control\RadiusAnimaPanelPage.xaml.cs">
       <DependentUpon>RadiusAnimaPanelPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Control\RemoteControlPage.xaml.cs">
+    <Compile Include="Frames\Transformers\RemoteControlPage.xaml.cs">
       <DependentUpon>RemoteControlPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Control\SplitPanelControlPage.xaml.cs">
@@ -157,7 +157,7 @@
     <Compile Include="Frames\Win2Ds\HomographyControllerPage.xaml.cs">
       <DependentUpon>HomographyControllerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Control\IndicatorControlPage.xaml.cs">
+    <Compile Include="Frames\Transformers\IndicatorControlPage.xaml.cs">
       <DependentUpon>IndicatorControlPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Win2Ds\MarqueeToolPage.xaml.cs">
@@ -543,7 +543,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Control\RemoteControlPage.xaml">
+    <Page Include="Frames\Transformers\RemoteControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -599,7 +599,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Control\IndicatorControlPage.xaml">
+    <Page Include="Frames\Transformers\IndicatorControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -812,8 +812,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\Template.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\Transition.xaml">
       <SubType>Designer</SubType>

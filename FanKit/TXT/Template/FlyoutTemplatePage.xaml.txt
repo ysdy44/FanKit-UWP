@@ -25,7 +25,7 @@
       </Button.Flyout>
     </Button>
 
-    <Button Content="FlyoutPresenterLeft" Grid.Column="3" Grid.Row="2"  Style="{ThemeResource AccentButtonStyle}">
+    <Button Content="FlyoutPresenterLeft" Grid.Column="3" Grid.Row="2" Style="{ThemeResource AccentButtonStyle}">
       <Button.Flyout>
         <Flyout Placement="Left" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterLeft}">
           <Grid Width="200" Height="200"/>

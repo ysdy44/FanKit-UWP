@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Control
 {
@@ -8,13 +9,15 @@ namespace FanKit.Control
     /// </summary>
     public sealed partial class RadiusAnimaPanel : UserControl
     {
-        /// <summary> ContentPresenter's Content. </summary>
-        public object CenterContent { get => this.ContentPresenter.Content; set => this.ContentPresenter.Content = value; }
+        //@Content
+        /// <summary> ContentBorder's Child. </summary>
+        public UIElement CenterChild { get => this.ContentBorder.Child; set => this.ContentBorder.Child = value; }
 
+        //@Construct
         public RadiusAnimaPanel()
         {
             this.InitializeComponent();
-            this.ContentPresenter.SizeChanged += (s, e) =>
+            this.ContentBorder.SizeChanged += (s, e) =>
               {
                   if (e.NewSize == e.PreviousSize) return;
                   this.Frame.Value = e.NewSize.Width;

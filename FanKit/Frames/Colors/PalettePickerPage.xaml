@@ -28,14 +28,21 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
-                        <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                        <StackPanel Margin="12" Orientation="Horizontal">
                             <Button x:Name="HueButton" Content="Hue" />
                             <AppBarSeparator/>
                             <Button x:Name="SaturationButton" Content="Saturation" />
                             <AppBarSeparator/>
                             <Button x:Name="ValueButton" Content="Value"/>
                         </StackPanel>
+
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                               
                             <Span FontStyle="Italic">Hue mode:</Span>
@@ -47,7 +54,7 @@
                             <LineBreak/>
                                                        
                             <Span FontStyle="Italic">Saturation mode:</Span>
-                          <LineBreak/>
+                            <LineBreak/>
                             <Span >Slide determines S of color.</Span>
                             <Span >Palette determines H,V of color.</Span>
 
@@ -55,11 +62,16 @@
                             <LineBreak/>
                             
                             <Span FontStyle="Italic">Value mode:</Span>
-                      <LineBreak/>
+                            <LineBreak/>
                             <Span >Slide determines V of color.</Span>
                             <Span >Palette determines H,S of color.</Span>
                         </TextBlock>
-                        
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceHSVColorPicker/>
 

@@ -8,7 +8,7 @@
   >
 
     <Grid   BorderThickness="4" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Border  Height="Auto" Padding="14"  VerticalAlignment="Center" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+        <Border  Height="Auto" Padding="14" VerticalAlignment="Center" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
             <TextBlock Text="Welcome" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
         </Border>
     </Grid>

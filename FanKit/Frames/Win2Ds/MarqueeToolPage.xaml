@@ -26,7 +26,7 @@
                         <StackPanel>
 
                             <!--Toggle-->
-                            <Grid Height="34" Width="320" Margin="4" CornerRadius="15" BorderThickness="0,0,1,2"  BorderBrush="#44000000"  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                            <Grid Height="34" Width="320" Margin="4" CornerRadius="15" BorderThickness="0,0,1,2" BorderBrush="#44000000" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*" />
                                     <ColumnDefinition Width="1*" />
@@ -50,7 +50,7 @@
                             </Grid>
 
                             <!--Foot-->
-                            <Grid Margin="12" HorizontalAlignment="Center"  >
+                            <Grid Margin="12" HorizontalAlignment="Center" >
                                 <controls:DropShadowPanel HorizontalAlignment="Center" OffsetY="6" BlurRadius="24" ShadowOpacity="0.1" Color="Black">
                                     <Rectangle RadiusX="25" RadiusY="25" 
                                       Height="{Binding ElementName=AppbarControl, Path=(extensions:FrameworkElementExtensions.ActualHeight)}"
@@ -100,7 +100,7 @@
                             </Grid>
 
                             <!--Foot-->
-                            <Grid Margin="12" HorizontalAlignment="Center"  >
+                            <Grid Margin="12" HorizontalAlignment="Center" >
                                 <controls:DropShadowPanel HorizontalAlignment="Center" OffsetY="6" BlurRadius="24" ShadowOpacity="0.1" Color="Black">
                                     <Rectangle RadiusX="25" RadiusY="25" 
                                       Height="{Binding ElementName=AppbarControl2, Path=(extensions:FrameworkElementExtensions.ActualHeight)}"

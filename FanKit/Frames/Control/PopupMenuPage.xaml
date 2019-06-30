@@ -7,7 +7,8 @@
     xmlns:Control="using:FanKit.Control"
     xmlns:frames="using:FanKit.Frames"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
 
     <Page.Resources>
@@ -76,7 +77,13 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Button x:Name="Button" Width="100" Margin="22" Content="Popup" VerticalAlignment="Top"/>
+                        
+                        <Button x:Name="Button" Margin="12" Content="Popup"/>
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+                        
+                        
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                      
                             <Span FontStyle="Italic">Create a new UserControls and named "PopupMenu",Please put the document in the code is copied to the "PopupMenu.xaml"</Span>
@@ -102,6 +109,7 @@
                             <Span FontStyle="Italic">Popup will pop up!</Span>
 
                         </TextBlock>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

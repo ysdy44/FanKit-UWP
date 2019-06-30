@@ -25,42 +25,59 @@
         <frames:PageLayout1.DetailContent>
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <StackPanel>
+                    <ScrollViewer>
+                        <StackPanel>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+                            <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
 
-                        <TextBlock Text="Reference:" Margin="12" />
-                        <reference:ReferenceHSVColorPicker/>
 
-                        <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                            <TextBlock Text="Reference:" Margin="12" />
+                            <reference:ReferenceHSVColorPicker/>
+
+
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                            
                             <Span >In mathematics and computing, hexadecimal (also base, or hex) are a positional numeral system with a radix, or base, of It uses sixteen distinct symbols, most often the symbols 0–9 to represent values zero to nine, and a–f (or alternative Ly a–f) to the represent values ten to fifteen. </Span>
+                            
                             <LineBreak/>
                             <LineBreak/>
+                            
                             <Span >White  #FFFFFF  255,255,255</Span><LineBreak/>
                             <Span >Black  #000000  0,0,0</Span><LineBreak/>
                             <Span >Red  #FF0000  255,0,0</Span><LineBreak/>
                             <Span >Green  #00FF00  0,255,0</Span><LineBreak/>
                             <Span >Blue  #0000FF  0,0,255</Span><LineBreak/>
+                            
                             <LineBreak/>
                             <LineBreak/>
+                            
                             <Span >LightPink  #FFB6C1  255,182,193</Span><LineBreak/>
-                   <Span >Pink  #FFC0CB  255,192,203</Span><LineBreak/>
-                   <Span >Crimson  #DC143C  220,20,60</Span><LineBreak/>
-                   <Span >LavenderBlush  #FFF0F5  255,240,245</Span><LineBreak/>
-                   <Span >PaleVioletRed  #DB7093  219,112,147</Span><LineBreak/>
-                   <Span >HotPink  #FF69B4  255,105,180</Span><LineBreak/>
-                   <Span >DeepPink  #FF1493  255,20,147</Span><LineBreak/>
-                   <Span >MediumVioletRed  #C71585  199,21,133</Span><LineBreak/>
-                   <Span >Orchid  #DA70D6  218,112,214</Span><LineBreak/>
-                   <Span >Thistle  #D8BFD8  216,191,216</Span><LineBreak/>
-                   <Span >plum  #DDA0DD  221,160,221</Span><LineBreak/>
-                   <Span >Violet  #EE82EE  238,130,238</Span><LineBreak/>
-                   <Span >Magenta  #FF00FF  255,0,255  </Span><LineBreak/>
+                            <Span >Pink  #FFC0CB  255,192,203</Span><LineBreak/>
+                            <Span >Crimson  #DC143C  220,20,60</Span><LineBreak/>
+                            <Span >LavenderBlush  #FFF0F5  255,240,245</Span><LineBreak/>
+                            <Span >PaleVioletRed  #DB7093  219,112,147</Span><LineBreak/>
+                            <Span >HotPink  #FF69B4  255,105,180</Span><LineBreak/>
+                            <Span >DeepPink  #FF1493  255,20,147</Span><LineBreak/>
+                            <Span >MediumVioletRed  #C71585  199,21,133</Span><LineBreak/>
+                            <Span >Orchid  #DA70D6  218,112,214</Span><LineBreak/>
+                            <Span >Thistle  #D8BFD8  216,191,216</Span><LineBreak/>
+                            <Span >plum  #DDA0DD  221,160,221</Span><LineBreak/>
+                            <Span >Violet  #EE82EE  238,130,238</Span><LineBreak/>
+                            <Span >Magenta  #FF00FF  255,0,255  </Span><LineBreak/>
 
 
-                        </TextBlock>
+                            </TextBlock>
 
-                    </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
@@ -73,6 +90,3 @@
 
     </frames:PageLayout1>
 </Page>
-
-
-

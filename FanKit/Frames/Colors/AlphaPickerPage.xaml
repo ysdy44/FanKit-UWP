@@ -29,15 +29,24 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
-
+                        <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+                      
+                        
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+                        
+                        
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span >The alpha channel of the color</Span>
                         </TextBlock>
                         
+                        
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+                        
+                        
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceHSVColorPicker/>
-
 
                     </StackPanel>
                 </PivotItem>

@@ -136,6 +136,3 @@ namespace FanKit
         }
     }
 }
-
-
-

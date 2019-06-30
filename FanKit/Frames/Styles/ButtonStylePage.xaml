@@ -85,7 +85,7 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <Button Content="&#xE112;"  Style="{ThemeResource NavigationBackButtonNormalStyle}"/>
+                    <Button Content="&#xE112;" Style="{ThemeResource NavigationBackButtonNormalStyle}"/>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>NavigationBackButtonNormalStyle</Paragraph>
                     </RichTextBlock>
@@ -93,7 +93,7 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <Button Content="&#xE112;"  Style="{ThemeResource NavigationBackButtonSmallStyle}"/>
+                    <Button Content="&#xE112;" Style="{ThemeResource NavigationBackButtonSmallStyle}"/>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>NavigationBackButtonSmallStyle</Paragraph>
                     </RichTextBlock>
@@ -117,7 +117,7 @@
             </ListViewItem >
             <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <StackPanel>
-                    <Button Content="&#xE112;"   Style="{ThemeResource PaneToggleButtonStyle}"/>
+                    <Button Content="&#xE112;" Style="{ThemeResource PaneToggleButtonStyle}"/>
                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
                         <Paragraph>PaneToggleButtonStyle</Paragraph>
                     </RichTextBlock>

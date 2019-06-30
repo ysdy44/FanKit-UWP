@@ -22,7 +22,7 @@
 
 
         <frames:PageLayout2.ShowContent>
-            <Border Width="150" Height="120"  VerticalAlignment="Center" HorizontalAlignment="Center"  
+            <Border Width="150" Height="120" VerticalAlignment="Center" HorizontalAlignment="Center" 
                        apiContractNotPresent5:Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"
                        apiContractPresent5:Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"
                       >
@@ -38,12 +38,17 @@
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
 
-                        <Ellipse  Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+                        <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
 
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-                            <Span >Hold down the </Span>
+                            <Span>Hold down the </Span>
                             <Span FontWeight="SemiBold">Straw </Span>                      
-                            <Span > icon until it is released to complete the fetch color in the window </Span>
+                            <Span> icon until it is released to complete the fetch color in the window </Span>
                             
                             <LineBreak/>
                             <LineBreak/>
@@ -52,6 +57,11 @@
                             <Span FontWeight="SemiBold">Elliptic </Span>                      
                             <Span > to change the color.</Span>
                         </TextBlock>
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
 
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceHSVColorPicker/>

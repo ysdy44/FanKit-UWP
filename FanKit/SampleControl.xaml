@@ -13,9 +13,6 @@
 
     <UserControl.Resources>
         
-        <!--ViewModel-->
-        <samples:Sample x:Name="ViewModel"/>
-
         <!--Background-->
         <SolidColorBrush x:Name="AccentColor" Color="{ThemeResource SystemAccentColor}"/>
         <SolidColorBrush x:Name="UnAccentColor" Color="Gray"/>
@@ -38,19 +35,19 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="12,8" >
 
             <!--Shadow-->
-            <Image x:Name="DropShadowPanel" Source="ms-appx:///Icon/Shadow.png" Stretch="Uniform"   
+            <Image x:Name="DropShadowPanel" Source="ms-appx:///Icon/Shadow.png" Stretch="Uniform" 
                 extensions:VisualExtensions.NormalizedCenterPoint="0.5,0.5,0" />
 
             <!--Image-->
-            <controls:ImageEx Source="{x:Bind ViewModel.Uri,Mode=OneWay}" Stretch="Uniform" />
+            <controls:ImageEx Source="{x:Bind Sample.Uri,Mode=OneWay}" Stretch="Uniform" />
 
             <!--Flag-->
             <Border Width="Auto" Height="22" Padding="4,0" HorizontalAlignment="Right" VerticalAlignment="Top"
-                    Background="{x:Bind StateToBackgroundConverter(ViewModel.State) ,Mode=OneWay}"
-                    Visibility="{x:Bind StateToVisibilityConverter(ViewModel.State) ,Mode=OneWay}">
+                    Background="{x:Bind StateToBackgroundConverter(Sample.State) ,Mode=OneWay}"
+                    Visibility="{x:Bind StateToVisibilityConverter(Sample.State) ,Mode=OneWay}">
                 <TextBlock VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"
-                           Foreground="{x:Bind StateToForegroundConverter(ViewModel.State) ,Mode=OneWay}"
-                           Text="{x:Bind StateToStringConverter(ViewModel.State) ,Mode=OneWay}"
+                           Foreground="{x:Bind StateToForegroundConverter(Sample.State) ,Mode=OneWay}"
+                           Text="{x:Bind StateToStringConverter(Sample.State) ,Mode=OneWay}"
                            />
             </Border>
         </Grid>
@@ -63,7 +60,7 @@
             </Grid.ColumnDefinitions>
 
             <!--Name-->
-            <TextBlock Text="{x:Bind ViewModel.Name,Mode=OneWay}" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock Text="{x:Bind Sample.Name,Mode=OneWay}" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
 
             <!--Button-->
             <Button x:Name="Button" Grid.Column="1" Width="30" Content="&#xE946;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}">
@@ -71,9 +68,9 @@
                     <Flyout>
                         <Grid Margin="-12">
                             <StackPanel Width="200" Padding="10">
-                                <controls:ImageEx  Source="{x:Bind ViewModel.Uri,Mode=OneWay}" Stretch="Uniform"/>
-                                <TextBlock Text="{x:Bind ViewModel.Name,Mode=OneWay}"  VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
-                                <TextBlock Text="{x:Bind ViewModel.Summary,Mode=OneWay}" FontWeight="Medium" Grid.Row="1" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <controls:ImageEx  Source="{x:Bind Sample.Uri,Mode=OneWay}" Stretch="Uniform"/>
+                                <TextBlock Text="{x:Bind Sample.Name,Mode=OneWay}" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
+                                <TextBlock Text="{x:Bind Sample.Summary,Mode=OneWay}" FontWeight="Medium" Grid.Row="1" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
                             </StackPanel>
                         </Grid>
                     </Flyout>

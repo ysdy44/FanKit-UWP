@@ -1,24 +1,20 @@
-
 ```xaml
 
 
-
-
 <Page
-    x:Class="FanKit.Control.RadiusAnimaPanel"
-    xmlns:control="using:FanKit.Control">
+    x:Class="FanKit.Frames.Control.RadiusAnimaPanelPage"
+    xmlns:control="using:FanKit.Control"
+	>
 
-     <control:RadiusAnimaPanel>
-          <control:RadiusAnimaPanel.CenterContent>
-               <Border x:Name="Rectangle" Height="22" MinWidth="50" Margin="20,0" Background="Red"  >
-                    <TextBlock x:Name="TextBlock" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-           </control:RadiusAnimaPanel.CenterContent>
-      </control:RadiusAnimaPanel>
+    <control:RadiusAnimaPanel>
+         <control:RadiusAnimaPanel.CenterChild>
+              <Border x:Name="Rectangle" Height="22" MinWidth="50" Margin="20,0" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Center">
+                   <TextBlock x:Name="TextBlock" HorizontalAlignment="Center" Foreground="White"/>
+              </Border>
+         </control:RadiusAnimaPanel.CenterChild>
+    </control:RadiusAnimaPanel>
 
 </Page>
-
-
 
 
 ```

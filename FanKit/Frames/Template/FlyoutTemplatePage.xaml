@@ -33,9 +33,9 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="FlyoutPresenter">
                         <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
-                            <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"  Background="{TemplateBinding Background}">
-                                <ScrollViewer x:Name="ScrollViewer"    AutomationProperties.AccessibilityView="Raw"   HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"    VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"      ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}"   MinWidth="{TemplateBinding MinWidth}"    Width="Auto"    MaxWidth="{TemplateBinding MaxWidth}"     MinHeight="{TemplateBinding MinHeight}"       Height="Auto"       MaxHeight="{TemplateBinding MaxHeight}">
-                                    <ContentPresenter   Margin="{TemplateBinding Margin}"  ContentTemplate="{TemplateBinding ContentTemplate}"  ContentTransitions="{TemplateBinding ContentTransitions}"     Content="{TemplateBinding Content}"   HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"/>
+                            <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                    <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                 </ScrollViewer>
                             </Border>
                         </controls:DropShadowPanel>
@@ -44,60 +44,60 @@
             </Setter>
         </Style>
 
-        <Style x:Key="FlyoutPresenterLeft" TargetType="FlyoutPresenter"  BasedOn="{StaticResource FlyoutPresenter}" >
+        <Style x:Key="FlyoutPresenterLeft" TargetType="FlyoutPresenter" BasedOn="{StaticResource FlyoutPresenter}" >
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="FlyoutPresenter">
                         <Grid >
                             <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
-                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"  Background="{TemplateBinding Background}">
-                                    <ScrollViewer x:Name="ScrollViewer"    AutomationProperties.AccessibilityView="Raw"   HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"    VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"      ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}"   MinWidth="{TemplateBinding MinWidth}"    Width="Auto"    MaxWidth="{TemplateBinding MaxWidth}"     MinHeight="{TemplateBinding MinHeight}"       Height="Auto"       MaxHeight="{TemplateBinding MaxHeight}">
-                                        <ContentPresenter   Margin="{TemplateBinding Margin}"  ContentTemplate="{TemplateBinding ContentTemplate}"  ContentTransitions="{TemplateBinding ContentTransitions}"     Content="{TemplateBinding Content}"   HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"/>
+                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                        <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </ScrollViewer>
                                 </Border>
                             </controls:DropShadowPanel>
-                            <Grid Padding="-7"  >
-                                <ContentControl FontSize="16"  Foreground="{TemplateBinding Background}" VerticalAlignment="Center" HorizontalAlignment="Right" Content="&#xE937;" FontFamily="Segoe MDL2 Assets" />
+                            <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Center" HorizontalAlignment="Right" Content="&#xE937;" FontFamily="Segoe MDL2 Assets" />
                             </Grid>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="FlyoutPresenterTop" TargetType="FlyoutPresenter"  BasedOn="{StaticResource FlyoutPresenter}" >
+        <Style x:Key="FlyoutPresenterTop" TargetType="FlyoutPresenter" BasedOn="{StaticResource FlyoutPresenter}" >
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="FlyoutPresenter">
                         <Grid >
                             <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
-                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"  Background="{TemplateBinding Background}">
-                                    <ScrollViewer x:Name="ScrollViewer"    AutomationProperties.AccessibilityView="Raw"   HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"    VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"      ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}"   MinWidth="{TemplateBinding MinWidth}"    Width="Auto"    MaxWidth="{TemplateBinding MaxWidth}"     MinHeight="{TemplateBinding MinHeight}"       Height="Auto"       MaxHeight="{TemplateBinding MaxHeight}">
-                                        <ContentPresenter   Margin="{TemplateBinding Margin}"  ContentTemplate="{TemplateBinding ContentTemplate}"  ContentTransitions="{TemplateBinding ContentTransitions}"     Content="{TemplateBinding Content}"   HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"/>
+                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                        <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </ScrollViewer>
                                 </Border>
                             </controls:DropShadowPanel>
-                            <Grid Padding="-7"  >
-                                <ContentControl FontSize="16"  Foreground="{TemplateBinding Background}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="&#xE936;" FontFamily="Segoe MDL2 Assets" />
+                            <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="&#xE936;" FontFamily="Segoe MDL2 Assets" />
                             </Grid>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="FlyoutPresenterRight" TargetType="FlyoutPresenter"  BasedOn="{StaticResource FlyoutPresenter}" >
+        <Style x:Key="FlyoutPresenterRight" TargetType="FlyoutPresenter" BasedOn="{StaticResource FlyoutPresenter}" >
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="FlyoutPresenter">
                         <Grid >
                             <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
-                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"  Background="{TemplateBinding Background}">
-                                    <ScrollViewer x:Name="ScrollViewer"    AutomationProperties.AccessibilityView="Raw"   HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"    VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"      ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}"   MinWidth="{TemplateBinding MinWidth}"    Width="Auto"    MaxWidth="{TemplateBinding MaxWidth}"     MinHeight="{TemplateBinding MinHeight}"       Height="Auto"       MaxHeight="{TemplateBinding MaxHeight}">
-                                        <ContentPresenter   Margin="{TemplateBinding Margin}"  ContentTemplate="{TemplateBinding ContentTemplate}"  ContentTransitions="{TemplateBinding ContentTransitions}"     Content="{TemplateBinding Content}"   HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"/>
+                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                        <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </ScrollViewer>
                                 </Border>
                             </controls:DropShadowPanel>
-                             <Grid Padding="-7"  >
-                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}"  VerticalAlignment="Center" HorizontalAlignment="Left" Content="&#xE938;" FontFamily="Segoe MDL2 Assets" />
+                             <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Center" HorizontalAlignment="Left" Content="&#xE938;" FontFamily="Segoe MDL2 Assets" />
                             </Grid>
                          </Grid>
                     </ControlTemplate>
@@ -110,14 +110,14 @@
                     <ControlTemplate TargetType="FlyoutPresenter">
                         <Grid >
                             <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
-                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"  Background="{TemplateBinding Background}">
-                                    <ScrollViewer x:Name="ScrollViewer"    AutomationProperties.AccessibilityView="Raw"   HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"    VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"      ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}"   MinWidth="{TemplateBinding MinWidth}"    Width="Auto"    MaxWidth="{TemplateBinding MaxWidth}"     MinHeight="{TemplateBinding MinHeight}"       Height="Auto"       MaxHeight="{TemplateBinding MaxHeight}">
-                                        <ContentPresenter   Margin="{TemplateBinding Margin}"  ContentTemplate="{TemplateBinding ContentTemplate}"  ContentTransitions="{TemplateBinding ContentTransitions}"     Content="{TemplateBinding Content}"   HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"/>
+                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                        <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     </ScrollViewer>
                                 </Border>
                             </controls:DropShadowPanel>
-                            <Grid Padding="-7"  >
-                                <ContentControl FontSize="16"  Foreground="{TemplateBinding Background}" VerticalAlignment="Top" HorizontalAlignment="Center" Content="&#xE935;" FontFamily="Segoe MDL2 Assets" />
+                            <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Top" HorizontalAlignment="Center" Content="&#xE935;" FontFamily="Segoe MDL2 Assets" />
                             </Grid>
                         </Grid>
                     </ControlTemplate>
@@ -193,7 +193,7 @@
                 </Grid.RowDefinitions>
 
                 <Button x:Name="ButtonCenter" Content="Flyout"
-                    Grid.Column="2" Grid.Row="2"  Margin="12"
+                    Grid.Column="2" Grid.Row="2" Margin="12"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Style="{ThemeResource AccentButtonStyle}">
                     <Button.Flyout>
@@ -207,7 +207,7 @@
                 </Button>
 
                 <Button x:Name="ButtonLeft" Content="Flyout Left" 
-                    Grid.Column="3" Grid.Row="2"  Margin="12"
+                    Grid.Column="3" Grid.Row="2" Margin="12"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Style="{ThemeResource AccentButtonStyle}">
                     <Button.Flyout>
@@ -233,7 +233,7 @@
                     </Button.Flyout>
                 </Button>
                 <Button x:Name="ButtonRight" Content="Flyout Right" 
-                    Grid.Column="1" Grid.Row="2"  Margin="12"
+                    Grid.Column="1" Grid.Row="2" Margin="12"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Style="{ThemeResource AccentButtonStyle}">
                     <Button.Flyout>
@@ -267,7 +267,12 @@
             <Pivot>
                 <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <StackPanel>
-                        <Button x:Name="Button" Width="100" Margin="22" Content="Show" VerticalAlignment="Top" />
+                        <Button x:Name="Button" Margin="12" Content="Show"/>
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                             <Span FontWeight="SemiBold">Flyout</Span>
                             <Span>have a different direction:</Span>
@@ -276,7 +281,11 @@
                             <Span FontWeight="SemiBold">Right</Span>
                             <Span FontWeight="SemiBold">Bottom</Span>
                         </TextBlock>
-                        
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
                         <TextBlock Text="Reference:" Margin="12" />
                         <reference:ReferenceToolKitControls/>
                         

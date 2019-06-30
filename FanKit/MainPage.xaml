@@ -528,7 +528,7 @@
             <Frame x:Name="NavigationFrame"/>
 
             <!--FAB Button-->
-            <Button x:Name="ImageVisibleButton" Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}" Style="{StaticResource AppFABButtonStyle}"            extensions:VisualExtensions.CenterPoint="32,32,0">
+            <Button x:Name="ImageVisibleButton" Visibility="{x:Bind sos.UpVisibility,Mode=OneWay}" Style="{StaticResource AppFABButtonStyle}" extensions:VisualExtensions.CenterPoint="32,32,0">
 
                 <!--Visibility="Visible" Show-->
                 <animations:Implicit.ShowAnimations>
@@ -563,7 +563,7 @@
             <InkToolbarCustomToggleButton x:Name="BackButton" Background="Transparent" Grid.Column="0" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
             <Rectangle Visibility="Collapsed" Grid.Column="1" Width="20" HorizontalAlignment="Left" Fill="{StaticResource AppRightGradientBrush}"/>
             <Rectangle Visibility="Collapsed" Grid.Column="1" Width="20" HorizontalAlignment="Right" Fill="{StaticResource AppLeftGradientBrush}"/>
-            <InkToolbarCustomToggleButton x:Name="SettingButton"  Background="Transparent" Grid.Column="2" Content="&#xE115;" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
+            <InkToolbarCustomToggleButton x:Name="SettingButton" Background="Transparent" Grid.Column="2" Content="&#xE115;" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
 
             <!--ListView-->
             <ListView x:Name="ListView" 

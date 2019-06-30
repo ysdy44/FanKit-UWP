@@ -84,7 +84,7 @@
                         <Span>/ 10</Span>
                     </TextBlock>
 
-                    <Button Grid.Column="2" Grid.Row="1"  Style="{StaticResource AppBoldButtonStyle}" >
+                    <Button Grid.Column="2" Grid.Row="1" BorderThickness="0" BorderBrush="Transparent" Background="Transparent">
                         <PathIcon Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M18.029,20.83l-13.396,0c-0.503,0 -0.911,-0.408 -0.911,-0.911c0,-0.502 0.408,-0.91 0.911,-0.91l13.396,0c0.502,0 0.91,0.408 0.91,0.91c0,0.503 -0.408,0.911 -0.91,0.911Zm-3.427,-9.984l3.427,0l-6.741,6.457l-6.741,-6.457l3.513,0l0,-7.196l6.542,0l0,7.196Z"/>
                     </Button>
 
