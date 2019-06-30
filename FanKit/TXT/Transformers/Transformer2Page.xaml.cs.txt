@@ -1,0 +1,237 @@
+﻿```Csharp
+
+
+using FanKit.Transformers;
+using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.Effects;
+using Microsoft.Graphics.Canvas.UI.Xaml;
+using System;
+using System.Numerics;
+using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.UI.Xaml.Controls;
+
+namespace FanKit.Frames.Transformers
+{
+    /// <summary>
+    /// Page of <see cref="FanKit.Transformers.Transformer">.
+    /// </summary>
+    public sealed partial class Transformer2Page : Page
+    {
+
+        //Right
+        Vector2 rightStartPoint;
+        Vector2 rightStartPosition;
+        //Double
+        Vector2 doubleStartCenter;
+        Vector2 doubleStartPosition;
+        float doubleStartScale;
+        float doubleStartSpace;
+
+        TransformerMode mode;
+        Vector2 startingPoint;
+        Layer layer;
+
+        class Layer
+        {
+            public CanvasBitmap Image;
+            public TransformerMatrix TransformerMatrix;
+        }
+
+
+        //@Construct
+        public Transformer2Page()
+        {
+            this.InitializeComponent();
+            this.ResetButton.Tapped += (s, e) =>
+            {
+                Size size = new Size(this.CanvasControl.ActualWidth, this.CanvasControl.ActualHeight);
+
+                this.CanvasTransformer.Position = new Vector2((float)size.Width / 2, (float)size.Height / 2);
+                this.CanvasTransformer.Scale = 1;
+                this.CanvasTransformer.Radian = 0;
+
+                this.CanvasTransformer.ReloadMatrix();
+                
+
+                Transformer transformer = this.Reset(this.layer.Image.SizeInPixels.Width, this.layer.Image.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height);
+                this.layer.TransformerMatrix.Destination = transformer;
+                
+
+                this.CanvasControl.Invalidate();//Invalidate
+            };
+
+
+            //Canvas
+            this.CanvasControl.CreateResources += (sender, args) => args.TrackAsyncAction(this.CreateResourcesAsync(sender).AsAsyncAction());
+            this.CanvasControl.Draw += (sender, args) =>
+            {
+                //CanvasTransformer
+                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
+                Matrix3x2 canvasToVirtualMatrix = this.CanvasTransformer.GetMatrix(MatrixTransformerMode.CanvasToVirtual);
+
+                //Transformer
+                ICanvasImage source = this.layer.Image;
+                Matrix3x2 transformMatrix = this.layer.TransformerMatrix.GetMatrix();
+                Transformer transformer = this.layer.TransformerMatrix.Destination;
+
+                //Draw
+                args.DrawingSession.DrawCrad(new CompositeEffect
+                {
+                    Sources =
+                    {
+                        new ColorSourceEffect{ Color = Windows.UI.Colors.White },
+                        new Transform2DEffect
+                        {
+                            Source = source,
+                            TransformMatrix = transformMatrix * canvasToVirtualMatrix
+                        }
+                    }
+                }, this.CanvasTransformer);
+                args.DrawingSession.DrawBoundNodes(transformer, matrix);
+            };
+
+
+            //Single
+            this.CanvasOperator.Single_Start += (point) =>
+            {
+                this.startingPoint = point;
+
+                //Controller
+                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
+                this.layer.TransformerMatrix.OldDestination = this.layer.TransformerMatrix.Destination;
+                this.mode = Transformer.ContainsNodeMode(point, this.layer.TransformerMatrix.Destination, matrix);
+
+                this.CanvasControl.Invalidate();//Invalidate
+            };
+            this.CanvasOperator.Single_Delta += (point) =>
+            {
+                bool isRatio = false;
+                bool isCenter = false;
+                bool isStepFrequency = false;
+
+                //Controller
+                Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
+                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.layer.TransformerMatrix.OldDestination, inverseMatrix, isRatio, isCenter, isStepFrequency);
+
+                this.layer.TransformerMatrix.Destination = transformer;
+                
+                this.CanvasControl.Invalidate();//Invalidate
+            };
+            this.CanvasOperator.Single_Complete += (point) =>
+            {
+                this.CanvasControl.Invalidate();//Invalidate
+            };
+
+            //Right
+            this.CanvasOperator.Right_Start += (point) =>
+            {
+                this.rightStartPoint = point;
+                this.rightStartPosition = this.CanvasTransformer.Position;
+            };
+            this.CanvasOperator.Right_Delta += (point) =>
+            {
+                this.CanvasTransformer.Position = this.rightStartPosition - this.rightStartPoint + point;
+
+                this.CanvasTransformer.ReloadMatrix();
+                this.CanvasControl.Invalidate();//Invalidate
+            };
+            this.CanvasOperator.Right_Complete += (point) =>
+            {
+            };
+
+            //Double
+            this.CanvasOperator.Double_Start += (center, space) =>
+            {
+                this.doubleStartCenter = (center - this.CanvasTransformer.Position) / this.CanvasTransformer.Scale + this.CanvasTransformer.ControlCenter;
+                this.doubleStartPosition = this.CanvasTransformer.Position;
+
+                this.doubleStartSpace = space;
+                this.doubleStartScale = this.CanvasTransformer.Scale;
+            };
+            this.CanvasOperator.Double_Delta += (center, space) =>
+            {
+                this.CanvasTransformer.Scale = this.doubleStartScale / this.doubleStartSpace * space;
+                this.CanvasTransformer.Position = center - (this.doubleStartCenter - this.CanvasTransformer.ControlCenter) * this.CanvasTransformer.Scale;
+
+                this.CanvasTransformer.ReloadMatrix();
+                this.CanvasControl.Invalidate();//Invalidate
+            };
+            this.CanvasOperator.Double_Complete += (center, space) =>
+            {
+            };
+
+            //Wheel
+            this.CanvasOperator.Wheel_Changed += (point, space) =>
+            {
+                if (space > 0)
+                {
+                    if (this.CanvasTransformer.Scale < 10f)
+                    {
+                        this.CanvasTransformer.Scale *= 1.1f;
+                        this.CanvasTransformer.Position = point + (this.CanvasTransformer.Position - point) * 1.1f;
+                    }
+                }
+                else
+                {
+                    if (this.CanvasTransformer.Scale > 0.1f)
+                    {
+                        this.CanvasTransformer.Scale /= 1.1f;
+                        this.CanvasTransformer.Position = point + (this.CanvasTransformer.Position - point) / 1.1f;
+                    }
+                }
+
+                this.CanvasTransformer.ReloadMatrix();
+                this.CanvasControl.Invalidate();//Invalidate
+            };
+        }
+
+        private async Task CreateResourcesAsync(CanvasControl sender)
+        {
+            Size size = new Size(sender.ActualWidth, sender.ActualHeight);
+
+            this.CanvasTransformer.Position = new Vector2((float)size.Width / 2, (float)size.Height / 2);
+            this.CanvasTransformer.Scale = 1;
+            this.CanvasTransformer.Radian = 0;
+
+            this.CanvasTransformer.ReloadMatrix();
+
+
+            //Bitmap
+            CanvasBitmap bitmap = await CanvasBitmap.LoadAsync(sender, "Icon/Avatar.jpg");
+            TransformerMatrix transformerMatrix = new TransformerMatrix
+            {
+                Source = new Transformer(bitmap.SizeInPixels.Width, bitmap.SizeInPixels.Height, Vector2.Zero),
+                Destination = this.Reset(bitmap.SizeInPixels.Width, bitmap.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height),
+            };
+
+            //Layer
+            this.layer = new Layer
+            {
+                TransformerMatrix = transformerMatrix,
+                Image = bitmap,
+            };
+        }
+
+        private Transformer Reset(float bitmapWidth, float bitmapHeight, float controlWidth, float controlHeight)
+        {
+            Vector2 center = new Vector2(controlWidth, controlHeight) / 2.0f;
+            float scale = Math.Min(controlWidth / bitmapWidth, controlHeight / bitmapHeight);
+            float width = scale * bitmapWidth / 3.0f / 2.0f;
+            float height = scale * bitmapHeight / 3.0f / 2.0f;
+
+            Transformer destination = new Transformer
+            {
+                LeftTop = center + new Vector2(-width, -height),
+                RightTop = center + new Vector2(+width, -height),
+                RightBottom = center + new Vector2(+width, +height),
+                LeftBottom = center + new Vector2(-width, +height),
+            };
+            return destination;
+        }
+
+    }
+}
+
+
+```

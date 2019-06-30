@@ -139,11 +139,15 @@
     <Compile Include="Frames\PageLayout.xaml.cs">
       <DependentUpon>PageLayout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transformers\CanvasDrawingSessionExtensions.Ruler.cs" />
     <Compile Include="Frames\Transformers\CanvasOperatorPage.xaml.cs">
       <DependentUpon>CanvasOperatorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transformers\CanvasTransformer.cs" />
+    <Compile Include="Frames\Transformers\CanvasTransformerPage.xaml.cs">
+      <DependentUpon>CanvasTransformerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Transformers\Transformer2Page.xaml.cs">
+      <DependentUpon>Transformer2Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Transformers\TransformerPage.xaml.cs">
       <DependentUpon>TransformerPage.xaml</DependentUpon>
     </Compile>
@@ -325,6 +329,7 @@
     <Content Include="Icon\Reference\ToolKit.png" />
     <Content Include="Icon\Reference\Win2d.png" />
     <Content Include="Icon\Transformers\CanvasOperator.png" />
+    <Content Include="Icon\Transformers\CanvasTransformer.png" />
     <Content Include="Icon\Transformers\Transformer.png" />
     <Content Include="Icon\Win2Ds\CurveNodes.png" />
     <Content Include="Icon\Win2Ds\HomographyController.png" />
@@ -346,6 +351,10 @@
     <Content Include="TXT\Library\Palette.xaml.cs.txt" />
     <Content Include="TXT\Transformers\CanvasOperatorPage.xaml.cs.txt" />
     <Content Include="TXT\Transformers\CanvasOperatorPage.xaml.txt" />
+    <Content Include="TXT\Transformers\CanvasTransformerPage.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\CanvasTransformerPage.xaml.txt" />
+    <Content Include="TXT\Transformers\Transformer2Page.xaml.txt" />
+    <Content Include="TXT\Transformers\Transformer2Page.xaml.cs.txt" />
     <Content Include="TXT\Transformers\TransformerPage.xaml.cs.txt" />
     <Content Include="TXT\Transformers\TransformerPage.xaml.txt" />
     <Content Include="TXT\Win2Ds\CurveNodes.cs.txt" />
@@ -567,6 +576,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Transformers\CanvasOperatorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Transformers\CanvasTransformerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Transformers\Transformer2Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -805,10 +822,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FanKit.Transformers">
-      <Version>1.1.0</Version>
+      <Version>1.1.2</Version>
     </PackageReference>
     <PackageReference Include="HSVColorPickers">
-      <Version>1.1.2</Version>
+      <Version>1.1.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.4</Version>

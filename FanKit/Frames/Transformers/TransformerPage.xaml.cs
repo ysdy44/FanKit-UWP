@@ -10,21 +10,20 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
-    public class Layer
-    {
-        public CanvasBitmap Image;
-        public TransformerMatrix TransformerMatrix;
-    }
-
     /// <summary>
     /// Page of <see cref="FanKit.Transformers.Transformer">.
     /// </summary>
     public sealed partial class TransformerPage : Page
     {
-        TransformerMode TransformerMode;
+        TransformerMode mode;
         Vector2 startingPoint;
-        Layer Layer;
+        Layer layer;
 
+        class Layer
+        {
+            public CanvasBitmap Image;
+            public TransformerMatrix TransformerMatrix;
+        }
 
         #region DependencyProperty
 
@@ -95,13 +94,13 @@ namespace FanKit.Frames.Transformers
 
             this.ResetButton.Tapped += (s, e) =>
             {
-                Transformer transformer = this.Reset(this.Layer.Image.SizeInPixels.Width, this.Layer.Image.SizeInPixels.Height, (float)this.CanvasControl.ActualWidth, (float)this.CanvasControl.ActualHeight);
-                this.Layer.TransformerMatrix.Destination = transformer;
+                Transformer transformer = this.Reset(this.layer.Image.SizeInPixels.Width, this.layer.Image.SizeInPixels.Height, (float)this.CanvasControl.ActualWidth, (float)this.CanvasControl.ActualHeight);
+                this.layer.TransformerMatrix.Destination = transformer;
 
                 //DependencyProperty
                 this.Transformer = transformer;
 
-                this.CanvasControl.Invalidate();
+                this.CanvasControl.Invalidate();//Invalidate
             };
 
 
@@ -110,15 +109,15 @@ namespace FanKit.Frames.Transformers
             this.CanvasControl.Draw += (sender, args) =>
             {
                 //Transformer
-                ICanvasImage source = this.Layer.Image;
-                Matrix3x2 matrix = this.Layer.TransformerMatrix.GetMatrix();
-                Transformer transformer = this.Layer.TransformerMatrix.Destination;
+                ICanvasImage source = this.layer.Image;
+                Matrix3x2 transformMatrix = this.layer.TransformerMatrix.GetMatrix();
+                Transformer transformer = this.layer.TransformerMatrix.Destination;
 
                 //Draw
                 args.DrawingSession.DrawImage(new Transform2DEffect
                 {
                     Source = source,
-                    TransformMatrix = matrix
+                    TransformMatrix = transformMatrix
                 });
                 args.DrawingSession.DrawBoundNodes(transformer);
             };
@@ -129,10 +128,11 @@ namespace FanKit.Frames.Transformers
             {
                 this.startingPoint = point;
 
-                this.Layer.TransformerMatrix.OldDestination = this.Layer.TransformerMatrix.Destination;
-                this.TransformerMode = Transformer.ContainsNodeMode(point, this.Layer.TransformerMatrix.Destination);
+                //Controller
+                this.layer.TransformerMatrix.OldDestination = this.layer.TransformerMatrix.Destination;
+                this.mode = Transformer.ContainsNodeMode(point, this.layer.TransformerMatrix.Destination);
 
-                this.CanvasControl.Invalidate();
+                this.CanvasControl.Invalidate();//Invalidate
             };
             this.CanvasOperator.Single_Delta += (point) =>
             {
@@ -141,18 +141,18 @@ namespace FanKit.Frames.Transformers
                 bool isStepFrequency = this.IsStepFrequency;
 
                 //Controller
-                Transformer transformer = Transformer.Controller(this.TransformerMode, startingPoint, point, this.Layer.TransformerMatrix.OldDestination, isRatio, isCenter, isStepFrequency);
+                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.layer.TransformerMatrix.OldDestination, isRatio, isCenter, isStepFrequency);
 
-                this.Layer.TransformerMatrix.Destination = transformer;
+                this.layer.TransformerMatrix.Destination = transformer;
 
                 //DependencyProperty
                 this.Transformer = transformer;
 
-                this.CanvasControl.Invalidate();
+                this.CanvasControl.Invalidate();//Invalidate
             };
             this.CanvasOperator.Single_Complete += (point) =>
             {
-                this.CanvasControl.Invalidate();
+                this.CanvasControl.Invalidate();//Invalidate
             };
         }
 
@@ -170,7 +170,7 @@ namespace FanKit.Frames.Transformers
             this.Transformer = transformerMatrix.Destination;
 
             //Layer
-            this.Layer = new Layer
+            this.layer = new Layer
             {
                 TransformerMatrix = transformerMatrix,
                 Image = bitmap,

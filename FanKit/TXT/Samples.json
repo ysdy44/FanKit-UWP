@@ -321,8 +321,22 @@
       },
       {
         "State": 1,
+        "Page": "FanKit.Frames.Transformers.CanvasTransformerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "CanvasTransformer",
+        "Uri": "ms-appx:///Icon/Transformers/CanvasTransformer.png",
+        "Summary": "Provide matrix for RenderLayer by Position、Scale、Radians."
+      },
+      {
+        "State": 1,
         "Page": "FanKit.Frames.Transformers.TransformerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Transformer",
+        "Uri": "ms-appx:///Icon/Transformers/Transformer.png",
+        "Summary": "Drag and drop nodes and manipulate transformer libraries."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.Transformer2Page, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "Transformer2",
         "Uri": "ms-appx:///Icon/Transformers/Transformer.png",
         "Summary": "Drag and drop nodes and manipulate transformer libraries."
       }

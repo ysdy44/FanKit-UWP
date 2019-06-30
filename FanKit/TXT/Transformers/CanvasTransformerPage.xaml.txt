@@ -2,16 +2,14 @@
 
 
 <Page
-    x:Class="FanKit.Frames.Transformers.CanvasOperatorPage"
+    x:Class="FanKit.Frames.Transformers.CanvasTransformerPage"
     xmlns:transformers="using:FanKit.Transformers"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
 	>
 	   
-    <Page.Resources>        
+    <Page.Resources>
         <!--CanvasOperator-->
         <transformers:CanvasOperator x:Name="CanvasOperator" DestinationControl="{Binding ElementName=CanvasControl}"/>
-        <!--CanvasTransformer-->
-        <transformers:CanvasTransformer x:Name="CanvasTransformer"/>
     </Page.Resources>
 	
    <canvas:CanvasControl x:Name="CanvasControl"/>

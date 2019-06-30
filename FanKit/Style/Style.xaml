@@ -740,6 +740,11 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--Rectangle-->
+    <Style x:Key="AppSplitterRectangleStyle" TargetType="Rectangle">
+        <Setter Property="Height" Value="6"/>
+        <Setter Property="Fill" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+    </Style>
 
 
 </ResourceDictionary>

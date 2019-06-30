@@ -1,9 +1,8 @@
-﻿
-```Csharp
+﻿```Csharp
 
 
  
- using Microsoft.Graphics.Canvas.Text;
+using Microsoft.Graphics.Canvas.Text;
 using System.Numerics;
 using Windows.UI.Xaml.Controls;
 
