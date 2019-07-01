@@ -1,24 +1,44 @@
-﻿
-```Csharp
-
-
-using System;
+﻿using System;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
-namespace FanKit.Library
+namespace FanKit.Frames.Template
 {
-    /// <summary>Zoom in and view pictures</summary>
+    /// <summary>
+    /// Page of <see cref="ScalableGrid">.
+    /// </summary>
+    public sealed partial class ScalableGridPage : Page
+    {
+
+        //@Construct
+        public ScalableGridPage()
+        {
+            this.InitializeComponent();
+            this.Loaded += async (sender, e) =>
+            {
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Template/ScalableGridPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Template/ScalableGrid.cs.txt");
+            };
+
+            this.FlipView.Tapped += (s, e) => this.FlipViewGrid.Visibility = (this.FlipViewGrid.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
+        }
+    }
+
+    
+
+    /// <summary>
+    /// Zoom in and view pictures。
+    /// </summary>
     public class ScalableGrid : Grid
     {
-        private TransformGroup transformGroup;
-        private ScaleTransform scaleTransform;
-        private TranslateTransform translateTransform;
+        TransformGroup transformGroup;
+        ScaleTransform scaleTransform;
+        TranslateTransform translateTransform;
 
-
+        //@Construct
         public ScalableGrid()
         {
             //Transform
@@ -265,8 +285,5 @@ namespace FanKit.Library
 
     }
 
+
 }
-
-
-
-```

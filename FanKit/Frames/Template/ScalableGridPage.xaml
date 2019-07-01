@@ -1,11 +1,11 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Library.ScalableGridPage"
+    x:Class="FanKit.Frames.Template.ScalableGridPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:frames="using:FanKit.Frames"
-    xmlns:Library="using:FanKit.Library"
+    xmlns:local="using:FanKit.Frames.Template"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
@@ -17,38 +17,38 @@
         <frames:PageLayout.ShowContent>
             <Grid Background="Black">
 
-                <FlipView x:Name="FlipView" Tapped="FlipView_Tapped">
+                <FlipView x:Name="FlipView">
 
-                    <Library:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/BisonBadlandsChillin.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/ColumbiaRiverGorge.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/GrandTetons.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/MilkyWayStHelensHikePurple.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/NorthernCascadesReflection.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/Owl.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/ShootingOnAutoOnTheDrone.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/SmithnRockDownTheRiverView.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/SnowyInterbayt.jpg"/>
-                    </Library:ScalableGrid>
-                    <Library:ScalableGrid>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
                         <Image Source="ms-appx:///Icon/Photos/SpeedTripleAtristsPoint.jpg"/>
-                    </Library:ScalableGrid>
+                    </local:ScalableGrid>
 
                 </FlipView>
 
@@ -84,7 +84,7 @@
                         <Span>/ 10</Span>
                     </TextBlock>
 
-                    <Button Grid.Column="2" Grid.Row="1" BorderThickness="0" BorderBrush="Transparent" Background="Transparent">
+                    <Button Grid.Column="2" Grid.Row="1" BorderThickness="0" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <PathIcon Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M18.029,20.83l-13.396,0c-0.503,0 -0.911,-0.408 -0.911,-0.911c0,-0.502 0.408,-0.91 0.911,-0.91l13.396,0c0.502,0 0.91,0.408 0.91,0.91c0,0.503 -0.408,0.911 -0.91,0.911Zm-3.427,-9.984l3.427,0l-6.741,6.457l-6.741,-6.457l3.513,0l0,-7.196l6.542,0l0,7.196Z"/>
                     </Button>
 

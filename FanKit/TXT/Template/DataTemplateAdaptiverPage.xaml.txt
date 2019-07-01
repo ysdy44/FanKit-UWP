@@ -1,18 +1,17 @@
-
 ```xaml
 
 
-
 <Page
-    x:Class="FanKit.Frames.Library.DataTemplateAdaptiverPage"
-    xmlns:local="using:FanKit.Frames.Library"
-    xmlns:Library="using:FanKit.Library">
+    x:Class="FanKit.Frames.Template.DataTemplateAdaptiverPage"
+    xmlns:local="using:FanKit.Frames.Template"
+    mc:Ignorable="d"
+    >
 
 
     <Page.Resources>
 
         <!--Adaptiver-->
-        <Library:DataTemplateAdaptiver x:Name="Adaptiver" PanelElement="{Binding ElementName=AdaptiverGridView}"/>
+        <local:DataTemplateAdaptiver x:Name="Adaptiver" PanelElement="{Binding ElementName=AdaptiverGridView}"/>
 
         <!--DataTemplate-->
         <DataTemplate x:Key="ItemTemplate" x:DataType="x:String">
@@ -39,8 +38,6 @@
     </Page.Resources>
 
 
-
-
     <GridView x:Name="AdaptiverGridView" ItemTemplate="{StaticResource ItemTemplate}">
 
         <GridView.ItemContainerStyle>
@@ -57,7 +54,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="GridView">
-                            <ScrollViewer x:Name="ScrollViewer" >
+                            <ScrollViewer x:Name="ScrollViewer">
                                 <ItemsPresenter HorizontalAlignment="Center" />
                             </ScrollViewer>
                         </ControlTemplate>
@@ -72,9 +69,23 @@
         <x:String>item03</x:String>
         <x:String>item04</x:String>
         <x:String>item05</x:String>
+        <x:String>item06</x:String>
+        <x:String>item07</x:String>
+        <x:String>item08</x:String>
+        <x:String>item09</x:String>
+        <x:String>item10</x:String>
+        <x:String>item11</x:String>
+        <x:String>item12</x:String>
+        <x:String>item13</x:String>
+        <x:String>item14</x:String>
+        <x:String>item15</x:String>
+        <x:String>item16</x:String>
+        <x:String>item17</x:String>
 
     </GridView>
-</Page
+
+
+</Page>
 
 
 ```

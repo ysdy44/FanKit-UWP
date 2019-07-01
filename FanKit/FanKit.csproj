@@ -154,17 +154,11 @@
     <Compile Include="Frames\Win2Ds\CurveNodesPage.xaml.cs">
       <DependentUpon>CurveNodesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Win2Ds\HomographyControllerPage.xaml.cs">
-      <DependentUpon>HomographyControllerPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Transformers\IndicatorControlPage.xaml.cs">
       <DependentUpon>IndicatorControlPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Win2Ds\MarqueeToolPage.xaml.cs">
       <DependentUpon>MarqueeToolPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Win2Ds\TransformControllerPage.xaml.cs">
-      <DependentUpon>TransformControllerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Colors\AlphaPickerPage.xaml.cs">
       <DependentUpon>AlphaPickerPage.xaml</DependentUpon>
@@ -174,9 +168,6 @@
     </Compile>
     <Compile Include="Frames\Colors\SwatchesPickerPage.xaml.cs">
       <DependentUpon>SwatchesPickerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Win2Ds\CanvasOperatorPage.xaml.cs">
-      <DependentUpon>CanvasOperatorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
       <DependentUpon>RadiusShadowPanelPage.xaml</DependentUpon>
@@ -241,16 +232,16 @@
     <Compile Include="Frames\Styles\StretchPage.xaml.cs">
       <DependentUpon>StretchPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Library\DataTemplateAdaptiverPage.xaml.cs">
+    <Compile Include="Frames\Template\DataTemplateAdaptiverPage.xaml.cs">
       <DependentUpon>DataTemplateAdaptiverPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Control\PopupMenuPage.xaml.cs">
       <DependentUpon>PopupMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Library\PalettePage.xaml.cs">
+    <Compile Include="Frames\Colors\PalettePage.xaml.cs">
       <DependentUpon>PalettePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Library\ScalableGridPage.xaml.cs">
+    <Compile Include="Frames\Template\ScalableGridPage.xaml.cs">
       <DependentUpon>ScalableGridPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Others\SettingPage.xaml.cs">
@@ -341,12 +332,13 @@
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
+    <Content Include="TXT\Colors\PalettePage.xaml.txt" />
     <Content Include="TXT\Transformers\RemoteControlPage.xaml.txt" />
     <Content Include="TXT\Control\SplitPanelControl.xaml.txt" />
     <Content Include="TXT\Control\ThemeControl.cs.txt" />
     <Content Include="TXT\Control\ThemeControl.xaml.txt" />
     <Content Include="TXT\Control\ThemeControlPage.xaml.txt" />
-    <Content Include="TXT\Library\Palette.xaml.cs.txt" />
+    <Content Include="TXT\Colors\PalettePage.xaml.cs.txt" />
     <Content Include="TXT\Transformers\CanvasOperatorPage.xaml.cs.txt" />
     <Content Include="TXT\Transformers\CanvasOperatorPage.xaml.txt" />
     <Content Include="TXT\Transformers\CanvasTransformerPage.xaml.cs.txt" />
@@ -414,7 +406,7 @@
     <Content Include="Icon\Control\ExpandTextView.png" />
     <Content Include="Icon\Styles\Stretch.png" />
     <Content Include="Icon\Styles\Transition.png" />
-    <Content Include="Icon\Library\DataTemplateAdaptiver.png" />
+    <Content Include="Icon\Template\DataTemplateAdaptiver.png" />
     <Content Include="Icon\Control\PopupMenu.png" />
     <Content Include="Icon\Colors\TouchSlider.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
@@ -461,7 +453,7 @@
     <Content Include="Icon\iconL.png" />
     <Content Include="Icon\Logo.png" />
     <Content Include="Icon\LogoB.png" />
-    <Content Include="Icon\Library\Palette.png" />
+    <Content Include="Icon\Colors\Palette.png" />
     <Content Include="Icon\LogoD.png" />
     <Content Include="Icon\Photos\BisonBadlandsChillin.jpg" />
     <Content Include="Icon\Photos\ColumbiaRiverGorge.jpg" />
@@ -496,16 +488,15 @@
     <Content Include="TXT\Control\ExpandTextView.cs.txt" />
     <Content Include="TXT\Control\ExpandTextView.xaml.txt" />
     <Content Include="TXT\Control\ExpandTextViewPage.xaml.txt" />
-    <Content Include="TXT\Library\DataTemplateAdaptiver.cs.txt" />
-    <Content Include="TXT\Library\DataTemplateAdaptiverPage.xaml.txt" />
+    <Content Include="TXT\Template\DataTemplateAdaptiver.cs.txt" />
+    <Content Include="TXT\Template\DataTemplateAdaptiverPage.xaml.txt" />
     <Content Include="TXT\Control\PopupMenu.cs.txt" />
     <Content Include="TXT\Control\PopupMenu.xaml.txt" />
     <Content Include="TXT\Control\PopupMenuPage.xaml.txt" />
     <Content Include="TXT\Colors\TouchSliderPage.xaml.txt" />
-    <Content Include="TXT\Library\Palette.cs.txt" />
-    <Content Include="Icon\Library\ScalableGrid.png" />
-    <Content Include="TXT\Library\ScalableGrid.cs.txt" />
-    <Content Include="TXT\Library\ScalableGridPage.xaml.txt" />
+    <Content Include="Icon\Template\ScalableGrid.png" />
+    <Content Include="TXT\Template\ScalableGrid.cs.txt" />
+    <Content Include="TXT\Template\ScalableGridPage.xaml.txt" />
     <Content Include="TXT\Template\FloatActionButtonPage.xaml.cs.txt" />
     <Content Include="TXT\Template\FloatActionButton.style.txt" />
     <Content Include="TXT\Template\FloatActionButtonPage.xaml.txt" />
@@ -591,19 +582,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Win2Ds\HomographyControllerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Frames\Transformers\IndicatorControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Win2Ds\MarqueeToolPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Win2Ds\TransformControllerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -616,10 +599,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Colors\SwatchesPickerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Win2Ds\CanvasOperatorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -707,7 +686,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Library\DataTemplateAdaptiverPage.xaml">
+    <Page Include="Frames\Template\DataTemplateAdaptiverPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -715,11 +694,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Library\PalettePage.xaml">
+    <Page Include="Frames\Colors\PalettePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Library\ScalableGridPage.xaml">
+    <Page Include="Frames\Template\ScalableGridPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -821,7 +800,7 @@
       <Version>1.1.2</Version>
     </PackageReference>
     <PackageReference Include="HSVColorPickers">
-      <Version>1.1.6</Version>
+      <Version>1.1.7</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.4</Version>
@@ -847,10 +826,6 @@
     <ProjectReference Include="..\FanKit.Control\FanKit.Control.csproj">
       <Project>{b3c72dcb-090f-4c63-b5ed-b018cef76d2d}</Project>
       <Name>FanKit.Control</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FanKit.Library\FanKit.Library.csproj">
-      <Project>{4318061e-f24f-4e63-b08f-59e59f4a1175}</Project>
-      <Name>FanKit.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\FanKit.Win2Ds\FanKit.Win2Ds.csproj">
       <Project>{902f20ca-e8a3-48ea-a284-777689945ae2}</Project>

@@ -1,0 +1,50 @@
+```xaml
+
+
+<Page
+    x:Class="FanKit.Frames.Template.ScalableGridPage"
+    xmlns:local="using:FanKit.Frames.Template"
+    >
+
+
+            <Grid Background="Black">
+                <FlipView x:Name="FlipView">
+
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/BisonBadlandsChillin.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/ColumbiaRiverGorge.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/GrandTetons.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/MilkyWayStHelensHikePurple.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/NorthernCascadesReflection.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/Owl.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/ShootingOnAutoOnTheDrone.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/SmithnRockDownTheRiverView.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/SnowyInterbayt.jpg"/>
+                    </local:ScalableGrid>
+                    <local:ScalableGrid>
+                        <Image Source="ms-appx:///Icon/Photos/SpeedTripleAtristsPoint.jpg"/>
+                    </local:ScalableGrid>
+
+                </FlipView>
+            </Grid>
+
+</Page>
+
+
+```

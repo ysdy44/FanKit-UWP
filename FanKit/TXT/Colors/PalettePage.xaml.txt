@@ -1,0 +1,33 @@
+﻿```xaml
+
+
+<Page
+    x:Class="FanKit.Frames.Colors.PalettePage"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    >
+
+
+    <Page.Resources>
+        <SolidColorBrush x:Name="PaletteSolidBrush" x:Key="PaletteSolidBrushKey" Color="White" />
+        <AcrylicBrush x:Name="PaletteAcrylicBrush" x:Key="PaletteAcrylicBrushKey" BackgroundSource="Backdrop" TintColor="White" TintOpacity="0.6" FallbackColor="{StaticResource SystemChromeMediumColor}" />
+    </Page.Resources>
+
+
+    <Border Background="{StaticResource PaletteSolidBrushKey}">
+        <controls:Carousel x:Name="CarouselControl" SelectedIndex="3" InvertPositive="True" Orientation="Horizontal" ItemDepth="300" ItemMargin="0" ItemRotationX="0" ItemRotationY="45" ItemRotationZ ="0">
+            <controls:Carousel.EasingFunction>
+                <CubicEase EasingMode="EaseOut"/>
+            </controls:Carousel.EasingFunction>
+            <controls:Carousel.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}" Width="200" Height="200" />
+                </DataTemplate>
+            </controls:Carousel.ItemTemplate>
+        </controls:Carousel>
+    </Border>
+
+</Page>
+
+
+```

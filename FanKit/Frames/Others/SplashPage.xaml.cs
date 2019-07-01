@@ -14,13 +14,10 @@ namespace FanKit.Frames.Others
 
         List<Type> Pages = new List<Type>
         {
+            typeof(FanKit.Frames.Transformers.CanvasTransformerPage),
+            typeof(FanKit.Frames.Transformers.TransformerPage),
+            typeof(FanKit.Frames.Transformers.Transformer2Page),
             typeof(FanKit.Frames.Colors.ColorPickerPage),
-            typeof(FanKit.Frames.Win2Ds.HomographyControllerPage),
-            typeof(FanKit.Frames.Control.ThemeControlPage),
-            typeof(FanKit.Frames.Control.SplitPanelControlPage),
-            typeof(FanKit.Frames.Win2Ds.MarqueeToolPage),
-            typeof(FanKit.Frames.Colors.TouchSliderPage),
-            typeof(FanKit.Frames.Colors.StrawPickerPage),
          };
 
         public SplashPage()
