@@ -7,6 +7,8 @@ This is a cool UWP DeveloperTool that includes Brushes, Styles, Controls, ColorP
 Get it from windows 10 store:<br>
 https://www.microsoft.com/store/productId/9PD2JJZQF524
 
+![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/logo.jpg)
+
 
 ## Development environment
 
