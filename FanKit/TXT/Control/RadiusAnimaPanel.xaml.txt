@@ -1,32 +1,40 @@
 ```xaml
 
-
 <UserControl
+    x:Name="UserControl"
     x:Class="FanKit.Control.RadiusAnimaPanel"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"   
+    HorizontalAlignment="Center"
+    VerticalAlignment="Bottom"    
+    Background="{ThemeResource SystemControlBackgroundAltHighBrush}"
+    Margin="12"
     mc:Ignorable="d"
     d:DesignHeight="50"
-    d:DesignWidth="400" 
-    >
+    d:DesignWidth="400">
 
-    <Grid Margin="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <Grid 
+            Margin="{x:Bind UserControl.Margin,Mode=OneWay}" 
+            HorizontalAlignment="{x:Bind UserControl.HorizontalAlignment,Mode=OneWay}" 
+            VerticalAlignment="{x:Bind UserControl.VerticalAlignment,Mode=OneWay}" 
+        >
 
         <!--Animation-->
         <Grid.Resources>
-            <Storyboard x:Name="Storyboard" >
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Width)" Storyboard.TargetName="Rectangle" EnableDependentAnimation ="True">
-                    <SplineDoubleKeyFrame x:Name="Frame" KeyTime="0:0:0.2" KeySpline="0.5,1,1,1"/>
+            <Storyboard  x:Name="Storyboard" >
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Width)"   Storyboard.TargetName="Rectangle" EnableDependentAnimation ="True">
+                    <SplineDoubleKeyFrame x:Name="Frame" KeyTime="0:0:0.2" Value="200" KeySpline="0.5,1,1,1"/>
                 </DoubleAnimationUsingKeyFrames>
             </Storyboard>
         </Grid.Resources>
 
         <!--Shadow-->
-        <controls:DropShadowPanel HorizontalContentAlignment="Stretch" OffsetY="3" ShadowOpacity="0.3" Color="Black">
-            <Rectangle x:Name="Rectangle" RadiusX="25" RadiusY="25" Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+        <controls:DropShadowPanel HorizontalContentAlignment="Stretch" OffsetY="3" ShadowOpacity="{x:Bind ShadowOpacity,Mode=OneWay}" Color="{x:Bind ShadowColor,Mode=OneWay}">
+            <Rectangle x:Name="Rectangle" RadiusX="25" RadiusY="25" Fill="{x:Bind UserControl.Background,Mode=OneWay}"/>
         </controls:DropShadowPanel>
 
         <!--Content-->
-        <Border x:Name="ContentBorder" HorizontalAlignment="Center" Padding="12,0" MinHeight="50" MinWidth="100"/>
+        <ContentPresenter x:Name="ContentPresenter" HorizontalAlignment="Center" Padding="12,0" MinHeight="50" MinWidth="100"/>
 
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿ using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Control
@@ -10,19 +11,45 @@ namespace FanKit.Control
     public sealed partial class RadiusAnimaPanel : UserControl
     {
         //@Content
-        /// <summary> ContentBorder's Child. </summary>
-        public UIElement CenterChild { get => this.ContentBorder.Child; set => this.ContentBorder.Child = value; }
+        /// <summary> ContentPresenter's Content. </summary>
+        public object CenterContent { get => this.ContentPresenter.Content; set => this.ContentPresenter.Content = value; }
+
+        #region DependencyProperty
+
+
+        /// <summary> Sets or Gets the shadow opacity. </summary>
+        public double ShadowOpacity
+        {
+            get { return (double)GetValue(ShadowOpacityProperty); }
+            set { SetValue(ShadowOpacityProperty, value); }
+        }
+        /// <summary> Identifies the <see cref = "RadiusAnimaPanel.ShadowOpacity" /> dependency property. </summary>
+        public static readonly DependencyProperty ShadowOpacityProperty = DependencyProperty.Register(nameof(ShadowOpacity), typeof(double), typeof(RadiusAnimaPanel), new PropertyMetadata(0.3d));
+
+
+
+        /// <summary> Sets or Gets the shadow color. </summary>
+        public Color ShadowColor
+        {
+            get { return (Color)GetValue(ShadowColorProperty); }
+            set { SetValue(ShadowColorProperty, value); }
+        }
+        /// <summary> Identifies the <see cref = "RadiusAnimaPanel.ShadowColor" /> dependency property. </summary>
+        public static readonly DependencyProperty ShadowColorProperty = DependencyProperty.Register(nameof(ShadowColor), typeof(Color), typeof(RadiusAnimaPanel), new PropertyMetadata(Colors.Black));
+
+
+        #endregion
 
         //@Construct
         public RadiusAnimaPanel()
         {
             this.InitializeComponent();
-            this.ContentBorder.SizeChanged += (s, e) =>
-              {
-                  if (e.NewSize == e.PreviousSize) return;
-                  this.Frame.Value = e.NewSize.Width;
-                  this.Storyboard.Begin();
-              };
+            this.ContentPresenter.SizeChanged += (s, e) =>
+            {
+                if (e.NewSize == e.PreviousSize) return;
+                this.Frame.Value = e.NewSize.Width;
+                this.Storyboard.Begin();
+            };
         }
     }
 }
