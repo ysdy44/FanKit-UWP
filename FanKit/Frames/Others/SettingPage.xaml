@@ -6,40 +6,76 @@
     xmlns:apiContractNotPresent5="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,5)"
     xmlns:apiContractPresent5="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:frames="using:FanKit.Frames"
     xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d"
-    MaxWidth="{StaticResource AppDetailMaxWidth}">
+    MaxWidth="{StaticResource AppDetailMaxWidth}"
+    >
 
+
+    <Page.Resources>
+        <!--Style-->
+        <Style x:Name="ContentControlStyle" TargetType="ContentControl">
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Margin" Value="0,6,0,0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BorderThickness" Value="0,2,0,0" />
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemControlBackgroundListLowBrush}" />
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <StackPanel 
+                            Orientation="Horizontal" 
+                            Margin="{TemplateBinding Margin}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            >
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                        FontFamily="{TemplateBinding FontFamily}"
+                        FontSize="{TemplateBinding FontSize}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        ContentTransitions="{TemplateBinding ContentTransitions}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <ContentControl Width="22"/>
+                            <ContentControl Content="{TemplateBinding Tag}"
+                        FontFamily="{StaticResource ContentControlThemeFontFamily}"    
+                        FontWeight="SemiLight" 
+                        FontSize="24" 
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
+    
     <Grid 
           apiContractNotPresent5:Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"
           apiContractPresent5:Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"
           >
         <ScrollViewer>
             <StackPanel Padding="14">
-              
-                
-                <Border Margin="14" Height="0" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+
                 <!--ThemeMode-->
-                <TextBlock Text="Theme Mode" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <ContentControl Content="&#xF08C;" Tag="Theme mode" Style="{StaticResource ContentControlStyle}"/>
                 <RadioButton x:Name="LightRadioButton" Content="Light"/>
                 <RadioButton x:Name="DarkRadioButton" Content="Dark"/>
                 <RadioButton x:Name="DefaultRadioButton" Content="Use system setting"/>
-
-
-                <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
+                
                 <!--Open source-->
-                <TextBlock Text="Open source" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <ContentControl Content="&#xE71B;" Tag="Open source" Style="{StaticResource ContentControlStyle}"/>
                 <HyperlinkButton Content="https://github.com/ysdy44/FanKit-UWP" NavigateUri="https://github.com/ysdy44/FanKit-UWP"/>
 
-                
-                <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
-              
-                
                 <!--Reference-->
-                <TextBlock Text="Reference" Style="{ThemeResource TitleTextBlockStyle}"/>
-                <Rectangle Height="12"/>
-
+                <ContentControl Content="&#xE1CB;" Tag="Reference" Style="{StaticResource ContentControlStyle}"/>
                 <reference:ReferenceToolKitControls/>
                 <reference:ReferenceToolKitExtensions/>
                 <reference:ReferenceToolKitAnimations/>
@@ -47,17 +83,12 @@
                 <reference:ReferenceHSVColorPicker/>
                 <reference:ReferenceTransformers/>
 
-
-                <Rectangle Height="12"/>            
-
-
-                <Border Margin="14" Height="2" Background="{ThemeResource SystemControlBackgroundListLowBrush}"/>
                 <!--Feedback-->
-                <TextBlock Text="Feedback" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <ContentControl Content="&#xE25C;" Tag="Feedback" Style="{StaticResource ContentControlStyle}"/>
                 <StackPanel Orientation="Horizontal">
                     <Ellipse Width="40" Height="40">
                         <Ellipse.Fill>
-                            <ImageBrush  ImageSource="ms-appx:///Icon/Avatar.jpg" Stretch="UniformToFill"/>
+                            <ImageBrush ImageSource="ms-appx:///Icon/Avatar.jpg" Stretch="UniformToFill"/>
                         </Ellipse.Fill>
                     </Ellipse>
                     <Border Width="22"/>

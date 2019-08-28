@@ -1,10 +1,11 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Styles.Transition.SlidePage"
+    x:Class="FanKit.Frames.Styles.Transitions.SlidePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
     <Page.Transitions>
         <TransitionCollection>
@@ -12,7 +13,7 @@
         </TransitionCollection>
     </Page.Transitions>
     
-    <Grid  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+    <Grid Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
         <TextBlock Text="SlideNavigationTransitionInfo" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
     </Grid>
 </Page>

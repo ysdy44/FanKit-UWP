@@ -82,14 +82,28 @@
         "Page": "FanKit.Frames.Styles.ButtonStylePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "ButtonStyle",
         "Uri": "ms-appx:///Icon/Styles/ButtonStyle.png",
-        "Summary": "Button style in the system generic.xaml file,It can be used to bind"
+        "Summary": "Button style in the system generic.xaml file,It can be used to bind."
       },
       {
-        "State": 0,
+        "State": 1,
         "Page": "FanKit.Frames.Styles.TransitionPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Transition",
         "Uri": "ms-appx:///Icon/Styles/Transition.png",
-        "Summary": "Provides page navigation animations,to create a smooth and smooth transition effect"
+        "Summary": "Provides transition animations."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Styles.NavigationTransitionPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "NavigationTransition",
+        "Uri": "ms-appx:///Icon/Styles/NavigationTransition.png",
+        "Summary": "Provides page navigation animations,to create a smooth and smooth transition effect."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Styles.ChildrenTransitionPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "ChildrenTransition",
+        "Uri": "ms-appx:///Icon/Styles/ChildrenTransition.png",
+        "Summary": "Represents a collection of Transition objects. Each Transition object represents a different theme transition."
       },
       {
         "State": 0,
@@ -111,6 +125,13 @@
         "Name": "Colors",
         "Uri": "ms-appx:///Icon/Styles/Colors.png",
         "Summary": "All color of Windows.UI.Colors."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Styles.SymbolIconPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "SymbolIcons",
+        "Uri": "ms-appx:///Icon/Styles/SymbolIcons.png",
+        "Summary": "All symbol of Windows.UI.Xaml.Controls.SymbolIcon"
       }
     ]
   },

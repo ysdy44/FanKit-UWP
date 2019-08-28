@@ -55,8 +55,7 @@
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
             ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
             Style="{StaticResource ListViewStyle}"
-            
-            Loaded="ListView_Loaded">
+            >
 
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:ColorsItem">

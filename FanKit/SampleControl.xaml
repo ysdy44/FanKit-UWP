@@ -43,6 +43,8 @@
 
             <!--Flag-->
             <Border Width="Auto" Height="22" Padding="4,0" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    BorderThickness="1"
+                    BorderBrush="White"
                     Background="{x:Bind StateToBackgroundConverter(Sample.State) ,Mode=OneWay}"
                     Visibility="{x:Bind StateToVisibilityConverter(Sample.State) ,Mode=OneWay}">
                 <TextBlock VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"

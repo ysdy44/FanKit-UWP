@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="FanKit.Frames.Styles.Transition.WelcomePage"
+    x:Class="FanKit.Frames.Styles.Transitions.WelcomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,8 +7,8 @@
     mc:Ignorable="d"
   >
 
-    <Grid   BorderThickness="4" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Border  Height="Auto" Padding="14" VerticalAlignment="Center" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+    <Grid BorderThickness="4" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Border Height="Auto" Padding="14" VerticalAlignment="Center" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
             <TextBlock Text="Welcome" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
         </Border>
     </Grid>

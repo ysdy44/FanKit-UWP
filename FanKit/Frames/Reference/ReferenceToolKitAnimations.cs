@@ -14,7 +14,7 @@ namespace FanKit.Frames.Reference
             base.ImageSource = new BitmapImage(new Uri("ms-appx:///Icon/Reference/ToolKit.png"));
             base.Title = "ToolKit Animations";
             base.Summary = "Search 'Microsoft.Toolkit.Uwp.UI.Animations' in Nuget.";
-            base.NugetName = "Microsoft.Toolkit.Uwp.UI.Animations";
+            base.PastedText = "Microsoft.Toolkit.Uwp.UI.Animations";
             base.LinkUri = new Uri("https://www.microsoft.com/store/productId/9NBLGGH4TLCQ");
         }
     }

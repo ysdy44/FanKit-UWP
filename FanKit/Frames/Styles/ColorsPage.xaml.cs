@@ -65,6 +65,8 @@ namespace FanKit.Frames.Styles
             this.TopRun1.Text = "Color color = Windows.UI.";
             this.TopRun2.Text = "Colors";
             this.TopRun3.Text = ".AliceBlue;";
+
+            this.ListView.Loaded += this.ListView_Loaded;
         }
 
         private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)

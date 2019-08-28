@@ -14,7 +14,7 @@ namespace FanKit.Frames.Reference
             base.ImageSource = new BitmapImage(new Uri("ms-appx:///Icon/Reference/Win2d.png"));
             base.Title = "Win2D";
             base.Summary = "Search 'Win2D' in Nuget.";
-            base.NugetName = "Win2D";
+            base.PastedText = "Win2D";
             base.LinkUri = new Uri("https://github.com/Microsoft/Win2D-samples");
         }
     }

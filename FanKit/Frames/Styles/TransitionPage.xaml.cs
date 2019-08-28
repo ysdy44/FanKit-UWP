@@ -1,45 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
 namespace FanKit.Frames.Styles
 {
     public sealed partial class TransitionPage : Page
     {
+        Random _random = new Random();
+
         public TransitionPage()
         {
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.Frame.Navigate(typeof(FanKit.Frames.Styles.Transition.WelcomePage));
                 this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Styles/Transition.style.txt");
             };
-
-            this.Button.Tapped += (sender, e) =>
+            
+            this.EntranceButton.Tapped += (s, e) => this.EntranceContentControl.Content = new TextBlock
             {
-                this.Frame.Navigate(this.GetPage(this.ListView.SelectedIndex));
-                this.Back.IsEnabled = true;
-                this.Button.IsEnabled = false;
+                Text = "TextBlock"
             };
-            this.Back.Tapped += (sender, e) =>
+            this.ContentButton.Tapped += (s, e) => this.ContentContentControl.Content = new TextBlock
             {
-                if (this.Frame.CanGoBack) this.Frame.GoBack();
-                this.Back.IsEnabled = false;
-                this.Button.IsEnabled = true;
+                Text = "TextBlock"
             };
-        }
-
-        private Type GetPage(int index)
-        {
-            switch (index)
-            {
-                case 0: return typeof(FanKit.Frames.Styles.Transition.CommonPage);
-                case 1: return typeof(FanKit.Frames.Styles.Transition.ContinuumPage);
-                case 2: return typeof(FanKit.Frames.Styles.Transition.DrillInPage);
-                case 3: return typeof(FanKit.Frames.Styles.Transition.EntrancePage);
-                case 4: return typeof(FanKit.Frames.Styles.Transition.SlidePage);
-                case 5: return typeof(FanKit.Frames.Styles.Transition.SuppressPage);
-                default: return null;
-            }
+            this.RepositionButton.Tapped += (s, e) => this.RepositionRectangle.Margin = (this.RepositionRectangle.Margin == new Thickness(0)) ? new Thickness(100,100,0,0) : this.RepositionRectangle.Margin = new Thickness(0);
+            this.PopupButton.Tapped += (s, e) => this.PopupPopup.IsOpen = this.PopupPopup.IsOpen ? false : true;
+            this.PaneButton.Tapped += (s, e) => this.PanePopup.IsOpen = this.PanePopup.IsOpen ? false : true;
+            this.EdgeUIButton.Tapped += (s, e) => this.EdgeUIPopup.IsOpen = this.EdgeUIPopup.IsOpen ? false : true;
         }
     }
 }

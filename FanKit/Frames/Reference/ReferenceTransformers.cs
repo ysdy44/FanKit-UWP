@@ -14,7 +14,7 @@ namespace FanKit.Frames.Reference
             base.ImageSource = new BitmapImage(new Uri("ms-appx:///Icon/Reference/Transformers.png"));
             base.Title = "Transformers";
             base.Summary = "Search 'FanKit.Transformers' in Nuget.";
-            base.NugetName = "FanKit.Transformers";
+            base.PastedText = "FanKit.Transformers";
             base.LinkUri = null;
         }
     }

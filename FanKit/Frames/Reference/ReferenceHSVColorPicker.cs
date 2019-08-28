@@ -14,7 +14,7 @@ namespace FanKit.Frames.Reference
             base.ImageSource = new BitmapImage(new Uri("ms-appx:///Icon/Reference/HSVColorPickers.png"));
             base.Title = "HSVColorPickers";
             base.Summary = "Search 'HSVColorPickers' in Nuget.";
-            base.NugetName = "HSVColorPickers";
+            base.PastedText = "HSVColorPickers";
             base.LinkUri = null;
         }
     }

@@ -1,0 +1,55 @@
+﻿
+```xaml
+
+
+ <StackPanel x:Name="StackPanel">
+    <StackPanel.ChildrenTransitions>
+        <EntranceThemeTransition/>
+    </StackPanel.ChildrenTransitions>
+</StackPanel>
+
+ 
+ <StackPanel x:Name="StackPanel">
+    <StackPanel.ChildrenTransitions>
+        <ContentThemeTransition/>
+    </StackPanel.ChildrenTransitions>
+</StackPanel>
+
+ 
+ <StackPanel x:Name="StackPanel">
+    <StackPanel.ChildrenTransitions>
+        <PopupThemeTransition/>
+    </StackPanel.ChildrenTransitions>
+</StackPanel>
+
+ 
+ <StackPanel x:Name="StackPanel">
+    <StackPanel.ChildrenTransitions>
+        <AddDeleteThemeTransition/>
+    </StackPanel.ChildrenTransitions>
+</StackPanel>
+
+ 
+ <StackPanel x:Name="StackPanel">
+    <StackPanel.ChildrenTransitions>
+        <ReorderThemeTransition/>
+    </StackPanel.ChildrenTransitions>
+</StackPanel>
+
+ 
+ <StackPanel x:Name="StackPanel">
+    <StackPanel.ChildrenTransitions>
+        <PaneThemeTransition/>
+    </StackPanel.ChildrenTransitions>
+</StackPanel>
+
+ 
+ <StackPanel x:Name="StackPanel">
+    <StackPanel.ChildrenTransitions>
+        <EdgeUIThemeTransition/>
+    </StackPanel.ChildrenTransitions>
+</StackPanel>
+
+ 
+
+```

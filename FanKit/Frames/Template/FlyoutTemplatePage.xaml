@@ -12,7 +12,7 @@
     
     <Page.Resources>
 
-        <!--浮出 -->
+        <!--Style -->
         <Style x:Key="FlyoutPresenter" TargetType="FlyoutPresenter" >
             <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementBrush}"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
@@ -126,7 +126,7 @@
         </Style>
 
 
-        <!--阴影-->
+        <!--Style-->
         <Style x:Key="DropShadowPanel" TargetType="controls:DropShadowPanel" >
             <Setter Property="BlurRadius" Value="8"/>
             <Setter Property="ShadowOpacity" Value="0.3"/>
@@ -139,8 +139,8 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
-        
-        <!--分隔-->
+
+        <!--GridSplitterStyle-->
         <Style x:Key="GridSplitterStyle" TargetType="controls:GridSplitter">
             <Setter Property="IsTabStop" Value="True"/>
             <Setter Property="UseSystemFocusVisuals" Value="True"/>

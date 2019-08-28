@@ -16,16 +16,25 @@ namespace FanKit.Frames.Reference
     {
         //@Content
         /// <summary> Image's source. </summary>
-        protected ImageSource ImageSource { get=> this.Image.Source; set=> this.Image.Source=value; }
+        public ImageSource ImageSource { get=> this.Image.Source; set=> this.Image.Source=value; }
         /// <summary> Title's text. </summary>
-        protected string Title { get => this.TitleTextBlock.Text; set => this.TitleTextBlock.Text = value; }
+        public string Title { get => this.TitleTextBlock.Text; set => this.TitleTextBlock.Text = value; }
         /// <summary> Summary's text. </summary>
-        protected string Summary { get => this.SummaryTextBlock.Text; set => this.SummaryTextBlock.Text = value; }
+        public string Summary { get => this.SummaryTextBlock.Text; set => this.SummaryTextBlock.Text = value; }
 
-        /// <summary> Nuget's name. </summary>
-        protected string NugetName { get; set; }
+        /// <summary> Pasted text. </summary>
+        public string PastedText
+    {
+            get => this.pastedText;
+            set
+            {
+                this.PasteButton.Visibility = (value == null || value == string.Empty) ? Visibility.Collapsed : Visibility.Visible;
+                this.pastedText = value;
+            }
+        }
+        private string pastedText = null;
         /// <summary> Link's uri. </summary>
-        protected Uri LinkUri
+        public Uri LinkUri
         {
             get=>this.linkUri;
             set
@@ -34,9 +43,9 @@ namespace FanKit.Frames.Reference
                 this.linkUri = value;
             }
         }
-        private Uri linkUri=null;
-
+        private Uri linkUri = null;
         
+
         //@Construct
         public ReferenceControl()
         {
@@ -54,7 +63,7 @@ namespace FanKit.Frames.Reference
             //Paste
             this.PasteButton.Tapped += async (s, e) =>
             {
-                string text = NugetName;
+                string text = this.PastedText;
 
                 //Clipboard
                 DataPackage dataPackage = new DataPackage();

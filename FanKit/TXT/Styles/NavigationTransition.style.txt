@@ -1,0 +1,97 @@
+
+```xaml
+
+
+
+
+App.xaml:
+
+<Application>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <CommonNavigationTransitionInfo x:Key="AppCommonTransition"/>  
+             <ContinuumNavigationTransitionInfo x:Key="AppContinuumTransition"/>    
+             <DrillInNavigationTransitionInfo x:Key="AppDrillInTransition"/>
+             <EntranceNavigationTransitionInfo x:Key="AppEntranceTransition"/>
+             <SlideNavigationTransitionInfo x:Key="AppSlideTransition"/>
+             <SuppressNavigationTransitionInfo x:Key="AppSuppressTransition"/>             
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>
+
+
+
+Pages:
+ 
+
+<Page>
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppCommonTransition}"/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+</Page>
+    
+    
+<Page>
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppContinuumTransition}"/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+</Page>
+    
+    
+<Page>
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppDrillInTransition}"/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+</Page>
+    
+    
+<Page>
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppEntranceTransition}"/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+</Page>
+    
+    
+<Page>
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppSlideTransition}"/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+</Page>
+    
+    
+<Page>
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppSuppressTransition}"/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+</Page>
+
+
+
+
+```

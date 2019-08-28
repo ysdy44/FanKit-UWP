@@ -16,11 +16,11 @@
 
         <frames:PageLayout2.ShowContent>
             <control:RadiusAnimaPanel>
-                <control:RadiusAnimaPanel.CenterChild>
+                <control:RadiusAnimaPanel.CenterContent>
                     <Border x:Name="Rectangle" Height="22" MinWidth="50" Margin="20,0" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock x:Name="TextBlock" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
-                </control:RadiusAnimaPanel.CenterChild>
+                </control:RadiusAnimaPanel.CenterContent>
             </control:RadiusAnimaPanel>
         </frames:PageLayout2.ShowContent>
 

@@ -1,0 +1,114 @@
+﻿<Page
+    x:Class="FanKit.Frames.Styles.NavigationTransitionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:frames="using:FanKit.Frames"
+    xmlns:reference="using:FanKit.Frames.Reference"
+    mc:Ignorable="d"
+    >
+
+    <frames:PageLayout>
+
+
+        <frames:PageLayout.ShowContent>
+            <Frame x:Name="ShowFrame">
+                <!--Transition-->
+            </Frame>
+        </frames:PageLayout.ShowContent>
+
+
+        <frames:PageLayout.DetailContent>
+            <Pivot>
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer>
+                        <StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="12" >
+                                <Button x:Name="BackButton" Width="100" IsEnabled="False" Content="Back"/>
+                                <Rectangle Width="12"/>
+                                <Button x:Name="NavigateButton" Width="100" Content="Navigate" Style="{ThemeResource AccentButtonStyle}" />
+                            </StackPanel>
+                            
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
+                                Provides page navigation animations,to create a smooth and smooth transition effect.
+                            </TextBlock>
+
+                            <ListBox x:Name="ListBox">
+                                
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0"/>
+                                        <Setter Property="Height" Value="Auto"/>
+                                        <Setter Property="MinHeight" Value="40"/>
+                                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                                        <Setter Property="BorderBrush" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+
+                                <reference:ReferenceControl
+                                    Background="Transparent"
+                                    ImageSource="ms-appx:///Icon/Styles/NavigationTransitions/Common.png"
+                                    PastedText="CommonNavigationTransitionInfo"
+                                    Title="Common"
+                                    Summary="Provides common parameters for navigation transition animations."
+                                    />
+                                <reference:ReferenceControl
+                                    Background="Transparent"
+                                    ImageSource="ms-appx:///Icon/Styles/NavigationTransitions/Continuum.png"
+                                    PastedText="ContinuumNavigationTransitionInfo"
+                                    Title="Continuum"
+                                    Summary="Specifies the object that will fly between pages to provide context during a continuum transition."
+                                    />
+                                <reference:ReferenceControl
+                                    Background="Transparent"
+                                    ImageSource="ms-appx:///Icon/Styles/NavigationTransitions/DrillIn.png"
+                                    PastedText="DrillInNavigationTransitionInfo"
+                                    Title="DrillIn"
+                                    Summary="Specifies the animation to run when a user navigates forward in a logical hierarchy, like from a master list to a detail page."
+                                    />
+                                <reference:ReferenceControl
+                                    Background="Transparent"
+                                    ImageSource="ms-appx:///Icon/Styles/NavigationTransitions/Entrance.png"
+                                    PastedText="EntranceNavigationTransitionInfo"
+                                    Title="Entrance"
+                                    Summary="Specifies the animation to run when content appears on a Page."
+                                    />
+                                <reference:ReferenceControl
+                                    Background="Transparent"
+                                    ImageSource="ms-appx:///Icon/Styles/NavigationTransitions/Slide.png"
+                                    PastedText="SlideNavigationTransitionInfo"
+                                    Title="Slide"
+                                    Summary="Provides the parameters for a slide navigation transition."
+                                    />
+                                <reference:ReferenceControl
+                                    Background="Transparent"
+                                    ImageSource="ms-appx:///Icon/Styles/NavigationTransitions/Suppress.png"
+                                    PastedText="SuppressNavigationTransitionInfo"
+                                    Title="Suppress"
+                                    Summary="Specifies that animations are suppressed during navigation."
+                                    />
+                            </ListBox>
+                                                        
+                        </StackPanel>                        
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                    <ScrollViewer  >
+                        <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
+                    </ScrollViewer>
+                </PivotItem>
+
+
+            </Pivot>
+        </frames:PageLayout.DetailContent>
+
+
+    </frames:PageLayout>
+</Page>

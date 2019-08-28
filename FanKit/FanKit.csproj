@@ -109,6 +109,15 @@
     <Compile Include="Frames\Control\RadiusAnimaPanelPage.xaml.cs">
       <DependentUpon>RadiusAnimaPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Styles\ChildrenTransitionPage.xaml.cs">
+      <DependentUpon>ChildrenTransitionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Styles\SymbolIconPage.xaml.cs">
+      <DependentUpon>SymbolIconPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Styles\TransitionPage.xaml.cs">
+      <DependentUpon>TransitionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Transformers\RemoteControlPage.xaml.cs">
       <DependentUpon>RemoteControlPage.xaml</DependentUpon>
     </Compile>
@@ -265,28 +274,28 @@
     <Compile Include="Frames\Template\FlyoutTemplatePage.xaml.cs">
       <DependentUpon>FlyoutTemplatePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Styles\Transition\CommonPage.xaml.cs">
+    <Compile Include="Frames\Styles\NavigationTransitions\CommonPage.xaml.cs">
       <DependentUpon>CommonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Styles\Transition\ContinuumPage.xaml.cs">
+    <Compile Include="Frames\Styles\NavigationTransitions\ContinuumPage.xaml.cs">
       <DependentUpon>ContinuumPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Styles\Transition\DrillInPage.xaml.cs">
+    <Compile Include="Frames\Styles\NavigationTransitions\DrillInPage.xaml.cs">
       <DependentUpon>DrillInPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Styles\Transition\EntrancePage.xaml.cs">
+    <Compile Include="Frames\Styles\NavigationTransitions\EntrancePage.xaml.cs">
       <DependentUpon>EntrancePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Styles\Transition\SlidePage.xaml.cs">
+    <Compile Include="Frames\Styles\NavigationTransitions\SlidePage.xaml.cs">
       <DependentUpon>SlidePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Styles\Transition\SuppressPage.xaml.cs">
+    <Compile Include="Frames\Styles\NavigationTransitions\SuppressPage.xaml.cs">
       <DependentUpon>SuppressPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Styles\TransitionPage.xaml.cs">
-      <DependentUpon>TransitionPage.xaml</DependentUpon>
+    <Compile Include="Frames\Styles\NavigationTransitionPage.xaml.cs">
+      <DependentUpon>NavigationTransitionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Styles\Transition\WelcomePage.xaml.cs">
+    <Compile Include="Frames\Styles\NavigationTransitions\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\File.cs" />
@@ -311,6 +320,17 @@
     </AppxManifest>
     <Content Include="Icon\Colors\HexPicker.png" />
     <Content Include="Icon\Control\RadiusAnimaPanel.png" />
+    <Content Include="Icon\Styles\ChildrenTransition.png" />
+    <Content Include="Icon\Styles\ChildrenTransitions\AddDelete.png" />
+    <Content Include="Icon\Styles\SymbolIcons.png" />
+    <Content Include="Icon\Styles\Transitions\Content.png" />
+    <Content Include="Icon\Styles\Transitions\EdgeUI.png" />
+    <Content Include="Icon\Styles\Transitions\Entrance.png" />
+    <Content Include="Icon\Styles\Transitions\Pane.png" />
+    <Content Include="Icon\Styles\ChildrenTransitions\Reorder.png" />
+    <Content Include="Icon\Styles\Transition.png" />
+    <Content Include="Icon\Styles\Transitions\Popup.png" />
+    <Content Include="Icon\Styles\Transitions\Reposition.png" />
     <Content Include="Icon\Transformers\RemoteControl.png" />
     <Content Include="Icon\Control\ThemeControl.png" />
     <Content Include="Icon\Reference\Transformers.png" />
@@ -333,6 +353,8 @@
     <Content Include="TXT\Control\RadiusAnimaPanel.xaml.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanelPage.xaml.txt" />
     <Content Include="TXT\Colors\PalettePage.xaml.txt" />
+    <Content Include="TXT\Styles\ChildrenTransition.style.txt" />
+    <Content Include="TXT\Styles\Transition.style.txt" />
     <Content Include="TXT\Transformers\RemoteControlPage.xaml.txt" />
     <Content Include="TXT\Control\SplitPanelControl.xaml.txt" />
     <Content Include="TXT\Control\ThemeControl.cs.txt" />
@@ -405,7 +427,7 @@
     <Content Include="Icon\Colors\WheelPicker.png" />
     <Content Include="Icon\Control\ExpandTextView.png" />
     <Content Include="Icon\Styles\Stretch.png" />
-    <Content Include="Icon\Styles\Transition.png" />
+    <Content Include="Icon\Styles\NavigationTransition.png" />
     <Content Include="Icon\Template\DataTemplateAdaptiver.png" />
     <Content Include="Icon\Control\PopupMenu.png" />
     <Content Include="Icon\Colors\TouchSlider.png" />
@@ -474,13 +496,12 @@
     <Content Include="Icon\Template\FlyoutTemplate.png" />
     <Content Include="Icon\Control\SplitPanelControl.png" />
     <Content Include="Icon\Template\TagChip.png" />
-    <Content Include="Icon\Styles\Transition\Transition.png" />
-    <Content Include="Icon\Styles\Transition\Common.png" />
-    <Content Include="Icon\Styles\Transition\Continuum.png" />
-    <Content Include="Icon\Styles\Transition\DrillIn.png" />
-    <Content Include="Icon\Styles\Transition\Entrance.png" />
-    <Content Include="Icon\Styles\Transition\Slide.png" />
-    <Content Include="Icon\Styles\Transition\Suppress.png" />
+    <Content Include="Icon\Styles\NavigationTransitions\Common.png" />
+    <Content Include="Icon\Styles\NavigationTransitions\Continuum.png" />
+    <Content Include="Icon\Styles\NavigationTransitions\DrillIn.png" />
+    <Content Include="Icon\Styles\NavigationTransitions\Entrance.png" />
+    <Content Include="Icon\Styles\NavigationTransitions\Slide.png" />
+    <Content Include="Icon\Styles\NavigationTransitions\Suppress.png" />
     <Content Include="TXT\Colors\HSVPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\NumberPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\RGBPickerPage.xaml.txt" />
@@ -507,7 +528,7 @@
     <Content Include="TXT\Template\FlyoutTemplate.style.txt" />
     <Content Include="TXT\Template\TagChipPage.xaml.txt" />
     <Content Include="TXT\Template\FlyoutTemplatePage.xaml.txt" />
-    <Content Include="TXT\Styles\Transition.style.txt" />
+    <Content Include="TXT\Styles\NavigationTransition.style.txt" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -527,6 +548,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Control\RadiusAnimaPanelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Styles\ChildrenTransitionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Styles\SymbolIconPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Styles\TransitionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -730,35 +763,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Styles\Transition\CommonPage.xaml">
+    <Page Include="Frames\Styles\NavigationTransitions\CommonPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Styles\Transition\ContinuumPage.xaml">
+    <Page Include="Frames\Styles\NavigationTransitions\ContinuumPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Styles\Transition\DrillInPage.xaml">
+    <Page Include="Frames\Styles\NavigationTransitions\DrillInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Styles\Transition\EntrancePage.xaml">
+    <Page Include="Frames\Styles\NavigationTransitions\EntrancePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Styles\Transition\SlidePage.xaml">
+    <Page Include="Frames\Styles\NavigationTransitions\SlidePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Styles\Transition\SuppressPage.xaml">
+    <Page Include="Frames\Styles\NavigationTransitions\SuppressPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Styles\TransitionPage.xaml">
+    <Page Include="Frames\Styles\NavigationTransitionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Styles\Transition\WelcomePage.xaml">
+    <Page Include="Frames\Styles\NavigationTransitions\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

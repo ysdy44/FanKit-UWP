@@ -1,97 +1,146 @@
+﻿
+
+###Entrance:
 
 ```xaml
 
 
 
-
-App.xaml:
-
-<Application>
-
-    <Application.Resources>
-        <ResourceDictionary>
-            <CommonNavigationTransitionInfo x:Key="AppCommonTransition"/>  
-             <ContinuumNavigationTransitionInfo x:Key="AppContinuumTransition"/>    
-             <DrillInNavigationTransitionInfo x:Key="AppDrillInTransition"/>
-             <EntranceNavigationTransitionInfo x:Key="AppEntranceTransition"/>
-             <SlideNavigationTransitionInfo x:Key="AppSlideTransition"/>
-             <SuppressNavigationTransitionInfo x:Key="AppSuppressTransition"/>             
-        </ResourceDictionary>
-    </Application.Resources>
-
-</Application>
-
-
-
-Pages:
- 
-
-<Page>
-
-    <Page.Transitions>
+<ContentControl x:Name="EntranceContentControl" >
+    <ContentControl.ContentTransitions>
         <TransitionCollection>
-            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppCommonTransition}"/>
+            <EntranceThemeTransition FromVerticalOffset="200"/>
         </TransitionCollection>
-    </Page.Transitions>
+    </ContentControl.ContentTransitions>
+    <!--Content-->
+</ContentControl>
 
-</Page>
-    
-    
-<Page>
+```
 
-    <Page.Transitions>
+```Csharp
+
+this.EntranceContentControl.Content = new TextBlock();
+    
+
+```
+
+
+
+###Content:
+
+```xaml
+    
+<ContentControl x:Name="ContentContentControl">
+    <ContentControl.ContentTransitions>
         <TransitionCollection>
-            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppContinuumTransition}"/>
+            <ContentThemeTransition VerticalOffset="200"/>
         </TransitionCollection>
-    </Page.Transitions>
+    </ContentControl.ContentTransitions>
+    <!--Content-->
+</ContentControl>
 
-</Page>
-    
-    
-<Page>
+```
 
-    <Page.Transitions>
+```Csharp
+
+this.ContentContentControl.Content = new TextBlock();
+    
+```
+
+
+
+###Reposition:
+
+```xaml
+
+<Rectangle x:Name="RepositionRectangle" Width="100" Height="100" Background="{ThemeResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <Rectangle.Transitions>
         <TransitionCollection>
-            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppDrillInTransition}"/>
+            <RepositionThemeTransition />
         </TransitionCollection>
-    </Page.Transitions>
+    </Rectangle.Transitions>
+</Rectangle>
 
-</Page>
-    
-    
-<Page>
+```
 
-    <Page.Transitions>
+```Csharp
+
+this.RepositionRectangle.Margin = (this.RepositionRectangle.Margin == new Thickness(100);
+    
+```
+
+
+
+###Popup:
+
+```xaml
+    
+<Popup x:Name="PopupPopup">
+    <Popup.Child>
+        <Border Width="100" Height="100" Background="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+    </Popup.Child>
+    <Popup.ChildTransitions>
         <TransitionCollection>
-            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppEntranceTransition}"/>
+            <PopupThemeTransition/>
         </TransitionCollection>
-    </Page.Transitions>
+    </Popup.ChildTransitions>
+</Popup>
 
-</Page>
-    
-    
-<Page>
+```
 
-    <Page.Transitions>
+```Csharp
+
+this.PopupPopup.IsOpen = true;
+
+```
+
+
+
+###Pane:
+
+```xaml
+
+<Popup x:Name="PanePopup" >
+    <Popup.Child>
+        <Border Width="100" Height="100" Background="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+    </Popup.Child>
+    <Popup.ChildTransitions>
         <TransitionCollection>
-            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppSlideTransition}"/>
+            <PaneThemeTransition/>
         </TransitionCollection>
-    </Page.Transitions>
+    </Popup.ChildTransitions>
+</Popup>
 
-</Page>
-    
-    
-<Page>
+```
 
-    <Page.Transitions>
+```Csharp
+
+this.PanePopup.IsOpen = true;
+
+```
+
+
+
+###EdgeUI:
+
+```xaml
+
+<Popup x:Name="EdgeUIPopup">
+    <Popup.Child>
+        <Border Width="100" Height="100" Background="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+    </Popup.Child>
+    <Popup.ChildTransitions>
         <TransitionCollection>
-            <NavigationThemeTransition DefaultNavigationTransitionInfo="{StaticResource AppSuppressTransition}"/>
+            <EdgeUIThemeTransition />
         </TransitionCollection>
-    </Page.Transitions>
+    </Popup.ChildTransitions>
+</Popup>
 
-</Page>
+```
 
+```Csharp
 
+this.EdgeUIPopup.IsOpen = true;
 
 
 ```
