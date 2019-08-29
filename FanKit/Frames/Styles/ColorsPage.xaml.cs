@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace FanKit.Frames.Styles
 {
-
-    /// <summary>Color type</summary>
+    /// <summary>
+    /// Color type.
+    /// </summary>
     public class ColorsItem
     {
         public string Text;
@@ -43,10 +34,10 @@ namespace FanKit.Frames.Styles
                 (
                     (
                         color.R + color.G + color.B < 640 ||
-                        Math.Abs(color.R - color.G) + 
-                        Math.Abs(color.G - color.B) + 
-                        Math.Abs(color.B - color.R) > 100 
-                    )?
+                        Math.Abs(color.R - color.G) +
+                        Math.Abs(color.G - color.B) +
+                        Math.Abs(color.B - color.R) > 100
+                    ) ?
                     Windows.UI.Colors.White :
                     Windows.UI.Colors.Black
                 ) :
@@ -66,23 +57,10 @@ namespace FanKit.Frames.Styles
             this.TopRun2.Text = "Colors";
             this.TopRun3.Text = ".AliceBlue;";
 
-            this.ListView.Loaded += this.ListView_Loaded;
+            this.ListView.Loaded += (s, e) => this.ListView.ItemsSource = this._itemsSource;
         }
 
-        private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
-        {
-            double Offset = ((ScrollViewer)sender).VerticalOffset;
-
-            //ImageButtonVisible：图片按钮可视
-            FanKit.MainPage.ImageButtonVisibleChange(Offset);
-
-            //顶栏
-            this.TopGrid.Height = App.GetHeight(Offset);
-        }
-
-        private void ListView_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.ListView.ItemsSource = new List<ColorsItem>()
+        List<ColorsItem> _itemsSource = new List<ColorsItem>()
             {
                 new ColorsItem("AliceBlue",Windows.UI.Colors.AliceBlue),
                 new ColorsItem("AntiqueWhite",Windows.UI.Colors.AntiqueWhite),
@@ -226,8 +204,5 @@ namespace FanKit.Frames.Styles
                 new ColorsItem("Yellow",Windows.UI.Colors.Yellow),
                 new ColorsItem("YellowGreen",Windows.UI.Colors.YellowGreen),
             };
-        }
-
-
     }
 }

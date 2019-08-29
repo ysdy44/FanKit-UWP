@@ -37,7 +37,7 @@
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="ListView">
-                                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                                        <ScrollViewer x:Name="ScrollViewer">
                                             <ItemsPresenter Header="{TemplateBinding Header}"/>
                                         </ScrollViewer>
                                     </ControlTemplate>

@@ -19,7 +19,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ListView">
                         <!--Title-->
-                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                        <ScrollViewer x:Name="ScrollViewer">
                             <ItemsPresenter   
                                 HorizontalAlignment="Stretch"
                                 HeaderTemplate="{TemplateBinding HeaderTemplate}"
@@ -45,356 +45,348 @@
     </Page.Resources>
 
 
-    <Grid>
-
-        <!--Body-->
-        <ListView     
-            HeaderTemplate="{StaticResource AppListViewBaseHeader}"
+    <!--Body-->
+    <ListView     
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
             ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
-            Style="{StaticResource ListViewStyle}">
+            Style="{StaticResource ListViewStyle}"
+        >
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Button styles" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <ListView.Header>
+            <Border Padding="4" MinHeight="140" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+                <RichTextBlock Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
+                    <Paragraph/>
+                    <Paragraph>
+                        <Run x:Name="TopRun1"/>
+                        <Run x:Name="TopRun2" FontWeight="Bold" />
+                        <Run x:Name="TopRun3"/>
+                    </Paragraph>
+                    <Paragraph/>
+                    <Paragraph>
+                        <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Style/ButtonStylePage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Style/ButtonStylePage.xaml</Hyperlink>
+                    </Paragraph>
+                </RichTextBlock>
+            </Border>
+        </ListView.Header>
 
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <Button Content="Button" />
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>No Style</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <Button Content="Button" Style="{ThemeResource AccentButtonStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>AccentButtonStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <Button Content="Button" Style="{ThemeResource EllipsisButton}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>EllipsisButton</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <Button Content="&#xE112;" Style="{ThemeResource NavigationBackButtonNormalStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>NavigationBackButtonNormalStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <Button Content="&#xE112;" Style="{ThemeResource NavigationBackButtonSmallStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>NavigationBackButtonSmallStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <Button Content="Button" Style="{ThemeResource ButtonRevealStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>ButtonRevealStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <Button Content="Button" Style="{ThemeResource EllipsisButtonRevealStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>EllipsisButtonRevealStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <Button Content="&#xE112;" Style="{ThemeResource PaneToggleButtonStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>PaneToggleButtonStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
+        <ListViewHeaderItem>
+            <TextBlock Text="Button styles" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <!--#endregion-->
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <Button Content="Button" />
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>No Style</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <Button Content="Button" Style="{ThemeResource AccentButtonStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>AccentButtonStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <Button Content="Button" Style="{ThemeResource EllipsisButton}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>EllipsisButton</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <Button Content="&#xE112;" Style="{ThemeResource NavigationBackButtonNormalStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>NavigationBackButtonNormalStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <Button Content="&#xE112;" Style="{ThemeResource NavigationBackButtonSmallStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>NavigationBackButtonSmallStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <Button Content="Button" Style="{ThemeResource ButtonRevealStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>ButtonRevealStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <Button Content="Button" Style="{ThemeResource EllipsisButtonRevealStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>EllipsisButtonRevealStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <Button Content="&#xE112;" Style="{ThemeResource PaneToggleButtonStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>PaneToggleButtonStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
 
-            <ListViewHeaderItem>
-                <TextBlock Text="RepeatButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <!--#endregion-->
 
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <RepeatButton Content="RepeatButton" />
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>No style</Paragraph>
-                    </RichTextBlock>
+        <ListViewHeaderItem>
+            <TextBlock Text="RepeatButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <RepeatButton Content="RepeatButton" />
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>No style</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <RepeatButton Content="RepeatButton" Style="{ThemeResource RepeatButtonRevealStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>RepeatButtonRevealStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="ToggleButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <ToggleButton Content="ToggleButton" />
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>No style</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <ToggleButton Content="ToggleButton" Style="{ThemeResource InkToolbarCommonButtonStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>InkToolbarCommonButtonStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <ToggleButton Content="ToggleButton" Style="{ThemeResource ToggleButtonRevealStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>ToggleButtonRevealStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <ToggleButton Content="ToggleButton" Style="{ThemeResource InkToolbarCommonButtonStyle}"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>InkToolbarCommonButtonStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="AppBarButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarButton Label="Button">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>No style</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealStyle}">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>AppBarButtonRevealStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealOverflowStyle}">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>AppBarButtonRevealOverflowStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealLabelsOnRightStyle}">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>AppBarButtonRevealLabelsOnRightStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarButton Label="Button" Style="{ThemeResource SwipeItemStyle}">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SwipeItemStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="AppBarToggleButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarToggleButton Label="Button">
+                    <AppBarToggleButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarToggleButton.Icon>
+                </AppBarToggleButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>No style</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealStyle}">
+                    <AppBarToggleButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarToggleButton.Icon>
+                </AppBarToggleButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>AppBarToggleButtonRevealStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealOverflowStyle}">
+                    <AppBarToggleButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarToggleButton.Icon>
+                </AppBarToggleButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>AppBarToggleButtonRevealOverflowStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealLabelsOnRightStyle}">
+                    <AppBarToggleButton.Icon>
+                        <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
+                    </AppBarToggleButton.Icon>
+                </AppBarToggleButton>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>AppBarToggleButtonRevealLabelsOnRightStyle</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="HyperlinkButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <HyperlinkButton Content="HyperlinkButton"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>No style</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="RadioButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <RadioButton Content="RadioButton"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>No style</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="InkToolbar styles" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <InkToolbarBallpointPenButton/>
+                    <InkToolbarCustomPenButton/>
+                    <InkToolbarCustomToggleButton/>
+                    <InkToolbarCustomToolButton/>
+                    <InkToolbarEraserButton/>
+                    <InkToolbarHighlighterButton/>
+                    <InkToolbarPencilButton/>
+                    <InkToolbarRulerButton/>
+                    <InkToolbarStencilButton/>
                 </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <RepeatButton Content="RepeatButton" Style="{ThemeResource RepeatButtonRevealStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>RepeatButtonRevealStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>No style</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
 
-            <!--#endregion-->
+        <!--#endregion-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="ToggleButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <ToggleButton Content="ToggleButton" />
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>No style</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <ToggleButton Content="ToggleButton" Style="{ThemeResource InkToolbarCommonButtonStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>InkToolbarCommonButtonStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <ToggleButton Content="ToggleButton" Style="{ThemeResource ToggleButtonRevealStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>ToggleButtonRevealStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <ToggleButton Content="ToggleButton" Style="{ThemeResource InkToolbarCommonButtonStyle}"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>InkToolbarCommonButtonStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-
-            <!--#endregion-->
-
-            <ListViewHeaderItem>
-                <TextBlock Text="AppBarButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarButton Label="Button">
-                        <AppBarButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarButton.Icon>
-                     </AppBarButton>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>No style</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealStyle}">
-                        <AppBarButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>AppBarButtonRevealStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealOverflowStyle}">
-                        <AppBarButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>AppBarButtonRevealOverflowStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarButton Label="Button" Style="{ThemeResource AppBarButtonRevealLabelsOnRightStyle}">
-                        <AppBarButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>AppBarButtonRevealLabelsOnRightStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarButton Label="Button" Style="{ThemeResource SwipeItemStyle}">
-                        <AppBarButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SwipeItemStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-
-            <!--#endregion-->
-
-            <ListViewHeaderItem>
-                <TextBlock Text="AppBarToggleButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarToggleButton Label="Button">
-                        <AppBarToggleButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarToggleButton.Icon>
-                    </AppBarToggleButton>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>No style</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealStyle}">
-                        <AppBarToggleButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarToggleButton.Icon>
-                    </AppBarToggleButton>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>AppBarToggleButtonRevealStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealOverflowStyle}">
-                        <AppBarToggleButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarToggleButton.Icon>
-                    </AppBarToggleButton>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>AppBarToggleButtonRevealOverflowStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <AppBarToggleButton Label="Button" Style="{ThemeResource AppBarToggleButtonRevealLabelsOnRightStyle}">
-                        <AppBarToggleButton.Icon>
-                            <FontIcon Glyph="&#xEC61;" FontFamily="Segoe MDL2 Assets"/>
-                        </AppBarToggleButton.Icon>
-                    </AppBarToggleButton>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>AppBarToggleButtonRevealLabelsOnRightStyle</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-
-            <!--#endregion-->
-            
-            <ListViewHeaderItem>
-                <TextBlock Text="HyperlinkButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <HyperlinkButton Content="HyperlinkButton"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>No style</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-
-            <!--#endregion-->
-
-            <ListViewHeaderItem>
-                <TextBlock Text="RadioButton styles" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <RadioButton Content="RadioButton"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>No style</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-
-            <!--#endregion-->
-
-            <ListViewHeaderItem>
-                <TextBlock Text="InkToolbar styles" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <InkToolbarBallpointPenButton/>
-                        <InkToolbarCustomPenButton/>
-                        <InkToolbarCustomToggleButton/>
-                        <InkToolbarCustomToolButton/>
-                        <InkToolbarEraserButton/>
-                        <InkToolbarHighlighterButton/>
-                        <InkToolbarPencilButton/>
-                        <InkToolbarRulerButton/>
-                        <InkToolbarStencilButton/>
-                    </StackPanel>
-                     <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>No style</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-
-            <!--#endregion-->
-            
-        </ListView>
-
-
-        <!--Head-->
-        <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-            <Border>
-                <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <RichTextBlock Foreground="White" FontSize="18">
-                        <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
-                        <Paragraph/>
-                        <Paragraph>
-                            <Run x:Name="TopRun1"/>
-                            <Run x:Name="TopRun2" FontWeight="Bold" />
-                            <Run  x:Name="TopRun3"/>
-                        </Paragraph>
-                        <Paragraph/>
-                         <Paragraph>
-                            <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Style/ButtonStylePage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Style/ButtonStylePage.xaml</Hyperlink>
-                        </Paragraph>
-                    </RichTextBlock>
-                </Border >
-            </Border >
-        </Grid>
-
-    </Grid>
+    </ListView>
 </Page>

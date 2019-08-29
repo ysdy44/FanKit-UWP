@@ -4,7 +4,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
 
     <Page.Resources>
@@ -19,7 +20,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ListView">
                         <!--Title-->
-                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                        <ScrollViewer x:Name="ScrollViewer">
                             <ItemsPresenter   
                                 HorizontalAlignment="Stretch"
                                 HeaderTemplate="{TemplateBinding HeaderTemplate}"
@@ -45,208 +46,199 @@
     </Page.Resources>
 
 
-    <Grid>
-
-        <!--Body-->
-        <ListView     
-            HeaderTemplate="{StaticResource AppListViewBaseHeader}"
+    <!--Body-->
+    <ListView     
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
             ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
             Style="{StaticResource ListViewStyle}">
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Button brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <ListView.Header>
+            <Border Padding="4" MinHeight="140" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+                <RichTextBlock Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
+                    <Paragraph/>
+                    <Paragraph>
+                        <Run x:Name="TopRun1"/>
+                        <Run x:Name="TopRun2" FontWeight="Bold" />
+                        <Run x:Name="TopRun3"/>
+                    </Paragraph>
+                </RichTextBlock>
+            </Border>
+        </ListView.Header>
 
-            <ListViewItem  Background="{ThemeResource InkToolbarButtonBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarButtonBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarButtonForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarButtonForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
+        <ListViewHeaderItem>
+            <TextBlock Text="Button brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <!--#endregion-->
+        <ListViewItem  Background="{ThemeResource InkToolbarButtonBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarButtonBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarButtonForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarButtonForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
 
-            <ListViewHeaderItem>
-                <TextBlock Text="FlyoutItem brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <!--#endregion-->
 
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="FlyoutItem brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="ButtonHover brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-            <ListViewItem  Background="{ThemeResource InkToolbarButtonHoverBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarButtonHoverBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarButtonHoverForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarButtonHoverForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <!--#endregion-->
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <!--#endregion-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="FlyoutItemHover brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemHoverBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemHoverBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemHoverForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemHoverForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="ButtonHover brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource InkToolbarButtonHoverBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarButtonHoverBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarButtonHoverForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarButtonHoverForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <!--#endregion-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="ButtonSelected brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-            <ListViewItem  Background="{ThemeResource InkToolbarButtonSelectedBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarButtonSelectedBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarButtonSelectedForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarButtonSelectedForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarButtonPressedBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarButtonPressedBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarButtonPressedForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarButtonPressedForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="FlyoutItemHover brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemHoverBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemHoverBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemHoverForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemHoverForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <!--#endregion-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="FlyoutItemPressed brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemPressedBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemPressedBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemPressedForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemPressedForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemPressedSelectedBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemPressedSelectedBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="ButtonSelected brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource InkToolbarButtonSelectedBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarButtonSelectedBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarButtonSelectedForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarButtonSelectedForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarButtonPressedBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarButtonPressedBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarButtonPressedForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarButtonPressedForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <!--#endregion-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Disabled brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-            <ListViewItem  Background="{ThemeResource InkToolbarDisabledBackgroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarDisabledBackgroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarDisabledForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarDisabledForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="FlyoutItemPressed brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemPressedBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemPressedBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemPressedForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemPressedForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemPressedSelectedBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemPressedSelectedBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <!--#endregion-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Accent brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-            <ListViewItem  Background="{ThemeResource InkToolbarAccentColorThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarAccentColorThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="Disabled brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource InkToolbarDisabledBackgroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarDisabledBackgroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarDisabledForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarDisabledForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <!--#endregion-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="FlyoutItemBorder brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBorderHoverThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemBorderHoverThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBorderSelectedThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemBorderSelectedThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBorderPressedThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutItemBorderPressedThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="Accent brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource InkToolbarAccentColorThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarAccentColorThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <!--#endregion-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="FlyoutL3PreviewPen brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-            <ListViewItem  Background="{ThemeResource InkToolbarFlyoutL3PreviewPen}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>InkToolbarFlyoutL3PreviewPen</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
+        <ListViewHeaderItem>
+            <TextBlock Text="FlyoutItemBorder brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBorderHoverThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemBorderHoverThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBorderSelectedThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemBorderSelectedThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutItemBorderPressedThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutItemBorderPressedThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <!--#endregion-->
 
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="FlyoutL3PreviewPen brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource InkToolbarFlyoutL3PreviewPen}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>InkToolbarFlyoutL3PreviewPen</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
 
-        </ListView>
+        <!--#endregion-->
 
-
-        <!--Head-->
-        <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-            <Border>
-                <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <RichTextBlock Foreground="White" FontSize="18">
-                        <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
-                        <Paragraph/>
-                        <Paragraph>
-                            <Run x:Name="TopRun1"/>
-                            <Run x:Name="TopRun2" FontWeight="Bold" />
-                            <Run  x:Name="TopRun3"/>
-                        </Paragraph>
-                    </RichTextBlock>
-                </Border >
-            </Border >
-        </Grid>
-
-    </Grid>
+    </ListView>
 </Page>

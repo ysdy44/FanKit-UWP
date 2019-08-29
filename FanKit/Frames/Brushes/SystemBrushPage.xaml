@@ -19,7 +19,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ListView">
                         <!--Title-->
-                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                        <ScrollViewer x:Name="ScrollViewer">
                             <ItemsPresenter   
                                 HorizontalAlignment="Stretch"
                                 HeaderTemplate="{TemplateBinding HeaderTemplate}"
@@ -43,547 +43,552 @@
         </Style>
 
     </Page.Resources>
-    
-    
-    <Grid>
 
-        <!--Body-->
-        <ListView     
-            HeaderTemplate="{StaticResource AppListViewBaseHeader}"
+
+    <!--Body-->
+    <ListView     
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
             ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
             Style="{StaticResource ListViewStyle}">
-        
-            
-            
-                 <ListViewHeaderItem><TextBlock Text="Background brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border-->
 
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundAccentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundAccentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundAltHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundAltHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundAltMediumHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundAltMediumHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundAltMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundAltMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundAltMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundBaseHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundBaseLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundBaseMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundBaseMediumHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundBaseMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeBlackHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundChromeBlackHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeBlackMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundChromeBlackMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>后 SystemControlBackgroundChromeMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>前 SystemControlBackgroundChromeMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundChromeWhiteBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundListLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundListLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlBackgroundListMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlBackgroundListMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-
-                <!--#endregion-->
-
-                 <ListViewHeaderItem><TextBlock Text="Disabled brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border-->
-
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledAccentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledAccentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledBaseHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledBaseHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledBaseLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledBaseLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledBaseMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledChromeDisabledHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledChromeDisabledLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledChromeDisabledLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledChromeHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledChromeHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledChromeMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledChromeMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledListMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledListMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlDisabledTransparentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlDisabledTransparentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-
-                <!--#endregion-->
-
-                 <ListViewHeaderItem><TextBlock Text="Focus brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border-->
-
-                <ListViewItem  Background="{ThemeResource SystemControlFocusVisualPrimaryBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlFocusVisualPrimaryBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlFocusVisualSecondaryBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlFocusVisualSecondaryBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlRevealFocusVisualBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlRevealFocusVisualBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-
-                <!--#endregion-->
-
-                 <ListViewHeaderItem><TextBlock Text="Foreground brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border-->
-
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundAccentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundAccentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundAltHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundAltHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundAltMediumHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundAltMediumHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundBaseHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundBaseLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundBaseMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseMediumHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundBaseMediumHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundBaseMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeBlackHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundChromeBlackHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundChromeHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundChromeMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeWhiteBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundChromeWhiteBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundChromeDisabledLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeGrayBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundChromeGrayBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundListLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundListLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundListMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundListMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundTransparentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundTransparentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeBlackMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundChromeBlackMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlForegroundChromeBlackMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-
-                <!--#endregion-->
-
-                 <ListViewHeaderItem><TextBlock Text="Highlight brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border-->
-
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAccentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAccentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltAccentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltAccentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltAltHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltAltHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltBaseHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltBaseLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltBaseMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseMediumHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltBaseMediumHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltAltMediumHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltAltMediumHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltBaseMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltListAccentHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltListAccentHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltListAccentLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltListAccentMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltListAccentMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltChromeWhiteBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltChromeWhiteBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightAltTransparentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightAltTransparentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightBaseHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightBaseLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightBaseMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseMediumHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightBaseMediumHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightBaseMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightChromeAltLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightChromeAltLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightChromeHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightChromeHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightListAccentHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightListAccentHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightListAccentLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightListAccentLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightListAccentMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightListAccentMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightListMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightListMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightListLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightListLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightChromeWhiteBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightChromeWhiteBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHighlightTransparentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHighlightTransparentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-
-
-                <!--#endregion-->
-
-                 <ListViewHeaderItem><TextBlock Text="Hyper brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border-->
-
-                <ListViewItem  Background="{ThemeResource SystemControlHyperlinkTextBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHyperlinkTextBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHyperlinkBaseHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHyperlinkBaseHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHyperlinkBaseMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHyperlinkBaseMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlHyperlinkBaseMediumHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlHyperlinkBaseMediumHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-
-                <!--#endregion-->
-
-                 <ListViewHeaderItem><TextBlock Text="Page brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border-->
-
-                <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundAltMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageBackgroundAltMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundMediumAltMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageBackgroundMediumAltMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundBaseLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageBackgroundBaseLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundBaseMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageBackgroundBaseMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundListLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageBackgroundListLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageBackgroundChromeLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundTransparentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageBackgroundTransparentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageTextBaseHighBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageTextBaseHighBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageTextBaseMediumBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageTextBaseMediumBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-                <ListViewItem  Background="{ThemeResource SystemControlPageTextChromeBlackMediumLowBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlPageTextChromeBlackMediumLowBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-
-                <!--#endregion-->
-
-                 <ListViewHeaderItem><TextBlock Text="Transparent brushes" Style="{StaticResource AppTextBlockStyle}"/> </ListViewHeaderItem>
-                <!--#region Border-->
-
-                <ListViewItem  Background="{ThemeResource SystemControlTransparentBrush}" >
-                    <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SystemControlTransparentBrush</Paragraph>
-                    </RichTextBlock>
-                </ListViewItem >
-
-                <!--#endregion-->
-
-            </ListView>
-
-
-        <!--Head-->
-        <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-            <Border>
-                <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <RichTextBlock Foreground="White" FontSize="18">
+        <ListView.Header>
+            <Border Padding="4" MinHeight="140" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+                <RichTextBlock Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
                     <Paragraph/>
-                        <Paragraph>
-                            <Run x:Name="TopRun1"/>
-                            <Run x:Name="TopRun2" FontWeight="Bold" />
-                            <Run  x:Name="TopRun3"/>
-                        </Paragraph>
-                    </RichTextBlock>
-                </Border >
-            </Border >
-        </Grid>
+                    <Paragraph>
+                        <Run x:Name="TopRun1"/>
+                        <Run x:Name="TopRun2" FontWeight="Bold" />
+                        <Run x:Name="TopRun3"/>
+                    </Paragraph>
+                </RichTextBlock>
+            </Border>
+        </ListView.Header>
 
-    </Grid>
+        <ListViewHeaderItem>
+            <TextBlock Text="Background brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundAccentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundAccentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundAltHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundAltHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundAltMediumHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundAltMediumHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundAltMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundAltMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundAltMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundBaseHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundBaseLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundBaseMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundBaseMediumHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundBaseMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeBlackHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundChromeBlackHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeBlackMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundChromeBlackMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>后 SystemControlBackgroundChromeMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>前 SystemControlBackgroundChromeMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundChromeWhiteBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundChromeWhiteBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundListLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundListLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlBackgroundListMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlBackgroundListMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="Disabled brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledAccentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledAccentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledBaseHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledBaseHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledBaseLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledBaseLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledBaseMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledChromeDisabledHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledChromeDisabledHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledChromeDisabledLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledChromeDisabledLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledChromeHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledChromeHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledChromeMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledChromeMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledListMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledListMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlDisabledTransparentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlDisabledTransparentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="Focus brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem  Background="{ThemeResource SystemControlFocusVisualPrimaryBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlFocusVisualPrimaryBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlFocusVisualSecondaryBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlFocusVisualSecondaryBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlRevealFocusVisualBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlRevealFocusVisualBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="Foreground brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundAccentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundAccentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundAltHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundAltHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundAltMediumHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundAltMediumHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundBaseHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundBaseLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundBaseMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseMediumHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundBaseMediumHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundBaseMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeBlackHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundChromeBlackHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundChromeHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundChromeMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeWhiteBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundChromeWhiteBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundChromeDisabledLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeGrayBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundChromeGrayBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundListLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundListLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundListMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundListMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundTransparentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundTransparentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeBlackMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundChromeBlackMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlForegroundChromeBlackMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlForegroundChromeBlackMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="Highlight brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAccentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAccentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltAccentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltAccentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltAltHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltAltHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltBaseHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltBaseLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltBaseMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseMediumHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltBaseMediumHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltAltMediumHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltAltMediumHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltBaseMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltBaseMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltListAccentHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltListAccentHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltListAccentLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltListAccentLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltListAccentMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltListAccentMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltChromeWhiteBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltChromeWhiteBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightAltTransparentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightAltTransparentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightBaseHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightBaseLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightBaseMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseMediumHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightBaseMediumHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightBaseMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightBaseMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightChromeAltLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightChromeAltLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightChromeHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightChromeHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightListAccentHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightListAccentHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightListAccentLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightListAccentLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightListAccentMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightListAccentMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightListMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightListMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightListLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightListLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightChromeWhiteBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightChromeWhiteBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHighlightTransparentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHighlightTransparentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="Hyper brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem  Background="{ThemeResource SystemControlHyperlinkTextBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHyperlinkTextBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHyperlinkBaseHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHyperlinkBaseHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHyperlinkBaseMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHyperlinkBaseMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlHyperlinkBaseMediumHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlHyperlinkBaseMediumHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="Page brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundAltMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageBackgroundAltMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundMediumAltMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageBackgroundMediumAltMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundBaseLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageBackgroundBaseLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundBaseMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageBackgroundBaseMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundListLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageBackgroundListLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageBackgroundChromeLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageBackgroundTransparentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageBackgroundTransparentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageTextBaseHighBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageTextBaseHighBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageTextBaseMediumBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageTextBaseMediumBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SystemControlPageTextChromeBlackMediumLowBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlPageTextChromeBlackMediumLowBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+        <ListViewHeaderItem>
+            <TextBlock Text="Transparent brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem  Background="{ThemeResource SystemControlTransparentBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SystemControlTransparentBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+    </ListView>
 </Page>

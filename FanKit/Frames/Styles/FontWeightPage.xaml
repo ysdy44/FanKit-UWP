@@ -4,7 +4,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
 
     <Page.Resources>
@@ -19,7 +20,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ListView">
                         <!--Title-->
-                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                        <ScrollViewer x:Name="ScrollViewer">
                             <ItemsPresenter   
                                 HorizontalAlignment="Stretch"
                                 HeaderTemplate="{TemplateBinding HeaderTemplate}"
@@ -45,152 +46,143 @@
     </Page.Resources>
 
 
-    <Grid>
-
-        <!--Body-->
-        <ListView     
-            HeaderTemplate="{StaticResource AppListViewBaseHeader}"
+    <!--Body-->
+    <ListView     
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
             ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
-            Style="{StaticResource ListViewStyle}">
+            Style="{StaticResource ListViewStyle}"
+        >
 
+        <ListView.Header>
+            <Border Padding="4" MinHeight="140" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+                <RichTextBlock Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
+                    <Paragraph/>
+                    <Paragraph>
+                        <Run x:Name="TopRun1"/>
+                        <Run x:Name="TopRun2" FontWeight="Bold" />
+                        <Run x:Name="TopRun3"/>
+                    </Paragraph>
+                </RichTextBlock>
+            </Border>
+        </ListView.Header>
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Normal" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <ListViewHeaderItem>
+            <TextBlock Text="Normal" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="Normal"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>Normal</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="Medium"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>Medium</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="Bold"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>Bold</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="Black"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>Black</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="Light"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>Light</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="Thin"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>Thin</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            
-            <!--#endregion-->
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="Normal"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>Normal</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="Medium"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>Medium</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="Bold"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>Bold</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="Black"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>Black</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="Light"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>Light</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="Thin"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>Thin</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
 
-            
-            
-            <ListViewHeaderItem>
-                <TextBlock Text="Extra" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="ExtraBold"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>ExtraBold</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="ExtraBold"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>ExtraBold</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="ExtraLight"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>ExtraLight</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            
-            <!--#endregion-->
+        <!--#endregion-->
 
 
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Semi" Style="{ThemeResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <ListViewHeaderItem>
+            <TextBlock Text="Extra" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="SemiBold"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SemiBold</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
-            <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-                <StackPanel>
-                    <TextBlock Text="TextBlock" FontSize="40" FontWeight="SemiLight"/>
-                    <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
-                        <Paragraph>SemiLight</Paragraph>
-                    </RichTextBlock>
-                </StackPanel>
-            </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="ExtraBold"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>ExtraBold</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="ExtraBold"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>ExtraBold</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="ExtraLight"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>ExtraLight</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
 
-            <!--#endregion-->
- 
-
-        </ListView>
+        <!--#endregion-->
 
 
-        <!--Head-->
-        <Grid x:Name="TopGrid" Height="120" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-            <Border>
-                <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <RichTextBlock Foreground="White" FontSize="18">
-                        <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
-                        <Paragraph/>
-                        <Paragraph>
-                            <Run x:Name="TopRun1"/>
-                            <Run x:Name="TopRun2" FontWeight="Bold" />
-                            <Run  x:Name="TopRun3"/>
-                        </Paragraph> 
-                    </RichTextBlock>
-                </Border >
-            </Border >
-        </Grid>
 
-    </Grid>
+        <ListViewHeaderItem>
+            <TextBlock Text="Semi" Style="{ThemeResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
+
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="SemiBold"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SemiBold</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+        <ListViewItem   Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <StackPanel>
+                <TextBlock Text="TextBlock" FontSize="40" FontWeight="SemiLight"/>
+                <RichTextBlock Style="{StaticResource AppRichTextBlockStyle}">
+                    <Paragraph>SemiLight</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ListViewItem >
+
+        <!--#endregion-->
+
+
+    </ListView>
 </Page>

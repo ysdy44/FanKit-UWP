@@ -19,7 +19,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ListView">
                         <!--Title-->
-                        <ScrollViewer x:Name="ScrollViewer" ViewChanged="ScrollViewer_ViewChanged" >
+                        <ScrollViewer x:Name="ScrollViewer">
                             <ItemsPresenter   
                                 HorizontalAlignment="Stretch"
                                 HeaderTemplate="{TemplateBinding HeaderTemplate}"
@@ -45,162 +45,150 @@
     </Page.Resources>
 
 
-    <Grid>
-
-        <!--Body-->
-        <ListView     
-            HeaderTemplate="{StaticResource AppListViewBaseHeader}"
+    <!--Body-->
+    <ListView     
             FooterTemplate="{StaticResource AppListViewBaseFooter}"
             ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
             Style="{StaticResource ListViewStyle}">
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Scroll brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
-
-            <ListViewItem  Background="{ThemeResource ScrollBarTrackFill}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>ScrollBarTrackFill</Paragraph>
+        <ListView.Header>
+            <Border Padding="4" MinHeight="140" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+                <RichTextBlock Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
+                    <Paragraph/>
+                    <Paragraph>
+                        <Run x:Name="TopRun1"/>
+                        <Run x:Name="TopRun2" FontWeight="Bold" />
+                        <Run x:Name="TopRun3"/>
+                    </Paragraph>
                 </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource ScrollBarTrackFillPointerOver}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>ScrollBarTrackFillPointerOver</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource ScrollBarThumbBackground}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>ScrollBarThumbBackground</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource ScrollBarPanningThumbBackground}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>ScrollBarPanningThumbBackground</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource ScrollViewerScrollBarSeparatorBackground}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>ScrollViewerScrollBarSeparatorBackground</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
+            </Border>
+        </ListView.Header>
 
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="Scroll brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Text brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource ScrollBarTrackFill}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>ScrollBarTrackFill</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource ScrollBarTrackFillPointerOver}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>ScrollBarTrackFillPointerOver</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource ScrollBarThumbBackground}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>ScrollBarThumbBackground</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource ScrollBarPanningThumbBackground}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>ScrollBarPanningThumbBackground</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource ScrollViewerScrollBarSeparatorBackground}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>ScrollViewerScrollBarSeparatorBackground</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
 
-            <ListViewItem  Background="{ThemeResource TextControlHighlighterBackground}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>TextControlHighlighterBackground</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
+        <!--#endregion-->
 
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="Text brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Person brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource TextControlHighlighterBackground}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>TextControlHighlighterBackground</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
 
-            <ListViewItem  Background="{ThemeResource PersonPictureForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>PersonPictureForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource PersonPictureEllipseBadgeForegroundThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>PersonPictureEllipseBadgeForegroundThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource PersonPictureEllipseBadgeFillThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>PersonPictureEllipseBadgeFillThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource PersonPictureEllipseBadgeStrokeThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>PersonPictureEllipseBadgeStrokeThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource PersonPictureEllipseFillThemeBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>PersonPictureEllipseFillThemeBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
+        <!--#endregion-->
 
-            <!--#endregion-->
+        <ListViewHeaderItem>
+            <TextBlock Text="Person brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <ListViewHeaderItem>
-                <TextBlock Text="Refresh brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <ListViewItem  Background="{ThemeResource PersonPictureForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>PersonPictureForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource PersonPictureEllipseBadgeForegroundThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>PersonPictureEllipseBadgeForegroundThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource PersonPictureEllipseBadgeFillThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>PersonPictureEllipseBadgeFillThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource PersonPictureEllipseBadgeStrokeThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>PersonPictureEllipseBadgeStrokeThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource PersonPictureEllipseFillThemeBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>PersonPictureEllipseFillThemeBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
 
-            <ListViewItem  Background="{ThemeResource RefreshContainerForegroundBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>RefreshContainerForegroundBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource RefreshContainerBackgroundBrush}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>RefreshContainerBackgroundBrush</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource RefreshVisualizerForeground}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>RefreshVisualizerForeground</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource RefreshVisualizerBackground}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>RefreshVisualizerBackground</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
+        <!--#endregion-->
 
-            <!--#endregion-->
-            
-            <ListViewHeaderItem>
-                <TextBlock Text="Swipe brushes" Style="{StaticResource AppTextBlockStyle}"/>
-            </ListViewHeaderItem>
-            <!--#region Border-->
+        <ListViewHeaderItem>
+            <TextBlock Text="Refresh brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-            <ListViewItem  Background="{ThemeResource SwipeItemBackground}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>SwipeItemBackground</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
-            <ListViewItem  Background="{ThemeResource SwipeItemUnexecutedBackground}" >
-                <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
-                    <Paragraph>SwipeItemUnexecutedBackground</Paragraph>
-                </RichTextBlock>
-            </ListViewItem >
+        <ListViewItem  Background="{ThemeResource RefreshContainerForegroundBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>RefreshContainerForegroundBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource RefreshContainerBackgroundBrush}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>RefreshContainerBackgroundBrush</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource RefreshVisualizerForeground}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>RefreshVisualizerForeground</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource RefreshVisualizerBackground}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>RefreshVisualizerBackground</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
 
-            <!--#endregion-->
+        <!--#endregion-->
 
-        </ListView>
+        <ListViewHeaderItem>
+            <TextBlock Text="Swipe brushes" Style="{StaticResource AppTextBlockStyle}"/>
+        </ListViewHeaderItem>
+        <!--#region Border-->
 
-        <!--Head-->
-        <Grid x:Name="TopGrid" Height="200" VerticalAlignment="Top" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-            <Border>
-                <Border HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <RichTextBlock Foreground="White" FontSize="18">
-                        <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
-                        <Paragraph/>
-                        <Paragraph>
-                            <Run x:Name="TopRun1"/>
-                            <Run x:Name="TopRun2" FontWeight="Bold" />
-                            <Run  x:Name="TopRun3"/>
-                        </Paragraph>
-                    </RichTextBlock>
-                </Border >
-            </Border >
-        </Grid>
+        <ListViewItem  Background="{ThemeResource SwipeItemBackground}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SwipeItemBackground</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
+        <ListViewItem  Background="{ThemeResource SwipeItemUnexecutedBackground}" >
+            <RichTextBlock  Style="{StaticResource AppRichTextBlockStyle}">
+                <Paragraph>SwipeItemUnexecutedBackground</Paragraph>
+            </RichTextBlock>
+        </ListViewItem >
 
-    </Grid>
-</Page>
+        <!--#endregion-->
 
-    
-    
-    
+    </ListView>
+</Page>  

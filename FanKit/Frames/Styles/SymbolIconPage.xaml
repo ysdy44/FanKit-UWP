@@ -32,14 +32,14 @@
             >
 
         <GridView.Header>
-            <Border Height="140" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            <Border Padding="4" MinHeight="140" Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
                 <RichTextBlock Foreground="White" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Paragraph FontWeight="Bold" FontStyle="Italic">The sample:</Paragraph>
                     <Paragraph/>
                     <Paragraph>
                         <Run x:Name="TopRun1"/>
                         <Run x:Name="TopRun2" FontWeight="Bold" />
-                        <Run  x:Name="TopRun3"/>
+                        <Run x:Name="TopRun3"/>
                     </Paragraph>
                 </RichTextBlock>
             </Border>
