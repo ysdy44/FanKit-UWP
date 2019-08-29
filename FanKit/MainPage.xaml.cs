@@ -1,26 +1,18 @@
 ﻿using FanKit.Samples;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace FanKit
 {
     public sealed partial class MainPage : Page
-    {
-        /// <summary>
-        /// Navigate:
-        ///    Navigating Mainpage to a new page
-        /// </summary>
-        public static Action<Type> Navigate;
-         
-        //Methon
-        public static Action<double> ImageButtonVisibleChange;
+    {         
+
         private bool isImageVisible;
         public bool IsImageVisible
         {
@@ -48,15 +40,18 @@ namespace FanKit
                 this.isCanGoBack = value;
             }
         }
-
+        
+        //@Construct
         public MainPage()
         {
-            this.InitializeComponent();                 
-            MainPage.ImageButtonVisibleChange = (double offset) => this.sos.VerticalOffset = offset;  //ImageButtonVisible
-            MainPage.Navigate = (page) => //Navigate
+            this.InitializeComponent();
+            Sample.NavigatePage += (sender, page) =>
             {
+                if (this.NavigationFrame.CurrentSourcePageType == page) return;
+
                 //Navigate
                 this.NavigationFrame.Navigate(page);
+                this.SamplesCategoryControl.Visibility = Visibility.Collapsed;
 
                 //Back
                 this.IsCanGoBack = true;
@@ -65,8 +60,8 @@ namespace FanKit
             this.Loaded += async (s, e) =>
             {
                 //Frame          
-                MainPage.Navigate(typeof(FanKit.Frames.Others.SplashPage));//页面跳转
-                                                                     
+                Sample.NavigatePage_Invoke(this, typeof(FanKit.Frames.Others.SplashPage));//页面跳转
+
                 //Back   
                 this.IsCanGoBack = false; 
 
@@ -85,7 +80,7 @@ namespace FanKit
                 titleBar.BackgroundColor = titleBar.ButtonBackgroundColor = titleBar.ButtonInactiveBackgroundColor = Color.FromArgb(255, 0, 178, 240);
                 titleBar.ButtonHoverBackgroundColor = titleBar.ButtonPressedBackgroundColor = Windows.UI.Colors.Gray;
 
-                //Back按钮
+                //BackButton
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
 
@@ -98,26 +93,22 @@ namespace FanKit
 
                 if (e.ClickedItem is SampleCategory category)
                 {
-
-                    if (this.SamplesCategoryControl.Visibility == Visibility.Visible)
+                    if (this.SamplesCategoryControl.Visibility == Visibility.Visible && this.SamplesCategoryControl.SampleCategory == category)
                     {
-                        if (this.SamplesCategoryControl.SampleCategory == category)
-                        {
-                            this.SamplesCategoryControl.Visibility = Visibility.Collapsed;
-                            return;
-                        }
+                        this.SamplesCategoryControl.Visibility = Visibility.Collapsed;
                     }
-
-                    this.SamplesCategoryControl.Visibility = Visibility.Visible;
-                    this.SamplesCategoryControl.SampleCategory = category;
+                    else
+                    {
+                        this.SamplesCategoryControl.Visibility = Visibility.Visible;
+                        this.SamplesCategoryControl.SampleCategory = category;
+                    }
                 }
             };
 
 
             //Button
             this.ImageVisibleButton.Tapped += (sender, e) => this.IsImageVisible = !this.IsImageVisible;
-            this.SettingButton.Tapped += (s, e) => MainPage.Navigate(typeof(FanKit.Frames.Others.SettingPage));
-            this.SamplesCategoryControl.ItemClick += (page) =>MainPage.Navigate(page);
+            this.SettingButton.Tapped += (s, e) => Sample.NavigatePage_Invoke(this, typeof(FanKit.Frames.Others.SettingPage));
             this.BackButton.Tapped += (s, e) =>
             { 
                 //Back

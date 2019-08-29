@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FanKit.Samples;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
@@ -12,7 +13,7 @@ namespace FanKit.Frames.Others
     public sealed partial class SplashPage : Page
     { 
 
-        List<Type> Pages = new List<Type>
+        List<Type> _pages = new List<Type>
         {
             typeof(FanKit.Frames.Transformers.CanvasTransformerPage),
             typeof(FanKit.Frames.Transformers.TransformerPage),
@@ -20,13 +21,14 @@ namespace FanKit.Frames.Others
             typeof(FanKit.Frames.Colors.ColorPickerPage),
          };
 
+        //@Construct
         public SplashPage()
         {
             this.InitializeComponent();
 
-            this.ItemsControl.ItemsSource = (from page in this.Pages select this.BuildUIElement(page)).ToList();
+            this.ItemsControl.ItemsSource = (from page in this._pages select this.BuildUIElement(page)).ToList();
 
-            this.SizeChanged += (sender, e) =>
+            this.SizeChanged += (s, e) =>
               {
                   if (e.NewSize == e.PreviousSize) return;
 
@@ -58,7 +60,7 @@ namespace FanKit.Frames.Others
                 Content = splits[splits.Length - 2] + ">" + name.Remove(name.Length-4)
             };
 
-            hyperlinkButton.Tapped += (sender, e) => MainPage.Navigate(page);
+            hyperlinkButton.Tapped += (sender, e) => Sample.NavigatePage_Invoke(this, page);//Delegate
 
             return hyperlinkButton;
         }

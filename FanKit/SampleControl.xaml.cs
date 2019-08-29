@@ -3,39 +3,43 @@ using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 
 namespace FanKit
 {
     /// <summary>
-    /// Control of <see cref="FanKit.Samples.Sample">.
+    /// Control of <see cref="FanKit.Samples.Sample"/>.
     /// </summary>
     public sealed partial class SampleControl : UserControl
     {
-
-        //@Converter
-        private string StateToStringConverter(SampleState state) => (state == SampleState.None) ? string.Empty : state.ToString();
-        private Visibility StateToVisibilityConverter(SampleState state) => (state == SampleState.None) ? Visibility.Collapsed : Visibility.Visible;
-        private SolidColorBrush StateToBackgroundConverter(SampleState state) => (state == SampleState.Disable) ? this.UnAccentColor : this.AccentColor;
-        private SolidColorBrush StateToForegroundConverter(SampleState state) => (state == SampleState.Disable) ? this.UnCheckColor : this.CheckColor;
-        
-        #region DependencyProperty
-
-        /// <summary> DataContext </summary>
-        public Sample Sample
+        //@Content
+        private void SetSample(Sample sample)
         {
-            get { return (Sample)GetValue(SampleProperty); }
-            set { SetValue(SampleProperty, value); }
-        }
-        /// <summary> Identifies the <see cref = "SampleControl.Sample" /> dependency property. </summary>
-        public static readonly DependencyProperty SampleProperty = DependencyProperty.Register(nameof(Sample), typeof(Sample), typeof(SampleControl), new PropertyMetadata(new Sample()));
+            if (sample == null) return;
 
-        #endregion
-        
+            SampleState state = sample.State;
+            this.FlagContentPresenter.Background = (state == SampleState.Disable) ? this.UnAccentColor : this.AccentColor;
+            this.FlagContentPresenter.Foreground = (state == SampleState.Disable) ? this.UnCheckColor : this.CheckColor;
+            this.FlagContentPresenter.Visibility = (state == SampleState.None) ? Visibility.Collapsed : Visibility.Visible;
+            this.FlagContentPresenter.Content = (state == SampleState.None) ? string.Empty : state.ToString();
+
+            Uri uri = sample.Uri;
+            this.ImageEx.Source = uri;
+            this.FlyoutImageEx.Source = uri;
+
+            string name = sample.Name;
+            this.NameTextBlock.Text = name;
+            this.FlyoutNameTextBlock.Text = name;
+
+            string summary = sample.Summary;
+            this.FlyoutSummaryTextBlock.Text = summary;
+        }
+
         //@Construct
-        public SampleControl()
+        public SampleControl(Sample sample)
         {            
             this.InitializeComponent();
+            this.SetSample(sample);
+
             this.Button.Tapped += (s, e) => e.Handled = true;
 
             this.RootGrid.PointerEntered += (s, e) => this.Entered();
@@ -43,22 +47,35 @@ namespace FanKit
             this.RootGrid.PointerPressed += (s, e) => this.Exited();
             this.RootGrid.PointerReleased += (s, e) => this.Exited();
             this.RootGrid.PointerCanceled += (s, e) => this.Exited();
+
+            this.RootGrid.Tapped += (s, e) =>
+            {
+                if (sample == null) return;
+                if (sample.State == SampleState.Disable) return;
+
+                Type page = sample.Page;
+                Sample.NavigatePage_Invoke(this, page);//Delegate
+            };
         }
 
 
         private void Entered()
         {
-            OpacityAnimation animation = new OpacityAnimation() { To = 1, Duration = TimeSpan.FromMilliseconds(500) };
-            animation.StartAnimation(this.DropShadowPanel);
+            //Opacity
+            //OpacityAnimation animation = new OpacityAnimation() { To = 1, Duration = TimeSpan.FromMilliseconds(500) };
+            //animation.StartAnimation(this.DropShadowPanel);
 
-            ScaleAnimation parentAnimation = new ScaleAnimation() { To = "1.6", Duration = TimeSpan.FromMilliseconds(500) };
+            //Scale
+            ScaleAnimation parentAnimation = new ScaleAnimation() { To = "1.1", Duration = TimeSpan.FromMilliseconds(600) };
             parentAnimation.StartAnimation(this.DropShadowPanel);
         }
         private void Exited()
         {
-            OpacityAnimation animation = new OpacityAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(2000) };
-            animation.StartAnimation(this.DropShadowPanel);
+            //Opacity
+            //OpacityAnimation animation = new OpacityAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(2000) };
+            //animation.StartAnimation(this.DropShadowPanel);
 
+            //Scale
             ScaleAnimation parentAnimation = new ScaleAnimation() { To = "1", Duration = TimeSpan.FromMilliseconds(2000) };
             parentAnimation.StartAnimation(this.DropShadowPanel);
         }

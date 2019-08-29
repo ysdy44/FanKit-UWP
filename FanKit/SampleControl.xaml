@@ -4,56 +4,53 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:samples="using:FanKit.Samples"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400"
+    Width="150"
+    Height="Auto"
+    Padding="4"
+    >
 
+    
     <UserControl.Resources>
-        
         <!--Background-->
         <SolidColorBrush x:Name="AccentColor" Color="{ThemeResource SystemAccentColor}"/>
         <SolidColorBrush x:Name="UnAccentColor" Color="Gray"/>
-
         <!--Foreground-->
         <SolidColorBrush x:Name="CheckColor" Color="White"/>
         <SolidColorBrush x:Name="UnCheckColor" Color="LightGray"/>
-
     </UserControl.Resources>
     
+    
     <Grid x:Name="RootGrid" Background="Transparent">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="12"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+             
+        <!--Shadow-->
+        <controls:DropShadowPanel x:Name="DropShadowPanel" IsHitTestVisible="False" Grid.Row="1" Margin="12,8"
+                extensions:VisualExtensions.NormalizedCenterPoint="0.5,0.5,0">
+            <Grid Background="Gray">
 
-        
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="12,8" >
+                <!--Image-->
+                <controls:ImageEx x:Name="ImageEx" Stretch="Uniform"/>
 
-            <!--Shadow-->
-            <Image x:Name="DropShadowPanel" Source="ms-appx:///Icon/Shadow.png" Stretch="Uniform" 
-                extensions:VisualExtensions.NormalizedCenterPoint="0.5,0.5,0" />
+                <!--Flag-->
+                <ContentPresenter x:Name="FlagContentPresenter"
+                        Width="Auto" Height="22" Padding="4,0" 
+                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        BorderThickness="1" BorderBrush="White"              
+                        FontSize="12" FontWeight="Normal"
+                        />
 
-            <!--Image-->
-            <controls:ImageEx Source="{x:Bind Sample.Uri,Mode=OneWay}" Stretch="Uniform" />
-
-            <!--Flag-->
-            <Border Width="Auto" Height="22" Padding="4,0" HorizontalAlignment="Right" VerticalAlignment="Top"
-                    BorderThickness="1"
-                    BorderBrush="White"
-                    Background="{x:Bind StateToBackgroundConverter(Sample.State) ,Mode=OneWay}"
-                    Visibility="{x:Bind StateToVisibilityConverter(Sample.State) ,Mode=OneWay}">
-                <TextBlock VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"
-                           Foreground="{x:Bind StateToForegroundConverter(Sample.State) ,Mode=OneWay}"
-                           Text="{x:Bind StateToStringConverter(Sample.State) ,Mode=OneWay}"
-                           />
-            </Border>
-        </Grid>
-
+            </Grid>
+        </controls:DropShadowPanel>
         
         <Grid Grid.Row="2" Margin="12,0">
             <Grid.ColumnDefinitions>
@@ -62,17 +59,17 @@
             </Grid.ColumnDefinitions>
 
             <!--Name-->
-            <TextBlock Text="{x:Bind Sample.Name,Mode=OneWay}" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock x:Name="NameTextBlock" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
 
             <!--Button-->
             <Button x:Name="Button" Grid.Column="1" Width="30" Content="&#xE946;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}">
                 <Button.Flyout>
                     <Flyout>
-                        <Grid Margin="-12">
-                            <StackPanel Width="200" Padding="10">
-                                <controls:ImageEx  Source="{x:Bind Sample.Uri,Mode=OneWay}" Stretch="Uniform"/>
-                                <TextBlock Text="{x:Bind Sample.Name,Mode=OneWay}" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
-                                <TextBlock Text="{x:Bind Sample.Summary,Mode=OneWay}" FontWeight="Medium" Grid.Row="1" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <Grid>
+                            <StackPanel Width="200">
+                                <controls:ImageEx x:Name="FlyoutImageEx" Stretch="Uniform"/>
+                                <TextBlock x:Name="FlyoutNameTextBlock" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
+                                <TextBlock x:Name="FlyoutSummaryTextBlock" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
                             </StackPanel>
                         </Grid>
                     </Flyout>
@@ -82,5 +79,4 @@
         </Grid>
 
     </Grid>
-
 </UserControl>

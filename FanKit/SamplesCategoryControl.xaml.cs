@@ -1,18 +1,14 @@
 ﻿using FanKit.Samples;
-using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit
 {
+    /// <summary>
+    /// Control of <see cref="FanKit.Samples. SampleCategory"/>.
+    /// </summary>
     public sealed partial class SamplesCategoryControl : UserControl
     {
-        //Delegate
-        public delegate void ItemClickHandler(Type page);
-        public event ItemClickHandler ItemClick = null;
-
-        #region DependencyProperty
-
         /// <summary> ItemsSource </summary>
         public SampleCategory SampleCategory
         {
@@ -23,7 +19,11 @@ namespace FanKit
                 {
                     if (this.sampleCategory != value)
                     {
-                        this.GridView.ItemsSource = value.Samples;
+                        this.GridView.Children.Clear();
+                        foreach (Sample sample in value.Samples)
+                        {
+                            this.GridView.Children.Add(sample.Instance);
+                        }
                     }
                 }
 
@@ -31,32 +31,13 @@ namespace FanKit
             }
         }
         private SampleCategory sampleCategory;
-         
-
-        #endregion
-
+        
+        //@Construct
         public SamplesCategoryControl()
         {
             this.InitializeComponent();
             this.Visibility = Visibility.Collapsed;
             this.BlurBorder.Tapped += (s, e) => this.Visibility = Visibility.Collapsed;
-
-            this.GridView.IsItemClickEnabled = true;
-            this.GridView.ItemClick += (s, e) =>
-            {                 
-                 if (e.ClickedItem is Sample sample)
-                 {
-                     switch (sample.State)
-                     {
-                         case SampleState.Disable:
-                            return;                            
-                     }
-                    this.Visibility = Visibility.Collapsed;
-
-                    Type page = sample.Page;
-                    this.ItemClick?.Invoke(page);//Delegate
-                 }
-            };          
         }
     }
 }
