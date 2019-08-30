@@ -2,7 +2,7 @@
 using System.Numerics;
 using Windows.UI.Xaml.Controls;
 
-namespace FanKit.Frames.Win2Ds
+namespace FanKit.Frames.Transformers
 {
     public sealed partial class CurveNodesPage : Page
     {
@@ -16,9 +16,9 @@ namespace FanKit.Frames.Win2Ds
             this.InitializeComponent();
             this.Loaded += async (sender, e) =>
             {
-                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Win2Ds/CurveNodesPage.xaml.txt");
-                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Win2Ds/CurveNodesPage.xaml.cs.txt");
-                this.MarkdownText3.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Win2Ds/CurveNodes.cs.txt");
+                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/CurveNodesPage.xaml.txt");
+                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/CurveNodesPage.xaml.cs.txt");
+                this.MarkdownText3.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/CurveNodes.cs.txt");
             };
 
 

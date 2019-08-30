@@ -160,7 +160,7 @@
     <Compile Include="Frames\Transformers\TransformerPage.xaml.cs">
       <DependentUpon>TransformerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Win2Ds\CurveNodesPage.xaml.cs">
+    <Compile Include="Frames\Transformers\CurveNodesPage.xaml.cs">
       <DependentUpon>CurveNodesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Transformers\IndicatorControlPage.xaml.cs">
@@ -302,7 +302,6 @@
     <Compile Include="Samples\Sample.cs" />
     <Compile Include="Samples\SampleCategory.cs" />
     <Compile Include="Samples\SampleState.cs" />
-    <Compile Include="Samples\ScrollOffsetShow.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -342,11 +341,9 @@
     <Content Include="Icon\Transformers\CanvasOperator.png" />
     <Content Include="Icon\Transformers\CanvasTransformer.png" />
     <Content Include="Icon\Transformers\Transformer.png" />
-    <Content Include="Icon\Win2Ds\CurveNodes.png" />
-    <Content Include="Icon\Win2Ds\HomographyController.png" />
+    <Content Include="Icon\Transformers\CurveNodes.png" />
     <Content Include="Icon\Transformers\IndicatorControl.png" />
     <Content Include="Icon\Win2Ds\MarqueeTool.png" />
-    <Content Include="Icon\Win2Ds\TransformController.png" />
     <Content Include="TXT\Colors\HexPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\PalettePickerPage.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
@@ -369,22 +366,16 @@
     <Content Include="TXT\Transformers\Transformer2Page.xaml.cs.txt" />
     <Content Include="TXT\Transformers\TransformerPage.xaml.cs.txt" />
     <Content Include="TXT\Transformers\TransformerPage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\CurveNodes.cs.txt" />
+    <Content Include="TXT\Transformers\CurveNodes.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLine.cs.txt" />
-    <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\CurveNodesPage.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\CurveNodesPage.xaml.txt" />
+    <Content Include="TXT\Transformers\CurveNodesPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\DottedLinePage.xaml.txt" />
     <Content Include="TXT\Transformers\IndicatorControlPage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\HomographyController.cs.txt" />
-    <Content Include="TXT\Win2Ds\HomographyControllerPage.xaml.cs.txt" />
-    <Content Include="TXT\Win2Ds\HomographyControllerPage.xaml.txt" />
     <Content Include="TXT\Win2Ds\MarqueeTool.cs.txt" />
     <Content Include="TXT\Win2Ds\MarqueeToolPage.xaml.cs.txt" />
     <Content Include="TXT\Win2Ds\MarqueeToolPage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\TransformController.cs.txt" />
-    <Content Include="TXT\Win2Ds\TransformControllerPage.xaml.cs.txt" />
-    <Content Include="TXT\Win2Ds\TransformControllerPage.xaml.txt" />
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\AlphaPicker.png" />
@@ -393,7 +384,6 @@
     <Content Include="Icon\Colors\StrawPicker.png" />
     <Content Include="Icon\Colors\SwatchesPicker.png" />
     <Content Include="Icon\Styles\FontWeight.png" />
-    <Content Include="Icon\Win2Ds\CanvasOperator.png" />
     <Content Include="Icon\Template\RadiusShadowPanel.png" />
     <Content Include="Icon\Win2Ds\DottedLine.png" />
     <Content Include="TXT\Colors\AlphaPickerPage.xaml.txt" />
@@ -401,9 +391,6 @@
     <Content Include="TXT\Colors\PalettePickerPage.xaml.txt" />
     <Content Include="TXT\Colors\StrawPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\SwatchesPickerPage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\CanvasOperator.cs.txt" />
-    <Content Include="TXT\Win2Ds\CanvasOperatorPage.xaml.cs.txt" />
-    <Content Include="TXT\Win2Ds\CanvasOperatorPage.xaml.txt" />
     <Content Include="TXT\Samples.json" />
   </ItemGroup>
   <ItemGroup>
@@ -610,7 +597,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Win2Ds\CurveNodesPage.xaml">
+    <Page Include="Frames\Transformers\CurveNodesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

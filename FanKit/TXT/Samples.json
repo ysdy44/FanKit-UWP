@@ -355,26 +355,25 @@
         "Name": "RemoteControl",
         "Uri": "ms-appx:///Icon/Transformers/RemoteControl.png",
         "Summary": "Transformed remote control."
+      },
+      {
+        "State": 3,
+        "Page": "FanKit.Frames.Transformers.CurveNodesPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "CurveNodes",
+        "Uri": "ms-appx:///Icon/Transformers/CurveNodes.png",
+        "Summary": " Drawing and managing Bezier curves on CanvasControl "
       }
     ]
   },
   {
     "Name": "Win2Ds",
-    "Samples": 
-    [
+    "Samples": [
       {
         "State": 3,
         "Page": "FanKit.Frames.Win2Ds.DottedLinePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "DottedLine",
         "Uri": "ms-appx:///Icon/Win2Ds/DottedLine.png",
         "Summary": "the Dotted Line of photoshop ,should display the 'marching ants'"
-      },
-      {
-        "State": 3,
-        "Page": "FanKit.Frames.Win2Ds.CurveNodesPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-        "Name": "CurveNodes",
-        "Uri": "ms-appx:///Icon/Win2Ds/CurveNodes.png",
-        "Summary": " Drawing and managing Bezier curves on CanvasControl "
       },
       {
         "State": 3,
