@@ -41,7 +41,7 @@ namespace FanKit.Frames.Transformers
             };
 
             //IndicatorControl
-            this.IndicatorControl.ModeChanged += (mode) => this.ModeRun.Text = mode.ToString();
+            this.IndicatorControl.ModeChanged += (sender, mode) => this.ModeRun.Text = mode.ToString();
 
             //Button
             this.LeftTopButton.Tapped += (s, e) => this.IndicatorControl.Mode = IndicatorMode.LeftTop;

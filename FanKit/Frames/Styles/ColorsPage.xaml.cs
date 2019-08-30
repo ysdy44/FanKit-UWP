@@ -34,9 +34,9 @@ namespace FanKit.Frames.Styles
                 (
                     (
                         color.R + color.G + color.B < 640 ||
-                        Math.Abs(color.R - color.G) +
-                        Math.Abs(color.G - color.B) +
-                        Math.Abs(color.B - color.R) > 100
+                       System.Math.Abs(color.R - color.G) +
+                      System.Math.Abs(color.G - color.B) +
+                      System.Math.Abs(color.B - color.R) > 100
                     ) ?
                     Windows.UI.Colors.White :
                     Windows.UI.Colors.Black

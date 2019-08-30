@@ -68,7 +68,7 @@ namespace FanKit.Frames.Win2Ds
             {
                 if (e.NewSize == e.PreviousSize) return;
                 if (this.Selection == null) return;
-                if (Math.Abs(e.NewSize.Width - this.Selection.Size.Width) > 10)
+                if (System.Math.Abs(e.NewSize.Width - this.Selection.Size.Width) > 10)
                 {
                     this.Selection = new CanvasRenderTarget(this.CanvasControl, (float)e.NewSize.Width, (float)e.NewSize.Height);
                 }

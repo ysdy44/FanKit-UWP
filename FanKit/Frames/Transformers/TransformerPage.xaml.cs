@@ -16,6 +16,7 @@ namespace FanKit.Frames.Transformers
     public sealed partial class TransformerPage : Page
     {
         TransformerMode mode;
+        Transformer startingTransformer;
         Vector2 startingPoint;
         Layer layer;
 
@@ -129,8 +130,10 @@ namespace FanKit.Frames.Transformers
                 this.startingPoint = point;
 
                 //Controller
-                this.layer.TransformerMatrix.OldDestination = this.layer.TransformerMatrix.Destination;
-                this.mode = Transformer.ContainsNodeMode(point, this.layer.TransformerMatrix.Destination);
+                this.layer.TransformerMatrix.CacheTransform();
+                Transformer transformer = this.layer.TransformerMatrix.Destination;
+                this.startingTransformer = transformer;
+                this.mode = Transformer.ContainsNodeMode(point, transformer);
 
                 this.CanvasControl.Invalidate();//Invalidate
             };
@@ -141,8 +144,7 @@ namespace FanKit.Frames.Transformers
                 bool isStepFrequency = this.IsStepFrequency;
 
                 //Controller
-                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.layer.TransformerMatrix.OldDestination, isRatio, isCenter, isStepFrequency);
-
+                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.startingTransformer, isRatio, isCenter, isStepFrequency);
                 this.layer.TransformerMatrix.Destination = transformer;
 
                 //DependencyProperty
@@ -180,7 +182,7 @@ namespace FanKit.Frames.Transformers
         private Transformer Reset(float bitmapWidth, float bitmapHeight, float controlWidth, float controlHeight)
         {
             Vector2 center = new Vector2(controlWidth, controlHeight) / 2.0f;
-            float scale = Math.Min(controlWidth / bitmapWidth, controlHeight / bitmapHeight);
+            float scale = System.Math.Min(controlWidth / bitmapWidth, controlHeight / bitmapHeight);
             float width = scale * bitmapWidth / 3.0f / 2.0f;
             float height = scale * bitmapHeight / 3.0f / 2.0f;
 

@@ -33,7 +33,9 @@
         </Grid.RowDefinitions>
              
         <!--Shadow-->
-        <controls:DropShadowPanel x:Name="DropShadowPanel" IsHitTestVisible="False" Grid.Row="1" Margin="12,8"
+        <controls:DropShadowPanel x:Name="DropShadowPanel" 
+                 IsHitTestVisible="False" Grid.Row="1" Margin="12,8"
+                 BlurRadius="8" ShadowOpacity="0.3" OffsetX="0" OffsetY="2"
                 extensions:VisualExtensions.NormalizedCenterPoint="0.5,0.5,0">
             <Grid Background="Gray">
 

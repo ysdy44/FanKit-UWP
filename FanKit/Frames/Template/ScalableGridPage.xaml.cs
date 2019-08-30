@@ -260,7 +260,7 @@ namespace FanKit.Frames.Template
 
         private void Change(double Delta)
         {
-            double scale = Math.Abs(Delta / 100d);//1~1.2
+            double scale = System.Math.Abs(Delta / 100d);//1~1.2
 
             if (Delta > 0)
             {

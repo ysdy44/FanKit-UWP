@@ -107,7 +107,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CurveNodes.cs" />
     <Compile Include="DottedLine.cs" />
     <Compile Include="MarqueeTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

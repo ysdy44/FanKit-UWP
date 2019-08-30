@@ -34,7 +34,7 @@ namespace FanKit.Frames.Transformers
                 this.HeightRun.Text = string.Format("{0}", (int)value.Height);
                 this.ScaleRun.Text = string.Format("{0}%", (int)(value.Scale * 100.0f));
                 this.PositionRun.Text = string.Format("({0}, {1})", (int)value.Position.X, (int)value.Position.Y);
-                this.RadianRun.Text = string.Format("{0}º", (int)(value.Radian * 180.0f / TransformerMath.Pi));
+                this.RadianRun.Text = string.Format("{0}º", (int)(value.Radian * 180.0f / FanKit.Math.Pi));
             }
         }
 
@@ -52,7 +52,7 @@ namespace FanKit.Frames.Transformers
 
             if (e.NewValue is double value)
             {
-                float radian = ((float)value) * TransformerMath.Pi / 180.0f;
+                float radian = ((float)value) * FanKit.Math.Pi / 180.0f;
                 con.CanvasTransformer.Radian = radian;
 
                 con.CanvasTransformer.ReloadMatrix();

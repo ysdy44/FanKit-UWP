@@ -5,13 +5,225 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:frames="using:FanKit.Frames"
+    xmlns:reference="using:FanKit.Frames.Reference"
+    xmlns:transformers="using:FanKit.Transformers"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
-    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d"
     >
 
+
+    <Page.Resources>
+        <!--CanvasTransformer-->
+        <transformers:CanvasTransformer x:Name="CanvasTransformer"/>
+        <!--CanvasOperator-->
+        <transformers:CanvasOperator x:Name="CanvasOperator" DestinationControl="{x:Bind CanvasControl}"/>
+        <!--Style-->
+        <Style x:Name="RadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Margin" Value="10,0" />
+            <Setter Property="Padding" Value="0,12,0,0" />
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="Height" Value="Auto" />
+            <Setter Property="MinWidth" Value="90" />
+            <Setter Property="MinHeight" Value="50" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid x:Name="RootGrid" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+
+                                    <VisualState x:Name="PointerOver">
+
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonForegroundPointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonBackgroundPointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonBorderBrushPointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterEllipse" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseStrokePointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterEllipse" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseFillPointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckOuterEllipse" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseCheckedStrokePointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckOuterEllipse" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseCheckedFillPointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonCheckGlyphFillPointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonCheckGlyphStrokePointerOver}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonForegroundPressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonBackgroundPressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonBorderBrushPressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterEllipse" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseStrokePressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterEllipse" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseFillPressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckOuterEllipse" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseCheckedStrokePressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckOuterEllipse" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseCheckedFillPressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonCheckGlyphFillPressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonCheckGlyphStrokePressed}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Disabled">
+
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonForegroundDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonBackgroundDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonBorderBrushDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterEllipse" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseStrokeDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterEllipse" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseFillDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckOuterEllipse" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseCheckedStrokeDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckOuterEllipse" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonOuterEllipseCheckedFillDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonCheckGlyphFillDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Stroke">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource RadioButtonCheckGlyphStrokeDisabled}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualState x:Name="Checked">
+
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="CheckGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0" />
+                                            <DoubleAnimation Storyboard.TargetName="OuterEllipse"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0" />
+                                            <DoubleAnimation Storyboard.TargetName="CheckOuterEllipse"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unchecked" />
+                                    <VisualState x:Name="Indeterminate" />
+                                </VisualStateGroup>
+
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <ContentPresenter x:Name="ContentPresenter"
+                            Grid.ColumnSpan="3" Grid.RowSpan="2"
+                            Width="Auto" Height="Auto"
+                            Content="{TemplateBinding Content}"
+                            ContentTransitions="{TemplateBinding ContentTransitions}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            AutomationProperties.AccessibilityView="Raw"
+                            TextWrapping="Wrap" />
+
+                            <ContentControl 
+                                Grid.Column="2" 
+                                Content="{TemplateBinding Tag}" 
+                                VerticalAlignment="Center"
+                                />
+
+                            <Grid VerticalAlignment="Top" Height="32">
+                                <Ellipse x:Name="OuterEllipse"
+                                Width="20"
+                                Height="20"
+                                UseLayoutRounding="False"
+                                Stroke="{ThemeResource RadioButtonOuterEllipseStroke}"
+                                Fill="{StaticResource RadioButtonOuterEllipseFill}"
+                                StrokeThickness="{ThemeResource RadioButtonBorderThemeThickness}" />
+                                <Ellipse x:Name="CheckOuterEllipse"
+                                Width="20"
+                                Height="20"
+                                UseLayoutRounding="False"
+                                Stroke="{ThemeResource RadioButtonOuterEllipseCheckedStroke}"
+                                Fill="{ThemeResource RadioButtonOuterEllipseCheckedFill}"
+                                Opacity="0"
+                                StrokeThickness="{ThemeResource RadioButtonBorderThemeThickness}" />
+                                <Ellipse x:Name="CheckGlyph"
+                                Width="10"
+                                Height="10"
+                                UseLayoutRounding="False"
+                                Opacity="0"
+                                Fill="{ThemeResource RadioButtonCheckGlyphFill}" 
+                                Stroke="{ThemeResource RadioButtonCheckGlyphStroke}"/>
+                            </Grid>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
+    
     <frames:PageLayout>
 
 
@@ -26,191 +238,152 @@
                     <ScrollViewer>
                         <StackPanel>
 
-                            <!--Toggle-->
-                            <Grid Height="34" Width="200" Margin="4" CornerRadius="15" BorderThickness="0,0,1,2" BorderBrush="#44000000" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1*" />
-                                </Grid.ColumnDefinitions>
-                                <ToggleButton x:Name="PenModeButton" IsChecked="True" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <FontIcon Glyph="&#xEDFB;" FontSize="22" FontFamily="Segoe MDL2 Assets" RenderTransformOrigin="0.5,0.5">
-                                        <FontIcon.RenderTransform>
-                                            <CompositeTransform Rotation="45"/>
-                                        </FontIcon.RenderTransform>
-                                    </FontIcon>
-                                </ToggleButton>
-                                <ToggleButton x:Name="NodeModeButton" Grid.Column="1" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <FontIcon Glyph="&#x27A4;" FontSize="20" FontFamily="Segoe UI Symbol" RenderTransformOrigin="0.5,0.5">
-                                        <FontIcon.RenderTransform>
-                                            <CompositeTransform Rotation="-140"/>
-                                        </FontIcon.RenderTransform>
-                                    </FontIcon>
-                                </ToggleButton>
-                            </Grid>
-
-
-
-                            <!--Foot-->
-                            <Grid Margin="12" HorizontalAlignment="Center" >
-                                <controls:DropShadowPanel HorizontalAlignment="Center" OffsetY="6" BlurRadius="24" ShadowOpacity="0.1" Color="Black">
-                                    <Rectangle RadiusX="25" RadiusY="25" 
-                                      Height="{Binding ElementName=AppbarControl, Path=(extensions:FrameworkElementExtensions.ActualHeight)}"
-                                      Width="{Binding ElementName=AppbarControl, Path=(extensions:FrameworkElementExtensions.ActualWidth)}"
-                                      Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
-                                </controls:DropShadowPanel>
-
-                                <StackPanel x:Name="AppbarControl" Orientation="Horizontal" Padding="20,0" Height="50" HorizontalAlignment="Center"
-                                      extensions:FrameworkElementExtensions.EnableActualSizeBinding="True">
-
-                                    <Button x:Name="Remove" Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}" >
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="16"/>
-                                            </Grid.RowDefinitions>
-                                            <FontIcon Glyph="&#xE107;" FontSize="22" FontFamily="Segoe MDL2 Assets" Foreground="{ThemeResource SystemControlHighlightListAccentHighBrush}"/>
-                                            <TextBlock Grid.Row="1" Text="Remove" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                                        </Grid>
-                                    </Button>
-                                    <Button x:Name="Add" Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}" >
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="16"/>
-                                            </Grid.RowDefinitions>
-                                            <FontIcon Glyph="&#xE710;" FontSize="22" FontFamily="Segoe MDL2 Assets" Foreground="{ThemeResource SystemControlHighlightListAccentHighBrush}"/>
-                                            <TextBlock Grid.Row="1" Text="Add" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                                        </Grid>
-                                    </Button>
+                            <TextBlock Margin="12,4" TextWrapping="Wrap">
+                                <Span FontStyle="Italic">CurveNodes </Span>
+                            </TextBlock>
+                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="80" />
+                                    </Grid.ColumnDefinitions>
+                                    <ToggleButton x:Name="PenModeButton" IsChecked="True" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <FontIcon Glyph="&#xEDFB;" FontSize="22" FontFamily="Segoe MDL2 Assets" RenderTransformOrigin="0.5,0.5">
+                                            <FontIcon.RenderTransform>
+                                                <CompositeTransform Rotation="45"/>
+                                            </FontIcon.RenderTransform>
+                                        </FontIcon>
+                                    </ToggleButton>
+                                    <ToggleButton x:Name="NodeModeButton" Grid.Column="1" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <FontIcon Glyph="&#x27A4;" FontSize="20" FontFamily="Segoe UI Symbol" RenderTransformOrigin="0.5,0.5">
+                                            <FontIcon.RenderTransform>
+                                                <CompositeTransform Rotation="-140"/>
+                                            </FontIcon.RenderTransform>
+                                        </FontIcon>
+                                    </ToggleButton>
+                                </Grid>
+                            </Border>
+                            
+                            <TextBlock Margin="12,4" TextWrapping="Wrap">
+                                <LineBreak/>
+                                <Span>In Add mode, click to add New node.</Span>
+                                <LineBreak/>   
+                                <Span>In Nodes mode, choose the nodes and move.</Span>
+                            </TextBlock>                 
+                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                <StackPanel Orientation="Horizontal">
+                                    <AppBarButton x:Name="RemoveButton" Label="Remove" >
+                                        <AppBarButton.Icon>
+                                            <SymbolIcon Symbol="Delete" Foreground="{ThemeResource SystemControlHighlightListAccentHighBrush}"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                    <AppBarButton x:Name="AddButton" Label="Add" >
+                                        <AppBarButton.Icon>
+                                            <SymbolIcon Symbol="Add" Foreground="{ThemeResource SystemControlHighlightListAccentHighBrush}"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
                                     <AppBarSeparator/>
-                                    <Button x:Name="Sharp" Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}" >
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="16"/>
-                                            </Grid.RowDefinitions>
-                                            <Border Height="26">
-                                                <PathIcon VerticalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Center" Data="M8.948,9.521c-0.282,-0.507 -0.442,-1.088 -0.442,-1.706c0,-1.972 1.632,-3.573 3.642,-3.573c2.01,0 3.642,1.601 3.642,3.573c0,0.699 -0.205,1.352 -0.56,1.903l8.074,8.931c0.266,0.294 0.159,0.778 -0.023,0.928c-0.21,0.172 -0.71,0.312 -1.067,-0.023l-8.137,-8.709c-0.56,0.344 -1.221,0.542 -1.929,0.542c-0.798,0 -1.536,-0.252 -2.136,-0.679l0.02,0.022l-8.246,8.824c-0.357,0.335 -0.857,0.195 -1.067,0.023c-0.182,-0.15 -0.289,-0.634 -0.023,-0.928c1.465,-1.62 8.252,-9.128 8.252,-9.128l0,0Zm3.2,-3.493c1.005,0 1.821,0.801 1.821,1.787c0,0.986 -0.816,1.786 -1.821,1.786c-1.005,0 -1.821,-0.8 -1.821,-1.786c0,-0.986 0.816,-1.787 1.821,-1.787Z"/>
-                                            </Border>
-                                            <TextBlock Grid.Row="1" Text="Sharp" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                                        </Grid>
-                                    </Button>
-                                    <Button x:Name="Smooth" Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}" >
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="16"/>
-                                            </Grid.RowDefinitions>
-                                            <Border Height="26">
-                                                <PathIcon Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Center" Data="M15.539,6.921c-0.039,-0.624 -1.034,-2.994 -3.651,-3.022c-2.621,0.055 -3.608,2.351 -3.64,2.984c-0.698,0 -4.583,0.114 -5.727,0c-0.214,-0.394 -0.5,-0.702 -1.141,-0.703c-0.403,-0.01 -1.245,0.268 -1.237,1.163c0.007,0.847 0.834,1.174 1.237,1.166c0.457,-0.008 0.966,-0.298 1.141,-0.728c1.191,0 4.089,0.021 5.314,0c-4.657,2.505 -7.273,9.805 -7.814,11.527c-0.103,0.328 0.19,0.736 0.389,0.776c0.198,0.041 0.622,0.039 0.752,-0.412c1.131,-3.92 3.549,-8.482 7.207,-10.823c0.676,1.825 2.346,2.524 3.519,2.524c1.172,0 2.884,-0.64 3.518,-2.524c2.845,1.494 5.754,4.947 7.401,10.823c0.073,0.26 0.389,0.496 0.753,0.412c0.148,-0.034 0.548,-0.305 0.412,-0.752c-1.618,-5.32 -4.095,-9.564 -7.959,-11.551c2.441,0.011 4.302,0.024 5.46,0.025c0.172,0.36 0.572,0.717 1.189,0.703c0.772,0.007 1.189,-0.662 1.189,-1.166c-0.019,-0.566 -0.415,-1.138 -1.238,-1.163c-0.632,0.016 -0.975,0.326 -1.156,0.716c-1.199,0.01 -3.936,0.025 -5.918,0.025Zm-3.651,-1.154c1.044,0 1.892,0.837 1.892,1.869c0,1.031 -0.848,1.868 -1.892,1.868c-1.045,0 -1.893,-0.837 -1.893,-1.868c0,-1.032 0.848,-1.869 1.893,-1.869Z"/>
-                                            </Border>
-                                            <TextBlock Grid.Row="1" Text="Smooth" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                                        </Grid>
-                                    </Button>
-                                    <AppBarSeparator/>
+                                    <AppBarButton x:Name="SharpButton" Label="Sharp" >
+                                        <AppBarButton.Icon>
+                                            <PathIcon VerticalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Center" Data="M8.948,9.521c-0.282,-0.507 -0.442,-1.088 -0.442,-1.706c0,-1.972 1.632,-3.573 3.642,-3.573c2.01,0 3.642,1.601 3.642,3.573c0,0.699 -0.205,1.352 -0.56,1.903l8.074,8.931c0.266,0.294 0.159,0.778 -0.023,0.928c-0.21,0.172 -0.71,0.312 -1.067,-0.023l-8.137,-8.709c-0.56,0.344 -1.221,0.542 -1.929,0.542c-0.798,0 -1.536,-0.252 -2.136,-0.679l0.02,0.022l-8.246,8.824c-0.357,0.335 -0.857,0.195 -1.067,0.023c-0.182,-0.15 -0.289,-0.634 -0.023,-0.928c1.465,-1.62 8.252,-9.128 8.252,-9.128l0,0Zm3.2,-3.493c1.005,0 1.821,0.801 1.821,1.787c0,0.986 -0.816,1.786 -1.821,1.786c-1.005,0 -1.821,-0.8 -1.821,-1.786c0,-0.986 0.816,-1.787 1.821,-1.787Z"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                    <AppBarButton x:Name="SmoothButton" Label="Smooth" >
+                                        <AppBarButton.Icon>
+                                            <PathIcon Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Center" Data="M15.539,6.921c-0.039,-0.624 -1.034,-2.994 -3.651,-3.022c-2.621,0.055 -3.608,2.351 -3.64,2.984c-0.698,0 -4.583,0.114 -5.727,0c-0.214,-0.394 -0.5,-0.702 -1.141,-0.703c-0.403,-0.01 -1.245,0.268 -1.237,1.163c0.007,0.847 0.834,1.174 1.237,1.166c0.457,-0.008 0.966,-0.298 1.141,-0.728c1.191,0 4.089,0.021 5.314,0c-4.657,2.505 -7.273,9.805 -7.814,11.527c-0.103,0.328 0.19,0.736 0.389,0.776c0.198,0.041 0.622,0.039 0.752,-0.412c1.131,-3.92 3.549,-8.482 7.207,-10.823c0.676,1.825 2.346,2.524 3.519,2.524c1.172,0 2.884,-0.64 3.518,-2.524c2.845,1.494 5.754,4.947 7.401,10.823c0.073,0.26 0.389,0.496 0.753,0.412c0.148,-0.034 0.548,-0.305 0.412,-0.752c-1.618,-5.32 -4.095,-9.564 -7.959,-11.551c2.441,0.011 4.302,0.024 5.46,0.025c0.172,0.36 0.572,0.717 1.189,0.703c0.772,0.007 1.189,-0.662 1.189,-1.166c-0.019,-0.566 -0.415,-1.138 -1.238,-1.163c-0.632,0.016 -0.975,0.326 -1.156,0.716c-1.199,0.01 -3.936,0.025 -5.918,0.025Zm-3.651,-1.154c1.044,0 1.892,0.837 1.892,1.869c0,1.031 -0.848,1.868 -1.892,1.868c-1.045,0 -1.893,-0.837 -1.893,-1.868c0,-1.032 0.848,-1.869 1.893,-1.869Z"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                </StackPanel>
+                            </Border>
+                            <ContentControl Height="12"/>
 
-                                    <!--#region More-->
+                            
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
-                                    <Button x:Name="More" Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}" >
-                                        <Button.Flyout>
-                                            <Flyout FlyoutPresenterStyle="{StaticResource AppShadowFlyoutPresenter}">
-                                                <StackPanel Padding="14,6">
+                            
+                            <TextBlock Margin="12,4" TextWrapping="Wrap">
+                                <Span>Restriction the</Span>
+                                <Span FontWeight="Bold"> Length </Span>
+                                <Span>or</Span>                                                     
+                                <Span FontWeight="Bold"> Angle </Span>
+                                <Span>of the self-control point.</Span>      
+                            </TextBlock>
+                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                <StackPanel Orientation="Horizontal" Padding="8,0">
+                                    <CheckBox x:Name="AngleCheckBox" Content="Angle" MinWidth="100"/>
+                                    <CheckBox x:Name="LengthCheckBox" Content="Length" MinWidth="100"/>
+                                </StackPanel>
+                            </Border>
 
-                                                    <RadioButton x:Name="MirroredButton">
-                                                        <StackPanel >
-                                                            <TextBlock Text="Mirrored" HorizontalAlignment="Center"/>
-                                                            <Viewbox Width="70" Height="70" >
-                                                                <Canvas Width="768" Height="896">
-                                                                    <Path Data="M131.966,558.011c0,0 7.333,-52.381 16.056,-77.162c16.801,-47.725 95.528,-189.054 242.638,-187.777c160.509,1.394 229.257,140.201 243.976,181.533c9.159,25.719 18.287,79.838 18.287,79.838" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="#3A9AFD"/>
+                            <TextBlock Margin="12,4" TextWrapping="Wrap">
+                                <Span>Set the mode of the each control point.</Span>             
+                            </TextBlock>
+                            <Border CornerRadius="4" Height="70" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                <StackPanel Orientation="Horizontal">
 
-                                                                    <Line X1="186.502" Y1="282" X2="630" Y2="282" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
-                                                                    <Ellipse Canvas.Left="576" Canvas.Top="246" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
-                                                                    <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                    <RadioButton x:Name="MirroredRadioButton"  Tag="Mirrored" Style="{StaticResource RadioButtonStyle}">
+                                        <Viewbox Width="70" Height="70" >
+                                            <Canvas Width="768" Height="896">
+                                                <Path Data="M131.966,558.011c0,0 7.333,-52.381 16.056,-77.162c16.801,-47.725 95.528,-189.054 242.638,-187.777c160.509,1.394 229.257,140.201 243.976,181.533c9.159,25.719 18.287,79.838 18.287,79.838" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="#3A9AFD"/>
 
-                                                                    <Ellipse Canvas.Left="319" Canvas.Top="209" Width="130" Height="130" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+                                                <Line X1="186.502" Y1="282" X2="630" Y2="282" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Ellipse Canvas.Left="576" Canvas.Top="246" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
 
-                                                                </Canvas>
-                                                            </Viewbox>
-                                                        </StackPanel>
-                                                    </RadioButton>
+                                                <Ellipse Canvas.Left="319" Canvas.Top="209" Width="130" Height="130" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
 
-                                                    <RadioButton x:Name="DisconnectedButton">
-                                                        <StackPanel >
-                                                            <TextBlock Text="Disconnected" HorizontalAlignment="Center"/>
-                                                            <Viewbox Width="70" Height="70" >
-                                                                <Canvas Width="768" Height="896">
-                                                                    <Path Data="M131.966,558.011c0,0 7.333,-52.381 16.056,-77.162c16.801,-47.725 117.931,-265.823 242.638,-187.777c128.73,80.563 262.263,261.371 262.263,261.371" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="#3A9AFD"/>
+                                            </Canvas>
+                                        </Viewbox>
+                                    </RadioButton>
+                                    <RadioButton x:Name="DisconnectedRadioButton"  Tag="Disconnected" Style="{StaticResource RadioButtonStyle}">
+                                        <Viewbox Width="70" Height="70" >
+                                            <Canvas Width="768" Height="896">
+                                                <Path Data="M131.966,558.011c0,0 7.333,-52.381 16.056,-77.162c16.801,-47.725 117.931,-265.823 242.638,-187.777c128.73,80.563 262.263,261.371 262.263,261.371" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="#3A9AFD"/>
 
-                                                                    <Line X1="360" Y1="260" X2="190" Y2="282" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
-                                                                    <Line X1="360" Y1="260" X2="555" Y2="440" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
-                                                                    <Ellipse Canvas.Left="500" Canvas.Top="380" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
-                                                                    <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Line X1="360" Y1="260" X2="190" Y2="282" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Line X1="360" Y1="260" X2="555" Y2="440" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Ellipse Canvas.Left="500" Canvas.Top="380" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
 
-                                                                    <Ellipse Canvas.Left="280" Canvas.Top="209" Width="130" Height="130" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
+                                                <Ellipse Canvas.Left="280" Canvas.Top="209" Width="130" Height="130" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
 
-                                                                </Canvas>
-                                                            </Viewbox>
-                                                        </StackPanel>
-                                                    </RadioButton>
+                                            </Canvas>
+                                        </Viewbox>
+                                    </RadioButton>
+                                    <RadioButton x:Name="AsymmetricRadioButton"  Tag="Asymmetric" Style="{StaticResource RadioButtonStyle}">
+                                        <Viewbox Width="70" Height="70" >
+                                            <Canvas Width="768" Height="896">
+                                                <Path Data="M131.966,558.011c0,0 8.048,-86.536 15.499,-111.729c13.455,-45.495 34.756,-160.62 181.867,-159.343c160.508,1.394 262.709,81.66 305.304,187.666c10.18,25.333 18.287,79.838 18.287,79.838" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="#3A9AFD"/>
 
-                                                    <RadioButton x:Name="AsymmetricButton">
-                                                        <StackPanel >
-                                                            <TextBlock Text="Asymmetric" HorizontalAlignment="Center"/>
-                                                            <Viewbox Width="70" Height="70" >
-                                                                <Canvas Width="768" Height="896">
-                                                                    <Path Data="M131.966,558.011c0,0 8.048,-86.536 15.499,-111.729c13.455,-45.495 34.756,-160.62 181.867,-159.343c160.508,1.394 262.709,81.66 305.304,187.666c10.18,25.333 18.287,79.838 18.287,79.838" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="#3A9AFD"/>
+                                                <Line X1="186.502" Y1="282" X2="630" Y2="282" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Ellipse Canvas.Left="576" Canvas.Top="246" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
 
-                                                                    <Line X1="186.502" Y1="282" X2="630" Y2="282" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
-                                                                    <Ellipse Canvas.Left="576" Canvas.Top="246" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
-                                                                    <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="{ThemeResource SystemControlBackgroundBaseHighBrush}"/>
+                                                <Ellipse Canvas.Left="270" Canvas.Top="209" Width="130" Height="130" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
 
-                                                                    <Ellipse Canvas.Left="270" Canvas.Top="209" Width="130" Height="130" StrokeThickness="30" Stroke="{ThemeResource SystemControlBackgroundBaseHighBrush}" Fill="{ThemeResource SystemControlBackgroundAltHighBrush}"/>
-
-                                                                </Canvas>
-                                                            </Viewbox>
-                                                        </StackPanel>
-                                                    </RadioButton>
-
-
-                                                </StackPanel>
-
-
-                                            </Flyout>
-                                        </Button.Flyout>
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="16"/>
-                                            </Grid.RowDefinitions>
-                                            <FontIcon Glyph="&#xE712;" FontSize="22" FontFamily="Segoe MDL2 Assets" Foreground="{ThemeResource SystemControlHighlightListAccentHighBrush}"/>
-                                            <TextBlock Grid.Row="1" Text="More" FontSize="12" FontWeight="Medium" FontFamily="Microsoft YaHei UI"/>
-                                        </Grid>
-                                    </Button>
-
-                                    <!--#endregion-->
-
+                                            </Canvas>
+                                        </Viewbox>
+                                    </RadioButton>
 
                                 </StackPanel>
+                            </Border>
+                            <ContentControl Height="12"/>
+
+                            
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
 
-                            </Grid>
 
+                            
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
-
-
-                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-                                                  
-                            <Span FontStyle="Italic">CurveNodes </Span>
-                            <LineBreak/>
-                            <LineBreak/>   
-                            <Span>In pen mode, click Add New node.</Span>
-                            <LineBreak/>   
-                            <Span>In node mode, choose the node and move.</Span>
-
-                            </TextBlock>
-
+                            
                             <TextBlock Text="Reference:" Margin="12" />
                             <reference:ReferenceWin2d/>
+                            <reference:ReferenceTransformers/>
 
                         </StackPanel>
                     </ScrollViewer>
@@ -223,11 +396,6 @@
                 <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
-                    </ScrollViewer>
-                </PivotItem>
-                <PivotItem Header="Class Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
-                    <ScrollViewer>
-                        <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>
                 </PivotItem>
             </Pivot>

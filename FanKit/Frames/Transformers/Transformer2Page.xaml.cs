@@ -11,6 +11,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
+    class Layer
+    {
+        public CanvasBitmap Image;
+        public TransformerMatrix TransformerMatrix;
+    }
+
     /// <summary>
     /// Page of <see cref="FanKit.Transformers.Transformer">.
     /// </summary>
@@ -28,13 +34,9 @@ namespace FanKit.Frames.Transformers
 
         TransformerMode mode;
         Vector2 startingPoint;
+        Transformer startingTransformer;
         Layer layer;
 
-        class Layer
-        {
-            public CanvasBitmap Image;
-            public TransformerMatrix TransformerMatrix;
-        }
 
         #region DependencyProperty
 
@@ -48,7 +50,7 @@ namespace FanKit.Frames.Transformers
                 this.HeightRun.Text = string.Format("{0}", (int)value.Height);
                 this.ScaleRun.Text = string.Format("{0}%", (int)(value.Scale * 100.0f));
                 this.PositionRun.Text = string.Format("({0}, {1})", (int)value.Position.X, (int)value.Position.Y);
-                this.RadianRun.Text = string.Format("{0}º", (int)(value.Radian * 180.0f / TransformerMath.Pi));
+                this.RadianRun.Text = string.Format("{0}º", (int)(value.Radian * 180.0f / FanKit.Math.Pi));
             }
         }
 
@@ -66,7 +68,7 @@ namespace FanKit.Frames.Transformers
 
             if (e.NewValue is double value)
             {
-                float radian = ((float)value) * TransformerMath.Pi / 180.0f;
+                float radian = ((float)value) * FanKit.Math.Pi / 180.0f;
                 con.CanvasTransformer.Radian = radian;
 
                 con.CanvasTransformer.ReloadMatrix();
@@ -203,10 +205,14 @@ namespace FanKit.Frames.Transformers
             {
                 this.startingPoint = point;
 
-                //Controller
+                //Controller      
+                this.layer.TransformerMatrix.CacheTransform();
+
+                Transformer transformer = this.layer.TransformerMatrix.Destination;
+                this.startingTransformer = transformer;
+
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
-                this.layer.TransformerMatrix.OldDestination = this.layer.TransformerMatrix.Destination;
-                this.mode = Transformer.ContainsNodeMode(point, this.layer.TransformerMatrix.Destination, matrix);
+                this.mode = Transformer.ContainsNodeMode(point, transformer, matrix);
 
                 this.CanvasControl.Invalidate();//Invalidate
             };
@@ -218,7 +224,7 @@ namespace FanKit.Frames.Transformers
 
                 //Controller
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
-                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.layer.TransformerMatrix.OldDestination, inverseMatrix, isRatio, isCenter, isStepFrequency);
+                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.startingTransformer, inverseMatrix, isRatio, isCenter, isStepFrequency);
 
                 this.layer.TransformerMatrix.Destination = transformer;
 
@@ -340,7 +346,7 @@ namespace FanKit.Frames.Transformers
         private Transformer Reset(float bitmapWidth, float bitmapHeight, float controlWidth, float controlHeight)
         {
             Vector2 center = new Vector2(controlWidth, controlHeight) / 2.0f;
-            float scale = Math.Min(controlWidth / bitmapWidth, controlHeight / bitmapHeight);
+            float scale = System.Math.Min(controlWidth / bitmapWidth, controlHeight / bitmapHeight);
             float width = scale * bitmapWidth / 3.0f / 2.0f;
             float height = scale * bitmapHeight / 3.0f / 2.0f;
 
