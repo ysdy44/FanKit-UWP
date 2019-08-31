@@ -18,18 +18,9 @@ namespace FanKit.Frames.Transformers
     /// </summary>
     public sealed partial class Transformer2Page : Page
     {
-
-        //Right
-        Vector2 rightStartPoint;
-        Vector2 rightStartPosition;
-        //Double
-        Vector2 doubleStartCenter;
-        Vector2 doubleStartPosition;
-        float doubleStartScale;
-        float doubleStartSpace;
-
         TransformerMode mode;
         Vector2 startingPoint;
+        Transformer startingTransformer;
         Layer layer;
 
         class Layer
@@ -37,12 +28,12 @@ namespace FanKit.Frames.Transformers
             public CanvasBitmap Image;
             public TransformerMatrix TransformerMatrix;
         }
-
-
+        
         //@Construct
         public Transformer2Page()
         {
             this.InitializeComponent();
+
             this.ResetButton.Tapped += (s, e) =>
             {
                 Size size = new Size(this.CanvasControl.ActualWidth, this.CanvasControl.ActualHeight);
@@ -50,14 +41,10 @@ namespace FanKit.Frames.Transformers
                 this.CanvasTransformer.Position = new Vector2((float)size.Width / 2, (float)size.Height / 2);
                 this.CanvasTransformer.Scale = 1;
                 this.CanvasTransformer.Radian = 0;
-
                 this.CanvasTransformer.ReloadMatrix();
-                
 
                 Transformer transformer = this.Reset(this.layer.Image.SizeInPixels.Width, this.layer.Image.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height);
                 this.layer.TransformerMatrix.Destination = transformer;
-                
-
                 this.CanvasControl.Invalidate();//Invalidate
             };
 
@@ -97,10 +84,14 @@ namespace FanKit.Frames.Transformers
             {
                 this.startingPoint = point;
 
-                //Controller
+                //Controller      
+                this.layer.TransformerMatrix.CacheTransform();
+
+                Transformer transformer = this.layer.TransformerMatrix.Destination;
+                this.startingTransformer = transformer;
+
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
-                this.layer.TransformerMatrix.OldDestination = this.layer.TransformerMatrix.Destination;
-                this.mode = Transformer.ContainsNodeMode(point, this.layer.TransformerMatrix.Destination, matrix);
+                this.mode = Transformer.ContainsNodeMode(point, transformer, matrix);
 
                 this.CanvasControl.Invalidate();//Invalidate
             };
@@ -112,7 +103,7 @@ namespace FanKit.Frames.Transformers
 
                 //Controller
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
-                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.layer.TransformerMatrix.OldDestination, inverseMatrix, isRatio, isCenter, isStepFrequency);
+                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.startingTransformer, inverseMatrix, isRatio, isCenter, isStepFrequency);
 
                 this.layer.TransformerMatrix.Destination = transformer;
                 
@@ -126,63 +117,44 @@ namespace FanKit.Frames.Transformers
             //Right
             this.CanvasOperator.Right_Start += (point) =>
             {
-                this.rightStartPoint = point;
-                this.rightStartPosition = this.CanvasTransformer.Position;
+                this.CanvasTransformer.CacheMove(point);
             };
             this.CanvasOperator.Right_Delta += (point) =>
             {
-                this.CanvasTransformer.Position = this.rightStartPosition - this.rightStartPoint + point;
-
-                this.CanvasTransformer.ReloadMatrix();
-                this.CanvasControl.Invalidate();//Invalidate
+                this.CanvasTransformer.Move(point);
+                this.CanvasControl.Invalidate();
             };
             this.CanvasOperator.Right_Complete += (point) =>
             {
+                this.CanvasTransformer.Move(point);
+                this.CanvasControl.Invalidate();
             };
 
             //Double
             this.CanvasOperator.Double_Start += (center, space) =>
             {
-                this.doubleStartCenter = (center - this.CanvasTransformer.Position) / this.CanvasTransformer.Scale + this.CanvasTransformer.ControlCenter;
-                this.doubleStartPosition = this.CanvasTransformer.Position;
-
-                this.doubleStartSpace = space;
-                this.doubleStartScale = this.CanvasTransformer.Scale;
+                this.CanvasTransformer.CachePinch(center, space);
+                this.CanvasControl.Invalidate();
             };
             this.CanvasOperator.Double_Delta += (center, space) =>
             {
-                this.CanvasTransformer.Scale = this.doubleStartScale / this.doubleStartSpace * space;
-                this.CanvasTransformer.Position = center - (this.doubleStartCenter - this.CanvasTransformer.ControlCenter) * this.CanvasTransformer.Scale;
-
-                this.CanvasTransformer.ReloadMatrix();
-                this.CanvasControl.Invalidate();//Invalidate
+                this.CanvasTransformer.Pinch(center, space);
+                this.CanvasControl.Invalidate();
             };
             this.CanvasOperator.Double_Complete += (center, space) =>
             {
+                this.CanvasControl.Invalidate();
             };
 
             //Wheel
             this.CanvasOperator.Wheel_Changed += (point, space) =>
             {
                 if (space > 0)
-                {
-                    if (this.CanvasTransformer.Scale < 10f)
-                    {
-                        this.CanvasTransformer.Scale *= 1.1f;
-                        this.CanvasTransformer.Position = point + (this.CanvasTransformer.Position - point) * 1.1f;
-                    }
-                }
+                    this.CanvasTransformer.ZoomIn(point);
                 else
-                {
-                    if (this.CanvasTransformer.Scale > 0.1f)
-                    {
-                        this.CanvasTransformer.Scale /= 1.1f;
-                        this.CanvasTransformer.Position = point + (this.CanvasTransformer.Position - point) / 1.1f;
-                    }
-                }
+                    this.CanvasTransformer.ZoomOut(point);
 
-                this.CanvasTransformer.ReloadMatrix();
-                this.CanvasControl.Invalidate();//Invalidate
+                this.CanvasControl.Invalidate();
             };
         }
 
@@ -193,10 +165,8 @@ namespace FanKit.Frames.Transformers
             this.CanvasTransformer.Position = new Vector2((float)size.Width / 2, (float)size.Height / 2);
             this.CanvasTransformer.Scale = 1;
             this.CanvasTransformer.Radian = 0;
-
             this.CanvasTransformer.ReloadMatrix();
-
-
+            
             //Bitmap
             CanvasBitmap bitmap = await CanvasBitmap.LoadAsync(sender, "Icon/Avatar.jpg");
             TransformerMatrix transformerMatrix = new TransformerMatrix
@@ -204,7 +174,7 @@ namespace FanKit.Frames.Transformers
                 Source = new Transformer(bitmap.SizeInPixels.Width, bitmap.SizeInPixels.Height, Vector2.Zero),
                 Destination = this.Reset(bitmap.SizeInPixels.Width, bitmap.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height),
             };
-
+            
             //Layer
             this.layer = new Layer
             {
@@ -216,7 +186,7 @@ namespace FanKit.Frames.Transformers
         private Transformer Reset(float bitmapWidth, float bitmapHeight, float controlWidth, float controlHeight)
         {
             Vector2 center = new Vector2(controlWidth, controlHeight) / 2.0f;
-            float scale = Math.Min(controlWidth / bitmapWidth, controlHeight / bitmapHeight);
+            float scale = System.Math.Min(controlWidth / bitmapWidth, controlHeight / bitmapHeight);
             float width = scale * bitmapWidth / 3.0f / 2.0f;
             float height = scale * bitmapHeight / 3.0f / 2.0f;
 

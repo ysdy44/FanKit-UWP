@@ -7,6 +7,7 @@
     xmlns:transformers="using:FanKit.Transformers"
     xmlns:frames="using:FanKit.Frames"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d"
     >
 
@@ -39,10 +40,19 @@
                             <Run >) </Run>
                         </TextBlock>
                         
-                        <Canvas>
+                        <Canvas Height="500">
                             <Ellipse x:Name="Ellipse" Width="90" Height="90" Fill="Gray"/>
                         </Canvas>
- 
+
+
+                        <!--Separator-->
+                        <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                        <TextBlock Text="Reference:" Margin="12" />
+                        <reference:ReferenceWin2d/>
+                        <reference:ReferenceTransformers/>
+                        
                     </StackPanel>
                 </PivotItem>
                 <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">

@@ -186,7 +186,7 @@
     "Name": "Control",
     "Samples": [
       {
-        "State": 1,
+        "State": 0,
         "Page": "FanKit.Frames.Control.ThemeControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "ThemeControl",
         "Uri": "ms-appx:///Icon/Control/ThemeControl.png",
@@ -200,7 +200,7 @@
         "Summary": "Split panel, it hide when you slide left, it show when you slide right."
       },
       {
-        "State": 2,
+        "State": 0,
         "Page": "FanKit.Frames.Control.RadiusAnimaPanelPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RadiusAnimaControl",
         "Uri": "ms-appx:///Icon/Control/RadiusAnimaPanel.png",
@@ -315,49 +315,49 @@
     "Name": "Transformers",
     "Samples": [
       {
-        "State": 4,
+        "State": 0,
         "Page": "FanKit.Frames.Transformers.CanvasOperatorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "CanvasOperator",
         "Uri": "ms-appx:///Icon/Transformers/CanvasOperator.png",
         "Summary": "Distinguish between the mouse left button, the mouse right button, touch single finger, touch double finger ."
       },
       {
-        "State": 4,
+        "State": 2,
         "Page": "FanKit.Frames.Transformers.CanvasTransformerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "CanvasTransformer",
         "Uri": "ms-appx:///Icon/Transformers/CanvasTransformer.png",
         "Summary": "Provide matrix for RenderLayer by Position、Scale、Radians."
       },
       {
-        "State": 4,
+        "State": 0,
         "Page": "FanKit.Frames.Transformers.TransformerPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Transformer",
         "Uri": "ms-appx:///Icon/Transformers/Transformer.png",
         "Summary": "Drag and drop nodes and manipulate transformer libraries."
       },
       {
-        "State": 4,
+        "State": 2,
         "Page": "FanKit.Frames.Transformers.Transformer2Page, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Transformer2",
         "Uri": "ms-appx:///Icon/Transformers/Transformer.png",
         "Summary": "Drag and drop nodes and manipulate transformer libraries."
       },
       {
-        "State": 4,
+        "State": 0,
         "Page": "FanKit.Frames.Transformers.IndicatorControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "IndicatorControl",
         "Uri": "ms-appx:///Icon/Transformers/IndicatorControl.png",
         "Summary": "Transformed indicator control."
       },
       {
-        "State": 4,
+        "State": 0,
         "Page": "FanKit.Frames.Transformers.RemoteControlPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RemoteControl",
         "Uri": "ms-appx:///Icon/Transformers/RemoteControl.png",
         "Summary": "Transformed remote control."
       },
       {
-        "State": 3,
+        "State": 1,
         "Page": "FanKit.Frames.Transformers.CurveNodesPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "CurveNodes",
         "Uri": "ms-appx:///Icon/Transformers/CurveNodes.png",
@@ -369,14 +369,14 @@
     "Name": "Win2Ds",
     "Samples": [
       {
-        "State": 3,
+        "State": 0,
         "Page": "FanKit.Frames.Win2Ds.DottedLinePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "DottedLine",
         "Uri": "ms-appx:///Icon/Win2Ds/DottedLine.png",
         "Summary": "the Dotted Line of photoshop ,should display the 'marching ants'"
       },
       {
-        "State": 3,
+        "State": 0,
         "Page": "FanKit.Frames.Win2Ds.MarqueeToolPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "MarqueeTool",
         "Uri": "ms-appx:///Icon/Win2Ds/MarqueeTool.png",

@@ -7,6 +7,7 @@
     xmlns:frames="using:FanKit.Frames"
     xmlns:transformers="using:FanKit.Transformers"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:reference="using:FanKit.Frames.Reference"
     mc:Ignorable="d"
     >
 
@@ -41,22 +42,45 @@
 
 
                             <TextBlock Margin="12">
-                            <Run>Mode:</Run>
-                            <Run x:Name="ModeRun"/>
+                                <Run>Mode:</Run>
+                                <Run x:Name="ModeRun"/>
                             </TextBlock>
 
-                            <Button x:Name="LeftTopButton" Content="LeftTop" Margin="12"/>
-                            <Button x:Name="RightTopButton" Content="RightTop" Margin="12"/>
-                            <Button x:Name="RightBottomButton" Content="RightBottom" Margin="12"/>
-                            <Button x:Name="LeftBottomButton" Content="LeftBottom" Margin="12"/>
+                            <Grid Margin="12" Width="300" HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
 
-                            <Button x:Name="LeftButton" Content="Left" Margin="12"/>
-                            <Button x:Name="TopButton" Content="Top" Margin="12"/>
-                            <Button x:Name="RightButton" Content="Right" Margin="12"/>
-                            <Button x:Name="BottomButton" Content="Bottom" Margin="12"/>
+                                <Button x:Name="LeftTopButton" Grid.Column="0" Grid.Row="0" Content="LeftTop" Margin="2" HorizontalAlignment="Stretch"/>
+                                <Button x:Name="RightTopButton" Grid.Column="2" Grid.Row="0" Content="RightTop" Margin="2" HorizontalAlignment="Stretch"/>
+                                <Button x:Name="RightBottomButton" Grid.Column="2" Grid.Row="2" Content="RightBottom" Margin="2" HorizontalAlignment="Stretch"/>
+                                <Button x:Name="LeftBottomButton" Grid.Column="0" Grid.Row="2" Content="LeftBottom" Margin="2" HorizontalAlignment="Stretch"/>
 
-                            <Button x:Name="CenterButton" Content="Center" Margin="12"/>
+                                <Button x:Name="LeftButton" Grid.Column="0" Grid.Row="1" Content="Left" Margin="2" HorizontalAlignment="Stretch"/>
+                                <Button x:Name="TopButton" Grid.Column="1" Grid.Row="0" Content="Top" Margin="2" HorizontalAlignment="Stretch"/>
+                                <Button x:Name="RightButton" Grid.Column="2" Grid.Row="1" Content="Right" Margin="2" HorizontalAlignment="Stretch"/>
+                                <Button x:Name="BottomButton" Grid.Column="1" Grid.Row="2" Content="Bottom" Margin="2" HorizontalAlignment="Stretch"/>
 
+                                <Button x:Name="CenterButton" Grid.Column="1" Grid.Row="1" Content="Center" Margin="2" HorizontalAlignment="Stretch"/>
+
+                            </Grid>
+
+
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                            <TextBlock Text="Reference:" Margin="12" />
+                            <reference:ReferenceWin2d/>
+                            <reference:ReferenceTransformers/>
+                            
                         </StackPanel>
                     </ScrollViewer>
                 </PivotItem>

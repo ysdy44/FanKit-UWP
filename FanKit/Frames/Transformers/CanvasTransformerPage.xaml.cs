@@ -12,21 +12,12 @@ namespace FanKit.Frames.Transformers
     /// </summary>
     public sealed partial class CanvasTransformerPage : Page
     {
-
-        //Right
-        Vector2 rightStartPoint;
-        Vector2 rightStartPosition;
-        //Double
-        Vector2 doubleStartCenter;
-        Vector2 doubleStartPosition;
-        float doubleStartScale;
-        float doubleStartSpace;
-
+         
         #region DependencyProperty
 
 
         /// <summary> CanvasTransformer </summary>
-        public CanvasTransformer CanvasTransformer2
+        public CanvasTransformer _canvasTransformer
         {
             set
             {
@@ -59,7 +50,7 @@ namespace FanKit.Frames.Transformers
                 con.CanvasControl.Invalidate();//Invalidate
                                                
                 //DependencyProperty
-                con.CanvasTransformer2 = con.CanvasTransformer;
+                con._canvasTransformer = con.CanvasTransformer;
             }
         }));
 
@@ -88,7 +79,7 @@ namespace FanKit.Frames.Transformers
                 this.CanvasControl.Invalidate();//Invalidate
 
                 //DependencyProperty
-                this.CanvasTransformer2 = this.CanvasTransformer;
+                this._canvasTransformer = this.CanvasTransformer;
             };
 
 
@@ -98,7 +89,6 @@ namespace FanKit.Frames.Transformers
                 if (e.NewSize == e.PreviousSize) return;
 
                 Size size = e.NewSize;
-
                 this.CanvasTransformer.Width = (int)size.Width / 3;
                 this.CanvasTransformer.Height = (int)size.Height / 3;
 
@@ -118,7 +108,7 @@ namespace FanKit.Frames.Transformers
                 this.CanvasTransformer.ReloadMatrix();
 
                 //DependencyProperty
-                this.CanvasTransformer2 = this.CanvasTransformer;
+                this._canvasTransformer = this.CanvasTransformer;
             };
             this.CanvasControl.Draw += (sender, args) =>
             {
@@ -144,7 +134,7 @@ namespace FanKit.Frames.Transformers
                 this.CanvasControl.Invalidate();//Invalidate
 
                 //DependencyProperty
-                this.CanvasTransformer2 = this.CanvasTransformer;
+                this._canvasTransformer = this.CanvasTransformer;
             };
             this.CanvasOperator.Single_Complete += (point) =>
             {
@@ -153,72 +143,50 @@ namespace FanKit.Frames.Transformers
             //Right
             this.CanvasOperator.Right_Start += (point) =>
             {
-                this.rightStartPoint = point;
-                this.rightStartPosition = this.CanvasTransformer.Position;
+                this.CanvasTransformer.CacheMove(point);
             };
             this.CanvasOperator.Right_Delta += (point) =>
             {
-                this.CanvasTransformer.Position = this.rightStartPosition - this.rightStartPoint + point;
-
-                this.CanvasTransformer.ReloadMatrix();
-                this.CanvasControl.Invalidate();//Invalidate
-
+                this.CanvasTransformer.Move(point);
+                this.CanvasControl.Invalidate();
                 //DependencyProperty
-                this.CanvasTransformer2 = this.CanvasTransformer;
+                this._canvasTransformer = this.CanvasTransformer;
             };
             this.CanvasOperator.Right_Complete += (point) =>
             {
+                this.CanvasTransformer.Move(point);
+                this.CanvasControl.Invalidate();
             };
-
+            
             //Double
             this.CanvasOperator.Double_Start += (center, space) =>
             {
-                this.doubleStartCenter = (center - this.CanvasTransformer.Position) / this.CanvasTransformer.Scale + this.CanvasTransformer.ControlCenter;
-                this.doubleStartPosition = this.CanvasTransformer.Position;
-
-                this.doubleStartSpace = space;
-                this.doubleStartScale = this.CanvasTransformer.Scale;
+                this.CanvasTransformer.CachePinch(center, space);
+                this.CanvasControl.Invalidate();
             };
             this.CanvasOperator.Double_Delta += (center, space) =>
             {
-                this.CanvasTransformer.Scale = this.doubleStartScale / this.doubleStartSpace * space;
-                this.CanvasTransformer.Position = center - (this.doubleStartCenter - this.CanvasTransformer.ControlCenter) * this.CanvasTransformer.Scale;
-
-                this.CanvasTransformer.ReloadMatrix();
-                this.CanvasControl.Invalidate();//Invalidate
-
+                this.CanvasTransformer.Pinch(center, space);
+                this.CanvasControl.Invalidate();
                 //DependencyProperty
-                this.CanvasTransformer2 = this.CanvasTransformer;
+                this._canvasTransformer = this.CanvasTransformer;
             };
             this.CanvasOperator.Double_Complete += (center, space) =>
             {
+                this.CanvasControl.Invalidate();
             };
 
             //Wheel
             this.CanvasOperator.Wheel_Changed += (point, space) =>
             {
                 if (space > 0)
-                {
-                    if (this.CanvasTransformer.Scale < 10f)
-                    {
-                        this.CanvasTransformer.Scale *= 1.1f;
-                        this.CanvasTransformer.Position = point + (this.CanvasTransformer.Position - point) * 1.1f;
-                    }
-                }
+                    this.CanvasTransformer.ZoomIn(point);
                 else
-                {
-                    if (this.CanvasTransformer.Scale > 0.1f)
-                    {
-                        this.CanvasTransformer.Scale /= 1.1f;
-                        this.CanvasTransformer.Position = point + (this.CanvasTransformer.Position - point) / 1.1f;
-                    }
-                }
+                    this.CanvasTransformer.ZoomOut(point);
 
-                this.CanvasTransformer.ReloadMatrix();
-                this.CanvasControl.Invalidate();//Invalidate
-
+                this.CanvasControl.Invalidate();
                 //DependencyProperty
-                this.CanvasTransformer2 = this.CanvasTransformer;
+                this._canvasTransformer = this.CanvasTransformer;
             };
         }
     }

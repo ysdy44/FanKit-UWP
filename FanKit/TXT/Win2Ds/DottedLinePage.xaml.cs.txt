@@ -35,7 +35,7 @@ namespace FanKit.Frames.Win2Ds
               {
                   if (e.NewSize == e.PreviousSize) return;
 
-                  if (Math.Abs(e.NewSize.Width - this.CanvasWidth) > 10)
+                  if (System.Math.Abs(e.NewSize.Width - this.CanvasWidth) > 10)
                   {
                       this.CanvasWidth = (float)e.NewSize.Width;
                       this.CanvasHeight = (float)e.NewSize.Height;

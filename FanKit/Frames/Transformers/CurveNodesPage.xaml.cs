@@ -89,7 +89,7 @@ namespace FanKit.Frames.Transformers
             {
                 this.PenModeButton.IsChecked = false;
                 this._isAdd = false;
-            }; 
+            };
 
             //Button
             this.RemoveButton.Tapped += (s, e) =>
@@ -166,17 +166,17 @@ namespace FanKit.Frames.Transformers
 
             #region Draw
 
-            
+
             this.CanvasControl.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == e.PreviousSize) return;
                 this.CanvasTransformer.Size = e.NewSize;
                 this.CanvasTransformer.Fit();
             };
-            
+
             this.CanvasControl.CreateResources += (s, args) =>
             {
-                Vector2 center = new Vector2(this.CanvasTransformer.Width, this.CanvasTransformer.Height)/2;
+                Vector2 center = new Vector2(this.CanvasTransformer.Width, this.CanvasTransformer.Height) / 2;
                 this.NodeCollection = new NodeCollection
                 {
                     new Node
@@ -232,7 +232,7 @@ namespace FanKit.Frames.Transformers
                 {
                     case NodeCollectionMode.RectChoose:
                         args.DrawingSession.FillRectDodgerBlue(this.CanvasControl, this._transformerRect, matrix);
-                     break;
+                        break;
                 }
             };
 

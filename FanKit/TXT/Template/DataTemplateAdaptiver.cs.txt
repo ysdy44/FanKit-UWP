@@ -78,7 +78,7 @@ namespace FanKit.Frames.Template
         /// <param name="width"> width </param>
         public void OnSizeChanged(double width)
         {
-            double designWidth = Math.Sqrt(Math.Sqrt(width)) * 24d;//design Width
+            double designWidth = System.Math.Sqrt(System.Math.Sqrt(width)) * 24d;//design Width
             int count = ((int)(width / designWidth));//count of transverse
             double finalwidth = (width - 4) / count;//Aliquot width
 

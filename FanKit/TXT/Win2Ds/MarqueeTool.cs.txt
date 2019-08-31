@@ -284,10 +284,10 @@ namespace FanKit.Win2Ds
             switch (this.MarqueeMode)
             {
                 case MarqueeMode.None:
-                    float x0 = Math.Min(start.X, end.X);
-                    float y0 = Math.Min(start.Y, end.Y);
-                    float w0 = Math.Abs(start.X - end.X);
-                    float h0 = Math.Abs(start.Y - end.Y);
+                    float x0 = System.Math.Min(start.X, end.X);
+                    float y0 = System.Math.Min(start.Y, end.Y);
+                    float w0 = System.Math.Abs(start.X - end.X);
+                    float h0 = System.Math.Abs(start.Y - end.Y);
 
                     if (isRender) ds.FillRectangle(x0, y0, w0, h0, this.LightBlue);
                     else
@@ -299,8 +299,8 @@ namespace FanKit.Win2Ds
 
 
                 case MarqueeMode.Square:
-                    float w1 = Math.Abs(start.X - end.X);
-                    float h1 = Math.Abs(start.Y - end.Y);
+                    float w1 = System.Math.Abs(start.X - end.X);
+                    float h1 = System.Math.Abs(start.Y - end.Y);
                     float square = (w1 + h1) / 2;
 
                     float x1 = (end.X > start.X) ? start.X : start.X - square;
@@ -316,8 +316,8 @@ namespace FanKit.Win2Ds
 
 
                 case MarqueeMode.Center:
-                    float w2 = Math.Abs(start.X - end.X);
-                    float h2 = Math.Abs(start.Y - end.Y);
+                    float w2 = System.Math.Abs(start.X - end.X);
+                    float h2 = System.Math.Abs(start.Y - end.Y);
 
                     float x2 = start.X - w2;
                     float y2 = start.Y - h2;
@@ -332,8 +332,8 @@ namespace FanKit.Win2Ds
 
 
                 case MarqueeMode.SquareAndCenter:
-                    float w3 = Math.Abs(start.X - end.X);
-                    float h3 = Math.Abs(start.Y - end.Y);
+                    float w3 = System.Math.Abs(start.X - end.X);
+                    float h3 = System.Math.Abs(start.Y - end.Y);
                     float squareHalf3 = (w3 + h3) / 2;
                     float square3 = 2 * squareHalf3;
 
@@ -361,8 +361,8 @@ namespace FanKit.Win2Ds
                 case MarqueeMode.None:
                     float x0 = (start.X + end.X) / 2;
                     float y0 = (start.Y + end.Y) / 2;
-                    float w0 = Math.Abs(start.X - end.X) / 2;
-                    float h0 = Math.Abs(start.Y - end.Y) / 2;
+                    float w0 = System.Math.Abs(start.X - end.X) / 2;
+                    float h0 = System.Math.Abs(start.Y - end.Y) / 2;
 
                     if (isRender) ds.FillEllipse(x0, y0, w0, h0, this.LightBlue);
                     else
@@ -374,8 +374,8 @@ namespace FanKit.Win2Ds
 
 
                 case MarqueeMode.Square:
-                    float w1 = Math.Abs(start.X - end.X);
-                    float h1 = Math.Abs(start.Y - end.Y);
+                    float w1 = System.Math.Abs(start.X - end.X);
+                    float h1 = System.Math.Abs(start.Y - end.Y);
                     float squareHalf = (w1 + h1) / 4;
 
                     float x1 = (end.X > start.X) ? start.X + squareHalf : start.X - squareHalf;
@@ -391,8 +391,8 @@ namespace FanKit.Win2Ds
 
 
                 case MarqueeMode.Center:
-                    float w2 = Math.Abs(start.X - end.X) / 2;
-                    float h2 = Math.Abs(start.Y - end.Y) / 2;
+                    float w2 = System.Math.Abs(start.X - end.X) / 2;
+                    float h2 = System.Math.Abs(start.Y - end.Y) / 2;
 
                     if (isRender) ds.FillEllipse(start, w2, h2, this.LightBlue);
                     else
@@ -404,8 +404,8 @@ namespace FanKit.Win2Ds
 
 
                 case MarqueeMode.SquareAndCenter:
-                    float w3 = Math.Abs(start.X - end.X) / 2;
-                    float h3 = Math.Abs(start.Y - end.Y) / 2;
+                    float w3 = System.Math.Abs(start.X - end.X) / 2;
+                    float h3 = System.Math.Abs(start.Y - end.Y) / 2;
                     float square2 = (w3 + h3) / 2;
 
                     if (isRender) ds.FillCircle(start, square2, this.LightBlue);
