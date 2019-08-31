@@ -40,7 +40,7 @@
                             <Run >) </Run>
                         </TextBlock>
                         
-                        <Canvas Height="500">
+                        <Canvas Height="111">
                             <Ellipse x:Name="Ellipse" Width="90" Height="90" Fill="Gray"/>
                         </Canvas>
 
