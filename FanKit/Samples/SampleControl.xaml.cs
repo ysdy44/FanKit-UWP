@@ -1,5 +1,4 @@
-﻿using Microsoft.Toolkit.Uwp.UI.Animations;
-using System;
+﻿using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -11,7 +10,7 @@ namespace FanKit.Samples
     public sealed partial class SampleControl : UserControl
     {
         //@Content
-        private void SetSample(Sample sample)
+        public void SetSample(Sample sample)
         {
             if (sample == null) return;
 
@@ -23,14 +22,11 @@ namespace FanKit.Samples
 
             Uri uri = sample.Uri;
             this.ImageEx.Source = uri;
-            this.FlyoutImageEx.Source = uri;
 
             string name = sample.Name;
             this.NameTextBlock.Text = name;
-            this.FlyoutNameTextBlock.Text = name;
 
             string summary = sample.Summary;
-            this.FlyoutSummaryTextBlock.Text = summary;
         }
 
         //@Construct
@@ -39,7 +35,19 @@ namespace FanKit.Samples
             this.InitializeComponent();
             this.SetSample(sample);
 
-            this.Button.Tapped += (s, e) => e.Handled = true;
+            this.ImageEx.SizeChanged += (s, e) =>
+            {
+                if (e.PreviousSize == e.NewSize) return;
+
+                this.BackgroundRectangle.Width = e.NewSize.Width;
+                this.BackgroundRectangle.Height = e.NewSize.Height;
+            };
+
+            this.Button.Tapped += (s, e) =>
+            {
+                Sample.FlyoutSample_Invoke(this, sample);//Delegate
+                e.Handled = true;
+            };
 
             this.RootGrid.PointerEntered += (s, e) => this.Entered();
             this.RootGrid.PointerExited += (s, e) => this.Exited();
@@ -60,23 +68,11 @@ namespace FanKit.Samples
 
         private void Entered()
         {
-            //Opacity
-            //OpacityAnimation animation = new OpacityAnimation() { To = 1, Duration = TimeSpan.FromMilliseconds(500) };
-            //animation.StartAnimation(this.DropShadowPanel);
-
-            //Scale
-            ScaleAnimation parentAnimation = new ScaleAnimation() { To = "1.1", Duration = TimeSpan.FromMilliseconds(600) };
-            parentAnimation.StartAnimation(this.DropShadowPanel);
+            this.ShowStoryboard.Begin();
         }
         private void Exited()
         {
-            //Opacity
-            //OpacityAnimation animation = new OpacityAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(2000) };
-            //animation.StartAnimation(this.DropShadowPanel);
-
-            //Scale
-            ScaleAnimation parentAnimation = new ScaleAnimation() { To = "1", Duration = TimeSpan.FromMilliseconds(2000) };
-            parentAnimation.StartAnimation(this.DropShadowPanel);
+            this.FadeStoryboard.Begin();
         }
     }
 }

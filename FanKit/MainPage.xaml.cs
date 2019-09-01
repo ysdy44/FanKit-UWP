@@ -2,11 +2,13 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
+using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace FanKit
 {
@@ -44,6 +46,7 @@ namespace FanKit
         public MainPage()
         {
             this.InitializeComponent();
+            //Sample
             Sample.NavigatePage += (sender, page) =>
             {
                 if (this.NavigationFrame.CurrentSourcePageType == page) return;
@@ -54,6 +57,22 @@ namespace FanKit
 
                 //Back
                 this.IsCanGoBack = true;
+            };
+            Sample.FlyoutSample += (sender, sample) =>
+            {
+                FrameworkElement element = (FrameworkElement)sender;
+                this.FlyoutSampleControl.SetCoords(element);
+                this.FlyoutSampleControl.SetSample(sample);
+
+                //Canvas     
+                this.Canvas.IsHitTestVisible = true;
+                this.FlyoutSampleControl.Visibility = Visibility.Visible;
+            };
+            this.Canvas.Tapped += (s, e) =>
+            {
+                //Canvas     
+                this.Canvas.IsHitTestVisible = false;
+                this.FlyoutSampleControl.Visibility = Visibility.Collapsed;
             };
 
             this.Loaded += async (s, e) =>

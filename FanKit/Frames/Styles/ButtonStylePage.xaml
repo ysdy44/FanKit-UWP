@@ -63,9 +63,6 @@
                         <Run x:Name="TopRun3"/>
                     </Paragraph>
                     <Paragraph/>
-                    <Paragraph>
-                        <Hyperlink  NavigateUri="https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Style/ButtonStylePage.xaml">https://github.com/ysdy44/FanKit/blob/master/FanKit/Frames/Style/ButtonStylePage.xaml</Hyperlink>
-                    </Paragraph>
                 </RichTextBlock>
             </Border>
         </ListView.Header>

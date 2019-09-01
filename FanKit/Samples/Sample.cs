@@ -17,6 +17,12 @@ namespace FanKit.Samples
         /// <summary> Navigate page method. </summary>
         public static void NavigatePage_Invoke(object sender, Type page) => Sample.NavigatePage?.Invoke(sender, page);
 
+        /// <summary> Flyout summary event. </summary>
+        public static event TypedEventHandler<object, Sample> FlyoutSample;
+        /// <summary> Flyout summary method. </summary>
+        public static void FlyoutSample_Invoke(object sender, Sample sample) => Sample.FlyoutSample?.Invoke(sender, sample);
+
+
 
         /// <summary> Sample's state. </summary>
         [JsonProperty]

@@ -22,6 +22,13 @@
         <!--Foreground-->
         <SolidColorBrush x:Name="CheckColor" Color="White"/>
         <SolidColorBrush x:Name="UnCheckColor" Color="LightGray"/>
+        <!--Storyboard-->
+        <Storyboard x:Name="ShowStoryboard">
+            <DoubleAnimation Duration="0:0:0.4" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundDropShadowPanel" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="FadeStoryboard">
+            <DoubleAnimation Duration="0:0:0.4" To="0.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundDropShadowPanel" d:IsOptimized="True"/>
+        </Storyboard>
     </UserControl.Resources>
     
     
@@ -33,27 +40,24 @@
         </Grid.RowDefinitions>
              
         <!--Shadow-->
-        <controls:DropShadowPanel x:Name="DropShadowPanel" 
-                 IsHitTestVisible="False" Grid.Row="1" Margin="12,8"
-                 BlurRadius="8" ShadowOpacity="0.3" OffsetX="0" OffsetY="2"
-                extensions:VisualExtensions.NormalizedCenterPoint="0.5,0.5,0">
-            <Grid Background="Gray">
+        <controls:DropShadowPanel x:Name="BackgroundDropShadowPanel" 
+                 IsHitTestVisible="False" Grid.Row="1" Opacity="0.0" Margin="12,8"
+                 BlurRadius="32" ShadowOpacity="0.6" OffsetX="0" OffsetY="2">
+            <Rectangle x:Name="BackgroundRectangle" Fill="Gray"/>
+        </controls:DropShadowPanel>
 
-                <!--Image-->
-                <controls:ImageEx x:Name="ImageEx" Stretch="Uniform"/>
+        <!--Image-->
+        <controls:ImageEx x:Name="ImageEx" IsHitTestVisible="False" Grid.Row="1" Stretch="Uniform" Margin="12,8"/>
 
-                <!--Flag-->
-                <ContentPresenter x:Name="FlagContentPresenter"
-                        Width="Auto" Height="22" Padding="4,0" 
+        <!--Flag-->
+        <ContentPresenter x:Name="FlagContentPresenter"
+                        Grid.Row="1" Width="Auto" Height="22" Padding="4,0" 
                         HorizontalAlignment="Right" VerticalAlignment="Top"
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                         BorderThickness="1" BorderBrush="White"              
                         FontSize="12" FontWeight="Normal"
                         />
 
-            </Grid>
-        </controls:DropShadowPanel>
-        
         <Grid Grid.Row="2" Margin="12,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -64,18 +68,8 @@
             <TextBlock x:Name="NameTextBlock" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
 
             <!--Button-->
-            <Button x:Name="Button" Grid.Column="1" Width="30" Content="&#xE946;" FontSize="14" FontFamily="Segoe MDL2 Assets" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}">
-                <Button.Flyout>
-                    <Flyout>
-                        <Grid>
-                            <StackPanel Width="200">
-                                <controls:ImageEx x:Name="FlyoutImageEx" Stretch="Uniform"/>
-                                <TextBlock x:Name="FlyoutNameTextBlock" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
-                                <TextBlock x:Name="FlyoutSummaryTextBlock" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            </StackPanel>
-                        </Grid>
-                    </Flyout>
-                </Button.Flyout>
+            <Button x:Name="Button" Grid.Column="1" Width="30" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{ThemeResource EllipsisButton}">
+                <FontIcon Glyph="&#xE946;" FontSize="14" FontFamily="Segoe MDL2 Assets"/>
             </Button>
             
         </Grid>

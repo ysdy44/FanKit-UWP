@@ -547,8 +547,8 @@
 
 
         <!--SamplesCategoryControl-->
-        <samples:SamplesCategoryControl x:Name="SamplesCategoryControl" Grid.Row="1" />
-
+                <samples:SamplesCategoryControl x:Name="SamplesCategoryControl" Grid.Row="1" />
+    
 
         <!--TopBar-->
         <Grid BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemControlDisabledChromeHighBrush}" Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
@@ -577,6 +577,11 @@
             </ListView>
 
         </Grid>
+
+        <!--FlyoutSampleControl-->
+        <Canvas x:Name="Canvas" Grid.Row="1" IsHitTestVisible="False" Background="Transparent">
+            <samples:FlyoutSampleControl x:Name="FlyoutSampleControl"/>
+        </Canvas>
 
     </Grid>
 </Page>

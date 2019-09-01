@@ -184,6 +184,9 @@
     <Compile Include="Frames\Win2Ds\DottedLinePage.xaml.cs">
       <DependentUpon>DottedLinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Samples\FlyoutSampleControl.xaml.cs">
+      <DependentUpon>FlyoutSampleControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Samples\SamplesCategoryControl.xaml.cs">
       <DependentUpon>SamplesCategoryControl.xaml</DependentUpon>
     </Compile>
@@ -625,6 +628,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Win2Ds\DottedLinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\FlyoutSampleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
