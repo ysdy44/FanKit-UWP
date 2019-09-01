@@ -184,7 +184,7 @@
     <Compile Include="Frames\Win2Ds\DottedLinePage.xaml.cs">
       <DependentUpon>DottedLinePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SamplesCategoryControl.xaml.cs">
+    <Compile Include="Samples\SamplesCategoryControl.xaml.cs">
       <DependentUpon>SamplesCategoryControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Brushes\AcrylicWindowBrushPage.xaml.cs">
@@ -309,7 +309,7 @@
     <Compile Include="Frames\Template\TagChipPage.xaml.cs">
       <DependentUpon>TagChipPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SampleControl.xaml.cs">
+    <Compile Include="Samples\SampleControl.xaml.cs">
       <DependentUpon>SampleControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -390,7 +390,7 @@
     <Content Include="TXT\Colors\PalettePickerPage.xaml.txt" />
     <Content Include="TXT\Colors\StrawPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\SwatchesPickerPage.xaml.txt" />
-    <Content Include="TXT\Samples.json" />
+    <Content Include="Samples\Samples.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\BadgeLogo.scale-100.png" />
@@ -628,7 +628,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SamplesCategoryControl.xaml">
+    <Page Include="Samples\SamplesCategoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -788,7 +788,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SampleControl.xaml">
+    <Page Include="Samples\SampleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

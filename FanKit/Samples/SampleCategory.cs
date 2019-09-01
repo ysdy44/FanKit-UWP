@@ -1,16 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using Windows.UI.Xaml;
 
 namespace FanKit.Samples
 {
     /// <summary>
     /// Category of <see cref="FanKit.Samples.Sample">.
     /// </summary>
+    [JsonObject(MemberSerialization.OptIn)]
     public class SampleCategory
     {
+        //@Converter
+        public Visibility BoolToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
+        
         /// <summary> SampleCategory's name. </summary>
-        public string Name;
+        [JsonProperty]
+        public string Name { get; set; }
+
+        /// <summary> SampleCategory's bedge. </summary>
+        [JsonProperty]
+        public bool HasBedge { get; set; }
 
         /// <summary> SampleCategory's list. </summary>
-        public List<Sample> Samples;
+        [JsonProperty]
+        public List<Sample> Samples { get; set; }
     }
 }

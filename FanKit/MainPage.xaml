@@ -4,12 +4,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="using:FanKit"
     xmlns:samples="using:FanKit.Samples"
-    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
-    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     mc:Ignorable="d"
-    Background="{ThemeResource AppBarBackgroundThemeBrush}">
+    Background="{ThemeResource AppBarBackgroundThemeBrush}"
+    >
 
 
     <Page.Resources>
@@ -18,12 +16,28 @@
         <SolidColorBrush x:Name="SolidColorBrush" Color="Transparent"/>
         <ImageBrush x:Name="ImageBrush" ImageSource="ms-appx:///Icon/HERO.jpg" Stretch="UniformToFill"/>
 
+        <!--DataTemplate-->
+        <DataTemplate x:Key="DataTemplate" x:DataType="samples:SampleCategory">
+            <Grid>
+                <Ellipse Width="12" Height="12"
+                                     StrokeThickness="1" Stroke="White"
+                                     Fill="{ThemeResource SystemControlBackgroundAccentBrush}" 
+                                     HorizontalAlignment="Right" VerticalAlignment="Top"
+                                     Visibility="{x:Bind BoolToVisibilityConverter(HasBedge)}"
+                                     />
+                <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+        
         <!--Style-->
         <Style x:Key="ListViewItemStyle" TargetType="ListViewItem">
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
             <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="Width" Value="Auto"/>
-            <Setter Property="MinWidth" Value="10"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="MinWidth" Value="70"/>
+            <Setter Property="Padding" Value="16,6"/>
             <Setter Property="UseSystemFocusVisuals" Value="False" />
             <Setter Property="FocusVisualMargin" Value="0" />
             <Setter Property="Template">
@@ -533,7 +547,7 @@
 
 
         <!--SamplesCategoryControl-->
-        <local:SamplesCategoryControl x:Name="SamplesCategoryControl" Grid.Row="1" />
+        <samples:SamplesCategoryControl x:Name="SamplesCategoryControl" Grid.Row="1" />
 
 
         <!--TopBar-->
@@ -551,31 +565,18 @@
             <InkToolbarCustomToggleButton x:Name="SettingButton" Background="Transparent" Grid.Column="2" Content="&#xE115;" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
 
             <!--ListView-->
-            <ListView x:Name="ListView" 
-                      Grid.Column="1" FontWeight="SemiLight" 
+            <ListView x:Name="ListView" Grid.Column="1"
+                      ItemTemplate="{StaticResource DataTemplate}"
                       ItemContainerStyle="{StaticResource ListViewItemStyle}"
                       ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollMode="Disabled">
-
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="samples:SampleCategory">
-                        <TextBlock Text="{x:Bind Name}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
-
             </ListView>
 
         </Grid>
 
     </Grid>
 </Page>
-
-
-
-
-

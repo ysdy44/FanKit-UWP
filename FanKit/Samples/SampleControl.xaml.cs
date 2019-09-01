@@ -1,10 +1,9 @@
-﻿using FanKit.Samples;
-using Microsoft.Toolkit.Uwp.UI.Animations;
+﻿using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace FanKit
+namespace FanKit.Samples
 {
     /// <summary>
     /// Control of <see cref="FanKit.Samples.Sample"/>.

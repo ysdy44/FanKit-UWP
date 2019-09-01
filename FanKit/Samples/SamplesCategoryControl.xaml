@@ -1,11 +1,9 @@
 ﻿<UserControl
-    x:Class="FanKit.SamplesCategoryControl"
+    x:Class="FanKit.Samples.SamplesCategoryControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:fankit="using:FanKit"
-    xmlns:samples="using:FanKit.Samples"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
@@ -43,9 +41,9 @@
             <controls:WrapPanel x:Name="GridView" 
                          VerticalAlignment="Top" 
                          ScrollViewer.VerticalScrollMode="Enabled"
-                          animations:ReorderGridAnimation.Duration="300" 
-                          Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
-                          />
+                         animations:ReorderGridAnimation.Duration="300" 
+                         Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
+                         />
 
         </controls:DropShadowPanel>
 

@@ -20,23 +20,23 @@ namespace FanKit.Samples
 
         /// <summary> Sample's state. </summary>
         [JsonProperty]
-        public SampleState State;
+        public SampleState State { get; set; }
 
         /// <summary> Sample's frame page. </summary>
         [JsonProperty]
-        public Type Page;
+        public Type Page { get; set; }
 
         /// <summary> Sample's name. </summary>
         [JsonProperty]
-        public string Name;
+        public string Name { get; set; }
 
         /// <summary> Sample's image uri. </summary>
         [JsonProperty]
-        public Uri Uri;
+        public Uri Uri { get; set; }
 
         /// <summary> Sample's summary. </summary>
         [JsonProperty]
-        public string Summary;
+        public string Summary { get; set; }
 
 
         /// <summary> Instance control. </summary>

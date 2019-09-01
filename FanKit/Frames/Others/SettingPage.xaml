@@ -76,12 +76,12 @@
 
                 <!--Reference-->
                 <ContentControl Content="&#xE1CB;" Tag="Reference" Style="{StaticResource ContentControlStyle}"/>
-                <reference:ReferenceToolKitControls/>
-                <reference:ReferenceToolKitExtensions/>
-                <reference:ReferenceToolKitAnimations/>
-                <reference:ReferenceWin2d/>
-                <reference:ReferenceHSVColorPicker/>
-                <reference:ReferenceTransformers/>
+                <reference:ReferenceToolKitControls Margin="0" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}"/>
+                <reference:ReferenceToolKitExtensions Margin="0" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}"/>
+                <reference:ReferenceToolKitAnimations Margin="0" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}"/>
+                <reference:ReferenceWin2d Margin="0" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}"/>
+                <reference:ReferenceHSVColorPicker Margin="0" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}"/>
+                <reference:ReferenceTransformers Margin="0" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}"/>
 
                 <!--Feedback-->
                 <ContentControl Content="&#xE25C;" Tag="Feedback" Style="{StaticResource ContentControlStyle}"/>

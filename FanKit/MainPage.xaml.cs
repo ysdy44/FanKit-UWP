@@ -11,8 +11,7 @@ using Windows.UI.Xaml.Controls;
 namespace FanKit
 {
     public sealed partial class MainPage : Page
-    {         
-
+    {
         private bool isImageVisible;
         public bool IsImageVisible
         {
@@ -66,7 +65,7 @@ namespace FanKit
                 this.IsCanGoBack = false; 
 
                 //SampleCategory
-                string json = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Samples.json");
+                string json = await FanKit.Samples.File.GetFile("ms-appx:///Samples/Samples.json");
                 this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SampleCategory>>(json);
             };
                                               

@@ -1,6 +1,7 @@
 ﻿[
   {
     "Name": "Brushes",
+    "HasBedge": false,
     "Samples": [
       {
         "State": 0,
@@ -69,6 +70,7 @@
   },
   {
     "Name": "Style",
+    "HasBedge": true,
     "Samples": [
       {
         "State": 0,
@@ -137,6 +139,7 @@
   },
   {
     "Name": "Template",
+    "HasBedge": false,
     "Samples": [
       {
         "State": 0,
@@ -184,6 +187,7 @@
   },
   {
     "Name": "Control",
+    "HasBedge": false,
     "Samples": [
       {
         "State": 0,
@@ -224,6 +228,7 @@
   },
   {
     "Name": "Colors",
+    "HasBedge": false,
     "Samples": [
       {
         "State": 0,
@@ -313,6 +318,7 @@
   },
   {
     "Name": "Transformers",
+    "HasBedge": true,
     "Samples": [
       {
         "State": 0,
@@ -367,6 +373,7 @@
   },
   {
     "Name": "Win2Ds",
+    "HasBedge": false,
     "Samples": [
       {
         "State": 0,

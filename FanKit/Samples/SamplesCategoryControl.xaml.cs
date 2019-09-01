@@ -1,8 +1,7 @@
-﻿using FanKit.Samples;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace FanKit
+namespace FanKit.Samples
 {
     /// <summary>
     /// Control of <see cref="FanKit.Samples. SampleCategory"/>.
