@@ -16,21 +16,30 @@ namespace FanKit.Samples
             Point screenCoords = transform.TransformPoint(new Point(0, 0));
             Point centerCoords = new Point(screenCoords.X + element.ActualWidth / 2, screenCoords.Y + element.ActualHeight / 2);
 
-            Canvas.SetLeft(this, centerCoords.X - this.ActualWidth / 2);
-            Canvas.SetTop(this, centerCoords.Y - this.ActualHeight / 2);
+            double x = centerCoords.X - this.ActualWidth / 2;
+            double y = centerCoords.Y - this.ActualHeight / 2;
+
+            if (x < 0) x = 0;
+            if (y < 0) y = 0;
+            Canvas.SetLeft(this, x);
+            Canvas.SetTop(this, y);
         }
         public void SetSample(Sample sample)
         {
             if (sample == null) return;
 
             Uri uri = sample.Uri;
-            this.FlyoutImageEx.Source = uri;
+            this.Image.Source = uri;
 
             string name = sample.Name;
-            this.FlyoutNameTextBlock.Text = name;
+            this.NameTextbolck.Text = name;
 
             string summary = sample.Summary;
-            this.FlyoutSummaryTextBlock.Text = summary;
+            this.SummaryContentControl.Content = new TextBlock
+            {
+                Text = summary,
+                TextWrapping = TextWrapping.WrapWholeWords
+            };
         }
 
         //@Construct

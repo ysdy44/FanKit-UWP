@@ -47,7 +47,7 @@
         </controls:DropShadowPanel>
 
         <!--Image-->
-        <controls:ImageEx x:Name="ImageEx" IsHitTestVisible="False" Grid.Row="1" Stretch="Uniform" Margin="12,8"/>
+        <controls:ImageEx x:Name="Image" IsHitTestVisible="False" Grid.Row="1" Stretch="Uniform" Margin="12,8"/>
 
         <!--Flag-->
         <ContentPresenter x:Name="FlagContentPresenter"

@@ -42,11 +42,18 @@
             Background="{x:Bind UserControl.Background,Mode=OneWay}"
             >
             <StackPanel>
-                <controls:ImageEx x:Name="FlyoutImageEx" Stretch="Uniform"/>
+                <controls:ImageEx x:Name="Image" Stretch="Uniform"/>
                 <ContentControl Height="12"/>
-                <TextBlock x:Name="FlyoutNameTextBlock" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
+                <TextBlock x:Name="NameTextbolck" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
                 <ContentControl Height="6"/>
-                <TextBlock x:Name="FlyoutSummaryTextBlock" FontWeight="Medium" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                <ContentControl x:Name="SummaryContentControl">
+                    <ContentControl.ContentTransitions>
+                        <TransitionCollection>
+                            <ContentThemeTransition VerticalOffset="100"/>
+                        </TransitionCollection>
+                    </ContentControl.ContentTransitions>
+                    <!--Content-->
+                </ContentControl>
             </StackPanel>
         </Border>
         

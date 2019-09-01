@@ -21,12 +21,10 @@ namespace FanKit.Samples
             this.FlagContentPresenter.Content = (state == SampleState.None) ? string.Empty : state.ToString();
 
             Uri uri = sample.Uri;
-            this.ImageEx.Source = uri;
+            this.Image.Source = uri;
 
             string name = sample.Name;
             this.NameTextBlock.Text = name;
-
-            string summary = sample.Summary;
         }
 
         //@Construct
@@ -35,7 +33,7 @@ namespace FanKit.Samples
             this.InitializeComponent();
             this.SetSample(sample);
 
-            this.ImageEx.SizeChanged += (s, e) =>
+            this.Image.SizeChanged += (s, e) =>
             {
                 if (e.PreviousSize == e.NewSize) return;
 

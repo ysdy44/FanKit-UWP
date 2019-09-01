@@ -579,7 +579,7 @@
         </Grid>
 
         <!--FlyoutSampleControl-->
-        <Canvas x:Name="Canvas" Grid.Row="1" IsHitTestVisible="False" Background="Transparent">
+        <Canvas x:Name="Canvas" Grid.RowSpan="2" IsHitTestVisible="False" Background="Transparent">
             <samples:FlyoutSampleControl x:Name="FlyoutSampleControl"/>
         </Canvas>
 
