@@ -367,28 +367,37 @@
         "Page": "FanKit.Frames.Transformers.CurveNodesPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "CurveNodes",
         "Uri": "ms-appx:///Icon/Transformers/CurveNodes.png",
-        "Summary": " Drawing and managing Bezier curves on CanvasControl "
-      }
-    ]
-  },
-  {
-    "Name": "Win2Ds",
-    "HasBedge": false,
-    "Samples": [
-      {
-        "State": 0,
-        "Page": "FanKit.Frames.Win2Ds.DottedLinePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-        "Name": "DottedLine",
-        "Uri": "ms-appx:///Icon/Win2Ds/DottedLine.png",
-        "Summary": "the Dotted Line of photoshop ,should display the 'marching ants'"
+        "Summary": "Drawing and managing Bezier curves on CanvasControl "
       },
       {
-        "State": 0,
-        "Page": "FanKit.Frames.Win2Ds.MarqueeToolPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.CurveNodesPage2, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "CurveNodes2",
+        "Uri": "ms-appx:///Icon/Transformers/CurveNodes.png",
+        "Summary": "Drawing and managing Bezier curves on CanvasControl "
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.DottedLinePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "DottedLine",
+        "Uri": "ms-appx:///Icon/Transformers/DottedLine.png",
+        "Summary": "The Dotted Line of photoshop ,should display the 'marching ants'"
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.DottedLinePage2, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "DottedLine2",
+        "Uri": "ms-appx:///Icon/Transformers/DottedLine.png",
+        "Summary": "The Dotted Line of photoshop ,should display the 'marching ants'"
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.MarqueeToolPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "MarqueeTool",
-        "Uri": "ms-appx:///Icon/Win2Ds/MarqueeTool.png",
+        "Uri": "ms-appx:///Icon/Transformers/MarqueeTool.png",
         "Summary": "The marquee is a tool that can make selections that are  rectangular and elliptical."
       }
+
     ]
   }
 ]

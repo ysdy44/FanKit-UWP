@@ -6,6 +6,27 @@
 
     <Application.Resources>
         <ResourceDictionary>
+            
+            
+            <ResourceDictionary.ThemeDictionaries>
+
+                <ResourceDictionary x:Key="Default">
+                    <Color x:Key="AppForegroundColor">#FFFFFF</Color>
+                    <SolidColorBrush x:Key="AppForeground" Color="{ThemeResource AppForegroundColor}"/>
+                    <Color x:Key="AppBackgroundColor">#2B2B2B</Color>
+                    <SolidColorBrush x:Key="AppBackground" Color="{ThemeResource AppBackgroundColor}"/>
+                </ResourceDictionary>
+                
+                <ResourceDictionary x:Key="Dark">
+                    <Color x:Key="AppForegroundColor">#00000</Color>
+                    <SolidColorBrush x:Key="AppForeground" Color="{ThemeResource AppForegroundColor}"/>
+                    <Color x:Key="AppBackgroundColor">#F2F2F2</Color>
+                    <SolidColorBrush x:Key="AppBackground" Color="{ThemeResource AppBackgroundColor}"/>
+                </ResourceDictionary>
+
+            </ResourceDictionary.ThemeDictionaries>
+            
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ms-appx:///Style/Bursh.xaml"/>
                 <ResourceDictionary Source="ms-appx:///Style/Style.xaml"/>

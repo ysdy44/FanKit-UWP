@@ -74,6 +74,10 @@
                 <ContentControl Content="&#xE71B;" Tag="Open source" Style="{StaticResource ContentControlStyle}"/>
                 <HyperlinkButton Content="https://github.com/ysdy44/FanKit-UWP" NavigateUri="https://github.com/ysdy44/FanKit-UWP"/>
 
+                <!--Blog-->
+                <ContentControl Content="&#xE71B;" Tag="Blog" Style="{StaticResource ContentControlStyle}"/>
+                <HyperlinkButton Content="https://zhuanlan.zhihu.com/c_191585960" NavigateUri="https://zhuanlan.zhihu.com/c_191585960"/>
+
                 <!--Reference-->
                 <ContentControl Content="&#xE1CB;" Tag="Reference" Style="{StaticResource ContentControlStyle}"/>
                 <reference:ReferenceToolKitControls Margin="0" Background="{ThemeResource SystemControlBackgroundAltMediumBrush}"/>

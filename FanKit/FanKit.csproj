@@ -118,6 +118,20 @@
     <Compile Include="Frames\Styles\TransitionPage.xaml.cs">
       <DependentUpon>TransitionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Transformers\CurveNodesPage2.xaml.cs">
+      <DependentUpon>CurveNodesPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Transformers\DottedLine.cs" />
+    <Compile Include="Frames\Transformers\DottedLinePage.xaml.cs">
+      <DependentUpon>DottedLinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Transformers\DottedLinePage2.xaml.cs">
+      <DependentUpon>DottedLinePage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Transformers\MarqueeTool.cs" />
+    <Compile Include="Frames\Transformers\MarqueeToolPage.xaml.cs">
+      <DependentUpon>MarqueeToolPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Transformers\RemoteControlPage.xaml.cs">
       <DependentUpon>RemoteControlPage.xaml</DependentUpon>
     </Compile>
@@ -166,9 +180,6 @@
     <Compile Include="Frames\Transformers\IndicatorControlPage.xaml.cs">
       <DependentUpon>IndicatorControlPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Win2Ds\MarqueeToolPage.xaml.cs">
-      <DependentUpon>MarqueeToolPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frames\Colors\AlphaPickerPage.xaml.cs">
       <DependentUpon>AlphaPickerPage.xaml</DependentUpon>
     </Compile>
@@ -180,9 +191,6 @@
     </Compile>
     <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
       <DependentUpon>RadiusShadowPanelPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frames\Win2Ds\DottedLinePage.xaml.cs">
-      <DependentUpon>DottedLinePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\FlyoutSampleControl.xaml.cs">
       <DependentUpon>FlyoutSampleControl.xaml</DependentUpon>
@@ -346,7 +354,7 @@
     <Content Include="Icon\Transformers\Transformer.png" />
     <Content Include="Icon\Transformers\CurveNodes.png" />
     <Content Include="Icon\Transformers\IndicatorControl.png" />
-    <Content Include="Icon\Win2Ds\MarqueeTool.png" />
+    <Content Include="Icon\Transformers\MarqueeTool.png" />
     <Content Include="TXT\Colors\HexPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\PalettePickerPage.cs.txt" />
     <Content Include="TXT\Control\RadiusAnimaPanel.cs.txt" />
@@ -355,6 +363,10 @@
     <Content Include="TXT\Colors\PalettePage.xaml.txt" />
     <Content Include="TXT\Styles\ChildrenTransition.style.txt" />
     <Content Include="TXT\Styles\Transition.style.txt" />
+    <Content Include="TXT\Transformers\CurveNodesPage2.xaml.txt" />
+    <Content Include="TXT\Transformers\CurveNodesPage2.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\DottedLinePage2.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\DottedLinePage2.xaml.txt" />
     <Content Include="TXT\Transformers\RemoteControlPage.xaml.txt" />
     <Content Include="TXT\Control\SplitPanelControl.xaml.txt" />
     <Content Include="TXT\Control\ThemeControl.cs.txt" />
@@ -369,15 +381,13 @@
     <Content Include="TXT\Transformers\Transformer2Page.xaml.cs.txt" />
     <Content Include="TXT\Transformers\TransformerPage.xaml.cs.txt" />
     <Content Include="TXT\Transformers\TransformerPage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\DottedLine.cs.txt" />
     <Content Include="TXT\Transformers\CurveNodesPage.xaml.txt" />
     <Content Include="TXT\Transformers\CurveNodesPage.xaml.cs.txt" />
-    <Content Include="TXT\Win2Ds\DottedLinePage.xaml.cs.txt" />
-    <Content Include="TXT\Win2Ds\DottedLinePage.xaml.txt" />
+    <Content Include="TXT\Transformers\DottedLinePage.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\DottedLinePage.xaml.txt" />
     <Content Include="TXT\Transformers\IndicatorControlPage.xaml.txt" />
-    <Content Include="TXT\Win2Ds\MarqueeTool.cs.txt" />
-    <Content Include="TXT\Win2Ds\MarqueeToolPage.xaml.cs.txt" />
-    <Content Include="TXT\Win2Ds\MarqueeToolPage.xaml.txt" />
+    <Content Include="TXT\Transformers\MarqueeToolPage.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\MarqueeToolPage.xaml.txt" />
     <None Include="FanKit_StoreKey.pfx" />
     <None Include="FanKit_TemporaryKey.pfx" />
     <Content Include="Icon\Colors\AlphaPicker.png" />
@@ -387,7 +397,7 @@
     <Content Include="Icon\Colors\SwatchesPicker.png" />
     <Content Include="Icon\Styles\FontWeight.png" />
     <Content Include="Icon\Template\RadiusShadowPanel.png" />
-    <Content Include="Icon\Win2Ds\DottedLine.png" />
+    <Content Include="Icon\Transformers\DottedLine.png" />
     <Content Include="TXT\Colors\AlphaPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\ColorPickerPage.xaml.txt" />
     <Content Include="TXT\Colors\PalettePickerPage.xaml.txt" />
@@ -551,6 +561,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frames\Transformers\CurveNodesPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Transformers\DottedLinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Transformers\DottedLinePage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Transformers\MarqueeToolPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frames\Transformers\RemoteControlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -607,10 +633,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Frames\Win2Ds\MarqueeToolPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Frames\Colors\AlphaPickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -624,10 +646,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Template\RadiusShadowPanelPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frames\Win2Ds\DottedLinePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -851,10 +869,6 @@
     <ProjectReference Include="..\FanKit.Control\FanKit.Control.csproj">
       <Project>{b3c72dcb-090f-4c63-b5ed-b018cef76d2d}</Project>
       <Name>FanKit.Control</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FanKit.Win2Ds\FanKit.Win2Ds.csproj">
-      <Project>{902f20ca-e8a3-48ea-a284-777689945ae2}</Project>
-      <Name>FanKit.Win2Ds</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

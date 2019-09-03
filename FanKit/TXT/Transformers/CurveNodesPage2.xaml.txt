@@ -8,6 +8,8 @@
     >
 
       <Page.Resources>
+            <!--CanvasTransformer-->
+            <transformers:CanvasTransformer x:Name="CanvasTransformer"/>
             <!--CanvasOperator-->
             <transformers:CanvasOperator x:Name="CanvasOperator" DestinationControl="{x:Bind CanvasControl}"/>
        </Page.Resources>

@@ -1,5 +1,4 @@
 ﻿using FanKit.Transformers;
-using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Geometry;
 using System.Numerics;
 using Windows.UI.Xaml.Controls;
@@ -167,16 +166,9 @@ namespace FanKit.Frames.Transformers
             #region Draw
 
 
-            this.CanvasControl.SizeChanged += (s, e) =>
-            {
-                if (e.NewSize == e.PreviousSize) return;
-                this.CanvasTransformer.Size = e.NewSize;
-                this.CanvasTransformer.Fit();
-            };
-
             this.CanvasControl.CreateResources += (s, args) =>
             {
-                Vector2 center = new Vector2(this.CanvasTransformer.Width, this.CanvasTransformer.Height) / 2;
+                Vector2 center = new Vector2((float)this.CanvasControl.ActualWidth, (float)this.CanvasControl.ActualHeight) / 2;
                 this.NodeCollection = new NodeCollection
                 {
                     new Node
@@ -215,23 +207,19 @@ namespace FanKit.Frames.Transformers
             };
             this.CanvasControl.Draw += (sender, args) =>
             {
-                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
-
-                //DrawCrad
-                var previousImage = new ColorSourceEffect { Color = Windows.UI.Colors.White };
-                args.DrawingSession.DrawCrad(previousImage, this.CanvasTransformer);
+                args.DrawingSession.Clear(Windows.UI.Colors.White);
 
                 //DrawBound
                 CanvasGeometry geometry = this.NodeCollection.CreateGeometry(sender);
-                args.DrawingSession.DrawGeometry(geometry.Transform(matrix), Windows.UI.Colors.DodgerBlue);
+                args.DrawingSession.DrawGeometry(geometry, Windows.UI.Colors.DodgerBlue);
 
                 //DrawNodeCollection
-                args.DrawingSession.DrawNodeCollection(this.NodeCollection, matrix);
+                args.DrawingSession.DrawNodeCollection(this.NodeCollection);
 
                 switch (this.Mode)
                 {
                     case NodeCollectionMode.RectChoose:
-                        args.DrawingSession.FillRectDodgerBlue(this.CanvasControl, this._transformerRect, matrix);
+                        args.DrawingSession.FillRectDodgerBlue(this.CanvasControl, this._transformerRect);
                         break;
                 }
             };
@@ -246,9 +234,8 @@ namespace FanKit.Frames.Transformers
             //Single
             this.CanvasOperator.Single_Start += (point) =>
             {
-                Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
-                Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
-                this.canvasStartingPoint = Vector2.Transform(point, inverseMatrix);
+                Vector2 canvasPoint = point;
+                this.canvasStartingPoint = point;
 
                 if (this._isAdd)
                 {
@@ -257,8 +244,7 @@ namespace FanKit.Frames.Transformers
                     return;
                 }
 
-                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
-                this.Mode = NodeCollection.ContainsNodeCollectionMode(point, this.NodeCollection, matrix);
+                this.Mode = NodeCollection.ContainsNodeCollectionMode(point, this.NodeCollection);
 
                 switch (this.Mode)
                 {
@@ -283,9 +269,7 @@ namespace FanKit.Frames.Transformers
             };
             this.CanvasOperator.Single_Delta += (point) =>
             {
-
-                Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
-                Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
+                Vector2 canvasPoint = point;
 
                 switch (this.Mode)
                 {
@@ -321,51 +305,6 @@ namespace FanKit.Frames.Transformers
             this.CanvasOperator.Single_Complete += (point) =>
             {
                 this.Mode = NodeCollectionMode.None;
-                this.CanvasControl.Invalidate();
-            };
-
-
-            //Right
-            this.CanvasOperator.Right_Start += (point) =>
-            {
-                this.CanvasTransformer.CacheMove(point);
-            };
-            this.CanvasOperator.Right_Delta += (point) =>
-            {
-                this.CanvasTransformer.Move(point);
-                this.CanvasControl.Invalidate();
-            };
-            this.CanvasOperator.Right_Complete += (point) =>
-            {
-                this.CanvasTransformer.Move(point);
-                this.CanvasControl.Invalidate();
-            };
-
-
-            //Double
-            this.CanvasOperator.Double_Start += (center, space) =>
-            {
-                this.CanvasTransformer.CachePinch(center, space);
-                this.CanvasControl.Invalidate();
-            };
-            this.CanvasOperator.Double_Delta += (center, space) =>
-            {
-                this.CanvasTransformer.Pinch(center, space);
-                this.CanvasControl.Invalidate();
-            };
-            this.CanvasOperator.Double_Complete += (center, space) =>
-            {
-                this.CanvasControl.Invalidate();
-            };
-
-            //Wheel
-            this.CanvasOperator.Wheel_Changed += (point, space) =>
-            {
-                if (space > 0)
-                    this.CanvasTransformer.ZoomIn(point);
-                else
-                    this.CanvasTransformer.ZoomOut(point);
-
                 this.CanvasControl.Invalidate();
             };
 

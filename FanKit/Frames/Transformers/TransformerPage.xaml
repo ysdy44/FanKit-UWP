@@ -38,10 +38,12 @@
                             <!--Separator-->
                             <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
-                            
-                            <CheckBox IsChecked="{x:Bind IsCenter,Mode=TwoWay}" Content="Center" Margin="14,0"/>
-                            <CheckBox IsChecked="{x:Bind IsRatio,Mode=TwoWay}" Content="Ratio" Margin="14,0"/>
-                            <CheckBox IsChecked="{x:Bind IsStepFrequency,Mode=TwoWay}" Content="StepFrequency" Margin="14,0"/>
+
+                            <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                <CheckBox IsChecked="{x:Bind IsCenter,Mode=TwoWay}" Content="Center" Margin="14,0"/>
+                                <CheckBox IsChecked="{x:Bind IsRatio,Mode=TwoWay}" Content="Ratio" Margin="14,0"/>
+                                <CheckBox IsChecked="{x:Bind IsStepFrequency,Mode=TwoWay}" Content="StepFrequency" Margin="14,0"/>
+                            </StackPanel>
 
                             <Grid  Height="120" Margin="12" BorderThickness="1" BorderBrush="Gray" HorizontalAlignment="Left">
                                 <Grid.ColumnDefinitions>
