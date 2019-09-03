@@ -20,7 +20,7 @@
                 Width="{Binding ElementName=Adaptiver,Path=SizeWidth}" 
                 Height="{Binding ElementName=Adaptiver,Path=SizeHeight}" 
                 >
-                <Grid Margin="4" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <Grid Margin="4" Background="{ThemeResource AppBackground}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -176,9 +176,9 @@
         </controls:GridSplitter>
 
 
-        <Border  x:Name="Border" Grid.Column="2" Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Border  x:Name="Border" Grid.Column="2" Grid.Row="2" Background="{ThemeResource AppForeground}">
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <StackPanel>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                      
@@ -206,12 +206,12 @@
                         </TextBlock>
                     </StackPanel>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="Class Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="Class Code" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
                     </ScrollViewer>

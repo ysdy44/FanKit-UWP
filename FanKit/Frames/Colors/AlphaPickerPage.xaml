@@ -26,7 +26,7 @@
 
         <frames:PageLayout1.DetailContent>
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <StackPanel>
 
                         <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
@@ -50,7 +50,7 @@
 
                     </StackPanel>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>

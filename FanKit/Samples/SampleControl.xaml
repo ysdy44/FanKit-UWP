@@ -42,21 +42,25 @@
         <!--Shadow-->
         <controls:DropShadowPanel x:Name="BackgroundDropShadowPanel" 
                  IsHitTestVisible="False" Grid.Row="1" Opacity="0.0" Margin="12,8"
-                 BlurRadius="32" ShadowOpacity="0.6" OffsetX="0" OffsetY="2">
+                 BlurRadius="32" ShadowOpacity="1.0" OffsetX="0" OffsetY="2"
+                 Color="{ThemeResource AppStrokeColor}">
             <Rectangle x:Name="BackgroundRectangle" Fill="Gray"/>
         </controls:DropShadowPanel>
 
         <!--Image-->
-        <controls:ImageEx x:Name="Image" IsHitTestVisible="False" Grid.Row="1" Stretch="Uniform" Margin="12,8"/>
+        <controls:ImageEx x:Name="Image"
+               IsHitTestVisible="False" Grid.Row="1" Margin="12,8" Stretch="Uniform"
+               BorderThickness="1" BorderBrush="{ThemeResource AppBorderBrush}"
+              />
 
         <!--Flag-->
         <ContentPresenter x:Name="FlagContentPresenter"
-                        Grid.Row="1" Width="Auto" Height="22" Padding="4,0" 
-                        HorizontalAlignment="Right" VerticalAlignment="Top"
-                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                        BorderThickness="1" BorderBrush="White"              
-                        FontSize="12" FontWeight="Normal"
-                        />
+              Grid.Row="1" Width="Auto" Height="22" Padding="4,0" 
+              HorizontalAlignment="Right" VerticalAlignment="Top"
+              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+              BorderThickness="1" BorderBrush="White"              
+              FontSize="12" FontWeight="Normal"
+             />
 
         <Grid Grid.Row="2" Margin="12,0">
             <Grid.ColumnDefinitions>

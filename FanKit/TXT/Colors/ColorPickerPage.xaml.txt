@@ -1,18 +1,12 @@
 ```xaml
 
 
-
 <Page
     x:Class="FanKit.Frames.Colors.ColorPickerPage"
     xmlns:hsvColorPickers="using:HSVColorPickers"
     >
-    
-        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <hsvColorPickers:ColorPicker x:Name="ColorPicker" Background="Transparent"/>
-        </Border>
-
+        <hsvColorPickers:ColorPicker x:Name="ColorPicker" Background="Transparent"/>
 </Page>
-
 
 
 ```

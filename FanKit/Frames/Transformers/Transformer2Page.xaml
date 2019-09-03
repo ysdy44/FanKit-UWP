@@ -30,7 +30,7 @@
 
         <frames:PageLayout.DetailContent>
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <StackPanel>
 
@@ -40,7 +40,7 @@
                             <!--Separator-->
                             <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
-                            <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                            <StackPanel Background="{ThemeResource AppForeground}">
                                 <CheckBox IsChecked="{x:Bind IsCenter,Mode=TwoWay}" Content="Center" Margin="14,0"/>
                                 <CheckBox IsChecked="{x:Bind IsRatio,Mode=TwoWay}" Content="Ratio" Margin="14,0"/>
                                 <CheckBox IsChecked="{x:Bind IsStepFrequency,Mode=TwoWay}" Content="StepFrequency" Margin="14,0"/>
@@ -108,12 +108,12 @@
                         </StackPanel>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="Code" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
                     </ScrollViewer>

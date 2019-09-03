@@ -97,7 +97,7 @@
         </controls:GridSplitter>
 
 
-        <Border  x:Name="DetailBorder" Grid.Column="2" Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Border  x:Name="DetailBorder" Grid.Column="2" Grid.Row="2" Background="{ThemeResource AppForeground}">
             <!--Detail-->
         </Border>
 

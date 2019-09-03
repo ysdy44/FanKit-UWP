@@ -149,7 +149,7 @@
             <Setter Property="IsFocusEngagementEnabled" Value="True"/>
             <Setter Property="MinWidth" Value="16"/>
             <Setter Property="MinHeight" Value="16"/>
-            <Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+            <Setter Property="Background" Value="{ThemeResource AppForeground}"/>
             <Setter Property="GripperForeground" Value="{ThemeResource SystemControlForegroundAltHighBrush}"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -265,7 +265,7 @@
 
         <frames:PageLayout2.DetailContent>
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <StackPanel>
                         <Button x:Name="Button" Margin="12" Content="Show"/>
 
@@ -291,12 +291,12 @@
                         
                     </StackPanel>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer  >
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="Style" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="Style" Background="{ThemeResource AppBackground}">
                     <ScrollViewer  >
                         <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
                     </ScrollViewer>

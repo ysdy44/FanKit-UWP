@@ -108,7 +108,7 @@
 
     <!--FlyoutPresenter（Shadow）-->
     <Style x:Key="AppShadowFlyoutPresenter" TargetType="FlyoutPresenter" >
-        <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+        <Setter Property="Background" Value="{ThemeResource AppBackground}"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="IsTabStop" Value="False"/>
@@ -160,7 +160,7 @@
         <Setter Property="IsFocusEngagementEnabled" Value="True"/>
         <Setter Property="MinWidth" Value="16"/>
         <Setter Property="MinHeight" Value="16"/>
-        <Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+        <Setter Property="Background" Value="{ThemeResource AppForeground}"/>
         <Setter Property="GripperForeground" Value="{ThemeResource SystemControlForegroundAltHighBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -182,9 +182,16 @@
     <!--Rectangle ( Splitter )-->
     <Style x:Key="AppSplitterRectangleStyle" TargetType="Rectangle">
         <Setter Property="Height" Value="6"/>
-        <Setter Property="Fill" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+        <Setter Property="Fill" Value="{ThemeResource AppForeground}"/>
     </Style>
 
+    <!--Border-->
+    <Style x:Key="AppBorderStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{ThemeResource AppForeground}"/>
+    </Style>
     <!--RadioButton-->
     <Style x:Name="AppTapRadioButtonStyle" TargetType="RadioButton">
         <Setter Property="Margin" Value="10,0" />

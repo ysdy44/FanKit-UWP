@@ -96,7 +96,7 @@
 
         <frames:PageLayout.DetailContent>
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <StackPanel>
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
                                                      
@@ -118,12 +118,12 @@
                         </TextBlock>
                     </StackPanel>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="Class Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="Class Code" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
                     </ScrollViewer>

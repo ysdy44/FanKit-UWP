@@ -13,7 +13,7 @@
     Margin="12,2"
     BorderThickness="1" 
     BorderBrush="Transparent"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="{ThemeResource AppForeground}"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Top"
     >

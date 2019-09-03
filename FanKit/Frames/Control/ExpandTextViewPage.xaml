@@ -37,7 +37,7 @@
         <frames:PageLayout.ShowContent>
             <ScrollViewer Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-                <StackPanel VerticalAlignment="Top" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <StackPanel VerticalAlignment="Top" Background="{ThemeResource AppBackground}">
 
                     <Border  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
                         <TextBlock Text="Expand TextView" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
@@ -71,7 +71,7 @@
 
         <frames:PageLayout.DetailContent>
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <StackPanel>
                         
                         <TextBlock Margin="12" TextWrapping="WrapWholeWords">
@@ -92,17 +92,17 @@
 
                     </StackPanel>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="UserControl XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="UserControl XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText2" />
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="UserControl Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="UserControl Code" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>

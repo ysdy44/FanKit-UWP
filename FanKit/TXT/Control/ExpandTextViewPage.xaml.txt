@@ -16,7 +16,7 @@
     
 <ScrollViewer Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-    <StackPanel VerticalAlignment="Top" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+    <StackPanel VerticalAlignment="Top">
 
         <Border  Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
             <TextBlock Text="Expand TextView" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>

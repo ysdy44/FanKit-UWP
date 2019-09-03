@@ -22,7 +22,7 @@
 
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
-                            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+                            <Setter Property="Background" Value="{ThemeResource AppBackground}"/>
                         </Style>
                     </ListView.ItemContainerStyle>
 
@@ -91,7 +91,7 @@
 
         <frames:PageLayout.DetailContent>
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <StackPanel>
 
                         <Button x:Name="Button" Margin="12" Content="Visible"/>
@@ -134,17 +134,17 @@
 
                     </StackPanel>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer  >
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="Style" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="Style" Background="{ThemeResource AppBackground}">
                     <ScrollViewer  >
                         <controls:MarkdownTextBlock x:Name="MarkdownText2" />
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="Code" Background="{ThemeResource AppBackground}">
                     <ScrollViewer  >
                         <controls:MarkdownTextBlock x:Name="MarkdownText3"/>
                     </ScrollViewer>

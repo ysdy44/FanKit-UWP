@@ -31,14 +31,14 @@
 
         <frames:PageLayout.DetailContent>
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <StackPanel>
 
                             <TextBlock Margin="12,4" TextWrapping="Wrap">
                                 <Span FontStyle="Italic">CurveNodes </Span>
                             </TextBlock>
-                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource AppForeground}">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="80" />
@@ -67,7 +67,7 @@
                                 <LineBreak/>   
                                 <Span>In Nodes mode, choose the nodes and move.</Span>
                             </TextBlock>                 
-                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource AppForeground}">
                                 <StackPanel Orientation="Horizontal">
                                     <AppBarButton x:Name="RemoveButton" Label="Remove" >
                                         <AppBarButton.Icon>
@@ -106,7 +106,7 @@
                                 <Span FontWeight="Bold"> Angle </Span>
                                 <Span>of the self-control point.</Span>      
                             </TextBlock>
-                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                            <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource AppForeground}">
                                 <StackPanel Orientation="Horizontal" Padding="8,0">
                                     <CheckBox x:Name="AngleCheckBox" Content="Angle" MinWidth="100"/>
                                     <CheckBox x:Name="LengthCheckBox" Content="Length" MinWidth="100"/>
@@ -116,7 +116,7 @@
                             <TextBlock Margin="12,4" TextWrapping="Wrap">
                                 <Span>Set the mode of the each control point.</Span>             
                             </TextBlock>
-                            <Border CornerRadius="4" Height="Auto" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                            <Border CornerRadius="4" Height="Auto" HorizontalAlignment="Center" Background="{ThemeResource AppForeground}">
                                 <StackPanel Orientation="Horizontal">
 
                                     <RadioButton x:Name="MirroredRadioButton" Tag="Mirrored" Style="{StaticResource AppTapRadioButtonStyle}">
@@ -185,12 +185,12 @@
                         </StackPanel>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="Code" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="Code" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
                     </ScrollViewer>

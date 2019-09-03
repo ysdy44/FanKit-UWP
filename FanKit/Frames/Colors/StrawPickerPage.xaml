@@ -26,7 +26,7 @@
                        apiContractNotPresent5:Background="{ThemeResource SystemControlBackgroundAltMediumLowBrush}"
                        apiContractPresent5:Background="{ThemeResource SystemControlAltMediumLowAcrylicElementMediumBrush}"
                       >
-                <Border Width="80" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <Border Width="80" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{ThemeResource AppBackground}">
                     <hsvColorPickers:StrawPicker x:Name="StrawPicker" Background="Transparent"/>
                 </Border>
             </Border>
@@ -35,7 +35,7 @@
 
         <frames:PageLayout2.DetailContent>
             <Pivot>
-                <PivotItem Header="PROPERTYIES" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
                     <StackPanel>
 
                         <Ellipse Width="40" Height="40" Margin="12" HorizontalAlignment="Left" Fill="{StaticResource SolidColorBrushKey}"/>
@@ -68,7 +68,7 @@
 
                     </StackPanel>
                 </PivotItem>
-                <PivotItem Header="XAML" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
                     <ScrollViewer>
                         <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
                     </ScrollViewer>

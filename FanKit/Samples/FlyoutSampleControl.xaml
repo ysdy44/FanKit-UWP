@@ -13,12 +13,10 @@
     VerticalAlignment="Top"
     Padding="12"
     Width="200"
-    IsHitTestVisible="False" 
+    Background="{ThemeResource AppBackground}" 
+    extensions:VisualExtensions.CenterPoint="100,100,0"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    Visibility="Collapsed"
-    Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
-    extensions:VisualExtensions.CenterPoint="100,100,0"
     >
 
     <!--Visibility:Show-->
@@ -34,7 +32,9 @@
     </animations:Implicit.HideAnimations>
 
     <controls:DropShadowPanel x:Name="BackgroundDropShadowPanel"
-                 BlurRadius="40" ShadowOpacity="0.4" OffsetX="2" OffsetY="4">
+                 BlurRadius="32" ShadowOpacity="1.0" OffsetX="2" OffsetY="4"
+                 Color="{ThemeResource AppStrokeColor}"
+                  >
     
         <Border 
             Width="{x:Bind UserControl.Width,Mode=OneWay}"

@@ -91,7 +91,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Border x:Name="ShowBorder" Grid.Column="1" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Border x:Name="ShowBorder" Grid.Column="1" Grid.Row="1" Background="{ThemeResource AppForeground}">
                 <!--Show-->
             </Border>
         </Grid>
@@ -109,7 +109,7 @@
         </controls:GridSplitter>
 
 
-        <Border  x:Name="DetailBorder" Grid.Column="2" Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Border  x:Name="DetailBorder" Grid.Column="2" Grid.Row="2" Background="{ThemeResource AppForeground}">
             <!--Detail-->
         </Border>
 

@@ -23,8 +23,9 @@
         </Border>
 
         <controls:DropShadowPanel 
-            Color="Black" ShadowOpacity="0.2" BlurRadius="40"
-            HorizontalContentAlignment="Stretch" >
+             ShadowOpacity="0.2" BlurRadius="40"
+             Color="{ThemeResource AppStrokeColor}"
+             HorizontalContentAlignment="Stretch" >
             
             <!--Visibility="Visible" Show-->
             <animations:Implicit.ShowAnimations>
@@ -42,7 +43,7 @@
                          VerticalAlignment="Top" 
                          ScrollViewer.VerticalScrollMode="Enabled"
                          animations:ReorderGridAnimation.Duration="300" 
-                         Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" 
+                         Background="{ThemeResource AppBackground}" 
                          />
 
         </controls:DropShadowPanel>

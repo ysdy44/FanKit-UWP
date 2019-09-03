@@ -14,19 +14,23 @@ namespace FanKit
 {
     public sealed partial class MainPage : Page
     {
-        private bool isImageVisible;
         public bool IsImageVisible
         {
-            get => this.isImageVisible;
+            get => this.BackgroundImage.Visibility == Visibility.Visible;
+            set => this.BackgroundImage.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private bool isFlyoutSampleShow;
+        public bool IsFlyoutSampleShow
+        {
+            get => this.isFlyoutSampleShow;
             set
             {
-                if (value) this.NavigationView.Background = this.SolidColorBrush;
-                else this.NavigationView.Background = this.ImageBrush;
-
-                this.isImageVisible = value;
+                this.FlyoutSampleControl.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+                this.Canvas.IsHitTestVisible = this.isFlyoutSampleShow = value;
             }
         }
-        
+
         private bool isCanGoBack;
         public bool IsCanGoBack
         {
@@ -58,22 +62,22 @@ namespace FanKit
                 //Back
                 this.IsCanGoBack = true;
             };
+
+            #region FlyoutSample
+
             Sample.FlyoutSample += (sender, sample) =>
             {
+                //FlyoutSample
                 FrameworkElement element = (FrameworkElement)sender;
                 this.FlyoutSampleControl.SetCoords(element);
                 this.FlyoutSampleControl.SetSample(sample);
 
-                //Canvas     
-                this.Canvas.IsHitTestVisible = true;
-                this.FlyoutSampleControl.Visibility = Visibility.Visible;
+                this.IsFlyoutSampleShow = true;
             };
-            this.Canvas.Tapped += (s, e) =>
-            {
-                //Canvas     
-                this.Canvas.IsHitTestVisible = false;
-                this.FlyoutSampleControl.Visibility = Visibility.Collapsed;
-            };
+            this.Canvas.Tapped += (s, e) => this.IsFlyoutSampleShow = false;
+            this.IsFlyoutSampleShow = false;
+
+            #endregion
 
             this.Loaded += async (s, e) =>
             {
@@ -128,7 +132,7 @@ namespace FanKit
             this.ImageVisibleButton.Tapped += (sender, e) => this.IsImageVisible = !this.IsImageVisible;
             this.SettingButton.Tapped += (s, e) => Sample.NavigatePage_Invoke(this, typeof(FanKit.Frames.Others.SettingPage));
             this.BackButton.Tapped += (s, e) =>
-            { 
+            {
                 //Back
                 if (this.NavigationFrame.CanGoBack) this.NavigationFrame.GoBack();
 

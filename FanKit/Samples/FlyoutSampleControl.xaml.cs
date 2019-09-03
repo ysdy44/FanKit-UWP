@@ -8,6 +8,9 @@ namespace FanKit.Samples
 {
     public sealed partial class FlyoutSampleControl : UserControl
     {
+        double _actualWidth = 200;
+        double _actualHeight = 300;
+
         //@Content
         public void SetCoords(FrameworkElement element)
         {
@@ -16,8 +19,8 @@ namespace FanKit.Samples
             Point screenCoords = transform.TransformPoint(new Point(0, 0));
             Point centerCoords = new Point(screenCoords.X + element.ActualWidth / 2, screenCoords.Y + element.ActualHeight / 2);
 
-            double x = centerCoords.X - this.ActualWidth / 2;
-            double y = centerCoords.Y - this.ActualHeight / 2;
+            double x = centerCoords.X - this._actualWidth / 2;
+            double y = centerCoords.Y - this._actualHeight / 2;
 
             if (x < 0) x = 0;
             if (y < 0) y = 0;
@@ -46,6 +49,12 @@ namespace FanKit.Samples
         public FlyoutSampleControl()
         {
             this.InitializeComponent();
+            this.SizeChanged += (s, e) =>
+            {
+                if (e.NewSize == e.PreviousSize) return;
+                this._actualWidth = e.NewSize.Width;
+                this._actualHeight = e.NewSize.Height;
+            };
         }
     }
 }

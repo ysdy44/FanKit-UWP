@@ -19,7 +19,7 @@
                 Width="{Binding ElementName=Adaptiver,Path=SizeWidth}" 
                 Height="{Binding ElementName=Adaptiver,Path=SizeHeight}" 
                 >
-                <Grid Margin="4" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+                <Grid Margin="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>

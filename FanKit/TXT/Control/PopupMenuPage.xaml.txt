@@ -31,7 +31,7 @@
 
 
 <ScrollViewer Grid.Column="1" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-    <StackPanel Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+    <StackPanel>
 
         <Border  Height="100" Padding="14" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
             <TextBlock Text="Popup Menu" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>

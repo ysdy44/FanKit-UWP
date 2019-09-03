@@ -69,7 +69,7 @@
             </Rectangle>
 
             <!--Content-->
-            <Border x:Name="ContentBorder" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
+            <Border x:Name="ContentBorder"/>
 
         </Grid>
     </Grid>

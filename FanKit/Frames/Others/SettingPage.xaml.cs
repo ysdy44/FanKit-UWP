@@ -27,13 +27,13 @@ namespace FanKit.Frames.Others
             this.DefaultRadioButton.Checked += (s, e) => this.SetTheme(ElementTheme.Default);
         }
 
-        private void SetTheme(ElementTheme RequestedTheme)
+        private void SetTheme(ElementTheme requestedTheme)
         {
             if (Window.Current.Content is FrameworkElement frameworkElement)
             {
-                if (frameworkElement.RequestedTheme == RequestedTheme) return;
+                if (frameworkElement.RequestedTheme == requestedTheme) return;
 
-                frameworkElement.RequestedTheme = RequestedTheme;
+                frameworkElement.RequestedTheme = requestedTheme;
             }
         }
     }

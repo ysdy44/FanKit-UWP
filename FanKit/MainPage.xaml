@@ -6,15 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:samples="using:FanKit.Samples"
     mc:Ignorable="d"
-    Background="{ThemeResource AppBarBackgroundThemeBrush}"
+    Background="{ThemeResource AppForeground}"
     >
 
 
     <Page.Resources>
-
-        <!--ImageVisible-->
-        <SolidColorBrush x:Name="SolidColorBrush" Color="Transparent"/>
-        <ImageBrush x:Name="ImageBrush" ImageSource="ms-appx:///Icon/HERO.jpg" Stretch="UniformToFill"/>
 
         <!--DataTemplate-->
         <DataTemplate x:Key="DataTemplate" x:DataType="samples:SampleCategory">
@@ -531,27 +527,21 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <!--NavigationFrame-->
+        <Image x:Name="BackgroundImage" Grid.Row="2" Source="ms-appx:///Icon/HERO.jpg" Stretch="UniformToFill"/>
+        <Frame x:Name="NavigationFrame" Grid.Row="2"/>
 
-        <!--NavigationView-->
-        <Grid x:Name="NavigationView" Grid.Row="2" Background="{StaticResource ImageBrush}">
-
-            <!--NavigationFrame-->
-            <Frame x:Name="NavigationFrame"/>
-
-            <!--FAB Button-->
-            <Button x:Name="ImageVisibleButton" Style="{StaticResource AppFABButtonStyle}" >
-                <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="24" Glyph="&#xEB9F;" Foreground="White"/>
-            </Button>
-
-        </Grid>
-
+        <!--FAB Button-->
+        <Button x:Name="ImageVisibleButton" Grid.Row="2" Style="{StaticResource AppFABButtonStyle}" >
+            <FontIcon FontFamily="Segoe MDL2 Assets" FontSize="24" Glyph="&#xEB9F;" Foreground="White"/>
+        </Button>
 
         <!--SamplesCategoryControl-->
-                <samples:SamplesCategoryControl x:Name="SamplesCategoryControl" Grid.Row="1" />
-    
+        <samples:SamplesCategoryControl x:Name="SamplesCategoryControl" Grid.Row="1" />
 
         <!--TopBar-->
-        <Grid BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemControlDisabledChromeHighBrush}" Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+        <Grid BorderThickness="0,0,0,1" BorderBrush="{ThemeResource AppBorderBrush}" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -579,8 +569,8 @@
         </Grid>
 
         <!--FlyoutSampleControl-->
-        <Canvas x:Name="Canvas" Grid.RowSpan="2" IsHitTestVisible="False" Background="Transparent">
-            <samples:FlyoutSampleControl x:Name="FlyoutSampleControl"/>
+        <Canvas x:Name="Canvas" Grid.RowSpan="2" Background="Transparent">
+            <samples:FlyoutSampleControl x:Name="FlyoutSampleControl" IsHitTestVisible="False" />
         </Canvas>
 
     </Grid>

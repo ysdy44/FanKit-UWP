@@ -7,7 +7,7 @@
     mc:Ignorable="d"
   >
 
-    <Grid BorderThickness="4" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid BorderThickness="4" BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}" Background="{ThemeResource AppForeground}">
         <Border Height="Auto" Padding="14" VerticalAlignment="Center" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
             <TextBlock Text="Welcome" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
         </Border>
