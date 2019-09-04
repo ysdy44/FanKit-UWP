@@ -38,7 +38,7 @@
                 <!--Shadow-->
                 <controls:DropShadowPanel 
                  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                 BlurRadius="32" ShadowOpacity="0.2" OffsetX="0" OffsetY="2"
+                 BlurRadius="32" ShadowOpacity="0.1" OffsetX="2" OffsetY="2"
                  Color="Black">
                     <Border
                         Width="122" Height="84"
@@ -77,11 +77,13 @@
         <!--ControlTemplate-->
         <ControlTemplate x:Key="FlyoutControlTemplate">
             <controls:DropShadowPanel
-                BlurRadius="32" ShadowOpacity="0.3" OffsetX="2" OffsetY="4"
+                BlurRadius="32" ShadowOpacity="0.2" OffsetX="2" OffsetY="4"
                 Color="Black"
                 >
 
-                <Border Width="200" Height="260" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+                <Border Width="200" Height="260" 
+                        Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+                        >
                     <StackPanel Padding="10,12">
                         
                         <Border
@@ -92,7 +94,7 @@
                         />
                         
                         <ContentControl Height="12"/>
-                        <TextBlock Text="Color:" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
+                        <TextBlock Text="Title:" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
                         <ContentControl Height="6"/>
                         <ContentPresenter>
                             <ContentPresenter.ContentTransitions>
@@ -135,7 +137,7 @@
                 <animations:OpacityAnimation Duration="0:0:0.2" From="1.0" To="0.0"/>
             </animations:Implicit.HideAnimations>
 
-            <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Border Padding="0,0,0,22" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
                 <controls:WrapPanel x:Name="GridView" VerticalAlignment="Top">
                     <controls:WrapPanel.ChildrenTransitions>
                         <TransitionCollection>
@@ -149,7 +151,11 @@
 
         <Border x:Name="ListViewBorder" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <ListView x:Name="ListView" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}">
-               
+
+                <ListView.Header>
+                    <Button Width="60" Height="Auto" VerticalAlignment="Stretch" Style="{ThemeResource NavigationBackButtonNormalStyle}"/>
+                </ListView.Header>
+                 
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:SamplesCategory">
                         <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -168,7 +174,7 @@
 
         <Canvas x:Name="FlyoutCanvas" Grid.RowSpan="2" Background="Transparent">
             <ContentControl x:Name="FlyoutContentControl" 
-                            IsHitTestVisible="False"
+                            IsHitTestVisible="False" Content="Content"
                             Template="{StaticResource FlyoutControlTemplate}"
                             extensions:VisualExtensions.CenterPoint="100,100,0"
                  >

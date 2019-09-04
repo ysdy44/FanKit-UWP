@@ -50,18 +50,8 @@ namespace FanKit.TestApp
                 this.GridViewBorder.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
             }
         }
-
-        private string categoryName;
-        public string CategoryName
-        {
-            get => this.categoryName;
-            set
-            {
-                this.FlyoutContentControl.Content = value;
-                this.categoryName = value;
-            }
-        }
-
+        
+        public string CategoryName;
         List<SamplesCategory> _samplesCategory;
 
         public MainPage()
