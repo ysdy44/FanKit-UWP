@@ -49,7 +49,7 @@
                                         <ColumnDefinition Width="80" />
                                         <ColumnDefinition Width="80" />
                                     </Grid.ColumnDefinitions>
-                                    <ToggleButton x:Name="RectangularToolButton" IsChecked="True" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <ToggleButton x:Name="RectangularToolButton" Grid.Column="0" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                         <PathIcon Data="M2.16,15.086l2.34,0l0,2.434l-4.5,0l0,-5.04l2.16,0l0,2.606Zm8.036,2.434l-4.836,0l0,-2.434l4.836,0l0,2.434Zm5.804,0l-4.836,0l0,-2.434l4.836,0l0,2.434Zm5.36,0l-4.5,0l0,-2.434l2.34,0l0,-2.606l2.16,0l0,5.04Zm0,-6l-2.16,0l0,-5.52l2.16,0l0,5.52Zm-19.2,0l-2.16,0l0,-5.52l2.16,0l0,5.52Zm19.2,-6.48l-2.16,0l0,-2.606l-2.34,0l0,-2.434l4.5,0l0,5.04Zm-16.86,-2.606l-2.34,0l0,2.606l-2.16,0l0,-5.04l4.5,0l0,2.434Zm5.696,0l-4.836,0l0,-2.434l4.836,0l0,2.434Zm5.804,0l-4.836,0l0,-2.434l4.836,0l0,2.434Z"/>
                                     </ToggleButton>
                                     <ToggleButton x:Name="EllipticalToolButton" Grid.Column="1" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -63,8 +63,8 @@
                                     </ToggleButton>
                                 </Grid>
                             </Border>
+                            <ContentControl Height="8"/>
 
-                            
                             <!--Separator-->
                             <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
@@ -78,8 +78,8 @@
                             </TextBlock>
                             <Border CornerRadius="4" HorizontalAlignment="Center" Background="{ThemeResource AppForeground}">
                                 <StackPanel Orientation="Horizontal" Padding="8,0">
-                                    <CheckBox x:Name="SquareCheckBox" Content="Square" MinWidth="100"/>
-                                    <CheckBox x:Name="CenterCheckBox" Content="Center" MinWidth="100"/>
+                                    <CheckBox x:Name="SquareCheckBox" Content="Square" IsChecked="{x:Bind IsSquare, Mode=TwoWay}" MinWidth="100"/>
+                                    <CheckBox x:Name="CenterCheckBox" Content="Center" IsChecked="{x:Bind IsCenter, Mode=TwoWay}" MinWidth="100"/>
                                 </StackPanel>
                             </Border>
                             <TextBlock Margin="12,4" TextWrapping="Wrap">

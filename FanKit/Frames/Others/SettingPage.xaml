@@ -73,6 +73,8 @@
                 <!--Open source-->
                 <ContentControl Content="&#xE71B;" Tag="Open source" Style="{StaticResource ContentControlStyle}"/>
                 <HyperlinkButton Content="https://github.com/ysdy44/FanKit-UWP" NavigateUri="https://github.com/ysdy44/FanKit-UWP"/>
+                <HyperlinkButton Content="https://github.com/ysdy44/HSVColorPickers-Nuget-UWP" NavigateUri="https://github.com/ysdy44/HSVColorPickers-Nuget-UWP"/>
+                <HyperlinkButton Content="https://github.com/ysdy44/FanKit.Transformers-Nuget-UWP" NavigateUri="https://github.com/ysdy44/FanKit.Transformers-Nuget-UWP"/>
 
                 <!--Blog-->
                 <ContentControl Content="&#xE71B;" Tag="Blog" Style="{StaticResource ContentControlStyle}"/>

@@ -57,7 +57,7 @@ namespace FanKit
 
                 //Navigate
                 this.NavigationFrame.Navigate(page);
-                this.SamplesCategoryControl.Visibility = Visibility.Collapsed;
+                this.SamplesCategoryControl.IsExpand = false;
 
                 //Back
                 this.IsCanGoBack = true;
@@ -89,7 +89,7 @@ namespace FanKit
 
                 //SampleCategory
                 string json = await FanKit.Samples.File.GetFile("ms-appx:///Samples/Samples.json");
-                this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SampleCategory>>(json);
+                this.ListView.ItemsSource = JsonConvert.DeserializeObject<List<SamplesCategory>>(json);
             };
                                               
 
@@ -113,24 +113,21 @@ namespace FanKit
                 this.BackButton.IsChecked = false;
                 this.SettingButton.IsChecked = false;
 
-                if (e.ClickedItem is SampleCategory category)
+                if (e.ClickedItem is SamplesCategory category)
                 {
-                    if (this.SamplesCategoryControl.Visibility == Visibility.Visible && this.SamplesCategoryControl.SampleCategory == category)
-                    {
-                        this.SamplesCategoryControl.Visibility = Visibility.Collapsed;
-                    }
-                    else
-                    {
-                        this.SamplesCategoryControl.Visibility = Visibility.Visible;
-                        this.SamplesCategoryControl.SampleCategory = category;
-                    }
+                    this.SamplesCategoryControl.SetSampleCategory(category);
                 }
             };
 
 
             //Button
             this.ImageVisibleButton.Tapped += (sender, e) => this.IsImageVisible = !this.IsImageVisible;
-            this.SettingButton.Tapped += (s, e) => Sample.NavigatePage_Invoke(this, typeof(FanKit.Frames.Others.SettingPage));
+            this.SettingButton.Tapped += (s, e) =>
+            {
+                this.SamplesCategoryControl.IsExpand = false;
+
+                Sample.NavigatePage_Invoke(this, typeof(FanKit.Frames.Others.SettingPage));
+            };
             this.BackButton.Tapped += (s, e) =>
             {
                 //Back
@@ -139,7 +136,7 @@ namespace FanKit
                  //Back
                  if (this.NavigationFrame.CanGoBack==false)
                 {
-                    this.SamplesCategoryControl.Visibility = Visibility.Collapsed;
+                    this.SamplesCategoryControl.IsExpand = false;
 
                     this.ListView.SelectedIndex = -1;
                  }

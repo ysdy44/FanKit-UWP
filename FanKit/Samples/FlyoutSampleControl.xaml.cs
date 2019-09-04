@@ -12,6 +12,10 @@ namespace FanKit.Samples
         double _actualHeight = 300;
 
         //@Content
+        /// <summary>
+        /// Sets coord for this.
+        /// </summary>
+        /// <param name="element"> The source element. </param>
         public void SetCoords(FrameworkElement element)
         {
             GeneralTransform transform = element.TransformToVisual(Window.Current.Content);
@@ -27,6 +31,10 @@ namespace FanKit.Samples
             Canvas.SetLeft(this, x);
             Canvas.SetTop(this, y);
         }
+        /// <summary>
+        /// Sets propertys.
+        /// </summary>
+        /// <param name="sample"> The sample instance. </param>
         public void SetSample(Sample sample)
         {
             if (sample == null) return;

@@ -16,17 +16,17 @@
     <Grid x:Name="RootGrid">
         
         <!--Blur-->
-        <Border x:Name="BlurBorder">
+        <Border x:Name="BlurBorder" IsHitTestVisible="False">
             <Border.Background>
                 <media:BackdropBlurBrush Amount="3" />
             </Border.Background>
         </Border>
 
-        <controls:DropShadowPanel 
-             ShadowOpacity="0.2" BlurRadius="40"
+        <controls:DropShadowPanel x:Name="DropShadowPanel"
+             ShadowOpacity="0.2" BlurRadius="40" 
              Color="{ThemeResource AppStrokeColor}"
              HorizontalContentAlignment="Stretch" >
-            
+
             <!--Visibility="Visible" Show-->
             <animations:Implicit.ShowAnimations>
                 <animations:TranslationAnimation Duration="0:0:0.4" From="0,-100,0" To="0,0,0"/>
@@ -38,13 +38,23 @@
                 <animations:OpacityAnimation Duration="0:0:0.2" From="1.0" To="0.0"/>
             </animations:Implicit.HideAnimations>
 
+
             <!--GridView-->
             <controls:WrapPanel x:Name="GridView" 
-                         VerticalAlignment="Top" 
-                         ScrollViewer.VerticalScrollMode="Enabled"
-                         animations:ReorderGridAnimation.Duration="300" 
-                         Background="{ThemeResource AppBackground}" 
-                         />
+                  VerticalAlignment="Top" 
+                  ScrollViewer.HorizontalScrollMode="Disabled" 
+                  ScrollViewer.VerticalScrollMode="Enabled"                   
+                  animations:ReorderGridAnimation.Duration="300"
+                  Background="{ThemeResource AppBackground}" 
+                  >
+
+                <controls:WrapPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True" />
+                    </TransitionCollection>
+                </controls:WrapPanel.ChildrenTransitions>
+            </controls:WrapPanel>
+
 
         </controls:DropShadowPanel>
 

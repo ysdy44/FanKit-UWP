@@ -1,42 +1,60 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Collections.ObjectModel;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Samples
 {
     /// <summary>
-    /// Control of <see cref="FanKit.Samples. SampleCategory"/>.
+    /// Control of <see cref="FanKit.Samples. SamplesCategory"/>.
     /// </summary>
     public sealed partial class SamplesCategoryControl : UserControl
     {
-        /// <summary> ItemsSource </summary>
-        public SampleCategory SampleCategory
+        /// <summary> Category name </summary>
+        public string CategoryName;
+
+        /// <summary> is expand? </summary>
+        public bool IsExpand
         {
-            get => this.sampleCategory;
+            get => this.DropShadowPanel.Visibility == Visibility.Visible;
             set
             {
-                if (value != null)
-                {
-                    if (this.sampleCategory != value)
-                    {
-                        this.GridView.Children.Clear();
-                        foreach (Sample sample in value.Samples)
-                        {
-                            this.GridView.Children.Add(sample.Instance);
-                        }
-                    }
-                }
+                Visibility visibility = value ? Visibility.Visible : Visibility.Collapsed;
 
-                this.sampleCategory = value;
+                this.DropShadowPanel.Visibility = visibility;
+                this.BlurBorder.Visibility = visibility;
             }
         }
-        private SampleCategory sampleCategory;
         
         //@Construct
         public SamplesCategoryControl()
         {
             this.InitializeComponent();
-            this.Visibility = Visibility.Collapsed;
-            this.BlurBorder.Tapped += (s, e) => this.Visibility = Visibility.Collapsed;
+            this.IsExpand = false;
+            this.BlurBorder.Tapped += (s, e) => this.IsExpand = false;
+        }
+
+        /// <summary>
+        /// Sets SampleCategory for this.
+        /// </summary>
+        /// <param name="sampleCategory"> SampleCategory </param>
+        public void SetSampleCategory(SamplesCategory sampleCategory)
+        {
+            if (this.IsExpand && this.CategoryName == sampleCategory.Name)
+            {
+                this.IsExpand = false;
+            }
+            else
+            {
+                this.GridView.Children.Clear();
+                this.IsExpand = true;
+
+                foreach (Sample sample in sampleCategory.Samples)
+                {
+                    this.GridView.Children.Add(sample.Instance);
+                }
+            }
+
+            this.CategoryName = sampleCategory.Name;
         }
     }
 }

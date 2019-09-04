@@ -541,7 +541,11 @@
         <samples:SamplesCategoryControl x:Name="SamplesCategoryControl" Grid.Row="1" />
 
         <!--TopBar-->
-        <Grid BorderThickness="0,0,0,1" BorderBrush="{ThemeResource AppBorderBrush}" Background="Transparent">
+        <Grid 
+            BorderThickness="0,0,0,1" 
+            BorderBrush="{ThemeResource AppBorderBrush}" 
+            Background="{ThemeResource AppForeground}"
+            >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>

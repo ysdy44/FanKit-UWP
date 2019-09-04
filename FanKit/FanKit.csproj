@@ -311,7 +311,7 @@
     </Compile>
     <Compile Include="Samples\File.cs" />
     <Compile Include="Samples\Sample.cs" />
-    <Compile Include="Samples\SampleCategory.cs" />
+    <Compile Include="Samples\SamplesCategory.cs" />
     <Compile Include="Samples\SampleState.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

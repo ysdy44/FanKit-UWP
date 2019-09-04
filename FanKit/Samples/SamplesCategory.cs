@@ -8,7 +8,7 @@ namespace FanKit.Samples
     /// Category of <see cref="FanKit.Samples.Sample">.
     /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
-    public class SampleCategory
+    public class SamplesCategory
     {
         //@Converter
         public Visibility BoolToVisibilityConverter(bool value) => value ? Visibility.Visible : Visibility.Collapsed;

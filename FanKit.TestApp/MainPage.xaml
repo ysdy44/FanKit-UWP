@@ -1,14 +1,192 @@
 ﻿<Page
     x:Class="FanKit.TestApp.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:local="using:FanKit.TestApp"   
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FanKit.TestApp"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource AppForeground}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+   
+    
+    <Page.Resources>
+        
+        <!--ItemContainerStyle-->
+        <Style x:Key="ListViewItemContainerStyle" TargetType="ListViewItem">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="MinWidth" Value="70"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+       
+        <!--ControlTemplate-->
+        <ControlTemplate x:Name="GridViewControlTemplate">
+            <Grid Background="Transparent" Width="150" Height="144">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="12"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+
+                <!--Shadow-->
+                <controls:DropShadowPanel 
+                 Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                 BlurRadius="32" ShadowOpacity="0.2" OffsetX="0" OffsetY="2"
+                 Color="Black">
+                    <Border
+                        Width="122" Height="84"
+                        BorderThickness="1"
+                        BorderBrush="{ThemeResource SystemControlBackgroundBaseLowBrush}" 
+                        Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                        />
+                </controls:DropShadowPanel>
+
+                <!--Flag-->
+                <Border 
+                    Grid.Row="1" Width="40" Height="22" Padding="4,0" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    BorderThickness="1" BorderBrush="White"
+                    Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                    />
+
+                <Grid Grid.Row="2" Margin="12,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ContentPresenter FontSize="14" FontWeight="Medium" VerticalAlignment="Center"/>
+
+                    <Button Grid.Column="1" Width="30" Padding="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" BorderBrush="Transparent" Background="Transparent" Tapped="Button_Tapped">
+                        <FontIcon Glyph="&#xE946;" FontSize="14" FontFamily="Segoe MDL2 Assets"/>
+                    </Button>
+
+                </Grid>
+
+            </Grid>
+
+        </ControlTemplate>
+
+        <!--ControlTemplate-->
+        <ControlTemplate x:Key="FlyoutControlTemplate">
+            <controls:DropShadowPanel
+                BlurRadius="32" ShadowOpacity="0.3" OffsetX="2" OffsetY="4"
+                Color="Black"
+                >
+
+                <Border Width="200" Height="260" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+                    <StackPanel Padding="10,12">
+                        
+                        <Border
+                        Width="Auto" Height="114"
+                        BorderThickness="1"
+                        BorderBrush="{ThemeResource SystemControlBackgroundBaseLowBrush}" 
+                        Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                        />
+                        
+                        <ContentControl Height="12"/>
+                        <TextBlock Text="Color:" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
+                        <ContentControl Height="6"/>
+                        <ContentPresenter>
+                            <ContentPresenter.ContentTransitions>
+                                <TransitionCollection>
+                                    <ContentThemeTransition VerticalOffset="100"/>
+                                </TransitionCollection>
+                            </ContentPresenter.ContentTransitions>
+                        </ContentPresenter>
+                    </StackPanel>
+                </Border>
+
+            </controls:DropShadowPanel>
+        </ControlTemplate>
+        
+    </Page.Resources>
+
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+
+        <controls:DropShadowPanel x:Name="GridViewBorder"
+             Grid.Row="1" 
+             ShadowOpacity="0.3" BlurRadius="40" 
+             Color="Black"
+             HorizontalContentAlignment="Stretch" 
+             VerticalContentAlignment="Top" >
+
+            <!--Visibility="Visible" Show-->
+            <animations:Implicit.ShowAnimations>
+                <animations:TranslationAnimation Duration="0:0:0.4" From="0,-100,0" To="0,0,0"/>
+                <animations:OpacityAnimation Duration="0:0:0.4" From="0.0" To="1.0"/>
+            </animations:Implicit.ShowAnimations>
+            <!--Visibility="Collapsed" Hide-->
+            <animations:Implicit.HideAnimations>
+                <animations:TranslationAnimation Duration="0:0:0.2" From="0,0,0" To="0,-100,0"/>
+                <animations:OpacityAnimation Duration="0:0:0.2" From="1.0" To="0.0"/>
+            </animations:Implicit.HideAnimations>
+
+            <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <controls:WrapPanel x:Name="GridView" VerticalAlignment="Top">
+                    <controls:WrapPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition IsStaggeringEnabled="True" />
+                        </TransitionCollection>
+                    </controls:WrapPanel.ChildrenTransitions>
+                </controls:WrapPanel>
+            </Border>
+            
+        </controls:DropShadowPanel>
+
+        <Border x:Name="ListViewBorder" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemControlBackgroundBaseLowBrush}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <ListView x:Name="ListView" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}">
+               
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:SamplesCategory">
+                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+            </ListView>
+        </Border>
+
+
+        <Canvas x:Name="FlyoutCanvas" Grid.RowSpan="2" Background="Transparent">
+            <ContentControl x:Name="FlyoutContentControl" 
+                            IsHitTestVisible="False"
+                            Template="{StaticResource FlyoutControlTemplate}"
+                            extensions:VisualExtensions.CenterPoint="100,100,0"
+                 >
+
+                <!--Visibility:Show-->
+                <animations:Implicit.ShowAnimations>
+                    <animations:Vector3Animation Target="Scale" Duration="0:0:0.3" To="1.0"/>
+                    <animations:OpacityAnimation Duration="0:0:0.3" From="0.0" To="1.0"/>
+                </animations:Implicit.ShowAnimations>
+
+                <!--Visibility:Hide-->
+                <animations:Implicit.HideAnimations>
+                    <animations:Vector3Animation Target="Scale" Duration="0:0:0.5" To="0.6"/>
+                    <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+                </animations:Implicit.HideAnimations>
+
+            </ContentControl>
+        </Canvas>
+        
     </Grid>
 </Page>
