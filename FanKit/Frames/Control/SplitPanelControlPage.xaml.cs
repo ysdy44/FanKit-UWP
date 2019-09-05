@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Control
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Control.SplitPanelControl">.
+    /// </summary>
     public sealed partial class SplitPanelControlPage : Page
     {
+        //@Construct
         public SplitPanelControlPage()
         {
             this.InitializeComponent();

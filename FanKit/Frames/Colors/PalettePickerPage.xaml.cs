@@ -6,12 +6,16 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Colors
 {
+    /// <summary>
+    /// Page of <see cref="HSVColorPickers.PalettePicker">.
+    /// </summary>
     public sealed partial class PalettePickerPage : Page
     { 
         PalettePicker HuePicker = PalettePicker.CreateFormHue();
         PalettePicker SaturationPicker = PalettePicker.CreateFormSaturation();
         PalettePicker ValuePicker = PalettePicker.CreateFormValue();
-        
+
+        //@Construct
         public PalettePickerPage()
         {
             this.InitializeComponent();

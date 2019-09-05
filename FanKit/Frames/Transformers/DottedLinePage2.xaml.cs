@@ -9,12 +9,15 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Transformers.DottedLineImage">.
+    /// </summary>
     public sealed partial class DottedLinePage2 : Page
     {
         DottedLineImage DottedLineImage;
         DottedLineBrush DottedLineBrush;
         
-        Vector2 canvasStartingPoint = new Vector2();
+        Vector2 _startingPoint = new Vector2();
         TransformerRect _transformerRect;
 
         //@Construct
@@ -101,24 +104,32 @@ namespace FanKit.Frames.Transformers
             {
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
                 Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
-                this.canvasStartingPoint = Vector2.Transform(point, inverseMatrix);
+
+                this._startingPoint = point;
 
                 this._transformerRect = new TransformerRect(point, point);
             };
             this.CanvasOperator.Single_Delta += (point) =>
             {
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
+                Vector2 canvasStartingPoint = Vector2.Transform(this._startingPoint, inverseMatrix);
                 Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
-
+                
                 this._transformerRect = new TransformerRect(canvasStartingPoint, canvasPoint);
             };
             this.CanvasOperator.Single_Complete += (point) =>
             {
+                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
+                Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
+                Vector2 canvasStartingPoint = Vector2.Transform(this._startingPoint, inverseMatrix);
+                Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
+
+                //DottedLine
                 using (var ds = this.DottedLineImage.CreateDrawingSession())
                 {
-                    ds.FillRectangle(this._transformerRect.ToRect(), Windows.UI.Colors.Gray);
+                    TransformerRect transformerRect = new TransformerRect(canvasStartingPoint, canvasPoint);
+                    ds.FillRectangle(transformerRect.ToRect(), Windows.UI.Colors.Gray);
                 }
-                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
                 this.DottedLineImage.Baking(this.CanvasAnimatedControl, matrix);
 
                 this._transformerRect = new TransformerRect(Vector2.Zero, Vector2.Zero);
@@ -134,6 +145,7 @@ namespace FanKit.Frames.Transformers
             {
                 this.CanvasTransformer.Move(point);
 
+                //DottedLine
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
                 this.DottedLineImage.Baking(this.CanvasAnimatedControl, matrix);
                 this.CanvasAnimatedControl.Invalidate();
@@ -142,6 +154,7 @@ namespace FanKit.Frames.Transformers
             {
                 this.CanvasTransformer.Move(point);
 
+                //DottedLine
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
                 this.DottedLineImage.Baking(this.CanvasAnimatedControl, matrix);
                 this.CanvasAnimatedControl.Invalidate();
@@ -158,16 +171,19 @@ namespace FanKit.Frames.Transformers
             {
                 this.CanvasTransformer.Pinch(center, space);
 
+                //DottedLine
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
                 this.DottedLineImage.Baking(this.CanvasAnimatedControl, matrix);
                 this.CanvasAnimatedControl.Invalidate();
             };
             this.CanvasOperator.Double_Complete += (center, space) =>
             {
+                //DottedLine
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
                 this.DottedLineImage.Baking(this.CanvasAnimatedControl, matrix);
-                                this.CanvasAnimatedControl.Invalidate();
+                this.CanvasAnimatedControl.Invalidate();
             };
+
 
             //Wheel
             this.CanvasOperator.Wheel_Changed += (point, space) =>
@@ -177,6 +193,7 @@ namespace FanKit.Frames.Transformers
                 else
                     this.CanvasTransformer.ZoomOut(point);
 
+                //DottedLine
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
                 this.DottedLineImage.Baking(this.CanvasAnimatedControl, matrix);
                 this.CanvasAnimatedControl.Invalidate();

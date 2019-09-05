@@ -23,7 +23,7 @@ namespace FanKit.Frames.Transformers
         Vector2 wheelPoint;
         float wheelSpace;
 
-        string Text { set => this.TipTextBlock.Text = value; }
+        public string Text { set => this.TipTextBlock.Text = value; }
 
 
         //@Construct

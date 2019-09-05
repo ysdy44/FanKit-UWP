@@ -8,14 +8,19 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Transformers.DottedLineImage">.
+    /// </summary>
     public sealed partial class DottedLinePage : Page
     {
-        DottedLineImage DottedLineImage;
-        DottedLineBrush DottedLineBrush;
+        //DottedLine
+        public DottedLineImage DottedLineImage;
+        public DottedLineBrush DottedLineBrush;
 
-        float CanvasWidth = 1000;
-        float CanvasHeight = 1000;
-        Vector2 starting = new Vector2();
+        int _canvasWidth = 1000;
+        int _canvasHeight = 1000;
+
+        Vector2 _startingPoint = new Vector2();
         TransformerRect _transformerRect;
 
         //@Construct
@@ -32,6 +37,7 @@ namespace FanKit.Frames.Transformers
 
             this.ResetButton.Tapped += (s, e) =>
             {
+                //DottedLine
                 using (var ds = this.DottedLineImage.CreateDrawingSession())
                 {
                     ds.Clear(Windows.UI.Colors.Transparent);
@@ -49,7 +55,9 @@ namespace FanKit.Frames.Transformers
             };
             this.CanvasAnimatedControl.CreateResources += (sender, args) =>
             {
-                CanvasRenderTarget canvasRenderTarget = new CanvasRenderTarget(sender, this.CanvasWidth, this.CanvasHeight);
+                CanvasRenderTarget canvasRenderTarget = new CanvasRenderTarget(sender, this._canvasWidth, this._canvasHeight);
+               
+                //DottedLine
                 this.DottedLineImage = new DottedLineImage(canvasRenderTarget);
                 this.DottedLineBrush = new DottedLineBrush(sender, 6);
 
@@ -57,7 +65,11 @@ namespace FanKit.Frames.Transformers
             };
             this.CanvasAnimatedControl.Draw += (sender, args) =>
             {
-                args.DrawingSession.DrawDottedLine(sender, this.DottedLineBrush, this.DottedLineImage, this.CanvasWidth, this.CanvasHeight);
+                int width = this._canvasWidth;
+                int height = this._canvasHeight;
+
+                //DottedLine
+                args.DrawingSession.DrawDottedLine(sender, this.DottedLineBrush, this.DottedLineImage, this._canvasWidth, this._canvasHeight);
                 
                 Rect rect = this._transformerRect.ToRect();
                 args.DrawingSession.DrawThickRectangle(rect);
@@ -76,15 +88,16 @@ namespace FanKit.Frames.Transformers
             //Single
             this.CanvasOperator.Single_Start += (point) =>
             {
-                this.starting = point;
+                this._startingPoint = point;
                 this._transformerRect = new TransformerRect(point, point);
             };
             this.CanvasOperator.Single_Delta += (point) =>
             {
-                this._transformerRect = new TransformerRect(starting, point);
+                this._transformerRect = new TransformerRect(_startingPoint, point);
             };
             this.CanvasOperator.Single_Complete += (point) =>
             {
+                //DottedLine
                 using (var ds = this.DottedLineImage.CreateDrawingSession())
                 {
                     ds.FillRectangle(this._transformerRect.ToRect(), Windows.UI.Colors.Gray);

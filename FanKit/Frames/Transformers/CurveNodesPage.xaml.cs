@@ -8,6 +8,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Transformers.NodeCollection">.
+    /// </summary>
     public sealed partial class CurveNodesPage : Page
     {
         //CurveNodes
@@ -58,7 +61,7 @@ namespace FanKit.Frames.Transformers
 
 
         TransformerRect _transformerRect;
-        Vector2 canvasStartingPoint;
+        Vector2 _startingPoint;
         Node _oldNode;
         bool _isAdd = true;
 
@@ -243,7 +246,7 @@ namespace FanKit.Frames.Transformers
             this.CanvasOperator.Single_Start += (point) =>
             {
                 Vector2 canvasPoint = point;
-                this.canvasStartingPoint = point;
+                this._startingPoint = point;
 
                 if (this._isAdd)
                 {
@@ -286,7 +289,7 @@ namespace FanKit.Frames.Transformers
                         break;
                     case NodeCollectionMode.Move:
                         {
-                            Vector2 vector = canvasPoint - canvasStartingPoint;
+                            Vector2 vector = canvasPoint - _startingPoint;
                             this.NodeCollection.TransformAdd(vector, isOnlySelected: true);
                         }
                         break;
@@ -301,7 +304,7 @@ namespace FanKit.Frames.Transformers
                         break;
                     case NodeCollectionMode.RectChoose:
                         {
-                            TransformerRect transformerRect = new TransformerRect(canvasStartingPoint, canvasPoint);
+                            TransformerRect transformerRect = new TransformerRect(_startingPoint, canvasPoint);
                             this._transformerRect = transformerRect;
                             this.NodeCollection.RectChoose(transformerRect);
                         }

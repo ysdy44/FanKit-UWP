@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Brushes
 {
+    /// <summary>
+    /// Page of InkToolbarBrush.
+    /// </summary>
     public sealed partial class InkToolbarBrushPage : Page
     {
+        //@Construct
         public InkToolbarBrushPage()
         {
             this.InitializeComponent();

@@ -17,10 +17,10 @@ namespace FanKit.Frames.Transformers
     /// </summary>
     public sealed partial class Transformer2Page : Page
     {
-        TransformerMode mode;
-        Vector2 startingPoint;
-        Transformer startingTransformer;
-        Layer layer;
+        TransformerMode _mode;
+        Vector2 _startingPoint;
+        Transformer _startingTransformer;
+        Layer _layer;
 
         class Layer
         {
@@ -151,8 +151,8 @@ namespace FanKit.Frames.Transformers
                 this._canvasTransformer = this.CanvasTransformer;
 
 
-                Transformer transformer = this.Reset(this.layer.Image.SizeInPixels.Width, this.layer.Image.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height);
-                this.layer.TransformerMatrix.Destination = transformer;
+                Transformer transformer = this.Reset(this._layer.Image.SizeInPixels.Width, this._layer.Image.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height);
+                this._layer.TransformerMatrix.Destination = transformer;
 
                 //DependencyProperty
                 this.Transformer = transformer;
@@ -171,9 +171,9 @@ namespace FanKit.Frames.Transformers
                 Matrix3x2 canvasToVirtualMatrix = this.CanvasTransformer.GetMatrix(MatrixTransformerMode.CanvasToVirtual);
 
                 //Transformer
-                ICanvasImage source = this.layer.Image;
-                Matrix3x2 transformMatrix = this.layer.TransformerMatrix.GetMatrix();
-                Transformer transformer = this.layer.TransformerMatrix.Destination;
+                ICanvasImage source = this._layer.Image;
+                Matrix3x2 transformMatrix = this._layer.TransformerMatrix.GetMatrix();
+                Transformer transformer = this._layer.TransformerMatrix.Destination;
 
                 //Draw
                 args.DrawingSession.DrawCrad(new CompositeEffect
@@ -195,16 +195,16 @@ namespace FanKit.Frames.Transformers
             //Single
             this.CanvasOperator.Single_Start += (point) =>
             {
-                this.startingPoint = point;
+                this._startingPoint = point;
 
                 //Controller      
-                this.layer.TransformerMatrix.CacheTransform();
+                this._layer.TransformerMatrix.CacheTransform();
 
-                Transformer transformer = this.layer.TransformerMatrix.Destination;
-                this.startingTransformer = transformer;
+                Transformer transformer = this._layer.TransformerMatrix.Destination;
+                this._startingTransformer = transformer;
 
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
-                this.mode = Transformer.ContainsNodeMode(point, transformer, matrix);
+                this._mode = Transformer.ContainsNodeMode(point, transformer, matrix);
 
                 this.CanvasControl.Invalidate();//Invalidate
             };
@@ -216,9 +216,9 @@ namespace FanKit.Frames.Transformers
 
                 //Controller
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
-                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.startingTransformer, inverseMatrix, isRatio, isCenter, isStepFrequency);
+                Transformer transformer = Transformer.Controller(this._mode, _startingPoint, point, this._startingTransformer, inverseMatrix, isRatio, isCenter, isStepFrequency);
 
-                this.layer.TransformerMatrix.Destination = transformer;
+                this._layer.TransformerMatrix.Destination = transformer;
 
                 //DependencyProperty
                 this.Transformer = transformer;
@@ -306,7 +306,7 @@ namespace FanKit.Frames.Transformers
             this.Transformer = transformerMatrix.Destination;
 
             //Layer
-            this.layer = new Layer
+            this._layer = new Layer
             {
                 TransformerMatrix = transformerMatrix,
                 Image = bitmap,

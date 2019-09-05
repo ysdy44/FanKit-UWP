@@ -16,10 +16,10 @@ namespace FanKit.Frames.Transformers
     /// </summary>
     public sealed partial class TransformerPage : Page
     {
-        TransformerMode mode;
-        Transformer startingTransformer;
-        Vector2 startingPoint;
-        Layer layer;
+        TransformerMode _mode;
+        Vector2 _startingPoint;
+        Transformer _startingTransformer;
+        Layer _layer;
 
         class Layer
         {
@@ -98,8 +98,8 @@ namespace FanKit.Frames.Transformers
 
             this.ResetButton.Tapped += (s, e) =>
             {
-                Transformer transformer = this.Reset(this.layer.Image.SizeInPixels.Width, this.layer.Image.SizeInPixels.Height, (float)this.CanvasControl.ActualWidth, (float)this.CanvasControl.ActualHeight);
-                this.layer.TransformerMatrix.Destination = transformer;
+                Transformer transformer = this.Reset(this._layer.Image.SizeInPixels.Width, this._layer.Image.SizeInPixels.Height, (float)this.CanvasControl.ActualWidth, (float)this.CanvasControl.ActualHeight);
+                this._layer.TransformerMatrix.Destination = transformer;
 
                 //DependencyProperty
                 this.Transformer = transformer;
@@ -113,9 +113,9 @@ namespace FanKit.Frames.Transformers
             this.CanvasControl.Draw += (sender, args) =>
             {
                 //Transformer
-                ICanvasImage source = this.layer.Image;
-                Matrix3x2 transformMatrix = this.layer.TransformerMatrix.GetMatrix();
-                Transformer transformer = this.layer.TransformerMatrix.Destination;
+                ICanvasImage source = this._layer.Image;
+                Matrix3x2 transformMatrix = this._layer.TransformerMatrix.GetMatrix();
+                Transformer transformer = this._layer.TransformerMatrix.Destination;
 
                 //Draw
                 args.DrawingSession.DrawImage(new Transform2DEffect
@@ -130,13 +130,13 @@ namespace FanKit.Frames.Transformers
             //Single
             this.CanvasOperator.Single_Start += (point) =>
             {
-                this.startingPoint = point;
+                this._startingPoint = point;
 
                 //Controller
-                this.layer.TransformerMatrix.CacheTransform();
-                Transformer transformer = this.layer.TransformerMatrix.Destination;
-                this.startingTransformer = transformer;
-                this.mode = Transformer.ContainsNodeMode(point, transformer);
+                this._layer.TransformerMatrix.CacheTransform();
+                Transformer transformer = this._layer.TransformerMatrix.Destination;
+                this._startingTransformer = transformer;
+                this._mode = Transformer.ContainsNodeMode(point, transformer);
 
                 this.CanvasControl.Invalidate();//Invalidate
             };
@@ -147,8 +147,8 @@ namespace FanKit.Frames.Transformers
                 bool isStepFrequency = this.IsStepFrequency;
 
                 //Controller
-                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.startingTransformer, isRatio, isCenter, isStepFrequency);
-                this.layer.TransformerMatrix.Destination = transformer;
+                Transformer transformer = Transformer.Controller(this._mode, _startingPoint, point, this._startingTransformer, isRatio, isCenter, isStepFrequency);
+                this._layer.TransformerMatrix.Destination = transformer;
 
                 //DependencyProperty
                 this.Transformer = transformer;
@@ -175,7 +175,7 @@ namespace FanKit.Frames.Transformers
             this.Transformer = transformerMatrix.Destination;
 
             //Layer
-            this.layer = new Layer
+            this._layer = new Layer
             {
                 TransformerMatrix = transformerMatrix,
                 Image = bitmap,

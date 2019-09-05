@@ -5,8 +5,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Colors
 {
+    /// <summary>
+    /// Page of <see cref="HSVColorPickers.AlphaPicker">.
+    /// </summary>
     public sealed partial class AlphaPickerPage : Page
     {
+        //@Construct
         public AlphaPickerPage()
         {
             this.InitializeComponent();

@@ -5,8 +5,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Colors
 {
+    /// <summary>
+    /// Page of <see cref="HSVColorPickers.StrawPicker">.
+    /// </summary>
     public sealed partial class StrawPickerPage : Page
     {
+        //@Construct
         public StrawPickerPage()
         {
             this.InitializeComponent();

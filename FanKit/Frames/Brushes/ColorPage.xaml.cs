@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Brushes
 {
+    /// <summary>
+    /// Page of Colors.
+    /// </summary>
     public sealed partial class ColorPage : Page
     {
+        //@Construct
         public ColorPage()
         {
             this.InitializeComponent();

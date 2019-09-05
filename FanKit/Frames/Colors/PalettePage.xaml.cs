@@ -30,6 +30,7 @@ namespace FanKit.Frames.Colors
              new Uri("ms-appx:///Icon/Photos/SpeedTripleAtristsPoint.jpg"),
         };
 
+        //@Construct
         public PalettePage()
         {
             this.InitializeComponent();

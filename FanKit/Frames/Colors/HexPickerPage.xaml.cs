@@ -5,8 +5,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Colors
 {
+    /// <summary>
+    /// Page of <see cref="HSVColorPickers.HexPicker">.
+    /// </summary>
     public sealed partial class HexPickerPage : Page
     {
+        //@Construct
         public HexPickerPage()
         {
             this.InitializeComponent();

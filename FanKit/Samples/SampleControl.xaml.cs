@@ -5,7 +5,7 @@ using Windows.UI.Xaml.Controls;
 namespace FanKit.Samples
 {
     /// <summary>
-    /// Control of <see cref="FanKit.Samples.Sample"/>.
+    /// Control of <see cref="Sample"/>.
     /// </summary>
     public sealed partial class SampleControl : UserControl
     {

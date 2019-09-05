@@ -14,6 +14,8 @@ using System;
 using System.Numerics;
 using System.Threading.Tasks;
 using Windows.Foundation;
+using Windows.System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
@@ -23,16 +25,54 @@ namespace FanKit.Frames.Transformers
     /// </summary>
     public sealed partial class Transformer2Page : Page
     {
-        TransformerMode mode;
-        Vector2 startingPoint;
-        Transformer startingTransformer;
-        Layer layer;
+        TransformerMode _mode;
+        Vector2 _startingPoint;
+        Transformer _startingTransformer;
+        Layer _layer;
 
         class Layer
         {
             public CanvasBitmap Image;
             public TransformerMatrix TransformerMatrix;
         }
+        
+
+        /// <summary> CanvasTransformer's radian. </summary>
+        public double Radian
+        {
+            get { return (double)GetValue(RadianProperty); }
+            set { SetValue(RadianProperty, value); }
+        }
+        /// <summary> Identifies the <see cref = "Transformer2Page.Radian" /> dependency property. </summary>
+        public static readonly DependencyProperty RadianProperty = DependencyProperty.Register(nameof(Radian), typeof(double), typeof(Transformer2Page), new PropertyMetadata(0.0d, (sender, e) =>
+        {
+            Transformer2Page con = (Transformer2Page)sender;
+
+            if (e.NewValue is double value)
+            {
+                float radian = ((float)value) * FanKit.Math.Pi / 180.0f;
+                con.CanvasTransformer.Radian = radian;
+
+                con.CanvasTransformer.ReloadMatrix();
+                con.CanvasControl.Invalidate();//Invalidate
+            }
+        }));
+
+
+
+        /// <summary> Transformer. </summary>
+        public Transformer Transformer;
+
+
+        /// <summary> Maintain a ratio when scaling. </summary>
+        public bool IsRatio;
+
+        /// <summary> Scaling around the center. </summary>
+        public bool IsCenter;
+
+        /// <summary> Step Frequency when spinning. </summary>
+        public bool IsStepFrequency;
+
         
         //@Construct
         public Transformer2Page()
@@ -46,10 +86,17 @@ namespace FanKit.Frames.Transformers
                 this.CanvasTransformer.Position = new Vector2((float)size.Width / 2, (float)size.Height / 2);
                 this.CanvasTransformer.Scale = 1;
                 this.CanvasTransformer.Radian = 0;
-                this.CanvasTransformer.ReloadMatrix();
 
-                Transformer transformer = this.Reset(this.layer.Image.SizeInPixels.Width, this.layer.Image.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height);
-                this.layer.TransformerMatrix.Destination = transformer;
+                this.CanvasTransformer.ReloadMatrix();
+                
+
+                Transformer transformer = this.Reset(this._layer.Image.SizeInPixels.Width, this._layer.Image.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height);
+                this._layer.TransformerMatrix.Destination = transformer;
+
+                //DependencyProperty
+                this.Transformer = transformer;
+
+
                 this.CanvasControl.Invalidate();//Invalidate
             };
 
@@ -63,9 +110,9 @@ namespace FanKit.Frames.Transformers
                 Matrix3x2 canvasToVirtualMatrix = this.CanvasTransformer.GetMatrix(MatrixTransformerMode.CanvasToVirtual);
 
                 //Transformer
-                ICanvasImage source = this.layer.Image;
-                Matrix3x2 transformMatrix = this.layer.TransformerMatrix.GetMatrix();
-                Transformer transformer = this.layer.TransformerMatrix.Destination;
+                ICanvasImage source = this._layer.Image;
+                Matrix3x2 transformMatrix = this._layer.TransformerMatrix.GetMatrix();
+                Transformer transformer = this._layer.TransformerMatrix.Destination;
 
                 //Draw
                 args.DrawingSession.DrawCrad(new CompositeEffect
@@ -87,31 +134,34 @@ namespace FanKit.Frames.Transformers
             //Single
             this.CanvasOperator.Single_Start += (point) =>
             {
-                this.startingPoint = point;
+                this._startingPoint = point;
 
                 //Controller      
-                this.layer.TransformerMatrix.CacheTransform();
+                this._layer.TransformerMatrix.CacheTransform();
 
-                Transformer transformer = this.layer.TransformerMatrix.Destination;
-                this.startingTransformer = transformer;
+                Transformer transformer = this._layer.TransformerMatrix.Destination;
+                this._startingTransformer = transformer;
 
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
-                this.mode = Transformer.ContainsNodeMode(point, transformer, matrix);
+                this._mode = Transformer.ContainsNodeMode(point, transformer, matrix);
 
                 this.CanvasControl.Invalidate();//Invalidate
             };
             this.CanvasOperator.Single_Delta += (point) =>
             {
-                bool isRatio = false;
-                bool isCenter = false;
-                bool isStepFrequency = false;
+                bool isRatio = this.IsRatio;
+                bool isCenter = this.IsCenter;
+                bool isStepFrequency = this.IsStepFrequency;
 
                 //Controller
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
-                Transformer transformer = Transformer.Controller(this.mode, startingPoint, point, this.startingTransformer, inverseMatrix, isRatio, isCenter, isStepFrequency);
+                Transformer transformer = Transformer.Controller(this._mode, _startingPoint, point, this._startingTransformer, inverseMatrix, isRatio, isCenter, isStepFrequency);
 
-                this.layer.TransformerMatrix.Destination = transformer;
-                
+                this._layer.TransformerMatrix.Destination = transformer;
+
+                //DependencyProperty
+                this.Transformer = transformer;
+
                 this.CanvasControl.Invalidate();//Invalidate
             };
             this.CanvasOperator.Single_Complete += (point) =>
@@ -170,8 +220,10 @@ namespace FanKit.Frames.Transformers
             this.CanvasTransformer.Position = new Vector2((float)size.Width / 2, (float)size.Height / 2);
             this.CanvasTransformer.Scale = 1;
             this.CanvasTransformer.Radian = 0;
+
             this.CanvasTransformer.ReloadMatrix();
-            
+
+
             //Bitmap
             CanvasBitmap bitmap = await CanvasBitmap.LoadAsync(sender, "Icon/Avatar.jpg");
             TransformerMatrix transformerMatrix = new TransformerMatrix
@@ -179,9 +231,12 @@ namespace FanKit.Frames.Transformers
                 Source = new Transformer(bitmap.SizeInPixels.Width, bitmap.SizeInPixels.Height, Vector2.Zero),
                 Destination = this.Reset(bitmap.SizeInPixels.Width, bitmap.SizeInPixels.Height, this.CanvasTransformer.Width, this.CanvasTransformer.Height),
             };
-            
+
+            //DependencyProperty
+            this.Transformer = transformerMatrix.Destination;
+
             //Layer
-            this.layer = new Layer
+            this._layer = new Layer
             {
                 TransformerMatrix = transformerMatrix,
                 Image = bitmap,

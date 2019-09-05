@@ -1,10 +1,13 @@
 ﻿using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
 
 namespace FanKit.Frames.Control
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Control.ExpandTextView">.
+    /// </summary>
     public sealed partial class ExpandTextViewPage : Page
     {
+        //@Construct
         public ExpandTextViewPage()
         {
             this.InitializeComponent();

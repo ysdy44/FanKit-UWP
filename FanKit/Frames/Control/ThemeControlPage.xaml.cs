@@ -1,10 +1,13 @@
 ﻿using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
 
 namespace FanKit.Frames.Control
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Control.ThemeControl">.
+    /// </summary>
     public sealed partial class ThemeControlPage : Page
     {
+        //@Construct
         public ThemeControlPage()
         {
             this.InitializeComponent();
@@ -14,9 +17,6 @@ namespace FanKit.Frames.Control
                 this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/ThemeControl.xaml.txt");
                 this.MarkdownText3.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Control/ThemeControl.cs.txt");
             };
-        }
-
-        
+        }        
     }
 }
-

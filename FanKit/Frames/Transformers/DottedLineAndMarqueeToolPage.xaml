@@ -1,0 +1,139 @@
+﻿<Page
+    x:Class="FanKit.Frames.Transformers.DottedLineAndMarqueeToolPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FanKit.Frames.Transformers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:frames="using:FanKit.Frames"
+    xmlns:reference="using:FanKit.Frames.Reference"
+    xmlns:transformers="using:FanKit.Transformers"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <!--CanvasOperator-->
+        <transformers:CanvasOperator x:Name="CanvasOperator" DestinationControl="{Binding ElementName=CanvasAnimatedControl}"/>
+    </Page.Resources>
+
+
+    <frames:PageLayout>
+
+
+        <frames:PageLayout.ShowContent>
+            <canvas:CanvasAnimatedControl x:Name="CanvasAnimatedControl"/>
+        </frames:PageLayout.ShowContent>
+
+
+        <frames:PageLayout.DetailContent>
+            <Pivot>
+                <PivotItem Header="PROPERTYIES" Background="{ThemeResource AppBackground}">
+                    <ScrollViewer>
+                        <StackPanel>
+
+                            <Button x:Name="ResetButton" Margin="12" Content="Reset"/>
+
+
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                            <TextBlock Margin="12,4" TextWrapping="Wrap">
+                                <Span FontStyle="Italic">DottedLine &amp; MarqueeTool </Span>
+                            </TextBlock>
+                            <Border CornerRadius="4" HorizontalAlignment="Center" Style="{StaticResource AppBorderStyle}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="80" />
+                                    </Grid.ColumnDefinitions>
+                                    <ToggleButton x:Name="RectangularToolButton" Grid.Column="0" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <PathIcon Data="M2.16,15.086l2.34,0l0,2.434l-4.5,0l0,-5.04l2.16,0l0,2.606Zm8.036,2.434l-4.836,0l0,-2.434l4.836,0l0,2.434Zm5.804,0l-4.836,0l0,-2.434l4.836,0l0,2.434Zm5.36,0l-4.5,0l0,-2.434l2.34,0l0,-2.606l2.16,0l0,5.04Zm0,-6l-2.16,0l0,-5.52l2.16,0l0,5.52Zm-19.2,0l-2.16,0l0,-5.52l2.16,0l0,5.52Zm19.2,-6.48l-2.16,0l0,-2.606l-2.34,0l0,-2.434l4.5,0l0,5.04Zm-16.86,-2.606l-2.34,0l0,2.606l-2.16,0l0,-5.04l4.5,0l0,2.434Zm5.696,0l-4.836,0l0,-2.434l4.836,0l0,2.434Zm5.804,0l-4.836,0l0,-2.434l4.836,0l0,2.434Z"/>
+                                    </ToggleButton>
+                                    <ToggleButton x:Name="EllipticalToolButton" Grid.Column="1" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <PathIcon Data="M4.535,12.73c1.492,1.122 3.572,1.87 5.905,2.016l0,2.319c-2.936,-0.165 -5.561,-1.183 -7.444,-2.728l1.539,-1.607Zm13.49,0l1.539,1.607c-1.883,1.545 -4.508,2.563 -7.444,2.728l0,-2.319c2.333,-0.146 4.413,-0.894 5.905,-2.016Zm-16.23,-8.827l1.521,1.588c-0.736,0.9 -1.156,1.937 -1.156,3.041c0,1.104 0.42,2.142 1.156,3.042l-1.521,1.588c-1.136,-1.335 -1.795,-2.924 -1.795,-4.63c0,-1.705 0.659,-3.294 1.795,-4.629Zm18.97,0c1.136,1.335 1.795,2.924 1.795,4.629c0,1.706 -0.659,3.295 -1.795,4.63l-1.521,-1.588c0.736,-0.9 1.156,-1.938 1.156,-3.042c0,-1.104 -0.42,-2.141 -1.156,-3.041l1.521,-1.588Zm-8.645,-3.903c2.936,0.164 5.561,1.182 7.444,2.728l-1.539,1.606c-1.492,-1.121 -3.572,-1.869 -5.905,-2.015l0,-2.319Zm-1.68,0l0,2.319c-2.333,0.146 -4.413,0.894 -5.905,2.015l-1.539,-1.606c1.883,-1.546 4.508,-2.564 7.444,-2.728Z"/>
+                                    </ToggleButton>
+                                    <ToggleButton x:Name="PolygonalToolButton" Grid.Column="2" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <PathIcon Data="M17.994,20.949l1.88,-4.029l2.686,-1.88l-1.343,-1.88l0.806,-1.343l0.537,-11.817l-8.326,7.52l-14.234,-4.566l6.446,14.503l9.668,-1.88l1.612,1.074l-1.612,4.298l1.88,0Zm-0.268,-10.743l0.805,2.148l1.612,-1.074l0,-6.446l-5.64,5.103l-10.743,-3.76l3.76,8.863l8.863,-1.88l1.343,-2.954Zm1.611,3.76l-0.268,0.27l0.268,0.535l0.806,-0.268l-0.806,-0.537Z"/>
+                                    </ToggleButton>
+                                    <ToggleButton x:Name="FreeHandToolButton" Grid.Column="3" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <PathIcon Data="M21.594,26.794l-2.148,0l1.88,-4.297l-1.288,-1.011c-1.602,0.643 -3.454,1.011 -5.427,1.011c-6.077,0 -11.011,-3.49 -11.011,-7.788c0,-4.299 4.934,-7.789 11.011,-7.789c6.078,0 11.012,3.49 11.012,7.789c0,1.358 -0.493,2.636 -1.359,3.748l0.016,0.012l0.537,0l1.343,2.417l-2.954,1.88l-1.612,4.028Zm1.075,-6.714l0.537,-0.269l0.537,0.269l-0.537,0.537l-0.537,-0.537Zm-0.292,-2.954c0.531,-0.733 0.829,-1.553 0.829,-2.417c0,-3.113 -3.851,-5.64 -8.595,-5.64c-4.743,0 -8.594,2.527 -8.594,5.64c0,3.112 3.851,5.64 8.594,5.64c1.206,0 2.355,-0.164 3.397,-0.459l-0.442,-0.347l1.074,-0.269l2.954,-3.491l0,1.343l0.783,0Z"/>
+                                    </ToggleButton>
+                                </Grid>
+                            </Border>
+                            <ContentControl Height="8"/>
+
+
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                            <TextBlock Margin="12,4" TextWrapping="Wrap">
+                                <Span>When creating a</Span>
+                                <Span FontWeight="Bold"> Rectangular </Span>
+                                <Span>or</Span>                                                     
+                                <Span FontWeight="Bold"> Elliptical </Span>
+                                <Span>:</Span>
+                            </TextBlock>
+                            <Border CornerRadius="4" HorizontalAlignment="Center" Style="{StaticResource AppBorderStyle}">
+                                <StackPanel Orientation="Horizontal" Padding="8,0">
+                                    <CheckBox x:Name="CenterCheckBox" Content="Center" IsChecked="{x:Bind IsCenter, Mode=TwoWay}" MinWidth="100"/>
+                                    <CheckBox x:Name="SquareCheckBox" Content="Square" IsChecked="{x:Bind IsSquare, Mode=TwoWay}" MinWidth="100"/>
+                                </StackPanel>
+                            </Border>
+                            <TextBlock Margin="12,4" TextWrapping="Wrap">
+                                <Span>Set the composite mode used for the marquee.</Span>
+                            </TextBlock>
+                            <Border CornerRadius="4" Height="Auto" HorizontalAlignment="Center" Style="{StaticResource AppBorderStyle}">
+                                <StackPanel Orientation="Horizontal">
+
+                                    <RadioButton x:Name="NewRadioButton" Tag="New" IsChecked="True" Style="{StaticResource AppTapRadioButtonStyle}">
+                                        <PathIcon Data="M4.478,5.052l15.116,0l0,14.931l-15.116,0"/>
+                                    </RadioButton>
+                                    <RadioButton x:Name="AddRadioButton" Tag="Add" Style="{StaticResource AppTapRadioButtonStyle}">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="M1.235,1.359l14.463,0l0,7.664c0.158,-0.011 0.317,-0.016 0.477,-0.016c4.028,0 7.298,3.271 7.298,7.299c0,4.028 -3.27,7.299 -7.298,7.299c-4.029,0 -7.299,-3.271 -7.299,-7.299c0,-0.162 0.005,-0.322 0.015,-0.482l-7.656,0l0,-14.465Zm15.518,11.792l-1.051,0l0,2.678l-2.666,0l0,1.007l2.666,0l0,2.575l1.051,0l0,-2.575l2.544,0l0,-1.007l-2.544,0l0,-2.678Z"/>
+                                    </RadioButton>
+                                    <RadioButton x:Name="SubtractRadioButton" Tag="Subtract" Style="{StaticResource AppTapRadioButtonStyle}">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="M16.175,9.007c4.028,0 7.298,3.271 7.298,7.299c0,4.028 -3.27,7.299 -7.298,7.299c-4.029,0 -7.299,-3.271 -7.299,-7.299c0,-4.028 3.27,-7.299 7.299,-7.299Zm3.499,6.759l-7.016,0l0,1.128l7.016,0l0,-1.128Zm-11.955,0.416l-6.484,0l0,-14.823l14.333,0l0,6.512c-4.344,0.309 -7.785,3.904 -7.849,8.311Z"/>
+                                    </RadioButton>
+                                    <RadioButton x:Name="IntersectRadioButton" Tag="Intersect" Style="{StaticResource AppTapRadioButtonStyle}">
+                                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="M16.478,9.014c3.888,0.159 6.995,3.365 6.995,7.292c0,4.028 -3.27,7.299 -7.298,7.299c-3.753,0 -6.847,-2.838 -7.254,-6.482l7.557,0l0,-8.109Zm-8.678,7.168l-6.565,0l0,-14.823l14.333,0l0,6.594c-4.299,0.308 -7.704,3.867 -7.768,8.229Zm7.768,0l-6.691,0c0.063,-3.768 2.987,-6.845 6.691,-7.15l0,7.15Z"/>
+                                    </RadioButton>
+
+                                </StackPanel>
+                            </Border>
+                            <ContentControl Height="12"/>
+
+
+                            <!--Separator-->
+                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
+
+
+                            <TextBlock Text="Reference:" Margin="12" />
+                            <reference:ReferenceWin2d/>
+                            <reference:ReferenceTransformers/>
+
+                            <ContentControl Height="100"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="XAML" Background="{ThemeResource AppBackground}">
+                    <ScrollViewer>
+                        <controls:MarkdownTextBlock x:Name="MarkdownText1"/>
+                    </ScrollViewer>
+                </PivotItem>
+                <PivotItem Header="Code" Background="{ThemeResource AppBackground}">
+                    <ScrollViewer>
+                        <controls:MarkdownTextBlock x:Name="MarkdownText2"/>
+                    </ScrollViewer>
+                </PivotItem>
+            </Pivot>
+        </frames:PageLayout.DetailContent>
+
+
+    </frames:PageLayout>
+</Page>

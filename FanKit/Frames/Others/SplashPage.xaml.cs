@@ -15,11 +15,11 @@ namespace FanKit.Frames.Others
 
         List<Type> _pages = new List<Type>
         {
-            typeof(FanKit.Frames.Transformers.CanvasTransformerPage),
-            typeof(FanKit.Frames.Transformers.TransformerPage),
-            typeof(FanKit.Frames.Transformers.Transformer2Page),
-            typeof(FanKit.Frames.Colors.ColorPickerPage),
-         };
+             typeof(FanKit.Frames.Transformers.CurveNodesPage),
+             typeof(FanKit.Frames.Transformers.DottedLinePage),
+             typeof(FanKit.Frames.Transformers.MarqueeToolPage),
+             typeof(FanKit.Frames.Transformers.DottedLineAndMarqueeToolPage),
+          };
 
         //@Construct
         public SplashPage()

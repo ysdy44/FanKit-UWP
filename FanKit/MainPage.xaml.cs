@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Media;
 
 namespace FanKit
 {
+    /// <summary>
+    /// The mian page.
+    /// </summary>
     public sealed partial class MainPage : Page
     {
         public bool IsImageVisible

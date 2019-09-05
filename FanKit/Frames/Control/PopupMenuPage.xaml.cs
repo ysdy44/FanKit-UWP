@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Control
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Control.PopupMenu">.
+    /// </summary>
     public sealed partial class PopupMenuPage : Page
     {
+        //@Construct
         public PopupMenuPage()
         {
             this.InitializeComponent();

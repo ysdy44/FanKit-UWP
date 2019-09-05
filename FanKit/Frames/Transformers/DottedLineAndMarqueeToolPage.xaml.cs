@@ -2,6 +2,7 @@
 using Microsoft.Graphics.Canvas;
 using System;
 using System.Numerics;
+using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -9,12 +10,16 @@ using Windows.UI.Xaml.Controls;
 namespace FanKit.Frames.Transformers
 {
     /// <summary>
-    /// Page of <see cref="FanKit.Transformers.MarqueeTool">.
+    /// Page of <see cref="FanKit.Transformers.DottedLineImage"> and <see cref="FanKit.Transformers.MarqueeTool">.
     /// </summary>
-    public sealed partial class MarqueeToolPage : Page
+    public sealed partial class DottedLineAndMarqueeToolPage : Page
     {
-        CanvasRenderTarget CanvasRenderTarget;
+        //DottedLine
+        Rect _sourceRect;
+        public DottedLineImage DottedLineImage;
+        public DottedLineBrush DottedLineBrush;
 
+        //MarqueeTool
         private MarqueeToolType toolType;
         public MarqueeToolType ToolType
         {
@@ -30,7 +35,7 @@ namespace FanKit.Frames.Transformers
                 {
                     this._marqueeTool.IsStarted = false;
                     this._marqueeTool.Points.Clear();
-                    this.CanvasControl.Invalidate();
+                    this.CanvasAnimatedControl.Invalidate();
                 }
 
                 this.toolType = value;
@@ -41,14 +46,16 @@ namespace FanKit.Frames.Transformers
 
         MarqueeTool _marqueeTool = new MarqueeTool();
 
+
         Vector2 _startingPoint = new Vector2();
 
         int _canvasWidth = 1000;
         int _canvasHeight = 1000;
 
+
         #region DependencyProperty
 
-        
+
         /// <summary> Scaling around the center. </summary>
         public bool IsCenter
         {
@@ -56,7 +63,7 @@ namespace FanKit.Frames.Transformers
             set { SetValue(IsCenterProperty, value); }
         }
         /// <summary> Identifies the <see cref = "TransformerPage.IsCenter" /> dependency property. </summary>
-        public static readonly DependencyProperty IsCenterProperty = DependencyProperty.Register(nameof(IsCenter), typeof(bool), typeof(MarqueeToolPage), new PropertyMetadata(false));
+        public static readonly DependencyProperty IsCenterProperty = DependencyProperty.Register(nameof(IsCenter), typeof(bool), typeof(DottedLineAndMarqueeToolPage), new PropertyMetadata(false));
 
         /// <summary> Maintain a ratio when scaling. </summary>
         public bool IsSquare
@@ -65,27 +72,34 @@ namespace FanKit.Frames.Transformers
             set { SetValue(IsSquareProperty, value); }
         }
         /// <summary> Identifies the <see cref = "TransformerPage.IsSquare" /> dependency property. </summary>
-        public static readonly DependencyProperty IsSquareProperty = DependencyProperty.Register(nameof(IsSquare), typeof(bool), typeof(MarqueeToolPage), new PropertyMetadata(false));
+        public static readonly DependencyProperty IsSquareProperty = DependencyProperty.Register(nameof(IsSquare), typeof(bool), typeof(DottedLineAndMarqueeToolPage), new PropertyMetadata(false));
 
 
         #endregion
 
+
         //@Construct
-        public MarqueeToolPage()
+        public DottedLineAndMarqueeToolPage()
         {
             this.InitializeComponent();
-            this.Loaded +=async (s2, e2) =>
+            this.Loaded += async (s2, e2) =>
             {
-                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/MarqueeToolPage.xaml.txt");
-                this.MarkdownText1.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/IndicatorControlPage.xaml"));
-                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/MarqueeToolPage.xaml.cs.txt");
-                this.MarkdownText2.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/IndicatorControlPage.xaml.cs"));
+           this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/DottedLineAndMarqueeToolPage.xaml.txt");
+            this.MarkdownText1.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/DottedLineAndMarqueeToolPage.xaml"));
+            this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/DottedLineAndMarqueeToolPage.xaml.cs.txt");
+                this.MarkdownText2.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/DottedLineAndMarqueeToolPage.xaml.cs"));
             };
 
             this.ResetButton.Tapped += (s, e) =>
             {
-                this.CanvasRenderTarget = new CanvasRenderTarget(this.CanvasControl, this._canvasWidth, this._canvasHeight);
-                this.CanvasControl.Invalidate();
+                //DottedLine
+                using (var ds = this.DottedLineImage.CreateDrawingSession())
+                {
+                    ds.Clear(Windows.UI.Colors.Transparent);
+                }
+                this.DottedLineImage.Baking(this.CanvasAnimatedControl);
+
+                this.CanvasAnimatedControl.Invalidate();
             };
 
             //Tool
@@ -105,28 +119,40 @@ namespace FanKit.Frames.Transformers
 
 
             //Canvas  
-            this.CanvasControl.SizeChanged += (s, e) =>
+            this.CanvasAnimatedControl.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == e.PreviousSize) return;
                 this._canvasWidth = (int)e.NewSize.Width;
                 this._canvasHeight = (int)e.NewSize.Height;
             };
-            this.CanvasControl.CreateResources += (sender, args) =>
+            this.CanvasAnimatedControl.CreateResources += (sender, args) =>
             {
-                int width = 1000;
-                int height = 1000;
+                int width = this._canvasWidth;
+                int height = this._canvasHeight;
+                
+                CanvasRenderTarget canvasRenderTarget = new CanvasRenderTarget(sender, width, height);
 
-                this._canvasWidth = width;
-                this._canvasHeight = height;
-                this.CanvasRenderTarget = new CanvasRenderTarget(sender, width, height);
+                //DottedLine
+                this._sourceRect = canvasRenderTarget.Bounds;
+                this.DottedLineImage = new DottedLineImage(canvasRenderTarget);
+                this.DottedLineBrush = new DottedLineBrush(sender, 6);
+
+                this.DottedLineImage.Baking(sender);
             };
-            this.CanvasControl.Draw += (sender, args) =>
+            this.CanvasAnimatedControl.Draw += (sender, args) =>
             {
-                var mask = this.CanvasRenderTarget;
-                args.DrawingSession.DrawImage(mask);
+                int width = this._canvasWidth;
+                int height = this._canvasHeight;
+
+                //DottedLine
+                args.DrawingSession.DrawDottedLine(sender, this.DottedLineBrush, this.DottedLineImage, width, height);
 
                 //MarqueeTool
                 args.DrawingSession.DrawMarqueeTool(sender, this.ToolType, this._marqueeTool);
+            };
+            this.CanvasAnimatedControl.Update += (sender, args) =>
+            {
+                this.DottedLineBrush.Update(1);
             };
 
 
@@ -145,7 +171,7 @@ namespace FanKit.Frames.Transformers
                 //MarqueeTool
                 this._marqueeTool.Start(canvasPoint, this.ToolType, this.IsCenter, this.IsSquare);
 
-                this.CanvasControl.Invalidate();
+                this.CanvasAnimatedControl.Invalidate();
             };
             this.CanvasOperator.Single_Delta += (point) =>
             {
@@ -155,7 +181,7 @@ namespace FanKit.Frames.Transformers
                 //MarqueeTool
                 this._marqueeTool.Delta(canvasStartingPoint, canvasPoint, this.ToolType, this.IsCenter, this.IsSquare);
 
-                this.CanvasControl.Invalidate();
+                this.CanvasAnimatedControl.Invalidate();
             };
             this.CanvasOperator.Single_Complete += (point) =>
             {
@@ -167,14 +193,16 @@ namespace FanKit.Frames.Transformers
 
                 if (redraw)
                 {
-                    using (CanvasDrawingSession drawingSession = this.CanvasRenderTarget.CreateDrawingSession())
+                    using (CanvasDrawingSession drawingSession = this.DottedLineImage.CreateDrawingSession())
                     {
                         //MarqueeTool
-                        drawingSession.FillMarqueeMaskl(this.CanvasControl, this.ToolType, this._marqueeTool, this.CanvasRenderTarget.Bounds, this.CompositeMode2);
+                        drawingSession.FillMarqueeMaskl(this.CanvasAnimatedControl, this.ToolType, this._marqueeTool, this._sourceRect, this.CompositeMode2);
                     }
+                    //DottedLine
+                    this.DottedLineImage.Baking(this.CanvasAnimatedControl);
                 }
 
-                this.CanvasControl.Invalidate();
+                this.CanvasAnimatedControl.Invalidate();
             };
 
 

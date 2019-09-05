@@ -403,6 +403,20 @@
         "Name": "MarqueeTool2",
         "Uri": "ms-appx:///Icon/Transformers/MarqueeTool.png",
         "Summary": "The marquee is a tool that can make selections that are  rectangular and elliptical."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.DottedLineAndMarqueeToolPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "DottedLine & MarqueeTool",
+        "Uri": "ms-appx:///Icon/Transformers/DottedLineAndMarqueeTool.png",
+        "Summary": "DottedLine & MarqueeTool"
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.DottedLineAndMarqueeToolPage2, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "DottedLine & MarqueeTool 2",
+        "Uri": "ms-appx:///Icon/Transformers/DottedLineAndMarqueeTool.png",
+        "Summary": "DottedLine & MarqueeTool 2"
       }
 
     ]

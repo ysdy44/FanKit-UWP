@@ -1,0 +1,29 @@
+﻿   Source Code:
+
+  [DottedLineAndMarqueeToolPage2.xaml](DottedLineAndMarqueeToolPage2.xaml)
+
+
+```xaml
+
+
+<Page
+    x:Class="FanKit.Frames.Transformers.DottedLineAndMarqueeToolPage2"
+    xmlns:transformers="using:FanKit.Transformers"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <!--CanvasTransformer-->
+        <transformers:CanvasTransformer x:Name="CanvasTransformer"/>
+        <!--CanvasOperator-->
+        <transformers:CanvasOperator x:Name="CanvasOperator" DestinationControl="{Binding ElementName=CanvasAnimatedControl}"/>
+    </Page.Resources>
+
+
+    <canvas:CanvasAnimatedControl x:Name="CanvasAnimatedControl"/>
+
+</Page>
+
+
+```

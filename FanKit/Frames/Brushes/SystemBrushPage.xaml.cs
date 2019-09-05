@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Brushes
 {
+    /// <summary>
+    /// Page of SystemBrush.
+    /// </summary>
     public sealed partial class SystemBrushPage : Page
     {
+        //@Construct
         public SystemBrushPage()
         {
             this.InitializeComponent();

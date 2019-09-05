@@ -5,8 +5,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Colors
 {
+    /// <summary>
+    /// Page of <see cref="HSVColorPickers.RGBPicker">.
+    /// </summary>
     public sealed partial class RGBPickerPage : Page
     {
+        //@Construct
         public RGBPickerPage()
         {
             this.InitializeComponent();

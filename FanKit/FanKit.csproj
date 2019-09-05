@@ -123,6 +123,12 @@
     <Compile Include="Frames\Transformers\CurveNodesPage2.xaml.cs">
       <DependentUpon>CurveNodesPage2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Transformers\DottedLineAndMarqueeToolPage.xaml.cs">
+      <DependentUpon>DottedLineAndMarqueeToolPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Transformers\DottedLineAndMarqueeToolPage2.xaml.cs">
+      <DependentUpon>DottedLineAndMarqueeToolPage2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Transformers\DottedLinePage.xaml.cs">
       <DependentUpon>DottedLinePage.xaml</DependentUpon>
     </Compile>
@@ -344,6 +350,7 @@
     <Content Include="Icon\Styles\Transition.png" />
     <Content Include="Icon\Styles\Transitions\Popup.png" />
     <Content Include="Icon\Styles\Transitions\Reposition.png" />
+    <Content Include="Icon\Transformers\DottedLineAndMarqueeTool.png" />
     <Content Include="Icon\Transformers\RemoteControl.png" />
     <Content Include="Icon\Control\ThemeControl.png" />
     <Content Include="Icon\Reference\Transformers.png" />
@@ -366,6 +373,10 @@
     <Content Include="TXT\Colors\PalettePage.xaml.txt" />
     <Content Include="TXT\Styles\ChildrenTransition.style.txt" />
     <Content Include="TXT\Styles\Transition.style.txt" />
+    <Content Include="TXT\Transformers\DottedLineAndMarqueeToolPage.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\DottedLineAndMarqueeToolPage.xaml.txt" />
+    <Content Include="TXT\Transformers\DottedLineAndMarqueeToolPage2.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\DottedLineAndMarqueeToolPage2.xaml.txt" />
     <Content Include="TXT\Transformers\MarqueeToolPage2.xaml.cs.txt" />
     <Content Include="TXT\Transformers\MarqueeToolPage2.xaml.txt" />
     <Content Include="TXT\Transformers\CurveNodesPage2.xaml.txt" />
@@ -566,6 +577,14 @@
     <Page Include="Frames\Transformers\CurveNodesPage2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Transformers\DottedLineAndMarqueeToolPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Transformers\DottedLineAndMarqueeToolPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Transformers\DottedLinePage.xaml">
       <SubType>Designer</SubType>

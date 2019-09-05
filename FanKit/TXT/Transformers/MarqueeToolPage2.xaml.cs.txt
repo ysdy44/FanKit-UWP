@@ -5,18 +5,24 @@
 
 ```Csharp
 
+
 using FanKit.Transformers;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
+using System;
 using System.Numerics;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Transformers.MarqueeTool">.
+    /// </summary>
     public sealed partial class MarqueeToolPage2 : Page
     {
-        CanvasRenderTarget CanvasRenderTarget;
+        public CanvasRenderTarget CanvasRenderTarget;
 
         private MarqueeToolType toolType;
         public MarqueeToolType ToolType
@@ -24,11 +30,6 @@ namespace FanKit.Frames.Transformers
             get => this.toolType;
             set
             {
-                this.RectangularToolButton.IsChecked = value == MarqueeToolType.Rectangular;
-                this.EllipticalToolButton.IsChecked = value == MarqueeToolType.Elliptical;
-                this.PolygonalToolButton.IsChecked = value == MarqueeToolType.Polygonal;
-                this.FreeHandToolButton.IsChecked = value == MarqueeToolType.FreeHand;
-
                 if (value != MarqueeToolType.Polygonal)
                 {
                     this._marqueeTool.IsStarted = false;
@@ -44,8 +45,8 @@ namespace FanKit.Frames.Transformers
 
         MarqueeTool _marqueeTool = new MarqueeTool();
 
-        public Vector2 _startingPoint = new Vector2();
-
+        Vector2 _startingPoint = new Vector2();
+        
 
         /// <summary> Scaling around the center. </summary>
         public bool IsCenter;
@@ -148,12 +149,12 @@ namespace FanKit.Frames.Transformers
             };
             this.CanvasOperator.Single_Complete += (point) =>
             {
+                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
                 Vector2 canvasStartingPoint = Vector2.Transform(this._startingPoint, inverseMatrix);
                 Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
 
                 //MarqueeTool
-                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
                 bool redraw = this._marqueeTool.Complete(canvasStartingPoint, canvasPoint, this.ToolType, matrix, this.IsCenter, this.IsSquare);
 
                 if (redraw)

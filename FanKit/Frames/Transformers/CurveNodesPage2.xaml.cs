@@ -8,6 +8,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Transformers.NodeCollection">.
+    /// </summary>
     public sealed partial class CurveNodesPage2 : Page
     {
         //CurveNodes
@@ -58,7 +61,7 @@ namespace FanKit.Frames.Transformers
 
 
         TransformerRect _transformerRect;
-        Vector2 canvasStartingPoint;
+        Vector2 _startingPoint;
         Node _oldNode;
         bool _isAdd = true;
 
@@ -254,7 +257,8 @@ namespace FanKit.Frames.Transformers
             {
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
                 Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
-                this.canvasStartingPoint = Vector2.Transform(point, inverseMatrix);
+
+                this._startingPoint = point;
 
                 if (this._isAdd)
                 {
@@ -290,6 +294,7 @@ namespace FanKit.Frames.Transformers
             this.CanvasOperator.Single_Delta += (point) =>
             {
                 Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
+                Vector2 canvasStartingPoint = Vector2.Transform(this._startingPoint, inverseMatrix);
                 Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
 
                 switch (this.Mode)

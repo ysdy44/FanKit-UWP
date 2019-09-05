@@ -1,6 +1,6 @@
-   Source Code:
+﻿   Source Code:
 
-  [MarqueeToolPage.xaml.cs](MarqueeToolPage.xaml.cs)
+  [DottedLineAndMarqueeToolPage.xaml.cs](DottedLineAndMarqueeToolPage.xaml.cs)
 
 
 ```Csharp
@@ -9,17 +9,23 @@
 using FanKit.Transformers;
 using Microsoft.Graphics.Canvas;
 using System.Numerics;
+using Windows.Foundation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
     /// <summary>
-    /// Page of <see cref="FanKit.Transformers.MarqueeTool">.
+    /// Page of <see cref="FanKit.Transformers.DottedLineImage"> and <see cref="FanKit.Transformers.MarqueeTool">.
     /// </summary>
-    public sealed partial class MarqueeToolPage : Page
+    public sealed partial class DottedLineAndMarqueeToolPage : Page
     {
-        CanvasRenderTarget CanvasRenderTarget;
+        //DottedLine
+        Rect _sourceRect;
+        public DottedLineImage DottedLineImage;
+        public DottedLineBrush DottedLineBrush;
 
+        //MarqueeTool
         private MarqueeToolType toolType;
         public MarqueeToolType ToolType
         {
@@ -30,7 +36,7 @@ namespace FanKit.Frames.Transformers
                 {
                     this._marqueeTool.IsStarted = false;
                     this._marqueeTool.Points.Clear();
-                    this.CanvasControl.Invalidate();
+                    this.CanvasAnimatedControl.Invalidate();
                 }
 
                 this.toolType = value;
@@ -40,6 +46,7 @@ namespace FanKit.Frames.Transformers
         public MarqueeCompositeMode CompositeMode2;
 
         MarqueeTool _marqueeTool = new MarqueeTool();
+
 
         Vector2 _startingPoint = new Vector2();
 
@@ -54,14 +61,20 @@ namespace FanKit.Frames.Transformers
 
 
         //@Construct
-        public MarqueeToolPage()
+        public DottedLineAndMarqueeToolPage()
         {
             this.InitializeComponent();
 
             this.ResetButton.Tapped += (s, e) =>
             {
-                this.CanvasRenderTarget = new CanvasRenderTarget(this.CanvasControl, this._canvasWidth, this._canvasHeight);
-                this.CanvasControl.Invalidate();
+                //DottedLine
+                using (var ds = this.DottedLineImage.CreateDrawingSession())
+                {
+                    ds.Clear(Windows.UI.Colors.Transparent);
+                }
+                this.DottedLineImage.Baking(this.CanvasAnimatedControl);
+
+                this.CanvasAnimatedControl.Invalidate();
             };
 
             //Tool
@@ -81,28 +94,40 @@ namespace FanKit.Frames.Transformers
 
 
             //Canvas  
-            this.CanvasControl.SizeChanged += (s, e) =>
+            this.CanvasAnimatedControl.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == e.PreviousSize) return;
                 this._canvasWidth = (int)e.NewSize.Width;
                 this._canvasHeight = (int)e.NewSize.Height;
             };
-            this.CanvasControl.CreateResources += (sender, args) =>
+            this.CanvasAnimatedControl.CreateResources += (sender, args) =>
             {
-                int width = 1000;
-                int height = 1000;
+                int width = this._canvasWidth;
+                int height = this._canvasHeight;
+                
+                CanvasRenderTarget canvasRenderTarget = new CanvasRenderTarget(sender, width, height);
 
-                this._canvasWidth = width;
-                this._canvasHeight = height;
-                this.CanvasRenderTarget = new CanvasRenderTarget(sender, width, height);
+                //DottedLine
+                this._sourceRect = canvasRenderTarget.Bounds;
+                this.DottedLineImage = new DottedLineImage(canvasRenderTarget);
+                this.DottedLineBrush = new DottedLineBrush(sender, 6);
+
+                this.DottedLineImage.Baking(sender);
             };
-            this.CanvasControl.Draw += (sender, args) =>
+            this.CanvasAnimatedControl.Draw += (sender, args) =>
             {
-                var mask = this.CanvasRenderTarget;
-                args.DrawingSession.DrawImage(mask);
+                int width = this._canvasWidth;
+                int height = this._canvasHeight;
+
+                //DottedLine
+                args.DrawingSession.DrawDottedLine(sender, this.DottedLineBrush, this.DottedLineImage, width, height);
 
                 //MarqueeTool
                 args.DrawingSession.DrawMarqueeTool(sender, this.ToolType, this._marqueeTool);
+            };
+            this.CanvasAnimatedControl.Update += (sender, args) =>
+            {
+                this.DottedLineBrush.Update(1);
             };
 
 
@@ -121,7 +146,7 @@ namespace FanKit.Frames.Transformers
                 //MarqueeTool
                 this._marqueeTool.Start(canvasPoint, this.ToolType, this.IsCenter, this.IsSquare);
 
-                this.CanvasControl.Invalidate();
+                this.CanvasAnimatedControl.Invalidate();
             };
             this.CanvasOperator.Single_Delta += (point) =>
             {
@@ -131,7 +156,7 @@ namespace FanKit.Frames.Transformers
                 //MarqueeTool
                 this._marqueeTool.Delta(canvasStartingPoint, canvasPoint, this.ToolType, this.IsCenter, this.IsSquare);
 
-                this.CanvasControl.Invalidate();
+                this.CanvasAnimatedControl.Invalidate();
             };
             this.CanvasOperator.Single_Complete += (point) =>
             {
@@ -143,14 +168,16 @@ namespace FanKit.Frames.Transformers
 
                 if (redraw)
                 {
-                    using (CanvasDrawingSession drawingSession = this.CanvasRenderTarget.CreateDrawingSession())
+                    using (CanvasDrawingSession drawingSession = this.DottedLineImage.CreateDrawingSession())
                     {
                         //MarqueeTool
-                        drawingSession.FillMarqueeMaskl(this.CanvasControl, this.ToolType, this._marqueeTool, this.CanvasRenderTarget.Bounds, this.CompositeMode2);
+                        drawingSession.FillMarqueeMaskl(this.CanvasAnimatedControl, this.ToolType, this._marqueeTool, this._sourceRect, this.CompositeMode2);
                     }
+                    //DottedLine
+                    this.DottedLineImage.Baking(this.CanvasAnimatedControl);
                 }
 
-                this.CanvasControl.Invalidate();
+                this.CanvasAnimatedControl.Invalidate();
             };
 
 

@@ -2,9 +2,12 @@
 
 namespace FanKit.Frames.Control
 {
+    /// <summary>
+    /// Page of <see cref="FanKit.Control.RadiusAnimaPanel">.
+    /// </summary>
     public sealed partial class RadiusAnimaPanelPage : Page
     {
-        double WidthText
+        public double WidthText
         {
             set
             {
@@ -13,6 +16,7 @@ namespace FanKit.Frames.Control
             }
         }
 
+        //@Construct
         public RadiusAnimaPanelPage()
         {
             this.InitializeComponent();

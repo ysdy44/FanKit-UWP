@@ -5,8 +5,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Colors
 {
+    /// <summary>
+    /// Page of <see cref="HSVColorPickers.TouchSlider">.
+    /// </summary>
     public sealed partial class TouchSliderPage : Page
     {
+        //@Construct
         public TouchSliderPage()
         {
             this.InitializeComponent();

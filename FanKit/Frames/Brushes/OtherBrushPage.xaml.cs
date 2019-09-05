@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Brushes
 {
+    /// <summary>
+    /// Page of OtherBrush.
+    /// </summary>
     public sealed partial class OtherBrushPage : Page
     {
+        //@Construct
         public OtherBrushPage()
         {
             this.InitializeComponent();

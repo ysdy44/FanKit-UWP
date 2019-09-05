@@ -1,11 +1,10 @@
-﻿using System.Collections.ObjectModel;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Samples
 {
     /// <summary>
-    /// Control of <see cref="FanKit.Samples. SamplesCategory"/>.
+    /// Control of <see cref="FanKit.Samples.SamplesCategory"/>.
     /// </summary>
     public sealed partial class SamplesCategoryControl : UserControl
     {

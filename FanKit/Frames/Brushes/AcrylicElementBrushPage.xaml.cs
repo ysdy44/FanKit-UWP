@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Brushes
 {
+    /// <summary>
+    /// Page of AcrylicElementBrush.
+    /// </summary>
     public sealed partial class AcrylicElementBrushPage : Page
     {
+        //@Construct
         public AcrylicElementBrushPage()
         {
             this.InitializeComponent();

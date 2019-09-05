@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Brushes
 {
+    /// <summary>
+    /// Page of LegacyBrush.
+    /// </summary>
     public sealed partial class LegacyBrushPage : Page
     {
+        //@Construct
         public LegacyBrushPage()
         {
             this.InitializeComponent();

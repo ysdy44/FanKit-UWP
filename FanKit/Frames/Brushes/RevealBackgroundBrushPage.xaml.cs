@@ -2,8 +2,12 @@
 
 namespace FanKit.Frames.Brushes
 {
+    /// <summary>
+    /// Page of RevealBackgroundBrush.
+    /// </summary>
     public sealed partial class RevealBackgroundBrushPage : Page
     {
+        //@Construct
         public RevealBackgroundBrushPage()
         {
             this.InitializeComponent();
