@@ -1,14 +1,20 @@
-﻿using FanKit.Transformers;
+   Source Code:
+
+  [MarqueeToolPage2.xaml.cs](MarqueeToolPage2.xaml.cs)
+
+
+```Csharp
+
+using FanKit.Transformers;
 using Microsoft.Graphics.Canvas;
-using System;
+using Microsoft.Graphics.Canvas.Effects;
 using System.Numerics;
-using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
-    public sealed partial class MarqueeToolPage : Page
+    public sealed partial class MarqueeToolPage2 : Page
     {
         CanvasRenderTarget CanvasRenderTarget;
 
@@ -38,50 +44,27 @@ namespace FanKit.Frames.Transformers
 
         MarqueeTool _marqueeTool = new MarqueeTool();
 
-        Vector2 _startingPoint = new Vector2();
+        public Vector2 _startingPoint = new Vector2();
 
-        int _canvasWidth = 1000;
-        int _canvasHeight = 1000;
 
-        #region DependencyProperty
-
-        
         /// <summary> Scaling around the center. </summary>
-        public bool IsCenter
-        {
-            get { return (bool)GetValue(IsCenterProperty); }
-            set { SetValue(IsCenterProperty, value); }
-        }
-        /// <summary> Identifies the <see cref = "TransformerPage.IsCenter" /> dependency property. </summary>
-        public static readonly DependencyProperty IsCenterProperty = DependencyProperty.Register(nameof(IsCenter), typeof(bool), typeof(MarqueeToolPage), new PropertyMetadata(false));
-
+        public bool IsCenter;
         /// <summary> Maintain a ratio when scaling. </summary>
-        public bool IsSquare
-        {
-            get { return (bool)GetValue(IsSquareProperty); }
-            set { SetValue(IsSquareProperty, value); }
-        }
-        /// <summary> Identifies the <see cref = "TransformerPage.IsSquare" /> dependency property. </summary>
-        public static readonly DependencyProperty IsSquareProperty = DependencyProperty.Register(nameof(IsSquare), typeof(bool), typeof(MarqueeToolPage), new PropertyMetadata(false));
+        public bool IsSquare;
 
-
-        #endregion
 
         //@Construct
-        public MarqueeToolPage()
+        public MarqueeToolPage2()
         {
             this.InitializeComponent();
-            this.Loaded +=async (s2, e2) =>
-            {
-                this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/MarqueeToolPage.xaml.txt");
-                this.MarkdownText1.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/IndicatorControlPage.xaml"));
-                this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/MarqueeToolPage.xaml.cs.txt");
-                this.MarkdownText2.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/IndicatorControlPage.xaml.cs"));
-            };
 
             this.ResetButton.Tapped += (s, e) =>
             {
-                this.CanvasRenderTarget = new CanvasRenderTarget(this.CanvasControl, this._canvasWidth, this._canvasHeight);
+                int width = this.CanvasTransformer.Width;
+                int height = this.CanvasTransformer.Height;
+                this.CanvasRenderTarget = new CanvasRenderTarget(this.CanvasControl, width, height);
+
+                this.CanvasTransformer.Fit();
                 this.CanvasControl.Invalidate();
             };
 
@@ -105,25 +88,31 @@ namespace FanKit.Frames.Transformers
             this.CanvasControl.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == e.PreviousSize) return;
-                this._canvasWidth = (int)e.NewSize.Width;
-                this._canvasHeight = (int)e.NewSize.Height;
+                this.CanvasTransformer.Size = e.NewSize;
             };
             this.CanvasControl.CreateResources += (sender, args) =>
             {
-                int width = 1000;
-                int height = 1000;
-
-                this._canvasWidth = width;
-                this._canvasHeight = height;
+                float width = this.CanvasTransformer.Width;
+                float height = this.CanvasTransformer.Height;
                 this.CanvasRenderTarget = new CanvasRenderTarget(sender, width, height);
             };
             this.CanvasControl.Draw += (sender, args) =>
             {
-                var mask = this.CanvasRenderTarget;
+                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
+
+                //DrawCrad
+                var previousImage = new ColorSourceEffect { Color = Windows.UI.Colors.White };
+                args.DrawingSession.DrawCrad(previousImage, this.CanvasTransformer);
+
+                var mask = new Transform2DEffect
+                {
+                    TransformMatrix = matrix,
+                    Source = this.CanvasRenderTarget,
+                };
                 args.DrawingSession.DrawImage(mask);
 
                 //MarqueeTool
-                args.DrawingSession.DrawMarqueeTool(sender, this.ToolType, this._marqueeTool);
+                args.DrawingSession.DrawMarqueeTool(sender, this.ToolType, this._marqueeTool, matrix);
             };
 
 
@@ -136,7 +125,9 @@ namespace FanKit.Frames.Transformers
             //Single
             this.CanvasOperator.Single_Start += (point) =>
             {
-                Vector2 canvasPoint = point;
+                Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
+                Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
+
                 this._startingPoint = point;
 
                 //MarqueeTool
@@ -146,8 +137,9 @@ namespace FanKit.Frames.Transformers
             };
             this.CanvasOperator.Single_Delta += (point) =>
             {
-                Vector2 canvasStartingPoint = this._startingPoint;
-                Vector2 canvasPoint = point;
+                Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
+                Vector2 canvasStartingPoint = Vector2.Transform(this._startingPoint, inverseMatrix);
+                Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
 
                 //MarqueeTool
                 this._marqueeTool.Delta(canvasStartingPoint, canvasPoint, this.ToolType, this.IsCenter, this.IsSquare);
@@ -156,11 +148,13 @@ namespace FanKit.Frames.Transformers
             };
             this.CanvasOperator.Single_Complete += (point) =>
             {
-                Vector2 canvasStartingPoint = this._startingPoint;
-                Vector2 canvasPoint = point;
+                Matrix3x2 inverseMatrix = this.CanvasTransformer.GetInverseMatrix();
+                Vector2 canvasStartingPoint = Vector2.Transform(this._startingPoint, inverseMatrix);
+                Vector2 canvasPoint = Vector2.Transform(point, inverseMatrix);
 
                 //MarqueeTool
-                bool redraw = this._marqueeTool.Complete(canvasStartingPoint, canvasPoint, this.ToolType, this.IsCenter, this.IsSquare);
+                Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
+                bool redraw = this._marqueeTool.Complete(canvasStartingPoint, canvasPoint, this.ToolType, matrix, this.IsCenter, this.IsSquare);
 
                 if (redraw)
                 {
@@ -175,9 +169,56 @@ namespace FanKit.Frames.Transformers
             };
 
 
+            //Right
+            this.CanvasOperator.Right_Start += (point) =>
+            {
+                this.CanvasTransformer.CacheMove(point);
+            };
+            this.CanvasOperator.Right_Delta += (point) =>
+            {
+                this.CanvasTransformer.Move(point);
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Right_Complete += (point) =>
+            {
+                this.CanvasTransformer.Move(point);
+                this.CanvasControl.Invalidate();
+            };
+
+
+            //Double
+            this.CanvasOperator.Double_Start += (center, space) =>
+            {
+                this.CanvasTransformer.CachePinch(center, space);
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Double_Delta += (center, space) =>
+            {
+                this.CanvasTransformer.Pinch(center, space);
+                this.CanvasControl.Invalidate();
+            };
+            this.CanvasOperator.Double_Complete += (center, space) =>
+            {
+                this.CanvasControl.Invalidate();
+            };
+
+            //Wheel
+            this.CanvasOperator.Wheel_Changed += (point, space) =>
+            {
+                if (space > 0)
+                    this.CanvasTransformer.ZoomIn(point);
+                else
+                    this.CanvasTransformer.ZoomOut(point);
+
+                this.CanvasControl.Invalidate();
+            };
+
             #endregion
 
         }
 
     }
 }
+
+
+```

@@ -1,3 +1,6 @@
+   Source Code:
+
+  [PalettePickerPage.xaml](PalettePickerPage.xaml)
 
 
 ```xaml

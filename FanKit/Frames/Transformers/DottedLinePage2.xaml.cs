@@ -1,7 +1,10 @@
 ﻿using FanKit.Transformers;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
+using Microsoft.Graphics.Canvas.Geometry;
+using System;
 using System.Numerics;
+using Windows.System;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
@@ -18,11 +21,14 @@ namespace FanKit.Frames.Transformers
         public DottedLinePage2()
         {
             this.InitializeComponent();
-            this.Loaded += async (s, e) =>
+            this.Loaded += async (s2, e2) =>
             {
                 this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/DottedLinePage2.xaml.txt");
+                this.MarkdownText1.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/DottedLinePage2.xaml"));
                 this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/DottedLinePage2.xaml.cs.txt");
+                this.MarkdownText2.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/DottedLinePage2.xaml.cs"));
             };
+
             this.ResetButton.Tapped += (s, e) =>
             {
                 using (var ds = this.DottedLineImage.CreateDrawingSession())
@@ -30,12 +36,13 @@ namespace FanKit.Frames.Transformers
                     ds.Clear(Windows.UI.Colors.Transparent);
                 }
                 this.DottedLineImage.Baking(this.CanvasAnimatedControl);
+
+                this.CanvasTransformer.Fit();
             };
             this.RadianSlider.ValueChanged += (s, e) =>
             {
                 float radian = ((float)e.NewValue) * FanKit.Math.Pi / 180.0f;
                 this.CanvasTransformer.Radian = radian;
-
                 this.CanvasTransformer.ReloadMatrix();
 
                 Matrix3x2 matrix = this.CanvasTransformer.GetMatrix();
@@ -51,6 +58,7 @@ namespace FanKit.Frames.Transformers
             this.CanvasAnimatedControl.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == e.PreviousSize) return;
+                this.CanvasTransformer.Size = e.NewSize;
             };
             this.CanvasAnimatedControl.CreateResources += (sender, args) =>
             {
@@ -71,7 +79,10 @@ namespace FanKit.Frames.Transformers
 
                 //DrawDottedLine
                 args.DrawingSession.DrawDottedLine(sender, this.DottedLineBrush, this.DottedLineImage,  this.CanvasTransformer.Width, this.CanvasTransformer.Height);
-                args.DrawingSession.FillRectDodgerBlue(this.CanvasAnimatedControl, this._transformerRect, matrix);
+
+                CanvasGeometry canvasGeometry = this._transformerRect.ToRectangle(sender);
+                CanvasGeometry canvasGeometryTransform = canvasGeometry.Transform(matrix);
+                args.DrawingSession.DrawThickGeometry(canvasGeometryTransform);
             };
             this.CanvasAnimatedControl.Update += (sender, args) =>
             {

@@ -16,6 +16,7 @@ namespace FanKit.Frames.Reference
             base.Summary = "Search 'Microsoft.Toolkit.Uwp.UI.Controls' in Nuget.";
             base.PastedText = "Microsoft.Toolkit.Uwp.UI.Controls";
             base.LinkUri = new Uri("https://www.microsoft.com/store/productId/9NBLGGH4TLCQ");
+            base.Version = "3.0.0";
         }
     }
 }

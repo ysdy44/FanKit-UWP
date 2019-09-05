@@ -1,5 +1,9 @@
-```Csharp
+   Source Code:
 
+  [CurveNodesPage2.xaml.cs](CurveNodesPage2.xaml.cs)
+
+
+```Csharp
 
 using FanKit.Transformers;
 using Microsoft.Graphics.Canvas.Effects;
@@ -9,7 +13,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
 {
-    public sealed partial class CurveNodesPage : Page
+    public sealed partial class CurveNodesPage2 : Page
     {
         //CurveNodes
         NodeCollection NodeCollection = new NodeCollection();
@@ -17,10 +21,45 @@ namespace FanKit.Frames.Transformers
 
         public NodeCollectionMode Mode;
 
-        public SelfControlPointMode SelfMode;
+        private SelfControlPointMode selfMode;
+        public SelfControlPointMode SelfMode
+        {
+            get => this.selfMode;
+            set
+            {
+                switch (value)
+                {
+                    case SelfControlPointMode.None:
+                        {
+                            this.AngleCheckBox.IsChecked = false;
+                            this.LengthCheckBox.IsChecked = false;
+                        }
+                        break;
+                    case SelfControlPointMode.Length:
+                        {
+                            this.AngleCheckBox.IsChecked = false;
+                            this.LengthCheckBox.IsChecked = true;
+                        }
+                        break;
+                    case SelfControlPointMode.Angle:
+                        {
+                            this.AngleCheckBox.IsChecked = true;
+                            this.LengthCheckBox.IsChecked = false;
+                        }
+                        break;
+                    case SelfControlPointMode.Disable:
+                        {
+                            this.AngleCheckBox.IsChecked = true;
+                            this.LengthCheckBox.IsChecked = true;
+                        }
+                        break;
+                }
+                this.selfMode = value;
+            }
+        }
 
-        public EachControlPointLengthMode EachLengthMode;
-        public EachControlPointAngleMode EachAngleMode;
+        public EachControlPointLengthMode EachLengthMode=EachControlPointLengthMode.Equal;
+        public EachControlPointAngleMode EachAngleMode=EachControlPointAngleMode.Asymmetric;
 
 
         TransformerRect _transformerRect;
@@ -30,14 +69,9 @@ namespace FanKit.Frames.Transformers
 
 
         //@Construct
-        public CurveNodesPage()
+        public CurveNodesPage2()
         {
             this.InitializeComponent();
-            this.Loaded += async (s, e) =>
-            {
-                this.EachLengthMode = EachControlPointLengthMode.Equal;
-                this.EachAngleMode = EachControlPointAngleMode.Asymmetric;
-            };
 
 
             #region Button
@@ -53,7 +87,7 @@ namespace FanKit.Frames.Transformers
             {
                 this.PenModeButton.IsChecked = false;
                 this._isAdd = false;
-            }; 
+            };
 
             //Button
             this.RemoveButton.Tapped += (s, e) =>
@@ -130,17 +164,15 @@ namespace FanKit.Frames.Transformers
 
             #region Draw
 
-            
+
             this.CanvasControl.SizeChanged += (s, e) =>
             {
                 if (e.NewSize == e.PreviousSize) return;
                 this.CanvasTransformer.Size = e.NewSize;
-                this.CanvasTransformer.Fit();
             };
-            
             this.CanvasControl.CreateResources += (s, args) =>
             {
-                Vector2 center = new Vector2(this.CanvasTransformer.Width, this.CanvasTransformer.Height)/2;
+                Vector2 center = new Vector2(this.CanvasTransformer.Width, this.CanvasTransformer.Height) / 2;
                 this.NodeCollection = new NodeCollection
                 {
                     new Node
@@ -195,8 +227,12 @@ namespace FanKit.Frames.Transformers
                 switch (this.Mode)
                 {
                     case NodeCollectionMode.RectChoose:
-                        args.DrawingSession.FillRectDodgerBlue(this.CanvasControl, this._transformerRect, matrix);
-                     break;
+                        {
+                            CanvasGeometry canvasGeometry = this._transformerRect.ToRectangle(this.CanvasControl);
+                            CanvasGeometry canvasGeometryTransform = canvasGeometry.Transform(matrix); 
+                            args.DrawingSession.DrawGeometryDodgerBlue(canvasGeometryTransform);
+                        }
+                        break;
                 }
             };
 
@@ -338,6 +374,5 @@ namespace FanKit.Frames.Transformers
         }
     }
 }
-
 
 ```

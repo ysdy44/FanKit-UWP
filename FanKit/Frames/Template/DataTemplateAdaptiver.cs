@@ -1,13 +1,4 @@
-   Source Code:
-
-  [DataTemplateAdaptiver.cs](DataTemplateAdaptiver.cs)
-
-
-```Csharp
-
-
-using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Windows.UI.Xaml;
 
 namespace FanKit.Frames.Template
@@ -91,14 +82,10 @@ namespace FanKit.Frames.Template
             this.SizeWidth = finalwidth;
             this.SizeHeight = finalwidth * 1.6d;
         }
-        
+
 
         //Notify
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }
-
-
-
-```

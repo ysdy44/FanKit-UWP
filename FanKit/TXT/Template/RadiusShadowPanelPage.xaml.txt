@@ -1,9 +1,14 @@
+   Source Code:
+
+  [RadiusShadowPanelPage.xaml](RadiusShadowPanelPage.xaml)
+
 
 ```xaml
 
+<Page
 xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
 xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
-
+>
 
 <Grid Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
     <Grid Margin="12" VerticalAlignment="Bottom" HorizontalAlignment="Center" >
@@ -65,7 +70,7 @@ xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
 </Grid>
      
 
-
+<Page>
 
 
 

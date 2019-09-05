@@ -15,7 +15,8 @@ namespace FanKit.Frames.Reference
             base.Title = "Transformers";
             base.Summary = "Search 'FanKit.Transformers' in Nuget.";
             base.PastedText = "FanKit.Transformers";
-            base.LinkUri = null;
+            base.LinkUri = new Uri("https://github.com/ysdy44/FanKit.Transformers-Nuget-UWP");
+            base.Version = "1.3.2";
         }
     }
 }

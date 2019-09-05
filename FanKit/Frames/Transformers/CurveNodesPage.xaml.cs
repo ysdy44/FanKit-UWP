@@ -1,6 +1,9 @@
 ﻿using FanKit.Transformers;
 using Microsoft.Graphics.Canvas.Geometry;
+using System;
 using System.Numerics;
+using Windows.Foundation;
+using Windows.System;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
@@ -64,10 +67,12 @@ namespace FanKit.Frames.Transformers
         public CurveNodesPage()
         {
             this.InitializeComponent();
-            this.Loaded += async (s, e) =>
+            this.Loaded += async (s2, e2) =>
             {
                 this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/CurveNodesPage.xaml.txt");
+                this.MarkdownText1.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/CurveNodesPage.xaml"));
                 this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/CurveNodesPage.xaml.cs.txt");
+                this.MarkdownText2.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/CurveNodesPage.xaml.cs"));
 
                 this.MirroredRadioButton.IsChecked = true;
                 this.EachLengthMode = EachControlPointLengthMode.Equal;
@@ -219,7 +224,10 @@ namespace FanKit.Frames.Transformers
                 switch (this.Mode)
                 {
                     case NodeCollectionMode.RectChoose:
-                        args.DrawingSession.FillRectDodgerBlue(this.CanvasControl, this._transformerRect);
+                        {
+                            Rect rect = this._transformerRect.ToRect();
+                            args.DrawingSession.DrawRectangleDodgerBlue(rect);
+                        }
                         break;
                 }
             };

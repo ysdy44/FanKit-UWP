@@ -13,7 +13,7 @@
     <Page.Resources>
 
         <!--DataTemplate-->
-        <DataTemplate x:Key="DataTemplate" x:DataType="samples:SampleCategory">
+        <DataTemplate x:Key="DataTemplate" x:DataType="samples:SamplesCategory">
             <Grid>
                 <Ellipse Width="12" Height="12"
                                      StrokeThickness="1" Stroke="White"

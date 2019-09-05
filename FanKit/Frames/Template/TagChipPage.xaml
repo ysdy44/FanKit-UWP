@@ -155,11 +155,6 @@
                         <controls:MarkdownTextBlock x:Name="MarkdownText1" />
                     </ScrollViewer>
                 </PivotItem>
-                <PivotItem Header="Style" Background="{ThemeResource AppBackground}">
-                    <ScrollViewer  >
-                        <controls:MarkdownTextBlock x:Name="MarkdownText2" />
-                    </ScrollViewer>
-                </PivotItem>
             </Pivot>
         </frames:PageLayout2.DetailContent>
 

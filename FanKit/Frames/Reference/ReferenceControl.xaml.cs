@@ -5,7 +5,6 @@ using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace FanKit.Frames.Reference
 {
@@ -16,7 +15,7 @@ namespace FanKit.Frames.Reference
     {
         //@Content
         /// <summary> Image's source. </summary>
-        public ImageSource ImageSource { get=> this.Image.Source; set=> this.Image.Source=value; }
+        public ImageSource ImageSource { get => this.Image.Source; set => this.Image.Source = value; }
         /// <summary> Title's text. </summary>
         public string Title { get => this.TitleTextBlock.Text; set => this.TitleTextBlock.Text = value; }
         /// <summary> Summary's text. </summary>
@@ -24,7 +23,7 @@ namespace FanKit.Frames.Reference
 
         /// <summary> Pasted text. </summary>
         public string PastedText
-    {
+        {
             get => this.pastedText;
             set
             {
@@ -36,7 +35,7 @@ namespace FanKit.Frames.Reference
         /// <summary> Link's uri. </summary>
         public Uri LinkUri
         {
-            get=>this.linkUri;
+            get => this.linkUri;
             set
             {
                 this.LinkButton.Visibility = (value == null) ? Visibility.Collapsed : Visibility.Visible;
@@ -44,7 +43,19 @@ namespace FanKit.Frames.Reference
             }
         }
         private Uri linkUri = null;
-        
+        /// <summary> Nuget's version. </summary>
+        public string Version
+        {
+            get => this.version;
+            set
+            {
+                this.VersionTextBlock.Text = value;
+                this.VersionBorder.Visibility = (value == null) ? Visibility.Collapsed : Visibility.Visible;
+                this.version = value;
+            }
+        }
+        private string version = null;
+
 
         //@Construct
         public ReferenceControl()

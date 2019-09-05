@@ -1,7 +1,9 @@
 ﻿using FanKit.Transformers;
 using Microsoft.Graphics.Canvas.Effects;
+using System;
 using System.Numerics;
 using Windows.Foundation;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -61,20 +63,18 @@ namespace FanKit.Frames.Transformers
         public CanvasTransformerPage()
         {
             this.InitializeComponent();
-            this.Loaded += async (sender, e) =>
+           this.Loaded += async (s2, e2) =>
             {
                 this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/CanvasTransformerPage.xaml.txt");
+                this.MarkdownText1.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/CanvasTransformerPage.xaml"));
                 this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/CanvasTransformerPage.xaml.cs.txt");
+                this.MarkdownText2.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/CanvasTransformerPage.xaml.cs"));
             };
 
             this.ResetButton.Tapped += (s, e) =>
             {
-                Size size = this.CanvasTransformer.Size;
-
-                this.CanvasTransformer.Position = new Vector2((float)size.Width / 2, (float)size.Height / 2);
-                this.CanvasTransformer.Scale = 1;
+                this.CanvasTransformer.Fit();
                 this.CanvasTransformer.Radian = 0;
-
                 this.CanvasTransformer.ReloadMatrix();
                 this.CanvasControl.Invalidate();//Invalidate
 

@@ -1,12 +1,4 @@
-﻿   Source Code:
-
-  [ScalableGrid.cs](ScalableGrid.cs)
-
-
-```Csharp
-
-
-using System;
+﻿using System;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -271,7 +263,3 @@ namespace FanKit.Frames.Template
 
     }
 }
-
-
-
-```

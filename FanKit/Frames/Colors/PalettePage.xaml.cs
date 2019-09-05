@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Windows.System;
 using Windows.UI;
 using Windows.UI.Xaml.Controls;
 
@@ -32,10 +33,12 @@ namespace FanKit.Frames.Colors
         public PalettePage()
         {
             this.InitializeComponent();
-            this.Loaded += async (sender, e) =>
+            this.Loaded += async (s2, e2) =>
             {
                 this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Colors/PalettePage.xaml.txt");
+                this.MarkdownText1.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Colors/PalettePage.xaml"));
                 this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Colors/PalettePage.xaml.cs.txt");
+                this.MarkdownText2.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Colors/PalettePage.xaml.cs"));
             };
             this.CarouselControl.ItemsSource = this.ItemsSource;
             this.CarouselControl.SelectionChanged += async (s, e) =>

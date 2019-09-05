@@ -1,7 +1,27 @@
+   Source Code:
+
+  [MarqueeToolPage.xaml](MarqueeToolPage.xaml)
+
+
 ```xaml
 
 
+<Page
+    x:Class="FanKit.Frames.Transformers.MarqueeToolPage"
+    xmlns:transformers="using:FanKit.Transformers"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    mc:Ignorable="d"
+    >
 
+    <Page.Resources>
+        <!--CanvasOperator-->
+        <transformers:CanvasOperator x:Name="CanvasOperator" DestinationControl="{Binding ElementName=CanvasControl}"/>
+    </Page.Resources>
+
+
+    <canvas:CanvasControl x:Name="CanvasControl"/>
+
+</Page>
 
 
 

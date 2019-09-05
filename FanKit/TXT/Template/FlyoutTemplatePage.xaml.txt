@@ -1,63 +1,233 @@
+   Source Code:
+
+  [FlyoutTemplatePage.xaml](FlyoutTemplatePage.xaml)
+
 
 ```xaml
 
-<Grid Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" >
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="1*"/>
-        <ColumnDefinition Width="Auto"/>
-        <ColumnDefinition Width="Auto"/>
-        <ColumnDefinition Width="Auto"/>
-        <ColumnDefinition Width="1*"/>
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-        <RowDefinition Height="1*"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="1*"/>
-    </Grid.RowDefinitions>
+<Page
+    x:Class="FanKit.Frames.Template.FlyoutTemplatePage"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
 
-    <Button Content="FlyoutPresenter" Grid.Column="2" Grid.Row="2" Style="{ThemeResource AccentButtonStyle}">
-      <Button.Flyout>
-        <Flyout Placement="Full" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenter}">
-          <Grid Width="400" Height="400"/>
-        </Flyout>
-      </Button.Flyout>
-    </Button>
+    
+    <Page.Resources>
 
-    <Button Content="FlyoutPresenterLeft" Grid.Column="3" Grid.Row="2" Style="{ThemeResource AccentButtonStyle}">
-      <Button.Flyout>
-        <Flyout Placement="Left" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterLeft}">
-          <Grid Width="200" Height="200"/>
-        </Flyout>
-      </Button.Flyout>
-    </Button>
+        <!--Style (FlyoutPresenter)-->
+        <Style x:Key="FlyoutPresenter" TargetType="FlyoutPresenter" >
+            <Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementBrush}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="BorderBrush" Value="#66000000"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="FlyoutPresenter">
+                        <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
+                            <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                    <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                </ScrollViewer>
+                            </Border>
+                        </controls:DropShadowPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-    <Button Content="FlyoutPresenterTop" Grid.Column="2" Grid.Row="3" Style="{ThemeResource AccentButtonStyle}">
-      <Button.Flyout>
-        <Flyout Placement="Top" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}">
-          <Grid Width="200" Height="200"/>
-        </Flyout>
-      </Button.Flyout>
-    </Button>
+        <Style x:Key="FlyoutPresenterLeft" TargetType="FlyoutPresenter" BasedOn="{StaticResource FlyoutPresenter}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="FlyoutPresenter">
+                        <Grid >
+                            <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
+                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                        <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </controls:DropShadowPanel>
+                            <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Center" HorizontalAlignment="Right" Content="&#xE937;" FontFamily="Segoe MDL2 Assets" />
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FlyoutPresenterTop" TargetType="FlyoutPresenter" BasedOn="{StaticResource FlyoutPresenter}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="FlyoutPresenter">
+                        <Grid >
+                            <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
+                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                        <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </controls:DropShadowPanel>
+                            <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="&#xE936;" FontFamily="Segoe MDL2 Assets" />
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FlyoutPresenterRight" TargetType="FlyoutPresenter" BasedOn="{StaticResource FlyoutPresenter}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="FlyoutPresenter">
+                        <Grid >
+                            <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
+                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                        <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </controls:DropShadowPanel>
+                             <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Center" HorizontalAlignment="Left" Content="&#xE938;" FontFamily="Segoe MDL2 Assets" />
+                            </Grid>
+                         </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FlyoutPresenterBottom" TargetType="FlyoutPresenter" BasedOn="{StaticResource FlyoutPresenter}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="FlyoutPresenter">
+                        <Grid >
+                            <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" >
+                                <Border  Margin="8" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" MinWidth="{TemplateBinding MinWidth}" Width="Auto" MaxWidth="{TemplateBinding MaxWidth}" MinHeight="{TemplateBinding MinHeight}" Height="Auto" MaxHeight="{TemplateBinding MaxHeight}">
+                                        <ContentPresenter   Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </controls:DropShadowPanel>
+                            <Grid Padding="-7" >
+                                <ContentControl FontSize="16" Foreground="{TemplateBinding Background}" VerticalAlignment="Top" HorizontalAlignment="Center" Content="&#xE935;" FontFamily="Segoe MDL2 Assets" />
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-    <Button Content="FlyoutPresenterRight" Grid.Column="1" Grid.Row="2" Style="{ThemeResource AccentButtonStyle}">
-      <Button.Flyout>
-        <Flyout Placement="Right" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterRight}">
-          <Grid Width="200" Height="200"/>
-        </Flyout>
-      </Button.Flyout>
-    </Button>
+        <!--Style (DropShadowPanel)-->
+        <Style x:Key="DropShadowPanel" TargetType="controls:DropShadowPanel" >
+            <Setter Property="BlurRadius" Value="8"/>
+            <Setter Property="ShadowOpacity" Value="0.3"/>
+            <Setter Property="OffsetX" Value="10"/>
+            <Setter Property="OffsetY" Value="10"/>
+            <Setter Property="Color" Value="Black"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
 
-    <Button Content="FlyoutPresenterBottom" Grid.Column="2" Grid.Row="1" Style="{ThemeResource AccentButtonStyle}">
-      <Button.Flyout>
-        <Flyout Placement="Bottom" LightDismissOverlayMode="On" FlyoutPresenterStyle="{StaticResource FlyoutPresenterBottom}">
-          <Grid Width="200" Height="200"/>
-        </Flyout>
-      </Button.Flyout>
-    </Button>
+    </Page.Resources>
 
- </Grid>
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="ButtonCenter" Content="Flyout"
+                    Grid.Column="2" Grid.Row="2" Margin="12"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Style="{ThemeResource AccentButtonStyle}">
+            <Button.Flyout>
+                <Flyout x:Name="Flyout" Placement="Full" LightDismissOverlayMode="On" 
+                            FlyoutPresenterStyle="{StaticResource FlyoutPresenter}">
+                    <Grid Width="400" Height="400">
+
+                    </Grid>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
+        <Button x:Name="ButtonLeft" Content="Flyout Left" 
+                    Grid.Column="3" Grid.Row="2" Margin="12"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Style="{ThemeResource AccentButtonStyle}">
+            <Button.Flyout>
+                <Flyout x:Name="FlyoutLeft" Placement="Left" LightDismissOverlayMode="On" 
+                            FlyoutPresenterStyle="{StaticResource FlyoutPresenterLeft}">
+                    <Grid Width="200" Height="200">
+
+                    </Grid>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+        <Button x:Name="ButtonTop" Content="Flyout Top" 
+                    Grid.Column="2" Grid.Row="3" Margin="12"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Style="{ThemeResource AccentButtonStyle}">
+            <Button.Flyout>
+                <Flyout x:Name="FlyoutTop" Placement="Top" LightDismissOverlayMode="On" 
+                            FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}">
+                    <Grid Width="200" Height="200">
+
+                    </Grid>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+        <Button x:Name="ButtonRight" Content="Flyout Right" 
+                    Grid.Column="1" Grid.Row="2" Margin="12"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Style="{ThemeResource AccentButtonStyle}">
+            <Button.Flyout>
+                <Flyout x:Name="FlyoutRight" Placement="Right" LightDismissOverlayMode="On" 
+                            FlyoutPresenterStyle="{StaticResource FlyoutPresenterRight}">
+                    <Grid Width="200" Height="200">
+
+                    </Grid>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+        <Button x:Name="ButtonBottom" Content="Flyout Bottom" 
+                    Grid.Column="2" Grid.Row="1" Margin="12"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Style="{ThemeResource AccentButtonStyle}">
+            <Button.Flyout>
+                <Flyout x:Name="FlyoutBottom" Placement="Bottom" LightDismissOverlayMode="On"
+                            FlyoutPresenterStyle="{StaticResource FlyoutPresenterBottom}">
+                    <Grid Width="200" Height="200">
+
+                    </Grid>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
+    </Grid>
+    
+</Page>
 
 
 ```

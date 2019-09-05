@@ -1,3 +1,6 @@
+   Source Code:
+
+  [HexPickerPage.xaml](HexPickerPage.xaml)
 
 
 ```xaml

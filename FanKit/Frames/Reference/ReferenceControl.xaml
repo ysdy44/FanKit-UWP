@@ -38,7 +38,14 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Image x:Name="Image" Height="60" Width="60" Grid.RowSpan="2" Stretch="UniformToFill"/>
-        <TextBlock x:Name="TitleTextBlock" Grid.Column="2" FontSize="18"/>
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+            <TextBlock x:Name="TitleTextBlock" FontSize="18" VerticalAlignment="Center"/>
+            <ContentControl Width="4"/>
+            <Border x:Name="VersionBorder" CornerRadius="4" Padding="6,0" Visibility="Collapsed" VerticalAlignment="Center" 
+                    BorderThickness="1" BorderBrush="{ThemeResource AppBorderBrush}" Background="{ThemeResource AppBackground}">
+                <TextBlock x:Name="VersionTextBlock"/>
+            </Border>
+        </StackPanel>
         <TextBlock x:Name="SummaryTextBlock" Grid.Column="2" Grid.Row="1" Foreground="{ThemeResource SystemControlBackgroundBaseMediumBrush}"/>
 
         <Button x:Name="LinkButton" Grid.Column="3" Grid.RowSpan="2" Visibility="Collapsed" BorderThickness="0" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

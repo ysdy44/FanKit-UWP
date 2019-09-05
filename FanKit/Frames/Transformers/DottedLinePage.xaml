@@ -37,21 +37,7 @@
 
                             <!--Separator-->
                             <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
-
                             
-                            <!--Separator-->
-                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
-
-
-                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-
-
-                            </TextBlock>
-
-
-                            <!--Separator-->
-                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
-
 
                             <TextBlock Text="Reference:" Margin="12" />
                             <reference:ReferenceWin2d/>

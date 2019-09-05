@@ -36,19 +36,12 @@
 
                             <Button x:Name="ResetButton" Margin="12" Content="Reset"/>
 
-
+                            
                             <!--Separator-->
                             <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
 
 
-                            <!--Separator-->
-                            <Rectangle Style="{StaticResource AppSplitterRectangleStyle}"/>
-
-
-                            <TextBlock Margin="12" TextWrapping="WrapWholeWords">
-
-
-                            </TextBlock>
+                            <TextBlock Text="Radians:" Margin="12"/>
                             <Slider x:Name="RadianSlider" Margin="12,0" Minimum="-180" Maximum="180"/>
 
 

@@ -396,6 +396,13 @@
         "Name": "MarqueeTool",
         "Uri": "ms-appx:///Icon/Transformers/MarqueeTool.png",
         "Summary": "The marquee is a tool that can make selections that are  rectangular and elliptical."
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Transformers.MarqueeToolPage2, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "MarqueeTool2",
+        "Uri": "ms-appx:///Icon/Transformers/MarqueeTool.png",
+        "Summary": "The marquee is a tool that can make selections that are  rectangular and elliptical."
       }
 
     ]

@@ -1,4 +1,9 @@
-﻿```Csharp
+﻿   Source Code:
+
+  [CanvasTransformerPage.xaml.cs](CanvasTransformerPage.xaml.cs)
+
+
+```Csharp
 
 
 using FanKit.Transformers;
@@ -49,15 +54,10 @@ namespace FanKit.Frames.Transformers
             };
             this.CanvasControl.CreateResources += (sender, args) =>
             {
-                Size size = new Size(sender.ActualWidth, sender.ActualHeight);
-
-                this.CanvasTransformer.Width = (int)size.Width / 3;
-                this.CanvasTransformer.Height = (int)size.Height / 3;
-
-                this.CanvasTransformer.Position = new Vector2((float)size.Width / 2, (float)size.Height / 2);
-
-                this.CanvasTransformer.Size = size;
+                this.CanvasTransformer.Fit();
+                this.CanvasTransformer.Radian = 0;
                 this.CanvasTransformer.ReloadMatrix();
+                this.CanvasControl.Invalidate();
             };
             this.CanvasControl.Draw += (sender, args) =>
             {

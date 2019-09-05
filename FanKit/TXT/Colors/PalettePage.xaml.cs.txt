@@ -1,4 +1,9 @@
-﻿```Csharp
+﻿   Source Code:
+
+  [PalettePage.xaml.cs](PalettePage.xaml.cs)
+
+
+```Csharp
 
 
 using System;

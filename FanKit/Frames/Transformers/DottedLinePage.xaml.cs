@@ -1,6 +1,9 @@
 ﻿using FanKit.Transformers;
 using Microsoft.Graphics.Canvas;
+using System;
 using System.Numerics;
+using Windows.Foundation;
+using Windows.System;
 using Windows.UI.Xaml.Controls;
 
 namespace FanKit.Frames.Transformers
@@ -19,11 +22,14 @@ namespace FanKit.Frames.Transformers
         public DottedLinePage()
         {
             this.InitializeComponent();
-            this.Loaded += async (s, e) =>
+            this.Loaded += async (s2, e2) =>
             {
                 this.MarkdownText1.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/DottedLinePage.xaml.txt");
+                this.MarkdownText1.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/DottedLinePage.xaml"));
                 this.MarkdownText2.Text = await FanKit.Samples.File.GetFile("ms-appx:///TXT/Transformers/DottedLinePage.xaml.cs.txt");
+                this.MarkdownText2.LinkClicked += async (s, e) => await Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/FanKit-UWP/blob/master/FanKit/Frames/Transformers/DottedLinePage.xaml.cs"));
             };
+
             this.ResetButton.Tapped += (s, e) =>
             {
                 using (var ds = this.DottedLineImage.CreateDrawingSession())
@@ -52,7 +58,9 @@ namespace FanKit.Frames.Transformers
             this.CanvasAnimatedControl.Draw += (sender, args) =>
             {
                 args.DrawingSession.DrawDottedLine(sender, this.DottedLineBrush, this.DottedLineImage, this.CanvasWidth, this.CanvasHeight);
-                args.DrawingSession.FillRectDodgerBlue(this.CanvasAnimatedControl, this._transformerRect);
+                
+                Rect rect = this._transformerRect.ToRect();
+                args.DrawingSession.DrawThickRectangle(rect);
             };
             this.CanvasAnimatedControl.Update += (sender, args) =>
             {

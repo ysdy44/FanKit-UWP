@@ -16,7 +16,7 @@
     <Grid x:Name="RootGrid">
         
         <!--Blur-->
-        <Border x:Name="BlurBorder" IsHitTestVisible="False">
+        <Border x:Name="BlurBorder">
             <Border.Background>
                 <media:BackdropBlurBrush Amount="3" />
             </Border.Background>

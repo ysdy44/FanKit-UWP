@@ -118,19 +118,22 @@
     <Compile Include="Frames\Styles\TransitionPage.xaml.cs">
       <DependentUpon>TransitionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Template\DataTemplateAdaptiver.cs" />
+    <Compile Include="Frames\Template\ScalableGrid.cs" />
     <Compile Include="Frames\Transformers\CurveNodesPage2.xaml.cs">
       <DependentUpon>CurveNodesPage2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transformers\DottedLine.cs" />
     <Compile Include="Frames\Transformers\DottedLinePage.xaml.cs">
       <DependentUpon>DottedLinePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Transformers\DottedLinePage2.xaml.cs">
       <DependentUpon>DottedLinePage2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frames\Transformers\MarqueeTool.cs" />
     <Compile Include="Frames\Transformers\MarqueeToolPage.xaml.cs">
       <DependentUpon>MarqueeToolPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Transformers\MarqueeToolPage2.xaml.cs">
+      <DependentUpon>MarqueeToolPage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\Transformers\RemoteControlPage.xaml.cs">
       <DependentUpon>RemoteControlPage.xaml</DependentUpon>
@@ -363,6 +366,8 @@
     <Content Include="TXT\Colors\PalettePage.xaml.txt" />
     <Content Include="TXT\Styles\ChildrenTransition.style.txt" />
     <Content Include="TXT\Styles\Transition.style.txt" />
+    <Content Include="TXT\Transformers\MarqueeToolPage2.xaml.cs.txt" />
+    <Content Include="TXT\Transformers\MarqueeToolPage2.xaml.txt" />
     <Content Include="TXT\Transformers\CurveNodesPage2.xaml.txt" />
     <Content Include="TXT\Transformers\CurveNodesPage2.xaml.cs.txt" />
     <Content Include="TXT\Transformers\DottedLinePage2.xaml.cs.txt" />
@@ -517,13 +522,10 @@
     <Content Include="TXT\Template\ScalableGrid.cs.txt" />
     <Content Include="TXT\Template\ScalableGridPage.xaml.txt" />
     <Content Include="TXT\Template\FloatActionButtonPage.xaml.cs.txt" />
-    <Content Include="TXT\Template\FloatActionButton.style.txt" />
     <Content Include="TXT\Template\FloatActionButtonPage.xaml.txt" />
     <Content Include="TXT\Template\RadiusShadowPanelPage.xaml.txt" />
     <Content Include="TXT\Control\SplitPanelControl.xaml.cs.txt" />
     <Content Include="TXT\Control\SplitPanelControlPage.xaml.txt" />
-    <Content Include="TXT\Template\TagChip.style.txt" />
-    <Content Include="TXT\Template\FlyoutTemplate.style.txt" />
     <Content Include="TXT\Template\TagChipPage.xaml.txt" />
     <Content Include="TXT\Template\FlyoutTemplatePage.xaml.txt" />
     <Content Include="TXT\Styles\NavigationTransition.style.txt" />
@@ -574,6 +576,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\Transformers\MarqueeToolPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frames\Transformers\MarqueeToolPage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -840,7 +846,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FanKit.Transformers">
-      <Version>1.2.2</Version>
+      <Version>1.3.2</Version>
     </PackageReference>
     <PackageReference Include="HSVColorPickers">
       <Version>1.2.0</Version>

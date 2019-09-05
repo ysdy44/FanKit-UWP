@@ -1,3 +1,8 @@
+   Source Code:
+
+  [IndicatorControlPage.xaml](IndicatorControlPage.xaml)
+
+
 ```xaml
 
 

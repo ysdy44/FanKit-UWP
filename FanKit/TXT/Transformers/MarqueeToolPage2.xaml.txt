@@ -1,0 +1,33 @@
+   Source Code:
+
+  [MarqueeToolPage2.xaml](MarqueeToolPage2.xaml)
+
+
+```xaml
+
+
+
+<Page
+    x:Class="FanKit.Frames.Transformers.MarqueeToolPage2"
+    xmlns:frames="using:FanKit.Frames"
+    xmlns:reference="using:FanKit.Frames.Reference"
+    xmlns:transformers="using:FanKit.Transformers"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <!--CanvasTransformer-->
+        <transformers:CanvasTransformer x:Name="CanvasTransformer"/>
+        <!--CanvasOperator-->
+        <transformers:CanvasOperator x:Name="CanvasOperator" DestinationControl="{x:Bind CanvasControl}" />
+    </Page.Resources>
+
+    
+    <canvas:CanvasControl x:Name="CanvasControl"/>
+
+</Page>
+
+
+```
