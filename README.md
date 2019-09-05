@@ -31,6 +31,7 @@ Including  generic.xaml some theme resources,and some beautiful style with the c
 
 ## Colors
 
+Please reference "[HSVColorPicker](https://github.com/ysdy44/HSVColorPickers-Nuget-UWP)" in Nuget.<br>
 Provides controls and selections that can select colors.<br>
 RGB HSL Wheel Hue Saturation Lightness......
 ![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot001.jpg)
@@ -38,10 +39,10 @@ RGB HSL Wheel Hue Saturation Lightness......
 
 
 
-## Win2Ds
+## Transforms
 
-Please reference Win2D in Nuget.<br>
-CanvasOperator DottedLine CurveNodes MarqueeTool TransformController......
+Please reference "[Fankit.Transforms](https://github.com/ysdy44/FanKit.Transformers-Nuget-UWP)" in Nuget.<br>
+CanvasOperator DottedLine CurveNodes MarqueeTool Transforms......
 ![](https://github.com/ysdy44/FanKit/blob/master/ScreenShot/ScreenShot002.jpg)
 
 
