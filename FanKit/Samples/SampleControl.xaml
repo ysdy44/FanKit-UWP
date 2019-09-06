@@ -24,14 +24,42 @@
         <SolidColorBrush x:Name="UnCheckColor" Color="LightGray"/>
         <!--Storyboard-->
         <Storyboard x:Name="ShowStoryboard">
-            <DoubleAnimation Duration="0:0:0.4" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundDropShadowPanel" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.6" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundDropShadowPanel" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.6" To="1.04" Storyboard.TargetProperty="ScaleX" Storyboard.TargetName="ScaleTransform" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.6" To="1.04" Storyboard.TargetProperty="ScaleY" Storyboard.TargetName="ScaleTransform" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
         </Storyboard>
         <Storyboard x:Name="FadeStoryboard">
-            <DoubleAnimation Duration="0:0:0.4" To="0.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundDropShadowPanel" d:IsOptimized="True"/>
+            <DoubleAnimation Duration="0:0:0.4" To="0.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundDropShadowPanel" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.4" To="1.0" Storyboard.TargetProperty="ScaleX" Storyboard.TargetName="ScaleTransform" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.4" To="1.0" Storyboard.TargetProperty="ScaleY" Storyboard.TargetName="ScaleTransform" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
         </Storyboard>
     </UserControl.Resources>
-    
-    
+
+
     <Grid x:Name="RootGrid" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="12"/>
@@ -50,8 +78,13 @@
         <!--Image-->
         <controls:ImageEx x:Name="Image"
                IsHitTestVisible="False" Grid.Row="1" Margin="12,8" Stretch="Uniform"
-               BorderThickness="1" BorderBrush="{ThemeResource AppBorderBrush}"
-              />
+               Background="{ThemeResource AppBackground}"
+               RenderTransformOrigin="0.5,0.5"
+              >
+            <controls:ImageEx.RenderTransform>
+                <ScaleTransform x:Name="ScaleTransform" ScaleX="1" ScaleY="1"/>
+            </controls:ImageEx.RenderTransform>
+        </controls:ImageEx>
 
         <!--Flag-->
         <ContentPresenter x:Name="FlagContentPresenter"

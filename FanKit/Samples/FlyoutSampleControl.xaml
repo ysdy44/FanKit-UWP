@@ -32,7 +32,7 @@
     </animations:Implicit.HideAnimations>
 
     <controls:DropShadowPanel x:Name="BackgroundDropShadowPanel"
-                 BlurRadius="32" ShadowOpacity="1.0" OffsetX="2" OffsetY="4"
+                 BlurRadius="32" ShadowOpacity="0.4" OffsetX="2" OffsetY="4"
                  Color="{ThemeResource AppStrokeColor}"
                   >
     
