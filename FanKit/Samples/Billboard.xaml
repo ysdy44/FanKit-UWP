@@ -48,13 +48,13 @@
             >
             <StackPanel>
                 <controls:ImageEx x:Name="Image" Stretch="Uniform" Background="White"
-                          Source="{x:Bind Sample.Uri}"/>
+                          Source="{x:Bind Sample.Uri, Mode=OneWay}"/>
                 <ContentControl Height="12"/>
                 <TextBlock x:Name="NameTextbolck" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"
-                          Text="{x:Bind Sample.Name}"/>
+                          Text="{x:Bind Sample.Name, Mode=OneWay}"/>
                 <ContentControl Height="6"/>
                 <TextBlock x:Name="SummaryTextBlock" TextWrapping="Wrap"
-                          Text="{x:Bind Sample.Summary}"/>
+                          Text="{x:Bind Sample.Summary, Mode=OneWay}"/>
             </StackPanel>
         </Border>
 
