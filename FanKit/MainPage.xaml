@@ -572,9 +572,9 @@
 
         </Grid>
 
-        <!--FlyoutSampleControl-->
-        <Canvas x:Name="Canvas" Grid.RowSpan="2" Background="Transparent">
-            <samples:FlyoutSampleControl x:Name="FlyoutSampleControl" IsHitTestVisible="False" />
+        <!--Billboard-->
+        <Canvas x:Name="BillboardCanvas" Grid.RowSpan="2" Background="Transparent">
+            <samples:Billboard x:Name="Billboard" IsHitTestVisible="False" />
         </Canvas>
 
     </Grid>

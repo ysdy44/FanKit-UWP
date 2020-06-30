@@ -1,6 +1,6 @@
 ﻿<UserControl
     x:Name="UserControl"
-    x:Class="FanKit.Samples.FlyoutSampleControl"
+    x:Class="FanKit.Samples.Billboard"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -13,11 +13,14 @@
     VerticalAlignment="Top"
     Padding="12"
     Width="200"
+    BorderThickness="1" 
+    BorderBrush="{ThemeResource AppBorderBrush}" 
     Background="{ThemeResource AppBackground}" 
     extensions:VisualExtensions.CenterPoint="100,100,0"
     d:DesignHeight="300"
     d:DesignWidth="400"
     >
+
 
     <!--Visibility:Show-->
     <animations:Implicit.ShowAnimations>
@@ -31,31 +34,29 @@
         <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
     </animations:Implicit.HideAnimations>
 
+
     <controls:DropShadowPanel x:Name="BackgroundDropShadowPanel"
                  BlurRadius="32" ShadowOpacity="0.4" OffsetX="2" OffsetY="4"
-                 Color="{ThemeResource AppStrokeColor}"
-                  >
-    
+                 Color="{ThemeResource AppStrokeColor}">
+
         <Border 
             Width="{x:Bind UserControl.Width,Mode=OneWay}"
             Padding="{x:Bind UserControl.Padding,Mode=OneWay}"
+            BorderThickness="{x:Bind UserControl.BorderThickness,Mode=OneWay}"
+            BorderBrush="{x:Bind UserControl.BorderBrush,Mode=OneWay}"
             Background="{x:Bind UserControl.Background,Mode=OneWay}"
             >
             <StackPanel>
-                <controls:ImageEx x:Name="Image" Stretch="Uniform"/>
+                <controls:ImageEx x:Name="Image" Stretch="Uniform" Background="White"
+                          Source="{x:Bind Sample.Uri}"/>
                 <ContentControl Height="12"/>
-                <TextBlock x:Name="NameTextbolck" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"/>
+                <TextBlock x:Name="NameTextbolck" VerticalAlignment="Center" Style="{ThemeResource FlyoutPickerTitleTextBlockStyle}"
+                          Text="{x:Bind Sample.Name}"/>
                 <ContentControl Height="6"/>
-                <ContentControl x:Name="SummaryContentControl">
-                    <ContentControl.ContentTransitions>
-                        <TransitionCollection>
-                            <ContentThemeTransition VerticalOffset="100"/>
-                        </TransitionCollection>
-                    </ContentControl.ContentTransitions>
-                    <!--Content-->
-                </ContentControl>
+                <TextBlock x:Name="SummaryTextBlock" TextWrapping="Wrap"
+                          Text="{x:Bind Sample.Summary}"/>
             </StackPanel>
         </Border>
-        
+
     </controls:DropShadowPanel>
 </UserControl>

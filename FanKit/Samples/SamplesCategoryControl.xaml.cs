@@ -49,7 +49,7 @@ namespace FanKit.Samples
 
                 foreach (Sample sample in sampleCategory.Samples)
                 {
-                    this.GridView.Children.Add(sample.Instance);
+                    this.GridView.Children.Add(sample);
                 }
             }
 

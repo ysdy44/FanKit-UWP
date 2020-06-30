@@ -1,5 +1,6 @@
 ﻿using FanKit.Samples;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
@@ -22,18 +23,7 @@ namespace FanKit
             get => this.BackgroundImage.Visibility == Visibility.Visible;
             set => this.BackgroundImage.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
         }
-
-        private bool isFlyoutSampleShow;
-        public bool IsFlyoutSampleShow
-        {
-            get => this.isFlyoutSampleShow;
-            set
-            {
-                this.FlyoutSampleControl.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
-                this.Canvas.IsHitTestVisible = this.isFlyoutSampleShow = value;
-            }
-        }
-
+        
         private bool isCanGoBack;
         public bool IsCanGoBack
         {
@@ -53,8 +43,10 @@ namespace FanKit
         public MainPage()
         {
             this.InitializeComponent();
-            //Sample
-            Sample.NavigatePage += (sender, page) =>
+
+            #region Sample
+
+            Sample.ItemClick += (sender, page) =>
             {
                 if (this.NavigationFrame.CurrentSourcePageType == page) return;
 
@@ -66,26 +58,24 @@ namespace FanKit
                 this.IsCanGoBack = true;
             };
 
-            #region FlyoutSample
-
-            Sample.FlyoutSample += (sender, sample) =>
+            Sample.FlyoutShow += (sender, sample) =>
             {
                 //FlyoutSample
                 FrameworkElement element = (FrameworkElement)sender;
-                this.FlyoutSampleControl.SetCoords(element);
-                this.FlyoutSampleControl.SetSample(sample);
+                this.Billboard.CalculatePostion(element);
+                this.Billboard.Sample = sample;
 
-                this.IsFlyoutSampleShow = true;
+                this.BillboardCanvas.Visibility = Visibility.Visible;
             };
-            this.Canvas.Tapped += (s, e) => this.IsFlyoutSampleShow = false;
-            this.IsFlyoutSampleShow = false;
+
+            this.BillboardCanvas.Tapped += (s, e) => this.BillboardCanvas.Visibility = Visibility.Collapsed;
+            this.BillboardCanvas.Visibility = Visibility.Collapsed;
 
             #endregion
 
             this.Loaded += async (s, e) =>
             {
-                //Frame          
-                Sample.NavigatePage_Invoke(this, typeof(FanKit.Frames.Others.SplashPage));//页面跳转
+                Sample.ItemClick_Invoke(s, typeof(FanKit.Frames.Others.SplashPage));
 
                 //Back   
                 this.IsCanGoBack = false; 
@@ -129,7 +119,7 @@ namespace FanKit
             {
                 this.SamplesCategoryControl.IsExpand = false;
 
-                Sample.NavigatePage_Invoke(this, typeof(FanKit.Frames.Others.SettingPage));
+                Sample.ItemClick_Invoke(s, typeof(FanKit.Frames.Others.SettingPage));
             };
             this.BackButton.Tapped += (s, e) =>
             {
@@ -147,5 +137,6 @@ namespace FanKit
                  this.IsCanGoBack = this.NavigationFrame.CanGoBack;                  
              };
         }
+
     }
 }

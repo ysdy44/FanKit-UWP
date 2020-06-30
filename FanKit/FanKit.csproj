@@ -201,8 +201,11 @@
     <Compile Include="Frames\Template\RadiusShadowPanelPage.xaml.cs">
       <DependentUpon>RadiusShadowPanelPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Samples\FlyoutSampleControl.xaml.cs">
-      <DependentUpon>FlyoutSampleControl.xaml</DependentUpon>
+    <Compile Include="Samples\Billboard.xaml.cs">
+      <DependentUpon>Billboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Samples\Sample.xaml.cs">
+      <DependentUpon>Sample.xaml</DependentUpon>
     </Compile>
     <Compile Include="Samples\SamplesCategoryControl.xaml.cs">
       <DependentUpon>SamplesCategoryControl.xaml</DependentUpon>
@@ -329,8 +332,8 @@
     <Compile Include="Frames\Template\TagChipPage.xaml.cs">
       <DependentUpon>TagChipPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Samples\SampleControl.xaml.cs">
-      <DependentUpon>SampleControl.xaml</DependentUpon>
+    <Compile Include="Samples\SampleStateFlag.xaml.cs">
+      <DependentUpon>SampleStateFlag.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -674,9 +677,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Samples\FlyoutSampleControl.xaml">
+    <Page Include="Samples\Billboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Samples\Sample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Samples\SamplesCategoryControl.xaml">
       <SubType>Designer</SubType>
@@ -838,9 +845,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Samples\SampleControl.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Samples\SampleStateFlag.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Style\Bursh.xaml">
       <SubType>Designer</SubType>

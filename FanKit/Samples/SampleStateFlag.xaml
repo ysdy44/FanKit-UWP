@@ -1,0 +1,57 @@
+﻿<UserControl
+    x:Class="FanKit.Samples.SampleStateFlag"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="50"
+    > 
+
+    <!--Flag-->
+    <ContentPresenter x:Name="ContentPresenter" 
+              Grid.Row="1" Width="Auto" Height="22" Padding="4,0" 
+              HorizontalAlignment="Right" VerticalAlignment="Top"
+              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+              BorderThickness="1" BorderBrush="White"              
+              FontSize="12" FontWeight="Bold"
+              Foreground="White"
+              Background="{ThemeResource SystemAccentColor}"
+              Content="{x:Bind State}"
+             >
+
+        <!--VisualState-->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+
+                <!--Normal-->
+                <VisualState x:Name="Normal">
+                    <VisualState.Setters >
+                        <Setter Target = "ContentPresenter.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!--New-->
+                <VisualState x:Name="New"/>
+                <!--Updated-->
+                <VisualState x:Name="Updated"/>
+
+                <!--Preview-->
+                <VisualState x:Name="Preview"/>
+                <!--Recom-->
+                <VisualState x:Name="Recom"/>
+                <!--Disable-->
+                <VisualState x:Name="Disable">
+                    <VisualState.Setters >
+                        <Setter Target = "ContentPresenter.Background" Value="Gray"/>
+                        <Setter Target = "ContentPresenter.Foreground" Value="LightGray"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+    </ContentPresenter>
+    
+</UserControl>

@@ -5,7 +5,7 @@ using Windows.UI.Xaml;
 namespace FanKit.Samples
 {
     /// <summary>
-    /// Category of <see cref="FanKit.Samples.Sample">.
+    /// Category of <see cref="Sample"/>.
     /// </summary>
     [JsonObject(MemberSerialization.OptIn)]
     public class SamplesCategory

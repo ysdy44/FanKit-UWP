@@ -60,7 +60,7 @@ namespace FanKit.Frames.Others
                 Content = splits[splits.Length - 2] + ">" + name.Remove(name.Length-4)
             };
 
-            hyperlinkButton.Tapped += (sender, e) => Sample.NavigatePage_Invoke(this, page);//Delegate
+            hyperlinkButton.Tapped += (sender, e) => Sample.ItemClick_Invoke(sender, page);//Delegate
 
             return hyperlinkButton;
         }
