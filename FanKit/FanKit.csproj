@@ -103,6 +103,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Brushes\SystemColorPage.xaml.cs">
+      <DependentUpon>SystemColorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frames\Colors\HexPickerPage.xaml.cs">
       <DependentUpon>HexPickerPage.xaml</DependentUpon>
     </Compile>
@@ -557,6 +560,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Frames\Brushes\SystemColorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Frames\Colors\HexPickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

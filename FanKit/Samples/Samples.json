@@ -8,63 +8,70 @@
         "Page": "FanKit.Frames.Brushes.SystemBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "SystemBrushes",
         "Uri": "ms-appx:///Icon/Brushes/SystemBrush.png",
-        "Summary": "SolidColorBrush resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "SolidColorBrush resources in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Brushes.LegacyBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "LegacyBrushes",
         "Uri": "ms-appx:///Icon/Brushes/LegacyBrush.png",
-        "Summary": "SolidColorBrush resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "SolidColorBrush resources in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Brushes.InkToolbarBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "InkToolbarBrushes",
         "Uri": "ms-appx:///Icon/Brushes/InkToolbarBrush.png",
-        "Summary": "SolidColorBrush resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "SolidColorBrush resources in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Brushes.OtherBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "OthersBrush",
         "Uri": "ms-appx:///Icon/Brushes/OthersBrush.png",
-        "Summary": "SolidColorBrush resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "SolidColorBrush resources in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Brushes.AcrylicElementBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "AcrylicElementBrushes",
         "Uri": "ms-appx:///Icon/Brushes/AcrylicElementBrush.png",
-        "Summary": "AcrylicBrushes resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "AcrylicBrushes resources in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Brushes.AcrylicWindowBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "AcrylicWindowBrushes",
         "Uri": "ms-appx:///Icon/Brushes/AcrylicWindowBrush.png",
-        "Summary": "AcrylicBrushes resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "AcrylicBrushes resources in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Brushes.RevealBorderBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RevealBorderBrushes",
         "Uri": "ms-appx:///Icon/Brushes/RevealBorderBrush.png",
-        "Summary": "RevealBrushes resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "RevealBrushes resources in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Brushes.RevealBackgroundBrushPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "RevealBackgroundBrushes",
         "Uri": "ms-appx:///Icon/Brushes/RevealBackgroundBrush.png",
-        "Summary": "RevealBrushes resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "RevealBrushes resources in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Brushes.ColorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "Colors",
         "Uri": "ms-appx:///Icon/Brushes/Color.png",
-        "Summary": "Colors resources in the system generic.xaml file,It can be used to bind"
+        "Summary": "Colors resources in the system generic.xaml file, It can be used to bind"
+      },
+      {
+        "State": 1,
+        "Page": "FanKit.Frames.Brushes.SystemColorPage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Name": "SystemColors",
+        "Uri": "ms-appx:///Icon/Brushes/Color.png",
+        "Summary": "Colors resources in the visual studio SystemColors.xaml file, It can be used to bind"
       }
     ]
   },
@@ -77,14 +84,14 @@
         "Page": "FanKit.Frames.Styles.TextblockStylePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "TextblockStyle",
         "Uri": "ms-appx:///Icon/Styles/TextBlockStyle.png",
-        "Summary": "Textblock style in the system generic.xaml file,It can be used to bind"
+        "Summary": "Textblock style in the system generic.xaml file, It can be used to bind"
       },
       {
         "State": 0,
         "Page": "FanKit.Frames.Styles.ButtonStylePage, FanKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
         "Name": "ButtonStyle",
         "Uri": "ms-appx:///Icon/Styles/ButtonStyle.png",
-        "Summary": "Button style in the system generic.xaml file,It can be used to bind."
+        "Summary": "Button style in the system generic.xaml file, It can be used to bind."
       },
       {
         "State": 1,

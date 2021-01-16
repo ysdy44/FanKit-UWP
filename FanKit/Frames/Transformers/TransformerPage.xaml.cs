@@ -27,6 +27,7 @@ namespace FanKit.Frames.Transformers
             public TransformerMatrix TransformerMatrix;
         }
 
+        
         #region DependencyProperty
 
 
