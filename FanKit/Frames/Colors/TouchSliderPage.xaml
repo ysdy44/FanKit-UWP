@@ -87,7 +87,7 @@
                                 <Span> When you</Span>
                                 <Span FontWeight="SemiBold"> released </Span>
                                 <Span>the Slider , trigger events </Span>
-                                <Span FontWeight="SemiBold">"ValueChangeDelta" </Span>
+                                <Span FontWeight="SemiBold">"ValueChangeCompleted" </Span>
 
                             </TextBlock>
 
